@@ -1,0 +1,150 @@
+{
+  "panel_n": 4110,
+  "panel_ciks": 1408,
+  "regressions": [
+    {
+      "outcome": "gross_margin",
+      "predictors": [
+        "mean_dkl_3y"
+      ],
+      "n": 4104,
+      "rsq": 0.016067098427162585,
+      "coef_mean_dkl_3y": 0.028705501735765096,
+      "se_mean_dkl_3y": 0.007327092713249133,
+      "coef_log_revenue": -0.005812073646739364,
+      "se_log_revenue": 0.003217284448719831,
+      "coef_rd_intensity": 2.5900230922828066e-05,
+      "se_rd_intensity": 0.00013731854187354328
+    },
+    {
+      "outcome": "gross_margin",
+      "predictors": [
+        "mean_pros_3y",
+        "mean_retr_3y"
+      ],
+      "n": 4104,
+      "rsq": 0.04432746746590277,
+      "coef_mean_pros_3y": 0.11821028775889812,
+      "se_mean_pros_3y": 0.04344528157320479,
+      "coef_mean_retr_3y": -0.16987700014231322,
+      "se_mean_retr_3y": 0.043511579793987926,
+      "coef_log_revenue": -0.007509277414941583,
+      "se_log_revenue": 0.0031519849785528777,
+      "coef_rd_intensity": 1.6313229462243888e-05,
+      "se_rd_intensity": 0.0001434822709458688
+    },
+    {
+      "outcome": "gross_margin",
+      "predictors": [
+        "max_dkl_3y",
+        "n_filings_3y"
+      ],
+      "n": 4104,
+      "rsq": 0.02389123914804192,
+      "coef_max_dkl_3y": 0.02748600357561539,
+      "se_max_dkl_3y": 0.007410578407575604,
+      "coef_n_filings_3y": 0.020271610040652352,
+      "se_n_filings_3y": 0.007678954974590976,
+      "coef_log_revenue": -0.009249975286379275,
+      "se_log_revenue": 0.0032570559800871456,
+      "coef_rd_intensity": -1.491533887919367e-05,
+      "se_rd_intensity": 0.00014380283007248045
+    },
+    {
+      "outcome": "net_margin",
+      "predictors": [
+        "mean_dkl_3y"
+      ],
+      "n": 3742,
+      "rsq": 0.21951691850893607,
+      "coef_mean_dkl_3y": -2.4122067620259555,
+      "se_mean_dkl_3y": 2.017590271943331,
+      "coef_log_revenue": 5.71785928087461,
+      "se_log_revenue": 4.225375706607252,
+      "coef_rd_intensity": -3.241513123408,
+      "se_rd_intensity": 0.25866717963397734
+    },
+    {
+      "outcome": "net_margin",
+      "predictors": [
+        "mean_pros_3y",
+        "mean_retr_3y"
+      ],
+      "n": 3742,
+      "rsq": 0.2199151894290513,
+      "coef_mean_pros_3y": -11.709169090982146,
+      "se_mean_pros_3y": 11.303546129756926,
+      "coef_mean_retr_3y": 14.924084477410528,
+      "se_mean_retr_3y": 12.74412630647436,
+      "coef_log_revenue": 5.824883878665187,
+      "se_log_revenue": 4.281198280300421,
+      "coef_rd_intensity": -3.2408183081714848,
+      "se_rd_intensity": 0.25785666692761094
+    },
+    {
+      "outcome": "net_margin",
+      "predictors": [
+        "max_dkl_3y",
+        "n_filings_3y"
+      ],
+      "n": 3742,
+      "rsq": 0.22095539388032315,
+      "coef_max_dkl_3y": -4.538017718587756,
+      "se_max_dkl_3y": 3.3421019237851133,
+      "coef_n_filings_3y": -2.8929016057202728,
+      "se_n_filings_3y": 2.5479321993101993,
+      "coef_log_revenue": 6.263022469934332,
+      "se_log_revenue": 4.624310362097502,
+      "coef_rd_intensity": -3.229307667783918,
+      "se_rd_intensity": 0.26346806708052567
+    },
+    {
+      "outcome": "op_margin",
+      "predictors": [
+        "mean_dkl_3y"
+      ],
+      "n": 3768,
+      "rsq": 0.7520320489100376,
+      "coef_mean_dkl_3y": -1.0427471275545503,
+      "se_mean_dkl_3y": 0.6639830211078279,
+      "coef_log_revenue": 1.5751265818248834,
+      "se_log_revenue": 0.4338216049679105,
+      "coef_rd_intensity": -1.4667269905267715,
+      "se_rd_intensity": 0.034884059485317025
+    },
+    {
+      "outcome": "op_margin",
+      "predictors": [
+        "mean_pros_3y",
+        "mean_retr_3y"
+      ],
+      "n": 3768,
+      "rsq": 0.7521493276318201,
+      "coef_mean_pros_3y": -6.105991171600939,
+      "se_mean_pros_3y": 4.008313651035053,
+      "coef_mean_retr_3y": 6.628855050880208,
+      "se_mean_retr_3y": 4.240437168179109,
+      "coef_log_revenue": 1.5937544640890282,
+      "se_log_revenue": 0.44343832257168525,
+      "coef_rd_intensity": -1.466550034993818,
+      "se_rd_intensity": 0.03508682727197578
+    },
+    {
+      "outcome": "op_margin",
+      "predictors": [
+        "max_dkl_3y",
+        "n_filings_3y"
+      ],
+      "n": 3768,
+      "rsq": 0.7540307861184861,
+      "coef_max_dkl_3y": -1.7216258001069635,
+      "se_max_dkl_3y": 1.0058496100960732,
+      "coef_n_filings_3y": -0.316348877850769,
+      "se_n_filings_3y": 0.2428051218734955,
+      "coef_log_revenue": 1.6968031620006563,
+      "se_log_revenue": 0.471295362230215,
+      "coef_rd_intensity": -1.4637436426002515,
+      "se_rd_intensity": 0.03461470480468574
+    }
+  ]
+}

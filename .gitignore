@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.env
+data/
+*.zip
+.DS_Store
+# LaTeX intermediates (keep main.pdf)
+paper/main.aux
+paper/main.log
+paper/main.out
+paper/main.toc

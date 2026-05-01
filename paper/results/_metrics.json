@@ -1,0 +1,136 @@
+{
+  "out_means": {
+    "009": {
+      "reached_registration": 0.5531571306012011,
+      "survived_5y": 0.49864583978431126,
+      "survived_10y": 0.44214268738086343
+    },
+    "032": {
+      "reached_registration": 0.4383564918095481,
+      "survived_5y": 0.4164129896668317,
+      "survived_10y": 0.38736826369683836
+    }
+  },
+  "regressions": [
+    {
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "outcome": "reached_registration",
+      "n": 1423405,
+      "rate": 0.5510750629652137,
+      "coef_dkl_z": -0.16256397775559137,
+      "se_dkl_z": 0.001745656599351206,
+      "coef_pros_z": -0.7847779536066434,
+      "se_pros_z": 0.009288514637922667,
+      "coef_retr_z": 0.8952811267552054,
+      "se_retr_z": 0.009280467721836255,
+      "coef_log_n_terms": 0.03273302533077304,
+      "se_log_n_terms": 0.001505726951115619
+    },
+    {
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "outcome": "survived_5y",
+      "n": 1054572,
+      "rate": 0.49642698649309863,
+      "coef_dkl_z": -0.03931866912545447,
+      "se_dkl_z": 0.00201117130839651,
+      "coef_pros_z": -0.18308616205611714,
+      "se_pros_z": 0.010731296896453853,
+      "coef_retr_z": 0.2280386806604739,
+      "se_retr_z": 0.010736232510574376,
+      "coef_log_n_terms": 0.09257421258840036,
+      "se_log_n_terms": 0.0017843072843037404
+    },
+    {
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "outcome": "survived_10y",
+      "n": 732789,
+      "rate": 0.43186374249613463,
+      "coef_dkl_z": -0.019795420652081668,
+      "se_dkl_z": 0.0024028985291274026,
+      "coef_pros_z": -0.06328119889710546,
+      "se_pros_z": 0.01209329637126952,
+      "coef_retr_z": 0.12311134176249507,
+      "se_retr_z": 0.012099221982157538,
+      "coef_log_n_terms": 0.08857408793617319,
+      "se_log_n_terms": 0.00216400111814967
+    },
+    {
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "outcome": "currently_live",
+      "n": 1423405,
+      "rate": 0.4248699421457702,
+      "coef_dkl_z": 0.1439540755684348,
+      "se_dkl_z": 0.0017355619477272992,
+      "coef_pros_z": 0.6824281743591248,
+      "se_pros_z": 0.009238437522909275,
+      "coef_retr_z": -0.7997012288661832,
+      "se_retr_z": 0.009230362499341425,
+      "coef_log_n_terms": -0.06349764526727794,
+      "se_log_n_terms": 0.0015152163901315115
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "outcome": "reached_registration",
+      "n": 118424,
+      "rate": 0.4350469499425792,
+      "coef_dkl_z": -0.1206698213242348,
+      "se_dkl_z": 0.006304032009571408,
+      "coef_pros_z": -0.3654472541745492,
+      "se_pros_z": 0.022075414850982453,
+      "coef_retr_z": 0.45504014661728776,
+      "se_retr_z": 0.022162650901676094,
+      "coef_log_n_terms": 0.06616910069196912,
+      "se_log_n_terms": 0.004483678643932583
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "outcome": "survived_5y",
+      "n": 87849,
+      "rate": 0.41482543910573827,
+      "coef_dkl_z": -0.0971170681728367,
+      "se_dkl_z": 0.0073389131072351885,
+      "coef_pros_z": -0.33826678020600043,
+      "se_pros_z": 0.02575844445981867,
+      "coef_retr_z": 0.34397402954473855,
+      "se_retr_z": 0.026522818492670304,
+      "coef_log_n_terms": 0.09487108903611066,
+      "se_log_n_terms": 0.005246015295618804
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "outcome": "survived_10y",
+      "n": 59807,
+      "rate": 0.38159412777768487,
+      "coef_dkl_z": -0.04363714377201441,
+      "se_dkl_z": 0.009161629069643545,
+      "coef_pros_z": -0.1520719630344327,
+      "se_pros_z": 0.03230240617724369,
+      "coef_retr_z": 0.1298625186025168,
+      "se_retr_z": 0.03370181616788465,
+      "coef_log_n_terms": 0.09628314705284757,
+      "se_log_n_terms": 0.006575960829176788
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "outcome": "currently_live",
+      "n": 118424,
+      "rate": 0.528178409781801,
+      "coef_dkl_z": 0.10347513446196749,
+      "se_dkl_z": 0.006205955565462366,
+      "coef_pros_z": 0.31662223263036593,
+      "se_pros_z": 0.021799724474979593,
+      "coef_retr_z": -0.38585005005085216,
+      "se_retr_z": 0.02182379595585979,
+      "coef_log_n_terms": -0.1033313517851551,
+      "se_log_n_terms": 0.004451379899890986
+    }
+  ]
+}
