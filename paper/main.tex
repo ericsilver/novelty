@@ -23,8 +23,12 @@
 \begin{abstract}
 We operationalize firm-level innovation by applying Simon DeDeo's
 prospective/retrospective surprise framework to the goods-and-services
-descriptions of every U.S.\ trademark filed since 1985 in two NICE classes:
-Class~9 (Software \& Electronics) and Class~32 (Beer \& Soft Drinks).
+descriptions of every U.S.\ trademark filed since 1985 across all 45 NICE
+international classes (16.5 million filings, 5.7 million unique
+registrants). Two classes are presented in detail throughout the paper:
+NICE Class~9 (Software \& Electronics) and NICE Class~32 (Beer \& Soft
+Drinks). The remaining 43 industries are summarized in
+Section~\ref{sec:cross}.
 For each filing at calendar year $t$ we compute the Kullback--Leibler
 divergence of its term distribution from a 5-year look-behind reference
 (\emph{prospective} surprise) and from a 5-year look-ahead reference
@@ -40,12 +44,16 @@ $1{,}146{,}415$ Class-9 filings, a one-standard-deviation increase in
 $\Delta KL$ \emph{lowers} the probability of reaching registration by
 $0.042$ in log-odds ($\text{SE} = 0.002$) but \emph{raises} the probability
 of being a currently-live mark in 2026 by $0.038$ ($\text{SE} = 0.002$).
-Linking the trademark scores to SEC EDGAR financials for $1{,}408$ matched
+Linking the trademark scores to SEC EDGAR financials for $1{,}597$ matched
 publicly-traded firms gives the same pattern at the firm-year level:
-gross margin rises with $\Delta KL$ at $+2.9$ percentage points per
-$\sigma$ (SE $0.7$ pp). The decomposition shows that the gain comes from
+gross margin rises with $\Delta KL$ at $+3.2$ percentage points per
+$\sigma$ (SE $0.6$ pp). The decomposition shows that the gain comes from
 firms whose filings the future ends up resembling, not from firms whose
-filings stand alone.
+filings stand alone. A separate within-firm variance regression confirms
+the symmetric prediction: firms whose recent filings score higher on
+$\Delta KL$ have measurably more variable gross margins, the empirical
+fingerprint of a portfolio that includes some pioneers who succeed and
+some who do not.
 \end{abstract}
 
 \section{Background}
@@ -103,14 +111,18 @@ statements with type-code prefix \texttt{GS}). Mark-description
 statements (prefix \texttt{D}) are excluded because they describe the
 visual mark, not the business.
 
-Our two industries are NICE Class 9 (Software \& Electronics) and
-NICE Class 32 (Beer \& Soft Drinks). Class 9 was chosen as the canonical
-software class with high-volume long-tailed structure; Class 32 was
-chosen for its tractable size and well-known innovation cycles
-(microbrew, energy drinks, hard seltzer, cannabis beverages). Owner names
-are taken verbatim from the USPTO XML; entity resolution to canonical
-firm identifiers is described in Section~\ref{sec:financials}.
-Per-class summary statistics are reported in Appendix~\ref{app:summary}.
+All 45 NICE international classes are processed; in this paper we work
+through NICE Class 9 (Software \& Electronics) and NICE Class 32 (Beer
+\& Soft Drinks) in narrative detail before reporting the cross-industry
+comparison in Section~\ref{sec:cross}. Class 9 was chosen as the
+canonical software class with high-volume long-tailed structure; Class
+32 was chosen for its tractable size and well-known innovation cycles
+(microbrew, energy drinks, hard seltzer, cannabis beverages). Owner
+names are taken verbatim from the USPTO XML; entity resolution to
+canonical firm identifiers is described in Section~\ref{sec:financials}.
+Per-class summary statistics for these two classes are reported in
+Appendix~\ref{app:summary}; the analogous table for all 45 classes is
+in Section~\ref{sec:cross}.
 
 For firm-level outcome data we use the SEC EDGAR Financial Statement Data
 Sets (FSDS), 64 quarterly XBRL releases from 2009Q1 through 2024Q4. The
@@ -357,17 +369,22 @@ The trademark survival results in Section~\ref{sec:survival} establish
 that the innovation axis is meaningful at the per-filing level, but
 they say nothing about whether innovation pays the firm a financial
 return. To test that, we link USPTO owner names to SEC EDGAR firm names
-by aggressive normalization (uppercase, strip punctuation, drop
-legal-entity suffixes such as \texttt{INC}, \texttt{LLC}, \texttt{CORP},
-\texttt{HOLDINGS}, \texttt{LIMITED}, and so on) and exact match on the
-normalized key. The crosswalk recovers $4{,}651$ USPTO owners covering
-$64{,}473$ trademark filings ($3.2\%$ of the corpus by filing count, but
-a much larger share by economic weight, because matched owners are by
-definition publicly-traded firms with material financial reporting).
-After joining to SEC firm-year financials and restricting to firm-years
-with non-degenerate gross margin and at least one trademark filing in
-the prior three years, the analysis panel contains $4{,}110$ firm-years
-across $1{,}408$ unique CIKs over fiscal years 2009--2024.
+in two passes. The first pass aggressively normalises both sides
+(uppercase, strip punctuation, drop legal-entity suffixes such as
+\texttt{INC}, \texttt{LLC}, \texttt{CORP}, \texttt{HOLDINGS},
+\texttt{LIMITED}, and so on) and accepts only exact matches on the
+normalised key. A second pass uses fuzzy token-sort matching
+(\texttt{rapidfuzz}, score cutoff 92) to capture the long tail of
+near-variants for USPTO owners with at least 10 filings. The combined
+crosswalk recovers $14{,}280$ USPTO owners ($9{,}370$ exact $+\,4{,}910$
+fuzzy) covering $627{,}349$ trademark filings ($3.8\%$ of the all-class
+corpus by filing count, but a much larger share by economic weight,
+because matched owners are by definition publicly-traded firms with
+material financial reporting). After joining to SEC firm-year
+financials and restricting to firm-years with non-degenerate gross
+margin and at least one trademark filing in the prior three years, the
+analysis panel contains $5{,}326$ firm-years across $1{,}597$ unique
+CIKs over fiscal years 2009--2024.
 
 \paragraph{Filing volume is itself an innovation marker, but also a
 size marker.} A firm filing many trademarks in a short window may be
@@ -403,19 +420,43 @@ The pattern from Section~\ref{sec:survival} reproduces here at the
 firm-year level. A one-standard-deviation increase in 3-year trailing
 mean $\Delta KL$ --- that is, a firm whose recent filings introduced
 wording that was unusual at the time but came to look ordinary in the
-years that followed --- raises gross margin by $+2.9$ percentage points
-(SE $0.7$). Decomposed jointly, prospective surprise (novel against the
-past) raises gross margin by $+11.8$ pp per standard deviation
-(SE $4.3$), and retrospective surprise (still novel from the
+years that followed --- raises gross margin by $+3.2$ percentage points
+(SE $0.6$). Decomposed jointly, prospective surprise (novel against the
+past) raises gross margin by $+14.6$ pp per standard deviation
+(SE $4.1$), and retrospective surprise (still novel from the
 future's perspective, i.e.\ a filing nobody imitated) lowers it by
-$-17.0$ pp per standard deviation (SE $4.3$). The within-firm story is
+$-19.1$ pp per standard deviation (SE $4.1$). The within-firm story is
 the same as the within-filing story: firms whose recent filings the
 future ends up resembling enjoy higher gross margins; firms whose
 recent filings nobody imitates do not. The third specification adds
 filing count and the maximum within-window $\Delta KL$: both contribute
-positively to gross margin ($+2.7$ and $+2.0$ pp/$\sigma$ respectively)
+positively to gross margin ($+3.3$ and $+1.9$ pp/$\sigma$ respectively)
 even after controlling for log revenue, suggesting that filing volume
 captures something beyond firm size.
+
+\paragraph{Variance.}
+A symmetric prediction of the pioneer story is that novel firms have
+not just higher \emph{mean} margins but \emph{wider variance} of
+margins, since some pioneers succeed and others do not. We test this
+by aggregating to the firm level (one row per CIK, restricted to firms
+with at least four years of margin observations), regressing the
+within-firm standard deviation of gross margin on the firm's mean
+3-year trailing $\Delta KL$ with log revenue as a size control.
+
+\begin{table}[h]
+\centering
+\caption{Variance regression: within-firm std.\ of gross margin on
+firm-mean novelty.}
+\label{tab:variance}
+\input{results/variance_table.tex}
+\end{table}
+
+A one-standard-deviation increase in firm-mean $\Delta KL$ raises the
+within-firm gross-margin standard deviation by $+0.018$ in margin units
+(SE $0.004$) on $492$ firms. The pioneer-bet effect is real and
+quantitatively meaningful: high-novelty firms simultaneously earn
+higher mean margins (Table~\ref{tab:financials}) and exhibit wider
+margin spread (Table~\ref{tab:variance}).
 
 \begin{figure}[h]
 \centering
@@ -430,6 +471,106 @@ well-known software firms whose names match exactly in the SEC ticker
 file.}
 \label{fig:fin}
 \end{figure}
+
+\section{Cross-industry comparison}
+\label{sec:cross}
+
+We process all 45 NICE international classes through the same pipeline.
+Table~\ref{tab:industry-summary} reports per-class summary statistics;
+Figure~\ref{fig:ranks} ranks industries by mean filing-level
+$\Delta KL$; Figure~\ref{fig:industry-betas} reports the per-industry
+logit coefficient of $\Delta KL$ on each survival outcome;
+Table~\ref{tab:industry-fv} lists the highest-$\Delta KL$ mark per
+industry, picked from the 2010--2020 cohort window where every class
+has dense filing volume.
+
+\begin{table}[h]
+\centering
+\caption{Per-industry summary statistics, restricted to filings from
+1995--2020 with both 5-year reference windows populated.}
+\label{tab:industry-summary}
+\scriptsize
+\input{results/industry_summary.tex}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=0.92\textheight]{results/industry_ranks.png}
+\caption{Industries ranked by mean filing-level $\Delta KL$ across
+1995--2020 cohorts. Green: industries whose typical filing was
+prospectively novel and retrospectively obvious (the future imitated
+the past). Red: industries whose typical filing was the opposite.
+Tobacco \& Smokers' Articles tops the list, driven by the 2014--2020
+e-cigarette / vape vocabulary explosion. Telecommunications, Insurance
+\& Financial, and Paints \& Coatings sit at the bottom: their
+goods-and-services lexicon was already settled before 1995 and has
+been stable since.}
+\label{fig:ranks}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{results/industry_survival_betas.png}
+\caption{Per-industry effect of $\Delta KL$ on survival outcomes
+(logistic-regression $z$-score coefficient with 95\% CI). Industries
+are ordered by mean $\Delta KL$ (the same order as
+Figure~\ref{fig:ranks}). \textbf{The sign of the innovation reward
+varies by industry.} Some industries (e.g.\ Common Metals, Hand Tools,
+Paints \& Coatings) actually \emph{reward} novel filings at the
+registration gate, presumably because in those industries a novel
+goods/services description can describe a real new use the examiner
+recognises as patentable activity. Most industries match the software
+pattern: novelty penalised at registration, neutral or favourable at
+renewal.}
+\label{fig:industry-betas}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Top-1 highest-$\Delta KL$ mark per industry, 2010--2020
+cohort. The 2014--2020 cannabis/CBD/blockchain wave appears in nearly
+every consumer-goods class.}
+\label{tab:industry-fv}
+\scriptsize
+\input{results/industry_face_validity.tex}
+\end{table}
+
+\paragraph{Three patterns visible across the 45 classes.}
+
+First, the cannabis/CBD wave of 2014--2020 dominates the top-by-class
+face-validity table: cosmetics (\textsc{Leef Paleo Paw}), agriculture
+(\textsc{United American Hemp}), beverages (\textsc{Kannabier}),
+restaurants, materials, even insurance products are all topped by
+hemp/CBD/cannabis-themed marks. The blockchain wave (2014--2018)
+sweeps Class 35 (\textsc{OpenSea}), Class 41
+(\textsc{Kingsland School of Blockchain}), and Class 36
+(\textsc{Mosaic Token}). The vape/e-cigarette wave is concentrated in
+Class 34 (\textsc{Daisy}), which leads the entire ranking.
+
+Second, the most-and-least innovative industries are surprising.
+Tobacco \& Smokers' Articles ($+0.28$ mean $\Delta KL$) and the
+textile-input classes (Trim \& Notions, Yarns \& Threads, Ropes)
+sit at the top --- the textile classes because they have low baseline
+filing volume and any new fibre or smart-textile entrant disrupts the
+distribution. The bottom of the list is dominated by mature regulated
+industries: Telecommunications, Insurance \& Financial, Building
+Materials, and Agriculture. Neither end is what one would have
+predicted in advance.
+
+Third, the per-industry survival betas
+(Figure~\ref{fig:industry-betas}) show that the
+``novelty-is-penalised-at-the-registration-gate'' result reported in
+Section~\ref{sec:survival} is \emph{not} universal. In some industries
+(notably Common Metals, Hand Tools, Paints \& Coatings) the
+coefficient flips sign: novel filings in those industries are
+\emph{more} likely to register, not less. A plausible reading is that
+in industries where category-creation is rare and meaningful, an
+examiner reading a novel goods/services description perceives a real
+new use rather than vague language. Software (and pharmaceuticals,
+chemicals) follow the opposite pattern: novel filings face slower
+examination, more office actions, and lower registration rates,
+consistent with examiners pushing back on speculative or boilerplate
+broadenings of established categories.
 
 \section{Discussion}
 

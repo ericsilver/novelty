@@ -242,8 +242,55 @@ def main() -> int:
     fig.savefig(RESULTS / "financials_scatter.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
+    # ---------- Variance regression: does innovation raise margin variability? ----------
+    by_firm = pdf.dropna(subset=["mean_dkl_3y", "gross_margin"]).copy()
+    firm_agg = by_firm.groupby("cik").agg(
+        firm_mean_dkl=("mean_dkl_3y", "mean"),
+        firm_n_filings=("n_filings_3y", "mean"),
+        firm_log_rev=("log_revenue", "mean"),
+        margin_std=("gross_margin", "std"),
+        margin_mean=("gross_margin", "mean"),
+        n_years=("gross_margin", "size"),
+    ).reset_index()
+    firm_agg = firm_agg[(firm_agg["n_years"] >= 4) & firm_agg["margin_std"].notna() & (firm_agg["margin_mean"] > 0)]
+    print(f"[variance] {len(firm_agg)} firms with >=4 years for variance regression", flush=True)
+
+    if len(firm_agg) >= 200:
+        firm_agg["dkl_z"] = (firm_agg["firm_mean_dkl"] - firm_agg["firm_mean_dkl"].mean()) / firm_agg["firm_mean_dkl"].std()
+        Xv = sm.add_constant(firm_agg[["dkl_z", "firm_log_rev"]])
+        var_model = sm.OLS(firm_agg["margin_std"], Xv).fit()
+        var_result = {
+            "n_firms": int(len(firm_agg)),
+            "coef_dkl_z": float(var_model.params["dkl_z"]),
+            "se_dkl_z": float(var_model.bse["dkl_z"]),
+            "coef_log_rev": float(var_model.params["firm_log_rev"]),
+            "se_log_rev": float(var_model.bse["firm_log_rev"]),
+            "rsq": float(var_model.rsquared),
+        }
+    else:
+        var_result = None
+
+    # Variance regression mini-table
+    if var_result is not None:
+        var_tex = (
+            "\\begin{tabular}{lrrr}\n\\toprule\n"
+            "Predictor (z-scored unless noted) & Coef.\\ & SE & N firms \\\\\n"
+            "\\midrule\n"
+            f"3y trailing mean novelty $\\Delta KL$ (firm avg) & "
+            f"{var_result['coef_dkl_z']:+.4f} & {var_result['se_dkl_z']:.4f} & {var_result['n_firms']:,} \\\\\n"
+            f"log revenue (firm avg) & "
+            f"{var_result['coef_log_rev']:+.4f} & {var_result['se_log_rev']:.4f} & {var_result['n_firms']:,} \\\\\n"
+            "\\bottomrule\n\\end{tabular}\n"
+        )
+        (RESULTS / "variance_table.tex").write_text(var_tex)
+
     (RESULTS / "financials_metrics.json").write_text(
-        json.dumps({"panel_n": panel.height, "panel_ciks": int(panel['cik'].n_unique()), "regressions": rows}, indent=2, default=str)
+        json.dumps({
+            "panel_n": panel.height,
+            "panel_ciks": int(panel['cik'].n_unique()),
+            "regressions": rows,
+            "variance": var_result,
+        }, indent=2, default=str)
     )
     print("done")
     return 0
