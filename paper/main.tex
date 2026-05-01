@@ -8,6 +8,8 @@
 \usepackage{authblk}
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf}
+\usepackage{array}
+\usepackage{pdflscape}
 
 \title{Innovation as prospective-but-not-retrospective surprise:\\
        Kullback--Leibler novelty scores on 2.0 million USPTO trademark filings}
@@ -456,14 +458,28 @@ corpus but rare in the look-behind window. Filings that score low ---
 or even negative --- on $\Delta KL$ contain tokens whose temporal
 distribution is the opposite.
 
-\begin{table}[h]
+\begin{landscape}
+\begin{table}[p]
 \centering
-\caption{Selected filings with per-token KL contributions. Tokens are
-ordered by their contribution to each direction's KL.}
+\caption{Selected filings with per-token KL contributions to prospective
+and retrospective surprise. \textbf{Surprise is an interaction across
+tokens, not a property of any single word.} A filing's KL score is
+$\sum_v P(v) \log[P(v)/Q(v)]$, summed across every token $v$ that
+appears in the filing's goods/services description. The token
+\texttt{software} is by itself common in Class 9, but its
+\emph{combination} with rare neighbors --- \texttt{generative
+artificial}, \texttt{conversational agents}, \texttt{cryptographic
+keys} --- can give a filing high prospective surprise relative to the
+look-behind window's mix of tokens. Tokens shown below are the top five
+by per-token contribution $P(v) \log[P(v)/Q(v)]$ to each direction's
+KL; common tokens like \texttt{software} can appear in the prospective
+list when their multinomial weight in the filing is much larger than
+their weight in the look-behind reference.}
 \label{tab:tokens}
 \scriptsize
 \input{results/token_attribution_table.tex}
 \end{table}
+\end{landscape}
 
 \subsection*{Limitations}
 \begin{itemize}

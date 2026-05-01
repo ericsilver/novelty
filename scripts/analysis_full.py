@@ -474,8 +474,11 @@ def write_token_attribution_table():
             )
         )
 
+    L = r">{\raggedright\arraybackslash}"  # left-justified paragraph column
     tex = (
-        "\\begin{tabular}{p{2.4cm}p{2.6cm}rrr p{4.5cm} p{4.5cm}}\n\\toprule\n"
+        "\\begin{tabular}{"
+        + f"{L}p{{3.4cm}}{L}p{{3.8cm}}rrr {L}p{{6.0cm}} {L}p{{6.0cm}}"
+        + "}\n\\toprule\n"
         "Mark / Year & Owner at filing & $KL_{\\text{pros}}$ & $KL_{\\text{retr}}$ & "
         "$\\Delta KL$ & Top tokens driving prospective surprise & "
         "Top tokens driving retrospective surprise \\\\\n\\midrule\n"
