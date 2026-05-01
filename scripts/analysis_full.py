@@ -60,7 +60,7 @@ def fig_industry_time_series():
             .sort("year")
             .filter(pl.col("n") >= 50)
         )
-        fig, axes = plt.subplots(3, 1, figsize=(8, 7.2), sharex=True)
+        fig, axes = plt.subplots(3, 1, figsize=(8, 7.6), sharex=True)
         years = agg["year"].to_numpy()
         for ax, kind, color in zip(axes,
                                    ["pros", "retr", "dkl"],
@@ -68,15 +68,22 @@ def fig_industry_time_series():
             med = agg[f"{kind}_med"].to_numpy()
             q1 = agg[f"{kind}_q1"].to_numpy()
             q3 = agg[f"{kind}_q3"].to_numpy()
-            ax.fill_between(years, q1, q3, alpha=0.18, color=color)
-            ax.plot(years, med, color=color, linewidth=1.6)
-            ax.grid(alpha=0.3)
-        axes[0].set_ylabel("Prospective KL\n(median, IQR)")
-        axes[1].set_ylabel("Retrospective KL\n(median, IQR)")
+            ax.axvspan(1984, 1995, color="#fde0a8", alpha=0.55, zorder=0)
+            ax.axvspan(2021, max(years.max() + 1, 2027), color="#cfe5ff", alpha=0.55, zorder=0)
+            ax.fill_between(years, q1, q3, alpha=0.45, color=color, zorder=1,
+                            label="25--75% range across filings in year")
+            ax.plot(years, med, color=color, linewidth=1.8, zorder=2,
+                    label="median across filings in year")
+            ax.grid(alpha=0.3, zorder=0)
+            ax.set_xlim(1980, max(years.max() + 1, 2027))
+        axes[0].set_ylabel("Prospective KL\n(novel vs. past)")
+        axes[1].set_ylabel("Retrospective KL\n(novel vs. future)")
         axes[2].set_ylabel(r"$\Delta KL$ (pros$-$retr)")
-        axes[2].axhline(0, color="grey", linewidth=0.7, linestyle="--")
+        axes[2].axhline(0, color="grey", linewidth=0.7, linestyle="--", zorder=1)
         axes[0].set_title(INDUSTRY_NAME[cls])
         axes[2].set_xlabel("Filing year")
+        # legend on the third panel only, kept off-plot
+        axes[0].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=8, frameon=False)
         fig.tight_layout()
         fig.savefig(RESULTS / f"timeseries_{INDUSTRY_SHORT[cls]}.png", dpi=150, bbox_inches="tight")
         plt.close(fig)
@@ -85,12 +92,16 @@ def fig_industry_time_series():
 # ---------- Figure: 1980s burn-in investigation ----------
 def fig_burnin():
     fig, ax = plt.subplots(1, 1, figsize=(8, 4))
-    ax.axvspan(1984, 1995, color="#fde0a8", alpha=0.95, zorder=0, label="Burn-in window (excluded from regressions)")
+    ax.axvspan(1984, 1995, color="#fde0a8", alpha=0.95, zorder=0,
+               label="Past-side burn-in (no 5y look-behind available)")
+    ax.axvspan(2021, 2027, color="#cfe5ff", alpha=0.95, zorder=0,
+               label="Future-side burn-in (no 5y look-ahead available)")
     for cls, color in zip(CLASSES, ["#1f77b4", "#d62728"]):
         sp = _load_surprise(cls).filter(CLEAN & pl.col("year").is_not_null())
         agg = sp.group_by("year").agg(pl.len().alias("n")).sort("year").filter(pl.col("year") >= 1980)
         ax.plot(agg["year"], agg["n"], label=INDUSTRY_NAME[cls], color=color, linewidth=1.6, zorder=2)
     ax.set_yscale("log")
+    ax.set_xlim(1980, 2027)
     ax.set_xlabel("Filing year")
     ax.set_ylabel("Filings with both 5y windows populated")
     ax.set_title("Reference-window density by year (log scale)")
@@ -134,19 +145,20 @@ def fig_quadrant():
             ("MICHELOB", 2005),
         ],
     }
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5.6))
+    fig, axes = plt.subplots(1, 2, figsize=(13, 6.0))
     for ax, cls in zip(axes, CLASSES):
         sp = _load_surprise(cls).filter(CLEAN)
-        sample = sp.sample(min(8000, sp.height), seed=7)
-        # x = prospective KL ("similarity to past filings", high KL = less similar)
-        # y = retrospective KL ("similarity to future filings", high KL = less similar)
-        ax.scatter(sample["prospective_kl"], sample["retrospective_kl"], s=3, alpha=0.08, color="#888")
+        sample = sp.sample(min(15000, sp.height), seed=7)
+        ax.scatter(sample["prospective_kl"], sample["retrospective_kl"],
+                   s=3, alpha=0.08, color="#888")
 
-        lo = min(sample["prospective_kl"].min(), sample["retrospective_kl"].min())
-        hi = max(sample["prospective_kl"].max(), sample["retrospective_kl"].max())
+        lo, hi = 2.0, 10.0
         ax.plot([lo, hi], [lo, hi], color="black", linewidth=0.6, linestyle="--")
-        ax.text(hi, hi, "  diagonal\n  (KL_pros = KL_retr)", fontsize=8, ha="right", va="top", color="#444")
+        ax.text(hi - 0.1, hi - 0.1, "diagonal", fontsize=8,
+                ha="right", va="top", color="#444")
 
+        # Resolve hits, then place labels with simple anti-overlap policy
+        placed: list[tuple[float, float, str]] = []  # (x, y, side)
         for mark_q, year_q in examples[cls]:
             hits = (
                 sp.filter(
@@ -161,19 +173,68 @@ def fig_quadrant():
             if hits.is_empty():
                 continue
             r = hits.row(0, named=True)
-            ax.scatter([r["prospective_kl"]], [r["retrospective_kl"]], s=42, color="#d62728", edgecolor="black", linewidth=0.7, zorder=4)
+            x, y = float(r["prospective_kl"]), float(r["retrospective_kl"])
+            if not (lo <= x <= hi and lo <= y <= hi):
+                continue
+            ax.scatter([x], [y], s=46, color="#d62728",
+                       edgecolor="black", linewidth=0.7, zorder=4)
             label = f"{mark_q} ({year_q})"
-            ax.annotate(label, (r["prospective_kl"], r["retrospective_kl"]), xytext=(5, 5), textcoords="offset points", fontsize=8)
 
-        ax.set_xlabel(r"Prospective KL — similarity to past filings"
-                      "\n(higher $\\rightarrow$ less like the past)")
-        ax.set_ylabel(r"Retrospective KL — similarity to future filings"
-                      "\n(higher $\\rightarrow$ less like the future)")
+            # Try a few offset positions; pick the one with no other label within ~0.5 nat
+            offsets = [
+                ("ur", 8, 6), ("ul", -8, 6), ("lr", 8, -10), ("ll", -8, -10),
+                ("u", 0, 12), ("d", 0, -16), ("r", 14, 0), ("l", -14, 0),
+                ("urf", 18, 14), ("ulf", -18, 14), ("lrf", 18, -18), ("llf", -18, -18),
+            ]
+            best = None
+            for tag, dx, dy in offsets:
+                # convert pixel offsets to data-coords for collision check
+                tx = x + dx * 0.012
+                ty = y + dy * 0.012
+                if not (lo <= tx <= hi and lo <= ty <= hi):
+                    continue
+                clash = any((px - tx) ** 2 + (py - ty) ** 2 < 0.16 for px, py, _ in placed)
+                if not clash:
+                    best = (dx, dy, tx, ty, tag)
+                    break
+            if best is None:
+                best = (offsets[0][1], offsets[0][2], x + 0.1, y + 0.1, "ur")
+            dx, dy, tx, ty, tag = best
+            ha = "left" if dx >= 0 else "right"
+            va = "bottom" if dy >= 0 else "top"
+            ax.annotate(
+                label,
+                (x, y),
+                xytext=(dx, dy),
+                textcoords="offset points",
+                fontsize=8,
+                ha=ha,
+                va=va,
+                bbox=dict(boxstyle="round,pad=0.18", fc="white", ec="none", alpha=0.85),
+                arrowprops=dict(arrowstyle="-", color="#888", linewidth=0.5,
+                                shrinkA=2, shrinkB=2) if abs(dx) + abs(dy) > 14 else None,
+            )
+            placed.append((tx, ty, tag))
+
+        ax.set_xlim(lo, hi)
+        ax.set_ylim(lo, hi)
+        ax.set_xlabel(
+            r"Prospective KL --- novelty at filing time"
+            "\n(higher $\\rightarrow$ less like the previous 5 years' filings in this category)"
+        )
+        ax.set_ylabel(
+            r"Retrospective KL --- novelty in hindsight"
+            "\n(higher $\\rightarrow$ less like the next 5 years' filings in this category)"
+        )
         ax.set_title(INDUSTRY_NAME[cls])
-        ax.text(0.98, 0.02, "innovator\n(below diagonal: future\nresembles this filing)",
-                transform=ax.transAxes, ha="right", va="bottom", fontsize=9, color="#117a3a")
-        ax.text(0.02, 0.98, "tired\n(above diagonal: past\nresembles this filing)",
-                transform=ax.transAxes, va="top", fontsize=9, color="#7a1111")
+        ax.text(0.98, 0.02,
+                "innovator\n(below diagonal:\nfuture resembles\nthis filing)",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=8.5,
+                color="#117a3a", bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#117a3a", alpha=0.7))
+        ax.text(0.02, 0.98,
+                "tired\n(above diagonal:\npast resembles\nthis filing)",
+                transform=ax.transAxes, va="top", fontsize=8.5, color="#7a1111",
+                bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#7a1111", alpha=0.7))
         ax.grid(alpha=0.25)
     fig.tight_layout()
     fig.savefig(RESULTS / "quadrant.png", dpi=150, bbox_inches="tight")
@@ -183,27 +244,33 @@ def fig_quadrant():
 # ---------- Figure: outcome bins by KL axis (3 panels per industry) ----------
 def fig_outcome_curves():
     outcomes = [
-        ("reached_registration", "Reached registration", 2025),
-        ("survived_5y", "Survived 5 years", 2020),
-        ("survived_10y", "Survived 10 years", 2015),
+        ("reached_registration", "Completed registration", 2025),
+        ("survived_5y", "Renewed 5y registration", 2020),
+        ("survived_10y", "Renewed 10y registration", 2015),
     ]
     colors = ["#1f77b4", "#d62728", "#2ca02c"]
 
-    # KL-level bins (for prospective and retrospective): linear ranges in nats
     kl_edges = np.array([0.5, 1.5, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 8.0, 10.0])
     kl_centers = 0.5 * (kl_edges[:-1] + kl_edges[1:])
-    # dKL bins (centered on 0)
     d_edges = np.array([-2.0, -1.0, -0.5, -0.3, -0.2, -0.1, -0.05, 0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0])
     d_centers = 0.5 * (d_edges[:-1] + d_edges[1:])
+
+    def wilson(p, n, z=1.96):
+        if n <= 0:
+            return p, p
+        denom = 1 + z**2 / n
+        center = (p + z**2 / (2 * n)) / denom
+        half = z * np.sqrt(p * (1 - p) / n + z**2 / (4 * n**2)) / denom
+        return center - half, center + half
 
     out_means = {}
     for cls in CLASSES:
         df = _load_outcomes(cls).filter(CLEAN)
         fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=True)
         panel_specs = [
-            ("prospective_kl", "Prospective KL", kl_edges, kl_centers),
-            ("retrospective_kl", "Retrospective KL", kl_edges, kl_centers),
-            ("dkl", r"$\Delta KL$ (pros $-$ retr)", d_edges, d_centers),
+            ("prospective_kl", "Prospective KL  (novel vs. past)", kl_edges, kl_centers),
+            ("retrospective_kl", "Retrospective KL  (novel vs. future)", kl_edges, kl_centers),
+            ("dkl", r"$\Delta KL$ (pros $-$ retr)  (innovator $\rightarrow$ right)", d_edges, d_centers),
         ]
         for ax, (xcol, xlabel, edges, centers) in zip(axes, panel_specs):
             for (col, label, max_year), color in zip(outcomes, colors):
@@ -219,9 +286,12 @@ def fig_outcome_curves():
                 grp = grp[grp["n"] >= 50]
                 xs = centers[grp.index]
                 ys = grp["rate"].values
+                lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, grp["n"].values)])
+                hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, grp["n"].values)])
+                ax.fill_between(xs, lo_arr, hi_arr, color=color, alpha=0.22, linewidth=0)
                 ax.plot(xs, ys, "o-", color=color,
                         label=f"{label} (mean {mean_rate*100:.1f}%)",
-                        linewidth=1.4, markersize=5)
+                        linewidth=1.6, markersize=5)
             ax.set_xlabel(xlabel)
             ax.grid(alpha=0.3)
         axes[0].set_ylabel("Outcome rate")
@@ -327,33 +397,36 @@ def write_summary(out_means: dict):
 
 
 def write_regression_table(rows):
-    tex = (
-        "\\begin{tabular}{lllrrrr}\n\\toprule\n"
-        "Industry & Outcome & Window & N & $\\beta_{\\Delta KL}^z$ & "
-        "$\\beta_{pros}^z$ (joint) & $\\beta_{retr}^z$ (joint) \\\\\n"
-        "\\midrule\n"
-    )
-    eligibility_text = {
-        "reached_registration": "any year",
+    label = {
+        "reached_registration": "Completed registration",
+        "survived_5y": "Renewed 5y registration",
+        "survived_10y": "Renewed 10y registration",
+        "currently_live": "Currently live",
+    }
+    eligibility = {
+        "reached_registration": "all cohorts",
         "survived_5y": "filed $\\le$ 2020",
         "survived_10y": "filed $\\le$ 2015",
-        "currently_live": "any year",
+        "currently_live": "all cohorts",
     }
-    label = {
-        "reached_registration": "Reached registration",
-        "survived_5y": "Survived 5 yrs (registered \\& not cancelled at 5 y)",
-        "survived_10y": "Survived 10 yrs",
-        "currently_live": "Currently live (Apr 2026)",
-    }
+    rows = [r for r in rows if r["outcome"] != "currently_live"]
+    tex = (
+        "\\resizebox{\\textwidth}{!}{%\n"
+        "\\begin{tabular}{llrrrr}\n\\toprule\n"
+        "Industry & Outcome (cohort) & N & "
+        "$\\beta$ for $\\Delta KL$ & "
+        "$\\beta$ for pros (joint) & $\\beta$ for retr (joint) \\\\\n"
+        "\\midrule\n"
+    )
     for r in rows:
         industry = r["industry"].replace("&", r"\&")
         tex += (
-            f"{industry} & {label[r['outcome']]} & {eligibility_text[r['outcome']]} & "
+            f"{industry} & {label[r['outcome']]} ({eligibility[r['outcome']]}) & "
             f"{r['n']:,} & {r['coef_dkl_z']:+.3f} ({r['se_dkl_z']:.3f}) & "
             f"{r['coef_pros_z']:+.3f} ({r['se_pros_z']:.3f}) & "
             f"{r['coef_retr_z']:+.3f} ({r['se_retr_z']:.3f}) \\\\\n"
         )
-    tex += "\\bottomrule\n\\end{tabular}\n"
+    tex += "\\bottomrule\n\\end{tabular}%\n}\n"
     (RESULTS / "regression_table.tex").write_text(tex)
 
 

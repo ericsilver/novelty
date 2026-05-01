@@ -106,24 +106,43 @@ def main() -> int:
         rows.append(fit(outcome, ["max_dkl_3y", "n_filings_3y"]))
     rows = [r for r in rows if r]
 
-    label = {
+    outcome_label = {
         "gross_margin": "Gross margin",
         "net_margin": "Net margin",
         "op_margin": "Operating margin",
     }
-    body = ""
+    pred_label = {
+        "mean_dkl_3y": "3y trailing mean novelty $\\Delta KL$",
+        "mean_pros_3y": "3y trailing prospective surprise (novel vs.\\ past)",
+        "mean_retr_3y": "3y trailing retrospective surprise (novel vs.\\ future)",
+        "max_dkl_3y": "3y trailing max novelty",
+        "n_filings_3y": "3y trailing average filing count",
+    }
+
+    by_outcome: dict[str, list[dict]] = {}
     for r in rows:
-        spec = ", ".join(r["predictors"]).replace("_", r"\_")
-        body += f"{label[r['outcome']]} & {spec} & {r['n']:,} & "
-        for p in r["predictors"]:
-            body += f"{r[f'coef_{p}']:+.3f} ({r[f'se_{p}']:.3f}) & "
-        if len(r["predictors"]) == 1:
-            body += "--- & "
-        body += f"{r['rsq']:.3f} \\\\\n"
+        by_outcome.setdefault(r["outcome"], []).append(r)
+
+    body = ""
+    for outcome in ("gross_margin", "net_margin", "op_margin"):
+        if outcome not in by_outcome:
+            continue
+        body += (
+            f"\\midrule\n"
+            f"\\multicolumn{{4}}{{l}}{{\\textit{{Outcome: {outcome_label[outcome]}}}}} \\\\\n"
+            f"\\midrule\n"
+        )
+        for r in by_outcome[outcome]:
+            for p in r["predictors"]:
+                body += (
+                    f"{pred_label.get(p, p)} & "
+                    f"{r[f'coef_{p}']:+.3f} & {r[f'se_{p}']:.3f} & "
+                    f"{r['n']:,} \\\\\n"
+                )
+            body += "\\addlinespace[1pt]\n"
     tex = (
-        "\\begin{tabular}{llrlll r}\n\\toprule\n"
-        "Outcome & Predictor(s) & N & First z-coef (SE) & Second z-coef (SE) & $R^2$ \\\\\n"
-        "\\midrule\n"
+        "\\begin{tabular}{lrrr}\n\\toprule\n"
+        "Predictor (z-scored unless noted) & Coef.\\ & SE & N \\\\\n"
         + body
         + "\\bottomrule\n\\end{tabular}\n"
     )
@@ -138,7 +157,7 @@ def main() -> int:
     sw_panel = pdf[pdf["cik"].isin(sw_ciks)].copy()
     print(f"[scatter] software-only panel: {len(sw_panel):,} firm-years across {sw_panel['cik'].nunique():,} CIKs")
 
-    fig, ax = plt.subplots(1, 1, figsize=(8.5, 5.6))
+    fig, ax = plt.subplots(1, 1, figsize=(9, 6.0))
     s = sw_panel.dropna(subset=["mean_dkl_3y", "gross_margin"]).copy()
     s = s[(s["gross_margin"] >= 0) & (s["gross_margin"] <= 1.0)]
     s = s[(s["mean_dkl_3y"] >= s["mean_dkl_3y"].quantile(0.01)) &
@@ -147,9 +166,28 @@ def main() -> int:
 
     bins = np.quantile(s["mean_dkl_3y"], np.linspace(0, 1, 16))
     s["bin"] = np.digitize(s["mean_dkl_3y"], bins[1:-1])
-    grp = s.groupby("bin").agg(x=("mean_dkl_3y", "mean"), y=("gross_margin", "mean"), n=("gross_margin", "size"))
-    grp = grp[grp["n"] >= 30]
-    ax.plot(grp["x"], grp["y"], "o-", color="#d62728", linewidth=2.0, markersize=7, label="bin mean")
+    rng = np.random.default_rng(7)
+    bin_summary = []
+    for b, group in s.groupby("bin"):
+        if len(group) < 30:
+            continue
+        x_mean = float(group["mean_dkl_3y"].mean())
+        y_mean = float(group["gross_margin"].mean())
+        # Bootstrap CI for bin mean
+        boot = np.array([
+            rng.choice(group["gross_margin"].values, size=len(group), replace=True).mean()
+            for _ in range(400)
+        ])
+        lo, hi = np.percentile(boot, [2.5, 97.5])
+        bin_summary.append((x_mean, y_mean, float(lo), float(hi), len(group)))
+    bin_summary.sort()
+    xs = np.array([b[0] for b in bin_summary])
+    ys = np.array([b[1] for b in bin_summary])
+    los = np.array([b[2] for b in bin_summary])
+    his = np.array([b[3] for b in bin_summary])
+    ax.fill_between(xs, los, his, color="#d62728", alpha=0.18,
+                    label="bin mean: 95% bootstrap CI")
+    ax.plot(xs, ys, "o-", color="#d62728", linewidth=2.0, markersize=7, label="bin mean")
 
     # Label notable software firms by exact normalized name match
     label_targets = {

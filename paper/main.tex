@@ -74,16 +74,17 @@ that solves an old problem with a new identity (e.g.\ \textsc{Liquid Death}'s
 canned water) is largely invisible.
 
 Our broader motivation is to ask whether innovative firms are rewarded or
-punished. Two stylized stories are in tension. The first, conveyed in the
-phrase ``you can tell the pioneers by the arrows in their backs,'' is that
-firms that depart from convention bear higher search and adoption costs,
-get out-competed by fast-followers, and underperform on average. The
-second, popularized by the \emph{Blue Ocean Strategy} literature, is that
-firms that create uncontested category space enjoy outsized margins, at
-least conditional on survival. Both can be true simultaneously: novelty
-might raise variance --- some pioneers fail spectacularly, others enjoy
-durable category leadership. This paper offers an empirical test of that
-joint pattern using the full USPTO trademark backfile.
+punished. Two pieces of folk wisdom are in tension. The first, conveyed
+in the phrase ``you can tell the pioneers by the arrows in their backs,''
+is that firms that depart from convention bear higher search and adoption
+costs, get out-competed by fast-followers, and underperform on average.
+The second, expressed in the older saying ``build a better mousetrap and
+the world will beat a path to your door,'' is that meaningful novelty
+attracts customers and rewards its inventor with durable advantage. Both
+can be true simultaneously: novelty might raise variance --- some
+pioneers fail spectacularly, others enjoy durable category leadership.
+This paper offers an empirical test of that joint pattern using the full
+USPTO trademark backfile.
 
 \section{Data}
 
@@ -154,18 +155,26 @@ We do not deduplicate identical text: filings that use the same words
 boilerplate are themselves the signal.
 
 \paragraph{Burn-in caveat.}
-The 5-year prospective window for filings near 1985 reaches into a
-period when the corpus is sparse (Figure~\ref{fig:burnin}). The reference
-$Q^{\text{pros}}$ has high entropy, and any specific filing looks far
-from it. We address this by restricting all regressions to filings from
-1995 onward.
+The method requires a five-year window of prior filings (to compute
+prospective surprise) and a five-year window of subsequent filings (to
+compute retrospective surprise). The first means filings from the very
+beginning of the digitised USPTO record (here, 1985--1994) cannot be
+scored cleanly: the look-behind window reaches into a period when the
+corpus is sparse, the reference distribution has high entropy, and any
+specific filing looks artificially novel. The second is symmetric: the
+most recent five years of filings (2021--2026) cannot be scored cleanly
+either, because the look-ahead window has not yet completed.
+Figure~\ref{fig:burnin} shades both windows. We restrict all regressions
+to filings from 1995 onward, and we read 2020 as the latest cohort
+eligible to demonstrate any kind of post-filing fate.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.85\linewidth]{results/burnin.png}
 \caption{Filings per year with both 5-year reference windows populated.
-The shaded region marks years where the prospective window is sparse.
-For all reported regressions we restrict to filings from 1995 onward.}
+Amber: filings whose look-behind window reaches into pre-1985 sparse
+data. Blue: filings whose look-ahead window has not yet elapsed at the
+time of writing. Filings in either band are excluded from regressions.}
 \label{fig:burnin}
 \end{figure}
 
@@ -188,12 +197,19 @@ expectation-disconfirming late-cycle marks (\textsc{Hard Mtn Dew} 2021).
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{results/quadrant.png}
-\caption{Per-filing prospective vs.\ retrospective KL surprise. Grey
+\caption{Per-filing prospective vs.\ retrospective KL surprise, zoomed
+to the central [2, 10] nat range where the labelled examples sit. Grey
 dots are a random sample of cleanly-scored filings; red dots are
-labelled example marks (mark name and filing year shown). Below-diagonal:
-innovator (the future resembles this filing more than the past does).
-Above-diagonal: tired. Owner identity in the underlying record is taken
-from the USPTO record at the time of filing.}
+labelled example marks (mark name and filing year shown). \textbf{The
+KL scores compare each filing only to other filings in the same NICE
+category and same five-year window.} An AI-related filing is therefore
+not directly comparable to a beverage filing: \textsc{White Claw Seltzer
+Works} is novel \emph{within Beer \& Soft Drinks 2011--2021}, not novel
+in the absolute sense that an artificial-intelligence trademark is
+novel against the history of human technology. Below-diagonal:
+innovator (the future of the same category resembles this filing more
+than the past did). Above-diagonal: tired. Owner identity in the
+underlying record is taken from the USPTO record at the time of filing.}
 \label{fig:quadrant}
 \end{figure}
 
@@ -222,9 +238,12 @@ sub-categories. Beverages show a similar but smaller widening.
 \centering
 \includegraphics[width=0.95\linewidth]{results/timeseries_software.png}
 \caption{\textbf{Software \& Electronics:} per-year median (line) and
-25--75\% range (band) of prospective KL, retrospective KL, and
-$\Delta KL$. The first decade ($\leq 1994$) shows inflated absolute KL
-because the 5-year look-behind reaches into a sparse corpus.}
+25--75\% range across all filings in that year (shaded band) of
+prospective KL, retrospective KL, and $\Delta KL$. Amber band: filings
+without a complete 5-year look-behind window (artificially high
+prospective KL). Blue band: filings without a complete 5-year look-ahead
+window (artificially high retrospective KL). Excluded from all
+regressions.}
 \label{fig:ts_sw}
 \end{figure}
 
@@ -232,33 +251,36 @@ because the 5-year look-behind reaches into a sparse corpus.}
 \centering
 \includegraphics[width=0.95\linewidth]{results/timeseries_beverages.png}
 \caption{\textbf{Beer \& Soft Drinks:} per-year median (line) and
-25--75\% range (band) of prospective KL, retrospective KL, and
-$\Delta KL$.}
+25--75\% range across filings in that year (shaded band) of prospective
+KL, retrospective KL, and $\Delta KL$. Amber/blue: burn-in windows.}
 \label{fig:ts_bev}
 \end{figure}
 
 \section{Outcome 1: Trademark survival}
 \label{sec:survival}
 
-We derive four binary outcomes per filing from the USPTO status code.
+We derive three binary outcomes per filing from the USPTO status code.
 
 \begin{itemize}
-  \item \textbf{Reached registration:} filing has a non-null
-        \texttt{registration\_date}. The mark cleared examination, was
-        published for opposition, and was registered. Mean elapsed time
-        from filing to registration is roughly 11--13 months in our
-        corpus.
-  \item \textbf{Survived 5 years:} reached registration, was filed at
-        least 5 years before today (we cap at 2020 cohorts), and was not
-        cancelled post-registration. The 5-year mark coincides with the
-        first Section~8 maintenance filing; failure to file is the
-        most common cause of early cancellation.
-  \item \textbf{Survived 10 years:} reached registration, filed at least
-        10 years ago (we cap at 2015 cohorts), and not cancelled. The
-        10-year mark is the first Section~9 renewal; subsequent renewals
-        are at 10-year intervals indefinitely.
-  \item \textbf{Currently live (April 2026):} status code begins with
-        \texttt{6}, regardless of cohort.
+  \item \textbf{Completed registration:} the filing eventually reached a
+        registered status (a non-null \texttt{registration\_date} is in
+        the record). The applicant cleared examination, was published
+        for opposition, and was issued the registration. The lag from
+        filing to registration is typically nine to twenty-four months
+        and depends on examiner office actions, opposition activity, and
+        whether the application was filed under intent-to-use. We treat
+        any filing with a registration date as having ``completed
+        registration'' regardless of the elapsed time.
+  \item \textbf{Renewed 5y registration:} completed registration, was
+        filed at least five years before the present, and was not
+        cancelled. The first Section~8 maintenance filing is due between
+        the fifth and sixth year of registration; failure to file it is
+        the most common cause of early cancellation, so reaching the
+        five-year mark is a meaningful viability test.
+  \item \textbf{Renewed 10y registration:} completed registration, was
+        filed at least ten years before the present, and was not
+        cancelled. The first Section~9 renewal is due at year ten;
+        subsequent renewals are due every ten years indefinitely.
 \end{itemize}
 
 We estimate generalized linear logit models of the form
@@ -272,34 +294,46 @@ linear-plus-quadratic year control replaces year fixed effects, which
 caused separation in the recent cohorts where the outcome rate is
 structurally near zero.
 
+\begin{table}[h]
+\centering
+\caption{Logistic regressions of each survival outcome on $\Delta KL$
+(novelty) and on the joint prospective + retrospective decomposition.
+Coefficients are in log-odds units per one standard deviation of the
+predictor; standard errors in parentheses.}
+\label{tab:survival}
 \input{results/regression_table.tex}
+\end{table}
 
 The headline finding is the sign pattern. In Software \& Electronics
-($n=1{,}146{,}415$), each one-standard-deviation increase in $\Delta KL$
-\emph{lowers} the log-odds of reaching registration by $-0.042$
-($\text{SE}=0.002$) and lowers the log-odds of 5-year survival by
-$-0.043$, but \emph{raises} the log-odds of currently being live by
-$+0.038$. Decomposed jointly, prospective surprise penalizes every
-outcome and retrospective surprise reverses each sign, so the
-disadvantage at the registration gate is concentrated among filings whose
-future does \emph{not} resemble them, while the long-run survival
-premium accrues to filings the future does come to resemble. Beer \&
-Soft Drinks shows the same sign pattern.
+($n=1{,}146{,}415$), each one-standard-deviation increase in $\Delta
+KL$ --- that is, the filing was more novel at the time than its eventual
+imitators were five years later --- \emph{lowers} the log-odds of
+completing registration by $-0.042$ ($\text{SE}=0.002$) and lowers the
+log-odds of renewing the registration at five years by $-0.043$.
+Decomposed jointly, prospective surprise (novelty at filing time)
+penalizes every outcome, while retrospective surprise (the filing
+remained unusual even after five years of subsequent filings) reverses
+each sign. Read together, the disadvantage at the registration gate is
+concentrated among filings whose future does \emph{not} resemble them
+--- the unrewarded pioneers --- while the long-run survival premium
+accrues to filings the future does come to resemble --- the imitated
+innovators. Beer \& Soft Drinks shows the same sign pattern at smaller
+magnitude.
 
 Figures~\ref{fig:oc_sw} and~\ref{fig:oc_bev} display the per-bin
-registration-and-survival rates against (left) prospective KL, (centre)
+registration-and-renewal rates against (left) prospective KL, (centre)
 retrospective KL, and (right) $\Delta KL$. Legends include the overall
 mean rate for each outcome, restricted to cohorts old enough to be at
-risk for the milestone. The currently-live indicator is dropped here; it
-is dominated by cohort effects (recent filings have not yet had time to
-fail) that the binned axis cannot absorb.
+risk for the milestone.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{results/outcome_curves_software.png}
-\caption{\textbf{Software \& Electronics:} survival outcome rates by KL
-bin. The pattern across panels is consistent: high prospective KL
-penalizes registration and 5y survival; high retrospective KL is
+\caption{\textbf{Software \& Electronics:} registration-and-renewal
+rates by KL bin. Shaded bands are 95\% Wilson confidence intervals on
+the per-bin mean rate. Pattern across panels: high prospective KL
+(novelty against the past) penalises both registration and renewals;
+high retrospective KL (the wording remained unusual in hindsight) is
 neutral-to-favorable; the difference $\Delta KL$ inherits a downward
 slope.}
 \label{fig:oc_sw}
@@ -308,51 +342,78 @@ slope.}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{results/outcome_curves_beverages.png}
-\caption{\textbf{Beer \& Soft Drinks:} survival outcome rates by KL
-bin.}
+\caption{\textbf{Beer \& Soft Drinks:} registration-and-renewal rates
+by KL bin. Shaded bands: 95\% Wilson confidence intervals on the
+per-bin mean rate.}
 \label{fig:oc_bev}
 \end{figure}
 
-\section{Outcome 2: Firm-year financials}
+\section{Outcome 2: Financial success}
 \label{sec:financials}
 
-To test whether innovation is rewarded financially we link USPTO owner
-names to SEC EDGAR firm names by aggressive normalization (uppercase,
-strip punctuation, drop legal-entity suffixes such as \texttt{INC},
-\texttt{LLC}, \texttt{CORP}, \texttt{HOLDINGS}, \texttt{LIMITED}, etc.)
-and exact match on the normalized key. The crosswalk recovers $4{,}651$
-USPTO owners covering $64{,}473$ trademark filings ($3.2\%$ of the corpus
-by filing count, but a much larger share by economic weight, because
-matched owners are by definition publicly-traded firms with material
-financial reporting). After joining to SEC firm-year financials and
-restricting to firm-years with non-degenerate gross margin and at least
-one trademark filing in the prior three years, the analysis panel
-contains $4{,}110$ firm-years across $1{,}408$ unique CIKs over fiscal
-years 2009--2024.
+The trademark survival results in Section~\ref{sec:survival} establish
+that the innovation axis is meaningful at the per-filing level, but
+they say nothing about whether innovation pays the firm a financial
+return. To test that, we link USPTO owner names to SEC EDGAR firm names
+by aggressive normalization (uppercase, strip punctuation, drop
+legal-entity suffixes such as \texttt{INC}, \texttt{LLC}, \texttt{CORP},
+\texttt{HOLDINGS}, \texttt{LIMITED}, and so on) and exact match on the
+normalized key. The crosswalk recovers $4{,}651$ USPTO owners covering
+$64{,}473$ trademark filings ($3.2\%$ of the corpus by filing count, but
+a much larger share by economic weight, because matched owners are by
+definition publicly-traded firms with material financial reporting).
+After joining to SEC firm-year financials and restricting to firm-years
+with non-degenerate gross margin and at least one trademark filing in
+the prior three years, the analysis panel contains $4{,}110$ firm-years
+across $1{,}408$ unique CIKs over fiscal years 2009--2024.
+
+\paragraph{Filing volume is itself an innovation marker, but also a
+size marker.} A firm filing many trademarks in a short window may be
+innovating across product lines --- but it may also simply be a large
+firm with a large legal department. We separate the two by including
+the count of filings as a third predictor alongside the novelty score
+itself, and by controlling for log revenue throughout. Both effects
+turn out to be present and partially independent.
 
 For each firm-year $(c, y)$ we compute the trailing 3-year mean of the
-firm's filing-level scores: $\overline{\Delta KL}_{c, y}$,
-$\overline{KL^{\text{pros}}}_{c, y}$, $\overline{KL^{\text{retr}}}_{c, y}$,
-the maximum within-window $\Delta KL$, and the count of filings. We then
-estimate
+firm's filing-level scores: $\overline{\Delta KL}_{c, y}$, the
+prospective and retrospective components, the maximum within-window
+$\Delta KL$ (the firm's most-novel filing in the window), and the
+count of filings. We then estimate
 \[
-y_{c,t} = \beta_0 + \beta_1 \cdot z(\Delta KL)_{c,t} + \gamma_1 \log \mathrm{Revenue}_{c,t} + \gamma_2 \mathrm{R\&D}_{c,t} + \mathrm{year~controls} + \epsilon_{c,t}
+y_{c,t} = \beta_0 + \beta_1 \cdot z(\text{novelty})_{c,t} + \gamma_1 \log \mathrm{Revenue}_{c,t} + \gamma_2 \mathrm{R\&D~intensity}_{c,t} + \mathrm{year~controls} + \epsilon_{c,t}
 \]
 with cluster-robust standard errors at the firm level. Outcomes are
 gross margin, net margin, and operating margin.
 
+\begin{table}[h]
+\centering
+\caption{OLS regressions of profitability outcomes on trademark
+novelty, with cluster-robust standard errors at the firm level.
+Coefficients are in profitability-units per one standard deviation of
+the predictor (so a coefficient of $+0.029$ on gross margin means
+``+2.9 percentage points''). Each block is a separate specification.}
+\label{tab:financials}
 \input{results/financials_table.tex}
+\end{table}
 
 The pattern from Section~\ref{sec:survival} reproduces here at the
 firm-year level. A one-standard-deviation increase in 3-year trailing
-mean $\Delta KL$ raises gross margin by $+2.9$ percentage points
-(SE $0.7$). Decomposed: prospective surprise raises gross margin by
-$+11.8$ pp/$\sigma$ (SE $4.3$) and retrospective surprise lowers it by
-$-17.0$ pp/$\sigma$ (SE $4.3$). The within-firm story is the same as the
-within-filing story: firms whose recent filings the future ends up
-resembling enjoy higher gross margins; firms whose recent filings the
-past resembles do not. R\&D-intensity and log revenue, included as
-controls, have the expected signs but are not the focus here.
+mean $\Delta KL$ --- that is, a firm whose recent filings introduced
+wording that was unusual at the time but came to look ordinary in the
+years that followed --- raises gross margin by $+2.9$ percentage points
+(SE $0.7$). Decomposed jointly, prospective surprise (novel against the
+past) raises gross margin by $+11.8$ pp per standard deviation
+(SE $4.3$), and retrospective surprise (still novel from the
+future's perspective, i.e.\ a filing nobody imitated) lowers it by
+$-17.0$ pp per standard deviation (SE $4.3$). The within-firm story is
+the same as the within-filing story: firms whose recent filings the
+future ends up resembling enjoy higher gross margins; firms whose
+recent filings nobody imitates do not. The third specification adds
+filing count and the maximum within-window $\Delta KL$: both contribute
+positively to gross margin ($+2.7$ and $+2.0$ pp/$\sigma$ respectively)
+even after controlling for log revenue, suggesting that filing volume
+captures something beyond firm size.
 
 \begin{figure}[h]
 \centering
@@ -360,24 +421,30 @@ controls, have the expected signs but are not the focus here.
 \caption{Software-only firm-year panel: gross margin vs.\ 3-year
 trailing mean $\Delta KL$. Grey: the underlying $4{,}044$ firm-year
 observations across $1{,}366$ public software firms (1st--99th percentile
-of $\Delta KL$, gross margin clamped to $[0, 1]$). Red line: bin means.
-Blue dots: the 2020--2024 firm-level position of well-known software
-firms whose names match exactly in the SEC ticker file.}
+of $\Delta KL$, gross margin clamped to $[0, 1]$). Red line: bin means;
+red shaded band: 95\% bootstrap confidence interval on each bin's mean
+gross margin. Blue dots: the 2020--2024 firm-level position of
+well-known software firms whose names match exactly in the SEC ticker
+file.}
 \label{fig:fin}
 \end{figure}
 
 \section{Discussion}
 
-The ``pioneers vs.\ Blue Ocean'' debate from
+The ``arrows in the back'' versus ``better mousetrap'' tension from
 Section~1 has both pieces empirically supported in this corpus.
-At the trademark gate, novelty is penalized: the most prospectively
-surprising filings are less likely to clear examination, less likely to
-file Section 8 maintenance, less likely to renew at 10 years. But
+At the trademark gate, novelty is penalised: the most prospectively
+surprising filings (the ones whose wording was most unusual at the time)
+are less likely to clear examination, less likely to file Section 8
+maintenance, less likely to renew at 10 years --- the arrows. But
 conditional on survival, the same novelty axis is rewarded: marks the
-future imitates persist longer and are over-represented among
-currently-live registrations. At the firm-year level, public firms whose
-trademark portfolios sit in the prospectively-surprising half of the
-distribution earn higher gross margins than otherwise-comparable peers.
+future imitates persist longer in the registrar's records, and at the
+firm-year level, public firms whose trademark portfolios sit in the
+prospectively-surprising half of the distribution earn higher gross
+margins than otherwise-comparable peers --- the mousetrap. The split
+between the two comes from the retrospective component: filings the
+future does \emph{not} come to resemble bear the cost of novelty without
+collecting the reward.
 
 To make the underlying mechanics concrete,
 Table~\ref{tab:tokens} reports a small set of marks together with the

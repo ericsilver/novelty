@@ -1,15 +1,38 @@
-\begin{tabular}{llrlll r}
+\begin{tabular}{lrrr}
 \toprule
-Outcome & Predictor(s) & N & First z-coef (SE) & Second z-coef (SE) & $R^2$ \\
+Predictor (z-scored unless noted) & Coef.\ & SE & N \\
 \midrule
-Gross margin & mean\_dkl\_3y & 4,104 & +0.029 (0.007) & --- & 0.016 \\
-Gross margin & mean\_pros\_3y, mean\_retr\_3y & 4,104 & +0.118 (0.043) & -0.170 (0.044) & 0.044 \\
-Gross margin & max\_dkl\_3y, n\_filings\_3y & 4,104 & +0.027 (0.007) & +0.020 (0.008) & 0.024 \\
-Net margin & mean\_dkl\_3y & 3,742 & -2.412 (2.018) & --- & 0.220 \\
-Net margin & mean\_pros\_3y, mean\_retr\_3y & 3,742 & -11.709 (11.304) & +14.924 (12.744) & 0.220 \\
-Net margin & max\_dkl\_3y, n\_filings\_3y & 3,742 & -4.538 (3.342) & -2.893 (2.548) & 0.221 \\
-Operating margin & mean\_dkl\_3y & 3,768 & -1.043 (0.664) & --- & 0.752 \\
-Operating margin & mean\_pros\_3y, mean\_retr\_3y & 3,768 & -6.106 (4.008) & +6.629 (4.240) & 0.752 \\
-Operating margin & max\_dkl\_3y, n\_filings\_3y & 3,768 & -1.722 (1.006) & -0.316 (0.243) & 0.754 \\
+\multicolumn{4}{l}{\textit{Outcome: Gross margin}} \\
+\midrule
+3y trailing mean novelty $\Delta KL$ & +0.029 & 0.007 & 4,104 \\
+\addlinespace[1pt]
+3y trailing prospective surprise (novel vs.\ past) & +0.118 & 0.043 & 4,104 \\
+3y trailing retrospective surprise (novel vs.\ future) & -0.170 & 0.044 & 4,104 \\
+\addlinespace[1pt]
+3y trailing max novelty & +0.027 & 0.007 & 4,104 \\
+3y trailing average filing count & +0.020 & 0.008 & 4,104 \\
+\addlinespace[1pt]
+\midrule
+\multicolumn{4}{l}{\textit{Outcome: Net margin}} \\
+\midrule
+3y trailing mean novelty $\Delta KL$ & -2.412 & 2.018 & 3,742 \\
+\addlinespace[1pt]
+3y trailing prospective surprise (novel vs.\ past) & -11.709 & 11.304 & 3,742 \\
+3y trailing retrospective surprise (novel vs.\ future) & +14.924 & 12.744 & 3,742 \\
+\addlinespace[1pt]
+3y trailing max novelty & -4.538 & 3.342 & 3,742 \\
+3y trailing average filing count & -2.893 & 2.548 & 3,742 \\
+\addlinespace[1pt]
+\midrule
+\multicolumn{4}{l}{\textit{Outcome: Operating margin}} \\
+\midrule
+3y trailing mean novelty $\Delta KL$ & -1.043 & 0.664 & 3,768 \\
+\addlinespace[1pt]
+3y trailing prospective surprise (novel vs.\ past) & -6.106 & 4.008 & 3,768 \\
+3y trailing retrospective surprise (novel vs.\ future) & +6.629 & 4.240 & 3,768 \\
+\addlinespace[1pt]
+3y trailing max novelty & -1.722 & 1.006 & 3,768 \\
+3y trailing average filing count & -0.316 & 0.243 & 3,768 \\
+\addlinespace[1pt]
 \bottomrule
 \end{tabular}
