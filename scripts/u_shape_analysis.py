@@ -172,15 +172,44 @@ def main() -> int:
 
     # ----- Plot: decile-rate by industry, normalized -----
     fig, ax = plt.subplots(figsize=(9, 5.4))
-    # Aggregate decile rates across ALL industries
     decile_pdf = __import__("pandas").DataFrame(decile_rows)
-    # Each industry as a darker translucent line first, so the red mean lands on top
-    for cls in decile_pdf["cls"].unique():
+
+    # Per-decile inter-industry quantile band (25th - 75th percentile across
+    # the 45 NICE classes), with the cross-industry median drawn through it.
+    band = decile_pdf.groupby("decile").agg(
+        x=("x", "mean"),
+        p25=("rate", lambda s: s.quantile(0.25)),
+        p50=("rate", "median"),
+        p75=("rate", lambda s: s.quantile(0.75)),
+    ).reset_index()
+    ax.fill_between(
+        band["decile"], band["p25"] * 100, band["p75"] * 100,
+        color="#bbbbbb", alpha=0.55,
+        label="25--75\\% band across the 45 industries",
+        zorder=1,
+    )
+    ax.plot(
+        band["decile"], band["p50"] * 100,
+        "-", color="#444", linewidth=1.2, zorder=2,
+        label="Cross-industry median",
+    )
+
+    # A few highlighted industries with explicit colors and labels
+    HIGHLIGHT = {
+        "009": ("Software \\& Electronics", "#1f77b4"),
+        "034": ("Tobacco \\& Smokers' Articles", "#117a3a"),
+        "038": ("Telecommunications", "#7a1111"),
+        "032": ("Beer \\& Soft Drinks", "#bf6b3a"),
+    }
+    for cls, (label, color) in HIGHLIGHT.items():
         sub = decile_pdf[decile_pdf["cls"] == cls].sort_values("decile")
-        ax.plot(sub["decile"], sub["rate"] * 100, "-", color="#666", alpha=0.40, linewidth=0.8, zorder=2)
+        if sub.empty: continue
+        ax.plot(sub["decile"], sub["rate"] * 100, "o-", color=color,
+                linewidth=1.6, markersize=4.5, label=f"{label} ({cls})", zorder=3)
+
     agg_dec = decile_pdf.groupby("decile").agg(x=("x", "mean"), y=("rate", "mean"), n=("n", "sum")).reset_index()
-    ax.plot(agg_dec["decile"], agg_dec["y"] * 100, "o-", color="#d62728", linewidth=2.4, markersize=7,
-            label="Cross-industry mean (all 45 NICE classes)", zorder=4,
+    ax.plot(agg_dec["decile"], agg_dec["y"] * 100, "s-", color="#d62728",
+            linewidth=2.0, markersize=6.5, label="Cross-industry mean", zorder=4,
             markeredgecolor="black", markeredgewidth=0.6)
     ax.set_xticks(range(10))
     ax.set_xticklabels([f"D{i+1}" for i in range(10)])
