@@ -3,18 +3,20 @@ per-filing surprise scores. Output: data/processed/outcomes_class<NNN>.parquet.
 
 USPTO status code reference (collapsed buckets):
     6xx  — live (registered, in opposition, in maintenance)
-    7xx  — dead at examination (abandoned, withdrawn)
-    8xx  — dead post-registration (cancelled, expired, failed Section 8)
+    7xx  — dead during examination (never registered)
+    8xx  — dead post-registration (was registered, later cancelled/expired)
+
+We rely on the status code rather than the XML registration_date field,
+because many pre-2003 records have a 6xx/8xx status code (and were therefore
+registered at some point) but a missing registration_date.
 
 Outcomes derived per filing:
-    reached_registration   bool   registration_date is non-null
+    reached_registration   bool   status code starts with '6' or '8'
     currently_live         bool   status_code starts with '6'
     abandoned_at_exam      bool   status_code starts with '7'
     cancelled_postreg      bool   status_code starts with '8'
-    survived_5y            bool   reached_registration AND filing_date older
-                                  than 5 years AND not cancelled_postreg
-                                  (i.e. has had a chance to renew at year 5
-                                   and didn't fail)
+    survived_5y            bool   currently_live AND filed >= 5 years ago
+    survived_10y           bool   currently_live AND filed >= 10 years ago
 """
 
 from __future__ import annotations
@@ -39,21 +41,23 @@ def derive(records: pl.DataFrame, surprise: pl.DataFrame, *, today_year: int) ->
     ).with_columns(
         pl.col("filing_date").str.slice(0, 4).cast(pl.Int32).alias("year"),
         pl.col("status_code").str.slice(0, 1).alias("status_bucket"),
-        pl.col("registration_date").is_not_null().alias("reached_registration"),
     ).with_columns(
         (pl.col("status_bucket") == "6").alias("currently_live"),
         (pl.col("status_bucket") == "7").alias("abandoned_at_exam"),
         (pl.col("status_bucket") == "8").alias("cancelled_postreg"),
     ).with_columns(
         (
-            pl.col("reached_registration")
+            (pl.col("status_bucket") == "6")
+            | (pl.col("status_bucket") == "8")
+        ).alias("reached_registration"),
+    ).with_columns(
+        (
+            pl.col("currently_live")
             & ((today_year - pl.col("year")) >= 5)
-            & ~pl.col("cancelled_postreg")
         ).alias("survived_5y"),
         (
-            pl.col("reached_registration")
+            pl.col("currently_live")
             & ((today_year - pl.col("year")) >= 10)
-            & ~pl.col("cancelled_postreg")
         ).alias("survived_10y"),
     )
 

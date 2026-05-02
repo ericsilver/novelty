@@ -38,12 +38,19 @@ at the time but normal in hindsight --- the empirical signature of a firm
 that introduced a category later imitated --- and negative when the past
 predicts the filing better than the future does.
 
-The score recovers the risk--reward asymmetry that the literature on
-pioneers and fast-followers predicts. In a generalized linear logit on
-$1{,}146{,}415$ Class-9 filings, a one-standard-deviation increase in
-$\Delta KL$ \emph{lowers} the probability of reaching registration by
-$0.042$ in log-odds ($\text{SE} = 0.002$) but \emph{raises} the probability
-of being a currently-live mark in 2026 by $0.038$ ($\text{SE} = 0.002$).
+At every observable USPTO milestone, novelty in the goods/services
+description is associated with \emph{better} outcomes, not worse. In a
+generalized linear logit on $1{,}423{,}405$ Class-9 filings, a
+one-standard-deviation increase in $\Delta KL$ \emph{raises} the
+probability of completing registration by $+0.124$ in log-odds
+($\text{SE} = 0.002$), the probability of being a live registration
+five years after filing by $+0.079$ ($\text{SE} = 0.002$), and the
+probability of surviving the first ten-year renewal by $+0.074$
+($\text{SE} = 0.002$). Decomposed, the bulk of non-registrations are
+``no Statement of Use'' filings, where an intent-to-use applicant
+simply never put the mark into commercial use; only $8\%$ of failures
+are direct examiner refusals. The "arrows in the back" pattern of
+penalised pioneers does not appear at the trademark gate.
 Linking the trademark scores to SEC EDGAR financials for $1{,}597$ matched
 publicly-traded firms gives the same pattern at the firm-year level:
 gross margin rises with $\Delta KL$ at $+3.2$ percentage points per
@@ -319,20 +326,48 @@ predictor; standard errors in parentheses.}
 \end{table}
 
 The headline finding is the sign pattern. In Software \& Electronics
-($n=1{,}146{,}415$), each one-standard-deviation increase in $\Delta
-KL$ --- that is, the filing was more novel at the time than its eventual
-imitators were five years later --- \emph{lowers} the log-odds of
-completing registration by $-0.042$ ($\text{SE}=0.002$) and lowers the
-log-odds of renewing the registration at five years by $-0.043$.
-Decomposed jointly, prospective surprise (novelty at filing time)
-penalizes every outcome, while retrospective surprise (the filing
-remained unusual even after five years of subsequent filings) reverses
-each sign. Read together, the disadvantage at the registration gate is
-concentrated among filings whose future does \emph{not} resemble them
---- the unrewarded pioneers --- while the long-run survival premium
-accrues to filings the future does come to resemble --- the imitated
-innovators. Beer \& Soft Drinks shows the same sign pattern at smaller
-magnitude.
+($n=1{,}423{,}405$), each one-standard-deviation increase in $\Delta
+KL$ --- the filing was more novel at the time than its eventual
+imitators were five years later --- \emph{raises} the log-odds of
+completing registration by $+0.124$ ($\text{SE}=0.002$) and raises the
+log-odds of being live at five years by $+0.079$. Decomposed jointly,
+prospective surprise (novelty at filing time) drives the increase
+($\beta_{\text{pros}} = +0.633$), while retrospective surprise (the
+filing remained unusual even after five years of subsequent filings,
+i.e.\ a filing nobody imitated) reverses sign
+($\beta_{\text{retr}} = -0.662$). Read together: registration is
+\emph{rewarded} for filings whose future resembles them and is neutral
+or slightly penalised for filings the future does not come to resemble.
+Beer \& Soft Drinks shows the same sign pattern at smaller magnitude.
+
+\paragraph{What kind of failure is this?}
+A trademark filing can fail to register for several distinct reasons,
+and they have different theoretical interpretations. Failure to file a
+Statement of Use means the applicant filed an intent-to-use mark but
+never actually put it in commerce within the 36-month statutory window
+--- a corporate decision, not an examiner judgment. Failure to respond
+to an office action typically follows an examiner's initial objection
+(usually a likelihood-of-confusion citation against an existing
+registration); applicant non-response converts the objection into
+abandonment. Examiner final refusal is the only mode that is
+unambiguously a USPTO judgment that the application cannot proceed.
+
+Table~\ref{tab:failure-modes} decomposes the $50.4\%$ of Class~9
+filings that did not reach registration. Two facts dominate. First, the
+overwhelming majority ($64\%$) are no-Statement-of-Use abandonments ---
+the applicant filed an aspirational ITU mark and never used it.
+Second, examiner final refusals account for only $8\%$ of failures.
+Across every failure category the mean $\Delta KL$ is within
+$0.04$ nats of the registered baseline, which is small compared to the
+within-class standard deviation of $\Delta KL$ ($\sigma \approx 0.46$).
+Novel filings are not, in any meaningful sense, being rejected.
+
+\begin{table}[h]
+\centering
+\caption{Decomposition of registration failures by mode.}
+\label{tab:failure-modes}
+\input{results/failure_modes.tex}
+\end{table}
 
 Figures~\ref{fig:oc_sw} and~\ref{fig:oc_bev} display the per-bin
 registration-and-renewal rates against (left) prospective KL, (centre)
@@ -575,19 +610,24 @@ broadenings of established categories.
 \section{Discussion}
 
 The ``arrows in the back'' versus ``better mousetrap'' tension from
-Section~1 has both pieces empirically supported in this corpus.
-At the trademark gate, novelty is penalised: the most prospectively
-surprising filings (the ones whose wording was most unusual at the time)
-are less likely to clear examination, less likely to file Section 8
-maintenance, less likely to renew at 10 years --- the arrows. But
-conditional on survival, the same novelty axis is rewarded: marks the
-future imitates persist longer in the registrar's records, and at the
-firm-year level, public firms whose trademark portfolios sit in the
-prospectively-surprising half of the distribution earn higher gross
-margins than otherwise-comparable peers --- the mousetrap. The split
-between the two comes from the retrospective component: filings the
-future does \emph{not} come to resemble bear the cost of novelty without
-collecting the reward.
+Section~1 resolves asymmetrically in this corpus. At the trademark
+gate, novelty is \emph{rewarded}, not penalised. The most prospectively
+surprising filings clear examination at higher rates and persist longer
+through the renewal cycle. The pioneer-pays-but-survivor-wins story
+that we initially expected (and that an early version of this analysis
+appeared to show before correcting a registration-date data-quality
+bug) is not what the corrected data report. The mousetrap pattern
+dominates the survival outcomes.
+
+The arrows-in-the-back signal does, however, show up financially. The
+matched panel of $1{,}597$ public firms reveals a clear pioneer-bet
+structure: high-novelty firms simultaneously earn higher mean gross
+margins (Section~\ref{sec:financials}) \emph{and} display wider
+within-firm gross-margin standard deviations (Table~\ref{tab:variance}).
+Some pioneers succeed; others do not; the survivors carry the average.
+At the trademark registrar's office novelty is a positive signal, but
+in the marketplace it raises the variance of outcomes in addition to
+the mean.
 
 To make the underlying mechanics concrete,
 Table~\ref{tab:tokens} reports a small set of marks together with the
