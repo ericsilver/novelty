@@ -1,0 +1,131 @@
+comparator,list_company,normalized_name,matched_sec_name,matched_cik,matched_firm_mean_dkl
+BCG Most Innovative (2021-23 union),General Motors,GENERAL MOTORS,GENERAL MOTORS CO,1467858,-0.06810318023308223
+BCG Most Innovative (2021-23 union),Microsoft,MICROSOFT,MICROSOFT CORP,789019,0.031203814103620324
+BCG Most Innovative (2021-23 union),Walmart,WALMART,"","",""
+BCG Most Innovative (2021-23 union),Apple,APPLE,APPLE INC,320193,0.04181745729590752
+BCG Most Innovative (2021-23 union),Hitachi,HITACHI,HITACHI LTD,47710,-0.06996865747411274
+BCG Most Innovative (2021-23 union),Salesforce,SALESFORCE,"SALESFORCE, INC.",1108524,0.11150656054394352
+BCG Most Innovative (2021-23 union),Mercedes-Benz,MERCEDES BENZ,"","",""
+BCG Most Innovative (2021-23 union),BYD,BYD,BYD CO LTD,1445162,0.034433029972391324
+BCG Most Innovative (2021-23 union),Alphabet,ALPHABET,ALPHABET INC.,1652044,0.4112062269163266
+BCG Most Innovative (2021-23 union),NVIDIA,NVIDIA,NVIDIA CORP,1045810,0.08701640094228313
+BCG Most Innovative (2021-23 union),IBM,IBM,"","",""
+BCG Most Innovative (2021-23 union),Bosch,BOSCH,"","",""
+BCG Most Innovative (2021-23 union),Tencent,TENCENT,"","",""
+BCG Most Innovative (2021-23 union),Alibaba,ALIBABA,Alibaba Group Holding Ltd,1577552,0.04125475318073644
+BCG Most Innovative (2021-23 union),Facebook,FACEBOOK,"","",""
+BCG Most Innovative (2021-23 union),Lenovo,LENOVO,"","",""
+BCG Most Innovative (2021-23 union),Hyundai,HYUNDAI,"","",""
+BCG Most Innovative (2021-23 union),Tesla,TESLA,"TESLA, INC.",1318605,0.12729459413207372
+BCG Most Innovative (2021-23 union),Philips,PHILIPS,"","",""
+BCG Most Innovative (2021-23 union),Meta,META,"","",""
+BCG Most Innovative (2021-23 union),BMW,BMW,"","",""
+BCG Most Innovative (2021-23 union),Huawei,HUAWEI,"","",""
+BCG Most Innovative (2021-23 union),Oracle,ORACLE,ORACLE CORP,1341439,-0.06275582216111775
+BCG Most Innovative (2021-23 union),Glencore,GLENCORE,"","",""
+BCG Most Innovative (2021-23 union),Siemens,SIEMENS,"","",""
+BCG Most Innovative (2021-23 union),Samsung,SAMSUNG,"","",""
+BCG Most Innovative (2021-23 union),General Electric,GENERAL ELECTRIC,GENERAL ELECTRIC CO,40545,0.03781040154360778
+BCG Most Innovative (2021-23 union),Merck,MERCK,"","",""
+BCG Most Innovative (2021-23 union),Novartis,NOVARTIS,NOVARTIS AG,1114448,0.002832916938719373
+BCG Most Innovative (2021-23 union),Honeywell International,HONEYWELL INTERNATIONAL,HONEYWELL INTERNATIONAL INC,773840,-0.03720123290218217
+BCG Most Innovative (2021-23 union),Coca-Cola,COCA COLA,COCA COLA CO,21344,-0.1097366210065866
+BCG Most Innovative (2021-23 union),Bayer,BAYER,"","",""
+BCG Most Innovative (2021-23 union),Fast Retailing,FAST RETAILING,"","",""
+BCG Most Innovative (2021-23 union),Ford,FORD,"","",""
+BCG Most Innovative (2021-23 union),Intel,INTEL,INTEL CORP,50863,0.01260171344118455
+BCG Most Innovative (2021-23 union),Johnson and Johnson,JOHNSON AND JOHNSON,JOHNSON & JOHNSON,200406,-0.08606874879622084
+BCG Most Innovative (2021-23 union),Toyota,TOYOTA,"","",""
+BCG Most Innovative (2021-23 union),Sinopec,SINOPEC,"","",""
+BCG Most Innovative (2021-23 union),HP,HP,"","",""
+BCG Most Innovative (2021-23 union),Sony,SONY,Sony Group Corp,313838,-0.014000154115577665
+BCG Most Innovative (2021-23 union),Abbott,ABBOTT,"","",""
+BCG Most Innovative (2021-23 union),Amazon,AMAZON,"","",""
+BCG Most Innovative (2021-23 union),Saudi Aramco,SAUDI ARAMCO,"","",""
+BCG Most Innovative (2021-23 union),Disney,DISNEY,"","",""
+BCG Most Innovative (2021-23 union),Target,TARGET,TARGET CORP,27419,0.15258481418454545
+BCG Most Innovative (2021-23 union),Nike,NIKE,NIKE INC,320187,-0.02407400856283803
+BCG Most Innovative (2021-23 union),PepsiCo,PEPSICO,PEPSICO INC,77476,-0.12135375695787445
+BCG Most Innovative (2021-23 union),Nestle,NESTLE,"","",""
+BCG Most Innovative (2021-23 union),3M,3M,3M CO,66740,-0.0259397781297754
+BCG Most Innovative (2021-23 union),ExxonMobil,EXXONMOBIL,"","",""
+BCG Most Innovative (2021-23 union),Stripe,STRIPE,"","",""
+BCG Most Innovative (2021-23 union),AstraZeneca,ASTRAZENECA,ASTRAZENECA PLC,901832,0.014990746851572617
+BCG Most Innovative (2021-23 union),Tata Group,TATA,"","",""
+BCG Most Innovative (2021-23 union),Pfizer,PFIZER,PFIZER INC,78003,-0.058471780427506316
+BCG Most Innovative (2021-23 union),Adidas,ADIDAS,"","",""
+BCG Most Innovative (2021-23 union),Inditex,INDITEX,"","",""
+BCG Most Innovative (2021-23 union),Panasonic,PANASONIC,"","",""
+BCG Most Innovative (2021-23 union),PetroChina,PETROCHINA,"","",""
+BCG Most Innovative (2021-23 union),IKEA,IKEA,"","",""
+BCG Most Innovative (2021-23 union),Unilever,UNILEVER,UNILEVER PLC,217410,-0.0703769437474279
+BCG Most Innovative (2021-23 union),Shell,SHELL,"","",""
+BCG Most Innovative (2021-23 union),Zalando,ZALANDO,"","",""
+BCG Most Innovative (2021-23 union),Mitsubishi,MITSUBISHI,"","",""
+BCG Most Innovative (2021-23 union),SpaceX,SPACEX,"","",""
+BCG Most Innovative (2021-23 union),Procter & Gamble,PROCTER AND GAMBLE,PROCTER & GAMBLE CO,80424,-0.04226115573887836
+BCG Most Innovative (2021-23 union),Moderna,MODERNA,"MODERNA, INC.",1682852,0.033128000823476
+BCG Most Innovative (2021-23 union),ByteDance,BYTEDANCE,"","",""
+BCG Most Innovative (2021-23 union),BioNTech,BIONTECH,"","",""
+BCG Most Innovative (2021-23 union),NTT Data,NTT DATA,"","",""
+BCG Most Innovative (2021-23 union),Schneider Electric,SCHNEIDER ELECTRIC,"","",""
+BCG Most Innovative (2021-23 union),JD.com,JD COM,"JD.com, Inc.",1549802,-0.2599117842713928
+BCG Most Innovative (2021-23 union),McDonald's,MCDONALD S,"","",""
+BCG Most Innovative (2021-23 union),Xiaomi,XIAOMI,"","",""
+BCG Most Innovative (2021-23 union),Dell,DELL,DELL INC,826083,0.020669097590159124
+BCG Most Innovative (2021-23 union),SAP,SAP,"","",""
+BCG Most Innovative (2021-23 union),Comcast,COMCAST,COMCAST CORP,1166691,-0.07497090976118644
+BCG Most Innovative (2021-23 union),Cisco,CISCO,"","",""
+BCG Most Innovative (2021-23 union),Roche,ROCHE,"","",""
+BCG Most Innovative (2021-23 union),eBay,EBAY,EBAY INC,1065088,0.04112609878753114
+BCG Most Innovative (2021-23 union),LG,LG,"","",""
+MIT TR 50 Smartest Companies (2015),Snapchat,SNAPCHAT,"","",""
+MIT TR 50 Smartest Companies (2015),Bristol-Myers Squibb,BRISTOL MYERS SQUIBB,BRISTOL MYERS SQUIBB CO,14272,-0.023862938168103757
+MIT TR 50 Smartest Companies (2015),AliveCor,ALIVECOR,"","",""
+MIT TR 50 Smartest Companies (2015),Baidu,BAIDU,"Baidu, Inc.",1329099,-0.023352313160156585
+MIT TR 50 Smartest Companies (2015),Slack,SLACK,"","",""
+MIT TR 50 Smartest Companies (2015),Cellectis,CELLECTIS,"","",""
+MIT TR 50 Smartest Companies (2015),Alibaba,ALIBABA,Alibaba Group Holding Ltd,1577552,0.04125475318073644
+MIT TR 50 Smartest Companies (2015),Coinbase,COINBASE,"","",""
+MIT TR 50 Smartest Companies (2015),Facebook,FACEBOOK,"","",""
+MIT TR 50 Smartest Companies (2015),Alnylam,ALNYLAM,"","",""
+MIT TR 50 Smartest Companies (2015),Juno Therapeutics,JUNO THERAPEUTICS,"JUNO THERAPEUTICS, INC.",1594864,0.13516810603719992
+MIT TR 50 Smartest Companies (2015),Bluebird Bio,BLUEBIRD BIO,"","",""
+MIT TR 50 Smartest Companies (2015),Xiaomi,XIAOMI,"","",""
+MIT TR 50 Smartest Companies (2015),Illumina,ILLUMINA,"ILLUMINA, INC.",1110803,0.15089150773303148
+MIT TR 50 Smartest Companies (2015),HaCon,HACON,"","",""
+MIT TR 50 Smartest Companies (2015),NVIDIA,NVIDIA,NVIDIA CORP,1045810,0.08701640094228313
+MIT TR 50 Smartest Companies (2015),Amazon,AMAZON,"","",""
+MIT TR 50 Smartest Companies (2015),SunEdison,SUNEDISON,"","",""
+MIT TR 50 Smartest Companies (2015),IDE Technologies,IDE TECHNOLOGIES,"","",""
+MIT TR 50 Smartest Companies (2015),Counsyl,COUNSYL,"","",""
+MIT TR 50 Smartest Companies (2015),Netflix,NETFLIX,NETFLIX INC,1065280,0.0824778862144494
+MIT TR 50 Smartest Companies (2015),Microsoft,MICROSOFT,MICROSOFT CORP,789019,0.031203814103620324
+MIT TR 50 Smartest Companies (2015),Imprint Energy,IMPRINT ENERGY,"","",""
+MIT TR 50 Smartest Companies (2015),Philips,PHILIPS,"","",""
+MIT TR 50 Smartest Companies (2015),DNAnexus,DNANEXUS,"","",""
+MIT TR 50 Smartest Companies (2015),Google,GOOGLE,GOOGLE INC.,1288776,0.11469320207650081
+MIT TR 50 Smartest Companies (2015),SpaceX,SPACEX,"","",""
+MIT TR 50 Smartest Companies (2015),Rethink Robotics,RETHINK ROBOTICS,"","",""
+MIT TR 50 Smartest Companies (2015),OvaScience,OVASCIENCE,"","",""
+MIT TR 50 Smartest Companies (2015),Teladoc,TELADOC,"","",""
+MIT TR 50 Smartest Companies (2015),Improbable,IMPROBABLE,"","",""
+MIT TR 50 Smartest Companies (2015),Apple,APPLE,APPLE INC,320193,0.04181745729590752
+MIT TR 50 Smartest Companies (2015),Sakti3,SAKTI3,"","",""
+MIT TR 50 Smartest Companies (2015),Gruppo Generali,GRUPPO GENERALI,"","",""
+MIT TR 50 Smartest Companies (2015),SolarCity,SOLARCITY,SOLARCITY CORP,1408356,0.14741212300209844
+MIT TR 50 Smartest Companies (2015),Gilead Sciences,GILEAD SCIENCES,GILEAD SCIENCES INC,882095,0.014268665063434901
+MIT TR 50 Smartest Companies (2015),Tencent,TENCENT,"","",""
+MIT TR 50 Smartest Companies (2015),Tesla,TESLA,"TESLA, INC.",1318605,0.12729459413207372
+MIT TR 50 Smartest Companies (2015),Uber,UBER,"","",""
+MIT TR 50 Smartest Companies (2015),Aquion Energy,AQUION ENERGY,"","",""
+MIT TR 50 Smartest Companies (2015),Intrexon,INTREXON,INTREXON CORP,1356090,0.038021756181362575
+MIT TR 50 Smartest Companies (2015),3D Systems,3D SYSTEMS,3D SYSTEMS CORP,910638,0.02168975041989413
+MIT TR 50 Smartest Companies (2015),Voxel8,VOXEL8,"","",""
+MIT TR 50 Smartest Companies (2015),Amgen,AMGEN,AMGEN INC,318154,0.04284750318099291
+MIT TR 50 Smartest Companies (2015),IBM,IBM,"","",""
+MIT TR 50 Smartest Companies (2015),Universal Robots,UNIVERSAL ROBOTS,"","",""
+MIT TR 50 Smartest Companies (2015),Freescale Semiconductor,FREESCALE SEMICONDUCTOR,"FREESCALE SEMICONDUCTOR, LTD.",1392522,-0.15179232682191962
+MIT TR 50 Smartest Companies (2015),ThyssenKrupp,THYSSENKRUPP,"","",""
+MIT TR 50 Smartest Companies (2015),Enlitic,ENLITIC,"","",""
+MIT TR 50 Smartest Companies (2015),LINE,LINE,"","",""

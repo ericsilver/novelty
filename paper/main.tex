@@ -961,15 +961,58 @@ A firm's patent count and a firm's trademark $\Delta KL$ are two
 substantively different innovation channels and the predictive
 content of one is not contained in the other.
 
-Other public comparators that we have \emph{not} pursued in this
-paper but that the published code makes straightforward to add: (i)
-\textbf{R\&D-to-revenue ratio}, already in the SEC panel; (ii)
-\textbf{Boston Consulting Group ``Most Innovative Companies''}, an
-annual hybrid of quantitative and survey-derived rankings, published
-since 2005; (iii) the \textbf{MIT Technology Review ``50 Smartest
-Companies''} list (2010--2019, now discontinued); (iv)
-\textbf{Crunchbase fundraising} for private firms, a venture-
-investor expectations proxy.
+\paragraph{Four further public comparators.}
+We supplement the patent comparison with four other public
+innovation proxies. The data and the matching code are released
+under \texttt{data\_publish/comparators/}.
+
+\begin{table}[h]
+\centering
+\caption{Trademark $\Delta KL$ versus four external public
+innovation comparators. R\&D-to-revenue and Crunchbase total funding
+are continuous, so we report Pearson $r$. BCG Most Innovative
+Companies and MIT Technology Review 50 Smartest Companies are
+binary list memberships, so we report the difference in mean firm
+$\Delta KL$ between firms on the list and the rest of the matched
+universe (positive = listed firms are more innovative by our
+measure).}
+\label{tab:external}
+\input{results/external_compare.tex}
+\end{table}
+
+The strongest signal among the four is \textbf{R\&D-to-revenue}
+($r = +0.13$ on $1{,}583$ firms), consistent with the intuition
+that firms that spend more on research file more novel
+goods/services descriptions. \textbf{MIT Technology Review's 50
+Smartest Companies (2015 list)}, of which we matched 17 of 50 to a
+SEC CIK in our trademark panel, had a mean $\Delta KL$ of $+0.052$
+versus $-0.018$ for the rest of the matched universe --- a $+0.07$
+gap that is borderline-significant on the small sample
+($z = +1.63$). \textbf{The BCG Most Innovative Companies list
+(2021--23 union, 80 unique firms, 31 matched)} shows a smaller
+$+0.02$ on-list-vs-off-list gap that is not distinguishable from
+zero ($z = +0.64$). \textbf{Crunchbase total funding} (using the
+\texttt{notpeter/crunchbase-data} historical mirror, $1{,}646$
+matched firms) is essentially uncorrelated with $\Delta KL$
+($r = 0.00$ for log funding).
+
+The pattern is the same one we saw with patents: each of these
+public proxies captures a substantively different innovation
+construct, and pairwise correlations between proxies sit in the
+range $\rho \approx 0.0$--$0.13$. Trademark $\Delta KL$ is on the
+correlated end of that range with R\&D and MIT TR's expert-curated
+list, on the uncorrelated end with Crunchbase funding totals, and
+near-zero with patent counts. None of the four can substitute for
+$\Delta KL$, and $\Delta KL$ does not substitute for them.
+
+The four comparator data files are published in
+\texttt{data\_publish/comparators/}, alongside the
+\texttt{external\_crosswalk.csv} file that records, for every
+list-based comparator entry, whether and how it matched a SEC CIK
+in our matched universe. Researchers wishing to replace any of our
+comparators with a more authoritative source can drop a CSV with
+the same schema into the same directory and re-run
+\texttt{scripts/external\_compare.py}.
 
 \paragraph{What is a trademark really protecting?}
 The convergent-validity result invites a second look at what the
