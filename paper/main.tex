@@ -587,6 +587,119 @@ a firm's first trademark filing predicts its subsequent average
 financial performance, even before the firm has produced any other
 trademark filings to ``fund'' the bet.
 
+\section{Within-firm dynamics and debut quartiles}
+\label{sec:dynamics}
+
+The first-filing analysis in Section~\ref{sec:debut} answered ``does
+the firm's first novel bet predict outcomes,'' but said nothing about
+how a firm's later filings behave once the firm is established. The
+full corpus contains $1.24$ million firms with at least two filings
+and $5.74$ million consecutive filing pairs, which lets us measure
+two related quantities: how persistent within-firm novelty is, and
+whether firms become more or less innovative as they file more.
+
+\paragraph{Within-firm autocorrelation.} For every consecutive
+filing-pair within a firm we compute the Pearson correlation between
+the prospective KL of the later filing and that of the earlier one,
+and the same for $\Delta KL$:
+
+\begin{table}[h]
+\centering
+\caption{Within-firm temporal dynamics, all 45 NICE classes,
+1995--2020.}
+\label{tab:dynamics}
+\input{results/per_firm_dynamics.tex}
+\end{table}
+
+\textbf{The autocorrelations are large.} Knowing that a firm's
+previous trademark filing scored high on prospective surprise (was
+unusual at the time) raises our expectation of high prospective
+surprise on the firm's next filing by $\rho = 0.68$. The same
+correlation on the imitated-innovator score $\Delta KL$ is
+$\rho = 0.55$. Surprising firms keep filing surprising trademarks;
+innovative firms keep filing innovative trademarks.
+
+\paragraph{Firms drift very slightly toward conservatism.} Restricting
+to firms with at least four filings (so a per-firm trend can be
+estimated), the median per-firm slope of $\Delta KL$ on filing-index
+is $0.0000$ and the mean is $-0.0007$ per additional filing. $47.0\%$
+of firms have a positive slope (binomial $z = -19.6$ vs.\ the null of
+$50/50$). Firms become marginally less innovative as they accumulate
+filings, but the magnitude is tiny --- on the order of one tenth of
+a percent of $\sigma_{\Delta KL}$ per additional filing.
+
+\paragraph{Debut quartiles.} We split firms into four quartiles by
+the $\Delta KL$ of their first-ever filing and tabulate subsequent
+behaviour within each.
+
+\begin{table}[h]
+\centering
+\caption{Debut-quartile dynamics. ``Debut $\Delta KL$'' is the
+average debut score in the quartile; ``Subseq.\ mean $\Delta KL$'' is
+the average across each firm's filings AFTER the debut. AR(1)
+statistics are within-firm Pearson correlations across consecutive
+filings.}
+\label{tab:quartiles}
+\input{results/debut_quartile_dynamics.tex}
+\end{table}
+
+Three patterns are visible. (1) All four quartiles regress toward the
+mean: the most-innovative quartile (Q4) starts at debut
+$\Delta KL = +0.336$ but its average subsequent filing scores only
+$+0.106$, and the least-innovative quartile (Q1) starts at $-0.309$
+but recovers to $-0.098$. (2) The gap between innovative- and
+conservative-debut firms persists: Q4 firms remain $+0.20$ nats more
+innovative on subsequent filings than Q1 firms. (3) The strongest
+within-firm AR(1) on $\Delta KL$ is in Q4 ($+0.572$); innovative
+firms are the most \emph{consistent} in their innovation, even after
+partial regression. Conservative-debut firms have weaker but still
+substantial AR(1) ($+0.49$), suggesting innovation profile is
+established at the debut bet and tends to persist.
+
+\section{Stock-market returns}
+\label{sec:returns}
+
+If novelty in trademarks predicts firm-level financial outcomes, the
+strongest test is whether it predicts subsequent stock-market returns
+above a market benchmark. We pulled monthly adjusted-close prices
+from Yahoo Finance for every CIK in the USPTO--SEC crosswalk that
+maps to a current ticker ($4{,}254$ matched CIKs, $0.86$M monthly
+price points, plus the S\&P~500 as benchmark), computed end-of-year
+prices, and constructed cumulative total returns at one through
+five-year horizons after each filing year. We then regressed those
+returns (winsorised at the 1st and 99th percentile to suppress
+penny-stock-spike outliers; cluster-robust standard errors at the
+firm level) on the firm's $\Delta KL$ in two specifications:
+firm-year mean across that year's filings, and debut-only.
+
+\begin{table}[h]
+\centering
+\caption{Stock-return regressions on novelty. Each row is a separate
+OLS regression with year linear and quadratic controls;
+cluster-robust standard errors at the firm level; outcome winsorised
+at p1 / p99. Coefficients are in return units per one $\sigma$ of the
+predictor.}
+\label{tab:returns}
+\input{results/returns_table.tex}
+\end{table}
+
+The pattern is consistent with the gross-margin result of
+Section~\ref{sec:financials} and considerably stronger.
+Per one-standard-deviation increase in firm-year mean $\Delta KL$,
+excess return over the S\&P~500 is $+1.5$ pp at one year, peaks at
+$+5.0$ pp at three years, and decays back to the market by year
+five. Per one-standard-deviation increase in debut-filing
+$\Delta KL$ (one observation per firm), excess return is $+3.6$ pp at
+one year, $+19.2$ pp at three years, and peaks at \textbf{$+28.4$
+pp} at four years before partially mean-reverting to $+14.9$ pp at
+five years. Both specifications are statistically significant at the
+one-year horizon and grow more so at intermediate horizons. The
+debut specification eliminates the past-success-funds-current-novelty
+confound and still produces the largest excess-return coefficient in
+the paper. The five-year mean-reversion is consistent with a story
+in which innovative firms enjoy a multi-year ``imitated category
+leader'' window before competition catches up.
+
 \section{Cross-industry comparison}
 \label{sec:cross}
 
