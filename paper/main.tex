@@ -893,12 +893,73 @@ $+2.0$ pp at one year, $+5.9$ pp at three, $+12.1$ pp at five years
 per $\sigma$ of $\log(1+\text{patents})$. The trademark $\Delta KL$
 firm-year coefficients (Table~\ref{tab:returns}) peak earlier and
 decay; the trademark debut coefficients are larger in absolute terms
-($+28$ pp at four years) but shrink at five years. Read together,
-patent-counts and trademark $\Delta KL$ each carry independent
-predictive content for excess returns, with patents' predictive
-power growing monotonically with horizon and trademark
-$\Delta KL$'s peaking and reverting around year four. The two
-measures appear to be complements rather than substitutes.
+($+28$ pp at four years) but shrink at five years.
+
+\paragraph{Are patents and trademark $\Delta KL$ complementary or
+redundant? An $R^2$ decomposition.}
+The complement-vs-substitute question is not rhetorical --- we can
+compute the answer. Restricting to the common panel of firm-years
+in which we observe \emph{both} a patent count and a trademark
+$\Delta KL$ (and the firm appears in our SEC returns data), we run
+eight nested OLS specifications on the same panel of $7{,}607$
+firm-years and report the $R^2$ of each (controls in every spec are
+year linear and quadratic). We add a third predictor, $\log(1+
+\text{patents})$ (P) and the trademark composite $\Delta KL$ (I, for
+``innovator''), but also \emph{novelty alone} (S, the prospective
+KL component) so that we can separately ask whether plain
+filing-time surprise contributes anything.
+
+\begin{table}[h]
+\centering
+\caption{Cumulative $R^2$ from each combination of predictors on
+excess return at horizon $k$, on the common panel of firm-years
+with both a patent count and a trademark KL score. All predictors
+$z$-scored; year linear and quadratic controls in every cell;
+cluster-robust SEs at the firm level (suppressed). The marginal
+contribution of each predictor is the difference from the
+controls-only baseline.}
+\label{tab:r2-decomp}
+\input{results/r2_decomposition.tex}
+\end{table}
+
+Three patterns are visible in Table~\ref{tab:r2-decomp}.
+
+\textbf{(1) All $R^2$ values are small.} On a common panel of
+$7{,}607$ firm-years, controls (year and year-squared) explain
+between $0.7\%$ and $3.4\%$ of cumulative-excess-return variance.
+This is what one expects from firm-level returns: most of the
+variance is idiosyncratic. The contribution of any innovation
+proxy is necessarily a small slice of an already-small explainable
+share.
+
+\textbf{(2) Patents and innovator $\Delta KL$ are very nearly
+additive.} Patents alone add $+0.06$ to $+0.23$ pp of $R^2$ above
+controls (growing with horizon); innovator $\Delta KL$ alone adds
+$+0.10$ to $+0.20$ pp (peaking at three years). Their joint
+contribution P + I is $+0.16$ to $+0.33$ pp, essentially the sum of
+the individual contributions. The two measures share almost no
+explanatory variance for stock returns; they pick out different
+firms, and each firm-feature carries independent return information.
+
+\textbf{(3) Novelty (prospective KL) alone adds essentially nothing.}
+The S-only specification is statistically indistinguishable from
+controls at every horizon ($+0.00$ to $+0.01$ pp), and the marginal
+$R^2$ of S in the P+I+S spec relative to P+I is $\le 0.01$ pp at
+every horizon. The result we documented earlier --- that a filing
+that is merely surprising at the time, without later imitation, does
+not predict returns --- is reproduced cleanly in the $R^2$
+decomposition. The forward-looking component
+($-KL_{\text{retr}}$) is what makes $\Delta KL$ a return predictor,
+not the backward-looking surprise itself.
+
+We therefore replace the previous sentence ``the two measures appear
+to be complements'' with the more precise statement: \textbf{patents
+and trademark $\Delta KL$ are quantitatively additive on stock
+returns; their joint $R^2$ contribution is the sum of the marginal
+contributions of each in isolation, and novelty alone adds nothing.}
+A firm's patent count and a firm's trademark $\Delta KL$ are two
+substantively different innovation channels and the predictive
+content of one is not contained in the other.
 
 Other public comparators that we have \emph{not} pursued in this
 paper but that the published code makes straightforward to add: (i)
