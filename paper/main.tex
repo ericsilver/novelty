@@ -442,23 +442,38 @@ per-bin mean rate.}
 The trademark survival results in Section~\ref{sec:survival} establish
 that the innovation axis is meaningful at the per-filing level, but
 they say nothing about whether innovation pays the firm a financial
-return. To test that, we link USPTO owner names to SEC EDGAR firm names
-in two passes. The first pass aggressively normalises both sides
-(uppercase, strip punctuation, drop legal-entity suffixes such as
+return. To test that, we link USPTO owner names to SEC EDGAR firm
+names entirely automatically; \textbf{no entity match in this paper
+was reviewed by hand}. The procedure has two passes.
+
+The first pass aggressively normalises both sides --- uppercase,
+strip punctuation, drop trailing legal-entity suffixes such as
 \texttt{INC}, \texttt{LLC}, \texttt{CORP}, \texttt{HOLDINGS},
-\texttt{LIMITED}, and so on) and accepts only exact matches on the
-normalised key. A second pass uses fuzzy token-sort matching
-(\texttt{rapidfuzz}, score cutoff 92) to capture the long tail of
-near-variants for USPTO owners with at least 10 filings. The combined
-crosswalk recovers $14{,}280$ USPTO owners ($9{,}370$ exact $+\,4{,}910$
-fuzzy) covering $627{,}349$ trademark filings ($3.8\%$ of the all-class
-corpus by filing count, but a much larger share by economic weight,
-because matched owners are by definition publicly-traded firms with
-material financial reporting). After joining to SEC firm-year
-financials and restricting to firm-years with non-degenerate gross
-margin and at least one trademark filing in the prior three years, the
-analysis panel contains $5{,}326$ firm-years across $1{,}597$ unique
-CIKs over fiscal years 2009--2024.
+\texttt{LIMITED}, \texttt{COMPANY}, \texttt{GMBH}, \texttt{S.A.},
+\texttt{KK}, etc. (the full list is in
+\texttt{scripts/sec\_link.py})  --- and accepts only exact matches
+on the normalised key. The second pass uses fuzzy token-sort
+matching (\texttt{rapidfuzz} with a score cutoff of 92 out of 100)
+to capture the long tail of near-variants for USPTO owners with at
+least 10 filings. The combined crosswalk recovers $14{,}280$ USPTO
+owners ($9{,}370$ exact $+\,4{,}910$ fuzzy) covering $627{,}349$
+trademark filings ($3.8\%$ of the all-class corpus by filing count,
+but a much larger share by economic weight, because matched owners
+are by definition publicly-traded firms with material financial
+reporting). After joining to SEC firm-year financials and
+restricting to firm-years with non-degenerate gross margin and at
+least one trademark filing in the prior three years, the analysis
+panel contains $5{,}326$ firm-years across $1{,}597$ unique CIKs
+over fiscal years 2009--2024.
+
+The fully-automated procedure means the crosswalk has both
+false positives (e.g.\ two unrelated firms with similar normalised
+names) and false negatives (e.g.\ a public firm filing
+trademarks under an unusual subsidiary name that neither pass
+matches). The published \texttt{data\_publish/comparators/
+external\_crosswalk.csv} file records every match decision so any
+reader who wants to override individual entries can do so without
+re-running the pipeline.
 
 \paragraph{Filing volume is itself an innovation marker, but also a
 size marker.} A firm filing many trademarks in a short window may be
@@ -1171,9 +1186,9 @@ The firm-level financial regression averages across industries. To
 see whether the industry composition of the matched panel is doing
 the work, we collapse to one observation per NICE class. For each
 industry $c$, we compute the mean prospective KL, retrospective KL,
-and $\Delta KL$ across all clean filings (1995--2020 cohorts) in $c$,
-and the mean gross margin across all SEC firm-years for the firms
-matched to filings in $c$. Figure~\ref{fig:industry-vs-finance}
+and $\Delta KL$ across all clean filings (1995--2020 cohorts) in
+$c$, and the mean gross margin across all SEC firm-years for the
+firms matched to filings in $c$. Figure~\ref{fig:industry-vs-finance}
 plots all three together.
 
 \begin{figure}[h]
@@ -1184,17 +1199,67 @@ size is proportional to the number of matched public firms in the
 class. Left panel: industry-mean prospective KL (surprise at filing
 time) on the $x$-axis. Centre: industry-mean retrospective KL
 (remained-novel-in-hindsight). Right: industry-mean $\Delta KL$
-(imitated-innovator score). All three are plotted against industry-mean
-gross margin on the $y$-axis. Dashed lines are OLS fits, $\rho$ is the
-Pearson correlation across the 45 industries. Tobacco / textile-input
-/ household-utensil classes lead on $\Delta KL$ (per
-Figure~\ref{fig:ranks}); pharmaceuticals and chemicals exhibit very
-high gross margin but only moderate $\Delta KL$. The cross-industry
-correlation is positive but modest, consistent with a story in which
-trademark-language novelty is one of several drivers of industry-wide
-profitability.}
+(imitated-innovator score). All three are plotted against
+industry-mean gross margin on the $y$-axis. Dashed lines are OLS
+fits, $\rho$ is the Pearson correlation across the 45 industries.}
 \label{fig:industry-vs-finance}
 \end{figure}
+
+\paragraph{What was happening in the labelled industries during the
+analysis window?}
+The cross-industry correlation in
+Figure~\ref{fig:industry-vs-finance} is positive but modest, and the
+specific labelled industries help interpret what the measure picks
+up.
+
+\begin{itemize}
+  \item \textbf{Tobacco \& Smokers' Articles (034)} sits at the
+        far-right (highest $\Delta KL$) of the third panel and at
+        the top of the cross-industry ranking
+        (Figure~\ref{fig:ranks}). The $1995$--$2020$ window covers
+        the entire e-cigarette / vape revolution: the Ruyan
+        cigarette in 2003, NJOY's U.S.\ launch in 2007, the Juul
+        explosion of $2015$--$18$, and the cannabis-vape category
+        of $2018$--$20$ (the category leader by debut $\Delta KL$
+        in our table is \textsc{Audio Technology of New York Inc.}
+        a vape-cartridge filer, $+2.75$). The category went from a
+        few smokeless-tobacco brands to several thousand
+        device-and-cartridge SKUs in fifteen years.
+
+  \item \textbf{Trim, Lace \& Notions (026)} is second-highest on
+        $\Delta KL$. The catalyst is the rise of Asian
+        wholesale hair-extension and synthetic-wig brands selling
+        directly into U.S.\ retail; the top firms by debut
+        $\Delta KL$ in Table~\ref{tab:industry-summary} are
+        \textsc{Xuchang Best Trading} ($+1.93$), \textsc{Chubby
+        Trading} ($+1.74$), and \textsc{Runway Premier
+        International Hair} ($+1.62$). Almost no public-firm
+        category had higher pivot rate during this window.
+
+  \item \textbf{Medical \& Personal Care (044)} is in the middle
+        of the $\Delta KL$ distribution but with high gross
+        margin. The window encompasses the telehealth wave
+        (Teladoc 2002, MDLive 2009, the COVID-era surge in
+        $2020$+), the medical-spa explosion, and CBD/cannabis
+        personal-care entries.
+
+  \item \textbf{Telecommunications (038)} sits at the bottom of
+        the $\Delta KL$ distribution despite having a comparatively
+        high industry margin in our matched panel. The
+        goods/services lexicon was already settled by 1995
+        (\texttt{providing access to telecommunications networks},
+        \texttt{wireless voice communication}); 4G and 5G
+        deployments through the 2010s used the same vocabulary.
+        The category was financially dynamic but linguistically
+        stable.
+
+  \item \textbf{Building Materials (019)} sits even lower: a
+        mature, vocabulary-stable category through the entire
+        window, despite genuine technical change in
+        engineered-wood, low-carbon-cement, and
+        cross-laminated-timber sub-segments that the
+        goods/services lexicon does not appear to have absorbed.
+\end{itemize}
 
 \section{Cross-industry comparison}
 \label{sec:cross}
@@ -1295,6 +1360,78 @@ chemicals) follow the opposite pattern: novel filings face slower
 examination, more office actions, and lower registration rates,
 consistent with examiners pushing back on speculative or boilerplate
 broadenings of established categories.
+
+\section{What is the construct, really?}
+\label{sec:construct}
+
+We have called $\Delta KL$ an ``innovation'' score throughout, but
+the empirical pattern this paper documents is consistent with a
+plainer description.
+
+The two-way pattern --- both extremes outperform the middle, both
+on survival
+(Section~\ref{sec:u-shape}) and on financial variance
+(Section~\ref{sec:financials}) --- is consistent with the
+construct measuring \emph{how unconventional the firm's bets are},
+in either direction. Filings with very high $\Delta KL$ are
+unconventional in the direction of category creation; filings with
+very low $\Delta KL$ are unconventional in the direction of
+templated boilerplate that examiners and competitors leave alone.
+Filings with $\Delta KL \approx 0$ are doing what the rest of the
+industry was already doing, and unsurprisingly that is what the
+data predict for them: average outcomes, average failure rate,
+average margins, average returns.
+
+If we step back from the language of ``innovation'' and ask only
+what the construct actually correlates with:
+\begin{itemize}
+  \item It is essentially uncorrelated with patent counts ($r =
+        +0.01$ in the matched panel) and with Crunchbase total
+        funding ($r = 0.00$); modestly correlated with R\&D-to-revenue
+        ratio ($r = +0.13$).
+  \item It picks out qualitatively different firms than those
+        proxies pick out (Section~\ref{sec:financials}'s patent
+        comparison).
+  \item It predicts firm-year stock returns above the S\&P~500 on
+        a horizon of two-to-five years
+        (Section~\ref{sec:returns}); on the firm-debut variant the
+        peak is at four years and the magnitude is approximately
+        $+28$ percentage points per standard deviation. The peak
+        is several years out, not immediate.
+  \item It also predicts within-firm gross-margin variance
+        (Section~\ref{sec:financials}). Firms whose recent
+        $\Delta KL$ is high earn higher mean margins \emph{and}
+        spend more years far from those means.
+\end{itemize}
+
+These properties are consistent with a simple summary: \textbf{the
+construct measures the smartness, and the riskiness, of the bets a
+firm makes when it names its products}. Average bets ($\Delta KL$
+near zero) earn average outcomes. Bets that depart from convention
+in either direction get rewarded or punished above-average; the
+rewards take several years to arrive, and the variance of outcomes
+is correspondingly larger. Firms with novel bets that the rest of
+the industry then imitates --- the high-$\Delta KL$ filings ---
+are the ones that capture the rewards in the right tail; firms
+with novel bets nobody adopts pay the cost in the left tail.
+Boilerplate filings ($\Delta KL$ very negative) are a different
+kind of bet: a bet that the existing language is good enough,
+that defensibility is more important than category creation. The
+data say that bet also works, but on a flatter return distribution.
+
+This is, at the construct level, an evidentiary claim that
+\emph{ideas matter}, in a fairly literal sense: a firm whose
+trademark filings depart from the industry-mean vocabulary in any
+direction has measurably different financial dynamics than one
+whose filings hew to the centre. The five-year half-life of the
+return effect suggests that good ideas need time to ferment;
+imitators have to recognise the new category and copy it before
+the originator's claim to it becomes valuable. The sub-additivity
+between this measure and patent counts in the $R^2$ decomposition
+(Section~\ref{sec:financials}) means we are not just re-discovering
+patents in a different guise. Whatever this construct is measuring,
+it is measuring something separately predictive of firm
+performance.
 
 \section{Discussion}
 

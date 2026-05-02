@@ -87,19 +87,29 @@ def main() -> int:
         ax.set_title(f"{xlabel.splitlines()[0]}\n($\\rho = {rho:+.2f}$)")
         ax.set_xlabel(xlabel)
         ax.grid(alpha=0.3)
-        # Label a few extreme points
-        idx_top = np.argsort(-y)[:3]
-        idx_bot = np.argsort(y)[:3]
-        idx_xhi = np.argsort(-x)[:3]
-        idx_xlo = np.argsort(x)[:3]
+        # Always label the user-requested classes; then top/bottom of x and y axes
+        FORCE_LABEL = {"034", "026", "044", "038", "019", "032", "009", "005", "036"}
         labelled = set()
-        for i in list(idx_top) + list(idx_bot) + list(idx_xhi) + list(idx_xlo):
+        rows_idx = {df.row(i, named=True)["cls"]: i for i in range(df.height)}
+        for cls in FORCE_LABEL:
+            i = rows_idx.get(cls)
+            if i is None or i in labelled: continue
+            labelled.add(i)
+            row = df.row(i, named=True)
+            short = row["industry"].split(" (")[0]
+            ax.annotate(f"{short} ({cls})", (x[i], y[i]),
+                        xytext=(5, 4), textcoords="offset points",
+                        fontsize=7, color="#222",
+                        bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85))
+        for i in list(np.argsort(-y)[:2]) + list(np.argsort(y)[:2]) + list(np.argsort(-x)[:2]) + list(np.argsort(x)[:2]):
             if i in labelled: continue
             labelled.add(i)
             row = df.row(int(i), named=True)
-            ax.annotate(row["cls"], (x[i], y[i]),
-                        xytext=(4, 3), textcoords="offset points",
-                        fontsize=7, color="#444")
+            short = row["industry"].split(" (")[0]
+            ax.annotate(f"{short} ({row['cls']})", (x[i], y[i]),
+                        xytext=(5, 4), textcoords="offset points",
+                        fontsize=7, color="#222",
+                        bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85))
         # Linear fit line
         if len(x) >= 3:
             b, a = np.polyfit(x, y, 1)

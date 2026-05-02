@@ -174,13 +174,14 @@ def main() -> int:
     fig, ax = plt.subplots(figsize=(9, 5.4))
     # Aggregate decile rates across ALL industries
     decile_pdf = __import__("pandas").DataFrame(decile_rows)
-    agg_dec = decile_pdf.groupby("decile").agg(x=("x", "mean"), y=("rate", "mean"), n=("n", "sum")).reset_index()
-    ax.plot(agg_dec["decile"], agg_dec["y"] * 100, "o-", color="#d62728", linewidth=2.0, markersize=6,
-            label="Cross-industry mean (all 45 NICE classes)", zorder=3)
-    # Each industry as a thin grey line
+    # Each industry as a darker translucent line first, so the red mean lands on top
     for cls in decile_pdf["cls"].unique():
         sub = decile_pdf[decile_pdf["cls"] == cls].sort_values("decile")
-        ax.plot(sub["decile"], sub["rate"] * 100, "-", color="#888", alpha=0.18, linewidth=0.6, zorder=1)
+        ax.plot(sub["decile"], sub["rate"] * 100, "-", color="#666", alpha=0.40, linewidth=0.8, zorder=2)
+    agg_dec = decile_pdf.groupby("decile").agg(x=("x", "mean"), y=("rate", "mean"), n=("n", "sum")).reset_index()
+    ax.plot(agg_dec["decile"], agg_dec["y"] * 100, "o-", color="#d62728", linewidth=2.4, markersize=7,
+            label="Cross-industry mean (all 45 NICE classes)", zorder=4,
+            markeredgecolor="black", markeredgewidth=0.6)
     ax.set_xticks(range(10))
     ax.set_xticklabels([f"D{i+1}" for i in range(10)])
     ax.set_xlabel(r"$\Delta KL$ decile (D1 = least innovative, D10 = most)")
