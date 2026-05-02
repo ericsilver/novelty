@@ -1,14 +1,19 @@
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrr}
 \toprule
-Industry & Outcome (cohort) & N & $\beta$ for $\Delta KL$ & $\beta$ for pros (joint) & $\beta$ for retr (joint) \\
+Outcome & Cohort & N & Base rate & $\beta_{\Delta KL}^{z}$ (logit, log-odds) & Marginal effect (pp per $\sigma$) \\
 \midrule
-Software \& Electronics & Completed registration (all cohorts) & 1,423,405 & +0.124 (0.002) & +0.633 (0.009) & -0.662 (0.009) \\
-Software \& Electronics & Renewed 5y registration (filed $\le$ 2020) & 1,054,572 & +0.079 (0.002) & +0.341 (0.011) & -0.486 (0.011) \\
-Software \& Electronics & Renewed 10y registration (filed $\le$ 2015) & 732,789 & +0.074 (0.002) & +0.254 (0.012) & -0.451 (0.012) \\
-Beer \& Soft Drinks & Completed registration (all cohorts) & 118,424 & +0.123 (0.006) & +0.410 (0.022) & -0.437 (0.022) \\
-Beer \& Soft Drinks & Renewed 5y registration (filed $\le$ 2020) & 87,849 & +0.085 (0.007) & +0.287 (0.025) & -0.344 (0.026) \\
-Beer \& Soft Drinks & Renewed 10y registration (filed $\le$ 2015) & 59,807 & +0.026 (0.009) & +0.096 (0.031) & -0.149 (0.032) \\
+\multicolumn{6}{l}{\textit{Software \& Electronics}} \\
+\midrule
+Completed registration & all cohorts & 1,423,405 & 48.9\% & +0.124 (0.002) & +3.09 (0.04) pp \\
+Renewed 5y registration & filed $\le$ 2020 & 1,054,572 & 41.1\% & +0.079 (0.002) & +1.92 (0.05) pp \\
+Renewed 10y registration & filed $\le$ 2015 & 732,789 & 43.7\% & +0.074 (0.002) & +1.81 (0.06) pp \\
+\midrule
+\multicolumn{6}{l}{\textit{Beer \& Soft Drinks}} \\
+\midrule
+Completed registration & all cohorts & 118,424 & 57.7\% & +0.123 (0.006) & +3.01 (0.15) pp \\
+Renewed 5y registration & filed $\le$ 2020 & 87,849 & 50.5\% & +0.085 (0.007) & +2.12 (0.18) pp \\
+Renewed 10y registration & filed $\le$ 2015 & 59,807 & 50.4\% & +0.026 (0.009) & +0.65 (0.22) pp \\
 \bottomrule
 \end{tabular}%
 }

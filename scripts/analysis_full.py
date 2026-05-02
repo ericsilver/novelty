@@ -413,23 +413,44 @@ def write_regression_table(rows):
         "currently_live": "all cohorts",
     }
     rows = [r for r in rows if r["outcome"] != "currently_live"]
+    # Group by industry so we can use a single sub-heading per industry
+    by_industry: dict[str, list[dict]] = {}
+    for r in rows:
+        by_industry.setdefault(r["industry"], []).append(r)
+
+    body = ""
+    for industry, irows in by_industry.items():
+        ind_safe = industry.replace("&", r"\&")
+        body += (
+            "\\midrule\n"
+            f"\\multicolumn{{6}}{{l}}{{\\textit{{{ind_safe}}}}} \\\\\n"
+            "\\midrule\n"
+        )
+        for r in irows:
+            # Marginal-effect-at-the-mean translation of the logit
+            # coefficient: change in outcome probability (in percentage
+            # points) for a one-sigma increase in the predictor, evaluated
+            # at the sample mean rate p.
+            p = r["rate"]
+            me_dkl = r["coef_dkl_z"] * p * (1 - p) * 100  # in pp
+            me_se_dkl = r["se_dkl_z"] * p * (1 - p) * 100
+            body += (
+                f"{label[r['outcome']]} & "
+                f"{eligibility[r['outcome']]} & "
+                f"{r['n']:,} & "
+                f"{r['rate']*100:.1f}\\% & "
+                f"{r['coef_dkl_z']:+.3f} ({r['se_dkl_z']:.3f}) & "
+                f"{me_dkl:+.2f} ({me_se_dkl:.2f}) pp \\\\\n"
+            )
     tex = (
         "\\resizebox{\\textwidth}{!}{%\n"
         "\\begin{tabular}{llrrrr}\n\\toprule\n"
-        "Industry & Outcome (cohort) & N & "
-        "$\\beta$ for $\\Delta KL$ & "
-        "$\\beta$ for pros (joint) & $\\beta$ for retr (joint) \\\\\n"
-        "\\midrule\n"
+        "Outcome & Cohort & N & Base rate & "
+        "$\\beta_{\\Delta KL}^{z}$ (logit, log-odds) & "
+        "Marginal effect (pp per $\\sigma$) \\\\\n"
+        + body
+        + "\\bottomrule\n\\end{tabular}%\n}\n"
     )
-    for r in rows:
-        industry = r["industry"].replace("&", r"\&")
-        tex += (
-            f"{industry} & {label[r['outcome']]} ({eligibility[r['outcome']]}) & "
-            f"{r['n']:,} & {r['coef_dkl_z']:+.3f} ({r['se_dkl_z']:.3f}) & "
-            f"{r['coef_pros_z']:+.3f} ({r['se_pros_z']:.3f}) & "
-            f"{r['coef_retr_z']:+.3f} ({r['se_retr_z']:.3f}) \\\\\n"
-        )
-    tex += "\\bottomrule\n\\end{tabular}%\n}\n"
     (RESULTS / "regression_table.tex").write_text(tex)
 
 

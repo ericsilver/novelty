@@ -339,9 +339,12 @@ structurally near zero.
 \begin{table}[h]
 \centering
 \caption{Logistic regressions of each survival outcome on $\Delta KL$
-(novelty) and on the joint prospective + retrospective decomposition.
-Coefficients are in log-odds units per one standard deviation of the
-predictor; standard errors in parentheses.}
+(novelty). The first numeric column is the raw logit coefficient on a
+$z$-scored $\Delta KL$ (in log-odds units); the second translates that
+to a marginal effect on the outcome probability, evaluated at the
+sample mean rate, expressed in percentage points per one standard
+deviation of $\Delta KL$. Standard errors in parentheses. Industry
+sub-headings group the three outcomes per industry.}
 \label{tab:survival}
 \input{results/regression_table.tex}
 \end{table}
@@ -752,27 +755,125 @@ shareholder value.}
 \label{fig:faang}
 \end{figure}
 
-\paragraph{Other innovation measures and external validation.}
-We make no claim that $\Delta KL$ is the best operationalisation of
-firm innovation. Several public measures could be regressed against
-ours to test convergent validity. (1) \textbf{Patent counts and
-forward citations} are available without charge through USPTO
-PatentsView; the existing literature treats them as the dominant
-quantitative innovation proxy and a moderate correlation with our
-firm-level $\Delta KL$ would partially validate the trademark-based
-score. (2) \textbf{R\&D-to-revenue ratio} is already in our SEC panel
-and could be added as both a control and a comparator. (3) The
-\textbf{Boston Consulting Group ``Most Innovative Companies'' list}
-has been published annually since 2005 and, while a hybrid of
-quantitative metrics and survey responses, has the advantage of
-incorporating expert qualitative judgment. (4) The (now-discontinued)
-\textbf{MIT Technology Review ``50 Smartest Companies''} list
-(2010--2019) is more research-driven but harder to operationalise as
-a panel. (5) \textbf{Crunchbase fundraising rounds} for private firms
-are an indirect proxy for venture-investor expectations of innovation
-and are partly available through their open data products. We have
-not pursued these comparisons in the present paper; doing so is the
-most natural next robustness check.
+\paragraph{Convergent validity against patent counts.}
+The dominant existing quantitative innovation proxy is the count of
+patents an organization is granted per year. We pulled the full
+PatentsView bulk data ($9.36$ million U.S.\ patents,
+$8.57$ million patent-assignee rows from the
+\texttt{g\_assignee\_disambiguated} table), aggregated to
+(disambiguated assignee, year) patent counts ($1.47$ million
+firm-years), and joined to our trademark $\Delta KL$ firm-years on
+the same normalized-name key used for the SEC crosswalk.
+
+\begin{table}[h]
+\centering
+\caption{Convergent-validity correlations between trademark
+$\Delta KL$ and patent counts on the matched panel. Column ``N'' is
+firm-years (top two rows) or firms (bottom two rows).}
+\label{tab:patent-compare}
+\input{results/patent_compare_table.tex}
+\end{table}
+
+\textbf{The two measures are essentially uncorrelated.} The Pearson
+correlation between firm-year mean $\Delta KL$ and that firm-year's
+patent count is $r = +0.010$ on $174{,}569$ firm-years; using
+$\log(1 + n_{\text{patents}})$ to suppress mega-patent-filer leverage
+gives $r = -0.009$. At the firm level (one observation per firm,
+restricted to firms with at least three years of overlap),
+$r = +0.008$ for raw sums and $r = -0.023$ for log sums. The largest
+patent filers in the matched panel are major-electronics-conglomerate
+incumbents: IBM ($379{,}206$ patents over 26 years, mean $\Delta KL$
+$+0.02$), Samsung ($358{,}183$, $+0.04$), Sony ($188{,}074$,
+$-0.01$), Toshiba, Canon, LG, Intel, Google, Fujitsu, Microsoft.
+\textbf{The two innovation measures pick out very different firms.}
+Patents reward organisations that translate R\&D into legally
+defensible technical claims; trademark $\Delta KL$ rewards
+organisations that introduce business-model or product-language
+novelty that the rest of their industry then adopts. We do not
+regard the near-zero correlation as evidence that one measure is
+wrong; rather, the result is consistent with a position taken
+by Trajtenberg, Hagedoorn, and others in the patent literature ---
+that innovation is a multi-dimensional construct, no single proxy
+captures it cleanly, and pairwise correlations between proxies
+typically sit around $\rho \approx 0.3$ or, as here, lower.
+
+Other public comparators that we have \emph{not} pursued in this
+paper but that the published code makes straightforward to add: (i)
+\textbf{R\&D-to-revenue ratio}, already in the SEC panel; (ii)
+\textbf{Boston Consulting Group ``Most Innovative Companies''}, an
+annual hybrid of quantitative and survey-derived rankings, published
+since 2005; (iii) the \textbf{MIT Technology Review ``50 Smartest
+Companies''} list (2010--2019, now discontinued); (iv)
+\textbf{Crunchbase fundraising} for private firms, a venture-
+investor expectations proxy.
+
+\paragraph{What is a trademark really protecting?}
+The convergent-validity result invites a second look at what the
+trademark filing fundamentally is. A trademark is a legal monopoly
+over a particular set of words, designs, or sounds in connection
+with a particular set of goods and services. The economic value of
+that monopoly comes from how distinctive the goods/services
+description actually is: a generic mark on a generic product
+(\texttt{Beer} for an ale) is hard to defend and easy for competitors
+to crowd; a distinctive description for a genuinely new offering
+(\texttt{Hard Seltzer Works} for a new beverage category) keeps
+later entrants from advertising in the same space without infringing.
+Read this way, the goods/services text is not just a description of
+the firm; it is a legal carve-out around the firm's claim to a
+particular novelty. A trademark filing high in $\Delta KL$ is, in
+this framing, an attempt to reserve the language of a market
+offering before the rest of the industry has named it. That the
+filing later gets imitated --- the empirical mark of a high-$\Delta KL$
+mark --- is exactly the substantive event a successful trademark
+exists to police. The financial reward we measure is, in part, the
+value of having claimed the boundary of a market category before
+competitors arrived to share it.
+
+\paragraph{Companion data release.}
+Two CSV files are published alongside the source code as the data
+contribution of this paper:
+\begin{itemize}
+  \item \texttt{data\_publish/firm\_year\_dkl.csv} ($59{,}033$ rows): for
+    every USPTO trademark owner that we matched to an SEC EDGAR CIK,
+    annual mean prospective KL, retrospective KL, and $\Delta KL$
+    aggregated across all 45 NICE classes the firm filed in.
+  \item \texttt{data\_publish/firm\_year\_patents\_and\_dkl.csv}
+    ($174{,}569$ rows): the joint patent-and-trademark panel
+    underlying Table~\ref{tab:patent-compare}, suitable for any
+    follow-up convergent-validity analysis.
+\end{itemize}
+
+\section{Per-industry novelty vs.\ financial outcomes}
+\label{sec:industry-vs-finance}
+
+The firm-level financial regression averages across industries. To
+see whether the industry composition of the matched panel is doing
+the work, we collapse to one observation per NICE class. For each
+industry $c$, we compute the mean prospective KL, retrospective KL,
+and $\Delta KL$ across all clean filings (1995--2020 cohorts) in $c$,
+and the mean gross margin across all SEC firm-years for the firms
+matched to filings in $c$. Figure~\ref{fig:industry-vs-finance}
+plots all three together.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/industry_vs_finance.png}
+\caption{Each dot is one of the 45 NICE international classes; dot
+size is proportional to the number of matched public firms in the
+class. Left panel: industry-mean prospective KL (surprise at filing
+time) on the $x$-axis. Centre: industry-mean retrospective KL
+(remained-novel-in-hindsight). Right: industry-mean $\Delta KL$
+(imitated-innovator score). All three are plotted against industry-mean
+gross margin on the $y$-axis. Dashed lines are OLS fits, $\rho$ is the
+Pearson correlation across the 45 industries. Tobacco / textile-input
+/ household-utensil classes lead on $\Delta KL$ (per
+Figure~\ref{fig:ranks}); pharmaceuticals and chemicals exhibit very
+high gross margin but only moderate $\Delta KL$. The cross-industry
+correlation is positive but modest, consistent with a story in which
+trademark-language novelty is one of several drivers of industry-wide
+profitability.}
+\label{fig:industry-vs-finance}
+\end{figure}
 
 \section{Cross-industry comparison}
 \label{sec:cross}
