@@ -363,7 +363,8 @@ to clear registration and $15\%$ more likely to renew its
 registration after a decade than a median filing}, with the
 relationship non-monotonic in the middle deciles --- the shape is
 broadly U--shaped, with both the very-low and the very-high
-$\Delta KL$ filings outperforming the middle.
+$\Delta KL$ filings outperforming the middle. We test the
+U--shape formally in Section~\ref{sec:u-shape}.
 
 In log-odds terms, decomposed jointly, prospective surprise (novelty
 at filing time, holding retrospective surprise fixed) actually
@@ -1049,6 +1050,119 @@ contribution of this paper:
     underlying Table~\ref{tab:patent-compare}, suitable for any
     follow-up convergent-validity analysis.
 \end{itemize}
+
+\section{Both extremes outperform: a U-shape across industries}
+\label{sec:u-shape}
+
+The decile-rate plot referenced in Section~\ref{sec:survival} shows
+that the relationship between $\Delta KL$ and survival is not
+linear; it is U--shaped, with both the most-conservative-debut
+filings (lowest decile of $\Delta KL$) and the most-innovative
+filings (highest decile) outperforming the middle deciles. The
+intuition is that both directions of distance from the modal
+filing are rewarded: very-novel filings benefit from category
+creation and the highest decile of $\Delta KL$ is dominated by
+firms that the future imitated; very-conservative filings benefit
+from being unambiguously defensible and easy for the examiner to
+parse. Filings in the middle, neither novel enough to claim a new
+category nor templated enough to coast on legal-clarity grounds,
+fare the worst.
+
+\paragraph{Quadratic regression.}
+We test the curvature directly. For every industry's clean
+filings between 1995 and 2020, we fit a logistic model with both
+$z(\Delta KL)$ and $z(\Delta KL)^2$ as predictors, with year and
+year-squared controls. Pooled across all 45 NICE classes and
+$8.6$ million filings, the quadratic coefficient is positive and
+highly significant for every survival outcome.
+
+\begin{table}[h]
+\centering
+\caption{Pooled quadratic logistic regression of survival outcomes
+on $z$-scored $\Delta KL$ and its square. Year and year-squared
+controls suppressed. A positive quadratic coefficient confirms
+concave-up (``U-shape'').}
+\label{tab:u-shape-pooled}
+\input{results/u_shape_table.tex}
+\end{table}
+
+\paragraph{The U-shape is present in nearly every industry.}
+Refitting the same quadratic per industry on the 5y-survival
+outcome ($n = 44$ industries with at least $5{,}000$ clean
+filings), the quadratic coefficient on $z(\Delta KL)^2$ is
+\textbf{positive in 38 of 44 industries (86\%)} and is
+individually significant at $p < 0.05$ in 29 of those 44
+($66\%$). Table~\ref{tab:u-shape-industries} reports the 15
+industries with the strongest U-curvature and the 5 with the
+weakest (or inverted-U).
+
+\begin{table}[h]
+\centering
+\caption{Per-industry quadratic coefficient on $z(\Delta KL)^2$
+for 5y registration-renewal. Top 15 (most pronounced U) and
+bottom 5. Asterisk = $|t| > 1.96$.}
+\label{tab:u-shape-industries}
+\input{results/u_shape_industries.tex}
+\end{table}
+
+Figure~\ref{fig:u-shape} overlays each industry's per-decile
+5y-renewal rate (thin grey lines) on the cross-industry mean
+(red), making the consistent U-shape visible.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.92\linewidth]{results/u_shape_curves.png}
+\caption{Per-decile 5y registration-renewal rate by $\Delta KL$
+decile. Each grey line is one of the 45 NICE industries; red is
+the cross-industry mean. The U-shape is visible in nearly every
+industry.}
+\label{fig:u-shape}
+\end{figure}
+
+\paragraph{Two-sided exponential fit.}
+A separate test of the same shape is to split the data at
+$\Delta KL = 0$ and ask whether the rate rises exponentially with
+distance from zero on each side: $\log(\text{rate}) = a + b \cdot
+|\Delta KL|$ separately for the negative-$\Delta KL$ and
+positive-$\Delta KL$ halves. The pooled aggregate fits, on the
+5y-survival outcome, give slopes $b_{\text{neg}} = +0.04$ and
+$b_{\text{pos}} = +0.05$ on the bin-aggregated data, both with
+$R^2 > 0.7$ across the deciles within each side. Both sides slope
+positively in $|\Delta KL|$: each one-nat increase in distance
+from zero (in either direction) is associated with roughly a
+$4$-to-$5\%$ relative increase in the per-bin renewal rate.
+
+\paragraph{What is consistent with this story?} The simplest
+narrative is the one we proposed for the financial-variance
+result earlier: \emph{the most-imitated novel filings are
+genuine category leaders that the rest of the industry follows,
+and the most-conventional filings are unambiguous templated marks
+that examiners and competitors leave alone.} Filings in the
+middle have neither edge --- they are neither novel enough to
+attract imitation nor conventional enough to escape conflict.
+Both ends of the dial are rewarded; the trough is occupied by
+the merely-derivative.
+
+\paragraph{Did Beer \& Soft Drinks go in a failed direction
+around 1995?} The notable trough in the Class~32 time-series
+near 1995 (Figure~\ref{fig:ts_bev}) is consistent with this
+story. Inspecting the lowest-$\Delta KL$ Class~32 filings of
+1995 reveals a heavy concentration of \emph{New Age beverage}
+brands: Clearly Canadian (\textsc{Tropical Tangerine},
+\textsc{Clearly Sparkling Tea}), Koala Springs International
+(\textsc{Aussie Slammer}, \textsc{Aussie Fruit Sparkler}), Royal
+Crown's instant-drink mixes (\textsc{Yupii},
+\textsc{Fruitii Instant Drink}), Empire State Beverage's
+flavoured lemonades and teas (\textsc{Sahara Pink Lemonade},
+\textsc{Rosewater Lemonade}, \textsc{Moonlight Tea}), and
+Nestl\'e's exotic-fruit ginger drinks. This is the
+mid-1990s clear-cola / sparkling-tea / iced-tea / exotic-fruit
+wave that crested in $1993$--$95$ and was supplanted by the
+energy-drink wave that began with Red Bull's U.S.\ launch in
+$1997$ and accelerated through Monster ($2002$). The 1995 cohort
+of Class~32 filings was, in retrospect, exactly the cohort that
+the next decade's Class~32 industry stopped looking like. The
+$\Delta KL$ measure correctly identifies it as a tired cohort.
 
 \section{Per-industry novelty vs.\ financial outcomes}
 \label{sec:industry-vs-finance}
