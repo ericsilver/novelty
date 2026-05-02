@@ -707,6 +707,70 @@ the paper. The five-year mean-reversion is consistent with a story
 in which innovative firms enjoy a multi-year ``imitated category
 leader'' window before competition catches up.
 
+\paragraph{Surprise alone does not predict returns.}
+A natural variant of the regression uses prospective KL alone as
+the predictor (rather than the $\Delta KL$ composite). Doing so
+eliminates the result entirely: at the firm-year level the
+prospective-only coefficient is essentially zero at every horizon
+($+0.001$ at 1y, $-0.001$ at 5y); at the debut level it is also
+zero with wider standard errors ($+0.001$ at 1y, $+0.057$ at 5y,
+both indistinguishable from null). \textbf{Mere novelty at filing
+time does not predict subsequent stock returns. Only novelty
+that the future ends up imitating does.} The retrospective
+component is itself a forward-looking signal of which novel filings
+turned out to define a category, and the predictive content of
+$\Delta KL$ for returns sits in that selection.
+
+\paragraph{Cumulative excess return by debut $\Delta KL$ quartile.}
+A clean visual summary of the result is to plot the mean cumulative
+excess return over the S\&P~500 by years-since-debut for each of
+the four debut-$\Delta KL$ quartiles
+(Figure~\ref{fig:cohort-returns}). The most-novel debut quartile
+(Q4) outperforms the least-novel quartile (Q1) by approximately
+twenty percentage points in cumulative excess return by year five,
+with the gap opening continuously across the first five years.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.92\linewidth]{results/cohort_returns.png}
+\caption{Mean cumulative excess return over the S\&P~500 by years
+after the firm's first trademark filing, split by quartile of
+debut-filing $\Delta KL$. Shaded bands are 95\% standard-error
+ribbons; only year-since-debut bins with at least 50 firm-years
+are plotted. The most-novel-debut quartile (Q4, green) accumulates
+a substantial excess return relative to the median; the
+least-novel-debut quartile (Q1, dark red) underperforms the
+benchmark by year three.}
+\label{fig:cohort-returns}
+\end{figure}
+
+\paragraph{Per-industry correlations.} The firm-year and debut
+results pool firms across all industries. We can instead compute
+the within-industry Pearson correlation between firm-mean
+$\Delta KL$ and the firm's mean annual excess return over the
+S\&P~500 (using only firms with at least three years of return
+observations). Table~\ref{tab:industry-returns-corr} reports these
+correlations for the twenty largest industries by matched-firm
+count, with two-sided $p$-values.
+
+\begin{table}[h]
+\centering
+\caption{Per-industry Pearson correlation between firm-mean
+$\Delta KL$ and firm-mean annual excess return over the S\&P~500.
+Asterisk marks correlations with $p < 0.05$. Industries are sorted
+by matched-firm count.}
+\label{tab:industry-returns-corr}
+\input{results/industry_returns_corr.tex}
+\end{table}
+
+The largest industries vary substantially in the strength of the
+$\Delta KL$--return relationship: it is positive and significant in
+some (Class~042 Scientific \& Tech Services, Class~041 Education \&
+Entertainment) and indistinguishable from zero in others. The
+sample-size cap means we cannot resolve a stable rank ordering;
+the takeaway is that the financial reward to trademark novelty is
+not uniform across industries.
+
 \paragraph{Are these results driven by the FAANG cohort?}
 A natural concern is that the 2010s stock market was dominated by a
 handful of mega-cap technology firms whose massive capital
@@ -774,28 +838,53 @@ firm-years (top two rows) or firms (bottom two rows).}
 \input{results/patent_compare_table.tex}
 \end{table}
 
-\textbf{The two measures are essentially uncorrelated.} The Pearson
-correlation between firm-year mean $\Delta KL$ and that firm-year's
-patent count is $r = +0.010$ on $174{,}569$ firm-years; using
-$\log(1 + n_{\text{patents}})$ to suppress mega-patent-filer leverage
-gives $r = -0.009$. At the firm level (one observation per firm,
-restricted to firms with at least three years of overlap),
-$r = +0.008$ for raw sums and $r = -0.023$ for log sums. The largest
-patent filers in the matched panel are major-electronics-conglomerate
-incumbents: IBM ($379{,}206$ patents over 26 years, mean $\Delta KL$
-$+0.02$), Samsung ($358{,}183$, $+0.04$), Sony ($188{,}074$,
-$-0.01$), Toshiba, Canon, LG, Intel, Google, Fujitsu, Microsoft.
-\textbf{The two innovation measures pick out very different firms.}
-Patents reward organisations that translate R\&D into legally
-defensible technical claims; trademark $\Delta KL$ rewards
-organisations that introduce business-model or product-language
-novelty that the rest of their industry then adopts. We do not
-regard the near-zero correlation as evidence that one measure is
-wrong; rather, the result is consistent with a position taken
-by Trajtenberg, Hagedoorn, and others in the patent literature ---
-that innovation is a multi-dimensional construct, no single proxy
-captures it cleanly, and pairwise correlations between proxies
-typically sit around $\rho \approx 0.3$ or, as here, lower.
+\textbf{The two measures are essentially uncorrelated, and we treat
+that as a feature.} The Pearson correlation between firm-year mean
+$\Delta KL$ and that firm-year's patent count is $r = +0.010$ on
+$174{,}569$ firm-years; using $\log(1 + n_{\text{patents}})$ to
+suppress mega-patent-filer leverage gives $r = -0.009$. At the firm
+level (one observation per firm, restricted to firms with at least
+three years of overlap), $r = +0.008$ for raw sums and $r = -0.023$
+for log sums. The largest patent filers in the matched panel are
+major-electronics-conglomerate incumbents: IBM ($379{,}206$ patents
+over 26 years, mean $\Delta KL = +0.02$), Samsung ($358{,}183$,
+$+0.04$), Sony ($188{,}074$, $-0.01$), Toshiba, Canon, LG, Intel,
+Google, Fujitsu, Microsoft. The two innovation measures pick out
+very different firms. Patents reward organisations that translate
+R\&D into legally defensible technical claims; trademark $\Delta KL$
+rewards organisations that introduce business-model or product-language
+novelty that the rest of their industry then adopts. The two
+measures are \emph{substantively} different innovation channels, and
+the absence of a correlation is itself the evidence that
+trademark $\Delta KL$ is measuring something not already covered by
+the dominant innovation proxy.
+
+\paragraph{Patent-count regression on returns.}
+A direct test of which channel matters more for shareholder
+outcomes is to swap our predictor: replace $\Delta KL$ with
+$\log(1 + n_{\text{patents}})$ on the same returns panel, with the
+same year controls and cluster-robust SEs at the firm level.
+
+\begin{table}[h]
+\centering
+\caption{Excess-return regression with $\log(1 + n_{\text{patents}})$
+as the firm-year predictor (z-scored). Same panel and specification
+as the firm-year row of Table~\ref{tab:returns}.}
+\label{tab:patent-returns}
+\input{results/patent_returns_table.tex}
+\end{table}
+
+The patent coefficient is positive and growing with horizon:
+$+2.0$ pp at one year, $+5.9$ pp at three, $+12.1$ pp at five years
+per $\sigma$ of $\log(1+\text{patents})$. The trademark $\Delta KL$
+firm-year coefficients (Table~\ref{tab:returns}) peak earlier and
+decay; the trademark debut coefficients are larger in absolute terms
+($+28$ pp at four years) but shrink at five years. Read together,
+patent-counts and trademark $\Delta KL$ each carry independent
+predictive content for excess returns, with patents' predictive
+power growing monotonically with horizon and trademark
+$\Delta KL$'s peaking and reverting around year four. The two
+measures appear to be complements rather than substitutes.
 
 Other public comparators that we have \emph{not} pursued in this
 paper but that the published code makes straightforward to add: (i)

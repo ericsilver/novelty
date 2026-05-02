@@ -169,9 +169,7 @@ def main() -> int:
     for r in rows:
         survival_lines += (
             f"{label[r['outcome']]} & {r['n']:,} & "
-            f"{r['coef_dkl_z']:+.3f} ({r['se_dkl_z']:.3f}) & "
-            f"{r['coef_pros_z']:+.3f} ({r['se_pros_z']:.3f}) & "
-            f"{r['coef_retr_z']:+.3f} ({r['se_retr_z']:.3f}) \\\\\n"
+            f"{r['coef_dkl_z']:+.3f} ({r['se_dkl_z']:.3f}) \\\\\n"
         )
 
     fin_block = ""
@@ -179,31 +177,27 @@ def main() -> int:
         n_firms = debut_fin['n_firms']
         fin_block = (
             "\\midrule\n"
-            "\\multicolumn{5}{l}{\\textit{Firm-debut financial regression "
+            "\\multicolumn{3}{l}{\\textit{Firm-debut financial regression "
             f"(N={n_firms:,} matched public firms)" + "}} \\\\\n"
             "\\midrule\n"
             f"Mean future gross margin & {n_firms:,} & "
-            f"{debut_fin['coef_dkl_z']:+.3f} ({debut_fin['se_dkl_z']:.3f}) & "
-            f"{debut_fin['coef_pros_z']:+.3f} ({debut_fin['se_pros_z']:.3f}) & "
-            f"{debut_fin['coef_retr_z']:+.3f} ({debut_fin['se_retr_z']:.3f}) \\\\\n"
+            f"{debut_fin['coef_dkl_z']:+.3f} ({debut_fin['se_dkl_z']:.3f}) \\\\\n"
         )
         if var_result is not None:
             fin_block += (
                 f"Within-firm gross-margin std.\\ & {var_result['n_firms']:,} & "
-                f"{var_result['coef_dkl_z']:+.4f} ({var_result['se_dkl_z']:.4f}) & --- & --- \\\\\n"
+                f"{var_result['coef_dkl_z']:+.4f} ({var_result['se_dkl_z']:.4f}) \\\\\n"
             )
 
     tex = (
-        "\\resizebox{\\textwidth}{!}{%\n"
-        "\\begin{tabular}{lrrrr}\n\\toprule\n"
-        "Outcome & N & $\\beta$ for $\\Delta KL$ & "
-        "$\\beta$ for pros (joint) & $\\beta$ for retr (joint) \\\\\n"
+        "\\begin{tabular}{lrr}\n\\toprule\n"
+        "Outcome & N & $\\beta$ for $\\Delta KL$ ($z$-scored) \\\\\n"
         "\\midrule\n"
-        "\\multicolumn{5}{l}{\\textit{Survival on first filings (one per owner across all classes)}} \\\\\n"
+        "\\multicolumn{3}{l}{\\textit{Survival on first filings (one per owner across all classes)}} \\\\\n"
         "\\midrule\n"
         + survival_lines
         + fin_block
-        + "\\bottomrule\n\\end{tabular}%\n}\n"
+        + "\\bottomrule\n\\end{tabular}\n"
     )
     (RESULTS / "first_filing_table.tex").write_text(tex)
 
