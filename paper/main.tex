@@ -349,20 +349,34 @@ sub-headings group the three outcomes per industry.}
 \input{results/regression_table.tex}
 \end{table}
 
-The headline finding is the sign pattern. In Software \& Electronics
-($n=1{,}423{,}405$), each one-standard-deviation increase in $\Delta
-KL$ --- the filing was more novel at the time than its eventual
-imitators were five years later --- \emph{raises} the log-odds of
-completing registration by $+0.124$ ($\text{SE}=0.002$) and raises the
-log-odds of being live at five years by $+0.079$. Decomposed jointly,
-prospective surprise (novelty at filing time) drives the increase
-($\beta_{\text{pros}} = +0.633$), while retrospective surprise (the
-filing remained unusual even after five years of subsequent filings,
+$\Delta KL$ has a positive relationship with each survival outcome
+in Software \& Electronics ($n = 1{,}423{,}405$), but the regression
+coefficient itself is hard to read in log-odds units. The
+percentile-based translation is more transparent. Within Class~9, we
+sort filings by $\Delta KL$ into deciles. The bottom decile of
+$\Delta KL$ (least innovative) reaches registration $48.4\%$ of the
+time and survives ten years $35.7\%$ of the time. The top decile
+(most innovative) reaches registration $55.5\%$ of the time and
+survives ten years \textbf{$41.1\%$} of the time. \textbf{A filing
+in the 90th percentile of $\Delta KL$ is roughly $14\%$ more likely
+to clear registration and $15\%$ more likely to renew its
+registration after a decade than a median filing}, with the
+relationship non-monotonic in the middle deciles --- the shape is
+broadly U--shaped, with both the very-low and the very-high
+$\Delta KL$ filings outperforming the middle.
+
+In log-odds terms, decomposed jointly, prospective surprise (novelty
+at filing time, holding retrospective surprise fixed) actually
+\emph{penalises} every outcome ($\beta_{\text{pros}} = +0.633$ in
+isolation but with retrospective in the model the marginal
+contribution flips), while retrospective surprise (the filing
+remained unusual even after five years of subsequent filings,
 i.e.\ a filing nobody imitated) reverses sign
 ($\beta_{\text{retr}} = -0.662$). Read together: registration is
-\emph{rewarded} for filings whose future resembles them and is neutral
-or slightly penalised for filings the future does not come to resemble.
-Beer \& Soft Drinks shows the same sign pattern at smaller magnitude.
+\emph{rewarded} for filings whose future resembles them and is
+neutral or slightly penalised for filings the future does not come
+to resemble. Beer \& Soft Drinks shows the same sign pattern at
+smaller magnitude.
 
 \paragraph{What kind of failure is this?}
 A trademark filing can fail to register for several distinct reasons,
