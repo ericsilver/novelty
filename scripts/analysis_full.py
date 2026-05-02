@@ -68,8 +68,15 @@ def fig_industry_time_series():
             med = agg[f"{kind}_med"].to_numpy()
             q1 = agg[f"{kind}_q1"].to_numpy()
             q3 = agg[f"{kind}_q3"].to_numpy()
-            ax.axvspan(1984, 1995, color="#fde0a8", alpha=0.55, zorder=0)
-            ax.axvspan(2021, max(years.max() + 1, 2027), color="#cfe5ff", alpha=0.55, zorder=0)
+            ax.axvspan(
+                1984, 1995, facecolor="#bcbcbc", edgecolor="#666",
+                alpha=0.55, hatch="////", linewidth=0.0, zorder=0,
+            )
+            ax.axvspan(
+                2021, max(years.max() + 1, 2027),
+                facecolor="#bcbcbc", edgecolor="#666",
+                alpha=0.55, hatch=r"\\\\", linewidth=0.0, zorder=0,
+            )
             ax.fill_between(years, q1, q3, alpha=0.45, color=color, zorder=1,
                             label="25--75% range across filings in year")
             ax.plot(years, med, color=color, linewidth=1.8, zorder=2,
@@ -92,10 +99,16 @@ def fig_industry_time_series():
 # ---------- Figure: 1980s burn-in investigation ----------
 def fig_burnin():
     fig, ax = plt.subplots(1, 1, figsize=(8, 4))
-    ax.axvspan(1984, 1995, color="#fde0a8", alpha=0.95, zorder=0,
-               label="Past-side burn-in (no 5y look-behind available)")
-    ax.axvspan(2021, 2027, color="#cfe5ff", alpha=0.95, zorder=0,
-               label="Future-side burn-in (no 5y look-ahead available)")
+    ax.axvspan(
+        1984, 1995, facecolor="#bcbcbc", edgecolor="#666", alpha=0.55,
+        hatch="////", linewidth=0.0, zorder=0,
+        label="Past-side burn-in (no 5y look-behind available)",
+    )
+    ax.axvspan(
+        2021, 2027, facecolor="#bcbcbc", edgecolor="#666", alpha=0.55,
+        hatch=r"\\\\", linewidth=0.0, zorder=0,
+        label="Future-side burn-in (no 5y look-ahead available)",
+    )
     for cls, color in zip(CLASSES, ["#1f77b4", "#d62728"]):
         sp = _load_surprise(cls).filter(CLEAN & pl.col("year").is_not_null())
         agg = sp.group_by("year").agg(pl.len().alias("n")).sort("year").filter(pl.col("year") >= 1980)
@@ -157,8 +170,13 @@ def fig_quadrant():
         ax.text(hi - 0.1, hi - 0.1, "diagonal", fontsize=8,
                 ha="right", va="top", color="#444")
 
-        # Resolve hits, then place labels with simple anti-overlap policy
-        placed: list[tuple[float, float, str]] = []  # (x, y, side)
+        # Resolve hits, then use adjustText for force-directed label
+        # placement so labels don't overlap each other or the dots.
+        from adjustText import adjust_text
+
+        xs_lab: list[float] = []
+        ys_lab: list[float] = []
+        text_objs = []
         for mark_q, year_q in examples[cls]:
             hits = (
                 sp.filter(
@@ -178,43 +196,28 @@ def fig_quadrant():
                 continue
             ax.scatter([x], [y], s=46, color="#d62728",
                        edgecolor="black", linewidth=0.7, zorder=4)
-            label = f"{mark_q} ({year_q})"
-
-            # Try a few offset positions; pick the one with no other label within ~0.5 nat
-            offsets = [
-                ("ur", 8, 6), ("ul", -8, 6), ("lr", 8, -10), ("ll", -8, -10),
-                ("u", 0, 12), ("d", 0, -16), ("r", 14, 0), ("l", -14, 0),
-                ("urf", 18, 14), ("ulf", -18, 14), ("lrf", 18, -18), ("llf", -18, -18),
-            ]
-            best = None
-            for tag, dx, dy in offsets:
-                # convert pixel offsets to data-coords for collision check
-                tx = x + dx * 0.012
-                ty = y + dy * 0.012
-                if not (lo <= tx <= hi and lo <= ty <= hi):
-                    continue
-                clash = any((px - tx) ** 2 + (py - ty) ** 2 < 0.16 for px, py, _ in placed)
-                if not clash:
-                    best = (dx, dy, tx, ty, tag)
-                    break
-            if best is None:
-                best = (offsets[0][1], offsets[0][2], x + 0.1, y + 0.1, "ur")
-            dx, dy, tx, ty, tag = best
-            ha = "left" if dx >= 0 else "right"
-            va = "bottom" if dy >= 0 else "top"
-            ax.annotate(
-                label,
-                (x, y),
-                xytext=(dx, dy),
-                textcoords="offset points",
-                fontsize=8,
-                ha=ha,
-                va=va,
-                bbox=dict(boxstyle="round,pad=0.18", fc="white", ec="none", alpha=0.85),
-                arrowprops=dict(arrowstyle="-", color="#888", linewidth=0.5,
-                                shrinkA=2, shrinkB=2) if abs(dx) + abs(dy) > 14 else None,
+            xs_lab.append(x)
+            ys_lab.append(y)
+            text_objs.append(
+                ax.text(
+                    x, y, f"{mark_q} ({year_q})",
+                    fontsize=8, zorder=5,
+                    bbox=dict(boxstyle="round,pad=0.2", fc="white",
+                              ec="none", alpha=0.85),
+                )
             )
-            placed.append((tx, ty, tag))
+        if text_objs:
+            adjust_text(
+                text_objs,
+                x=xs_lab, y=ys_lab, ax=ax,
+                expand=(1.6, 1.8),
+                arrowprops=dict(arrowstyle="-", color="#666", linewidth=0.5,
+                                shrinkA=2, shrinkB=2),
+                only_move={"text": "xy"},
+                force_text=(0.6, 0.8),
+                force_static=(0.4, 0.4),
+                max_move=18,
+            )
 
         ax.set_xlim(lo, hi)
         ax.set_ylim(lo, hi)

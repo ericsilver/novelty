@@ -209,10 +209,14 @@ eligible to demonstrate any kind of post-filing fate.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.85\linewidth]{results/burnin.png}
-\caption{Filings per year with both 5-year reference windows populated.
-Amber: filings whose look-behind window reaches into pre-1985 sparse
-data. Blue: filings whose look-ahead window has not yet elapsed at the
-time of writing. Filings in either band are excluded from regressions.}
+\caption{Filings per year with both 5-year reference windows
+populated. Forward-hatched grey: filings whose look-behind window
+reaches into pre-1985 sparse data (past-side burn-in).
+Backward-hatched grey: filings whose look-ahead window has not yet
+elapsed at the time of writing (future-side burn-in). Filings in
+either band are excluded from regressions; the grey hatches are
+chosen so the two regions remain distinguishable in black-and-white
+print.}
 \label{fig:burnin}
 \end{figure}
 
@@ -699,6 +703,76 @@ confound and still produces the largest excess-return coefficient in
 the paper. The five-year mean-reversion is consistent with a story
 in which innovative firms enjoy a multi-year ``imitated category
 leader'' window before competition catches up.
+
+\paragraph{Are these results driven by the FAANG cohort?}
+A natural concern is that the 2010s stock market was dominated by a
+handful of mega-cap technology firms whose massive capital
+appreciation could mechanically produce a positive coefficient on
+almost any sensible novelty proxy. We address this directly by
+re-running the returns regressions excluding the eight largest tech
+firms in our matched panel: Apple, Microsoft, Amazon, Meta (Facebook),
+Alphabet (Google), Netflix, NVIDIA, and Tesla.
+
+\begin{table}[h]
+\centering
+\caption{Excess-return coefficients with and without the mega-cap
+cohort (Apple, Microsoft, Amazon, Meta, Alphabet, Netflix, NVIDIA,
+Tesla). Each cell is one OLS regression; coefficients are excess
+return per $\sigma$ of $\Delta KL$, year-and-year-squared controls,
+cluster-robust SEs.}
+\label{tab:faang-robust}
+\input{results/faang_returns_table.tex}
+\end{table}
+
+The debut-filing coefficients are essentially identical with or
+without the mega-cap cohort (4y: $+0.2844$ vs.\ $+0.2823$). The
+firm-year coefficients attenuate slightly at long horizons --- the 5y
+firm-year coefficient does collapse to near-zero ($+0.005$ vs.\
+$+0.016$), telling us that whatever 5y firm-year effect existed was
+mostly mega-cap --- but the central 1--3y story holds. The headline
+result that debut $\Delta KL$ predicts a $\sim 28$ pp excess return
+at the 4y horizon is not a FAANG artifact.
+
+Figure~\ref{fig:faang} plots the per-year mean $\Delta KL$ and
+cumulative price for each of the eight firms.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/faang_case_study.png}
+\caption{Per-year mean $\Delta KL$ (top) and cumulative end-of-year
+price normalised to first observation (bottom, log scale) for the
+mega-cap cohort. Tesla's trademark portfolio shows the highest
+per-year $\Delta KL$ in the cohort, consistent with both its
+linguistic novelty and its outsized stock appreciation; NVIDIA shows
+elevated $\Delta KL$ in the AI era. Apple's late-period $\Delta KL$
+is comparatively flat (its categories are well-established) yet its
+cumulative return is among the highest --- a reminder that this
+measure does not capture every channel through which firms create
+shareholder value.}
+\label{fig:faang}
+\end{figure}
+
+\paragraph{Other innovation measures and external validation.}
+We make no claim that $\Delta KL$ is the best operationalisation of
+firm innovation. Several public measures could be regressed against
+ours to test convergent validity. (1) \textbf{Patent counts and
+forward citations} are available without charge through USPTO
+PatentsView; the existing literature treats them as the dominant
+quantitative innovation proxy and a moderate correlation with our
+firm-level $\Delta KL$ would partially validate the trademark-based
+score. (2) \textbf{R\&D-to-revenue ratio} is already in our SEC panel
+and could be added as both a control and a comparator. (3) The
+\textbf{Boston Consulting Group ``Most Innovative Companies'' list}
+has been published annually since 2005 and, while a hybrid of
+quantitative metrics and survey responses, has the advantage of
+incorporating expert qualitative judgment. (4) The (now-discontinued)
+\textbf{MIT Technology Review ``50 Smartest Companies''} list
+(2010--2019) is more research-driven but harder to operationalise as
+a panel. (5) \textbf{Crunchbase fundraising rounds} for private firms
+are an indirect proxy for venture-investor expectations of innovation
+and are partly available through their open data products. We have
+not pursued these comparisons in the present paper; doing so is the
+most natural next robustness check.
 
 \section{Cross-industry comparison}
 \label{sec:cross}
