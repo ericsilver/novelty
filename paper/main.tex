@@ -21,46 +21,49 @@
 \maketitle
 
 \begin{abstract}
-We operationalize firm-level innovation by applying Simon DeDeo's
-prospective/retrospective surprise framework to the goods-and-services
-descriptions of every U.S.\ trademark filed since 1985 across all 45 NICE
-international classes (16.5 million filings, 5.7 million unique
-registrants). Two classes are presented in detail throughout the paper:
-NICE Class~9 (Software \& Electronics) and NICE Class~32 (Beer \& Soft
-Drinks). The remaining 43 industries are summarized in
-Section~\ref{sec:cross}.
-For each filing at calendar year $t$ we compute the Kullback--Leibler
-divergence of its term distribution from a 5-year look-behind reference
-(\emph{prospective} surprise) and from a 5-year look-ahead reference
-(\emph{retrospective} surprise). The contrast $\Delta KL =
-KL_{\text{pros}} - KL_{\text{retr}}$ is positive when a filing was unusual
-at the time but normal in hindsight --- the empirical signature of a firm
-that introduced a category later imitated --- and negative when the past
-predicts the filing better than the future does.
+We measure novelty in firm activity using the goods-and-services
+descriptions of $16.5$ million U.S.\ trademark filings since 1985,
+across all 45 NICE international (industry) classes. For each filing
+we compute two scores. \emph{Prospective surprise} measures how
+unusual the filing's wording was relative to other filings in the
+same industry over the previous five years. \emph{Retrospective
+surprise} measures how unusual it remained after five years of
+subsequent filings: a filing with low retrospective surprise is one
+whose wording the future came to resemble. We treat the difference
+$\Delta KL = KL_{\text{pros}} - KL_{\text{retr}}$ as a single
+``imitated-innovator'' score: positive for filings that were novel
+at the time but were imitated, negative for filings that looked
+ordinary at the time and remained so.
 
-At every observable USPTO milestone, novelty in the goods/services
-description is associated with \emph{better} outcomes, not worse. In a
-generalized linear logit on $1{,}423{,}405$ Class-9 filings, a
-one-standard-deviation increase in $\Delta KL$ \emph{raises} the
-probability of completing registration by $+0.124$ in log-odds
-($\text{SE} = 0.002$), the probability of being a live registration
-five years after filing by $+0.079$ ($\text{SE} = 0.002$), and the
-probability of surviving the first ten-year renewal by $+0.074$
-($\text{SE} = 0.002$). Decomposed, the bulk of non-registrations are
-``no Statement of Use'' filings, where an intent-to-use applicant
-simply never put the mark into commercial use; only $8\%$ of failures
-are direct examiner refusals. The "arrows in the back" pattern of
-penalised pioneers does not appear at the trademark gate.
-Linking the trademark scores to SEC EDGAR financials for $1{,}597$ matched
-publicly-traded firms gives the same pattern at the firm-year level:
-gross margin rises with $\Delta KL$ at $+3.2$ percentage points per
-$\sigma$ (SE $0.6$ pp). The decomposition shows that the gain comes from
-firms whose filings the future ends up resembling, not from firms whose
-filings stand alone. A separate within-firm variance regression confirms
-the symmetric prediction: firms whose recent filings score higher on
-$\Delta KL$ have measurably more variable gross margins, the empirical
-fingerprint of a portfolio that includes some pioneers who succeed and
-some who do not.
+We link the trademark scores to SEC EDGAR financials for the
+publicly-traded subset and ask three questions: do novel filings
+clear examination at higher rates, do novel firms earn higher gross
+margins, and do they bear the higher-variance pattern that a
+``pioneer's bet'' would predict?
+
+Three results emerge. First, in the pooled per-filing logit on
+$1.4$ million Class~9 (Software \& Electronics) filings, a filing one
+standard deviation higher in $\Delta KL$ has $+13\%$ higher odds of
+completing registration; a filing both one standard deviation more
+novel at the time AND one standard deviation more likely to be
+imitated by future filings is roughly $3.6\times$ more likely to
+register. Second, restricting to each firm's \emph{first-ever}
+trademark filing --- to remove the possibility that the registration
+boost reflects filer experience or accumulated firm sophistication
+rather than the novelty of any specific filing --- the registration
+coefficient on novelty actually \emph{flips negative} ($-3\%$ odds
+per $\sigma$): novel debut filings face slightly higher friction at
+examination. Third, on the matched financial panel of $1{,}547$
+publicly-traded firms, those whose three-year trailing trademark
+filings score one $\sigma$ higher in $\Delta KL$ earn $+3.2$
+percentage points higher gross margin (SE $0.6$ pp) and exhibit
+$+0.018$ wider within-firm gross-margin standard deviation.
+Restricting to firms' first-ever filings (one observation per firm,
+$n = 6{,}525$), both effects attenuate by roughly half but remain
+significant: $+1.7$ pp on mean margin, $+0.005$ on margin variance.
+The financial reward to novelty is partly a habit/portfolio effect
+of repeat-filing firms, and partly a property of the firm's debut
+bet itself.
 \end{abstract}
 
 \section{Background}
@@ -105,37 +108,51 @@ USPTO trademark backfile.
 
 \section{Data}
 
-We download the entire USPTO Trademark Annual Applications backfile
-(product TRTYRAP, $\sim$\,12.4\,GB across 91 ZIP parts as of April 2026)
-through the Open Data Portal API. Records are streamed: each ZIP is
-downloaded, parsed in memory with \texttt{lxml.iterparse}, filtered to the
-target NICE international class, and written incrementally to Parquet,
-after which the raw ZIP is deleted. From each \texttt{<case-file>} record
-we retain the serial number, filing date, registration date, status code,
-mark identification, NICE class list, US class list, registrant name (the
-owner at the time of filing), and goods-and-services text (case-file
-statements with type-code prefix \texttt{GS}). Mark-description
-statements (prefix \texttt{D}) are excluded because they describe the
-visual mark, not the business.
+The trademark corpus is the full backfile published by the USPTO Open
+Data Portal, current through end-of-year 2025. After filtering to
+filings with non-empty goods/services text in NICE classes 1--45 and
+a parseable filing date, the corpus contains
+\textbf{$16{,}526{,}850$ filings} from \textbf{$5{,}673{,}680$ unique
+registrant names} across all 45 NICE international classes (35 goods
+classes plus 10 services classes), spanning 1985 to early 2026. Each
+record carries the registrant's name as it appeared on the
+application (this is the owner at the time of filing; subsequent
+assignments are not reflected), the filing date, a status code that
+records the current legal state of the mark, an optional registration
+date, the NICE class assignments, and one or more goods-and-services
+descriptive statements. Statements describing the visual mark itself
+rather than the business (USPTO type-code prefix D) are excluded;
+only goods-and-services statements (prefix GS) are kept. Two classes
+are presented in narrative detail throughout the paper: NICE Class~9
+(Software \& Electronics) and NICE Class~32 (Beer \& Soft Drinks).
+The remaining 43 industries are summarized in
+Section~\ref{sec:cross}, and per-class summary statistics for the two
+focal classes appear in Appendix~\ref{app:summary}.
 
-All 45 NICE international classes are processed; in this paper we work
-through NICE Class 9 (Software \& Electronics) and NICE Class 32 (Beer
-\& Soft Drinks) in narrative detail before reporting the cross-industry
-comparison in Section~\ref{sec:cross}. Class 9 was chosen as the
-canonical software class with high-volume long-tailed structure; Class
-32 was chosen for its tractable size and well-known innovation cycles
-(microbrew, energy drinks, hard seltzer, cannabis beverages). Owner
-names are taken verbatim from the USPTO XML; entity resolution to
-canonical firm identifiers is described in Section~\ref{sec:financials}.
-Per-class summary statistics for these two classes are reported in
-Appendix~\ref{app:summary}; the analogous table for all 45 classes is
-in Section~\ref{sec:cross}.
+The financial-outcome data are the SEC EDGAR Financial Statement
+Data Sets, 64 quarterly XBRL releases spanning fiscal years 2009
+through 2024, covering $13{,}127$ unique CIKs that filed at least
+one 10-K. We extract revenue, cost of revenue, gross profit, R\&D
+expense, operating income, and net income.
 
-For firm-level outcome data we use the SEC EDGAR Financial Statement Data
-Sets (FSDS), 64 quarterly XBRL releases from 2009Q1 through 2024Q4. The
-FSDS covers $13{,}127$ unique CIKs after filtering to consolidated 10-K
-income-statement and balance-sheet tags. We extract revenue, cost of
-revenue, gross profit, R\&D expense, operating income, and net income.
+\paragraph{A data-quality note: missing registration dates.}
+An earlier version of this paper used the per-filing
+\texttt{registration\_date} field to determine whether a mark
+``completed registration.'' This turns out to be wrong: many older
+records (mostly pre-2003) carry a status code in the live-registered
+range (6xx) or post-registration-cancelled range (8xx) but have a
+\texttt{registration\_date} field that is missing in the published
+XML. The status code is the trustworthy field. The earlier
+classification understated the true registration rate by roughly ten
+percentage points for older filings, and because those misclassified
+records are systematically high in $\Delta KL$ (a separate burn-in
+artefact), the earlier per-filing logit produced a spurious
+\emph{negative} coefficient on $\Delta KL$ for completed
+registration. With the bug corrected, the sign reverses
+(Section~\ref{sec:survival}). All results below use the
+status-code-based definition. The pipeline that extracts and analyses
+these data is published with the paper; technical details live in the
+companion repository.
 
 \section{Method}
 
@@ -488,10 +505,19 @@ firm-mean novelty.}
 
 A one-standard-deviation increase in firm-mean $\Delta KL$ raises the
 within-firm gross-margin standard deviation by $+0.018$ in margin units
-(SE $0.004$) on $492$ firms. The pioneer-bet effect is real and
+(SE $0.004$) on $487$ firms. The pioneer-bet effect is real and
 quantitatively meaningful: high-novelty firms simultaneously earn
 higher mean margins (Table~\ref{tab:financials}) and exhibit wider
 margin spread (Table~\ref{tab:variance}).
+
+\paragraph{A causal-attribution caveat.}
+The trailing-3-year predictor pools many filings per firm-year, and a
+firm with several novel filings in its recent past is also a firm whose
+\emph{earlier} filings might have been the cause of its subsequent
+financial success --- that is, the pooled regression cannot distinguish
+``current novelty pays off'' from ``past success funds the current
+novelty habit.'' We address this directly in Section~\ref{sec:debut} by
+restricting the predictor to each firm's first-ever filing.
 
 \begin{figure}[h]
 \centering
@@ -506,6 +532,60 @@ well-known software firms whose names match exactly in the SEC ticker
 file.}
 \label{fig:fin}
 \end{figure}
+
+\section{Outcome 3: Debut-filing-only test}
+\label{sec:debut}
+
+The pooled per-filing logit in Section~\ref{sec:survival} treats each of
+a firm's filings as an independent observation, and the firm-year
+panel in Section~\ref{sec:financials} averages each firm's recent
+trademark portfolio. Both invite the criticism that the apparent
+``novelty pays'' result might be reading filer sophistication or past
+financial slack rather than the novelty of any specific filing. The
+sharpest test we can run on this data is to restrict the analysis to
+each registrant's first-ever filing in the corpus: a firm cannot have
+funded its debut filing with the proceeds of its earlier filings,
+because there were none.
+
+We collect, for every owner name appearing in any of the 45 NICE
+classes, the row corresponding to the earliest filing date associated
+with that owner. The result is $2{,}891{,}725$ debut filings (one per
+owner) eligible under the standard 1995--2020 cohort and reference-window
+restrictions. Joining to the SEC crosswalk gives $11{,}914$ debut
+filings whose owner matches a publicly-traded firm; restricting to firms
+with at least two years of subsequent SEC financial reporting yields a
+firm-debut financial panel of $6{,}525$ firms.
+
+\input{results/first_filing_table.tex}
+
+The pattern is consistent and informative.
+
+\textbf{Survival.} On debut filings, the $\Delta KL$ coefficient on
+completing registration shrinks from the pooled value of $+0.124$ to
+\textbf{$-0.034$} (still highly significant on $2.9$M observations). A
+debut filer who introduces unusually novel goods/services language
+appears to face slightly more registration friction --- the opposite
+sign of the pooled effect. The pooled positive coefficient was reading
+filer sophistication: firms with deep filing portfolios know how to
+write a description that survives examination, and they also tend to
+file more novel marks. Among first-time filers neither advantage is
+present. Renewal coefficients are smaller in magnitude but stay
+positive ($+0.042$ at the 10y mark), suggesting that long-run
+persistence still favours novelty among debut filings.
+
+\textbf{Financial.} On the firm-debut panel, a one-standard-deviation
+increase in the firm's debut-filing $\Delta KL$ is associated with
+\textbf{$+1.7$ percentage points} higher mean future gross margin (SE
+$0.3$, $n = 6{,}525$ firms) and $+0.5$ percentage points higher
+within-firm margin standard deviation (SE $0.15$, $n = 5{,}008$
+firms). Both effects are roughly half the magnitude of the pooled
+trailing-3-year results in Section~\ref{sec:financials}. We take the
+attenuation as evidence that part of the original firm-year reward
+reflects the habit/portfolio confound the user-supplied caveat
+predicted, but that a substantive debut effect remains: the novelty of
+a firm's first trademark filing predicts its subsequent average
+financial performance, even before the firm has produced any other
+trademark filings to ``fund'' the bet.
 
 \section{Cross-industry comparison}
 \label{sec:cross}
