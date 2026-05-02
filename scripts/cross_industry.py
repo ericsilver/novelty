@@ -71,19 +71,62 @@ def industry_summary(classes: list[str]) -> pl.DataFrame:
 
 
 def write_summary_tex(summary: pl.DataFrame) -> None:
+    """Per-industry summary, with top-3 firms by firm-mean dKL appended.
+
+    A firm is included in the per-industry top-3 if it has at least
+    three clean filings in that industry between 1995 and 2020 (so the
+    mean isn't driven by a single filing).
+    """
+    sys.path.insert(0, str(REPO_ROOT / "src"))
+    from novelty.industries import name as industry_name  # noqa
+
+    CLEAN = (
+        (pl.col("n_ref_prospective") >= 1000)
+        & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_terms") >= 3)
+    )
+
+    top_by_cls: dict[str, str] = {}
+    for cls in summary["cls"].to_list():
+        path = REPO_ROOT / f"data/processed/outcomes_class{cls}.parquet"
+        if not path.exists():
+            continue
+        df = pl.read_parquet(path).filter(
+            CLEAN & (pl.col("year") >= 1995) & (pl.col("year") <= 2020)
+            & pl.col("owner_name").is_not_null()
+        )
+        firm_means = (
+            df.group_by("owner_name")
+            .agg(
+                pl.col("dkl").mean().alias("firm_mean_dkl"),
+                pl.len().alias("n_filings"),
+            )
+            .filter(pl.col("n_filings") >= 3)
+            .sort("firm_mean_dkl", descending=True)
+            .head(3)
+        )
+        names = []
+        for r in firm_means.iter_rows(named=True):
+            display = (r["owner_name"] or "")[:40].replace("&", r"\&")
+            names.append(f"{display} ($+{r['firm_mean_dkl']:.2f}$)")
+        top_by_cls[cls] = "; ".join(names) if names else "---"
+
+    L = r">{\raggedright\arraybackslash}"
     tex = (
         "\\resizebox{\\textwidth}{!}{%\n"
-        "\\begin{tabular}{lrrrrrrrr}\n\\toprule\n"
+        "\\begin{tabular}{l rrrr rr rr " + L + "p{8.5cm}}\n\\toprule\n"
         "Industry (NICE) & Filings & Clean & Owners & Years & "
-        "$\\Delta KL$ med. & $\\Delta KL$ mean & 5y reg.\\ rate & Reg.\\ rate \\\\\n"
+        "$\\Delta KL$ med. & $\\Delta KL$ mean & 5y reg.\\ rate & Reg.\\ rate & "
+        "Top 3 firms by firm-mean $\\Delta KL$ ($\\geq 3$ filings) \\\\\n"
         "\\midrule\n"
     )
     for r in summary.iter_rows(named=True):
         ind = r["industry"].replace("&", r"\&")
+        top3 = top_by_cls.get(r["cls"], "---")
         tex += (
             f"{ind} ({r['cls']}) & {r['n_filings']:,} & {r['n_clean']:,} & {r['n_owners']:,} & "
             f"{r['year_min']}--{r['year_max']} & {r['median_dkl']:+.2f} & {r['mean_dkl']:+.2f} & "
-            f"{r['surv5_rate']*100:.0f}\\% & {r['reach_rate']*100:.0f}\\% \\\\\n"
+            f"{r['surv5_rate']*100:.0f}\\% & {r['reach_rate']*100:.0f}\\% & {top3} \\\\\n"
         )
     tex += "\\bottomrule\n\\end{tabular}%\n}\n"
     (RESULTS / "industry_summary.tex").write_text(tex)
