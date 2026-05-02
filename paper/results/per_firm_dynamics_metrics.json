@@ -1,0 +1,43 @@
+{
+  "n_pairs": 5742062,
+  "ar1_pros": 0.6795468413386475,
+  "ar1_dkl": 0.5523148044679038,
+  "median_per_firm_slope": 0.0,
+  "mean_per_firm_slope": -0.0006581974300861952,
+  "share_positive_slope": 0.4702641678880972,
+  "n_firms_for_slopes": 472124,
+  "quartiles": [
+    {
+      "quartile": "Q1 (least novel)",
+      "n_firms": 309375,
+      "mean_debut_dkl": -0.308577077284819,
+      "mean_subsequent_dkl": -0.09815695607563948,
+      "ar1_pros": 0.6366904767057622,
+      "ar1_dkl": 0.4854176054692609
+    },
+    {
+      "quartile": "Q2",
+      "n_firms": 309374,
+      "mean_debut_dkl": -0.0685572553797011,
+      "mean_subsequent_dkl": -0.03404651341789231,
+      "ar1_pros": 0.6971258612750734,
+      "ar1_dkl": 0.41711173218475467
+    },
+    {
+      "quartile": "Q3",
+      "n_firms": 309374,
+      "mean_debut_dkl": 0.05731761453373795,
+      "mean_subsequent_dkl": 0.0149752525272026,
+      "ar1_pros": 0.7063431914218515,
+      "ar1_dkl": 0.4181256515888607
+    },
+    {
+      "quartile": "Q4 (most novel)",
+      "n_firms": 309375,
+      "mean_debut_dkl": 0.3355619092278319,
+      "mean_subsequent_dkl": 0.10608446237774714,
+      "ar1_pros": 0.6791568816842646,
+      "ar1_dkl": 0.5723474181685907
+    }
+  ]
+}
