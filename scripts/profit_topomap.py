@@ -100,11 +100,11 @@ def main() -> int:
     print(f"    with excess 1y return: {panel['mean_excess_1y'].notna().sum():,}")
     print(f"    with excess 4y return: {panel['mean_excess_4y'].notna().sum():,}")
 
-    # 2D bins on (mean_pros, mean_retr)
-    # Use the central range where most firms live
+    # 2D bins on (mean_pros, mean_retr).  9x as many cells as before.
+    # Use the central range where most firms live.
     p_lo, p_hi = panel["mean_pros"].quantile([0.02, 0.98])
     r_lo, r_hi = panel["mean_retr"].quantile([0.02, 0.98])
-    n_bins = 12
+    n_bins = 36
     p_edges = np.linspace(p_lo, p_hi, n_bins + 1)
     r_edges = np.linspace(r_lo, r_hi, n_bins + 1)
     p_centres = 0.5 * (p_edges[:-1] + p_edges[1:])
@@ -115,7 +115,10 @@ def main() -> int:
     panel = panel[(panel["p_bin"] >= 0) & (panel["p_bin"] < n_bins)
                   & (panel["r_bin"] >= 0) & (panel["r_bin"] < n_bins)]
 
-    def heatmap(metric: str, min_n: int = 5):
+    # Min-firm threshold relaxed to 1 so the off-diagonal sparse area
+    # actually renders. Numbers in cells are removed at this resolution
+    # because they no longer fit.
+    def heatmap(metric: str, min_n: int = 1):
         H = np.full((n_bins, n_bins), np.nan)
         N = np.zeros((n_bins, n_bins), dtype=int)
         sub = panel.dropna(subset=[metric])
@@ -153,13 +156,8 @@ def main() -> int:
         diag_hi = min(p_hi, r_hi)
         ax.plot([diag_lo, diag_hi], [diag_lo, diag_hi], color="black",
                 linewidth=0.7, linestyle="--", alpha=0.7)
-        # n labels in each cell where data is shown
-        for i in range(n_bins):
-            for j in range(n_bins):
-                if not np.isnan(H[i, j]) and N[i, j] >= 5:
-                    ax.text(p_centres[j], r_centres[i], f"{N[i,j]}",
-                            ha="center", va="center", fontsize=6,
-                            color="white", alpha=0.7)
+        # cells too small for in-cell text at 36x36; the colormap +
+        # diagonal already convey the geography.
         ax.set_xlabel(r"Mean prospective KL  (firm)")
         ax.set_ylabel(r"Mean retrospective KL  (firm)")
         ax.set_title(title)
@@ -180,7 +178,7 @@ def main() -> int:
     fig.suptitle(
         f"Firm financial outcomes on the (prospective KL, retrospective KL) plane\n"
         f"each cell averaged over firms with $\\geq 3$ filings ($\\geq 3$ firm-years for outcome); "
-        f"min 5 firms per cell to colour; small numbers in cells = N firms",
+        f"36$\\times$36 grid; min 1 firm per cell to colour",
         y=1.02, fontsize=11,
     )
     fig.tight_layout()
