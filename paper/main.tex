@@ -322,26 +322,40 @@ spike disappears as soon as the look-behind window clears 1989.}
 We derive three binary outcomes per filing from the USPTO status code.
 
 \begin{itemize}
-  \item \textbf{Completed registration:} the filing eventually reached a
-        registered status (a non-null \texttt{registration\_date} is in
-        the record). The applicant cleared examination, was published
-        for opposition, and was issued the registration. The lag from
-        filing to registration is typically nine to twenty-four months
-        and depends on examiner office actions, opposition activity, and
-        whether the application was filed under intent-to-use. We treat
-        any filing with a registration date as having ``completed
-        registration'' regardless of the elapsed time.
-  \item \textbf{Renewed 5y registration:} completed registration, was
-        filed at least five years before the present, and was not
-        cancelled. The first Section~8 maintenance filing is due between
-        the fifth and sixth year of registration; failure to file it is
-        the most common cause of early cancellation, so reaching the
-        five-year mark is a meaningful viability test.
-  \item \textbf{Renewed 10y registration:} completed registration, was
-        filed at least ten years before the present, and was not
-        cancelled. The first Section~9 renewal is due at year ten;
-        subsequent renewals are due every ten years indefinitely.
+  \item \textbf{Completed registration:} the filing eventually reached
+        a registered status (status code beginning 6 or 8). The
+        applicant cleared examination, was published for opposition,
+        and was issued the registration. The lag is typically
+        nine to twenty-four months.
+  \item \textbf{Renewed 5y registration:} completed registration, is
+        at least five years old, and was not cancelled with status
+        code 686 (the Section-8 maintenance failure code). Strict
+        subset of ``completed registration'' within any single filing.
+  \item \textbf{Renewed 10y registration:} renewed 5y, is at least ten
+        years old, and was not cancelled with status code 688 (the
+        Section-9 renewal failure code). Strict subset of renewed 5y.
 \end{itemize}
+
+\paragraph{Limitation: 5y / 10y survival outcomes are nearly
+indistinguishable in this data.} The Section-8 (686) and Section-9
+(688) cancellation codes are present in the corpus but together
+account for less than $2\%$ of filings; most cancellations get
+broader codes that we cannot assign to a particular gate. Within
+the same cohort cap, ``Renewed 5y'' and ``Renewed 10y'' are
+empirically nearly identical, dominated by the underlying
+``currently registered'' rate. An earlier draft of this paper used
+\emph{different} cohort caps for each outcome (5y $\to$ filed
+$\le 2020$; 10y $\to$ filed $\le 2015$) which produced a misleading
+ordering in which the 10y rate appeared higher than the 5y rate ---
+a cohort-composition artifact: the 5y panel included recent filings
+still in examination (status 4xx) which counted against the 5y rate
+but not against the 10y rate that excluded them. We now apply the
+same cohort cap (filed $\le 2015$) to all survival outcomes, which
+makes them properly nested subsets within each filing but also
+makes them indistinguishable as separate hazard measures. The
+figures below therefore show only two well-separated outcomes,
+``Completed registration'' and ``Currently registered (April 2026),''
+and the regression table reports all three for completeness.
 
 We estimate generalized linear logit models of the form
 \[
