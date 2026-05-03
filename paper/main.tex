@@ -1233,6 +1233,169 @@ attract imitation nor conventional enough to escape conflict.
 Both ends of the dial are rewarded; the trough is occupied by
 the merely-derivative.
 
+\paragraph{An office-action mechanism for the U.}
+A more mechanical reading of the same shape comes from
+likelihood-of-confusion: middle-$\Delta KL$ filings pick fresh-but-
+not-distinctive vocabulary that happens to overlap with prior
+marks already on the register, generating examiner office actions
+and applicant abandonments. The status code 700 ``abandoned, no
+response to office action'' is the modal post-examination failure;
+its share by $\Delta KL$ decile is itself U-shaped in reverse
+(D1: $5.1\%$; middle deciles 3--5: $13.6$--$14.5\%$; D10:
+$11.1\%$). Templated marks have one canonical form and rarely
+conflict; novel marks use vocabulary nobody else has used; middle
+marks compete for the same crowded mid-frequency words. The
+survival U-shape and the conflict U-shape line up almost exactly.
+
+\paragraph{Five alternative explanations tested.}
+The U-shape is genuinely strange enough that it warrants a
+falsification battery. Table~\ref{tab:alternatives} reports
+re-fits of the pooled survival quadratic on five different
+sub-samples designed to probe candidate confounds.
+
+\begin{table}[h]
+\centering
+\caption{Robustness of the survival U-shape to five candidate
+confounds. The quadratic coefficient $\beta_{\Delta KL^2}^z$ stays
+strongly positive everywhere except in the financial outcome,
+where the relationship is roughly linear.}
+\label{tab:alternatives}
+\input{results/u_shape_alternatives.tex}
+\end{table}
+
+\textbf{(1) The foreign-extension hypothesis is rejected.} A
+common worry is that the very-stale (low-$\Delta KL$) end is
+inflated by Madrid-Protocol or Section-44 international
+extensions of marks already registered abroad --- such marks
+would use vocabulary established years before they reached the
+US filing record. Using a foreign-owner proxy
+(name suffixes \texttt{GMBH}, \texttt{S.A.}, \texttt{AB},
+\texttt{KK}, \texttt{Pty}, \texttt{Pte}, \texttt{PLC},
+\texttt{N.V.}, \texttt{B.V.}, etc., $3.8\%$ of the sample) and
+re-fitting on US-only and foreign-only sub-samples, the
+quadratic coefficient is essentially identical
+($+0.0078$ and $+0.0100$ respectively). The U-shape is not a
+foreign-extension artifact.
+
+\textbf{(2) The U is present in both first-time and recurring
+filings} ($\beta_{\text{quad}} = +0.0080$ vs.\ $+0.0140$), with recurring filings
+showing a slightly stronger curvature.
+
+\textbf{(3) The financial U-shape is essentially absent.} A
+quadratic refit of the firm-year gross-margin OLS gives a
+linear coefficient indistinguishable from zero
+($\beta_{\text{lin}} = +0.002$, SE $0.005$) and a marginally
+negative quadratic ($\beta_{\text{quad}} = -0.002$, SE $0.001$)
+on $8{,}600$ firm-years. \textbf{The U-shape lives in survival;
+gross margin scales roughly linearly with $\Delta KL$.} The
+prior section's reported $+3.2$ pp/$\sigma$ linear effect is the
+right summary.
+
+\textbf{(4) Survivor bias from large incumbents partially
+supports the left arm.} Mean firm filing-volume by $\Delta KL$
+decile shows the bottom decile is dominated by larger filers
+(mean firm-size $103.7$ filings) than the middle deciles
+($63$--$71$); the top decile is back to $71$. Templated marks
+disproportionately come from firms with deep portfolios who can
+afford to file --- and maintain --- many similar boilerplate
+marks. This is consistent with part of the left-arm uplift being
+\emph{firm capability} rather than \emph{filing distinctiveness}.
+
+\textbf{(5) The ``Liquid Death'' hypothesis is rejected.} A
+sceptic might worry that the bottom-decile arm is actually
+high-novelty firms whose products are described in old
+vocabulary --- like Liquid Death's canned water marketed as
+``still water; sparkling water.'' Splitting the bottom decile
+by goods/services text length does not show this: the shortest
+quartile and the longest quartile both renew at
+$44$--$46\%$ at five years. Templated marks are not novel
+products in disguise; they really are templated, and they really
+do survive.
+
+\paragraph{Imitated-but-failed waves: the blockchain check.}
+The user-supplied counterexample is to ask whether any
+recognisable hype wave was both widely imitated (high
+$\Delta KL$) and disproportionately a failure. The blockchain /
+cryptocurrency / NFT / web3 cohort is a clean test:
+$87{,}463$ filings 1995--2025 mention at least one
+crypto-related keyword in their goods/services text;
+$9{,}408$ are clean by our usual restrictions. The cohort's mean
+$\Delta KL$ is $+0.412$ vs.\ $-0.002$ for the corpus average ---
+a genuinely high-novelty wave. \emph{Survival-wise the wave is
+out-performing, not failing}: registration rate $51.5\%$ vs.\
+$48.3\%$ corpus mean; five-year survival $51.4\%$ vs.\ $39.1\%$
+corpus mean. Restricted to the top decile of $\Delta KL$, the
+crypto cohort beats non-crypto top-decile filings on both
+margins ($57.3\%$ vs.\ $47.5\%$ on registration; $57.2\%$ vs.\
+$40.9\%$ on five-year survival). Whatever else can be said about
+the blockchain wave's commercial track record, the trademark
+filings themselves are surviving well, which is consistent with
+the same likelihood-of-confusion mechanic --- the crypto
+vocabulary did not yet exist in the trademark register before
+the wave, so applicants did not collide with prior marks.
+
+\paragraph{$|\Delta KL|$ as a single-number test.}
+Collapsing the U-shape to one number, we regress each survival
+outcome on $|\Delta KL|$ alone (with the same year and
+log-n-terms controls). On a $500{,}000$ filing sample:
+
+\begin{table}[h]
+\centering
+\caption{Single-predictor regression on $|\Delta KL|$ (the
+absolute distance from $\Delta KL = 0$).}
+\label{tab:abs-dkl}
+\input{results/abs_dkl_table.tex}
+\end{table}
+
+The $z$-statistics on $|\Delta KL|$ are $+2.4$ for completed
+registration, $+9.2$ for 5y survival, $+14.1$ for 10y survival,
+all positive and the latter two highly significant. The
+incremental linear-$R^2$ from $|\Delta KL|$ over the controls is
+small (under $0.06$ percentage points) but real, consistent with
+the U-shape we documented in the quadratic.
+
+\paragraph{What else could be going on?}
+A handful of further candidate stories that the data so far
+are consistent with but cannot directly distinguish:
+
+\begin{itemize}
+  \item \emph{Narrative vs.\ analytical decision-making.} Firms
+        in the middle of the $\Delta KL$ distribution may be
+        chasing trends without committing either to the trend's
+        canonical vocabulary or to a clearly differentiated
+        wording. The data are consistent with this --- the
+        worst-performing filings are exactly those that ``follow
+        the herd without standing out from it'' --- but we have
+        no behavioural data to confirm decision style.
+  \item \emph{Pay-phones-after-cell-phones.} The middle deciles
+        may include filings whose entrepreneurs are starting
+        businesses on templates the industry is in the process
+        of abandoning --- not low-novelty enough to coast on
+        legal clarity, not high-novelty enough to claim a new
+        category. The 1995 Beer \& Soft Drinks trough
+        (Section~\ref{sec:u-shape}) is exactly such a cohort.
+  \item \emph{Filing volume as a hedge.} Large incumbents file
+        many marks per year and accept that some will fail;
+        their templated bottom-decile filings benefit from the
+        firm's resources for renewal and maintenance even when
+        the underlying product fails. The mean firm filing-volume
+        by decile evidence above is consistent.
+  \item \emph{Examiner heuristics.} Examiners may grant clear
+        templates (boilerplate is easy to evaluate) and clear
+        novelties (no prior conflict to cite) at higher rates
+        than middle-of-the-distribution filings, regardless of
+        any underlying business outcome. The status-700 share
+        evidence above is consistent.
+\end{itemize}
+
+We cannot, with this data, single out which of these mechanisms
+dominates. What we can say is that the survival U-shape is
+robust to the obvious confounds, that it does not appear in the
+firm-year financial outcome (which is roughly linear in $\Delta
+KL$), and that there is direct mechanical evidence
+(office-action incidence) that middle-$\Delta KL$ filings face
+more friction than either tail.
+
 \paragraph{Did Beer \& Soft Drinks go in a failed direction
 around 1995?} The notable trough in the Class~32 time-series
 near 1995 (Figure~\ref{fig:ts_bev}) is consistent with this

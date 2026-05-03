@@ -1,0 +1,134 @@
+{
+  "financial_quadratic": {
+    "n": 8600,
+    "beta_lin": 0.0019639702703239045,
+    "se_lin": 0.004653010446660915,
+    "beta_quad": -0.002204622207299075,
+    "se_quad": 0.0012149020185353479,
+    "rsq": 0.010290453403000943
+  },
+  "survivor_bias": [
+    {
+      "dec": 0,
+      "x": -0.4553461556227456,
+      "mean_firm_size": 103.72948496546708,
+      "median_firm_size": 5.0,
+      "n": 863379
+    },
+    {
+      "dec": 1,
+      "x": -0.2197431439347421,
+      "mean_firm_size": 89.21672753217301,
+      "median_firm_size": 6.0,
+      "n": 863379
+    },
+    {
+      "dec": 2,
+      "x": -0.1403230015364817,
+      "mean_firm_size": 79.34403934313823,
+      "median_firm_size": 6.0,
+      "n": 863378
+    },
+    {
+      "dec": 3,
+      "x": -0.08469719689269906,
+      "mean_firm_size": 73.09886411150633,
+      "median_firm_size": 6.0,
+      "n": 863377
+    },
+    {
+      "dec": 4,
+      "x": -0.03693831411598711,
+      "mean_firm_size": 71.08383214806922,
+      "median_firm_size": 6.0,
+      "n": 863380
+    },
+    {
+      "dec": 5,
+      "x": 0.009339579835406325,
+      "mean_firm_size": 64.9711575102012,
+      "median_firm_size": 6.0,
+      "n": 863379
+    },
+    {
+      "dec": 6,
+      "x": 0.05934865478925972,
+      "mean_firm_size": 66.72459487664166,
+      "median_firm_size": 6.0,
+      "n": 863379
+    },
+    {
+      "dec": 7,
+      "x": 0.12090997999643373,
+      "mean_firm_size": 64.10030832381645,
+      "median_firm_size": 6.0,
+      "n": 863378
+    },
+    {
+      "dec": 8,
+      "x": 0.21359089275512666,
+      "mean_firm_size": 63.859592206426385,
+      "median_firm_size": 5.0,
+      "n": 863378
+    },
+    {
+      "dec": 9,
+      "x": 0.5132836227070526,
+      "mean_firm_size": 71.3503555792351,
+      "median_firm_size": 3.0,
+      "n": 863380
+    }
+  ],
+  "splits": [
+    {
+      "section": "Foreign-extension hypothesis",
+      "label": "Full sample",
+      "n": 600000,
+      "rate": 0.39155833333333334,
+      "beta_dkl": 0.004273349804311833,
+      "se_dkl": 0.0027569899525074137,
+      "beta_dkl_sq": 0.008934130913868557,
+      "se_dkl_sq": 0.0007828775293595959
+    },
+    {
+      "section": "Foreign-extension hypothesis",
+      "label": "US-domiciled only (foreign proxy = False)",
+      "n": 577392,
+      "rate": 0.39854379693518444,
+      "beta_dkl": 0.00430113327150671,
+      "se_dkl": 0.002805932700558485,
+      "beta_dkl_sq": 0.007843323619270051,
+      "se_dkl_sq": 0.0007984930310184268
+    },
+    {
+      "section": "Foreign-extension hypothesis",
+      "label": "Foreign-domiciled only (foreign proxy = True)",
+      "n": 22608,
+      "rate": 0.213154635527247,
+      "beta_dkl": 0.07406668169762633,
+      "se_dkl": 0.016533074750012953,
+      "beta_dkl_sq": 0.010031828037214393,
+      "se_dkl_sq": 0.0038370199479873203
+    },
+    {
+      "section": "First-time vs recurring",
+      "label": "First-time filings only",
+      "n": 429815,
+      "rate": 0.3899561439223852,
+      "beta_dkl": 0.001855627919253609,
+      "se_dkl": 0.0032728241484971665,
+      "beta_dkl_sq": 0.007969425994466999,
+      "se_dkl_sq": 0.0009217957987304929
+    },
+    {
+      "section": "First-time vs recurring",
+      "label": "Recurring (2nd+) filings only",
+      "n": 170185,
+      "rate": 0.39560478303023183,
+      "beta_dkl": 0.008427172369060067,
+      "se_dkl": 0.005125003313148947,
+      "beta_dkl_sq": 0.014037909722911789,
+      "se_dkl_sq": 0.0015502520219209004
+    }
+  ]
+}
