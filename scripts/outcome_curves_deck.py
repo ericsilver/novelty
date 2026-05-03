@@ -13,6 +13,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
+import pandas as pd
 import polars as pl
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,27 @@ def wilson(p: float, n: int, z: float = 1.96) -> tuple[float, float]:
     return centre - half, centre + half
 
 
-def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) -> None:
+def build_debut_quintiles() -> pl.DataFrame:
+    """Per owner_name (across all classes), the firm's first-ever filing's
+    prospective KL, with a quintile assignment 1..5 (1 = most conservative
+    debut, 5 = most surprising debut)."""
+    parts = []
+    for path in sorted(PROC.glob("outcomes_class*.parquet")):
+        cls = path.stem.replace("outcomes_class", "")
+        if not cls.isdigit(): continue
+        parts.append(pl.read_parquet(path).filter(CLEAN & pl.col("owner_name").is_not_null())
+                     .select("owner_name", "filing_date", "prospective_kl"))
+    universe = pl.concat(parts).sort("filing_date")
+    debut = universe.unique(subset=["owner_name"], keep="first").select(
+        "owner_name", "prospective_kl"
+    ).rename({"prospective_kl": "debut_pros_kl"})
+    pdf = debut.to_pandas()
+    pdf["debut_quintile"] = pd.qcut(pdf["debut_pros_kl"], 5, labels=[1, 2, 3, 4, 5]).astype(int)
+    return pl.from_pandas(pdf)
+
+
+def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages,
+                    debut_q: pl.DataFrame) -> None:
     df = pl.read_parquet(PROC / f"outcomes_class{cls}.parquet").filter(CLEAN)
     if df.height < 5000:
         return
@@ -69,33 +90,63 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) 
     MIN_BIN = 100
 
     fig, axes = plt.subplots(1, 4, figsize=(20, 4.8), sharey=True)
-    pdf_data = df.select(
+    pdf_data = df.join(debut_q.select("owner_name", "debut_quintile"),
+                       on="owner_name", how="left").select(
+        "owner_name", "debut_quintile",
         "prospective_kl", "retrospective_kl", "dkl",
         "reached_registration", "survived_5y",
     ).to_pandas()
     pdf_data["avg_kl"] = (pdf_data["prospective_kl"] + pdf_data["retrospective_kl"]) / 2.0
 
-    for ax, (xcol, xlabel, edges, centres) in zip(axes, panel_specs):
-        for (col, label), color in zip(outcomes, colors):
-            d_pd = pdf_data[[xcol, col]].dropna().copy()
-            d_pd[col] = d_pd[col].astype(int)
-            d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
-            d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
-            grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
-            grp = grp[grp["n"] >= MIN_BIN]
-            if grp.empty:
-                continue
-            xs = centres[grp.index]
-            ys = grp["rate"].values
-            ns = grp["n"].values
-            lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
-            hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
-            ax.fill_between(xs, lo_arr, hi_arr, color=color, alpha=0.22, linewidth=0)
-            mean_rate = float(d_pd[col].mean())
-            ax.plot(xs, ys, "o-", color=color, linewidth=1.6, markersize=5,
-                    label=f"{label} (mean {mean_rate*100:.1f}%)")
+    quintile_colors = ["#7a1111", "#bf6b3a", "#9a9a9a", "#3a8bbf", "#117a3a"]
+    quintile_labels = {1: "Q1 conservative debut", 2: "Q2", 3: "Q3", 4: "Q4", 5: "Q5 surprising debut"}
+
+    for ax_idx, (ax, (xcol, xlabel, edges, centres)) in enumerate(zip(axes, panel_specs)):
+        if ax_idx == 2:
+            # Plot 3 (dKL panel): split by debut-prospective-KL quintile.
+            # Show survived_5y only (one outcome per quintile-line) so the
+            # panel doesn't become a tangle of 10 lines.
+            col = "survived_5y"
+            for q in (1, 2, 3, 4, 5):
+                d_pd = pdf_data[(pdf_data["debut_quintile"] == q)][[xcol, col]].dropna().copy()
+                if len(d_pd) < MIN_BIN: continue
+                d_pd[col] = d_pd[col].astype(int)
+                d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
+                d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
+                grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
+                grp = grp[grp["n"] >= MIN_BIN]
+                if grp.empty: continue
+                xs = centres[grp.index]
+                ys = grp["rate"].values
+                ns = grp["n"].values
+                lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
+                hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
+                ax.fill_between(xs, lo_arr, hi_arr, color=quintile_colors[q-1], alpha=0.12, linewidth=0)
+                ax.plot(xs, ys, "o-", color=quintile_colors[q-1], linewidth=1.4, markersize=4,
+                        label=quintile_labels[q])
+        else:
+            for (col, label), color in zip(outcomes, colors):
+                d_pd = pdf_data[[xcol, col]].dropna().copy()
+                d_pd[col] = d_pd[col].astype(int)
+                d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
+                d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
+                grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
+                grp = grp[grp["n"] >= MIN_BIN]
+                if grp.empty:
+                    continue
+                xs = centres[grp.index]
+                ys = grp["rate"].values
+                ns = grp["n"].values
+                lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
+                hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
+                ax.fill_between(xs, lo_arr, hi_arr, color=color, alpha=0.22, linewidth=0)
+                mean_rate = float(d_pd[col].mean())
+                ax.plot(xs, ys, "o-", color=color, linewidth=1.6, markersize=5,
+                        label=f"{label} (mean {mean_rate*100:.1f}%)")
         ax.set_xlabel(xlabel)
         ax.grid(alpha=0.3)
+        if ax_idx == 2:
+            ax.legend(loc="upper left", bbox_to_anchor=(0.02, 1.0), fontsize=7, frameon=False)
     axes[0].set_ylabel("Outcome rate")
     axes[2].axvline(0, color="grey", linewidth=0.7, linestyle="--")
     axes[1].set_title(
@@ -125,11 +176,16 @@ def main() -> int:
             sizes.append((cls, n))
     sizes.sort(key=lambda t: -t[1])  # largest first
 
+    print("[debut] computing per-firm debut prospective-KL quintiles…", flush=True)
+    debut_q = build_debut_quintiles()
+    print(f"  {debut_q.height:,} firms quintile-split on debut prospective KL", flush=True)
+    print(f"  per-quintile size: {debut_q.group_by('debut_quintile').len().sort('debut_quintile')['len'].to_list()}")
+
     out = RESULTS / "outcome_curves_all_industries.pdf"
     with PdfPages(out) as pdf:
         for cls, n in sizes:
             try:
-                render_industry(cls, industry_name(cls), n, pdf)
+                render_industry(cls, industry_name(cls), n, pdf, debut_q)
                 print(f"  rendered class {cls}  n={n:,}", flush=True)
             except Exception as e:
                 print(f"  SKIP class {cls}: {e}", flush=True)
