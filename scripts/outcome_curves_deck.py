@@ -75,87 +75,86 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages,
                         0.05, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0])
     d_centres = 0.5 * (d_edges[:-1] + d_edges[1:])
 
-    panel_specs = [
-        ("prospective_kl", "Prospective KL\n(novel vs. past)", kl_edges, kl_centres),
-        ("retrospective_kl", "Retrospective KL\n(novel vs. future)", kl_edges, kl_centres),
-        ("dkl", r"$\Delta KL$ (pros $-$ retr)" "\n" r"(innovator $\rightarrow$ right)", d_edges, d_centres),
-        ("avg_kl", "Mean KL  (pros + retr) / 2\n" r"(unusual against \emph{both} reference windows)", kl_edges, kl_centres),
-    ]
-
     # Min bin size of 100 (was 30): with n=30, Wilson 95% half-width on
-    # a 50% rate is ~18 percentage points, wide enough that per-bin noise
-    # dominates. n=100 gives ~10 pp. We also annotate the bin sample
-    # sizes alongside the markers so the reader can see when bands are
-    # narrow because of large n vs.~small SE.
+    # a 50% rate is ~18 pp; n=100 gives ~10 pp.
     MIN_BIN = 100
 
-    fig, axes = plt.subplots(1, 4, figsize=(20, 4.8), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5.0), sharey=True)
     pdf_data = df.join(debut_q.select("owner_name", "debut_quintile"),
                        on="owner_name", how="left").select(
         "owner_name", "debut_quintile",
         "prospective_kl", "retrospective_kl", "dkl",
         "reached_registration", "survived_5y",
     ).to_pandas()
-    pdf_data["avg_kl"] = (pdf_data["prospective_kl"] + pdf_data["retrospective_kl"]) / 2.0
 
     quintile_colors = ["#7a1111", "#bf6b3a", "#9a9a9a", "#3a8bbf", "#117a3a"]
     quintile_labels = {1: "Q1 conservative debut", 2: "Q2", 3: "Q3", 4: "Q4", 5: "Q5 surprising debut"}
 
-    for ax_idx, (ax, (xcol, xlabel, edges, centres)) in enumerate(zip(axes, panel_specs)):
-        if ax_idx == 2:
-            # Plot 3 (dKL panel): split by debut-prospective-KL quintile.
-            # Show survived_5y only (one outcome per quintile-line) so the
-            # panel doesn't become a tangle of 10 lines.
-            col = "survived_5y"
-            for q in (1, 2, 3, 4, 5):
-                d_pd = pdf_data[(pdf_data["debut_quintile"] == q)][[xcol, col]].dropna().copy()
-                if len(d_pd) < MIN_BIN: continue
-                d_pd[col] = d_pd[col].astype(int)
-                d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
-                d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
-                grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
-                grp = grp[grp["n"] >= MIN_BIN]
-                if grp.empty: continue
-                xs = centres[grp.index]
-                ys = grp["rate"].values
-                ns = grp["n"].values
-                lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
-                hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
-                ax.fill_between(xs, lo_arr, hi_arr, color=quintile_colors[q-1], alpha=0.12, linewidth=0)
-                ax.plot(xs, ys, "o-", color=quintile_colors[q-1], linewidth=1.4, markersize=4,
-                        label=quintile_labels[q])
-        else:
-            for (col, label), color in zip(outcomes, colors):
-                d_pd = pdf_data[[xcol, col]].dropna().copy()
-                d_pd[col] = d_pd[col].astype(int)
-                d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
-                d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
-                grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
-                grp = grp[grp["n"] >= MIN_BIN]
-                if grp.empty:
-                    continue
-                xs = centres[grp.index]
-                ys = grp["rate"].values
-                ns = grp["n"].values
-                lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
-                hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
-                ax.fill_between(xs, lo_arr, hi_arr, color=color, alpha=0.22, linewidth=0)
-                mean_rate = float(d_pd[col].mean())
-                ax.plot(xs, ys, "o-", color=color, linewidth=1.6, markersize=5,
-                        label=f"{label} (mean {mean_rate*100:.1f}%)")
-        ax.set_xlabel(xlabel)
-        ax.grid(alpha=0.3)
-        if ax_idx == 2:
-            ax.legend(loc="upper left", bbox_to_anchor=(0.02, 1.0), fontsize=7, frameon=False)
-    axes[0].set_ylabel("Outcome rate")
-    axes[2].axvline(0, color="grey", linewidth=0.7, linestyle="--")
-    axes[1].set_title(
-        f"{industry_label} ({cls}) — {n_clean:,} clean filings\n"
-        r"shaded band = 95\% Wilson CI per bin (marginal, NOT joint)"
-        f"  ·  bin minimum n = {MIN_BIN}"
+    # ----- Panel A: prospective + retrospective KL on a shared axis -----
+    # Two outcomes (registration, 5y survival) x two reference windows
+    # (prospective, retrospective) = 4 lines. Solid = prospective KL,
+    # dashed = retrospective KL. Blue = registration, red = 5y survival.
+    ax = axes[0]
+    series_specs = [
+        ("prospective_kl", "reached_registration", "#1f77b4", "-",  "Registration vs. prospective KL"),
+        ("prospective_kl", "survived_5y",           "#d62728", "-",  "5y survival vs. prospective KL"),
+        ("retrospective_kl", "reached_registration","#1f77b4", "--", "Registration vs. retrospective KL"),
+        ("retrospective_kl", "survived_5y",         "#d62728", "--", "5y survival vs. retrospective KL"),
+    ]
+    for xcol, col, color, ls, lbl in series_specs:
+        d_pd = pdf_data[[xcol, col]].dropna().copy()
+        d_pd[col] = d_pd[col].astype(int)
+        d_pd["bin"] = np.digitize(d_pd[xcol], kl_edges) - 1
+        d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(kl_centres))]
+        grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
+        grp = grp[grp["n"] >= MIN_BIN]
+        if grp.empty: continue
+        xs = kl_centres[grp.index]
+        ys = grp["rate"].values
+        ns = grp["n"].values
+        lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
+        hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
+        ax.fill_between(xs, lo_arr, hi_arr, color=color, alpha=0.12, linewidth=0)
+        ax.plot(xs, ys, "o", linestyle=ls, color=color, linewidth=1.4, markersize=4, label=lbl)
+    ax.set_xlabel("KL value (prospective or retrospective)")
+    ax.set_ylabel("Outcome rate")
+    ax.grid(alpha=0.3)
+    ax.legend(loc="upper left", bbox_to_anchor=(0.02, 1.0), fontsize=7, frameon=False)
+
+    # ----- Panel B: dKL split by debut-prospective-KL quintile -----
+    ax = axes[1]
+    col = "survived_5y"
+    for q in (1, 2, 3, 4, 5):
+        d_pd = pdf_data[pdf_data["debut_quintile"] == q][["dkl", col]].dropna().copy()
+        if len(d_pd) < MIN_BIN: continue
+        d_pd[col] = d_pd[col].astype(int)
+        d_pd["bin"] = np.digitize(d_pd["dkl"], d_edges) - 1
+        d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(d_centres))]
+        grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
+        grp = grp[grp["n"] >= MIN_BIN]
+        if grp.empty: continue
+        xs = d_centres[grp.index]
+        ys = grp["rate"].values
+        ns = grp["n"].values
+        lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
+        hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
+        ax.fill_between(xs, lo_arr, hi_arr, color=quintile_colors[q-1], alpha=0.12, linewidth=0)
+        ax.plot(xs, ys, "o-", color=quintile_colors[q-1], linewidth=1.4, markersize=4,
+                label=quintile_labels[q])
+    ax.axvline(0, color="grey", linewidth=0.7, linestyle="--")
+    ax.set_xlabel(r"$\Delta KL$ (pros $-$ retr)  (innovator $\rightarrow$ right)")
+    ax.grid(alpha=0.3)
+    ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=8, frameon=False)
+    ax.set_title(
+        "5y survival by $\\Delta KL$, split by firm's\n"
+        "debut-filing prospective-KL quintile"
     )
-    axes[3].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0),
-                   fontsize=8, frameon=False)
+
+    fig.suptitle(
+        f"{industry_label} ({cls}) — {n_clean:,} clean filings  ·  "
+        f"shaded band = 95\\% Wilson CI per bin (marginal)  ·  bin minimum n = {MIN_BIN}",
+        y=1.04, fontsize=10,
+    )
     fig.tight_layout()
     pdf.savefig(fig, bbox_inches="tight")
     plt.close(fig)
