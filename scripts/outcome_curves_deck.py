@@ -36,7 +36,7 @@ def wilson(p: float, n: int, z: float = 1.96) -> tuple[float, float]:
     return centre - half, centre + half
 
 
-def render_industry(cls: str, industry_label: str, pdf: PdfPages) -> None:
+def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) -> None:
     df = pl.read_parquet(PROC / f"outcomes_class{cls}.parquet").filter(CLEAN)
     if df.height < 5000:
         return
@@ -60,7 +60,14 @@ def render_industry(cls: str, industry_label: str, pdf: PdfPages) -> None:
         ("dkl", r"$\Delta KL$ (pros $-$ retr)" "\n" r"(innovator $\rightarrow$ right)", d_edges, d_centres),
     ]
 
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.6), sharey=True)
+    # Min bin size of 100 (was 30): with n=30, Wilson 95% half-width on
+    # a 50% rate is ~18 percentage points, wide enough that per-bin noise
+    # dominates. n=100 gives ~10 pp. We also annotate the bin sample
+    # sizes alongside the markers so the reader can see when bands are
+    # narrow because of large n vs.~small SE.
+    MIN_BIN = 100
+
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=True)
     pdf_data = df.select(
         "prospective_kl", "retrospective_kl", "dkl",
         "reached_registration", "survived_5y",
@@ -73,7 +80,7 @@ def render_industry(cls: str, industry_label: str, pdf: PdfPages) -> None:
             d_pd["bin"] = np.digitize(d_pd[xcol], edges) - 1
             d_pd = d_pd[(d_pd["bin"] >= 0) & (d_pd["bin"] < len(centres))]
             grp = d_pd.groupby("bin").agg(rate=(col, "mean"), n=(col, "size"))
-            grp = grp[grp["n"] >= 30]
+            grp = grp[grp["n"] >= MIN_BIN]
             if grp.empty:
                 continue
             xs = centres[grp.index]
@@ -89,7 +96,11 @@ def render_industry(cls: str, industry_label: str, pdf: PdfPages) -> None:
         ax.grid(alpha=0.3)
     axes[0].set_ylabel("Outcome rate")
     axes[2].axvline(0, color="grey", linewidth=0.7, linestyle="--")
-    axes[1].set_title(f"{industry_label} ({cls}) — n={df.height:,} clean filings")
+    axes[1].set_title(
+        f"{industry_label} ({cls}) — {n_clean:,} clean filings\n"
+        r"shaded band = 95\% Wilson CI per bin (marginal, NOT joint)"
+        f"  ·  bin minimum n = {MIN_BIN}"
+    )
     axes[2].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0),
                    fontsize=8, frameon=False)
     fig.tight_layout()
@@ -101,19 +112,26 @@ def main() -> int:
     sys.path.insert(0, str(REPO_ROOT / "src"))
     from novelty.industries import name as industry_name
 
+    # First pass: get clean-filing counts so we can sort by size
     classes = sorted(p.stem.replace("outcomes_class", "")
                      for p in PROC.glob("outcomes_class*.parquet")
                      if p.stem.replace("outcomes_class", "").isdigit())
+    sizes: list[tuple[str, int]] = []
+    for cls in classes:
+        n = pl.read_parquet(PROC / f"outcomes_class{cls}.parquet").filter(CLEAN).height
+        if n >= 5000:
+            sizes.append((cls, n))
+    sizes.sort(key=lambda t: -t[1])  # largest first
 
     out = RESULTS / "outcome_curves_all_industries.pdf"
     with PdfPages(out) as pdf:
-        for cls in classes:
+        for cls, n in sizes:
             try:
-                render_industry(cls, industry_name(cls), pdf)
-                print(f"  rendered class {cls}", flush=True)
+                render_industry(cls, industry_name(cls), n, pdf)
+                print(f"  rendered class {cls}  n={n:,}", flush=True)
             except Exception as e:
                 print(f"  SKIP class {cls}: {e}", flush=True)
-    print(f"\n[done] wrote {out}")
+    print(f"\n[done] wrote {out}  ({len(sizes)} industries)")
     return 0
 
 
