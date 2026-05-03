@@ -173,7 +173,7 @@ def _draw_quintile_panel(ax, pdf_data, qcol, qlabels, qcolors, edges, centres, m
         ns = grp["n"].values
         lo_arr = np.array([wilson(y, n)[0] for y, n in zip(ys, ns)])
         hi_arr = np.array([wilson(y, n)[1] for y, n in zip(ys, ns)])
-        ax.fill_between(xs, lo_arr, hi_arr, color=qcolors[q-1], alpha=0.12, linewidth=0)
+        ax.fill_between(xs, lo_arr, hi_arr, color=qcolors[q-1], alpha=0.25, linewidth=0)
         ax.plot(xs, ys, "o-", color=qcolors[q-1], linewidth=1.4, markersize=4,
                 label=qlabels[q])
     ax.axvline(0, color="grey", linewidth=0.7, linestyle="--")
