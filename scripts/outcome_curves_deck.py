@@ -58,6 +58,7 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) 
         ("prospective_kl", "Prospective KL\n(novel vs. past)", kl_edges, kl_centres),
         ("retrospective_kl", "Retrospective KL\n(novel vs. future)", kl_edges, kl_centres),
         ("dkl", r"$\Delta KL$ (pros $-$ retr)" "\n" r"(innovator $\rightarrow$ right)", d_edges, d_centres),
+        ("avg_kl", "Mean KL  (pros + retr) / 2\n" r"(unusual against \emph{both} reference windows)", kl_edges, kl_centres),
     ]
 
     # Min bin size of 100 (was 30): with n=30, Wilson 95% half-width on
@@ -67,11 +68,12 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) 
     # narrow because of large n vs.~small SE.
     MIN_BIN = 100
 
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=(20, 4.8), sharey=True)
     pdf_data = df.select(
         "prospective_kl", "retrospective_kl", "dkl",
         "reached_registration", "survived_5y",
     ).to_pandas()
+    pdf_data["avg_kl"] = (pdf_data["prospective_kl"] + pdf_data["retrospective_kl"]) / 2.0
 
     for ax, (xcol, xlabel, edges, centres) in zip(axes, panel_specs):
         for (col, label), color in zip(outcomes, colors):
@@ -101,7 +103,7 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages) 
         r"shaded band = 95\% Wilson CI per bin (marginal, NOT joint)"
         f"  ·  bin minimum n = {MIN_BIN}"
     )
-    axes[2].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0),
+    axes[3].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0),
                    fontsize=8, frameon=False)
     fig.tight_layout()
     pdf.savefig(fig, bbox_inches="tight")
