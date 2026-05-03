@@ -1,0 +1,405 @@
+{
+  "industry_ranking": [
+    {
+      "cls": "005",
+      "industry": "Pharmaceuticals",
+      "n": 314898,
+      "beta_dkl": 0.012694345655439454,
+      "beta_dkl_sq": 0.040496299124749384,
+      "t_quad": 24.939251610821156
+    },
+    {
+      "cls": "040",
+      "industry": "Materials Treatment",
+      "n": 83213,
+      "beta_dkl": 0.05752450788541609,
+      "beta_dkl_sq": 0.05266500248627346,
+      "t_quad": 15.8456319283146
+    },
+    {
+      "cls": "035",
+      "industry": "Advertising & Retail",
+      "n": 899682,
+      "beta_dkl": 0.012073591895866093,
+      "beta_dkl_sq": 0.011170279670085551,
+      "t_quad": 15.664783431634621
+    },
+    {
+      "cls": "001",
+      "industry": "Chemicals & Industrial",
+      "n": 105461,
+      "beta_dkl": 0.04204500109604113,
+      "beta_dkl_sq": 0.03746628472808809,
+      "t_quad": 15.27183059721327
+    },
+    {
+      "cls": "007",
+      "industry": "Machines & Power Tools",
+      "n": 135331,
+      "beta_dkl": -0.02007488657414468,
+      "beta_dkl_sq": 0.04032403997220954,
+      "t_quad": 14.784916962948838
+    },
+    {
+      "cls": "025",
+      "industry": "Clothing, Footwear & Headwear",
+      "n": 561490,
+      "beta_dkl": 0.00791933518083589,
+      "beta_dkl_sq": 0.012130344885345801,
+      "t_quad": 14.671867996893996
+    },
+    {
+      "cls": "045",
+      "industry": "Legal & Personal Services",
+      "n": 114693,
+      "beta_dkl": -0.0256270941765338,
+      "beta_dkl_sq": 0.030680357209750136,
+      "t_quad": 14.549346754910989
+    },
+    {
+      "cls": "010",
+      "industry": "Medical Devices",
+      "n": 160575,
+      "beta_dkl": -0.055973833008440124,
+      "beta_dkl_sq": 0.020811555338206326,
+      "t_quad": 14.167177603569193
+    },
+    {
+      "cls": "041",
+      "industry": "Education & Entertainment",
+      "n": 815077,
+      "beta_dkl": -0.0037383921661405424,
+      "beta_dkl_sq": 0.011959240823033884,
+      "t_quad": 14.094616530738191
+    },
+    {
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "n": 1054572,
+      "beta_dkl": 0.0669339340664897,
+      "beta_dkl_sq": 0.010746331120654571,
+      "t_quad": 13.576437006337763
+    },
+    {
+      "cls": "021",
+      "industry": "Household Utensils",
+      "n": 172345,
+      "beta_dkl": -0.1540969961686687,
+      "beta_dkl_sq": 0.02564115242129987,
+      "t_quad": 11.805790535351818
+    },
+    {
+      "cls": "016",
+      "industry": "Paper, Print & Office",
+      "n": 367643,
+      "beta_dkl": 0.004156905086070897,
+      "beta_dkl_sq": 0.014866614246337942,
+      "t_quad": 11.556553481818856
+    },
+    {
+      "cls": "006",
+      "industry": "Common Metals",
+      "n": 81525,
+      "beta_dkl": -0.09387577067783338,
+      "beta_dkl_sq": 0.04216264062952448,
+      "t_quad": 11.444505542915543
+    },
+    {
+      "cls": "018",
+      "industry": "Leather & Luggage",
+      "n": 126295,
+      "beta_dkl": -0.09023044921387807,
+      "beta_dkl_sq": 0.02468965143008338,
+      "t_quad": 10.446861466581899
+    },
+    {
+      "cls": "043",
+      "industry": "Restaurants & Hotels",
+      "n": 122371,
+      "beta_dkl": -0.015076991601582417,
+      "beta_dkl_sq": 0.016586744332644652,
+      "t_quad": 9.676207368094822
+    },
+    {
+      "cls": "044",
+      "industry": "Medical & Personal Care",
+      "n": 167607,
+      "beta_dkl": 0.008439661850255941,
+      "beta_dkl_sq": 0.015806172898378552,
+      "t_quad": 9.370552911029156
+    },
+    {
+      "cls": "037",
+      "industry": "Construction & Repair",
+      "n": 157226,
+      "beta_dkl": -0.02346643016302411,
+      "beta_dkl_sq": 0.018609051370799476,
+      "t_quad": 8.726953139761246
+    },
+    {
+      "cls": "003",
+      "industry": "Cosmetics & Cleaning",
+      "n": 278140,
+      "beta_dkl": -0.03571007294804843,
+      "beta_dkl_sq": 0.006275845151930179,
+      "t_quad": 6.467711334819657
+    },
+    {
+      "cls": "017",
+      "industry": "Rubber & Insulators",
+      "n": 43458,
+      "beta_dkl": -0.04560480209571372,
+      "beta_dkl_sq": 0.02637341099045987,
+      "t_quad": 6.464357074900911
+    },
+    {
+      "cls": "036",
+      "industry": "Insurance & Financial",
+      "n": 354316,
+      "beta_dkl": 0.062616417703639,
+      "beta_dkl_sq": 0.00831008632181079,
+      "t_quad": 6.23770072998328
+    },
+    {
+      "cls": "024",
+      "industry": "Textiles & Bedding",
+      "n": 78947,
+      "beta_dkl": -0.12456461872000214,
+      "beta_dkl_sq": 0.022287956842881516,
+      "t_quad": 6.042062866092515
+    },
+    {
+      "cls": "012",
+      "industry": "Vehicles",
+      "n": 107119,
+      "beta_dkl": -0.0355875590442525,
+      "beta_dkl_sq": 0.017927150003709456,
+      "t_quad": 5.873123636011288
+    },
+    {
+      "cls": "011",
+      "industry": "Lighting, HVAC & Appliances",
+      "n": 160109,
+      "beta_dkl": -0.047871019946855574,
+      "beta_dkl_sq": 0.011040934062417442,
+      "t_quad": 4.478944557571988
+    },
+    {
+      "cls": "014",
+      "industry": "Jewelry & Watches",
+      "n": 91669,
+      "beta_dkl": -0.07688276847035651,
+      "beta_dkl_sq": 0.010647066957777049,
+      "t_quad": 4.4712113697769444
+    },
+    {
+      "cls": "019",
+      "industry": "Building Materials",
+      "n": 60289,
+      "beta_dkl": -0.024621287078864785,
+      "beta_dkl_sq": 0.01539533314819257,
+      "t_quad": 4.202720302823403
+    },
+    {
+      "cls": "039",
+      "industry": "Transport & Logistics",
+      "n": 105370,
+      "beta_dkl": 0.08015887618390848,
+      "beta_dkl_sq": 0.009490574685865075,
+      "t_quad": 3.5347340638161997
+    },
+    {
+      "cls": "004",
+      "industry": "Lubricants & Fuels",
+      "n": 30267,
+      "beta_dkl": 0.037616906473365415,
+      "beta_dkl_sq": 0.015786836116624264,
+      "t_quad": 3.3025298747894816
+    },
+    {
+      "cls": "031",
+      "industry": "Agriculture & Live Animals",
+      "n": 52623,
+      "beta_dkl": 0.11679421693654933,
+      "beta_dkl_sq": 0.008928159947449537,
+      "t_quad": 2.4033658728410723
+    },
+    {
+      "cls": "013",
+      "industry": "Firearms & Pyrotechnics",
+      "n": 11844,
+      "beta_dkl": -0.01636720823255107,
+      "beta_dkl_sq": 0.013009188145692591,
+      "t_quad": 2.2365796826412763
+    },
+    {
+      "cls": "008",
+      "industry": "Hand Tools",
+      "n": 57965,
+      "beta_dkl": -0.0572853540214372,
+      "beta_dkl_sq": 0.009446121347461946,
+      "t_quad": 1.8994667240618845
+    },
+    {
+      "cls": "020",
+      "industry": "Furniture",
+      "n": 132147,
+      "beta_dkl": -0.1259742758869656,
+      "beta_dkl_sq": 0.0044419703349397035,
+      "t_quad": 1.2611371941351157
+    },
+    {
+      "cls": "002",
+      "industry": "Paints & Coatings",
+      "n": 28286,
+      "beta_dkl": -0.039335314983709006,
+      "beta_dkl_sq": 0.008322629238486232,
+      "t_quad": 1.2072474969283673
+    },
+    {
+      "cls": "030",
+      "industry": "Coffee, Tea, Bakery & Spices",
+      "n": 173569,
+      "beta_dkl": 0.03495786084110844,
+      "beta_dkl_sq": 0.0014368290962648398,
+      "t_quad": 1.1202666880277214
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "n": 87849,
+      "beta_dkl": 0.07036402483227086,
+      "beta_dkl_sq": 0.0026268778625750003,
+      "t_quad": 1.0659628932841887
+    },
+    {
+      "cls": "028",
+      "industry": "Toys, Games & Sporting Goods",
+      "n": 258260,
+      "beta_dkl": -0.0655757472283152,
+      "beta_dkl_sq": 0.0014246910962231363,
+      "t_quad": 1.0143586444974513
+    },
+    {
+      "cls": "042",
+      "industry": "Scientific & Tech Services",
+      "n": 635128,
+      "beta_dkl": 0.05977880556583496,
+      "beta_dkl_sq": 0.0006548731554680608,
+      "t_quad": 0.7592328593149119
+    },
+    {
+      "cls": "029",
+      "industry": "Meat, Dairy & Prepared Foods",
+      "n": 114185,
+      "beta_dkl": 0.05673694628038715,
+      "beta_dkl_sq": 0.0015618538548002588,
+      "t_quad": 0.6609561410385161
+    },
+    {
+      "cls": "022",
+      "industry": "Ropes, Tents & Textiles (raw)",
+      "n": 19895,
+      "beta_dkl": -0.09209031140029801,
+      "beta_dkl_sq": 0.0012325799026189957,
+      "t_quad": 0.16858694085249137
+    },
+    {
+      "cls": "034",
+      "industry": "Tobacco & Smokers' Articles",
+      "n": 31547,
+      "beta_dkl": 0.08254615911135538,
+      "beta_dkl_sq": -0.004085338339611529,
+      "t_quad": -0.6180651437650239
+    },
+    {
+      "cls": "033",
+      "industry": "Wine & Spirits",
+      "n": 59728,
+      "beta_dkl": 0.008529148010606053,
+      "beta_dkl_sq": -0.0072197470187427525,
+      "t_quad": -2.213820780891505
+    },
+    {
+      "cls": "026",
+      "industry": "Trim, Lace & Notions",
+      "n": 33395,
+      "beta_dkl": -0.12018126197188075,
+      "beta_dkl_sq": -0.01593413616698865,
+      "t_quad": -3.05326096993388
+    },
+    {
+      "cls": "015",
+      "industry": "Musical Instruments",
+      "n": 10609,
+      "beta_dkl": -0.07603910318721899,
+      "beta_dkl_sq": -0.05470508677911186,
+      "t_quad": -3.765833558504919
+    },
+    {
+      "cls": "027",
+      "industry": "Carpets & Wall Hangings",
+      "n": 20959,
+      "beta_dkl": -0.033402486265250914,
+      "beta_dkl_sq": -0.04028839617691313,
+      "t_quad": -5.475452283470733
+    },
+    {
+      "cls": "038",
+      "industry": "Telecommunications",
+      "n": 153225,
+      "beta_dkl": 0.020417821027864803,
+      "beta_dkl_sq": -0.021771101970921865,
+      "t_quad": -9.80752683307781
+    }
+  ],
+  "drop_specs": [
+    {
+      "label": "Full sample (none dropped)",
+      "n": 8633791,
+      "beta_dkl": 0.004551104429942359,
+      "se_dkl": 0.0007260540266950016,
+      "beta_dkl_sq": 0.008657296401866282,
+      "se_dkl_sq": 0.00020652883514159952,
+      "t_quad": 41.91810018165598
+    },
+    {
+      "label": "Drop bottom 5\\% of prospective KL (< 3.03)",
+      "n": 8202101,
+      "beta_dkl": 0.010167613896217946,
+      "se_dkl": 0.000744489149712021,
+      "beta_dkl_sq": 0.008240176215337937,
+      "se_dkl_sq": 0.00021341913064232236,
+      "t_quad": 38.61029791723769
+    },
+    {
+      "label": "Drop bottom 5\\% of retrospective KL (< 3.03)",
+      "n": 8202101,
+      "beta_dkl": 0.008738021465999658,
+      "se_dkl": 0.0007421357594656039,
+      "beta_dkl_sq": 0.008549901605820785,
+      "se_dkl_sq": 0.00021453291425984938,
+      "t_quad": 39.853565758515074
+    },
+    {
+      "label": "Drop bottom 5\\% of both axes",
+      "n": 8138272,
+      "beta_dkl": 0.011702776385049674,
+      "se_dkl": 0.0007448781568063617,
+      "beta_dkl_sq": 0.00821408706585066,
+      "se_dkl_sq": 0.00021480471319759823,
+      "t_quad": 38.23978973075207
+    },
+    {
+      "label": "Drop bottom + top 10\\% of $\\Delta KL$ (test extreme tails)",
+      "n": 6907035,
+      "beta_dkl": -0.018573133366789146,
+      "se_dkl": 0.0007886843204509943,
+      "beta_dkl_sq": 0.03427358347195115,
+      "se_dkl_sq": 0.0007033316722575535,
+      "t_quad": 48.7303285545777
+    }
+  ],
+  "weak_lin_mean": 0.06288097470763356,
+  "strong_lin_mean": 0.04821875449312992
+}
