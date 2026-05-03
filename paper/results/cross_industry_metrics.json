@@ -5,46 +5,61 @@
       "cls": "034",
       "industry": "Tobacco & Smokers' Articles",
       "n_filings": 82520,
-      "n_clean": 31547,
-      "n_owners": 16087,
-      "year_min": 1995,
+      "n_clean": 32818,
+      "n_owners": 16646,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.14790375031496072,
-      "mean_dkl": 0.27884508692900417,
-      "iqr_dkl": 0.639174151746936,
-      "p95_dkl": 1.4968802969314208,
-      "reach_rate": 0.5551082511807779,
-      "surv5_rate": 0.5050876470028846
+      "median_dkl": 0.15253424624172918,
+      "mean_dkl": 0.2879166084619703,
+      "iqr_dkl": 0.6404353056764309,
+      "p95_dkl": 1.528707667218118,
+      "reach_rate": 0.5558534950332135,
+      "surv5_rate": 0.5041135961972089
     },
     {
       "cls": "026",
       "industry": "Trim, Lace & Notions",
       "n_filings": 84034,
-      "n_clean": 33395,
-      "n_owners": 23121,
-      "year_min": 1995,
+      "n_clean": 35638,
+      "n_owners": 24532,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.10020841323374441,
-      "mean_dkl": 0.15726159693659925,
-      "iqr_dkl": 0.5169092747213053,
-      "p95_dkl": 0.954726059561195,
-      "reach_rate": 0.4209612217397814,
-      "surv5_rate": 0.35451414882467436
+      "median_dkl": 0.10231761302916764,
+      "mean_dkl": 0.16673586832874585,
+      "iqr_dkl": 0.5200723149331417,
+      "p95_dkl": 1.0161854568746884,
+      "reach_rate": 0.42710028621134744,
+      "surv5_rate": 0.36048599809192433
     },
     {
       "cls": "022",
       "industry": "Ropes, Tents & Textiles (raw)",
       "n_filings": 47287,
-      "n_clean": 19895,
-      "n_owners": 13300,
-      "year_min": 1995,
+      "n_clean": 21551,
+      "n_owners": 14335,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.07562119485843422,
-      "mean_dkl": 0.13187748540107697,
-      "iqr_dkl": 0.3804913684543094,
-      "p95_dkl": 0.7236037645367661,
-      "reach_rate": 0.4124151796933903,
-      "surv5_rate": 0.3088213118874089
+      "median_dkl": 0.0816379042131663,
+      "mean_dkl": 0.1555826930049593,
+      "iqr_dkl": 0.39976888666026333,
+      "p95_dkl": 0.8072359610662669,
+      "reach_rate": 0.4158043710268665,
+      "surv5_rate": 0.3127465082826783
+    },
+    {
+      "cls": "021",
+      "industry": "Household Utensils",
+      "n_filings": 403933,
+      "n_clean": 183800,
+      "n_owners": 114891,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": 0.06432075769215828,
+      "mean_dkl": 0.12002059945481622,
+      "iqr_dkl": 0.34376115789483297,
+      "p95_dkl": 0.6541030700428765,
+      "reach_rate": 0.43294341675734493,
+      "surv5_rate": 0.358335146898803
     },
     {
       "cls": "023",
@@ -62,139 +77,244 @@
       "surv5_rate": 0.24264451367255105
     },
     {
-      "cls": "021",
-      "industry": "Household Utensils",
-      "n_filings": 403933,
-      "n_clean": 172345,
-      "n_owners": 109053,
-      "year_min": 1995,
+      "cls": "008",
+      "industry": "Hand Tools",
+      "n_filings": 128745,
+      "n_clean": 62591,
+      "n_owners": 38099,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.06296529861375655,
-      "mean_dkl": 0.1046755113342296,
-      "iqr_dkl": 0.34013221304519625,
-      "p95_dkl": 0.6078684524828546,
-      "reach_rate": 0.4287852853288462,
-      "surv5_rate": 0.355264150396008
+      "median_dkl": 0.06130814565447551,
+      "mean_dkl": 0.11607708279895014,
+      "iqr_dkl": 0.37096776326978764,
+      "p95_dkl": 0.6724050625671643,
+      "reach_rate": 0.42113083350641467,
+      "surv5_rate": 0.3160518285376492
     },
     {
       "cls": "027",
       "industry": "Carpets & Wall Hangings",
       "n_filings": 56986,
-      "n_clean": 20959,
-      "n_owners": 12190,
-      "year_min": 1995,
+      "n_clean": 22964,
+      "n_owners": 12990,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.07233046600793713,
-      "mean_dkl": 0.09474928251710363,
-      "iqr_dkl": 0.46430128865524223,
-      "p95_dkl": 0.7866417392155234,
-      "reach_rate": 0.4258790972851758,
-      "surv5_rate": 0.3448160694689632
-    },
-    {
-      "cls": "008",
-      "industry": "Hand Tools",
-      "n_filings": 128745,
-      "n_clean": 57965,
-      "n_owners": 35798,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": 0.05644176960263536,
-      "mean_dkl": 0.09448411655315125,
-      "iqr_dkl": 0.3657715892874789,
-      "p95_dkl": 0.6187115060558819,
-      "reach_rate": 0.4159406538428362,
-      "surv5_rate": 0.3132752523074269
+      "median_dkl": 0.0731746658130572,
+      "mean_dkl": 0.11567512508765307,
+      "iqr_dkl": 0.48203877586699573,
+      "p95_dkl": 0.8898660477108544,
+      "reach_rate": 0.42679846716599895,
+      "surv5_rate": 0.3462811356906462
     },
     {
       "cls": "020",
       "industry": "Furniture",
       "n_filings": 326621,
-      "n_clean": 132147,
-      "n_owners": 80029,
-      "year_min": 1995,
+      "n_clean": 144864,
+      "n_owners": 87163,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.0429815460348828,
-      "mean_dkl": 0.09204462162618302,
-      "iqr_dkl": 0.35908846626451396,
-      "p95_dkl": 0.6365083810909984,
-      "reach_rate": 0.44081969322042874,
-      "surv5_rate": 0.3521684185036361
-    },
-    {
-      "cls": "013",
-      "industry": "Firearms & Pyrotechnics",
-      "n_filings": 37403,
-      "n_clean": 11844,
-      "n_owners": 6016,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": 0.08049363029256895,
-      "mean_dkl": 0.09063987509293338,
-      "iqr_dkl": 0.3659356051398941,
-      "p95_dkl": 0.659587637213539,
-      "reach_rate": 0.4649611617696724,
-      "surv5_rate": 0.3300405268490375
+      "median_dkl": 0.04484941653709984,
+      "mean_dkl": 0.11267007565405796,
+      "iqr_dkl": 0.3682463849082014,
+      "p95_dkl": 0.6844449946027265,
+      "reach_rate": 0.44395432957808706,
+      "surv5_rate": 0.35627899271040425
     },
     {
       "cls": "011",
       "industry": "Lighting, HVAC & Appliances",
       "n_filings": 333507,
-      "n_clean": 160109,
-      "n_owners": 90464,
-      "year_min": 1995,
+      "n_clean": 171839,
+      "n_owners": 95942,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.042212678588549046,
-      "mean_dkl": 0.07256213936033802,
-      "iqr_dkl": 0.32555901934070874,
-      "p95_dkl": 0.5354844124192271,
-      "reach_rate": 0.402325915470086,
-      "surv5_rate": 0.30476737722426595
+      "median_dkl": 0.044672078474206955,
+      "mean_dkl": 0.09360858600067727,
+      "iqr_dkl": 0.3319234071064656,
+      "p95_dkl": 0.583115307088045,
+      "reach_rate": 0.40513503919366384,
+      "surv5_rate": 0.306257601592188
     },
     {
       "cls": "024",
       "industry": "Textiles & Bedding",
       "n_filings": 173759,
-      "n_clean": 78947,
-      "n_owners": 47704,
-      "year_min": 1995,
+      "n_clean": 84770,
+      "n_owners": 50657,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.047017394768310794,
-      "mean_dkl": 0.06547949053540977,
-      "iqr_dkl": 0.2928179146862755,
-      "p95_dkl": 0.5135679885495716,
-      "reach_rate": 0.4419927292994034,
-      "surv5_rate": 0.37067906316896143
+      "median_dkl": 0.04807289608886389,
+      "mean_dkl": 0.08368589410565253,
+      "iqr_dkl": 0.30088717441348045,
+      "p95_dkl": 0.5639034635011848,
+      "reach_rate": 0.44788250560339743,
+      "surv5_rate": 0.37608823876371356
+    },
+    {
+      "cls": "013",
+      "industry": "Firearms & Pyrotechnics",
+      "n_filings": 37403,
+      "n_clean": 12432,
+      "n_owners": 6331,
+      "year_min": 1992,
+      "year_max": 2020,
+      "median_dkl": 0.07399130812081811,
+      "mean_dkl": 0.07946797420686329,
+      "iqr_dkl": 0.3739749178842686,
+      "p95_dkl": 0.6510439418898581,
+      "reach_rate": 0.46758365508365507,
+      "surv5_rate": 0.33236808236808235
     },
     {
       "cls": "033",
       "industry": "Wine & Spirits",
       "n_filings": 222138,
-      "n_clean": 59728,
-      "n_owners": 28902,
-      "year_min": 1995,
+      "n_clean": 61865,
+      "n_owners": 29925,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.026012630742930254,
-      "mean_dkl": 0.053674460038928215,
-      "iqr_dkl": 0.40204430707494065,
-      "p95_dkl": 0.7255177430422317,
-      "reach_rate": 0.5295004018215912,
-      "surv5_rate": 0.45683766407714976
+      "median_dkl": 0.03217655718868562,
+      "mean_dkl": 0.07128383657872828,
+      "iqr_dkl": 0.40957812538407845,
+      "p95_dkl": 0.7434661101871987,
+      "reach_rate": 0.5318516123817991,
+      "surv5_rate": 0.4582720439667017
+    },
+    {
+      "cls": "012",
+      "industry": "Vehicles",
+      "n_filings": 242485,
+      "n_clean": 116643,
+      "n_owners": 61001,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": 0.008624896287568795,
+      "mean_dkl": 0.06129152787788881,
+      "iqr_dkl": 0.28657934696146814,
+      "p95_dkl": 0.5419008128772811,
+      "reach_rate": 0.45113723069536965,
+      "surv5_rate": 0.3410148915922944
     },
     {
       "cls": "014",
       "industry": "Jewelry & Watches",
       "n_filings": 234908,
-      "n_clean": 91669,
-      "n_owners": 59847,
-      "year_min": 1995,
+      "n_clean": 98618,
+      "n_owners": 64105,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.023054057272288375,
-      "mean_dkl": 0.04350733860035501,
-      "iqr_dkl": 0.30154799821652345,
-      "p95_dkl": 0.5003906283464303,
-      "reach_rate": 0.4385670182940798,
-      "surv5_rate": 0.3724050660528641
+      "median_dkl": 0.020686324441226978,
+      "mean_dkl": 0.06063002486648206,
+      "iqr_dkl": 0.3144283209724552,
+      "p95_dkl": 0.5632296944463024,
+      "reach_rate": 0.4455271857064633,
+      "surv5_rate": 0.3779634549473727
+    },
+    {
+      "cls": "010",
+      "industry": "Medical Devices",
+      "n_filings": 302192,
+      "n_clean": 174201,
+      "n_owners": 79685,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.006479195818026806,
+      "mean_dkl": 0.04821972582500982,
+      "iqr_dkl": 0.32365784588045887,
+      "p95_dkl": 0.5895282983306069,
+      "reach_rate": 0.48378023088271593,
+      "surv5_rate": 0.38366599502873117
+    },
+    {
+      "cls": "028",
+      "industry": "Toys, Games & Sporting Goods",
+      "n_filings": 583108,
+      "n_clean": 292436,
+      "n_owners": 144975,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.009010937629224003,
+      "mean_dkl": 0.04487119453448235,
+      "iqr_dkl": 0.35774463826169667,
+      "p95_dkl": 0.5899938256344814,
+      "reach_rate": 0.4906543653996088,
+      "surv5_rate": 0.42328577876868784
+    },
+    {
+      "cls": "003",
+      "industry": "Cosmetics & Cleaning",
+      "n_filings": 564014,
+      "n_clean": 300326,
+      "n_owners": 139169,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": 0.02102607699169745,
+      "mean_dkl": 0.03870169126016016,
+      "iqr_dkl": 0.25560936495050157,
+      "p95_dkl": 0.4301680070157383,
+      "reach_rate": 0.5051677177467152,
+      "surv5_rate": 0.43391181582680155
+    },
+    {
+      "cls": "006",
+      "industry": "Common Metals",
+      "n_filings": 175437,
+      "n_clean": 89730,
+      "n_owners": 51240,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": 0.012685659383758985,
+      "mean_dkl": 0.03746833173882533,
+      "iqr_dkl": 0.26125453785797736,
+      "p95_dkl": 0.4636591402072838,
+      "reach_rate": 0.4479103978602474,
+      "surv5_rate": 0.28996990972918757
+    },
+    {
+      "cls": "018",
+      "industry": "Leather & Luggage",
+      "n_filings": 249052,
+      "n_clean": 133408,
+      "n_owners": 84643,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.006221851743549722,
+      "mean_dkl": 0.03650551456305116,
+      "iqr_dkl": 0.23773437169883627,
+      "p95_dkl": 0.43406272025239634,
+      "reach_rate": 0.44603022307507795,
+      "surv5_rate": 0.3777884384744543
+    },
+    {
+      "cls": "017",
+      "industry": "Rubber & Insulators",
+      "n_filings": 88430,
+      "n_clean": 48186,
+      "n_owners": 24876,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": 0.004444379424191958,
+      "mean_dkl": 0.035357789865441726,
+      "iqr_dkl": 0.2148332779705715,
+      "p95_dkl": 0.39560803006640644,
+      "reach_rate": 0.43570746689909934,
+      "surv5_rate": 0.27528742788361765
+    },
+    {
+      "cls": "004",
+      "industry": "Lubricants & Fuels",
+      "n_filings": 78345,
+      "n_clean": 32824,
+      "n_owners": 17794,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.015102039417844493,
+      "mean_dkl": 0.029789939767460017,
+      "iqr_dkl": 0.3602760799875977,
+      "p95_dkl": 0.6480076441821572,
+      "reach_rate": 0.4912563977577382,
+      "surv5_rate": 0.37719351693882525
     },
     {
       "cls": "043",
@@ -212,64 +332,139 @@
       "surv5_rate": 0.3874937689485254
     },
     {
-      "cls": "012",
-      "industry": "Vehicles",
-      "n_filings": 242485,
-      "n_clean": 107119,
-      "n_owners": 56375,
-      "year_min": 1995,
+      "cls": "009",
+      "industry": "Software & Electronics",
+      "n_filings": 1807636,
+      "n_clean": 1146078,
+      "n_owners": 558481,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.001351212359788967,
-      "mean_dkl": 0.025651553340029627,
-      "iqr_dkl": 0.2726868188358118,
-      "p95_dkl": 0.4719402829468806,
-      "reach_rate": 0.44917334926576985,
-      "surv5_rate": 0.33895013956440967
+      "median_dkl": -0.015655838915318077,
+      "mean_dkl": 0.02399906024489307,
+      "iqr_dkl": 0.2760825565744929,
+      "p95_dkl": 0.4646728580221655,
+      "reach_rate": 0.4943337189964383,
+      "surv5_rate": 0.4117250309315771
     },
     {
-      "cls": "018",
-      "industry": "Leather & Luggage",
-      "n_filings": 249052,
-      "n_clean": 126295,
-      "n_owners": 80619,
-      "year_min": 1995,
+      "cls": "007",
+      "industry": "Machines & Power Tools",
+      "n_filings": 286930,
+      "n_clean": 148670,
+      "n_owners": 76188,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.00838208477529001,
-      "mean_dkl": 0.016427860634377844,
-      "iqr_dkl": 0.2313778175261234,
-      "p95_dkl": 0.39337997365482646,
-      "reach_rate": 0.44010451720178945,
-      "surv5_rate": 0.37280969159507504
+      "median_dkl": -0.023002879428507317,
+      "mean_dkl": 0.02266157272720889,
+      "iqr_dkl": 0.23131702107231167,
+      "p95_dkl": 0.45282054258549387,
+      "reach_rate": 0.4136005919149795,
+      "surv5_rate": 0.26576982578865943
     },
     {
-      "cls": "010",
-      "industry": "Medical Devices",
-      "n_filings": 302192,
-      "n_clean": 160575,
-      "n_owners": 74616,
-      "year_min": 1995,
+      "cls": "030",
+      "industry": "Coffee, Tea, Bakery & Spices",
+      "n_filings": 428854,
+      "n_clean": 192476,
+      "n_owners": 97520,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.016978464729741738,
-      "mean_dkl": 0.015996204497274978,
-      "iqr_dkl": 0.31077041612552314,
-      "p95_dkl": 0.5033630141214838,
-      "reach_rate": 0.4834314183403394,
-      "surv5_rate": 0.383577767398412
+      "median_dkl": -0.01315842776633036,
+      "mean_dkl": 0.019515966879742518,
+      "iqr_dkl": 0.2556134523882885,
+      "p95_dkl": 0.4279150045050475,
+      "reach_rate": 0.5172125355888526,
+      "surv5_rate": 0.42662461813420893
     },
     {
-      "cls": "003",
-      "industry": "Cosmetics & Cleaning",
-      "n_filings": 564014,
-      "n_clean": 278140,
-      "n_owners": 130889,
-      "year_min": 1995,
+      "cls": "016",
+      "industry": "Paper, Print & Office",
+      "n_filings": 712163,
+      "n_clean": 419972,
+      "n_owners": 229601,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.01766978606112779,
-      "mean_dkl": 0.013280196335142132,
-      "iqr_dkl": 0.24791591283746994,
-      "p95_dkl": 0.36697688680558826,
-      "reach_rate": 0.5044006615373553,
-      "surv5_rate": 0.43307686776443516
+      "median_dkl": -0.01163786555709545,
+      "mean_dkl": 0.017916786224820406,
+      "iqr_dkl": 0.2658281555628532,
+      "p95_dkl": 0.45656268700270264,
+      "reach_rate": 0.5102292533787967,
+      "surv5_rate": 0.4096392140428409
+    },
+    {
+      "cls": "041",
+      "industry": "Education & Entertainment",
+      "n_filings": 1344519,
+      "n_clean": 850779,
+      "n_owners": 491343,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.01025148132554099,
+      "mean_dkl": 0.01650147253935545,
+      "iqr_dkl": 0.224594138463861,
+      "p95_dkl": 0.37785359306509037,
+      "reach_rate": 0.4758027642901388,
+      "surv5_rate": 0.37819927384197305
+    },
+    {
+      "cls": "040",
+      "industry": "Materials Treatment",
+      "n_filings": 145590,
+      "n_clean": 87017,
+      "n_owners": 55201,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.010460165275117284,
+      "mean_dkl": 0.01649125809747474,
+      "iqr_dkl": 0.2588086951205275,
+      "p95_dkl": 0.4620775120234413,
+      "reach_rate": 0.44829171311352956,
+      "surv5_rate": 0.33024581403633774
+    },
+    {
+      "cls": "001",
+      "industry": "Chemicals & Industrial",
+      "n_filings": 218420,
+      "n_clean": 118548,
+      "n_owners": 49757,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.013835130603498946,
+      "mean_dkl": 0.015130298364243228,
+      "iqr_dkl": 0.28634979897324087,
+      "p95_dkl": 0.4727738191182649,
+      "reach_rate": 0.4785993859027567,
+      "surv5_rate": 0.3265175287647198
+    },
+    {
+      "cls": "037",
+      "industry": "Construction & Repair",
+      "n_filings": 284361,
+      "n_clean": 166789,
+      "n_owners": 99723,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.0010227198303081053,
+      "mean_dkl": 0.013683623354973218,
+      "iqr_dkl": 0.21539502133066524,
+      "p95_dkl": 0.36275813197405693,
+      "reach_rate": 0.43090971227119296,
+      "surv5_rate": 0.30271180953180366
+    },
+    {
+      "cls": "031",
+      "industry": "Agriculture & Live Animals",
+      "n_filings": 136656,
+      "n_clean": 59590,
+      "n_owners": 30003,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.027882048970719442,
+      "mean_dkl": 0.01361821513365271,
+      "iqr_dkl": 0.37413736155024324,
+      "p95_dkl": 0.6436770629938744,
+      "reach_rate": 0.5037758013089445,
+      "surv5_rate": 0.3952508810203054
     },
     {
       "cls": "044",
@@ -287,34 +482,94 @@
       "surv5_rate": 0.36736532483726814
     },
     {
-      "cls": "006",
-      "industry": "Common Metals",
-      "n_filings": 175437,
-      "n_clean": 81525,
-      "n_owners": 46824,
-      "year_min": 1995,
+      "cls": "005",
+      "industry": "Pharmaceuticals",
+      "n_filings": 600473,
+      "n_clean": 336093,
+      "n_owners": 124260,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": 0.006169542484479429,
-      "mean_dkl": 0.008032050602406754,
-      "iqr_dkl": 0.25255044495112156,
-      "p95_dkl": 0.40154435034525626,
-      "reach_rate": 0.445016865992027,
-      "surv5_rate": 0.2886353879178166
+      "median_dkl": -0.014178604292101493,
+      "mean_dkl": 0.010248710839456578,
+      "iqr_dkl": 0.28873054408189436,
+      "p95_dkl": 0.4784577790731346,
+      "reach_rate": 0.5698333496978515,
+      "surv5_rate": 0.49486897971692356
     },
     {
-      "cls": "028",
-      "industry": "Toys, Games & Sporting Goods",
-      "n_filings": 583108,
-      "n_clean": 258260,
-      "n_owners": 131810,
-      "year_min": 1995,
+      "cls": "042",
+      "industry": "Scientific & Tech Services",
+      "n_filings": 1148416,
+      "n_clean": 692938,
+      "n_owners": 387431,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.016579184185903095,
-      "mean_dkl": 0.006622140335824917,
-      "iqr_dkl": 0.3461771706933163,
-      "p95_dkl": 0.4852759612165709,
-      "reach_rate": 0.48538294741733135,
-      "surv5_rate": 0.4157283357856424
+      "median_dkl": 0.005209220060681474,
+      "mean_dkl": 0.010167428948597682,
+      "iqr_dkl": 0.29606949252164627,
+      "p95_dkl": 0.5556711862595893,
+      "reach_rate": 0.4661831217222897,
+      "surv5_rate": 0.38561314287858367
+    },
+    {
+      "cls": "032",
+      "industry": "Beer & Soft Drinks",
+      "n_filings": 206304,
+      "n_clean": 94920,
+      "n_owners": 46682,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.02028203900568104,
+      "mean_dkl": 0.008047864126445162,
+      "iqr_dkl": 0.3222707087153962,
+      "p95_dkl": 0.5765679918768161,
+      "reach_rate": 0.568299620733249,
+      "surv5_rate": 0.5054782975136958
+    },
+    {
+      "cls": "029",
+      "industry": "Meat, Dairy & Prepared Foods",
+      "n_filings": 253936,
+      "n_clean": 127008,
+      "n_owners": 60556,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.02975421302532144,
+      "mean_dkl": 0.007627807696183011,
+      "iqr_dkl": 0.26027692371361244,
+      "p95_dkl": 0.41810407663252525,
+      "reach_rate": 0.5225655076845553,
+      "surv5_rate": 0.42889424288233813
+    },
+    {
+      "cls": "019",
+      "industry": "Building Materials",
+      "n_filings": 122596,
+      "n_clean": 66282,
+      "n_owners": 33012,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.015763293107409204,
+      "mean_dkl": 0.003263425262520887,
+      "iqr_dkl": 0.24011180132228116,
+      "p95_dkl": 0.38711910890123136,
+      "reach_rate": 0.4623728915844422,
+      "surv5_rate": 0.3220180441145409
+    },
+    {
+      "cls": "002",
+      "industry": "Paints & Coatings",
+      "n_filings": 64892,
+      "n_clean": 31911,
+      "n_owners": 15703,
+      "year_min": 1990,
+      "year_max": 2020,
+      "median_dkl": -0.037096589552719994,
+      "mean_dkl": 0.0014623057626261616,
+      "iqr_dkl": 0.3275300986226508,
+      "p95_dkl": 0.6070295550172151,
+      "reach_rate": 0.45595562658644356,
+      "surv5_rate": 0.3025289085268403
     },
     {
       "cls": "045",
@@ -332,813 +587,558 @@
       "surv5_rate": 0.3626202122187056
     },
     {
-      "cls": "041",
-      "industry": "Education & Entertainment",
-      "n_filings": 1344519,
-      "n_clean": 815077,
-      "n_owners": 471515,
-      "year_min": 1995,
+      "cls": "039",
+      "industry": "Transport & Logistics",
+      "n_filings": 187535,
+      "n_clean": 112578,
+      "n_owners": 63048,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.012304186910857329,
-      "mean_dkl": -0.001122654412932718,
-      "iqr_dkl": 0.21852469142994746,
-      "p95_dkl": 0.3452902138106664,
-      "reach_rate": 0.47568879995386937,
-      "surv5_rate": 0.37719749177071615
-    },
-    {
-      "cls": "017",
-      "industry": "Rubber & Insulators",
-      "n_filings": 88430,
-      "n_clean": 43458,
-      "n_owners": 22524,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.0035163345600786045,
-      "mean_dkl": -0.002760427961805737,
-      "iqr_dkl": 0.20371601339925216,
-      "p95_dkl": 0.30181749721747053,
-      "reach_rate": 0.4349716968107138,
-      "surv5_rate": 0.2765658796999402
-    },
-    {
-      "cls": "004",
-      "industry": "Lubricants & Fuels",
-      "n_filings": 78345,
-      "n_clean": 30267,
-      "n_owners": 16546,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.024117104389433486,
-      "mean_dkl": -0.004548262341456183,
-      "iqr_dkl": 0.3428295509654724,
-      "p95_dkl": 0.5600708435040591,
-      "reach_rate": 0.49334258433277167,
-      "surv5_rate": 0.381174216142994
-    },
-    {
-      "cls": "040",
-      "industry": "Materials Treatment",
-      "n_filings": 145590,
-      "n_clean": 83213,
-      "n_owners": 52597,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.015189836838465531,
-      "mean_dkl": -0.0050250264042291815,
-      "iqr_dkl": 0.2508045452758383,
-      "p95_dkl": 0.3925331482228591,
-      "reach_rate": 0.4515640585004747,
-      "surv5_rate": 0.33176306586711213
-    },
-    {
-      "cls": "015",
-      "industry": "Musical Instruments",
-      "n_filings": 31792,
-      "n_clean": 10609,
-      "n_owners": 6531,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.0033099672530294555,
-      "mean_dkl": -0.005897641672656823,
-      "iqr_dkl": 0.4374476124031963,
-      "p95_dkl": 0.6156670145223284,
-      "reach_rate": 0.4442454519747384,
-      "surv5_rate": 0.30879441983221795
-    },
-    {
-      "cls": "009",
-      "industry": "Software & Electronics",
-      "n_filings": 1807636,
-      "n_clean": 1054572,
-      "n_owners": 521819,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.0215594907033978,
-      "mean_dkl": -0.0071800023579451505,
-      "iqr_dkl": 0.2655506250813593,
-      "p95_dkl": 0.39529082858148445,
-      "reach_rate": 0.4959424297250449,
-      "surv5_rate": 0.41143895343324116
-    },
-    {
-      "cls": "037",
-      "industry": "Construction & Repair",
-      "n_filings": 284361,
-      "n_clean": 157226,
-      "n_owners": 93653,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.0024983970997440874,
-      "mean_dkl": -0.010017130968100424,
-      "iqr_dkl": 0.20623780674045689,
-      "p95_dkl": 0.30585663811885677,
-      "reach_rate": 0.43279737448004785,
-      "surv5_rate": 0.3025581010774299
-    },
-    {
-      "cls": "007",
-      "industry": "Machines & Power Tools",
-      "n_filings": 286930,
-      "n_clean": 135331,
-      "n_owners": 69563,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.030875065846595717,
-      "mean_dkl": -0.013646645628892456,
-      "iqr_dkl": 0.21845394470639246,
-      "p95_dkl": 0.3720727831924737,
-      "reach_rate": 0.41133960437741535,
-      "surv5_rate": 0.2647804272487457
+      "median_dkl": -0.012929287652684973,
+      "mean_dkl": 0.0003291647572248134,
+      "iqr_dkl": 0.279382807591128,
+      "p95_dkl": 0.44982561923919206,
+      "reach_rate": 0.4570964131535469,
+      "surv5_rate": 0.3407948266979339
     },
     {
       "cls": "035",
       "industry": "Advertising & Retail",
       "n_filings": 1418345,
-      "n_clean": 899682,
-      "n_owners": 528027,
-      "year_min": 1995,
+      "n_clean": 924501,
+      "n_owners": 542287,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.027436820944157336,
-      "mean_dkl": -0.01592124969003353,
-      "iqr_dkl": 0.22452766891713605,
-      "p95_dkl": 0.33221405064260257,
-      "reach_rate": 0.47371293412561327,
-      "surv5_rate": 0.37969527010654874
-    },
-    {
-      "cls": "042",
-      "industry": "Scientific & Tech Services",
-      "n_filings": 1148416,
-      "n_clean": 635128,
-      "n_owners": 352645,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": 0.0046410929089266695,
-      "mean_dkl": -0.01661761606164518,
-      "iqr_dkl": 0.27766986270834426,
-      "p95_dkl": 0.46705297822433867,
-      "reach_rate": 0.46950850852111703,
-      "surv5_rate": 0.38800840145608445
-    },
-    {
-      "cls": "005",
-      "industry": "Pharmaceuticals",
-      "n_filings": 600473,
-      "n_clean": 314898,
-      "n_owners": 118037,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.018650044965728085,
-      "mean_dkl": -0.01915571283208009,
-      "iqr_dkl": 0.2785419186229561,
-      "p95_dkl": 0.398109873809092,
-      "reach_rate": 0.5727981759172811,
-      "surv5_rate": 0.4982819833723936
-    },
-    {
-      "cls": "030",
-      "industry": "Coffee, Tea, Bakery & Spices",
-      "n_filings": 428854,
-      "n_clean": 173569,
-      "n_owners": 89747,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.01854836580185859,
-      "mean_dkl": -0.019866666161927483,
-      "iqr_dkl": 0.24335547349564468,
-      "p95_dkl": 0.333129015085885,
-      "reach_rate": 0.5167166948014911,
-      "surv5_rate": 0.42541582886344914
-    },
-    {
-      "cls": "016",
-      "industry": "Paper, Print & Office",
-      "n_filings": 712163,
-      "n_clean": 367643,
-      "n_owners": 205093,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.019541236068204793,
-      "mean_dkl": -0.021883394322453974,
-      "iqr_dkl": 0.25139903376786954,
-      "p95_dkl": 0.344898213155731,
-      "reach_rate": 0.5146432816618296,
-      "surv5_rate": 0.4092829184834201
-    },
-    {
-      "cls": "001",
-      "industry": "Chemicals & Industrial",
-      "n_filings": 218420,
-      "n_clean": 105461,
-      "n_owners": 44697,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.021254340326476218,
-      "mean_dkl": -0.023942519400406544,
-      "iqr_dkl": 0.2764106961120669,
-      "p95_dkl": 0.35732027859412785,
-      "reach_rate": 0.4811636529143475,
-      "surv5_rate": 0.3290600316704753
+      "median_dkl": -0.025559837303782196,
+      "mean_dkl": -0.0014972453321538542,
+      "iqr_dkl": 0.22950024636878297,
+      "p95_dkl": 0.3666007608071773,
+      "reach_rate": 0.47353653484420244,
+      "surv5_rate": 0.3807762241468641
     },
     {
       "cls": "025",
       "industry": "Clothing, Footwear & Headwear",
       "n_filings": 1265966,
-      "n_clean": 561490,
-      "n_owners": 361440,
-      "year_min": 1995,
+      "n_clean": 604850,
+      "n_owners": 382965,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.05153030774494827,
-      "mean_dkl": -0.03006173262788357,
-      "iqr_dkl": 0.22865042863189444,
-      "p95_dkl": 0.36611481830411297,
-      "reach_rate": 0.5224171401093519,
-      "surv5_rate": 0.4622807173769791
+      "median_dkl": -0.04877049183773541,
+      "mean_dkl": -0.006060285514335027,
+      "iqr_dkl": 0.23854025187381023,
+      "p95_dkl": 0.4179498519185909,
+      "reach_rate": 0.5257270397619245,
+      "surv5_rate": 0.46565098784822684
     },
     {
-      "cls": "032",
-      "industry": "Beer & Soft Drinks",
-      "n_filings": 206304,
-      "n_clean": 87849,
-      "n_owners": 43714,
-      "year_min": 1995,
+      "cls": "015",
+      "industry": "Musical Instruments",
+      "n_filings": 31792,
+      "n_clean": 11068,
+      "n_owners": 6747,
+      "year_min": 1993,
       "year_max": 2020,
-      "median_dkl": -0.028600556535200994,
-      "mean_dkl": -0.03400932306231993,
-      "iqr_dkl": 0.3117054655139553,
-      "p95_dkl": 0.45138516952019536,
-      "reach_rate": 0.5686803492356202,
-      "surv5_rate": 0.5054126967865314
-    },
-    {
-      "cls": "039",
-      "industry": "Transport & Logistics",
-      "n_filings": 187535,
-      "n_clean": 105370,
-      "n_owners": 59203,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.017258331457532528,
-      "mean_dkl": -0.034947046246974645,
-      "iqr_dkl": 0.2671303308115949,
-      "p95_dkl": 0.3629604494023937,
-      "reach_rate": 0.46105153269431526,
-      "surv5_rate": 0.34261174907468916
-    },
-    {
-      "cls": "029",
-      "industry": "Meat, Dairy & Prepared Foods",
-      "n_filings": 253936,
-      "n_clean": 114185,
-      "n_owners": 55196,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.037377540657405284,
-      "mean_dkl": -0.0365713467553637,
-      "iqr_dkl": 0.2482285795146275,
-      "p95_dkl": 0.32697941043729895,
-      "reach_rate": 0.5231072382537111,
-      "surv5_rate": 0.4286377370057363
-    },
-    {
-      "cls": "019",
-      "industry": "Building Materials",
-      "n_filings": 122596,
-      "n_clean": 60289,
-      "n_owners": 30109,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.022697133430222394,
-      "mean_dkl": -0.03870811378659021,
-      "iqr_dkl": 0.2289273964759131,
-      "p95_dkl": 0.27982514847981754,
-      "reach_rate": 0.4641642754067906,
-      "surv5_rate": 0.32282837665245734
-    },
-    {
-      "cls": "031",
-      "industry": "Agriculture & Live Animals",
-      "n_filings": 136656,
-      "n_clean": 52623,
-      "n_owners": 26983,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.042315544842873365,
-      "mean_dkl": -0.03911414471021026,
-      "iqr_dkl": 0.353757667741772,
-      "p95_dkl": 0.5022142575750559,
-      "reach_rate": 0.5089409573760523,
-      "surv5_rate": 0.3987229918476712
-    },
-    {
-      "cls": "002",
-      "industry": "Paints & Coatings",
-      "n_filings": 64892,
-      "n_clean": 28286,
-      "n_owners": 14228,
-      "year_min": 1995,
-      "year_max": 2020,
-      "median_dkl": -0.04738300076869395,
-      "mean_dkl": -0.04303556901006163,
-      "iqr_dkl": 0.3127786256165548,
-      "p95_dkl": 0.4683947271089126,
-      "reach_rate": 0.45923778547691435,
-      "surv5_rate": 0.30400197977798205
+      "median_dkl": -0.003704685475186764,
+      "mean_dkl": -0.006757689761293157,
+      "iqr_dkl": 0.43757640004932874,
+      "p95_dkl": 0.6097047261797308,
+      "reach_rate": 0.4458800144560896,
+      "surv5_rate": 0.3087278641127575
     },
     {
       "cls": "036",
       "industry": "Insurance & Financial",
       "n_filings": 602901,
-      "n_clean": 354316,
-      "n_owners": 174543,
-      "year_min": 1995,
+      "n_clean": 374634,
+      "n_owners": 183490,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.054428421385313897,
-      "mean_dkl": -0.04638441152754384,
-      "iqr_dkl": 0.25210333269558305,
-      "p95_dkl": 0.36908167365712474,
-      "reach_rate": 0.48093227514422154,
-      "surv5_rate": 0.3661336208356382
+      "median_dkl": -0.05080284215749664,
+      "mean_dkl": -0.019715728052990402,
+      "iqr_dkl": 0.2609868868554823,
+      "p95_dkl": 0.42056984685880305,
+      "reach_rate": 0.47694016026308345,
+      "surv5_rate": 0.36474532477030913
     },
     {
       "cls": "038",
       "industry": "Telecommunications",
       "n_filings": 230267,
-      "n_clean": 153225,
-      "n_owners": 78422,
-      "year_min": 1995,
+      "n_clean": 162634,
+      "n_owners": 82158,
+      "year_min": 1990,
       "year_max": 2020,
-      "median_dkl": -0.03936669664075332,
-      "mean_dkl": -0.058116535020513796,
-      "iqr_dkl": 0.2758573849463648,
-      "p95_dkl": 0.3495185879051954,
-      "reach_rate": 0.5176309348996574,
-      "surv5_rate": 0.45696198401044213
+      "median_dkl": -0.03298734692628069,
+      "mean_dkl": -0.025264871240802355,
+      "iqr_dkl": 0.2865536499354673,
+      "p95_dkl": 0.44639729703676156,
+      "reach_rate": 0.5194178339092687,
+      "surv5_rate": 0.46056790093092465
     }
   ],
   "survival_betas": [
     {
       "cls": "001",
       "outcome": "reached_registration",
-      "n": 137258,
-      "beta_dkl": 0.026751880921180138,
-      "se_dkl": 0.0056098328305391925
+      "n": 150345,
+      "beta_dkl": -0.03159028479032051,
+      "se_dkl": 0.005345286455309835
     },
     {
       "cls": "001",
       "outcome": "survived_5y",
-      "n": 105461,
-      "beta_dkl": 0.08815877044162605,
-      "se_dkl": 0.006690319488068804
+      "n": 118548,
+      "beta_dkl": 0.04932579279657106,
+      "se_dkl": 0.006421980218488348
     },
     {
       "cls": "001",
       "outcome": "survived_10y",
-      "n": 76663,
-      "beta_dkl": 0.06841858175428721,
-      "se_dkl": 0.007874577952696655
+      "n": 89750,
+      "beta_dkl": 0.0546588812827375,
+      "se_dkl": 0.007704718450388627
     },
     {
       "cls": "002",
       "outcome": "reached_registration",
-      "n": 34994,
-      "beta_dkl": -0.11649030073581029,
-      "se_dkl": 0.012142673849254796
+      "n": 38619,
+      "beta_dkl": -0.09475024632287816,
+      "se_dkl": 0.01140425620518067
     },
     {
       "cls": "002",
       "outcome": "survived_5y",
-      "n": 28286,
-      "beta_dkl": -0.018172737717244855,
-      "se_dkl": 0.01398922495347239
+      "n": 31911,
+      "beta_dkl": -0.04095114669532663,
+      "se_dkl": 0.013536158230649253
     },
     {
       "cls": "002",
       "outcome": "survived_10y",
-      "n": 20757,
-      "beta_dkl": 0.020123620395065912,
-      "se_dkl": 0.01524866537023417
+      "n": 24382,
+      "beta_dkl": 0.005038157609558512,
+      "se_dkl": 0.01532501016453539
     },
     {
       "cls": "003",
       "outcome": "reached_registration",
-      "n": 402313,
-      "beta_dkl": -0.031527412976342636,
-      "se_dkl": 0.0033185725988354488
+      "n": 424499,
+      "beta_dkl": -0.05191624633090231,
+      "se_dkl": 0.003236486322963331
     },
     {
       "cls": "003",
       "outcome": "survived_5y",
-      "n": 278140,
-      "beta_dkl": -0.026703208624396974,
-      "se_dkl": 0.003989787621548505
+      "n": 300326,
+      "beta_dkl": -0.01462938955794031,
+      "se_dkl": 0.0039146684693824076
     },
     {
       "cls": "003",
       "outcome": "survived_10y",
-      "n": 175484,
-      "beta_dkl": -0.04456373704827317,
-      "se_dkl": 0.0048523558632225005
+      "n": 197670,
+      "beta_dkl": -0.0029443989073969406,
+      "se_dkl": 0.004908716368282731
     },
     {
       "cls": "004",
       "outcome": "reached_registration",
-      "n": 42053,
-      "beta_dkl": -0.024846936238415815,
-      "se_dkl": 0.01029649566992577
+      "n": 44610,
+      "beta_dkl": -0.03792042559912662,
+      "se_dkl": 0.009833212984098021
     },
     {
       "cls": "004",
       "outcome": "survived_5y",
-      "n": 30267,
-      "beta_dkl": 0.04857227185978357,
-      "se_dkl": 0.012344139011439235
+      "n": 32824,
+      "beta_dkl": 0.02553333142150763,
+      "se_dkl": 0.012052361555045106
     },
     {
       "cls": "004",
       "outcome": "survived_10y",
-      "n": 20380,
-      "beta_dkl": 0.020274796480127977,
-      "se_dkl": 0.014731896339457063
+      "n": 22937,
+      "beta_dkl": 0.03658724650768496,
+      "se_dkl": 0.014738163045935528
     },
     {
       "cls": "005",
       "outcome": "reached_registration",
-      "n": 432967,
-      "beta_dkl": 0.0190200776777535,
-      "se_dkl": 0.0032491694341558464
+      "n": 454162,
+      "beta_dkl": -0.016751013532999293,
+      "se_dkl": 0.00318182573569866
     },
     {
       "cls": "005",
       "outcome": "survived_5y",
-      "n": 314898,
-      "beta_dkl": 0.03250195591172622,
-      "se_dkl": 0.0036179443263058236
+      "n": 336093,
+      "beta_dkl": 0.008785201042780175,
+      "se_dkl": 0.0036004350429539034
     },
     {
       "cls": "005",
       "outcome": "survived_10y",
-      "n": 211461,
-      "beta_dkl": 0.028882163512640502,
-      "se_dkl": 0.004424845335531608
+      "n": 232656,
+      "beta_dkl": 0.025135095321134768,
+      "se_dkl": 0.0044141618717178175
     },
     {
       "cls": "006",
       "outcome": "reached_registration",
-      "n": 117050,
-      "beta_dkl": -0.20243768118487881,
-      "se_dkl": 0.006390671242358141
+      "n": 125255,
+      "beta_dkl": -0.1946441550238278,
+      "se_dkl": 0.006210248501687939
     },
     {
       "cls": "006",
       "outcome": "survived_5y",
-      "n": 81525,
-      "beta_dkl": -0.08389351667388413,
-      "se_dkl": 0.008153078374488415
+      "n": 89730,
+      "beta_dkl": -0.07173576432056492,
+      "se_dkl": 0.00805606175668536
     },
     {
       "cls": "006",
       "outcome": "survived_10y",
-      "n": 56943,
-      "beta_dkl": -0.05963959318124214,
-      "se_dkl": 0.00919294577223556
+      "n": 65148,
+      "beta_dkl": -0.037077434856106595,
+      "se_dkl": 0.009452816357118489
     },
     {
       "cls": "007",
       "outcome": "reached_registration",
-      "n": 194182,
-      "beta_dkl": -0.11129959858375692,
-      "se_dkl": 0.0049744471472172565
+      "n": 207521,
+      "beta_dkl": -0.13336508578432105,
+      "se_dkl": 0.004863878890190167
     },
     {
       "cls": "007",
       "outcome": "survived_5y",
-      "n": 135331,
-      "beta_dkl": 0.021896257251533907,
-      "se_dkl": 0.006286430155142301
+      "n": 148670,
+      "beta_dkl": -0.0048427304371792615,
+      "se_dkl": 0.006287661965425788
     },
     {
       "cls": "007",
       "outcome": "survived_10y",
-      "n": 92276,
-      "beta_dkl": 0.03825832561547951,
-      "se_dkl": 0.007383508407217106
+      "n": 105615,
+      "beta_dkl": 0.025173826013326454,
+      "se_dkl": 0.007696154727995286
     },
     {
       "cls": "008",
       "outcome": "reached_registration",
-      "n": 92501,
-      "beta_dkl": -0.14951089642640866,
-      "se_dkl": 0.007480839950954116
+      "n": 97127,
+      "beta_dkl": -0.17476403888034928,
+      "se_dkl": 0.006836017722573958
     },
     {
       "cls": "008",
       "outcome": "survived_5y",
-      "n": 57965,
-      "beta_dkl": -0.07408576510021721,
-      "se_dkl": 0.01037961610059669
+      "n": 62591,
+      "beta_dkl": -0.05886691342117577,
+      "se_dkl": 0.009476834127089107
     },
     {
       "cls": "008",
       "outcome": "survived_10y",
-      "n": 31948,
-      "beta_dkl": 0.04130425791742054,
-      "se_dkl": 0.012720281738496922
+      "n": 36574,
+      "beta_dkl": 0.024382235185288145,
+      "se_dkl": 0.012351104577319272
     },
     {
       "cls": "009",
       "outcome": "reached_registration",
-      "n": 1423405,
-      "beta_dkl": 0.12372764621465056,
-      "se_dkl": 0.0017336577650576281
+      "n": 1514911,
+      "beta_dkl": 0.047546802365400334,
+      "se_dkl": 0.0017102820250938582
     },
     {
       "cls": "009",
       "outcome": "survived_5y",
-      "n": 1054572,
-      "beta_dkl": 0.07924067580777003,
-      "se_dkl": 0.0019986519622880723
+      "n": 1146078,
+      "beta_dkl": 0.03833357209088898,
+      "se_dkl": 0.001958096099368253
     },
     {
       "cls": "009",
       "outcome": "survived_10y",
-      "n": 732789,
-      "beta_dkl": 0.07366252843141861,
-      "se_dkl": 0.0023849235201005166
+      "n": 824295,
+      "beta_dkl": 0.055397306251678755,
+      "se_dkl": 0.0023686751180258363
     },
     {
       "cls": "010",
       "outcome": "reached_registration",
-      "n": 228629,
-      "beta_dkl": -0.06802624488818733,
-      "se_dkl": 0.004374335364467692
+      "n": 242255,
+      "beta_dkl": -0.09453227369267296,
+      "se_dkl": 0.004283176083898104
     },
     {
       "cls": "010",
       "outcome": "survived_5y",
-      "n": 160575,
-      "beta_dkl": 0.007249036387798408,
-      "se_dkl": 0.005316472073924061
+      "n": 174201,
+      "beta_dkl": -0.009010501809626845,
+      "se_dkl": 0.005277587765174659
     },
     {
       "cls": "010",
       "outcome": "survived_10y",
-      "n": 99052,
-      "beta_dkl": 0.023649896350403318,
-      "se_dkl": 0.006608490125310043
+      "n": 112678,
+      "beta_dkl": 0.006475843411212451,
+      "se_dkl": 0.00669337058515386
     },
     {
       "cls": "011",
       "outcome": "reached_registration",
-      "n": 249894,
-      "beta_dkl": -0.056428756078078325,
-      "se_dkl": 0.004305017607993935
+      "n": 261624,
+      "beta_dkl": -0.09170686630430495,
+      "se_dkl": 0.004064560429388595
     },
     {
       "cls": "011",
       "outcome": "survived_5y",
-      "n": 160109,
-      "beta_dkl": -0.05504290333018592,
-      "se_dkl": 0.00584568008460205
+      "n": 171839,
+      "beta_dkl": -0.03510388393778424,
+      "se_dkl": 0.005555133655837718
     },
     {
       "cls": "011",
       "outcome": "survived_10y",
-      "n": 89197,
-      "beta_dkl": 0.06055428607070684,
-      "se_dkl": 0.007350211251680793
+      "n": 100927,
+      "beta_dkl": 0.05017441570991928,
+      "se_dkl": 0.007234247518244054
     },
     {
       "cls": "012",
       "outcome": "reached_registration",
-      "n": 165425,
-      "beta_dkl": -0.1293901991811993,
-      "se_dkl": 0.005477005400221007
+      "n": 174949,
+      "beta_dkl": -0.1409871809690318,
+      "se_dkl": 0.005186514458933947
     },
     {
       "cls": "012",
       "outcome": "survived_5y",
-      "n": 107119,
-      "beta_dkl": -0.016673961426268154,
-      "se_dkl": 0.007116277840584672
+      "n": 116643,
+      "beta_dkl": -0.030433408330751376,
+      "se_dkl": 0.006765481327532046
     },
     {
       "cls": "012",
       "outcome": "survived_10y",
-      "n": 69107,
-      "beta_dkl": 0.03396159155019848,
-      "se_dkl": 0.008301265623461363
+      "n": 78631,
+      "beta_dkl": 0.019558196686831772,
+      "se_dkl": 0.008414080260865512
     },
     {
       "cls": "013",
       "outcome": "reached_registration",
-      "n": 16495,
-      "beta_dkl": 0.025909833351539853,
-      "se_dkl": 0.017854458024525885
+      "n": 17083,
+      "beta_dkl": 0.011139045609236488,
+      "se_dkl": 0.016862539195092598
     },
     {
       "cls": "013",
       "outcome": "survived_5y",
-      "n": 11844,
-      "beta_dkl": -0.02818686399864402,
-      "se_dkl": 0.021626557645952883
+      "n": 12432,
+      "beta_dkl": -0.029633737700417922,
+      "se_dkl": 0.020358066050963245
     },
     {
       "cls": "013",
       "outcome": "survived_10y",
-      "n": 6999,
-      "beta_dkl": -0.005858629603736804,
-      "se_dkl": 0.028817146395331485
+      "n": 7587,
+      "beta_dkl": -0.00863092100081933,
+      "se_dkl": 0.02712194974128107
     },
     {
       "cls": "014",
       "outcome": "reached_registration",
-      "n": 138764,
-      "beta_dkl": -0.11029821801770306,
-      "se_dkl": 0.005834715541589999
+      "n": 145713,
+      "beta_dkl": -0.13040922429215146,
+      "se_dkl": 0.005477000223371969
     },
     {
       "cls": "014",
       "outcome": "survived_5y",
-      "n": 91669,
-      "beta_dkl": -0.0752283421418177,
-      "se_dkl": 0.007273355013979317
+      "n": 98618,
+      "beta_dkl": -0.07046347305399082,
+      "se_dkl": 0.006862957913429827
     },
     {
       "cls": "014",
       "outcome": "survived_10y",
-      "n": 55988,
-      "beta_dkl": -0.01818963492872974,
-      "se_dkl": 0.00873735439662076
+      "n": 62937,
+      "beta_dkl": -0.0229612002293143,
+      "se_dkl": 0.008485849160782816
     },
     {
       "cls": "015",
       "outcome": "reached_registration",
-      "n": 14229,
-      "beta_dkl": -0.12096437406571081,
-      "se_dkl": 0.018448115507200852
+      "n": 14688,
+      "beta_dkl": -0.1225573887910236,
+      "se_dkl": 0.01775642921129979
     },
     {
       "cls": "015",
       "outcome": "survived_5y",
-      "n": 10609,
-      "beta_dkl": -0.07279420226113614,
-      "se_dkl": 0.022634704358291916
+      "n": 11068,
+      "beta_dkl": -0.07353212298558048,
+      "se_dkl": 0.02192243832103615
     },
     {
       "cls": "015",
       "outcome": "survived_10y",
-      "n": 6878,
-      "beta_dkl": 0.015362501674991941,
-      "se_dkl": 0.029696862249636358
+      "n": 7337,
+      "beta_dkl": 0.0205022437822112,
+      "se_dkl": 0.02861652092268864
     },
     {
       "cls": "016",
       "outcome": "reached_registration",
-      "n": 480238,
-      "beta_dkl": 0.006259539156303211,
-      "se_dkl": 0.00306191097633951
+      "n": 532567,
+      "beta_dkl": -0.022101507186986724,
+      "se_dkl": 0.0028998249848243294
     },
     {
       "cls": "016",
       "outcome": "survived_5y",
-      "n": 367643,
-      "beta_dkl": 0.010609979741446578,
-      "se_dkl": 0.003445457003197587
+      "n": 419972,
+      "beta_dkl": 0.0017754436917279993,
+      "se_dkl": 0.0033400325579877642
     },
     {
       "cls": "016",
       "outcome": "survived_10y",
-      "n": 284364,
-      "beta_dkl": -0.0027756429701123807,
-      "se_dkl": 0.0038959155981070316
+      "n": 336693,
+      "beta_dkl": 0.011254677469948961,
+      "se_dkl": 0.00376914245752671
     },
     {
       "cls": "017",
       "outcome": "reached_registration",
-      "n": 55430,
-      "beta_dkl": -0.10371998064544638,
-      "se_dkl": 0.009235657330685659
+      "n": 60158,
+      "beta_dkl": -0.09005515009148794,
+      "se_dkl": 0.008969794566279629
     },
     {
       "cls": "017",
       "outcome": "survived_5y",
-      "n": 43458,
-      "beta_dkl": -0.017690343324964733,
-      "se_dkl": 0.011049632548253661
+      "n": 48186,
+      "beta_dkl": -0.026788063851269344,
+      "se_dkl": 0.011161896135912034
     },
     {
       "cls": "017",
       "outcome": "survived_10y",
-      "n": 30863,
-      "beta_dkl": 0.0017462997018712722,
-      "se_dkl": 0.012759576309116907
+      "n": 35591,
+      "beta_dkl": 0.015635146823319936,
+      "se_dkl": 0.013340373783516999
     },
     {
       "cls": "018",
       "outcome": "reached_registration",
-      "n": 189859,
-      "beta_dkl": -0.02252936976412092,
-      "se_dkl": 0.004758586469464588
+      "n": 196972,
+      "beta_dkl": -0.07528075960491018,
+      "se_dkl": 0.004719805643620652
     },
     {
       "cls": "018",
       "outcome": "survived_5y",
-      "n": 126295,
-      "beta_dkl": -0.07273289340806578,
-      "se_dkl": 0.006025875894790312
+      "n": 133408,
+      "beta_dkl": -0.07029826112763965,
+      "se_dkl": 0.00590733524491024
     },
     {
       "cls": "018",
       "outcome": "survived_10y",
-      "n": 74747,
-      "beta_dkl": -0.06722857361974598,
-      "se_dkl": 0.007585018488100259
+      "n": 81860,
+      "beta_dkl": -0.05483471537471396,
+      "se_dkl": 0.007665573266089266
     },
     {
       "cls": "019",
       "outcome": "reached_registration",
-      "n": 75082,
-      "beta_dkl": -0.07843308216009125,
-      "se_dkl": 0.007653571137721897
+      "n": 81075,
+      "beta_dkl": -0.08229370003182884,
+      "se_dkl": 0.007713042377475004
     },
     {
       "cls": "019",
       "outcome": "survived_5y",
-      "n": 60289,
-      "beta_dkl": -0.0022119913359891137,
-      "se_dkl": 0.008863848053487043
+      "n": 66282,
+      "beta_dkl": -0.034497397875290554,
+      "se_dkl": 0.009084931864000178
     },
     {
       "cls": "019",
       "outcome": "survived_10y",
-      "n": 43938,
-      "beta_dkl": 0.007599127034960133,
-      "se_dkl": 0.01024996984699706
+      "n": 49931,
+      "beta_dkl": -0.002053213344885037,
+      "se_dkl": 0.010775269779519803
     },
     {
       "cls": "020",
       "outcome": "reached_registration",
-      "n": 226218,
-      "beta_dkl": -0.23650834001464344,
-      "se_dkl": 0.004794213944839846
+      "n": 238935,
+      "beta_dkl": -0.20459171286188846,
+      "se_dkl": 0.004467019680028557
     },
     {
       "cls": "020",
       "outcome": "survived_5y",
-      "n": 132147,
-      "beta_dkl": -0.1392694007387619,
-      "se_dkl": 0.006696052623756152
+      "n": 144864,
+      "beta_dkl": -0.08447415772772254,
+      "se_dkl": 0.006160748263521918
     },
     {
       "cls": "020",
       "outcome": "survived_10y",
-      "n": 78873,
-      "beta_dkl": -0.03953125860854665,
-      "se_dkl": 0.007642408276065261
+      "n": 91590,
+      "beta_dkl": -0.006243807618148415,
+      "se_dkl": 0.007450476173540123
     },
     {
       "cls": "021",
       "outcome": "reached_registration",
-      "n": 319202,
-      "beta_dkl": -0.12202493465560536,
-      "se_dkl": 0.0038884183154925577
+      "n": 330657,
+      "beta_dkl": -0.1466805486377082,
+      "se_dkl": 0.003672333957903537
     },
     {
       "cls": "021",
       "outcome": "survived_5y",
-      "n": 172345,
-      "beta_dkl": -0.1400804821242012,
-      "se_dkl": 0.005727212769714729
+      "n": 183800,
+      "beta_dkl": -0.10820141803183926,
+      "se_dkl": 0.0054179045728476195
     },
     {
       "cls": "021",
       "outcome": "survived_10y",
-      "n": 85841,
-      "beta_dkl": -0.05302729594720738,
-      "se_dkl": 0.007231863547256664
+      "n": 97296,
+      "beta_dkl": -0.03540826554677251,
+      "se_dkl": 0.007193429618220552
     },
     {
       "cls": "022",
       "outcome": "reached_registration",
-      "n": 29547,
-      "beta_dkl": -0.19835937343768403,
-      "se_dkl": 0.013530215914145997
+      "n": 31203,
+      "beta_dkl": -0.17157135963938724,
+      "se_dkl": 0.012293567042169558
     },
     {
       "cls": "022",
       "outcome": "survived_5y",
-      "n": 19895,
-      "beta_dkl": -0.11435323455609772,
-      "se_dkl": 0.017550087670124528
+      "n": 21551,
+      "beta_dkl": -0.08865547551961826,
+      "se_dkl": 0.016110450589344603
     },
     {
       "cls": "022",
       "outcome": "survived_10y",
-      "n": 11036,
-      "beta_dkl": 0.015619115403784887,
-      "se_dkl": 0.021112445751134877
+      "n": 12692,
+      "beta_dkl": 0.025931181256226166,
+      "se_dkl": 0.020602694810072705
     },
     {
       "cls": "023",
@@ -1164,401 +1164,401 @@
     {
       "cls": "024",
       "outcome": "reached_registration",
-      "n": 126826,
-      "beta_dkl": -0.10540873692185856,
-      "se_dkl": 0.006257594391807214
+      "n": 132649,
+      "beta_dkl": -0.12348594273470105,
+      "se_dkl": 0.005701471958565196
     },
     {
       "cls": "024",
       "outcome": "survived_5y",
-      "n": 78947,
-      "beta_dkl": -0.1273718764827972,
-      "se_dkl": 0.008331047739315723
+      "n": 84770,
+      "beta_dkl": -0.07975172197452075,
+      "se_dkl": 0.007657853520435374
     },
     {
       "cls": "024",
       "outcome": "survived_10y",
-      "n": 44236,
-      "beta_dkl": -0.04238891431808313,
-      "se_dkl": 0.01022726796938413
+      "n": 50059,
+      "beta_dkl": -0.021037051877847126,
+      "se_dkl": 0.009975655128578974
     },
     {
       "cls": "025",
       "outcome": "reached_registration",
-      "n": 818397,
-      "beta_dkl": 0.10684460050009537,
-      "se_dkl": 0.0023468944338884594
+      "n": 861757,
+      "beta_dkl": 0.04049625123470479,
+      "se_dkl": 0.0023035846672664713
     },
     {
       "cls": "025",
       "outcome": "survived_5y",
-      "n": 561490,
-      "beta_dkl": 0.03774339142486603,
-      "se_dkl": 0.002754279163301196
+      "n": 604850,
+      "beta_dkl": 0.011284957803888006,
+      "se_dkl": 0.002656574208872202
     },
     {
       "cls": "025",
       "outcome": "survived_10y",
-      "n": 346038,
-      "beta_dkl": 0.02467491630702901,
-      "se_dkl": 0.0035004482279960935
+      "n": 389398,
+      "beta_dkl": 0.013986619691789999,
+      "se_dkl": 0.0033809406048855694
     },
     {
       "cls": "026",
       "outcome": "reached_registration",
-      "n": 61267,
-      "beta_dkl": -0.15060130063234817,
-      "se_dkl": 0.00905617907663689
+      "n": 63510,
+      "beta_dkl": -0.16949742915666105,
+      "se_dkl": 0.008477083369090017
     },
     {
       "cls": "026",
       "outcome": "survived_5y",
-      "n": 33395,
-      "beta_dkl": -0.1308206558355729,
-      "se_dkl": 0.012515228139580316
+      "n": 35638,
+      "beta_dkl": -0.11217537787140971,
+      "se_dkl": 0.011757476713102337
     },
     {
       "cls": "026",
       "outcome": "survived_10y",
-      "n": 16881,
-      "beta_dkl": -0.02468178122318507,
-      "se_dkl": 0.017150931204726837
+      "n": 19124,
+      "beta_dkl": -0.010269208893531901,
+      "se_dkl": 0.016141261575217555
     },
     {
       "cls": "027",
       "outcome": "reached_registration",
-      "n": 32683,
-      "beta_dkl": -0.10117520098514815,
-      "se_dkl": 0.01267900031670525
+      "n": 34688,
+      "beta_dkl": -0.08933955887109549,
+      "se_dkl": 0.011266859629860565
     },
     {
       "cls": "027",
       "outcome": "survived_5y",
-      "n": 20959,
-      "beta_dkl": -0.039436870110890136,
-      "se_dkl": 0.01686847567093414
+      "n": 22964,
+      "beta_dkl": -0.039962137707892725,
+      "se_dkl": 0.015094327359255859
     },
     {
       "cls": "027",
       "outcome": "survived_10y",
-      "n": 11764,
-      "beta_dkl": 0.0904984960200996,
-      "se_dkl": 0.02103222466508927
+      "n": 13769,
+      "beta_dkl": 0.06243291329585551,
+      "se_dkl": 0.01959271628934296
     },
     {
       "cls": "028",
       "outcome": "reached_registration",
-      "n": 395614,
-      "beta_dkl": -0.012135547511640827,
-      "se_dkl": 0.003349183511615219
+      "n": 429790,
+      "beta_dkl": -0.050809339459033084,
+      "se_dkl": 0.003168531635979309
     },
     {
       "cls": "028",
       "outcome": "survived_5y",
-      "n": 258260,
-      "beta_dkl": -0.06423535295327658,
-      "se_dkl": 0.004338899791347238
+      "n": 292436,
+      "beta_dkl": -0.03936407694776373,
+      "se_dkl": 0.004014813059070019
     },
     {
       "cls": "028",
       "outcome": "survived_10y",
-      "n": 165968,
-      "beta_dkl": -0.0261600441886884,
-      "se_dkl": 0.005149929218076174
+      "n": 200144,
+      "beta_dkl": -0.0015978557499543714,
+      "se_dkl": 0.0049166386312282035
     },
     {
       "cls": "029",
       "outcome": "reached_registration",
-      "n": 149437,
-      "beta_dkl": -0.008946888240259116,
-      "se_dkl": 0.005452686315012241
+      "n": 162260,
+      "beta_dkl": -0.06227917633678324,
+      "se_dkl": 0.00520356143297194
     },
     {
       "cls": "029",
       "outcome": "survived_5y",
-      "n": 114185,
-      "beta_dkl": 0.06321955716148965,
-      "se_dkl": 0.006284012570002784
+      "n": 127008,
+      "beta_dkl": 0.008530724747934332,
+      "se_dkl": 0.006045404231593481
     },
     {
       "cls": "029",
       "outcome": "survived_10y",
-      "n": 78261,
-      "beta_dkl": 0.06096231031984889,
-      "se_dkl": 0.0076698344422837985
+      "n": 91084,
+      "beta_dkl": 0.02723362883475644,
+      "se_dkl": 0.007540312516690848
     },
     {
       "cls": "030",
       "outcome": "reached_registration",
-      "n": 237339,
-      "beta_dkl": 0.01749183104745912,
-      "se_dkl": 0.004310479628056171
+      "n": 256246,
+      "beta_dkl": -0.03839417619642939,
+      "se_dkl": 0.004125736302015259
     },
     {
       "cls": "030",
       "outcome": "survived_5y",
-      "n": 173569,
-      "beta_dkl": 0.03937458875014815,
-      "se_dkl": 0.00505893612273234
+      "n": 192476,
+      "beta_dkl": 0.0032853931628897656,
+      "se_dkl": 0.004853158948041035
     },
     {
       "cls": "030",
       "outcome": "survived_10y",
-      "n": 118034,
-      "beta_dkl": 0.022235755393667705,
-      "se_dkl": 0.006126806870066397
+      "n": 136941,
+      "beta_dkl": 0.019382552517752897,
+      "se_dkl": 0.005976982006285171
     },
     {
       "cls": "031",
       "outcome": "reached_registration",
-      "n": 73009,
-      "beta_dkl": -0.026061522858779048,
-      "se_dkl": 0.00815837906020248
+      "n": 79976,
+      "beta_dkl": -0.0714888887296454,
+      "se_dkl": 0.0074375589136408595
     },
     {
       "cls": "031",
       "outcome": "survived_5y",
-      "n": 52623,
-      "beta_dkl": 0.12682013449474097,
-      "se_dkl": 0.009851437907887265
+      "n": 59590,
+      "beta_dkl": 0.04021759888251237,
+      "se_dkl": 0.009015248693948796
     },
     {
       "cls": "031",
       "outcome": "survived_10y",
-      "n": 35009,
-      "beta_dkl": 0.09282168402219228,
-      "se_dkl": 0.012175549602051803
+      "n": 41976,
+      "beta_dkl": 0.038452936266546583,
+      "se_dkl": 0.011029724428858792
     },
     {
       "cls": "032",
       "outcome": "reached_registration",
-      "n": 118424,
-      "beta_dkl": 0.1232130900348497,
-      "se_dkl": 0.006347407945205261
+      "n": 125495,
+      "beta_dkl": 0.030280736135216618,
+      "se_dkl": 0.006145183999620105
     },
     {
       "cls": "032",
       "outcome": "survived_5y",
-      "n": 87849,
-      "beta_dkl": 0.08488691284461877,
-      "se_dkl": 0.007092919965383837
+      "n": 94920,
+      "beta_dkl": 0.013221164811585442,
+      "se_dkl": 0.00677234977382325
     },
     {
       "cls": "032",
       "outcome": "survived_10y",
-      "n": 59807,
-      "beta_dkl": 0.025976211338141906,
-      "se_dkl": 0.008756203139231655
+      "n": 66878,
+      "beta_dkl": -0.0027951971754939836,
+      "se_dkl": 0.008156151557294941
     },
     {
       "cls": "033",
       "outcome": "reached_registration",
-      "n": 86778,
-      "beta_dkl": 0.014255212656861409,
-      "se_dkl": 0.007042145129933613
+      "n": 88915,
+      "beta_dkl": -0.018703037669047115,
+      "se_dkl": 0.006889350841022817
     },
     {
       "cls": "033",
       "outcome": "survived_5y",
-      "n": 59728,
-      "beta_dkl": -0.0037739841394087504,
-      "se_dkl": 0.008489994390869381
+      "n": 61865,
+      "beta_dkl": -0.023759248919865417,
+      "se_dkl": 0.008151116507321057
     },
     {
       "cls": "033",
       "outcome": "survived_10y",
-      "n": 36251,
-      "beta_dkl": -0.01775425732528456,
-      "se_dkl": 0.011143678989152738
+      "n": 38388,
+      "beta_dkl": -0.033295458527862365,
+      "se_dkl": 0.010564211362707044
     },
     {
       "cls": "034",
       "outcome": "reached_registration",
-      "n": 45540,
-      "beta_dkl": -0.015356763959271283,
-      "se_dkl": 0.010027611912972753
+      "n": 46811,
+      "beta_dkl": -0.04836595052807935,
+      "se_dkl": 0.009482429644376223
     },
     {
       "cls": "034",
       "outcome": "survived_5y",
-      "n": 31547,
-      "beta_dkl": 0.07129867756915623,
-      "se_dkl": 0.011916172514671891
+      "n": 32818,
+      "beta_dkl": 0.022665013534131567,
+      "se_dkl": 0.011248434401499481
     },
     {
       "cls": "034",
       "outcome": "survived_10y",
-      "n": 16175,
-      "beta_dkl": 0.0947869025338923,
-      "se_dkl": 0.01819519414543373
+      "n": 17446,
+      "beta_dkl": 0.057344637836604866,
+      "se_dkl": 0.01742769270589387
     },
     {
       "cls": "035",
       "outcome": "reached_registration",
-      "n": 1236143,
-      "beta_dkl": 0.03391731489830728,
-      "se_dkl": 0.001836986842133308
+      "n": 1260962,
+      "beta_dkl": -0.0029220286539888922,
+      "se_dkl": 0.00187323581185499
     },
     {
       "cls": "035",
       "outcome": "survived_5y",
-      "n": 899682,
-      "beta_dkl": 0.03015799964022657,
-      "se_dkl": 0.002161054324457097
+      "n": 924501,
+      "beta_dkl": 0.0006804525890504447,
+      "se_dkl": 0.0021872036016534614
     },
     {
       "cls": "035",
       "outcome": "survived_10y",
-      "n": 620401,
-      "beta_dkl": 0.010871976842574207,
-      "se_dkl": 0.0026081502234240857
+      "n": 645220,
+      "beta_dkl": 0.002919478585109018,
+      "se_dkl": 0.0026443652717180375
     },
     {
       "cls": "036",
       "outcome": "reached_registration",
-      "n": 471239,
-      "beta_dkl": 0.09480993913911795,
-      "se_dkl": 0.002990700770706263
+      "n": 491557,
+      "beta_dkl": 0.032092530696879236,
+      "se_dkl": 0.0029771185879872947
     },
     {
       "cls": "036",
       "outcome": "survived_5y",
-      "n": 354316,
-      "beta_dkl": 0.07786182007182608,
-      "se_dkl": 0.0035304133082246017
+      "n": 374634,
+      "beta_dkl": 0.016073680867549536,
+      "se_dkl": 0.003464789430511951
     },
     {
       "cls": "036",
       "outcome": "survived_10y",
-      "n": 253175,
-      "beta_dkl": 0.04063794825397995,
-      "se_dkl": 0.00417828133419258
+      "n": 273493,
+      "beta_dkl": 0.01665856405636291,
+      "se_dkl": 0.004172325072086654
     },
     {
       "cls": "037",
       "outcome": "reached_registration",
-      "n": 222116,
-      "beta_dkl": -0.009914790505238023,
-      "se_dkl": 0.004485411461664707
+      "n": 231679,
+      "beta_dkl": -0.0567218050549937,
+      "se_dkl": 0.004399215951684811
     },
     {
       "cls": "037",
       "outcome": "survived_5y",
-      "n": 157226,
-      "beta_dkl": -0.010418733183453061,
-      "se_dkl": 0.005508018864125203
+      "n": 166789,
+      "beta_dkl": -0.04367860697336359,
+      "se_dkl": 0.005508000628312716
     },
     {
       "cls": "037",
       "outcome": "survived_10y",
-      "n": 109151,
-      "beta_dkl": -0.029887128942219125,
-      "se_dkl": 0.00661560912476384
+      "n": 118714,
+      "beta_dkl": -0.03221288279605319,
+      "se_dkl": 0.0067130858397299814
     },
     {
       "cls": "038",
       "outcome": "reached_registration",
-      "n": 186845,
-      "beta_dkl": 0.055129104224920684,
-      "se_dkl": 0.005067761908463203
+      "n": 196254,
+      "beta_dkl": -0.05392856390499346,
+      "se_dkl": 0.004878146089161978
     },
     {
       "cls": "038",
       "outcome": "survived_5y",
-      "n": 153225,
-      "beta_dkl": 0.061708795236252924,
-      "se_dkl": 0.005539381094255834
+      "n": 162634,
+      "beta_dkl": -0.041405771926776753,
+      "se_dkl": 0.00530665430856469
     },
     {
       "cls": "038",
       "outcome": "survived_10y",
-      "n": 118980,
-      "beta_dkl": 0.05631758499219524,
-      "se_dkl": 0.006331357433118278
+      "n": 128389,
+      "beta_dkl": -0.019257567093736997,
+      "se_dkl": 0.006006105502872106
     },
     {
       "cls": "039",
       "outcome": "reached_registration",
-      "n": 142077,
-      "beta_dkl": 0.027894850966327486,
-      "se_dkl": 0.005621569452523281
+      "n": 149285,
+      "beta_dkl": -0.05602058919644762,
+      "se_dkl": 0.005339864774300954
     },
     {
       "cls": "039",
       "outcome": "survived_5y",
-      "n": 105370,
-      "beta_dkl": 0.09666269845683305,
-      "se_dkl": 0.006763589828517313
+      "n": 112578,
+      "beta_dkl": -0.00042842320999160997,
+      "se_dkl": 0.006434313564063261
     },
     {
       "cls": "039",
       "outcome": "survived_10y",
-      "n": 74157,
-      "beta_dkl": 0.10686183634138842,
-      "se_dkl": 0.008089251748062127
+      "n": 81365,
+      "beta_dkl": 0.04388272851129352,
+      "se_dkl": 0.007865648988221547
     },
     {
       "cls": "040",
       "outcome": "reached_registration",
-      "n": 116900,
-      "beta_dkl": 0.08132094164227387,
-      "se_dkl": 0.006064320198718694
+      "n": 120704,
+      "beta_dkl": 0.03223690552116969,
+      "se_dkl": 0.005891139458904211
     },
     {
       "cls": "040",
       "outcome": "survived_5y",
-      "n": 83213,
-      "beta_dkl": 0.151359171737768,
-      "se_dkl": 0.007488130682629459
+      "n": 87017,
+      "beta_dkl": 0.10573082790349574,
+      "se_dkl": 0.007167751875704803
     },
     {
       "cls": "040",
       "outcome": "survived_10y",
-      "n": 56902,
-      "beta_dkl": 0.12894374175654397,
-      "se_dkl": 0.009000437984718897
+      "n": 60706,
+      "beta_dkl": 0.11589503363339501,
+      "se_dkl": 0.008742182261136149
     },
     {
       "cls": "041",
       "outcome": "reached_registration",
-      "n": 1153059,
-      "beta_dkl": 0.02732776845135439,
-      "se_dkl": 0.0019091982398122562
+      "n": 1188761,
+      "beta_dkl": -0.0198171830874577,
+      "se_dkl": 0.0019055485914072179
     },
     {
       "cls": "041",
       "outcome": "survived_5y",
-      "n": 815077,
-      "beta_dkl": 0.008429190427781902,
-      "se_dkl": 0.002292001934882291
+      "n": 850779,
+      "beta_dkl": -0.019644697823873167,
+      "se_dkl": 0.002261055236995026
     },
     {
       "cls": "041",
       "outcome": "survived_10y",
-      "n": 539688,
-      "beta_dkl": 0.015494869245033474,
-      "se_dkl": 0.0028320427464785
+      "n": 575390,
+      "beta_dkl": 0.007243555925712002,
+      "se_dkl": 0.0027904650153815855
     },
     {
       "cls": "042",
       "outcome": "reached_registration",
-      "n": 888307,
-      "beta_dkl": 0.07326239234827085,
-      "se_dkl": 0.002230720506918236
+      "n": 946117,
+      "beta_dkl": -0.005094288702712239,
+      "se_dkl": 0.002107582927384647
     },
     {
       "cls": "042",
       "outcome": "survived_5y",
-      "n": 635128,
-      "beta_dkl": 0.07125465986805415,
-      "se_dkl": 0.0026184913907849354
+      "n": 692938,
+      "beta_dkl": 0.016295657080532547,
+      "se_dkl": 0.0024754285832063517
     },
     {
       "cls": "042",
       "outcome": "survived_10y",
-      "n": 444581,
-      "beta_dkl": 0.07445785393018384,
-      "se_dkl": 0.0031286312379720997
+      "n": 502391,
+      "beta_dkl": 0.05610871759459634,
+      "se_dkl": 0.002984252503931027
     },
     {
       "cls": "043",

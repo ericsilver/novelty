@@ -69,13 +69,13 @@ def fig_industry_time_series():
             q1 = agg[f"{kind}_q1"].to_numpy()
             q3 = agg[f"{kind}_q3"].to_numpy()
             ax.axvspan(
-                1984, 1995, facecolor="#bcbcbc", edgecolor="#666",
-                alpha=0.55, hatch="////", linewidth=0.0, zorder=0,
+                1985, 1990, facecolor="#bcbcbc", edgecolor="#666",
+                alpha=0.65, hatch="////", linewidth=0.0, zorder=0,
             )
             ax.axvspan(
-                2021, max(years.max() + 1, 2027),
+                2021, max(years.max() + 1, 2026),
                 facecolor="#bcbcbc", edgecolor="#666",
-                alpha=0.55, hatch=r"\\\\", linewidth=0.0, zorder=0,
+                alpha=0.65, hatch=r"\\\\", linewidth=0.0, zorder=0,
             )
             ax.fill_between(years, q1, q3, alpha=0.45, color=color, zorder=1,
                             label="25--75% range across filings in year")
@@ -99,15 +99,18 @@ def fig_industry_time_series():
 # ---------- Figure: 1980s burn-in investigation ----------
 def fig_burnin():
     fig, ax = plt.subplots(1, 1, figsize=(8, 4))
+    # Hard arithmetic 5y burn-in: filings 1985-1989 cannot have a complete
+    # 5-year look-behind because the corpus begins in 1984.
     ax.axvspan(
-        1984, 1995, facecolor="#bcbcbc", edgecolor="#666", alpha=0.55,
+        1985, 1990, facecolor="#bcbcbc", edgecolor="#666", alpha=0.65,
         hatch="////", linewidth=0.0, zorder=0,
-        label="Past-side burn-in (no 5y look-behind available)",
+        label="Past-side burn-in 1985--1989\n(no complete 5y look-behind)",
     )
+    # Hard arithmetic 5y burn-in on the future side
     ax.axvspan(
-        2021, 2027, facecolor="#bcbcbc", edgecolor="#666", alpha=0.55,
+        2021, 2026, facecolor="#bcbcbc", edgecolor="#666", alpha=0.65,
         hatch=r"\\\\", linewidth=0.0, zorder=0,
-        label="Future-side burn-in (no 5y look-ahead available)",
+        label="Future-side burn-in 2021--2025\n(no complete 5y look-ahead)",
     )
     for cls, color in zip(CLASSES, ["#1f77b4", "#d62728"]):
         sp = _load_surprise(cls).filter(CLEAN & pl.col("year").is_not_null())
@@ -322,7 +325,7 @@ def regressions():
         return sm.GLM(pdf[outcome], X, family=sm.families.Binomial()).fit(disp=False, maxiter=200)
 
     for cls in CLASSES:
-        df = _load_outcomes(cls).filter(CLEAN).filter(pl.col("year") >= 1995)
+        df = _load_outcomes(cls).filter(CLEAN).filter(pl.col("year") >= 1990)
         for outcome in outcomes:
             pdf = (
                 df.filter(pl.col("year") <= eligibility_cap[outcome])

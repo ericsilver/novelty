@@ -47,7 +47,7 @@ def industry_summary(classes: list[str]) -> pl.DataFrame:
     )
     for cls in classes:
         df = pl.read_parquet(REPO_ROOT / f"data/processed/outcomes_class{cls}.parquet")
-        clean = df.filter(CLEAN & (pl.col("year") >= 1995) & (pl.col("year") <= 2020))
+        clean = df.filter(CLEAN & (pl.col("year") >= 1990) & (pl.col("year") <= 2020))
         if clean.is_empty():
             continue
         rows.append(
@@ -92,7 +92,7 @@ def write_summary_tex(summary: pl.DataFrame) -> None:
         if not path.exists():
             continue
         df = pl.read_parquet(path).filter(
-            CLEAN & (pl.col("year") >= 1995) & (pl.col("year") <= 2020)
+            CLEAN & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
             & pl.col("owner_name").is_not_null()
         )
         firm_means = (
@@ -159,7 +159,7 @@ def per_class_survival_beta(classes: list[str]) -> pl.DataFrame:
     )
     for cls in classes:
         df = pl.read_parquet(REPO_ROOT / f"data/processed/outcomes_class{cls}.parquet").filter(
-            CLEAN & (pl.col("year") >= 1995)
+            CLEAN & (pl.col("year") >= 1990)
         )
         for outcome, cap in (("reached_registration", 2025), ("survived_5y", 2020), ("survived_10y", 2015)):
             d = df.filter(pl.col("year") <= cap)

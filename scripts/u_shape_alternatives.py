@@ -50,7 +50,7 @@ CLEAN = (
     (pl.col("n_ref_prospective") >= 1000)
     & (pl.col("n_ref_retrospective") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & (pl.col("year") >= 1995) & (pl.col("year") <= 2020)
+    & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
 )
 
 # Owner-name indicators of likely foreign-domiciled firms

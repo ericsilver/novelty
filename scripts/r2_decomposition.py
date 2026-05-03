@@ -52,7 +52,7 @@ def load_panel() -> pl.DataFrame:
         & (pl.col("n_ref_prospective") >= 1000)
         & (pl.col("n_ref_retrospective") >= 1000)
         & (pl.col("n_terms") >= 3)
-        & (pl.col("year") >= 1995) & (pl.col("year") <= 2020)
+        & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
     )
     cw = pl.read_parquet(PROC / "uspto_sec_crosswalk.parquet").select("owner_name", "cik")
     matched = fil.join(cw, on="owner_name", how="inner")

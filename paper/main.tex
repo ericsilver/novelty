@@ -195,28 +195,36 @@ boilerplate are themselves the signal.
 \paragraph{Burn-in caveat.}
 The method requires a five-year window of prior filings (to compute
 prospective surprise) and a five-year window of subsequent filings (to
-compute retrospective surprise). The first means filings from the very
-beginning of the digitised USPTO record (here, 1985--1994) cannot be
-scored cleanly: the look-behind window reaches into a period when the
-corpus is sparse, the reference distribution has high entropy, and any
-specific filing looks artificially novel. The second is symmetric: the
-most recent five years of filings (2021--2026) cannot be scored cleanly
-either, because the look-ahead window has not yet completed.
-Figure~\ref{fig:burnin} shades both windows. We restrict all regressions
-to filings from 1995 onward, and we read 2020 as the latest cohort
-eligible to demonstrate any kind of post-filing fate.
+compute retrospective surprise). The hard arithmetic burn-in is exactly
+five years on each side: filings from 1985--1989 cannot have a complete
+look-behind because the digitised corpus begins in 1984; filings from
+2021 onward cannot have a complete look-ahead at the time of writing.
+Figure~\ref{fig:burnin} shades the two five-year burn-in windows.
+A separate density filter (\texttt{n\_ref\_prospective} $\geq 1000$,
+the same on the look-ahead) further excludes per-class filings whose
+reference window has fewer than $1{,}000$ filings to estimate against;
+this filter is what drops small NICE classes' early-decade cohorts
+even after the arithmetic burn-in is satisfied. We restrict all
+regressions to filings from \textbf{1990 onward}, the literal 5-year
+arithmetic boundary; the 1995 cutoff used in earlier drafts of this
+work was an arbitrary five-year safety buffer that we have removed.
+The change matters: the aggregate U-shape result we report in
+Section~\ref{sec:u-shape} is materially weaker under the 1990 cutoff
+than under the 1995 cutoff, and we discuss this directly there.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.85\linewidth]{results/burnin.png}
 \caption{Filings per year with both 5-year reference windows
-populated. Forward-hatched grey: filings whose look-behind window
-reaches into pre-1985 sparse data (past-side burn-in).
-Backward-hatched grey: filings whose look-ahead window has not yet
-elapsed at the time of writing (future-side burn-in). Filings in
-either band are excluded from regressions; the grey hatches are
-chosen so the two regions remain distinguishable in black-and-white
-print.}
+populated. Forward-hatched grey: literal 5-year past-side burn-in
+(1985--1989) --- filings in these years cannot have a complete
+look-behind because the digitised corpus begins in 1984.
+Backward-hatched grey: literal 5-year future-side burn-in
+(2021--2025) --- filings in these years cannot have a complete
+look-ahead at the time of writing. The bands are chosen to print
+distinguishably in black-and-white. A separate density filter
+(\texttt{n\_ref\_prospective} $\geq 1000$) handles the additional
+small-class exclusions visible in the long left tail of the plot.}
 \label{fig:burnin}
 \end{figure}
 
@@ -1085,11 +1093,21 @@ fare the worst.
 
 \paragraph{Quadratic regression.}
 We test the curvature directly. For every industry's clean
-filings between 1995 and 2020, we fit a logistic model with both
+filings between 1990 and 2020, we fit a logistic model with both
 $z(\Delta KL)$ and $z(\Delta KL)^2$ as predictors, with year and
 year-squared controls. Pooled across all 45 NICE classes and
-$8.6$ million filings, the quadratic coefficient is positive and
-highly significant for every survival outcome.
+$9.3$ million filings, the aggregate quadratic coefficient is
+positive but small ($\beta_{(\Delta KL)^2}^z = +0.0002$ on 5y
+survival; $+0.0013$ on 10y survival). \textbf{An earlier draft of
+this paper, which used a more conservative 1995 cutoff that
+discarded the 1990--1994 cohort, reported $\beta = +0.0087$ on 5y
+survival --- a much stronger pooled U.} Tightening the burn-in
+back to its literal 5-year value brings in a cohort of filings
+made between 1990 and 1994, and that cohort flattens the
+aggregate quadratic substantially. The U-shape is therefore
+\emph{not} a population-level fact in the way we earlier
+suggested. It is, however, present at the per-industry level in
+$27$ of the $44$ industries we can fit.
 
 \begin{table}[h]
 \centering
@@ -1101,15 +1119,25 @@ concave-up (``U-shape'').}
 \input{results/u_shape_table.tex}
 \end{table}
 
-\paragraph{The U-shape is present in nearly every industry.}
+\paragraph{The U-shape persists in most --- but not all --- industries.}
 Refitting the same quadratic per industry on the 5y-survival
 outcome ($n = 44$ industries with at least $5{,}000$ clean
 filings), the quadratic coefficient on $z(\Delta KL)^2$ is
-\textbf{positive in 38 of 44 industries (86\%)} and is
-individually significant at $p < 0.05$ in 29 of those 44
-($66\%$). Table~\ref{tab:u-shape-industries} reports the 15
-industries with the strongest U-curvature and the 5 with the
-weakest (or inverted-U).
+positive in $27$ of $44$ industries ($61\%$) and is individually
+significant at $p < 0.05$ in $21$ of those $44$ ($48\%$).
+Notably, several large industries that contributed strongly to
+the previously-reported aggregate U now exhibit a clearly
+\emph{inverted-U} on the 1990 cutoff: \textbf{Software \&
+Electronics} ($t = -18.2$ on $\beta_{(\Delta KL)^2}$),
+\textbf{Insurance \& Financial} ($t = -13.8$), \textbf{Scientific
+\& Tech Services} ($t = -12.9$), \textbf{Advertising \& Retail}
+($t = -10.7$), and \textbf{Telecommunications} ($t = -10.6$).
+The U-shape continues to dominate in consumer-goods classes
+(Household Utensils, Furniture, Leather, Textiles, Common Metals,
+etc.), where heavy templated filing by large incumbents and
+distinct novelty waves coexist. Table~\ref{tab:u-shape-industries}
+reports the 15 industries with the strongest U-curvature and the
+5 with the strongest inverted-U.
 
 \begin{table}[h]
 \centering
