@@ -319,43 +319,43 @@ spike disappears as soon as the look-behind window clears 1989.}
 \section{Outcome 1: Trademark survival}
 \label{sec:survival}
 
-We derive three binary outcomes per filing from the USPTO status code.
+We derive three binary outcomes per filing from the USPTO status
+code. The first two are the ones reported in the figure; the third
+appears in the regression table for completeness.
 
 \begin{itemize}
-  \item \textbf{Completed registration:} the filing eventually reached
-        a registered status (status code beginning 6 or 8). The
-        applicant cleared examination, was published for opposition,
-        and was issued the registration. The lag is typically
-        nine to twenty-four months.
-  \item \textbf{Renewed 5y registration:} completed registration, is
-        at least five years old, and was not cancelled with status
-        code 686 (the Section-8 maintenance failure code). Strict
-        subset of ``completed registration'' within any single filing.
-  \item \textbf{Renewed 10y registration:} renewed 5y, is at least ten
-        years old, and was not cancelled with status code 688 (the
-        Section-9 renewal failure code). Strict subset of renewed 5y.
+  \item \textbf{Completed registration:} status code begins 6 or 8.
+        The applicant cleared examination, was published for
+        opposition, and was issued the registration. Filing-to-
+        registration lag is typically nine to twenty-four months.
+  \item \textbf{Renewed 5-year registration:} completed registration,
+        is at least five years old, and was not cancelled with status
+        code 686 (Section-8 maintenance failure). Strict subset of
+        completed-registration within any single filing.
+  \item \textbf{Renewed 10-year registration:} renewed-5y, is at
+        least ten years old, and was not cancelled with status code
+        688 (Section-9 renewal failure). Strict subset of renewed-5y.
 \end{itemize}
 
-\paragraph{Limitation: 5y / 10y survival outcomes are nearly
-indistinguishable in this data.} The Section-8 (686) and Section-9
-(688) cancellation codes are present in the corpus but together
-account for less than $2\%$ of filings; most cancellations get
-broader codes that we cannot assign to a particular gate. Within
-the same cohort cap, ``Renewed 5y'' and ``Renewed 10y'' are
-empirically nearly identical, dominated by the underlying
-``currently registered'' rate. An earlier draft of this paper used
-\emph{different} cohort caps for each outcome (5y $\to$ filed
-$\le 2020$; 10y $\to$ filed $\le 2015$) which produced a misleading
-ordering in which the 10y rate appeared higher than the 5y rate ---
-a cohort-composition artifact: the 5y panel included recent filings
-still in examination (status 4xx) which counted against the 5y rate
-but not against the 10y rate that excluded them. We now apply the
-same cohort cap (filed $\le 2015$) to all survival outcomes, which
-makes them properly nested subsets within each filing but also
-makes them indistinguishable as separate hazard measures. The
-figures below therefore show only two well-separated outcomes,
-``Completed registration'' and ``Currently registered (April 2026),''
-and the regression table reports all three for completeness.
+\paragraph{How trademark maintenance interacts with these outcomes.}
+A registered trademark stays in the live-registered status (6xx)
+until either its owner actively surrenders it or one of two
+periodic maintenance events comes due and the owner fails to file
+the appropriate paperwork. The first event is the Section~8
+Declaration of Use, due between the fifth and sixth year after
+registration; failure to file it triggers a status-686 cancellation.
+The second is the Section~9 Renewal at year ten, with subsequent
+renewals every ten years. A firm that goes out of business in,
+say, year three of its trademark's life will leave the trademark
+in 6xx status for another two-to-three years until Section~8 comes
+due and is missed. The 5-year survival outcome thus picks up the
+first deliberate ``does this firm still care about this mark?''
+gate; we apply a cohort cap of filed $\le 2020$ throughout, so
+every clean-panel filing has had time for the Section~8 event to
+have played out. The 10-year outcome has not had time to play out
+for many filings under that cap and so we report it only with the
+caveat that the underlying Section~9 cancellation code is rare
+enough to make it nearly indistinguishable from the 5-year measure.
 
 We estimate generalized linear logit models of the form
 \[

@@ -254,20 +254,17 @@ def fig_quadrant():
 
 # ---------- Figure: outcome bins by KL axis (3 panels per industry) ----------
 def fig_outcome_curves():
-    # Two truly-distinct outcomes (per-filing nesting forces them to be
-    # ordered the same way; both share the year<=2015 cohort cap so
-    # cohort composition isn't doing the work):
-    #   - reached_registration: ever got status 6xx or 8xx
-    #   - currently_live:        currently in status 6xx
-    # We dropped survived_5y / survived_10y from the figure because the
-    # USPTO Section-8 (status 686) and Section-9 (status 688) cancellation
-    # codes are too rare in the clean panel to make those outcomes
-    # meaningfully distinct from currently_live; they are reported in the
-    # regression table for completeness but the figure shows only the two
-    # well-separated outcomes.
+    # Two well-separated outcomes:
+    #   reached_registration: ever got status 6xx or 8xx
+    #   survived_5y:          ever-registered, at least 5 years old, NOT
+    #                          cancelled with status 686 (Section 8 fail).
+    # Both use the same cohort cap (filed <= 2020) so they are properly
+    # nested subsets within any single filing; the cohort cap matches
+    # the 5-year retrospective burn-in window we apply throughout, which
+    # gives the Section-8 maintenance event a chance to have played out.
     outcomes = [
-        ("reached_registration", "Completed registration", 2015),
-        ("currently_live", "Currently registered (April 2026)", 2015),
+        ("reached_registration", "Completed registration", 2020),
+        ("survived_5y", "Renewed 5y registration", 2020),
     ]
     colors = ["#1f77b4", "#d62728", "#2ca02c"]
 
@@ -328,10 +325,12 @@ def fig_outcome_curves():
 # ---------- Logistic regressions on all four outcomes ----------
 def regressions():
     outcomes = ("reached_registration", "survived_5y", "survived_10y", "currently_live")
-    # All three survival outcomes share a year<=2015 cohort cap so the
-    # outcomes are nested subsets within every filing in the regression
-    # sample. (See fig_outcome_curves comment for the bug we're fixing.)
-    eligibility_cap = {"reached_registration": 2015, "survived_5y": 2015, "survived_10y": 2015, "currently_live": 2025}
+    # All survival outcomes share a year<=2020 cohort cap so they are
+    # nested subsets within any individual filing in the regression
+    # sample. (5y maintenance has had time to trigger by 2026 even for
+    # 2020 cohort; 10y maintenance has not, so the 10y row is reported
+    # but caveated.)
+    eligibility_cap = {"reached_registration": 2020, "survived_5y": 2020, "survived_10y": 2020, "currently_live": 2020}
     rows = []
 
     def fit(pdf, predictors, outcome):
