@@ -71,11 +71,13 @@ def fig_industry_time_series():
             ax.axvspan(
                 1985, 1990, facecolor="#bcbcbc", edgecolor="#666",
                 alpha=0.65, hatch="////", linewidth=0.0, zorder=0,
+                label="Past-side burn-in (1985--1989, no complete 5y look-behind)",
             )
             ax.axvspan(
                 2021, max(years.max() + 1, 2026),
                 facecolor="#bcbcbc", edgecolor="#666",
                 alpha=0.65, hatch=r"\\\\", linewidth=0.0, zorder=0,
+                label="Future-side burn-in (2021--, no complete 5y look-ahead)",
             )
             ax.fill_between(years, q1, q3, alpha=0.45, color=color, zorder=1,
                             label="25--75% range across filings in year")
@@ -89,8 +91,11 @@ def fig_industry_time_series():
         axes[2].axhline(0, color="grey", linewidth=0.7, linestyle="--", zorder=1)
         axes[0].set_title(INDUSTRY_NAME[cls])
         axes[2].set_xlabel("Filing year")
-        # legend on the third panel only, kept off-plot
-        axes[0].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=8, frameon=False)
+        # Legend on the first panel collects everything (line, IQR band,
+        # and the two burn-in shaded regions); kept off-plot so it doesn't
+        # cover data.
+        axes[0].legend(loc="upper left", bbox_to_anchor=(1.02, 1.0),
+                       fontsize=8, frameon=False)
         fig.tight_layout()
         fig.savefig(RESULTS / f"timeseries_{INDUSTRY_SHORT[cls]}.png", dpi=150, bbox_inches="tight")
         plt.close(fig)

@@ -288,12 +288,14 @@ sub-categories. Beverages show a similar but smaller widening.
 \centering
 \includegraphics[width=0.95\linewidth]{results/timeseries_software.png}
 \caption{\textbf{Software \& Electronics:} per-year median (line) and
-25--75\% range across all filings in that year (shaded band) of
-prospective KL, retrospective KL, and $\Delta KL$. Amber band: filings
-without a complete 5-year look-behind window (artificially high
-prospective KL). Blue band: filings without a complete 5-year look-ahead
-window (artificially high retrospective KL). Excluded from all
-regressions.}
+25--75\% range across all filings in that year (shaded coloured band) of
+prospective KL, retrospective KL, and $\Delta KL$. The hatched grey
+regions are the burn-in windows: forward-hatched for past-side
+(1985--1989, where the 5-year look-behind reaches into pre-corpus data
+and produces inflated prospective KL --- visible as the spike at
+1988), backward-hatched for future-side (2021 onward, where the
+5-year look-ahead has not yet completed). Both bands are excluded
+from the regressions.}
 \label{fig:ts_sw}
 \end{figure}
 
@@ -301,8 +303,16 @@ regressions.}
 \centering
 \includegraphics[width=0.95\linewidth]{results/timeseries_beverages.png}
 \caption{\textbf{Beer \& Soft Drinks:} per-year median (line) and
-25--75\% range across filings in that year (shaded band) of prospective
-KL, retrospective KL, and $\Delta KL$. Amber/blue: burn-in windows.}
+25--75\% range across filings in that year (shaded coloured band) of
+prospective KL, retrospective KL, and $\Delta KL$. Hatched grey
+regions: 5-year past-side and future-side burn-in windows (described
+in Figure~\ref{fig:ts_sw}'s caption). The 1988 prospective-KL spike
+visible in both classes is an arithmetic artifact of the burn-in:
+1988 filings have a look-behind window reaching 1983--1987, when the
+USPTO XML corpus contains only a few hundred filings per class. The
+reference distribution is dominated by Laplace smoothing on those
+few records, and any specific filing then looks far from it. The
+spike disappears as soon as the look-behind window clears 1989.}
 \label{fig:ts_bev}
 \end{figure}
 
@@ -1250,30 +1260,40 @@ positively in $|\Delta KL|$: each one-nat increase in distance
 from zero (in either direction) is associated with roughly a
 $4$-to-$5\%$ relative increase in the per-bin renewal rate.
 
-\paragraph{What is consistent with this story?} The simplest
-narrative is the one we proposed for the financial-variance
-result earlier: \emph{the most-imitated novel filings are
-genuine category leaders that the rest of the industry follows,
-and the most-conventional filings are unambiguous templated marks
-that examiners and competitors leave alone.} Filings in the
-middle have neither edge --- they are neither novel enough to
-attract imitation nor conventional enough to escape conflict.
-Both ends of the dial are rewarded; the trough is occupied by
-the merely-derivative.
+\paragraph{What is consistent with this story?} A natural reach
+is to say that the most-imitated novel filings are category
+leaders the industry follows and the most-conventional filings
+are templated marks that examiners and competitors leave alone.
+But that reading credits both tails with prescient strategy ---
+the right-arm filers ``saw'' the future their wording would
+define, and the left-arm filers ``saw'' that the safest path
+was to use the existing canonical wording. Without behavioural
+data we cannot license either claim. A more parsimonious story
+is that we observe the empirical fact (both extremes outperform
+the middle) without needing to ascribe foresight to either tail.
+The structural mechanism we \emph{can} document is examiner
+heuristics --- the office-action evidence below ---  which gives
+both tails an advantage at the registration gate without
+requiring any awareness of what the future would do.
 
 \paragraph{An office-action mechanism for the U.}
 A more mechanical reading of the same shape comes from
-likelihood-of-confusion: middle-$\Delta KL$ filings pick fresh-but-
-not-distinctive vocabulary that happens to overlap with prior
-marks already on the register, generating examiner office actions
-and applicant abandonments. The status code 700 ``abandoned, no
-response to office action'' is the modal post-examination failure;
-its share by $\Delta KL$ decile is itself U-shaped in reverse
-(D1: $5.1\%$; middle deciles 3--5: $13.6$--$14.5\%$; D10:
-$11.1\%$). Templated marks have one canonical form and rarely
-conflict; novel marks use vocabulary nobody else has used; middle
-marks compete for the same crowded mid-frequency words. The
-survival U-shape and the conflict U-shape line up almost exactly.
+likelihood-of-confusion. The status code 700 ``abandoned, no
+response to office action'' is the modal post-examination
+failure, and its share by $\Delta KL$ decile is itself U-shaped
+in reverse (D1: $5.1\%$; middle deciles 3--5: $13.2$--$14.1\%$;
+D10: $9.1\%$). Filings whose wording uses common, well-defined
+mid-frequency vocabulary that happens to overlap with prior
+registrations get examiner objections; filings with very narrowly
+common vocabulary (the bottom decile) and filings with vocabulary
+nobody else has used (the top decile) avoid these conflicts.
+This mechanism does not require firms in either tail to have
+strategic awareness of their own position --- it is a property
+of the examiner's prior-art search, mediated by how distinctive
+or how generic the goods/services description is. \textbf{We
+flag this as the cleanest available mechanism precisely because
+it does not ask us to credit the negative-$\Delta KL$ tail with
+prescience that we would not also extend to the positive tail.}
 
 \paragraph{Five alternative explanations tested.}
 The U-shape is genuinely strange enough that it warrants a
