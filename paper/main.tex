@@ -35,6 +35,20 @@ $\Delta KL = KL_{\text{pros}} - KL_{\text{retr}}$ as a single
 at the time but were imitated, negative for filings that looked
 ordinary at the time and remained so.
 
+\textbf{Three convergent-validity facts orient the rest of the paper.}
+On the matched firm panel, $\Delta KL$ is essentially \emph{uncorrelated}
+with the dominant alternative innovation proxy (firm-year patent counts:
+$r = +0.010$ on $174{,}569$ firm-years), so it is measuring a different
+channel rather than a noisy view of the same one. $\Delta KL$ is
+\emph{positively correlated with firm survival}: a one-$\sigma$ increase
+in a filing's $\Delta KL$ raises its odds of completing registration by
+$+13\%$ in the pooled per-filing logit, and shifts the firm-level
+distribution of multi-filing survival rates upward in every NICE class
+we examine. And $\Delta KL$ is \emph{positively correlated with
+profitability}: among publicly-traded firms, a one-$\sigma$ increase
+in three-year-trailing mean $\Delta KL$ predicts $+3.2$ percentage points
+higher gross margin (SE $0.6$ pp).
+
 We link the trademark scores to SEC EDGAR financials for the
 publicly-traded subset and ask three questions: do novel filings
 clear examination at higher rates, do novel firms earn higher gross
@@ -135,6 +149,64 @@ through 2024, covering $13{,}127$ unique CIKs that filed at least
 one 10-K. We extract revenue, cost of revenue, gross profit, R\&D
 expense, operating income, and net income.
 
+\paragraph{Inclusion filter (\textsc{clean}).}
+Almost every analysis in this paper is restricted to the same
+inclusion filter, which we call \textsc{clean}. The filter has five
+clauses, each addressing a separate failure mode: two outcome-window
+clauses (\texttt{year} bounds) that ensure the survival outcome is
+fully observed and that the prospective reference window is non-empty,
+two density floors on the per-class reference distributions
+(\texttt{n\_ref\_pros} and \texttt{n\_ref\_retr} $\geq 1{,}000$) that
+ensure $KL$ scores reflect a real vocabulary distribution rather than
+small-sample noise, and a per-filing token-count floor
+($n_{\text{terms}} \geq 3$) that prevents 1- or 2-token descriptions
+from producing degenerate $KL$ values. Of $16{,}730{,}022$ raw
+filings, $\textbf{7{,}908{,}949}$ ($47.3\%$) survive the full filter
+and form the analytic corpus.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Clause & dropped alone & added back if dropped \\
+       & (vs.\ raw, \%)& (vs.\ \textsc{clean}, \%) \\
+\midrule
+\texttt{year} $\geq 1990$           & $1{,}246{,}246$ ($7.4\%$)   & $+2{,}597$ ($+0.0\%$) \\
+\texttt{year} $\leq 2018$           & $5{,}821{,}920$ ($34.8\%$)  & $+4{,}952{,}237$ ($+62.6\%$) \\
+\texttt{n\_ref\_pros} $\geq 1{,}000$ & $2{,}709{,}751$ ($16.2\%$)  & $+9{,}140$ ($+0.1\%$) \\
+\texttt{n\_ref\_retr} $\geq 1{,}000$ & $2{,}931{,}686$ ($17.5\%$)  & $+0$ ($+0.0\%$) \\
+$n_{\text{terms}} \geq 3$           & $3{,}639{,}965$ ($21.8\%$)  & $+602{,}341$ ($+7.6\%$) \\
+\midrule
+\textsc{clean} (all of the above)   & $8{,}821{,}073$ ($52.7\%$)  & --- \\
+\bottomrule
+\end{tabular}
+\caption{Per-clause filter effects on the $16{,}730{,}022$-filing raw
+corpus. ``Dropped alone'' is the share that fails the clause when
+applied in isolation to the raw corpus; ``added back'' is the share
+that the clause is uniquely binding on, i.e.\ what would re-enter the
+analytic corpus if we relaxed only that one clause. The two density
+floors (\texttt{n\_ref\_pros}, \texttt{n\_ref\_retr}) are nearly
+redundant once the year window is in place: their alone-restriction
+is large because they bind on the burn-in years 1985--1989 and
+2021--2025, which the year clauses already exclude.}
+\label{tab:clean-filter}
+\end{table}
+
+The dominant binder is the upper year cutoff, \texttt{year}
+$\leq 2018$, which alone accounts for $5.0$M of the $5.0$M filings
+that the post-registration survival outcome could not be observed for
+on the May 2026 data extraction. The lower bound, \texttt{year}
+$\geq 1990$, is the literal five-year arithmetic burn-in described in
+the Method section. The token-count floor, $n_{\text{terms}} \geq 3$,
+is the only other clause that uniquely excludes a meaningful share
+($+602$k filings rescued if dropped); when we look at the templated
+short-description analysis in Section~\ref{sec:templated-survival} we
+report results both with and without this clause, since the most
+heavily templated G/S strings (\textit{e.g.}~``restaurant services'',
+``legal services'') are 2-token strings and would otherwise be
+excluded.
+
 \paragraph{A data-quality note: missing registration dates.}
 An earlier version of this paper used the per-filing
 \texttt{registration\_date} field to determine whether a mark
@@ -182,8 +254,15 @@ KL_i^{\text{pros}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_t^{\text{p
 KL_i^{\text{retr}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_t^{\text{retr}}(v)}.
 \]
 The directional innovation score is $\Delta KL_i = KL_i^{\text{pros}} -
-KL_i^{\text{retr}}$. We use a term-frequency multinomial as the v0
-baseline; an LDA topic-model replication is planned but not reported here.
+KL_i^{\text{retr}}$, the change between how unlike the recent past a filing
+reads and how unlike the near future it reads. Throughout the rest of the
+paper we refer to this quantity as $\Delta KL$ (``delta-KL''), our
+near-novelty marker: $\Delta KL > 0$ means the filing is \emph{innovative}
+by this map (its language anticipates filings to come more than it echoes
+filings just past), while $\Delta KL < 0$ means it is \emph{tired} (its
+language is better explained by the past than by the future of the same
+category). We use a term-frequency multinomial as the v0 baseline; an
+LDA topic-model replication is planned but not reported here.
 
 \paragraph{Identical-text filings are signal.} Trademark practice rewards
 templated language. Many breweries file the boilerplate token
@@ -227,6 +306,99 @@ distinguishably in black-and-white. A separate density filter
 small-class exclusions visible in the long left tail of the plot.}
 \label{fig:burnin}
 \end{figure}
+
+\section{What the components do separately}
+\label{sec:components}
+
+Before introducing $\Delta KL$ as a single scalar, it is worth asking
+whether the prospective and retrospective KL components carry
+independent information about a filing. A natural prior --- and one we
+held coming in --- is that they should pull in opposite directions:
+prospective surprise should make a filing harder to clear examination
+(novel goods/services language draws office actions), while
+retrospective surprise should reward the filer for ``being right'' (the
+future ends up resembling them, suggesting they understood a market
+others did not). Under that view, the value of $\Delta KL$ is that it
+nets two opposing forces.
+
+\textbf{The data do not support that decomposition.} Table~\ref{tab:components}
+shows that the per-filing correlation between $KL_{\text{pros}}$ and
+$KL_{\text{retr}}$ is $+0.97$ in software (Class 9), $+0.93$ in beverages
+(Class 32), and $+0.97$ in the 11.4-million-filing all-class pool. The
+two scores are computed against the same per-filing distribution
+$P_i(v)$, with the only difference being whether the reference window
+is the five preceding or the five following years; the bulk of variance
+in either KL therefore comes from $P_i$ itself, and only a thin sliver
+comes from the past-vs-future shift in the reference. As a consequence,
+plotted against any per-filing outcome the two components produce
+nearly identical curves.
+
+\begin{table}[h]
+\centering
+\caption{Per-filing correlation of the two KL components and
+single-component slopes against \emph{reaching registration} and
+\emph{passing five-year survival} (per-filing linear fits on binned
+means, 15 bins between the 2nd and 98th percentile of the predictor).
+The two components carry essentially the same signal at the per-filing
+level.}
+\label{tab:components}
+\begin{tabular}{lrrrr}
+\toprule
+Scope & $\rho(KL_{\text{pros}}, KL_{\text{retr}})$ & slope on reg.\ vs $KL_{\text{pros}}$ & slope on reg.\ vs $KL_{\text{retr}}$ & slope on pass-5y vs $KL_{\text{pros}}$ \\
+\midrule
+Software (Cl.\ 9)   & $+0.967$ & $+0.024$ & $+0.021$ & $+0.008$ \\
+Beverages (Cl.\ 32) & $+0.933$ & $+0.018$ & $+0.017$ & $+0.009$ \\
+All 45 (pooled)     & $+0.967$ & $+0.026$ & $+0.028$ & $+0.013$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/per_filing_pros_vs_retr_software.png}
+\caption{Per-filing outcomes vs prospective and retrospective KL ---
+software (Class 9). Top row: probability the filing reaches registration.
+Bottom row: probability the filing reaches registration AND remains
+live today. Left column conditions on prospective KL, right column on
+retrospective KL. Each blue point is the bin mean (15 bins between the
+2nd and 98th percentile of the per-filing predictor); shaded band is the
+95\% Wilson interval around each bin's proportion; red dashed line is
+the linear fit. The two columns are essentially the same curve --- per-filing
+$\rho(KL_{\text{pros}}, KL_{\text{retr}}) = +0.97$.}
+\label{fig:components-perfiling-sw}
+\end{figure}
+
+The curves themselves are not lines and not exponentials. They are
+\textbf{monotone-saturating}: registration probability rises from about
+$0.43$ at $KL = 3$ nats to about $0.53$ at $KL = 7.5$ nats in software,
+and similarly $0.46 \to 0.59$ in beverages, with most of the rise
+concentrated in the moderate range and the curve flattening at the
+extremes (Figure~\ref{fig:components-perfiling-sw}; beverage and pooled
+versions live in
+\texttt{paper/results/per\_filing\_pros\_vs\_retr\_\{beverages,all\}.png}).
+At the firm-mean level the same outcomes against the same components
+trace inverted-U arcs in software (peak survival and peak public-listing
+both at firm-mean $KL \approx 5$ nats; tails decline in both directions);
+beverages produces a hump on survival and a monotone decline on
+public-listing (high-novelty beverage firms are systematically less
+likely to be public --- they are craft brewers, not Coca-Cola). The
+firm-level views are in
+\texttt{paper/results/pros\_vs\_retr\_curves\_\{software,beverages,all\}.png}.
+
+\paragraph{The sharp implication.} Because the components are nearly
+collinear, the signal in their \emph{difference}
+$\Delta KL_i = KL_i^{\text{pros}} - KL_i^{\text{retr}}$ is a small
+share of either component's variance --- but it is the only part of the
+joint $(KL_{\text{pros}}, KL_{\text{retr}})$ score that does not cancel
+out under the shared-$P_i$ structure. A filing whose
+language was more unusual against the past than against the near future
+is one whose language the near future ended up resembling. The shared
+``how unusual was the language at all'' term cancels; what remains is
+``did the unusualness fade because others adopted it.'' The rest of the
+paper takes that residual --- the imitated-innovator score --- as the
+primary axis. Software and beverages stay as our running examples
+through Outcomes 1--3; the back matter establishes that the basic story
+holds across the other 43 NICE classes.
 
 \section{Face validity}
 \label{sec:fv}
@@ -579,6 +751,50 @@ quantitatively meaningful: high-novelty firms simultaneously earn
 higher mean margins (Table~\ref{tab:financials}) and exhibit wider
 margin spread (Table~\ref{tab:variance}).
 
+\paragraph{A coarser check: does $\Delta KL$ predict reaching SEC EDGAR
+at all?}
+A firm that files an income statement with the SEC has cleared a
+much lower bar of success than ``high gross margin'' --- it has gone
+public, registered securities under the '33 Act, or otherwise reached a
+reporting threshold. We can therefore re-cast the financial-outcome
+question as a binary one: among trademark-filing firms, does $\Delta KL$
+predict the probability of \emph{ever} appearing in our SEC crosswalk?
+Because the crosswalk's fuzzy-match pass requires owners with
+$\geq 10$ filings, we restrict this analysis to the
+$160{,}643$ crosswalk-eligible firms with $\geq 10$ clean filings;
+$7{,}810$ of them ($4.86\%$) match into SEC EDGAR.
+
+Table~\ref{tab:public-listing} shows the result: $\Delta KL$ has
+essentially no relationship with the public-listing rate.
+P(ever-public) ranges from $5.11\%$ in the most-tired quintile (Q1) to
+$4.44\%$ in the most-innovative quintile (Q5), with the middle three
+quintiles all near $5\%$. A logistic regression of \texttt{ever\_public}
+on $z(\overline{\Delta KL})$ and $\log_{10}(\text{n\_filings})$ confirms
+this pattern: the $\Delta KL$ coefficient is $-0.019$ with SE $0.013$
+($p = 0.14$, indistinguishable from zero), while
+$\log_{10}(\text{n\_filings})$ carries a coefficient of $+1.578$
+(SE $0.030$, $p < 10^{-9}$). A 10$\times$ increase in filing count
+multiplies the odds of going public by $\sim$$4.85$; a one-SD increase
+in mean $\Delta KL$ multiplies them by $\sim$$0.98$.
+
+\begin{table}[h]
+\centering
+\caption{P(ever-public) by mean-$\Delta KL$ quintile, on the
+$160{,}643$ firms with $\geq 10$ clean filings. The relationship is
+essentially flat: novelty does not predict reaching the SEC reporting
+universe; filing volume does.}
+\label{tab:public-listing}
+\input{results/public_listing_by_dkl.tex}
+\end{table}
+
+This is informative precisely because it is null. The within-EDGAR
+margin results above show that novel firms enjoy higher gross margins
+\emph{conditional on being public}; the present check shows that the
+selection into being public is governed by trademarking volume rather
+than trademarking character. Read together, the two findings mean:
+becoming a reportable firm is a separate (volume-driven) hurdle;
+\emph{conditional} on clearing it, novelty earns a margin premium.
+
 \paragraph{A causal-attribution caveat.}
 The trailing-3-year predictor pools many filings per firm-year, and a
 firm with several novel filings in its recent past is also a firm whose
@@ -642,6 +858,42 @@ present. Renewal coefficients are smaller in magnitude but stay
 positive ($+0.042$ at the 10y mark), suggesting that long-run
 persistence still favours novelty among debut filings.
 
+\paragraph{Are debut filings less novel than later filings?} The negative
+debut-registration coefficient invites a natural worry: if first filings
+were systematically less novel, then perhaps the apparent ``debut
+novelty pays'' result is an artefact of restricted variance.
+This is not what the data show. On the same all-class clean panel,
+mean $\Delta KL$ on debut filings is $+0.052$ (median $+0.008$), versus
+$+0.010$ (median $-0.010$) on non-debut filings; the share of filings
+with positive $\Delta KL$ is $51.5\%$ on debuts and $47.6\%$ on
+non-debuts. Both component KLs are larger on debuts (prospective $5.22$
+vs.\ $4.91$, retrospective $5.17$ vs.\ $4.90$): debut filings read as
+less like the recent past \emph{and} less like the near future. The
+intuition is that a firm's debut is often a stake in genuinely new
+territory, while its later filings drift toward category-conventional
+language. So the negative registration coefficient on debuts is not
+explained by lower novelty in the debut set --- if anything debuts are
+slightly more novel; it is explained by examination friction. A
+first-time filer with unusual goods/services language draws office
+actions and lacks the procedural sophistication to navigate them, while
+an established repeat filer with the same novel language clears the
+process routinely. The pooled positive coefficient was reading the
+established-firm advantage; stripping it leaves a small examination-
+friction penalty for first-time filers writing in non-standard ways.
+
+Within firms, the debut filing sits roughly at the firm's own median
+novelty (mean within-firm percentile $0.514$ on $432{,}180$ firms with
+$\geq 5$ clean filings), but the distribution is bimodal:
+$24.4\%$ of firms file their debut in the bottom $20\%$ of their own
+$\Delta KL$ distribution (cautious entrants), and $30.4\%$ file their
+debut in the top $20\%$ (bold entrants); the middle three quintiles each
+account for only $14$--$16\%$. Few firms enter at mid-novelty. And among
+multi-filing firms, $53\%$ of \emph{non-debut} filings have $\Delta KL <
+0$ — a slight tilt toward line-extension language, although the per-firm
+mix is heterogeneous: about a fifth of firms are persistently novel
+(at most $20\%$ of their non-debuts in tired territory) and another
+quarter are persistently tired ($\geq 80\%$).
+
 \textbf{Financial.} On the firm-debut panel, a one-standard-deviation
 increase in the firm's debut-filing $\Delta KL$ is associated with
 \textbf{$+1.7$ percentage points} higher mean future gross margin (SE
@@ -650,11 +902,11 @@ within-firm margin standard deviation (SE $0.15$, $n = 5{,}008$
 firms). Both effects are roughly half the magnitude of the pooled
 trailing-3-year results in Section~\ref{sec:financials}. We take the
 attenuation as evidence that part of the original firm-year reward
-reflects the habit/portfolio confound the user-supplied caveat
-predicted, but that a substantive debut effect remains: the novelty of
-a firm's first trademark filing predicts its subsequent average
-financial performance, even before the firm has produced any other
-trademark filings to ``fund'' the bet.
+reflects the habit/portfolio confound flagged in the previous section,
+but that a substantive debut effect
+remains: the novelty of a firm's first trademark filing predicts its
+subsequent average financial performance, even before the firm has
+produced any other trademark filings to ``fund'' the bet.
 
 \section{Within-firm dynamics and debut quartiles}
 \label{sec:dynamics}
@@ -1098,6 +1350,139 @@ contribution of this paper:
     follow-up convergent-validity analysis.
 \end{itemize}
 
+\section{Templating and survival: do shared descriptions predict failure?}
+\label{sec:templated-survival}
+
+The diagonal-clustering geometry of the topomap suggests that firms
+filing in the lower-left ``commonplace'' corner --- low prospective
+\emph{and} low retrospective surprise --- have the worst
+post-registration survival. A natural mechanism would be templated
+copy-paste descriptions: filers using boilerplate that examiners and
+the marketplace alike learn to discount. We test this directly. For
+every clean filing, we compute the count of \emph{other} filings
+sharing the exact same lowercased, punctuation-stripped goods/services
+text, then bin filings by that multiplicity and report registration
+and post-registration-survival rates.
+
+The result is the opposite of the templated-failure hypothesis.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{results/templated_survival.png}
+\caption{Filing-level registration (red) and still-live (blue) rates
+by template multiplicity. ``Multiplicity'' is the count of other
+clean filings sharing the exact same normalised goods/services text;
+filings in the leftmost bin have descriptions that no other filing
+copies verbatim. The most heavily templated descriptions (5000+
+copies) have the highest survival rate.}
+\label{fig:templated-survival}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+multiplicity & $n$ (filings) & reg.\ \% & still-live \% & cancel-after-reg \% \\
+\midrule
+1 (unique)   & $4{,}978{,}977$ & $48.6$ & $38.1$ & $10.5$ \\
+2            & $1{,}090{,}984$ & $50.3$ & $38.7$ & $11.6$ \\
+3--5         & $726{,}072$     & $53.9$ & $42.6$ & $11.3$ \\
+6--10        & $262{,}438$     & $57.1$ & $46.5$ & $10.6$ \\
+11--50       & $337{,}624$     & $56.2$ & $46.0$ & $10.2$ \\
+51--200      & $216{,}545$     & $54.2$ & $44.7$ & $\phantom{0}9.5$ \\
+201--1000    & $178{,}383$     & $54.1$ & $45.1$ & $\phantom{0}9.0$ \\
+1001--5000   & $\phantom{0}83{,}143$ & $52.8$ & $43.2$ & $\phantom{0}9.6$ \\
+$5000+$      & $\phantom{0}34{,}783$ & $58.2$ & $49.2$ & $\phantom{0}9.0$ \\
+\bottomrule
+\end{tabular}
+\caption{Template-multiplicity bins of clean filings. ``Reg.'' is the
+share that completed registration; ``still-live'' is the share that
+both registered and is currently in 6xx live-registered status (the
+corrected post-registration survival outcome described in
+Section~\ref{sec:survival}); ``cancel-after-reg'' is the difference,
+i.e.\ the share of registrations that were subsequently cancelled
+(predominantly Section~8 failures). Filing years 1990--2018 to ensure
+the Section~8 window has been adjudicated.}
+\label{tab:templated-survival}
+\end{table}
+
+Three substantive findings:
+
+\begin{enumerate}
+  \item \textbf{More-templated filings survive better, not worse.}
+    Unique-text filings post-register at $48.6\%$ and survive at
+    $38.1\%$. Filings that share a description with $5{,}000+$ others
+    register at $58.2\%$ and survive at $49.2\%$ --- a $+11$ percentage
+    point survival premium for the most heavily templated tier. The
+    pattern is monotone through the $6$--$10$ multiplicity bin, then
+    plateaus.
+  \item \textbf{The post-registration cancellation rate is mildly
+    flatter for templated filings.} The right-most column of
+    Table~\ref{tab:templated-survival} shows that, conditional on
+    registering, $\sim\!22\%$ of unique-text marks lose their
+    registration (mostly to Section~8 failure at year five), versus
+    $\sim\!15\%$ for the $5000+$ bin. Both the higher registration
+    rate \emph{and} the higher conditional-survival rate point in the
+    same direction.
+  \item \textbf{Boilerplate signals serious filers.} Inspecting the
+    most-templated normalised G/S strings, the pattern is dominated by
+    commodity professional-services categories: ``restaurant
+    services'' ($52{,}973$ identical filings), ``dietary and
+    nutritional supplements'' ($20{,}755$), ``legal services''
+    ($16{,}400$), ``dietary supplements'' ($15{,}982$), ``alcoholic
+    beverages except beers'' ($13{,}286$), ``banking services''
+    ($11{,}422$). These are the descriptions that experienced
+    trademark counsel re-use across clients precisely because they are
+    the safe, examiner-tested phrasings.
+\end{enumerate}
+
+\paragraph{Robustness: dropping the $n_{\text{terms}} \geq 3$ filter.}
+The headline analysis applies the full \textsc{clean} filter
+(Table~\ref{tab:clean-filter}), which excludes 1- and 2-token G/S
+descriptions because their per-filing $KL$ is degenerate. Many of the
+most-templated strings are short --- ``restaurant services'',
+``wines'', ``footwear'', ``t shirts'', ``candy'', ``cosmetics'',
+``jewelry'' --- and so are dropped from the headline panel even when
+the analysis at hand does not depend on $KL$ at all. To check that
+the templating-survival pattern is not an artefact of this filter, we
+re-run the analysis on \textsc{clean}--without--$n_{\text{terms}}$
+($8{,}499{,}455$ filings, $+591$k vs.\ headline). The pattern is
+nearly identical for the $1$- through $1001$--$5000$ bins ($\leq 1$
+percentage point of drift on either rate). The only meaningful change
+is the $5000+$ bin: still-live rate falls from $49.2\%$ to $44.2\%$,
+because the short commodity templates that the headline filter
+excludes survive at corpus-average rates rather than the elevated
+rates of the longer structured templates that dominate the
+$n_{\text{terms}}$-filtered $5000+$ bin (e.g.\ ``athletic apparel
+namely shirts pants jackets footwear hats and caps athletic
+uniforms,'' $13{,}047$ copies, $61.6\%$ still-live).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{results/templated_survival_no_nterms.png}
+\caption{Robustness re-run of Figure~\ref{fig:templated-survival} on
+\textsc{clean}--without--$n_{\text{terms}}\geq 3$. The lower bins are
+visually identical; the $5000+$ bin loses $\sim\!5$pp because the
+short commodity templates that the $n_{\text{terms}}$ filter
+excludes survive at roughly corpus-average rates, not at the elevated
+rates of the structured longer templates.}
+\label{fig:templated-survival-nonterms}
+\end{figure}
+
+\paragraph{So why is the lower-left of the topomap so bad?}
+The diagonal-clustering reading from the topomap survives this audit:
+the worst-survival cell is firms whose filings cluster on the
+diagonal at low $KL$. But the mechanism is not ``templated text gets
+penalised.'' Quite the reverse --- explicitly templated text helps.
+What appears to drive the lower-left corner is one-off, generic G/S
+text that nobody else copies verbatim: descriptions written in the
+class's modal vocabulary but unique enough to count as zero-template,
+filed by firms without the procedural sophistication to use the
+known-good phrasings their lawyers would otherwise re-use. Boilerplate,
+when it exists, signals professional repetition; the bottom-left
+cluster is filled with filers who lack the boilerplate.
+
 \section{Both extremes outperform: a U-shape across industries}
 \label{sec:u-shape}
 
@@ -1375,8 +1760,8 @@ products in disguise; they really are templated, and they really
 do survive.
 
 \paragraph{Imitated-but-failed waves: the blockchain check.}
-The user-supplied counterexample is to ask whether any
-recognisable hype wave was both widely imitated (high
+A natural counterexample to the ``imitated novelty pays'' claim is to
+ask whether any recognisable hype wave was both widely imitated (high
 $\Delta KL$) and disproportionately a failure. The blockchain /
 cryptocurrency / NFT / web3 cohort is a clean test:
 $87{,}463$ filings 1995--2025 mention at least one

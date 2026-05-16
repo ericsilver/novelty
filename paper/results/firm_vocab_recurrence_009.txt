@@ -1,0 +1,21 @@
+Within-firm vocabulary recurrence vs ΔKL persistence
+Classes: 009; window 1990-2023
+Min firm filings: 3
+======================================================================
+
+N firms (with >=2 non-debut filings + dkl): 98,141
+
+By firm-mean ΔKL quartile:
+  quartile     n_firms    mean_dkl   share_new   jaccard
+  Q1            24,535     -0.2121       0.302     0.492
+  Q2            24,535     -0.0555       0.318     0.453
+  Q3            24,535     +0.0441       0.303     0.481
+  Q4            24,536     +0.3066       0.295     0.512
+
+Interpretation:
+  share_new = mean (across firm's non-debut filings) of
+              (tokens new-to-firm in this filing) / (unique tokens in this filing)
+  jaccard   = mean (across firm's non-debut filings) of Jaccard(this, prior_union)
+  If high-ΔKL firms have HIGH jaccard (LOW share_new), persistent novelty
+  is recycling-driven; if LOW jaccard (HIGH share_new), each filing is
+  a fresh novel commitment.

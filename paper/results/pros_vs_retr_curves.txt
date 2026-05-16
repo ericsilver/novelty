@@ -1,0 +1,22 @@
+Isolated marginal effects of prospective and retrospective KL.
+======================================================================
+
+scope                         outcome        x_axis             slope      lo_y      hi_y  n_bins
+software (Class 9)            firm_passed5   mean_pros        +0.0006    0.3725    0.3937      12
+software (Class 9)            firm_passed5   mean_retr        -0.0039    0.3819    0.3866      12
+software (Class 9)            ever_public    mean_pros        +0.0072    0.0588    0.0796      12
+software (Class 9)            ever_public    mean_retr        +0.0077    0.0557    0.1003      12
+beverages (Class 32)          firm_passed5   mean_pros        +0.0043    0.4015    0.4528      12
+beverages (Class 32)          firm_passed5   mean_retr        +0.0026    0.3974    0.4619      12
+beverages (Class 32)          ever_public    mean_pros        -0.0204    0.1081    0.0426      10
+beverages (Class 32)          ever_public    mean_retr        -0.0217    0.1053    0.0000      11
+all 45 classes pooled         firm_passed5   mean_pros        +0.0155    0.3410    0.4125      12
+all 45 classes pooled         firm_passed5   mean_retr        +0.0147    0.3388    0.4110      12
+all 45 classes pooled         ever_public    mean_pros        +0.0112    0.0202    0.0490      12
+all 45 classes pooled         ever_public    mean_retr        +0.0115    0.0199    0.0503      12
+
+Interpretation:
+  slope > 0 => outcome rises with the KL component
+  slope < 0 => outcome falls with the KL component
+  Comparison of the two columns isolates which component
+  is doing the work for each outcome.

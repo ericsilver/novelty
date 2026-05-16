@@ -1,0 +1,26 @@
+Lower-left commonplace-penalty audit — all 45 classes pooled
+Residualization: within-class
+============================================================
+
+N clean filings: 11,406,079
+
+Per-filing correlations with log(n_terms):
+  corr(log_n_terms, prospective_kl) = -0.621
+  corr(log_n_terms, retrospective_kl) = -0.622
+
+Residualization model (OLS, per-filing, within-class):
+  prospective_kl pooled R² = 0.5284  (within-class OLS; R² is pooled)
+  retrospective_kl pooled R² = 0.5335  (within-class OLS; R² is pooled)
+
+Firm-level lower-left penalty by panel:
+  Panel                    n_firms   LL@25 n  LL@25 surv  rest surv   penalty   LL@10 n  LL@10 surv
+  A (baseline)             902,798   208,704       0.352      0.388    +0.036    80,741       0.338
+  B (residualized)         902,798   196,677       0.396      0.375    -0.021    73,056       0.414
+  C (>=10 filings)         160,643    37,671       0.354      0.372    +0.017    14,850       0.325
+  D (both controls)        160,643    35,301       0.423      0.352    -0.071    13,295       0.452
+
+Interpretation:
+  H1 supported if panel B penalty25 << panel A penalty25.
+  H5 supported if panel C penalty25 << panel A penalty25.
+  H4 (optimal distinctiveness) supported if panel D penalty25
+     remains similar in magnitude to panel A.

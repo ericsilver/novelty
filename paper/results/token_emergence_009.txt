@@ -1,0 +1,61 @@
+Token emergence: do early adopters survive better than late?
+Classes: 009
+EMERGE_MIN=50, PRIOR_MAX=25, emergence-year window [1995,2015]
+======================================================================
+
+N emerging tokens: 39
+
+Pooled (one-token-one-obs):
+  early (y..y+1)   surv = 0.665
+  mid   (y+2..y+4) surv = 0.483
+  late  (y+5..y+9) surv = 0.390
+  late - early     = -0.276
+
+Filing-weighted:
+  early surv = 0.581  (n_filings=7,534)
+  mid   surv = 0.455  (n_filings=16,288)
+  late  surv = 0.387  (n_filings=33,672)
+
+Top 20 tokens where LATE adopters survived MUCH better than early:
+  [009] invader                   emerge=2015  early=0.03 (n=69)  late=0.25 (n=20)  Δ=+0.22
+  [009] cartomizers               emerge=2013  early=0.51 (n=90)  late=0.57 (n=51)  Δ=+0.06
+  [009] smartwatches              emerge=2015  early=0.21 (n=1450)  late=0.24 (n=10374)  Δ=+0.03
+  [009] sharable                  emerge=2011  early=0.52 (n=109)  late=0.54 (n=224)  Δ=+0.02
+  [009] cloud-based               emerge=2011  early=0.40 (n=145)  late=0.40 (n=4237)  Δ=-0.00
+  [009] intent                    emerge=2000  early=0.98 (n=118)  late=0.98 (n=597)  Δ=-0.00
+  [009] dvd                       emerge=1996  early=0.52 (n=204)  late=0.51 (n=4233)  Δ=-0.01
+  [009] surgeries                 emerge=2009  early=0.19 (n=86)  late=0.15 (n=88)  Δ=-0.04
+  [009] iot                       emerge=2015  early=0.42 (n=206)  late=0.36 (n=3053)  Δ=-0.06
+  [009] asp                       emerge=2000  early=0.62 (n=167)  late=0.52 (n=1110)  Δ=-0.10
+  [009] mammal                    emerge=2009  early=0.26 (n=91)  late=0.16 (n=67)  Δ=-0.10
+  [009] wap                       emerge=2000  early=0.73 (n=93)  late=0.61 (n=320)  Δ=-0.12
+  [009] e-commerce                emerge=1998  early=0.70 (n=650)  late=0.57 (n=1354)  Δ=-0.13
+  [009] arcade-based              emerge=2009  early=0.62 (n=244)  late=0.49 (n=1038)  Δ=-0.13
+  [009] marketplaces              emerge=2000  early=0.68 (n=95)  late=0.55 (n=88)  Δ=-0.14
+  [009] pachinkos                 emerge=2013  early=0.44 (n=140)  late=0.29 (n=85)  Δ=-0.14
+  [009] accommodates              emerge=2008  early=0.71 (n=134)  late=0.56 (n=803)  Δ=-0.15
+  [009] non-active                emerge=2009  early=0.26 (n=91)  late=0.11 (n=64)  Δ=-0.15
+  [009] ecommerce                 emerge=2000  early=0.82 (n=102)  late=0.61 (n=135)  Δ=-0.22
+  [009] wager                     emerge=2004  early=0.59 (n=376)  late=0.37 (n=2438)  Δ=-0.22
+
+Top 20 tokens where EARLY adopters survived MUCH better than late:
+  [009] seismological             emerge=2006  early=0.85 (n=67)  late=0.09 (n=22)  Δ=-0.76
+  [009] inference                 emerge=2007  early=1.00 (n=62)  late=0.27 (n=26)  Δ=-0.73
+  [009] self-rescue               emerge=2006  early=0.86 (n=63)  late=0.22 (n=59)  Δ=-0.64
+  [009] radiation-measuring       emerge=2006  early=0.76 (n=85)  late=0.17 (n=65)  Δ=-0.60
+  [009] face-protection           emerge=2006  early=0.80 (n=75)  late=0.22 (n=153)  Δ=-0.58
+  [009] singles                   emerge=2007  early=0.97 (n=102)  late=0.43 (n=21)  Δ=-0.54
+  [009] assailants                emerge=2006  early=0.91 (n=69)  late=0.38 (n=40)  Δ=-0.54
+  [009] commissioned              emerge=2000  early=0.86 (n=74)  late=0.33 (n=70)  Δ=-0.54
+  [009] disables                  emerge=2006  early=0.93 (n=69)  late=0.41 (n=41)  Δ=-0.51
+  [009] business-to-business      emerge=1999  early=0.77 (n=238)  late=0.26 (n=53)  Δ=-0.50
+  [009] handhelds                 emerge=2007  early=0.92 (n=120)  late=0.44 (n=94)  Δ=-0.48
+  [009] e-business                emerge=2000  early=0.70 (n=176)  late=0.25 (n=36)  Δ=-0.45
+  [009] deploy                    emerge=1998  early=0.79 (n=77)  late=0.36 (n=69)  Δ=-0.43
+  [009] tattoo                    emerge=2000  early=0.89 (n=65)  late=0.48 (n=25)  Δ=-0.41
+  [009] extranet                  emerge=1999  early=0.76 (n=187)  late=0.37 (n=120)  Δ=-0.40
+  [009] bolsters                  emerge=2004  early=0.66 (n=280)  late=0.32 (n=533)  Δ=-0.34
+  [009] auctions                  emerge=1999  early=0.79 (n=170)  late=0.47 (n=126)  Δ=-0.32
+  [009] portal                    emerge=1999  early=0.81 (n=303)  late=0.50 (n=757)  Δ=-0.32
+  [009] easy-to-understand        emerge=2006  early=0.70 (n=592)  late=0.41 (n=983)  Δ=-0.28
+  [009] wager                     emerge=2004  early=0.59 (n=376)  late=0.37 (n=2438)  Δ=-0.22

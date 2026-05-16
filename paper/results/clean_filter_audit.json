@@ -1,0 +1,100 @@
+{
+  "n_raw": 16730022,
+  "n_full_clean": 7908949,
+  "marginal_each_clause": [
+    {
+      "clause": "year >= 1990",
+      "n_kept_alone": 15483776,
+      "n_dropped_alone": 1246246,
+      "pct_dropped_alone": 0.07449159361535806
+    },
+    {
+      "clause": "year <= 2018",
+      "n_kept_alone": 10908102,
+      "n_dropped_alone": 5821920,
+      "pct_dropped_alone": 0.34799236964541946
+    },
+    {
+      "clause": "n_ref_prospective >= 1000",
+      "n_kept_alone": 14020271,
+      "n_dropped_alone": 2709751,
+      "pct_dropped_alone": 0.16196936262247594
+    },
+    {
+      "clause": "n_ref_retrospective >= 1000",
+      "n_kept_alone": 13798336,
+      "n_dropped_alone": 2931686,
+      "pct_dropped_alone": 0.17523503555464542
+    },
+    {
+      "clause": "n_terms >= 3",
+      "n_kept_alone": 13090057,
+      "n_dropped_alone": 3639965,
+      "pct_dropped_alone": 0.2175708436008034
+    }
+  ],
+  "cumulative_in_order": [
+    {
+      "clause_added": "year >= 1990",
+      "n_after": 15483776,
+      "n_lost_this_step": 1246246,
+      "pct_lost_this_step": 0.07449159361535806
+    },
+    {
+      "clause_added": "year <= 2018",
+      "n_after": 9718643,
+      "n_lost_this_step": 5765133,
+      "pct_lost_this_step": 0.34459805253095305
+    },
+    {
+      "clause_added": "n_ref_prospective >= 1000",
+      "n_after": 8511290,
+      "n_lost_this_step": 1207353,
+      "pct_lost_this_step": 0.0721668507070702
+    },
+    {
+      "clause_added": "n_ref_retrospective >= 1000",
+      "n_after": 8511290,
+      "n_lost_this_step": 0,
+      "pct_lost_this_step": 0.0
+    },
+    {
+      "clause_added": "n_terms >= 3",
+      "n_after": 7908949,
+      "n_lost_this_step": 602341,
+      "pct_lost_this_step": 0.036003598799810306
+    }
+  ],
+  "rescue_if_drop_one": [
+    {
+      "clause_dropped": "year >= 1990",
+      "n_kept": 7911546,
+      "extra_vs_full_clean": 2597,
+      "pct_extra_of_full_clean": 0.00032836221348753165
+    },
+    {
+      "clause_dropped": "year <= 2018",
+      "n_kept": 12861186,
+      "extra_vs_full_clean": 4952237,
+      "pct_extra_of_full_clean": 0.6261561428705634
+    },
+    {
+      "clause_dropped": "n_ref_prospective >= 1000",
+      "n_kept": 7918089,
+      "extra_vs_full_clean": 9140,
+      "pct_extra_of_full_clean": 0.001155652919243758
+    },
+    {
+      "clause_dropped": "n_ref_retrospective >= 1000",
+      "n_kept": 7908949,
+      "extra_vs_full_clean": 0,
+      "pct_extra_of_full_clean": 0.0
+    },
+    {
+      "clause_dropped": "n_terms >= 3",
+      "n_kept": 8511290,
+      "extra_vs_full_clean": 602341,
+      "pct_extra_of_full_clean": 0.07615942396391732
+    }
+  ]
+}

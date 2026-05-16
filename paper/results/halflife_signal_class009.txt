@@ -1,0 +1,29 @@
+Halflife sweep on Class 9 — signal metrics on the same outcome panel.
+====================================================================================================
+
+model                  n    corr(ΔKL, pass5)  corr(pros, reg)  corr(retr, live)   std(ΔKL)   pseudoR²   |z(dkl) β|
+decay H=0.5    1,534,217             +0.0236          +0.0370           -0.0097     0.1579     0.0016       0.0447
+decay H=1.0    1,534,220             +0.0376          +0.0379           -0.0105     0.1766     0.0023       0.0741
+decay H=2.0    1,534,220             +0.0463          +0.0393           -0.0106     0.2047     0.0029       0.0942
+decay H=2.0    1,534,220             +0.0463          +0.0393           -0.0106     0.2047     0.0029       0.0942
+decay H=3.0    1,534,220             +0.0454          +0.0400           -0.0101     0.2256     0.0029       0.0949
+flat-5y        1,515,300             +0.0431          +0.0449           -0.0072     0.3316     0.0027       0.0839
+decay H=5.0    1,534,220             +0.0391          +0.0406           -0.0089     0.2596     0.0026       0.0862
+
+Ranked by S1 = corr(ΔKL, passed_5y) (primary signal):
+  decay H=2.0     S1=+0.0463
+  decay H=2.0     S1=+0.0463
+  decay H=3.0     S1=+0.0454
+  flat-5y         S1=+0.0431
+  decay H=5.0     S1=+0.0391
+  decay H=1.0     S1=+0.0376
+  decay H=0.5     S1=+0.0236
+
+Ranked by S5 = pseudo-R² of logit passed_5y ~ z(ΔKL) + log(n_terms):
+  decay H=3.0     R²=0.00289
+  decay H=2.0     R²=0.00287
+  decay H=2.0     R²=0.00287
+  flat-5y         R²=0.00270
+  decay H=5.0     R²=0.00261
+  decay H=1.0     R²=0.00226
+  decay H=0.5     R²=0.00164

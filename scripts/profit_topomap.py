@@ -185,6 +185,51 @@ def main() -> int:
     fig.savefig(RESULTS / "profit_topomap.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     print(f"\n[done] wrote {RESULTS / 'profit_topomap.png'}")
+
+    # ---------- Zoom (lower-left) + percentile-clipped colormap ----------
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from _topomap_zoom import draw_zoom_panel, draw_contour_panel
+
+    fig, axes = plt.subplots(2, 2, figsize=(14, 11))
+    for ax, (metric, title, cmap_name, _) in zip(axes.flat, panels):
+        H, _N = heatmap(metric)
+        diverging = 0.0 if metric in ("mean_excess_1y", "mean_excess_4y") else None
+        im = draw_zoom_panel(ax, p_edges, r_edges, H, cmap=cmap_name,
+                             title=title, diverging_centre=diverging)
+        cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+        cbar.ax.tick_params(labelsize=8)
+    fig.suptitle(
+        "Lower-left ZOOM: same data as profit\\_topomap.png, axes cropped to "
+        "the commonplace quadrant; colour scale clipped to central 5--95\\% "
+        "of cell values (so the 4y-return panel isn't washed out by FAANG-tier "
+        "outliers); isoscore contours overlaid in white.",
+        y=1.02, fontsize=10,
+    )
+    fig.tight_layout()
+    fig.savefig(RESULTS / "profit_topomap_zoom.png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print(f"[done] wrote {RESULTS / 'profit_topomap_zoom.png'}")
+
+    # ---------- Smoothed-contour topographic view ----------
+    fig, axes = plt.subplots(2, 2, figsize=(14, 11))
+    for ax, (metric, title, cmap_name, _) in zip(axes.flat, panels):
+        H, _N = heatmap(metric)
+        diverging = 0.0 if metric in ("mean_excess_1y", "mean_excess_4y") else None
+        cs = draw_contour_panel(ax, p_edges, r_edges, H, cmap=cmap_name,
+                                title=title, sigma_cells=1.5,
+                                diverging_centre=diverging)
+        cbar = fig.colorbar(cs, ax=ax, fraction=0.046, pad=0.04)
+        cbar.ax.tick_params(labelsize=8)
+    fig.suptitle(
+        "Topographic view: Gaussian-smoothed cell values rendered as filled "
+        "contours with isoscore lines; colour scale percentile-clipped so "
+        "the central distribution dominates the colormap.",
+        y=1.02, fontsize=10,
+    )
+    fig.tight_layout()
+    fig.savefig(RESULTS / "profit_topomap_contour.png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print(f"[done] wrote {RESULTS / 'profit_topomap_contour.png'}")
     return 0
 
 

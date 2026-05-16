@@ -1,0 +1,280 @@
+{
+  "n_clean_filings": 7908949,
+  "n_unique_norm_strings": 8081938,
+  "by_count_bin": [
+    {
+      "label": "1 (unique)",
+      "n": 4978977,
+      "reach": 0.4857278914925697,
+      "surv5": 0.3813482167119872,
+      "reach_lo": 0.48528888801858167,
+      "reach_hi": 0.48616691699023423,
+      "surv5_lo": 0.3809216601276069,
+      "surv5_hi": 0.3817749563911433
+    },
+    {
+      "label": "2",
+      "n": 1090984,
+      "reach": 0.502702147785852,
+      "surv5": 0.3868507695804888,
+      "reach_lo": 0.5017639072713017,
+      "reach_hi": 0.5036403692707293,
+      "surv5_lo": 0.38593726314974,
+      "surv5_hi": 0.38776507285620143
+    },
+    {
+      "label": "3-5",
+      "n": 726072,
+      "reach": 0.5394588966383499,
+      "surv5": 0.4256960742185348,
+      "reach_lo": 0.5383121762374727,
+      "reach_hi": 0.5406051994924954,
+      "surv5_lo": 0.4245591391240773,
+      "surv5_hi": 0.4268337955833649
+    },
+    {
+      "label": "6-10",
+      "n": 262438,
+      "reach": 0.5712815979393228,
+      "surv5": 0.4649402906591271,
+      "reach_lo": 0.5693871178763548,
+      "reach_hi": 0.5731739911750915,
+      "surv5_lo": 0.46303253631180197,
+      "surv5_hi": 0.46684907140817666
+    },
+    {
+      "label": "11-50",
+      "n": 337624,
+      "reach": 0.5615951472644125,
+      "surv5": 0.460343458995806,
+      "reach_lo": 0.5599207128289954,
+      "reach_hi": 0.563268180014965,
+      "surv5_lo": 0.45866264328157863,
+      "surv5_hi": 0.46202517715082253
+    },
+    {
+      "label": "51-200",
+      "n": 216545,
+      "reach": 0.5420674686554757,
+      "surv5": 0.4467062273430465,
+      "reach_lo": 0.5399682387375404,
+      "reach_hi": 0.5441652060104734,
+      "surv5_lo": 0.44461321906550494,
+      "surv5_hi": 0.44880112649523357
+    },
+    {
+      "label": "201-1000",
+      "n": 178383,
+      "reach": 0.5407690194693441,
+      "surv5": 0.4505137821429172,
+      "reach_lo": 0.5384555645880735,
+      "reach_hi": 0.5430807184109523,
+      "surv5_lo": 0.4482059370551806,
+      "surv5_hi": 0.4528237586238982
+    },
+    {
+      "label": "1001-5000",
+      "n": 83143,
+      "reach": 0.5283427348062976,
+      "surv5": 0.43153362279446256,
+      "reach_lo": 0.52494826513629,
+      "reach_hi": 0.5317345854604065,
+      "surv5_lo": 0.42817017389728884,
+      "surv5_hi": 0.434903398340481
+    },
+    {
+      "label": "5000+",
+      "n": 34783,
+      "reach": 0.582123451111175,
+      "surv5": 0.49150447057470603,
+      "reach_lo": 0.5769313870813984,
+      "reach_hi": 0.5872973769349359,
+      "surv5_lo": 0.4862518222953597,
+      "surv5_hi": 0.49675899522019196
+    }
+  ],
+  "top50": [
+    {
+      "gs_norm": "restaurant services",
+      "count_total": 52973,
+      "n_clean": 13,
+      "reach": 0.7692307692307693,
+      "surv5": 0.7692307692307693
+    },
+    {
+      "gs_norm": "dietary and nutritional supplements",
+      "count_total": 20755,
+      "n_clean": 11867,
+      "reach": 0.5847307659897194,
+      "surv5": 0.49178393865340864
+    },
+    {
+      "gs_norm": "legal services",
+      "count_total": 16400,
+      "n_clean": 2,
+      "reach": 1.0,
+      "surv5": 1.0
+    },
+    {
+      "gs_norm": "dietary supplements",
+      "count_total": 15982,
+      "n_clean": 2000,
+      "reach": 0.5415,
+      "surv5": 0.3995
+    },
+    {
+      "gs_norm": "alcoholic beverages except beers",
+      "count_total": 13286,
+      "n_clean": 7152,
+      "reach": 0.5808165548098434,
+      "surv5": 0.4532997762863535
+    },
+    {
+      "gs_norm": "restaurant and bar services",
+      "count_total": 13090,
+      "n_clean": 1838,
+      "reach": 0.5636561479869423,
+      "surv5": 0.4009793253536453
+    },
+    {
+      "gs_norm": "athletic apparel namely shirts pants jackets footwear hats and caps athletic uniforms",
+      "count_total": 13047,
+      "n_clean": 6386,
+      "reach": 0.6440651424992171,
+      "surv5": 0.6158784841841528
+    },
+    {
+      "gs_norm": "banking services",
+      "count_total": 11422,
+      "n_clean": 6,
+      "reach": 0.6666666666666666,
+      "surv5": 0.6666666666666666
+    },
+    {
+      "gs_norm": "nutritional supplements",
+      "count_total": 9717,
+      "n_clean": 1698,
+      "reach": 0.5706713780918727,
+      "surv5": 0.46113074204946997
+    },
+    {
+      "gs_norm": "distilled spirits",
+      "count_total": 8162,
+      "n_clean": 521,
+      "reach": 0.7063339731285988,
+      "surv5": 0.6065259117082533
+    },
+    {
+      "gs_norm": "alcoholic beverages except beer",
+      "count_total": 6922,
+      "n_clean": 315,
+      "reach": 0.38412698412698415,
+      "surv5": 0.28888888888888886
+    },
+    {
+      "gs_norm": "board games",
+      "count_total": 5848,
+      "n_clean": 1007,
+      "reach": 0.5650446871896723,
+      "surv5": 0.5203574975173784
+    },
+    {
+      "gs_norm": "golf clubs",
+      "count_total": 5195,
+      "n_clean": 1978,
+      "reach": 0.4448938321536906,
+      "surv5": 0.41405460060667343
+    },
+    {
+      "gs_norm": "pet food",
+      "count_total": 4984,
+      "n_clean": 1036,
+      "reach": 0.527027027027027,
+      "surv5": 0.4498069498069498
+    },
+    {
+      "gs_norm": "greeting cards",
+      "count_total": 4424,
+      "n_clean": 1061,
+      "reach": 0.3760603204524034,
+      "surv5": 0.3364750235626767
+    },
+    {
+      "gs_norm": "real estate brokerage",
+      "count_total": 3914,
+      "n_clean": 2365,
+      "reach": 0.5095137420718816,
+      "surv5": 0.39830866807610993
+    },
+    {
+      "gs_norm": "bar and restaurant services",
+      "count_total": 3757,
+      "n_clean": 331,
+      "reach": 0.5558912386706949,
+      "surv5": 0.38972809667673713
+    },
+    {
+      "gs_norm": "non medicated skin care preparations",
+      "count_total": 3733,
+      "n_clean": 2073,
+      "reach": 0.5089242643511819,
+      "surv5": 0.4018330921369995
+    },
+    {
+      "gs_norm": "entertainment namely live performances by a musical band",
+      "count_total": 3702,
+      "n_clean": 2707,
+      "reach": 0.42741041743627634,
+      "surv5": 0.36645733284078313
+    },
+    {
+      "gs_norm": "hair care preparations",
+      "count_total": 3601,
+      "n_clean": 2570,
+      "reach": 0.5140077821011673,
+      "surv5": 0.3809338521400778
+    },
+    {
+      "gs_norm": "soft drinks",
+      "count_total": 3470,
+      "n_clean": 1049,
+      "reach": 0.5224022878932316,
+      "surv5": 0.47092469018112487
+    },
+    {
+      "gs_norm": "charitable fundraising services",
+      "count_total": 3431,
+      "n_clean": 434,
+      "reach": 0.42626728110599077,
+      "surv5": 0.2672811059907834
+    },
+    {
+      "gs_norm": "entertainment services in the nature of live musical performances",
+      "count_total": 3375,
+      "n_clean": 2237,
+      "reach": 0.4461332141260617,
+      "surv5": 0.37058560572194904
+    },
+    {
+      "gs_norm": "restaurant and catering services",
+      "count_total": 3200,
+      "n_clean": 390,
+      "reach": 0.4358974358974359,
+      "surv5": 0.28717948717948716
+    },
+    {
+      "gs_norm": "on line retail store services featuring a wide variety of consumer goods of others",
+      "count_total": 3066,
+      "n_clean": 1179,
+      "reach": 0.5216284987277354,
+      "surv5": 0.48091603053435117
+    },
+    {
+      "gs_norm": "pet toys",
+      "count_total": 3065,
+      "n_clean": 306,
+      "reach": 0.5065359477124183,
+      "surv5": 0.3562091503267974
+    }
+  ]
+}

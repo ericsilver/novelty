@@ -1,0 +1,47 @@
+P(ever-public) as a function of ΔKL
+Window: 1990-2023; min_filings=10
+============================================================
+
+Crosswalk-eligible firms: 160,643
+Base rate P(ever_public): 0.0486  (7,810 matched)
+
+By mean-ΔKL quintile (eligible only):
+  quintile     n_firms   mean_dkl   mean_n_fil   P(public)     CI lo     CI hi
+  Q1            32,128    -0.1791         24.8      0.0511    0.0488    0.0536
+  Q2            32,129    -0.0584         30.3      0.0476    0.0453    0.0500
+  Q3            32,128    -0.0035         31.0      0.0501    0.0477    0.0525
+  Q4            32,129     0.0558         27.7      0.0498    0.0475    0.0523
+  Q5            32,129     0.2479         22.9      0.0444    0.0422    0.0468
+
+Stratified by filing-count band:
+  band=10-24   Q1  n=23,946  mean_dkl= -0.1851  P(public)=0.0396
+  band=10-24   Q2  n=23,946  mean_dkl= -0.0594  P(public)=0.0323
+  band=10-24   Q3  n=23,946  mean_dkl= -0.0015  P(public)=0.0338
+  band=10-24   Q4  n=23,946  mean_dkl= +0.0611  P(public)=0.0349
+  band=10-24   Q5  n=23,947  mean_dkl= +0.2637  P(public)=0.0339
+  band=25-99   Q1  n= 7,222  mean_dkl= -0.1635  P(public)=0.0806
+  band=25-99   Q2  n= 7,222  mean_dkl= -0.0567  P(public)=0.0757
+  band=25-99   Q3  n= 7,222  mean_dkl= -0.0078  P(public)=0.0760
+  band=25-99   Q4  n= 7,222  mean_dkl= +0.0435  P(public)=0.0809
+  band=25-99   Q5  n= 7,223  mean_dkl= +0.2042  P(public)=0.0802
+  band=100-999 Q1  n=   938  mean_dkl= -0.1424  P(public)=0.1631
+  band=100-999 Q2  n=   939  mean_dkl= -0.0517  P(public)=0.1459
+  band=100-999 Q3  n=   939  mean_dkl= -0.0113  P(public)=0.1810
+  band=100-999 Q4  n=   939  mean_dkl= +0.0315  P(public)=0.1480
+  band=100-999 Q5  n=   939  mean_dkl= +0.1576  P(public)=0.1672
+  band=>=1k    Q1  n=    21  mean_dkl= -0.1075  P(public)=0.3810
+  band=>=1k    Q2  n=    21  mean_dkl= -0.0561  P(public)=0.4286
+  band=>=1k    Q3  n=    22  mean_dkl= -0.0164  P(public)=0.2273
+  band=>=1k    Q4  n=    21  mean_dkl= +0.0253  P(public)=0.4286
+  band=>=1k    Q5  n=    22  mean_dkl= +0.1210  P(public)=0.1818
+
+Logit ever_public ~ z(mean_dkl) + log10(n_filings):
+  const             beta=-5.1015  se=0.0439  p=0
+  z_dkl             beta=-0.0188  se=0.0127  p=0.141
+  log_n_filings     beta=+1.5778  se=0.0296  p=0
+
+Quadrant view (split at panel medians):
+  low_pros × low_retr    n= 76,936  P(public)=0.0375
+  low_pros × high_retr   n=  3,385  P(public)=0.0576
+  high_pros × low_retr    n=  3,385  P(public)=0.0458
+  high_pros × high_retr   n= 76,937  P(public)=0.0595

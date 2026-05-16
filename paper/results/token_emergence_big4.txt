@@ -1,0 +1,61 @@
+Token emergence: do early adopters survive better than late?
+Classes: 009,035,041,042
+EMERGE_MIN=50, PRIOR_MAX=25, emergence-year window [1995,2015]
+======================================================================
+
+N emerging tokens: 156
+
+Pooled (one-token-one-obs):
+  early (y..y+1)   surv = 0.616
+  mid   (y+2..y+4) surv = 0.479
+  late  (y+5..y+9) surv = 0.419
+  late - early     = -0.197
+
+Filing-weighted:
+  early surv = 0.597  (n_filings=30,409)
+  mid   surv = 0.531  (n_filings=78,545)
+  late  surv = 0.440  (n_filings=195,805)
+
+Top 20 tokens where LATE adopters survived MUCH better than early:
+  [041] skim                      emerge=2007  early=0.06 (n=54)  late=0.55 (n=22)  Δ=+0.49
+  [041] alphabet                  emerge=2007  early=0.09 (n=65)  late=0.39 (n=67)  Δ=+0.30
+  [009] invader                   emerge=2015  early=0.03 (n=69)  late=0.25 (n=20)  Δ=+0.22
+  [042] multi-user                emerge=1995  early=0.44 (n=145)  late=0.62 (n=342)  Δ=+0.18
+  [041] collarless                emerge=2013  early=0.03 (n=69)  late=0.15 (n=20)  Δ=+0.12
+  [035] in-company                emerge=2010  early=0.29 (n=75)  late=0.38 (n=254)  Δ=+0.09
+  [042] pages                     emerge=1995  early=0.47 (n=428)  late=0.56 (n=3052)  Δ=+0.09
+  [042] paas                      emerge=2010  early=0.29 (n=396)  late=0.37 (n=10595)  Δ=+0.08
+  [035] customer-based            emerge=2014  early=0.42 (n=219)  late=0.50 (n=1870)  Δ=+0.07
+  [042] peer-to-browser           emerge=2010  early=0.49 (n=181)  late=0.56 (n=200)  Δ=+0.07
+  [041] trackings                 emerge=2008  early=0.58 (n=170)  late=0.64 (n=234)  Δ=+0.06
+  [035] vendor-on-premise         emerge=2009  early=0.43 (n=70)  late=0.49 (n=113)  Δ=+0.06
+  [009] cartomizers               emerge=2013  early=0.51 (n=90)  late=0.57 (n=51)  Δ=+0.06
+  [035] non-magnetically          emerge=2000  early=0.42 (n=67)  late=0.47 (n=89)  Δ=+0.05
+  [042] sharable                  emerge=2011  early=0.32 (n=262)  late=0.37 (n=593)  Δ=+0.05
+  [035] web                       emerge=1995  early=0.52 (n=379)  late=0.55 (n=9130)  Δ=+0.04
+  [009] smartwatches              emerge=2015  early=0.21 (n=1450)  late=0.24 (n=10374)  Δ=+0.03
+  [035] familiarization           emerge=2009  early=0.48 (n=108)  late=0.51 (n=156)  Δ=+0.03
+  [035] sharable                  emerge=2010  early=0.44 (n=770)  late=0.47 (n=2893)  Δ=+0.03
+  [042] dislikes                  emerge=2011  early=0.52 (n=231)  late=0.55 (n=342)  Δ=+0.03
+
+Top 20 tokens where EARLY adopters survived MUCH better than late:
+  [009] seismological             emerge=2006  early=0.85 (n=67)  late=0.09 (n=22)  Δ=-0.76
+  [009] inference                 emerge=2007  early=1.00 (n=62)  late=0.27 (n=26)  Δ=-0.73
+  [009] self-rescue               emerge=2006  early=0.86 (n=63)  late=0.22 (n=59)  Δ=-0.64
+  [035] non-magnetic              emerge=1999  early=0.76 (n=74)  late=0.15 (n=34)  Δ=-0.61
+  [042] caching                   emerge=2000  early=0.89 (n=71)  late=0.28 (n=32)  Δ=-0.61
+  [009] radiation-measuring       emerge=2006  early=0.76 (n=85)  late=0.17 (n=65)  Δ=-0.60
+  [009] face-protection           emerge=2006  early=0.80 (n=75)  late=0.22 (n=153)  Δ=-0.58
+  [009] singles                   emerge=2007  early=0.97 (n=102)  late=0.43 (n=21)  Δ=-0.54
+  [009] assailants                emerge=2006  early=0.91 (n=69)  late=0.38 (n=40)  Δ=-0.54
+  [009] commissioned              emerge=2000  early=0.86 (n=74)  late=0.33 (n=70)  Δ=-0.54
+  [035] commissioned              emerge=2000  early=0.85 (n=72)  late=0.31 (n=80)  Δ=-0.53
+  [035] portals                   emerge=2000  early=0.78 (n=103)  late=0.25 (n=368)  Δ=-0.53
+  [035] selectively               emerge=2006  early=0.95 (n=78)  late=0.43 (n=23)  Δ=-0.51
+  [009] disables                  emerge=2006  early=0.93 (n=69)  late=0.41 (n=41)  Δ=-0.51
+  [009] business-to-business      emerge=1999  early=0.77 (n=238)  late=0.26 (n=53)  Δ=-0.50
+  [035] vertical                  emerge=1999  early=0.77 (n=99)  late=0.27 (n=95)  Δ=-0.49
+  [035] easy-to-understand        emerge=2006  early=0.86 (n=131)  late=0.38 (n=217)  Δ=-0.48
+  [009] handhelds                 emerge=2007  early=0.92 (n=120)  late=0.44 (n=94)  Δ=-0.48
+  [041] gramophone                emerge=2000  early=0.92 (n=77)  late=0.45 (n=38)  Δ=-0.47
+  [035] aggregation               emerge=1999  early=0.92 (n=142)  late=0.44 (n=124)  Δ=-0.47
