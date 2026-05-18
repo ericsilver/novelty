@@ -1,0 +1,33 @@
+Big-firm category-buzzword backcast
+
+brand                fnd   fst  primary buzz        used?           rank  notes
+Amazon              1994  1924  online retail       1998             174
+eBay                1995  1997  online retail       2002           3,088
+Etsy                2005  2005  online retail       2016          24,269
+Shopify             2006  2006  online retail       2015          21,533
+Wayfair             2002  2000  online retail       2012          14,080
+Chewy               2011  1997  online retail       2019          31,158
+Google              1998  1992  website             2002           8,047
+Yahoo               1994  1987  website             2000           3,084
+Netflix             1997  1997  website             2005          11,424
+Dropbox             2007  2003  website             2012          48,410
+Facebook            2004  1995  social media        2012           2,909
+Twitter             2006  1941  social media        2011           1,046
+LinkedIn            2002  1999  social media        2009             260
+Pinterest           2010  2011  social media        ·                  ·
+Snap                2011  1986  social media        2020          20,239
+Coinbase            2012  2013  blockchain          2017              96
+Block (Square)      2009  1950  blockchain          2019           1,607
+Stripe              2010  1987  online retail       ·                  ·
+Zoom                2011  1999  saas                2022          47,486
+Slack               2009  2010  saas                ·                  ·
+Salesforce          1999  1995  saas                2009             247
+Workday             2005  2005  saas                2015          10,477
+ServiceNow          2004  2001  saas                2011           1,709
+Snowflake           2012  2014  saas                2014           6,494
+Tesla               2003  2005  electric vehicle    ·                  ·
+Uber                2009  2009  mobile app          ·                  ·
+Airbnb              2008  2010  mobile app          ·                  ·
+Lyft                2012  2012  mobile app          ·                  ·
+Spotify             2006  2000  website             2016          81,052
+Palantir            2003  1983  saas                2012           3,281

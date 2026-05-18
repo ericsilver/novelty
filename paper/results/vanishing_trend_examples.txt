@@ -1,0 +1,358 @@
+Most-negative-ΔKL filings (n_terms>=10, pros in [3.5,7]).
+These are filings whose goods/services vocabulary is more typical of
+the past than of the future — firms exploiting a vanishing trend.
+
+
+=== pre-2000  (n=854,601;  bottom-1% ΔKL cutoff = -0.691) ===
+
+  ΔKL=-2.08  pros=6.45 retr=8.53  1992  cls016
+    owner: MONOTYPE ITC INC.
+    mark:  ITC MENDOZA ROMAN
+    g/s:   typefaces, typefonts, and type designs of alphanumeric characters and/or typographical symbols typefaces, typefonts and type designs of alphanumeric characters and/or typographical symbols recorded on
+
+  ΔKL=-2.00  pros=5.19 retr=7.20  1996  cls042
+    owner: Federal Employees' Distributing Company
+    mark:  FEDCO SUPERSTORES MORE FOR YOUR MONEY
+    g/s:   retail department store services, retail grocery store services pharmacy services
+
+  ΔKL=-2.00  pros=5.19 retr=7.20  1996  cls042
+    owner: Federal Employees' Disbributing Company
+    mark:  FEDCO
+    g/s:   retail department store services; retail grocery store services pharmacy services
+
+  ΔKL=-1.99  pros=6.01 retr=8.00  1991  cls016
+    owner: H. BERTHOLD, Aktiengesellschaft
+    mark:  POPPL ANTIQUA
+    g/s:   printer's type, typefaces, and type fonts which include characters and/or typographical or other symbols; carrier plates and films bearing graphic representations of typefaces, type fonts and symbols
+
+  ΔKL=-1.99  pros=6.01 retr=8.00  1991  cls016
+    owner: BERTHOLD TYPES LIMITED
+    mark:  AJA
+    g/s:   printer's type, typefaces, and type fonts which include characters and/or typographical or other symbols; carrier plates and films bearing graphic representations of typefaces, type fonts and symbols
+
+  ΔKL=-1.93  pros=6.45 retr=8.38  1991  cls016
+    owner: Scripps College
+    mark:  SCRIPPS COLLEGE OLD STYLE
+    g/s:   typefaces, typefonts and type designs of alphanumeric characters and/or typographical symbols recorded as visible images in printer's type, and printer's matrices or Printed matter
+
+  ΔKL=-1.82  pros=6.17 retr=7.98  1996  cls042
+    owner: United Natural Foods, Inc.
+    mark:  NATURAL RETAIL GROUP
+    g/s:   retail health food store and supermarket services
+
+  ΔKL=-1.79  pros=4.81 retr=6.60  1996  cls042
+    owner: ENGEL, DAVID
+    mark:  VILLAINS
+    g/s:   retail department store services, namely, clothing, clothing accessories, jewelry, cosmetics, sunglasses and outerwear and retail shoe store services
+
+  ΔKL=-1.78  pros=5.19 retr=6.98  1997  cls042
+    owner: Baja International, Ltd.
+    mark:  VOODOO LOUNGE
+    g/s:   restaurant and nightclub services and retail clothing store services restaurant and nightclub services and retail clothing store services
+
+  ΔKL=-1.77  pros=5.82 retr=7.60  1991  cls016
+    owner: BERTHOLD TYPES LIMITED
+    mark:  GERSTNER
+    g/s:   printer's type, typefaces, and type fonts which include characters and/or typographical or other symbols; carrier plates and films bearing graphic representations of typefaces, type fonts and symbols;
+
+  ΔKL=-1.77  pros=5.82 retr=7.60  1991  cls016
+    owner: BERTHOLD TYPES LIMITED
+    mark:  POST-ANTIQUA
+    g/s:   printer's type, typefaces, and type fonts which include characters and/or typographical or other symbols; [ carrier plates and films bearing graphic representations of typefaces, type fonts and symbol
+
+  ΔKL=-1.75  pros=4.11 retr=5.85  1996  cls042
+    owner: NEW AGE MEDIA CONCEPTS, INC.
+    mark:  EMILU FASHION ENTERPRISES
+    g/s:   distributorship and retail store services featuring clothing
+
+  ΔKL=-1.72  pros=4.93 retr=6.65  1996  cls042
+    owner: STEIN MART BUYING CORP.
+    mark:  YOU COULD PAY MORE, BUT YOU'LL HAVE TO GO SOMEWHERE ELSE
+    g/s:   retail department store and retail clothing store services
+
+  ΔKL=-1.70  pros=5.61 retr=7.31  1997  cls042
+    owner: BAB, INC.
+    mark:  BIG APPLE BAGELS
+    g/s:   retail and wholesale outlets featuring freshly-baked bagels freshly-baked bagels restaurant services
+
+  ΔKL=-1.69  pros=5.66 retr=7.35  1996  cls042
+    owner: Lion Lin Market, LLC
+    mark:  LION LIN
+    g/s:   retail grocery store services and wholesale grocery distributor services
+
+  ΔKL=-1.69  pros=5.66 retr=7.35  1996  cls042
+    owner: Lion Lin Market, LLC
+    mark:  LION IN
+    g/s:   retail grocery store services and wholesale grocery distributor services
+
+  ΔKL=-1.69  pros=4.46 retr=6.14  1996  cls042
+    owner: PETSMART HOME OFFICE LLC
+    mark:  
+    g/s:   retail pet supply store services; mail order catalog services featuring pet food, supplies and accessories
+
+  ΔKL=-1.68  pros=6.32 retr=8.01  1996  cls042
+    owner: THE ORIGINAL CAKERIE CO.
+    mark:  ALDEN MERRELL
+    g/s:   retail and wholesale bakery shop services cafe services
+
+  ΔKL=-1.68  pros=5.60 retr=7.28  1996  cls042
+    owner: Cafe Mozart, Ltd.
+    mark:  CAFE MOZART OF EUROPE
+    g/s:   theme restaurant services retail bakery shop services
+
+  ΔKL=-1.66  pros=5.41 retr=7.07  1996  cls042
+    owner: Innovative Carpets, Inc.
+    mark:  SIAM CARPETS
+    g/s:   wholesale and retail distributorship services featuring carpets
+
+
+=== 2000s  (n=1,568,833;  bottom-1% ΔKL cutoff = -0.483) ===
+
+  ΔKL=-2.32  pros=5.21 retr=7.54  2007  cls045
+    owner: Young, Mark Allen
+    mark:  MEDICAL ANGELS
+    g/s:   Assisting localities and local entities in organizing and establishing groups of practicing and retired physicians, nurses, and other health professionals to act in a coordinated manner in times of lo
+
+  ΔKL=-1.94  pros=6.24 retr=8.18  2001  cls042
+    owner: New York Pizzeria, Inc.
+    mark:  NEW YORK PIZZERIA
+    g/s:   restaurant services; catering services; food delivery services; carry-out restaurant services
+
+  ΔKL=-1.94  pros=6.84 retr=8.78  2001  cls042
+    owner: Dennis, Felix
+    mark:  MAXIM LOUNGE
+    g/s:   bar, restaurant, night club, resort hotel and hotel and motel services
+
+  ΔKL=-1.89  pros=6.64 retr=8.53  2001  cls042
+    owner: E. LAND WORLD LTD.
+    mark:  PIZZA MALL
+    g/s:   restaurant services, carry-out restaurant services, self-service restaurants, snack bar services, cafeteria services and cocktail lounges
+
+  ΔKL=-1.80  pros=5.83 retr=7.64  2005  cls028
+    owner: Wild Planet Toys, Inc.
+    mark:  AQUAANGELS
+    g/s:   toys and playthings, namely an interactive toy consisting of a toy character in a sealed dome with buttons to press for interactive functions
+
+  ΔKL=-1.80  pros=5.94 retr=7.74  2005  cls028
+    owner: Wild Planet Toys, Inc.
+    mark:  HARF
+    g/s:   toys, namely an interactive toy consisting of a toy character in a sealed dome with buttons to press for interactive functions
+
+  ΔKL=-1.80  pros=5.94 retr=7.74  2005  cls028
+    owner: Wild Planet Toys, Inc.
+    mark:  ZOT
+    g/s:   toys, namely an interactive toy consisting of a toy character in a sealed dome with buttons to press for interactive functions
+
+  ΔKL=-1.70  pros=6.69 retr=8.39  2002  cls042
+    owner: Arandas Franchises, Inc.
+    mark:  TAQUERIA ARANDAS
+    g/s:   Mexican food restaurant and bar services, catering services and food take out services restaurant franchise services
+
+  ΔKL=-1.64  pros=6.36 retr=8.00  2001  cls042
+    owner: Oly Casa Madrona LLC
+    mark:  CASA MADRONA
+    g/s:   Hotel, motel and resort hotel services; restaurant and bar services; making hotel reservations for others
+
+  ΔKL=-1.64  pros=6.36 retr=8.00  2001  cls042
+    owner: ROSARIO SIGNAL L.L.C.
+    mark:  ROSARIO
+    g/s:   Hotel, motel and resort hotel services; restaurant and bar services; making hotel reservations for others
+
+  ΔKL=-1.61  pros=6.60 retr=8.21  2001  cls042
+    owner: CENDANT FINANCE HOLDING COMPANY LLC
+    mark:  AMERIHOST RESORT
+    g/s:   Hotel, motel and restaurant services; making temporary lodging reservations for others
+
+  ΔKL=-1.61  pros=4.14 retr=5.75  2004  cls028
+    owner: WKMN Training, LLC
+    mark:  CIVIO
+    g/s:   Equipment for use in playing a card game about civil rights, printed game instruction sheets and printed scoring sheets, all sold as a unit
+
+  ΔKL=-1.60  pros=4.47 retr=6.07  2004  cls016
+    owner: Pierrot Co., Ltd.
+    mark:  YU YU HAKUSHO
+    g/s:   Video game strategy guides; card game instruction books
+
+  ΔKL=-1.59  pros=6.59 retr=8.18  2001  cls042
+    owner: Marina District Development Company, LLC
+    mark:  ESCAPE THE ORDINARY
+    g/s:   hotel, resort hotel, bar, cocktail lounge, and health spa services
+
+  ΔKL=-1.57  pros=6.41 retr=7.99  2004  cls042
+    owner: PALERVA S.A.
+    mark:  EL NOBLE REPULGUE
+    g/s:   turnovers, empanadas, pizza Restaurant services, self service restaurant services, home-delivery restaurant services, take out restaurant services, coffee shop services, bar services, snack bar servic
+
+  ΔKL=-1.56  pros=6.50 retr=8.06  2001  cls042
+    owner: NWCL LLC
+    mark:  CHEECA LODGE
+    g/s:   Hotel, motel and resort hotel services; restaurant and bar services; making hotel reservation for others
+
+  ΔKL=-1.53  pros=3.56 retr=5.10  2002  cls016
+    owner: WizKids, LLC
+    mark:  CREEPY FREAKS
+    g/s:   brochures and booklets relating to games; game strategy guide books and magazines; printed game instruction sheets; printed scoring sheets; posters; comic books, and novels
+
+  ΔKL=-1.53  pros=4.34 retr=5.87  2003  cls016
+    owner: WIZKIDS, INC.
+    mark:  SPORTSCLIX
+    g/s:   brochures and booklets relating to games; printed game instruction sheets; printed scoring sheets; posters
+
+  ΔKL=-1.52  pros=6.76 retr=8.28  2001  cls042
+    owner: Hemingway, Ltd.
+    mark:  ERNEST HEMINGWAY
+    g/s:   Restaurant and hotel services, namely, hotels, inns, health resorts, cafes and restaurants; health spas
+
+  ΔKL=-1.52  pros=6.09 retr=7.61  2001  cls042
+    owner: Bruderhof Foundation, Inc., The
+    mark:  THE FINJAN
+    g/s:   RETAIL GOURMET FOOD STORES; RETAIL BOOK STORE SERVICES; PROVIDING FACILITIES FOR DAYTIME BUSINESS CONFERENCES Providing catering services; restaurant services; take-out restaurant services; restaurant
+
+
+=== 2010s  (n=2,830,482;  bottom-1% ΔKL cutoff = -0.347) ===
+
+  ΔKL=-2.01  pros=4.54 retr=6.55  2015  cls030
+    owner: Smasal, John
+    mark:  EMERALD CITY VAPE PREMIUM VAPOR LIQUID SEATTLE, WASHINGTON
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-2.01  pros=4.54 retr=6.55  2015  cls030
+    owner: US Batta
+    mark:  LIBERTE
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.99  pros=4.53 retr=6.52  2015  cls030
+    owner: Saratoga Vapor Shop, LLC
+    mark:  SARATOGA VAPES
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.95  pros=3.67 retr=5.62  2012  cls001
+    owner: VR Laboratories, LLC
+    mark:  V!AH MINDPOWER
+    g/s:   Botanical extracts for use in the manufacture of nutraceuticals; botanical extracts for use in the manufacture of nutraceuticals and pharmaceuticals; botanical extracts for use in the manufacture of n
+
+  ΔKL=-1.95  pros=4.53 retr=6.48  2014  cls030
+    owner: Young J Lee
+    mark:  BREWELL
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.93  pros=4.53 retr=6.46  2014  cls030
+    owner: Diversity LLC
+    mark:  DIVERSITY E-LIQUIDS
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.93  pros=4.79 retr=6.72  2015  cls030
+    owner: Apollo Future Technology, Inc.
+    mark:  FA-Q-PINK-NOVA
+    g/s:   Electronic cigarette liquid (e-liquid) coprised of propylene glycol Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges or atom
+
+  ΔKL=-1.93  pros=4.79 retr=6.72  2015  cls030
+    owner: Apollo Future Technology, Inc.
+    mark:  FA-Q-WACKY-JACKY
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of propylene glycol Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges or ato
+
+  ΔKL=-1.92  pros=4.53 retr=6.45  2014  cls030
+    owner: Suchet, Sidney
+    mark:  VAPO FRANCE
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.89  pros=4.53 retr=6.42  2014  cls030
+    owner: ILLPLUMINATI
+    mark:  ILLPLUMINATI
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.88  pros=4.53 retr=6.41  2014  cls030
+    owner: Lab Rat Vapor, LLC
+    mark:  LAB RAT VAPOR
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.87  pros=4.51 retr=6.38  2014  cls030
+    owner: Necksnapper LLC
+    mark:  NECKSNAPPER
+    g/s:   Chemical flavorings in liquid form used to refill electronic cigarette cartridges; Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette car
+
+  ΔKL=-1.85  pros=4.53 retr=6.38  2014  cls030
+    owner: Emerald Coast Vapor Incorporated
+    mark:  APE JUICE
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.85  pros=4.53 retr=6.38  2014  cls030
+    owner: Hashtag Juice
+    mark:  HASHTAG E-JUICE
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.83  pros=4.53 retr=6.36  2014  cls030
+    owner: Farnsworth, Brandon
+    mark:  THE CHUBBY BAKER
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.83  pros=4.53 retr=6.36  2014  cls030
+    owner: BLACKSTAR WHOLESALE, INC
+    mark:  ONE DROP ONE KILL
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.83  pros=5.42 retr=7.25  2014  cls001
+    owner: Baity Enterprises LLC
+    mark:  CLOUD CANDY
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of propylene glycol; Electronic cigarette liquid (e-liquid) comprised of vegetable glycerin
+
+  ΔKL=-1.82  pros=4.53 retr=6.35  2014  cls030
+    owner: Wren Hill Trade Company
+    mark:  ROCKET POP
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges
+
+  ΔKL=-1.82  pros=5.15 retr=6.96  2015  cls001
+    owner: Apollo Future Technology, Inc.
+    mark:  FA-Q-PINK-NOVA
+    g/s:   Electronic cigarette liquid (e-liquid) coprised of propylene glycol Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges or atom
+
+  ΔKL=-1.82  pros=5.15 retr=6.96  2015  cls001
+    owner: Apollo Future Technology, Inc.
+    mark:  FA-Q-WACKY-JACKY
+    g/s:   Electronic cigarette liquid (e-liquid) comprised of propylene glycol Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used to refill electronic cigarette cartridges or ato
+
+
+
+=== Tokens over-represented in bottom-decile-ΔKL filings ===
+   (rate in bottom decile  /  rate in corpus; tokens with corpus freq >= 1000)
+   token                         enrich   p_bot   p_pop
+   typeface                        3.74x   0.001   0.000
+   womens                          3.46x   0.001   0.000
+   mens                            3.33x   0.001   0.000
+   instrumental                    3.19x   0.002   0.001
+   fonts                           2.94x   0.001   0.000
+   calling                         2.89x   0.007   0.002
+   generates                       2.87x   0.002   0.001
+   putter                          2.84x   0.001   0.000
+   pale                            2.84x   0.001   0.000
+   annuities                       2.83x   0.002   0.001
+   tomatoes                        2.81x   0.001   0.000
+   stents                          2.81x   0.001   0.000
+   wager                           2.69x   0.003   0.001
+   ale                             2.66x   0.001   0.000
+   periodically                    2.66x   0.001   0.000
+   securitization                  2.61x   0.001   0.001
+   motels                          2.60x   0.001   0.000
+   annuity                         2.58x   0.002   0.001
+   stout                           2.57x   0.001   0.000
+   childrens                       2.50x   0.001   0.000
+   robe                            2.50x   0.001   0.000
+   replica                         2.48x   0.001   0.000
+   casualty                        2.46x   0.003   0.001
+   boys                            2.41x   0.001   0.000
+   underwriting                    2.41x   0.013   0.005
+   taco                            2.39x   0.001   0.000
+   unpopped                        2.38x   0.001   0.000
+   pork                            2.32x   0.002   0.001
+   graft                           2.32x   0.000   0.000
+   mexican                         2.31x   0.001   0.000
+   coronary                        2.27x   0.001   0.000
+   prepaid                         2.26x   0.006   0.003
+   preferred                       2.25x   0.003   0.001
+   sunless                         2.23x   0.000   0.000
+   fusion                          2.23x   0.001   0.000
+   cottage                         2.22x   0.001   0.000
+   blemish                         2.21x   0.000   0.000
+   fragrant                        2.19x   0.001   0.000
+   toilette                        2.19x   0.000   0.000
+   catheters                       2.18x   0.002   0.001

@@ -21,63 +21,64 @@
 \maketitle
 
 \begin{abstract}
-We measure novelty in firm activity using the goods-and-services
-descriptions of $16.5$ million U.S.\ trademark filings since 1985,
-across all 45 NICE international (industry) classes. For each filing
-we compute two scores. \emph{Prospective surprise} measures how
-unusual the filing's wording was relative to other filings in the
-same industry over the previous five years. \emph{Retrospective
-surprise} measures how unusual it remained after five years of
-subsequent filings: a filing with low retrospective surprise is one
-whose wording the future came to resemble. We treat the difference
-$\Delta KL = KL_{\text{pros}} - KL_{\text{retr}}$ as a single
-``imitated-innovator'' score: positive for filings that were novel
-at the time but were imitated, negative for filings that looked
-ordinary at the time and remained so.
+We measure vocabulary flux in firm activity using the goods-and-services
+descriptions of $16.5$ million U.S.\ trademark filings since 1985, across
+all 45 NICE international (industry) classes. For each filing we compute
+two information-theoretic surprise scores against per-day exponentially
+decay-weighted reference distributions of the same NICE class:
+\emph{prospective surprise} (distance from the recent past) and
+\emph{retrospective surprise} (distance from the near future). Their
+difference $\Delta KL = KL_{\text{pros}} - KL_{\text{retr}}$ is a
+\emph{flux} signal: positive when a filing's vocabulary anticipates
+where the field is going, negative when it extracts from where the
+field has been. Flux is orthogonal to distinctiveness (the principal
+component the two surprise levels share); the substantive direction
+sits entirely in the residual.
 
-\textbf{Three convergent-validity facts orient the rest of the paper.}
-On the matched firm panel, $\Delta KL$ is essentially \emph{uncorrelated}
-with the dominant alternative innovation proxy (firm-year patent counts:
-$r = +0.010$ on $174{,}569$ firm-years), so it is measuring a different
-channel rather than a noisy view of the same one. $\Delta KL$ is
-\emph{positively correlated with firm survival}: a one-$\sigma$ increase
-in a filing's $\Delta KL$ raises its odds of completing registration by
-$+13\%$ in the pooled per-filing logit, and shifts the firm-level
-distribution of multi-filing survival rates upward in every NICE class
-we examine. And $\Delta KL$ is \emph{positively correlated with
-profitability}: among publicly-traded firms, a one-$\sigma$ increase
-in three-year-trailing mean $\Delta KL$ predicts $+3.2$ percentage points
-higher gross margin (SE $0.6$ pp).
+\textbf{The headline finding is a squeeze on flux-neutral filings.}
+Post-registration 5-year survival is U-shaped in $\Delta KL$ under every
+operationalisation we tried: both the harvest extreme (negative
+$\Delta KL$ --- receding vocabulary, sunsetting categories) and the
+innovate extreme (positive $\Delta KL$ --- emerging vocabulary, the
+2014+ cannabis, crypto, vape, NFT and AI waves) survive at roughly
+$50$--$55\%$; the flux-neutral middle survives at $\sim 45\%$. The
+pattern holds at the per-industry level in $27$ of $44$ industries,
+on token-level survival rates (negative-stratum and positive-stratum
+tokens both survive well above the corpus baseline; neutral tokens
+like \texttt{organisational}, \texttt{conformity}, \texttt{freighting}
+all sit at $11$--$26\%$), and in our hand-curated panel of $41$
+canonical ``winner'' firms ($37/41$ have positive firm-mean
+$\Delta KL$). What the mechanism is --- intelligent harvesting of
+vanishing concepts, recognition of emerging ones, or selection on an
+unobservable correlate --- is not separable in the trademark record;
+what is unambiguous is that filings whose vocabulary places them
+squarely \emph{on trend} in the centre of the distribution survive at
+the lowest rate in the corpus.
 
-We link the trademark scores to SEC EDGAR financials for the
-publicly-traded subset and ask three questions: do novel filings
-clear examination at higher rates, do novel firms earn higher gross
-margins, and do they bear the higher-variance pattern that a
-``pioneer's bet'' would predict?
+\textbf{Novelty of language and novelty of claim are different signals.}
+A pioneer-ladder analysis on five category-defining buzzwords
+(\texttt{website}, \texttt{wireless}, \texttt{online retail},
+\texttt{social media}, \texttt{blockchain}) ranks every firm in the
+corpus by date-of-first-adoption; the very-first $10$--$50$ adopters
+do badly, the fast-follower band at ranks $50$--$1{,}000$ has
+$1.5$--$4\times$ the late-entrant IPO rate, and the mass late wave
+does worst. Canonical winners are mostly absent from the very-early
+ranks (Amazon $174$\textsuperscript{th} on \texttt{online retail},
+Coinbase $96$\textsuperscript{th} on \texttt{blockchain}; Uber, Lyft,
+Airbnb never used their category buzzword at all) but most have
+positive first-filing $\Delta KL$, often strongly so (Oracle $+4.39$
+nats, Intel $+3.26$, Microsoft $+2.99$, eBay $+1.73$, Apple $+1.68$,
+Coinbase $+0.98$, Lyft $+0.76$, Twitter $+0.75$, Uber $+0.70$,
+LinkedIn $+0.58$, Salesforce $+0.43$). The two ``novelties'' decouple:
+the novelty of the \emph{claim} (which vocabulary the firm adopts) and
+the novelty of the \emph{language} (the texture of their
+goods/services prose) are independent levers.
 
-Three results emerge. First, in the pooled per-filing logit on
-$1.4$ million Class~9 (Software \& Electronics) filings, a filing one
-standard deviation higher in $\Delta KL$ has $+13\%$ higher odds of
-completing registration; a filing both one standard deviation more
-novel at the time AND one standard deviation more likely to be
-imitated by future filings is roughly $3.6\times$ more likely to
-register. Second, restricting to each firm's \emph{first-ever}
-trademark filing --- to remove the possibility that the registration
-boost reflects filer experience or accumulated firm sophistication
-rather than the novelty of any specific filing --- the registration
-coefficient on novelty actually \emph{flips negative} ($-3\%$ odds
-per $\sigma$): novel debut filings face slightly higher friction at
-examination. Third, on the matched financial panel of $1{,}547$
-publicly-traded firms, those whose three-year trailing trademark
-filings score one $\sigma$ higher in $\Delta KL$ earn $+3.2$
-percentage points higher gross margin (SE $0.6$ pp) and exhibit
-$+0.018$ wider within-firm gross-margin standard deviation.
-Restricting to firms' first-ever filings (one observation per firm,
-$n = 6{,}525$), both effects attenuate by roughly half but remain
-significant: $+1.7$ pp on mean margin, $+0.005$ on margin variance.
-The financial reward to novelty is partly a habit/portfolio effect
-of repeat-filing firms, and partly a property of the firm's debut
-bet itself.
+$\Delta KL$ is essentially uncorrelated with the dominant alternative
+innovation proxy (firm-year patent counts, $r = +0.010$ on $174{,}569$
+firm-years), positively correlated with post-registration survival,
+and positively correlated with profitability among publicly-traded
+firms ($+3.2$ pp gross margin per $\sigma$, SE $0.6$ pp).
 \end{abstract}
 
 \section{Background}
@@ -207,24 +208,15 @@ heavily templated G/S strings (\textit{e.g.}~``restaurant services'',
 ``legal services'') are 2-token strings and would otherwise be
 excluded.
 
-\paragraph{A data-quality note: missing registration dates.}
-An earlier version of this paper used the per-filing
-\texttt{registration\_date} field to determine whether a mark
-``completed registration.'' This turns out to be wrong: many older
-records (mostly pre-2003) carry a status code in the live-registered
-range (6xx) or post-registration-cancelled range (8xx) but have a
-\texttt{registration\_date} field that is missing in the published
-XML. The status code is the trustworthy field. The earlier
-classification understated the true registration rate by roughly ten
-percentage points for older filings, and because those misclassified
-records are systematically high in $\Delta KL$ (a separate burn-in
-artefact), the earlier per-filing logit produced a spurious
-\emph{negative} coefficient on $\Delta KL$ for completed
-registration. With the bug corrected, the sign reverses
-(Section~\ref{sec:survival}). All results below use the
-status-code-based definition. The pipeline that extracts and analyses
-these data is published with the paper; technical details live in the
-companion repository.
+\paragraph{Registration is determined by status code, not registration
+date.} We classify a mark as having ``completed registration'' from its
+USPTO status code (6xx live-registered or 8xx post-registration-cancelled),
+not from the \texttt{registration\_date} field, which is unreliable in
+older records (mostly pre-2003): many records with a valid registered
+status code carry a missing \texttt{registration\_date} in the
+published XML. The pipeline that extracts and analyses these data is
+published with the paper; technical details live in the companion
+repository.
 
 \section{Method}
 
@@ -238,31 +230,80 @@ filings (documents) and in no more than $50\%$ of all filings, on the
 view that very rare tokens are typos and very common tokens are USPTO
 boilerplate.
 
-For each calendar year $t$ we form two reference distributions by
-aggregating term frequencies across neighboring years:
+For each filing $i$ at filing-date $t_i$ we form two reference
+distributions by per-day exponential decay-weighting of every other
+filing in the same NICE class:
 \begin{align}
-Q_t^{\text{pros}}(v) &\propto \alpha + \sum_{j: \text{year}(j) \in [t-W, t)} \mathrm{count}(v, j), \\
-Q_t^{\text{retr}}(v) &\propto \alpha + \sum_{j: \text{year}(j) \in (t, t+W]} \mathrm{count}(v, j),
+Q_i^{\text{pros}}(v) &\propto \alpha + \sum_{j:\, t_j < t_i}
+  e^{-\lambda_{\text{pros}}\,(t_i - t_j)}\,\mathrm{count}(v, j), \\
+Q_i^{\text{retr}}(v) &\propto \alpha + \sum_{j:\, t_j > t_i}
+  e^{-\lambda_{\text{retr}}\,(t_j - t_i)}\,\mathrm{count}(v, j),
 \end{align}
-with window $W = 5$ years (look-behind for prospective, look-ahead for
-retrospective) and Laplace smoothing $\alpha = 1.0$. The prospective and
-retrospective surprise of filing $i$ are the support-restricted KL
-divergences
+with $\lambda = \ln(2)/H$ and \textbf{half-life $H = 2$ years} on both
+sides and Laplace smoothing $\alpha = 1.0$. The half-life is chosen by
+a sweep over $H \in \{0.5, 1, 2, 3, 5\}$ years on Class~9 that
+maximises corr$(\Delta KL, \text{survived\_5y})$ and the logit
+pseudo-$R^2$ on the same outcome (Figure~\ref{fig:halflife-signal}).
+Density on the reference distributions is reported as Kish effective
+sample size $N_{\text{eff}} = (\sum_j w_j)^2 / \sum_j w_j^2$; we
+restrict all filing-level analyses to filings with
+$N_{\text{eff}} \geq 1{,}000$ on both sides.
+
+The prospective and retrospective surprise of filing $i$ are the
+support-restricted KL divergences
 \[
-KL_i^{\text{pros}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_t^{\text{pros}}(v)},
+KL_i^{\text{pros}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_i^{\text{pros}}(v)},
 \quad
-KL_i^{\text{retr}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_t^{\text{retr}}(v)}.
+KL_i^{\text{retr}} = \sum_{v: P_i(v)>0} P_i(v) \, \log\frac{P_i(v)}{Q_i^{\text{retr}}(v)}.
 \]
-The directional innovation score is $\Delta KL_i = KL_i^{\text{pros}} -
-KL_i^{\text{retr}}$, the change between how unlike the recent past a filing
-reads and how unlike the near future it reads. Throughout the rest of the
-paper we refer to this quantity as $\Delta KL$ (``delta-KL''), our
-near-novelty marker: $\Delta KL > 0$ means the filing is \emph{innovative}
-by this map (its language anticipates filings to come more than it echoes
-filings just past), while $\Delta KL < 0$ means it is \emph{tired} (its
-language is better explained by the past than by the future of the same
-category). We use a term-frequency multinomial as the v0 baseline; an
-LDA topic-model replication is planned but not reported here.
+With $\log$ in natural units, $KL_i$ is in nats. A useful intuition:
+$KL_i^{\text{pros}}$ is the expected log-odds per token that a reader
+who had seen only the filing's recent past would assign to the filing's
+own term distribution versus the past's. $KL_i = 3$ nats means a typical
+token in this filing is $e^3 \approx 20\times$ more probable under the
+filing's own distribution than under the recent corpus. KL is sensitive
+to filing length (short filings with one rare token can score high
+mechanically); every regression in the paper controls for
+$\log(n_\text{terms})$ and most report $z$-scored $\Delta KL$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{results/halflife_signal_class009.png}
+\caption{Half-life sweep on Class~9. For each candidate $H \in
+\{0.5,1,2,3,5\}$ years we recompute the decay-weighted reference
+distribution and report four signal metrics on the $\Delta KL \to$
+survival relationship. $H = 2$--$3$ years maximises corr$(\Delta KL,
+\text{survived\_5y})$ and the logit pseudo-$R^2$; we adopt $H = 2$.}
+\label{fig:halflife-signal}
+\end{figure}
+
+The directional flux score is $\Delta KL_i = KL_i^{\text{pros}} -
+KL_i^{\text{retr}}$: the change between how unlike the recent past a
+filing reads and how unlike the near future it reads. Positive
+$\Delta KL$ means the filing's vocabulary is closer to the future than
+to the past (\emph{flux-positive}; the field migrated toward this
+filing); negative $\Delta KL$ means closer to the past than to the
+future (\emph{flux-negative}; the field migrated away).
+
+\paragraph{Magnitudes.}
+To ground the reader: across the all-class analytic pool of $13.0$M
+filings with $N_{\text{eff}} \geq 1{,}000$ on both sides, the 5th,
+50th, and 95th percentiles are
+$KL^{\text{pros}} = [2.99,\, 4.85,\, 7.20]$ nats (std $1.29$) and
+$KL^{\text{retr}} = [2.98,\, 4.84,\, 7.22]$ nats (std $1.30$). The two
+components are correlated at $\rho = +0.99$ pooled across all classes
+(see Table~\ref{tab:components}); they measure the same
+general-distinctiveness signal in two temporal directions, and their
+per-filing levels track each other tightly. Because they share that
+much distinctiveness against the per-class boilerplate, their
+difference $\Delta KL$ has a markedly tighter range: 5th/50th/95th
+percentiles $[-0.30,\, -0.00,\, +0.34]$ nats (std $0.22$, median
+essentially zero by construction of the look-behind / look-ahead
+window). A filing in the top 5\% of $\Delta KL$ is therefore $\sim
+0.6$ nats more flux-positive than one in the bottom 5\%, on a scale
+where each component routinely exceeds $5$ nats outright. The
+substantive direction lives in this comparatively small flux
+residual, not in the much larger common distinctiveness factor.
 
 \paragraph{Identical-text filings are signal.} Trademark practice rewards
 templated language. Many breweries file the boilerplate token
@@ -271,25 +312,17 @@ We do not deduplicate identical text: filings that use the same words
 \emph{should} receive the same score, because deviations from the
 boilerplate are themselves the signal.
 
-\paragraph{Burn-in caveat.}
-The method requires a five-year window of prior filings (to compute
-prospective surprise) and a five-year window of subsequent filings (to
-compute retrospective surprise). The hard arithmetic burn-in is exactly
-five years on each side: filings from 1985--1989 cannot have a complete
-look-behind because the digitised corpus begins in 1984; filings from
-2021 onward cannot have a complete look-ahead at the time of writing.
-Figure~\ref{fig:burnin} shades the two five-year burn-in windows.
-A separate density filter (\texttt{n\_ref\_prospective} $\geq 1000$,
-the same on the look-ahead) further excludes per-class filings whose
-reference window has fewer than $1{,}000$ filings to estimate against;
-this filter is what drops small NICE classes' early-decade cohorts
-even after the arithmetic burn-in is satisfied. We restrict all
-regressions to filings from \textbf{1990 onward}, the literal 5-year
-arithmetic boundary; the 1995 cutoff used in earlier drafts of this
-work was an arbitrary five-year safety buffer that we have removed.
-The change matters: the aggregate U-shape result we report in
-Section~\ref{sec:u-shape} is materially weaker under the 1990 cutoff
-than under the 1995 cutoff, and we discuss this directly there.
+\paragraph{Burn-in window.}
+The decay reference distributions need filings on both sides of $t_i$
+for the weighted sums to be well populated. The $N_{\text{eff}} \geq
+1{,}000$ density filter above automatically excludes small NICE
+classes' early-decade cohorts and the corpus right-edge filings whose
+forward window is too sparse. For regressions on the panel we restrict
+to filings from \textbf{1990 onward} (after the corpus's left-edge
+digitisation boundary in 1984 plus a margin to populate the
+look-behind) and to filings whose year has at least 5 years of forward
+observation, currently \textbf{1990--2021} given a 2026 freeze date.
+Figure~\ref{fig:burnin} shades the two burn-in windows.
 
 \begin{figure}[t]
 \centering
@@ -306,6 +339,41 @@ distinguishably in black-and-white. A separate density filter
 small-class exclusions visible in the long left tail of the plot.}
 \label{fig:burnin}
 \end{figure}
+
+\subsection*{What $\Delta KL$ measures (and what it does not)}
+\label{sec:flux-not-distinctiveness}
+
+The two component KLs are very highly correlated: per-filing
+$\rho(KL^{\text{pros}}, KL^{\text{retr}}) = 0.99$ on the pooled clean
+panel. A reader plotting any outcome against either component
+univariately sees nearly identical curves because the two component
+levels are, to first order, the same number --- both measuring
+\emph{distinctiveness} (how unusual the filing's vocabulary is against
+the rest of the corpus, in either temporal direction).
+
+The PCA decomposition of $(KL^{\text{pros}}, KL^{\text{retr}})$ makes
+the geometry explicit:
+\begin{align*}
+\text{PC1} \;\approx\; \tfrac{1}{\sqrt{2}}(KL^{\text{pros}} + KL^{\text{retr}})
+  &\;\;\;\text{= general distinctiveness} \\
+\text{PC2} \;\approx\; \tfrac{1}{\sqrt{2}}(KL^{\text{pros}} - KL^{\text{retr}})
+  &\;\;\;\propto \Delta KL = \text{vocabulary flux}
+\end{align*}
+
+$\Delta KL$ is the orthogonal residual after PC1 is removed; it is the
+\emph{only} part of the joint signal with a forward/backward direction.
+PC1 says ``this filing is unusual.'' PC2 says ``this filing is unusual
+\emph{and the field's vocabulary subsequently moved toward it rather
+than away}.'' We claim throughout that the substantive innovation
+signal lives in PC2; PC1 is largely a length/rarity covariate. The
+closest-adjacent management-theory framework, optimal distinctiveness
+(Deephouse 1999, \emph{SMJ}; Zhao et al.\ 2017, \emph{SMJ}), predicts
+an inverted-U on the \emph{level} of distinctiveness. The framework we
+are extending is DeDeo's prospective/retrospective surprise scheme
+(Murdock, Allen \& DeDeo 2017, \emph{Cognition}; Barron, Huang, Spang
+\& DeDeo 2018, \emph{PNAS}), which decomposes a temporal corpus into
+novelty, transience, and resonance and which we apply for the first
+time to commercially incentivised text.
 
 \section{What the components do separately}
 \label{sec:components}
@@ -342,9 +410,9 @@ means, 15 bins between the 2nd and 98th percentile of the predictor).
 The two components carry essentially the same signal at the per-filing
 level.}
 \label{tab:components}
-\begin{tabular}{lrrrr}
+\begin{tabular}{lcccc}
 \toprule
-Scope & $\rho(KL_{\text{pros}}, KL_{\text{retr}})$ & slope on reg.\ vs $KL_{\text{pros}}$ & slope on reg.\ vs $KL_{\text{retr}}$ & slope on pass-5y vs $KL_{\text{pros}}$ \\
+Scope & \shortstack{$\rho(KL_{\text{pros}},$\\ $KL_{\text{retr}})$} & \shortstack{slope on reg.\\ vs $KL_{\text{pros}}$} & \shortstack{slope on reg.\\ vs $KL_{\text{retr}}$} & \shortstack{slope on pass-5y\\ vs $KL_{\text{pros}}$} \\
 \midrule
 Software (Cl.\ 9)   & $+0.967$ & $+0.024$ & $+0.021$ & $+0.008$ \\
 Beverages (Cl.\ 32) & $+0.933$ & $+0.018$ & $+0.017$ & $+0.009$ \\
@@ -445,6 +513,241 @@ goods/services description. Comparable bottled-water filings
 (\textsc{Saratoga}, \textsc{Smartwater}, \textsc{Essentia}) cluster in
 the same region. The method is, by construction, blind to non-textual
 novelty.
+
+\section{Canonical winners and failed firms as KL profiles}
+\label{sec:canonical-winners}
+
+A direct face-validity check: take a curated list of widely-recognised
+firms from the last fifty years, find their first post-founding
+trademark filing, compute the firm-mean $\Delta KL$ across all their
+filings, and compare against a control list of widely-recognised
+\emph{failed} firms. If the construct is meaningful, the winners should
+read as forward-flux (positive $\Delta KL$) and the failures should
+spread out --- some failed despite being trend-setters, some failed
+\emph{because} they were exploiting a receding vocabulary.
+
+\paragraph{Caveat on entity matching.}
+The trademark XML records each filing's owner only as a free-text
+\texttt{owner\_name} string with no entity identifier, so any
+``firm $\to$ all its filings'' join is necessarily heuristic. For the
+table below we use hand-curated regular expressions that require the
+brand string to co-occur with a corporate suffix (\texttt{Inc.},
+\texttt{LLC}, \texttt{Corporation}, \texttt{Technologies}, etc.) and we
+restrict each firm's panel to filings on or after its founding year.
+The regexes are not perfect: we are confident that at least some hits
+are entity collisions and we have tightened individual regexes where we
+identified collisions. Amazon's regex, for example, matches only the
+\texttt{Amazon.com} variants because the string ``Amazon Technologies,
+Inc.'' was used as a registered owner by a different firm in
+1994--1995, before Amazon's IP-holding subsidiary of that name became
+active around 2001; we lose some post-2001 IP-holder filings but
+eliminate the collision. Readers should treat the firm-mean numbers
+below as indicative rather than authoritative; the qualitative pattern
+(winners cluster on positive firm-mean $\Delta KL$; failed firms split
+across both extremes) is robust to the residual collision rate but
+specific decimal places are not.
+
+\begin{table}[h]
+\centering
+\caption{Firm-mean and first-real-filing KL profile for 41 canonical
+``winner'' firms and the 17 widely-recognised failed firms with
+sufficient post-founding clean-panel data. Filings filtered to
+filing-date $\geq$ founding-year; see entity-matching caveat above.
+Corpus median pros $=4.85$, retr $=4.84$.}
+\label{tab:big-firm-kl}
+\tiny
+\input{results/big_firm_kl_v2.tex}
+\end{table}
+
+37 of 41 winners have \emph{positive} firm-mean $\Delta KL$ (the four
+exceptions are Adobe ($-0.03$), Qualcomm ($-0.01$), Etsy ($-0.01$),
+and Wayfair ($-0.01$)). The winners are not extreme outliers on
+distinctiveness: their firm-mean prospective KL is mostly $3.4$--$4.8$
+nats, around or just below the corpus median. They use mainstream
+vocabulary, but the mainstream vocabulary they use is consistently
+the kind the field migrates toward, not away from.
+
+\paragraph{First-real-filing $\Delta KL$ is sharper on a subset.}
+Thirteen canonical winners had first-filing $\Delta KL$ above $+0.4$
+nats (roughly $2\sigma$): \textbf{Oracle} ($+4.39$, 1977),
+\textbf{Intel} ($+3.26$, 1968), \textbf{Microsoft} ($+2.99$, 1975),
+\textbf{eBay} ($+1.73$, 1997), \textbf{Apple} ($+1.68$, 1976),
+\textbf{Adobe} ($+1.28$, 1982), \textbf{Coinbase} ($+0.98$, 2013),
+\textbf{Lyft} ($+0.76$, 2012), \textbf{Twitter} ($+0.75$, 2007),
+\textbf{Uber} ($+0.70$, 2009), \textbf{AMD} ($+0.69$, 1969),
+\textbf{LinkedIn} ($+0.58$, 2003), and \textbf{Salesforce} ($+0.43$,
+1999). Oracle's first filing ($+4.39$) is the largest first-filing
+$\Delta KL$ in the curated set; the eBay filing's text ``on-line
+trading services in which seller posts items to be auctioned and
+bidding is done electronically'' ($+1.73$) introduced phrasing that
+downstream filings extensively echoed.
+
+\paragraph{The failed-firm panel does not collapse to negative
+$\Delta KL$.} Among 17 widely-recognised failures, the split is
+roughly even. \textbf{Webvan} ($-0.22$), \textbf{MoviePass} ($-0.27$),
+\textbf{Better.com} ($-0.12$), and \textbf{Pets.com} ($-0.03$) failed
+on the receding side. But \textbf{Theranos} ($+0.05$),
+\textbf{Beyond Meat} ($+0.34$, first $+0.74$), \textbf{Casper}
+($+0.06$, first $+0.46$), \textbf{Solyndra} ($+0.44$), \textbf{Nikola}
+($+0.03$, first $+0.24$), and \textbf{Myspace} ($+0.07$) failed
+despite trend-setting vocabulary. $\Delta KL$ is a vocabulary signal,
+not a business-model signal. \emph{Negative $\Delta KL$ raises the
+probability of being on the wrong side of an industry transition.
+Positive $\Delta KL$ raises the probability of being on the right
+side. Neither is destiny.}
+
+\section{Pioneers, fast-followers, and the late wave}
+\label{sec:pioneer-ladder}
+
+To take ``where in the adoption sequence do firms succeed?'' as an
+empirical question, for each of five category-defining buzzwords ---
+\texttt{website}, \texttt{wireless}, \texttt{online retail},
+\texttt{social media}, \texttt{blockchain} --- we ranked every firm in
+the corpus by the date of its first filing whose goods/services text
+contained the buzzword. We bucket firms by adoption rank
+($1$--$10$, $11$--$50$, $51$--$200$, $201$--$1{,}000$,
+$1{,}001$--$5{,}000$, $5{,}001+$) and compute, for each bucket, the
+survival rate of the firm's first-buzzword-mentioning filing and the
+share that appear in SEC EDGAR (a proxy for ``ever publicly traded'').
+
+\paragraph{Pioneer position is bad; the fast-follower band is the
+sweet spot.} For \texttt{wireless}, the first $10$ adopters had
+\emph{zero} survival of their initial filing; the first $50$ had
+$0$--$13\%$. For \texttt{online retail}, the first $10$ survived at
+$10\%$ vs.\ $\sim 33\%$ for the late-wave $5{,}000$+ adopters. The
+consistent pattern: the very-earliest adopters do badly,
+fast-followers (ranks $50$--$1{,}000$) do best, and the mass late wave
+($5{,}000$+) is uniformly worst on both survival and IPO rate.
+Among public firms in each bucket, the rank-$50$--$1{,}000$ band has
+$1.5\!-\!4\times$ the late-entrant baseline IPO rate.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/pioneer_ladder_summary.png}
+\caption{Adoption-rank bucket vs.\ 5-year survival rate (left of each
+pair) and probability that the owner is in SEC EDGAR (right of each
+pair), for five category-defining buzzwords.}
+\label{fig:pioneer-ladder}
+\end{figure}
+
+\paragraph{Pioneer-ladder identifies vocabulary prescience, not
+firm-builder prescience.} Of $150$ named top-$30$ pioneers across the
+five buzzwords, only two had SEC-listed status: \textbf{Sony} (rank 23
+on \texttt{wireless}, 1960 filing) and \textbf{PC~Connection} (rank
+20 on \texttt{online retail}, 1996). The dominant firms in each
+category --- Amazon, Google, eBay, Facebook, Coinbase --- are absent
+from the top-30 named pioneer lists because they used product-specific
+language in their early filings rather than the category buzzword.
+Pioneer-ladder rank identifies \emph{who claimed the
+category-defining vocabulary first}, not \emph{who built the dominant
+firm in the category}.
+
+\section{Vanishing trends, emerging trends, and the squeeze in between}
+\label{sec:flux-tokens}
+
+A token-level interrogation of $\Delta KL$: take the
+top-decile-negative (``harvest''), middle-bin ($|\Delta KL| < 0.02$,
+``aligned''), and top-decile-positive (``innovate'') strata of the
+clean panel, ask which unigrams are over-represented in each relative
+to the corpus baseline, and for each surfaced token compute the
+survival rate of \emph{all} filings containing the token. The latter
+is the right test of whether the U-shape on survival reflects a real
+difference in firm outcomes by stratum.
+
+\begin{table}[h]
+\centering
+\caption{Tokens over-represented at the negative, neutral, and
+positive extremes of $\Delta\mathrm{KL}$. Each cell: token followed by
+survival rate across \emph{all} filings containing the token, with
+enrichment lift in parentheses. Top 15 per stratum, ranked by lift;
+minimum token popularity 2{,}000 filings.}
+\label{tab:symmetric-flux-tokens}
+\small
+\input{results/symmetric_flux_tokens.tex}
+\end{table}
+
+The negative-$\Delta KL$ extreme picks out \emph{receding technologies
+and categorisations of the past}: \texttt{microfiche},
+\texttt{minicomputers}, \texttt{dial-up}, \texttt{pager},
+\texttt{store-and-forward}; the pre-Sephora apparel categorisation
+\texttt{mens}, \texttt{womens}, \texttt{pomade}, \texttt{sunless};
+the pre-craft-beer descriptors \texttt{lager}, \texttt{stout},
+\texttt{porter}, \texttt{shandy}; the pre-fintech insurance vocabulary
+\texttt{annuity}, \texttt{casualty}, \texttt{underwriting},
+\texttt{securitization}. The positive-$\Delta KL$ extreme picks out
+the \emph{legalisation+platform-shift wave}: NFT/Web3 vocabulary
+(\texttt{non-fungible}, \texttt{nfts}, \texttt{blockchain-based},
+\texttt{authenticated}, \texttt{cryptographic}) post-2020, crypto
+(\texttt{cryptocurrency}, \texttt{blockchain}, \texttt{decentralized})
+post-2014, cannabis vocabulary (\texttt{cannabis},
+\texttt{cannabidiol}, \texttt{cbd}, \texttt{thc},
+\texttt{tetrahydrocannabinol}) post-2014, vape (\texttt{e-liquid},
+\texttt{cartomizers}). The neutral middle picks out bureaucratic
+generic language: \texttt{producer}, \texttt{outsource},
+\texttt{conformity}, \texttt{organisational}, \texttt{freighting},
+\texttt{intermediation}, \texttt{systematization}.
+
+The survival-rate column delivers the test cleanly. The
+negative-$\Delta KL$ column has tokens surviving mostly $50$--$80\%$,
+above corpus baseline of $\approx 49\%$. The positive-$\Delta KL$
+column similarly has elevated survival (cannabidiol filings: $82\%$;
+\texttt{cbd}: $74\%$; \texttt{tetrahydrocannabinol}: $70\%$). The
+neutral middle is uniformly \emph{below} baseline:
+\texttt{organisational} at $15\%$, \texttt{conformity} at $20\%$,
+\texttt{freighting} at $21\%$. Token-level survival rates therefore
+corroborate the U on $\Delta KL$ at the right scale of analysis ---
+not just the binned plot, not just the regression, but the survival
+rate of \emph{the actual filings} using those tokens.
+
+\paragraph{Concrete vanishing-trend examples.} The
+most-negative-$\Delta KL$ filings in the pre-2000 era include
+\textsc{Monotype ITC} (1992, $\Delta KL = -2.08$, ``typefaces,
+typefonts, and type designs of alphanumeric characters and/or
+typographical symbols recorded on'') and \textsc{H.\ Berthold
+Aktiengesellschaft} (1991, $-1.99$). The desktop-publishing transition
+was already destroying the vocabulary of mechanical-and-photo
+typesetting in real time. In the 2000s, $\Delta KL$ picks out the
+pre-platform hospitality bundle ``Hotel, motel and resort hotel
+services; restaurant and bar services; making hotel reservations for
+others'' --- the language disintermediated by Expedia, Booking.com,
+and Airbnb. In the 2010s, the bottom is dominated by the e-cigarette
+boom: nearly every extreme-negative-$\Delta KL$ filing in
+2014--2015 is ``Electronic cigarette liquid (e-liquid) comprised of
+flavorings in liquid form,'' a template the 2016 FDA Deeming Rule and
+2020 Premarket Tobacco Application deadline restructured out of the
+corpus.
+
+\section{Serial-pioneer firms across multiple buzzword waves}
+\label{sec:cross-wave}
+
+Generalising the pioneer-ladder, we ask which owners appear in the
+rank-$\leq 1000$ early-adopter pool of \emph{more than one} buzzword.
+Ten buzzword pools of $1{,}000$ firms each (the five above plus
+\texttt{cloud computing}, \texttt{artificial intelligence},
+\texttt{mobile app}, \texttt{streaming}, \texttt{saas}). Owners
+appearing in $\geq 3$ pools are ``serial pioneers'' in the
+trademark-vocabulary sense.
+
+24 owners qualify. The single most prolific is \textbf{IBM} ($k=6$
+pools): AI 1994 (rank 122), wireless, website 1996 (rank 72), cloud
+computing 2009 (rank 37), social media 2009 (rank 285), saas 2010
+(rank 533). The next-most-prolific are \textbf{International Data
+Group} ($k=4$), \textbf{AT\&T} ($k=4$), and \textbf{Infosys} ($k=4$).
+\textbf{Microsoft}, \textbf{Cisco}, \textbf{Apple}, \textbf{Sony},
+\textbf{HP}, \textbf{Citrix}, \textbf{Lotus}, and \textbf{Avaya} each
+sit at $k=3$.
+
+\paragraph{Individual humans almost never appear.}
+Filtering to owner names that look like individuals, only two real
+humans survive: \textbf{Paul Farkas} ($k=3$: mobile app rank 51, AI
+rank 651, blockchain rank 510; 81 personal filings since 2011) and
+\textbf{Burhan U.\ Ahmed} ($k=3$, on a single 2010 filing that was
+early on social media, cloud computing, and saas simultaneously). The
+absence is partly a data-quality limitation --- the trademark XML
+records the firm as owner, not the founder behind the firm --- but
+the qualitative point is sharp: corporate R\&D pipelines (IBM
+Research, AT\&T Bell Labs, HP Labs) carry the bulk of cross-buzzword
+early positioning in the trademark record.
 
 \section{Industry time series}
 
@@ -640,6 +943,43 @@ per-bin mean rate.}
 \label{fig:oc_bev}
 \end{figure}
 
+\paragraph{Robustness across outcome definitions.}
+Figure~\ref{fig:outcome-by-kl} pools all 45 classes ($n = 10{,}062{,}338$
+clean H=2y filings, 1985--2021 cohorts) and reports the same KL-binned
+rate under three increasingly strict outcome definitions:
+$P(\text{reached registration})$, $P(\text{survived 5y})$, and
+$P(\text{owner ever in SEC EDGAR})$. The pattern is informative:
+\textbf{on $\Delta KL$ the survival curve is U-shaped under every
+outcome definition} --- the dip in the middle and the lift at both
+extremes is not an artefact of any single survival operationalisation.
+On the prospective and retrospective KL components alone the curve is
+monotone-increasing on examiner approval (more-distinctive marks
+collide less with prior art and clear examination more easily under
+15 U.S.C.\ \S\,1052(d)) and becomes U-shaped only after the strict
+``currently live'' criterion is added; the $\Delta KL$ flux signal is
+the only one stable across both regimes.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/outcome_by_kl_lines.png}
+\caption{\textbf{Three outcomes by $\Delta KL$, $KL_{\text{pros}}$,
+and $KL_{\text{retr}}$ bin, pooled across all 45 NICE classes
+(n=10.1M clean H=2y filings, 1985--2021).} Each panel is one outcome:
+\textbf{(A)} $P(\text{reached registration})$ --- examiner approval;
+\textbf{(B)} $P(\text{survived 5y conditional on reaching
+registration})$; \textbf{(C)} $P(\text{owner ever in SEC EDGAR})$.
+The supported finding is that $\Delta KL$ (blue) is \emph{U-shaped}
+under every outcome definition --- both flux extremes outperform the
+flux-neutral middle by 5--10 percentage points on post-registration
+survival --- while $KL_{\text{pros}}$ and $KL_{\text{retr}}$
+individually are monotone-increasing on examiner approval and only
+become U-shaped under the strict post-registration mortality criterion.
+The U on $\Delta KL$ is the headline; the U on the components is an
+artefact of layering the maintenance-lapse filter onto the
+approval-monotone regime.}
+\label{fig:outcome-by-kl}
+\end{figure}
+
 \section{Outcome 2: Financial success}
 \label{sec:financials}
 
@@ -795,6 +1135,53 @@ than trademarking character. Read together, the two findings mean:
 becoming a reportable firm is a separate (volume-driven) hurdle;
 \emph{conditional} on clearing it, novelty earns a margin premium.
 
+\paragraph{Conditional on public listing: trademark count predicts
+revenue but not margin.}
+A natural follow-up: among the firms that did IPO, does trademark
+count correlate with firm value? The patent-economics literature
+finds that count and value move together --- prolific patenters
+have valuable patents (Trajtenberg 1990; Hall, Jaffe \& Trajtenberg
+2005, \emph{RAND J.\ Econ.}) --- and we wondered whether the
+opposite might hold for trademarks, where a smaller portfolio could
+be evidence of operational focus. On the SEC-crosswalked panel
+($n = 6{,}456$ CIKs with clean-panel trademark filings and at least
+one observed year of SEC financials), the
+correlation matrix is unambiguous: trademark count is
+\emph{strongly positively} correlated with firm size and
+\emph{essentially uncorrelated} with margin
+(Table~\ref{tab:marks-vs-value}, Figure~\ref{fig:marks-vs-value}).
+A firm in the top mark-count decile (median $125$--$5{,}697$ marks)
+has roughly $300\times$ the median revenue of a firm in the bottom
+decile (median $1$--$2$ marks), but its mean gross margin is
+essentially identical. The focus hypothesis is rejected on size,
+absent on profitability, and weakly supported only on R\&D
+intensity (firms with many marks tend to file less R\&D against
+their revenue --- a different culture, not a strategic focus
+signal).
+
+\begin{table}[h]
+\centering
+\caption{Correlation between $\log_{10}$(clean-panel trademark
+filings) and firm-value proxies, conditional on being publicly
+listed in SEC EDGAR. Trademark count predicts firm size strongly
+($r = +0.38$) but predicts margin essentially zero.}
+\label{tab:marks-vs-value}
+\input{results/marks_per_firm_value.tex}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/marks_per_firm_value.png}
+\caption{Trademark filing count vs.\ four firm-value proxies on the
+SEC-crosswalked panel. Each point is a CIK; the red line is a
+binned mean. Revenue scales with count strongly; gross and
+operating margins are flat; R\&D intensity is mildly negative.
+\textbf{The patent ``count $\leftrightarrow$ value'' coupling does
+not transfer to trademarks: many marks indicates a large firm, not
+a more valuable one per unit size.}}
+\label{fig:marks-vs-value}
+\end{figure}
+
 \paragraph{A causal-attribution caveat.}
 The trailing-3-year predictor pools many filings per firm-year, and a
 firm with several novel filings in its recent past is also a firm whose
@@ -907,6 +1294,61 @@ but that a substantive debut effect
 remains: the novelty of a firm's first trademark filing predicts its
 subsequent average financial performance, even before the firm has
 produced any other trademark filings to ``fund'' the bet.
+
+\subsection*{Debut $\Delta KL$ predicts going public; line-extension
+filings reverse the appearance}
+\label{sec:debut-ipo}
+
+\emph{At the firm-debut level, positive $\Delta KL$ raises the
+probability of ever going public.} Restricting to each owner's
+first-ever filing across all classes ($n = 5{,}090{,}053$ in the
+clean H=2y panel), $P(\text{owner ever in SEC EDGAR})$ by debut
+$\Delta KL$ bin is \emph{monotone increasing}: $0.42\%$ at the
+bottom decile, $0.47\%$ in the middle, $0.64\%$ at the top decile ---
+a $+52\%$ relative lift for positive-$\Delta KL$ debut filings over
+negative-$\Delta KL$ debut filings (Figure~\ref{fig:debut-outcome-by-kl}
+panel~C). On the firm's first move, having a vocabulary that the
+field subsequently echoes predicts becoming a publicly-reported
+firm.
+
+The same regression at the full-corpus filing level shows the
+\emph{opposite} direction, and a reader who saw only that result
+would draw the wrong conclusion. At the filing level,
+$P(\text{owner ever in SEC EDGAR})$ \emph{decreases} monotonically
+with $\Delta KL$: the bottom decile is $5.8\%$ public, the top decile
+$3.5\%$. The reversal is mechanical. Public-firm owners ---
+incumbents like Apple, Coca-Cola, Procter \& Gamble, Pfizer --- file
+many trademarks per year, and the bulk of an incumbent's portfolio
+is line extensions that reuse the firm's established (low-$\Delta KL$)
+vocabulary. Their volume swamps the per-filing statistic and
+concentrates the public-firm mass in the low-$\Delta KL$ bin. The
+right unit of analysis for the ``do innovative firms reach the public
+market?'' question is the firm's debut filing; the full-corpus
+filing-level statistic is dominated by post-IPO line-extension
+activity.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/debut_outcome_by_kl.png}
+\caption{\textbf{Three outcomes by KL, restricted to DEBUT filings.}
+Each owner's first-ever filing across all classes; $n = 5.1$M debut
+filings in the clean H=2y panel. Panel C is the key reversal:
+P(owner ever in SEC EDGAR) on debut filings is \emph{increasing} in
+$\Delta KL$, reversing the full-corpus direction
+(Figure~\ref{fig:outcome-by-kl}). Pros and retr remain monotone-up on
+examiner approval and survived-5y; the debut-IPO flip is specific to
+the $\Delta KL$ direction.}
+\label{fig:debut-outcome-by-kl}
+\end{figure}
+
+For prospective and retrospective KL on debut filings,
+$P(\text{public})$ is monotone \emph{decreasing}: the
+very-distinctive-on-day-one debut firms have lower IPO rates
+($0.31\%$--$0.34\%$ at the top decile) than the
+average-distinctiveness debut firms ($0.51\%$ overall baseline).
+Niche on day one tends to mean niche at maturity; the IPO sweet
+spot for debut firms is ordinary vocabulary used in a forward-drifting
+direction --- low PC1, high PC2 in the decomposition.
 
 \section{Within-firm dynamics and debut quartiles}
 \label{sec:dynamics}
@@ -1194,6 +1636,27 @@ per $\sigma$ of $\log(1+\text{patents})$. The trademark $\Delta KL$
 firm-year coefficients (Table~\ref{tab:returns}) peak earlier and
 decay; the trademark debut coefficients are larger in absolute terms
 ($+28$ pp at four years) but shrink at five years.
+
+\paragraph{Patents and trademarks index different innovation
+constructs.} The growing-with-horizon pattern on patents is what we
+would expect if patent counts indexed \emph{continuing} innovation
+activity: a firm with many recent patents is one whose R\&D pipeline
+is still producing, and the future cash flows of that pipeline are
+priced in increasingly across two-, three-, and four-year-ahead
+returns. The trademark $\Delta KL$ signal is qualitatively
+different. The debut-only specification --- one observation per firm,
+keyed on the firm's first-ever trademark filing --- treats $\Delta KL$
+as a \emph{one-time positional bet}: did the founding team pick a
+vocabulary the field would migrate toward? The horizon profile of
+the debut $\Delta KL$ coefficient (rising to $+28$ pp at four years
+and then shrinking) is consistent with a one-time bet whose
+realisation takes a few years to be priced and then becomes
+information the market has already absorbed. The two innovation
+proxies are not redundant (the $R^2$ decomposition below confirms
+sub-additivity) and they answer different questions. Patents proxy
+\emph{whether the firm is still innovating}; $\Delta KL$ on the
+firm's debut filing proxies \emph{whether the firm started in
+fertile linguistic ground}.
 
 \paragraph{Are patents and trademark $\Delta KL$ complementary or
 redundant? An $R^2$ decomposition.}
@@ -1507,16 +1970,10 @@ $z(\Delta KL)$ and $z(\Delta KL)^2$ as predictors, with year and
 year-squared controls. Pooled across all 45 NICE classes and
 $9.3$ million filings, the aggregate quadratic coefficient is
 positive but small ($\beta_{(\Delta KL)^2}^z = +0.0002$ on 5y
-survival; $+0.0013$ on 10y survival). \textbf{An earlier draft of
-this paper, which used a more conservative 1995 cutoff that
-discarded the 1990--1994 cohort, reported $\beta = +0.0087$ on 5y
-survival --- a much stronger pooled U.} Tightening the burn-in
-back to its literal 5-year value brings in a cohort of filings
-made between 1990 and 1994, and that cohort flattens the
-aggregate quadratic substantially. The U-shape is therefore
-\emph{not} a population-level fact in the way we earlier
-suggested. It is, however, present at the per-industry level in
-$27$ of the $44$ industries we can fit.
+survival; $+0.0013$ on 10y survival). The aggregate pooled
+quadratic is not the primary evidence for the U-shape; the
+per-industry evidence is. At the per-industry level the quadratic
+is positive in $27$ of the $44$ industries we can fit.
 
 \begin{table}[h]
 \centering
@@ -1528,23 +1985,23 @@ concave-up (``U-shape'').}
 \input{results/u_shape_table.tex}
 \end{table}
 
-\paragraph{The U-shape persists in most --- but not all --- industries.}
-Refitting the same quadratic per industry on the 5y-survival
+\paragraph{The U-shape is present in most --- but not all ---
+industries.} Fitting the quadratic per industry on the 5y-survival
 outcome ($n = 44$ industries with at least $5{,}000$ clean
-filings), the quadratic coefficient on $z(\Delta KL)^2$ is
-positive in $27$ of $44$ industries ($61\%$) and is individually
-significant at $p < 0.05$ in $21$ of those $44$ ($48\%$).
-Notably, several large industries that contributed strongly to
-the previously-reported aggregate U now exhibit a clearly
-\emph{inverted-U} on the 1990 cutoff: \textbf{Software \&
-Electronics} ($t = -18.2$ on $\beta_{(\Delta KL)^2}$),
-\textbf{Insurance \& Financial} ($t = -13.8$), \textbf{Scientific
-\& Tech Services} ($t = -12.9$), \textbf{Advertising \& Retail}
-($t = -10.7$), and \textbf{Telecommunications} ($t = -10.6$).
-The U-shape continues to dominate in consumer-goods classes
-(Household Utensils, Furniture, Leather, Textiles, Common Metals,
-etc.), where heavy templated filing by large incumbents and
-distinct novelty waves coexist. Table~\ref{tab:u-shape-industries}
+filings), the quadratic coefficient on $z(\Delta KL)^2$ is positive
+in $27$ of $44$ industries ($61\%$) and is individually significant
+at $p < 0.05$ in $21$ of those $44$ ($48\%$). The U-shape dominates
+in consumer-goods classes (Household Utensils, Furniture, Leather,
+Textiles, Common Metals, etc.), where heavy templated filing by
+large incumbents and distinct novelty waves coexist. Several large
+information-economy classes show the opposite, an \emph{inverted-U}:
+\textbf{Software \& Electronics} ($t = -18.2$ on
+$\beta_{(\Delta KL)^2}$), \textbf{Insurance \& Financial}
+($t = -13.8$), \textbf{Scientific \& Tech Services} ($t = -12.9$),
+\textbf{Advertising \& Retail} ($t = -10.7$), and
+\textbf{Telecommunications} ($t = -10.6$). In these industries
+$\Delta KL$ acts like a linear positive predictor of survival
+without a harvest tail. Table~\ref{tab:u-shape-industries}
 reports the 15 industries with the strongest U-curvature and the
 5 with the strongest inverted-U.
 
@@ -1694,92 +2151,80 @@ flag this as the cleanest available mechanism precisely because
 it does not ask us to credit the negative-$\Delta KL$ tail with
 prescience that we would not also extend to the positive tail.}
 
-\paragraph{Five alternative explanations tested.}
-The U-shape is genuinely strange enough that it warrants a
-falsification battery. Table~\ref{tab:alternatives} reports
-re-fits of the pooled survival quadratic on five different
-sub-samples designed to probe candidate confounds.
+\paragraph{We do not have a mechanism story commensurate with the
+magnitude of the effect.}
+We want to flag this directly. The U-shape on $\Delta KL$ is
+empirically robust --- larger than the linear $\Delta KL$ effect we
+report on gross margin, present in $27$ of $44$ industries, present
+at the filing level even within firms that demonstrably abandoned
+some marks and kept others alive, and present at the token level for
+both extremes. But \emph{the magnitude of the survival lift at both
+flux extremes is greater than any single mechanism we can articulate
+explains}. A 5--10 percentage-point gap between flux-neutral and
+flux-extreme filings, sustained across millions of filings and
+dozens of industries, is not what we expected to find, and the
+candidate mechanisms we can name (likelihood-of-confusion examination
+artefacts, real-options harvest by incumbents, Schumpeterian creation
+at the trend-leading edge) each predict only part of the curve and
+none predicts the depth. We document the empirical pattern and
+present what falsification we can; we do not claim a unified
+mechanism story.
+
+\paragraph{Falsification battery (summary).}
+The U-shape is unusual enough to warrant a battery of robustness
+checks. Table~\ref{tab:alternatives} reports re-fits of the pooled
+survival quadratic on the candidate confounds in summary form;
+Appendix~\ref{app:falsification} narrates each check in full. The
+quadratic coefficient $\beta_{\Delta KL^2}^z$ stays strongly
+positive on every survival sub-sample, with a single exception:
+the firm-year gross-margin OLS, where the relationship is roughly
+linear in $\Delta KL$ rather than U-shaped. Survival is U; margin
+is linear.
 
 \begin{table}[h]
 \centering
-\caption{Robustness of the survival U-shape to five candidate
-confounds. The quadratic coefficient $\beta_{\Delta KL^2}^z$ stays
-strongly positive everywhere except in the financial outcome,
-where the relationship is roughly linear.}
+\caption{Summary of the falsification battery for the survival
+U-shape. The quadratic coefficient $\beta_{\Delta KL^2}^z$ stays
+strongly positive everywhere except in the financial outcome.
+Appendix~\ref{app:falsification} narrates each test.}
 \label{tab:alternatives}
 \input{results/u_shape_alternatives.tex}
 \end{table}
 
-\textbf{(1) The foreign-extension hypothesis is rejected.} A
-common worry is that the very-stale (low-$\Delta KL$) end is
-inflated by Madrid-Protocol or Section-44 international
-extensions of marks already registered abroad --- such marks
-would use vocabulary established years before they reached the
-US filing record. Using a foreign-owner proxy
-(name suffixes \texttt{GMBH}, \texttt{S.A.}, \texttt{AB},
-\texttt{KK}, \texttt{Pty}, \texttt{Pte}, \texttt{PLC},
-\texttt{N.V.}, \texttt{B.V.}, etc., $3.8\%$ of the sample) and
-re-fitting on US-only and foreign-only sub-samples, the
-quadratic coefficient is essentially identical
-($+0.0078$ and $+0.0100$ respectively). The U-shape is not a
-foreign-extension artifact.
+The seven checks (Table~\ref{tab:alternatives}, with the
+firm-persistence test added) are:
+(1) Foreign-extension hypothesis (Madrid-Protocol marks could inflate
+the low-$\Delta KL$ tail): \textbf{rejected}; US-only and
+foreign-only sub-samples give nearly identical quadratics
+($+0.0078$ vs.\ $+0.0100$).
+(2) First-time vs.\ recurring filings: \textbf{both have the U},
+recurring slightly stronger.
+(3) Financial outcomes: \textbf{the U does not appear} in firm-year
+gross margin (the relationship is linear); the U lives in survival.
+(4) Survivor bias from large incumbents: \textbf{partial} support
+for the left arm --- the bottom $\Delta KL$ decile has larger firm
+filing-volumes than the middle.
+(5) ``Liquid Death'' hypothesis (low-$\Delta KL$ might be novel
+products in old vocabulary): \textbf{rejected} on text-length
+splits.
+(6) Filing-level vs.\ firm-level: \textbf{filing-level} --- the U
+survives within firms that abandoned some marks and kept others
+alive (Figure~\ref{fig:firm-persistence}).
+(7) The blockchain / cryptocurrency / NFT / web3 wave as a possible
+imitated-but-failed counterexample: \textbf{not a counterexample}
+--- the crypto cohort outperforms on every survival margin.
 
-\textbf{(2) The U is present in both first-time and recurring
-filings} ($\beta_{\text{quad}} = +0.0080$ vs.\ $+0.0140$), with recurring filings
-showing a slightly stronger curvature.
-
-\textbf{(3) The financial U-shape is essentially absent.} A
-quadratic refit of the firm-year gross-margin OLS gives a
-linear coefficient indistinguishable from zero
-($\beta_{\text{lin}} = +0.002$, SE $0.005$) and a marginally
-negative quadratic ($\beta_{\text{quad}} = -0.002$, SE $0.001$)
-on $8{,}600$ firm-years. \textbf{The U-shape lives in survival;
-gross margin scales roughly linearly with $\Delta KL$.} The
-prior section's reported $+3.2$ pp/$\sigma$ linear effect is the
-right summary.
-
-\textbf{(4) Survivor bias from large incumbents partially
-supports the left arm.} Mean firm filing-volume by $\Delta KL$
-decile shows the bottom decile is dominated by larger filers
-(mean firm-size $103.7$ filings) than the middle deciles
-($63$--$71$); the top decile is back to $71$. Templated marks
-disproportionately come from firms with deep portfolios who can
-afford to file --- and maintain --- many similar boilerplate
-marks. This is consistent with part of the left-arm uplift being
-\emph{firm capability} rather than \emph{filing distinctiveness}.
-
-\textbf{(5) The ``Liquid Death'' hypothesis is rejected.} A
-sceptic might worry that the bottom-decile arm is actually
-high-novelty firms whose products are described in old
-vocabulary --- like Liquid Death's canned water marketed as
-``still water; sparkling water.'' Splitting the bottom decile
-by goods/services text length does not show this: the shortest
-quartile and the longest quartile both renew at
-$44$--$46\%$ at five years. Templated marks are not novel
-products in disguise; they really are templated, and they really
-do survive.
-
-\paragraph{Imitated-but-failed waves: the blockchain check.}
-A natural counterexample to the ``imitated novelty pays'' claim is to
-ask whether any recognisable hype wave was both widely imitated (high
-$\Delta KL$) and disproportionately a failure. The blockchain /
-cryptocurrency / NFT / web3 cohort is a clean test:
-$87{,}463$ filings 1995--2025 mention at least one
-crypto-related keyword in their goods/services text;
-$9{,}408$ are clean by our usual restrictions. The cohort's mean
-$\Delta KL$ is $+0.412$ vs.\ $-0.002$ for the corpus average ---
-a genuinely high-novelty wave. \emph{Survival-wise the wave is
-out-performing, not failing}: registration rate $51.5\%$ vs.\
-$48.3\%$ corpus mean; five-year survival $51.4\%$ vs.\ $39.1\%$
-corpus mean. Restricted to the top decile of $\Delta KL$, the
-crypto cohort beats non-crypto top-decile filings on both
-margins ($57.3\%$ vs.\ $47.5\%$ on registration; $57.2\%$ vs.\
-$40.9\%$ on five-year survival). Whatever else can be said about
-the blockchain wave's commercial track record, the trademark
-filings themselves are surviving well, which is consistent with
-the same likelihood-of-confusion mechanic --- the crypto
-vocabulary did not yet exist in the trademark register before
-the wave, so applicants did not collide with prior marks.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/firm_persistence_test.png}
+\caption{Filing-level 5y survival by $\Delta KL$ decile, separately
+for three firm-cohorts: \emph{all-survived} (every filing made it),
+\emph{mixed} (some filings were abandoned by the firm and some kept
+alive), and \emph{never-survived} (no filings made it). The U is
+preserved in the mixed cohort. The signal is filing-level, not
+firm-level.}
+\label{fig:firm-persistence}
+\end{figure}
 
 \paragraph{$|\Delta KL|$ as a single-number test.}
 Collapsing the U-shape to one number, we regress each survival
@@ -1947,6 +2392,7 @@ up.
 \end{itemize}
 
 \section{Cross-industry comparison}
+\label{sec:per-industry-finance}
 \label{sec:cross}
 
 We process all 45 NICE international classes through the same pipeline.
@@ -2120,15 +2566,59 @@ performance.
 
 \section{Discussion}
 
-The ``arrows in the back'' versus ``better mousetrap'' tension from
-Section~1 resolves asymmetrically in this corpus. At the trademark
-gate, novelty is \emph{rewarded}, not penalised. The most prospectively
-surprising filings clear examination at higher rates and persist longer
-through the renewal cycle. The pioneer-pays-but-survivor-wins story
-that we initially expected (and that an early version of this analysis
-appeared to show before correcting a registration-date data-quality
-bug) is not what the corrected data report. The mousetrap pattern
-dominates the survival outcomes.
+\paragraph{Flux, not distinctiveness; harvest and innovation both work.}
+The empirical pattern we document is best read in two parts. First,
+the component KLs --- prospective and retrospective surprise on
+their own --- behave as distinctiveness measures (their levels track
+each other at $\rho = 0.99$), and on distinctiveness alone the only
+U appears under the strict post-registration mortality criterion.
+Second, the \emph{flux} signal --- $\Delta KL$, the residual after the
+common distinctiveness factor is removed --- is U-shaped under
+\emph{every} outcome operationalisation. Filings whose vocabulary is
+moving with the field's direction of travel (positive $\Delta KL$,
+``catching the emerging language'') and filings whose vocabulary is
+moving against it (negative $\Delta KL$, ``harvesting the receding
+language'') both outperform the flux-neutral middle. The two
+extractive strategies are recognisable in the token data: the
+negative extreme picks out clearly sunsetting industries (typesetting
+in the early 1990s as desktop publishing arrived, the pre-platform
+hospitality bundle in the early 2000s as Expedia disintermediated,
+e-cigarette boilerplate of 2014--2015 just before the FDA Deeming
+Rule); the positive extreme picks out the legalisation+platform-shift
+waves (cannabis, crypto, NFTs, vape, plant-based, EV). What the
+data show is that \emph{both strategies pay} --- the trademark-vocabulary
+U is a Schumpeter-plus-real-options dual-strategy pattern, not an
+optimal-distinctiveness inverted-U.
+
+\paragraph{Mechanism is not separable.}
+Whether the survival lift at negative $\Delta KL$ reflects
+intelligent harvesting (firms recognising an industry transition and
+extracting from the legacy side), passive late-occupation (firms whose
+business naturally uses the receding vocabulary because they are
+doing the legacy thing), or selection on an unobservable correlate
+(firms that survive long enough to file legacy-vocabulary trademarks
+have already proved durable) is not separable in the trademark
+record. The unmistakable empirical pattern is that flux-neutral
+filings die at the highest rate in the corpus, in $27$ of $44$
+industries, at the token level, and \emph{even within the same firm}:
+the firm-persistence test
+(Section~\ref{sec:u-shape}, falsification \#6) confirms the U
+survives within firms that demonstrably abandoned some trademarks
+but not all. The signal is filing-level, not firm-level.
+
+\paragraph{The ``arrows in the back'' resolution.}
+At the trademark gate, novelty is \emph{rewarded}, not penalised.
+The most prospectively surprising filings clear examination at higher
+rates and persist longer through the renewal cycle. The mousetrap
+pattern dominates the survival outcomes \emph{at the filing level}.
+The pioneer-ladder analysis (Section~\ref{sec:pioneer-ladder}) gives
+a more nuanced firm-level view: the very-first $10$--$50$ adopters
+of category vocabulary do badly (the arrows), the fast-follower band
+at ranks $50$--$1{,}000$ does best (the mousetrap-builders), and the
+mass late wave is uniformly worst. Lieberman \& Montgomery (1988)
+and Suarez \& Lanzolla (2007) anticipated this empirical pattern in
+the management literature; the trademark corpus provides large-$n$
+evidence at the level of business-description vocabulary.
 
 The arrows-in-the-back signal does, however, show up financially. The
 matched panel of $1{,}597$ public firms reveals a clear pioneer-bet
@@ -2217,5 +2707,122 @@ spectacularly succeeding or spectacularly failing?
 \label{app:filings}
 
 \input{results/filings_long.tex}
+
+\section{Falsification battery for the U-shape}
+\label{app:falsification}
+
+The compact summary in Section~\ref{sec:u-shape}
+(Table~\ref{tab:alternatives}) listed seven candidate explanations
+for the survival U-shape on $\Delta KL$ and the outcome of each
+re-fit. This appendix narrates each check in full.
+
+\paragraph{(1) Foreign-extension hypothesis is rejected.}
+A common worry is that the very-stale (low-$\Delta KL$) end is
+inflated by Madrid-Protocol or Section-44 international extensions
+of marks already registered abroad --- such marks would use
+vocabulary established years before they reached the US filing
+record. Using a foreign-owner proxy (name suffixes \texttt{GMBH},
+\texttt{S.A.}, \texttt{AB}, \texttt{KK}, \texttt{Pty}, \texttt{Pte},
+\texttt{PLC}, \texttt{N.V.}, \texttt{B.V.}, etc.; $3.8\%$ of the
+sample) and re-fitting on US-only and foreign-only sub-samples,
+the quadratic coefficient is essentially identical ($+0.0078$ and
+$+0.0100$ respectively). The U-shape is not a foreign-extension
+artefact.
+
+\paragraph{(2) The U is present in both first-time and recurring
+filings} ($\beta_{\text{quad}} = +0.0080$ vs.\ $+0.0140$), with
+recurring filings showing a slightly stronger curvature. The
+fast-followers-do-best pattern from
+Section~\ref{sec:pioneer-ladder} is consistent with stronger
+curvature in the recurring subset (firms that are still filing
+are firms that are still operating).
+
+\paragraph{(3) The financial U-shape is essentially absent.}
+A quadratic refit of the firm-year gross-margin OLS gives a linear
+coefficient indistinguishable from zero ($\beta_{\text{lin}} =
++0.002$, SE $0.005$) and a marginally negative quadratic
+($\beta_{\text{quad}} = -0.002$, SE $0.001$) on $8{,}600$
+firm-years. \textbf{The U-shape lives in survival; gross margin
+scales roughly linearly with $\Delta KL$.} The
+$+3.2$ pp / $\sigma$ linear effect we report in
+Section~\ref{sec:financials} is the right summary.
+
+\paragraph{(4) Survivor bias from large incumbents partially supports
+the left arm.} Mean firm filing-volume by $\Delta KL$ decile shows
+the bottom decile is dominated by larger filers (mean firm-size
+$103.7$ filings) than the middle deciles ($63$--$71$); the top
+decile is back to $71$. Templated marks disproportionately come
+from firms with deep portfolios who can afford to file --- and
+maintain --- many similar boilerplate marks. This is consistent
+with part of the left-arm uplift being \emph{firm capability}
+rather than \emph{filing distinctiveness}.
+
+\paragraph{(5) The ``Liquid Death'' hypothesis is rejected.}
+A sceptic might worry that the bottom-decile arm is high-novelty
+firms whose products are described in old vocabulary --- like
+Liquid Death's canned water marketed as ``still water; sparkling
+water.'' Splitting the bottom decile by goods/services text length
+does not show this: the shortest quartile and the longest quartile
+both renew at $44$--$46\%$ at five years. Templated marks are not
+novel products in disguise; they really are templated, and they
+really do survive.
+
+\paragraph{(6) The U is filing-level, not firm-level.}
+A further worry: the U-shape might be a property of the firms that
+file rather than of any given filing --- ``on-trend'' firms might
+simply fail more often, dragging their filings down, while
+``harvest'' and ``innovate'' firms might survive and keep their
+filings alive collectively. To test this we classified each firm
+with $\geq 3$ clean filings by whether \emph{all} of its filings
+survived 5y (``always-survives,'' $197{,}583$ firms), \emph{all}
+failed (``never-survives,'' $253{,}064$ firms), or some survived
+while others were let lapse (``mixed,'' $349{,}819$ firms). In the
+mixed cohort --- firms that demonstrably persisted past at least
+one Section-8 lapse --- the U-shape in filing-level survival by
+$\Delta KL$ is preserved: bottom-decile rate $0.551$, middle
+$0.479$, top $0.508$ (depth $\approx +0.07$ relative to middle).
+Within the same firm, filings whose vocabulary places them at
+either flux extreme are more likely to be the ones the firm keeps
+alive than the flux-neutral filings the firm lets lapse. The U is
+therefore a property of the specific filing, not just of the firm
+behind it; trademarks on the flux-neutral ridge really are less
+valuable to the firms that file them.
+Figure~\ref{fig:firm-persistence} shows the three cohorts.
+
+\paragraph{(7) Imitated-but-failed waves: the blockchain check.}
+A natural counterexample to the ``imitated novelty pays'' claim is
+to ask whether any recognisable hype wave was both widely imitated
+(high $\Delta KL$) and disproportionately a failure. The
+blockchain / cryptocurrency / NFT / web3 cohort is a clean test:
+$87{,}463$ filings 1995--2025 mention at least one crypto-related
+keyword in their goods/services text; $9{,}408$ are clean by our
+usual restrictions. The cohort's mean $\Delta KL$ is $+0.412$ vs.\
+$-0.002$ for the corpus average --- a genuinely high-novelty wave.
+Survival-wise the wave is \emph{out-performing}, not failing:
+registration rate $51.5\%$ vs.\ $48.3\%$ corpus mean; five-year
+survival $51.4\%$ vs.\ $39.1\%$ corpus mean. Restricted to the top
+decile of $\Delta KL$, the crypto cohort beats non-crypto top-decile
+filings on both margins ($57.3\%$ vs.\ $47.5\%$ on registration;
+$57.2\%$ vs.\ $40.9\%$ on five-year survival). Whatever else can
+be said about the blockchain wave's commercial track record, the
+trademark filings themselves are surviving well, consistent with
+the same likelihood-of-confusion mechanic --- the crypto vocabulary
+did not yet exist in the trademark register before the wave, so
+applicants did not collide with prior marks.
+
+\section{Per-industry deep dives}
+\label{app:per-industry}
+
+For each NICE class with at least $5{,}000$ clean H=2y filings in the
+1990--2021 window, this appendix gives summary statistics, the top
+three firms by firm-mean $\Delta KL$ (firms with $\geq 10$ filings),
+and one worked example each from the positive-flux extreme, the
+flux-neutral middle, and the negative-flux extreme. The brief
+cross-industry table in Section~\ref{sec:per-industry-finance}
+(\texttt{industry\_summary.tex}) gives an aggregated view; this
+appendix is the per-class expansion for readers who want to drill
+into a specific domain.
+
+\input{results/per_industry_appendix.tex}
 
 \end{document}

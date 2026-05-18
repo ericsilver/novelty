@@ -1,0 +1,33 @@
+Top 30 pioneers of 'wireless'  (n=132,120 firms total)
+
+rank    yr  sur  sec    nT    tot  owner
+    1  1918    ·    ·     2     29  THOMAS INDUSTRIES, INC.
+    2  1921    ·    ·     1      1  Fiat Societa per Azioni
+    3  1922    ·    ·     1      1  TELERADIO ENGINEERING CORPORATION
+    4  1922    ·    ·     1      1  RADIOLA WIRELESS CORPORATION, THE
+    5  1927    ·    ·     2      2  BRIGHT STAR BATTERY CO.
+    6  1933    ·    ·     9     12  TELEFUNKEN LICENSES GMBH
+    7  1936    ·    ·     1      1  GENERAL ELECTRIC LIMITED, THE
+    8  1942    ·    ·     6     17  PHILIPS NORTH AMERICA LLC
+    9  1942    ·    ·     1     38  MAGNAVOX COMPANY, THE
+   10  1947    ·    ·     1      1  INTER-COMMUNICATION SYSTEM OF AMERICA, INC.
+   11  1948    ·    ·     1     38  WESTERN UNION TELEGRAPH COMPANY, THE
+   12  1951    ·    ·     1      2  MUIRHEAD & CO. LIMITED
+   13  1952    ·    ·     1      3  SIEMENS & HALSKE AKTIENGESELLSCHAFT
+   14  1952    ·    ·     2    314  SIEMENS AKTIENGESELLSCHAFT
+   15  1954    ·    ·     2      2  SCOTT E. ROBBINS DBA VIBROPLEX LLC
+   16  1954    ·    ·     1      1  STEPHENS MANUFACTURING CORPORATION
+   17  1955    ·    ·     1      1  MARCONI'S WIRELESS TELEGRAPH COMPANY LIMITED
+   18  1956    ·    ·     1      1  BECKER AUTORADIOWERK GESELLSCHAFTMIT BESCHRANKTER
+   19  1957    ·    ·     1      4  MARCONI COMPANY LIMITED, THE
+   20  1959    ·    ·     1      1  MATSUSHITA DENKI SANGYO KABUSHIKI KAISHA (MATSUSHITA ELECTRI
+   21  1959    ·    ·     1     13  MATSUSHITA DENKI SANGYO KABUSHIKI KAISHA
+   22  1960    ·    ·     1      1  DENKI ONKYO KABASHIKI KAISHA
+   23  1960    ·    Y    56   1000  Sony Corporation
+   24  1960    ·    ·     1      2  Seismograph Service Corporation
+   25  1960    ·    Y    27     81  MOTOROLA SOLUTIONS, INC.
+   26  1961    ·    ·     3      3  MULTITONE ELECTRONICS LIMITED
+   27  1961    ·    ·     1      2  STANDARD ELEKTRIK LORENZ AKTIENGESELLSCHAFT
+   28  1961    ·    ·     3      3  Shin-Shirasuna Denki Kabushiki Kaisha
+   29  1962    ·    ·     1      1  Victor Company of Japan Limited
+   30  1962    ·    ·     2      2  VICTOR COMPANY OF JANPAN, LIMITED

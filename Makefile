@@ -1,20 +1,39 @@
-# Reproduce the entire pipeline. Each stage is idempotent on a fresh checkout.
+# End-to-end build for the novelty trademark paper.
+#
+# A fresh checkout can produce paper/main.pdf with:
+#     make setup tm sec crosswalk analysis paper
+# or simply:
+#     make all
+#
+# Each stage is incremental and idempotent: stages 1-3 are heavy data builds
+# (multi-hour) and write sentinel files in data/processed/; stage 4 (analysis)
+# rebuilds the figures, tables, and per-class summaries the paper consumes;
+# stage 5 (paper) compiles main.pdf from the .tex sources and the generated
+# artifacts.
 
 PY      := .venv/bin/python
 DATA    := data/processed
+RES     := paper/results
+PPYTHON := PYTHONPATH=src $(PY)
 
-.PHONY: all venv setup tm sec crosswalk analysis paper clean help
+.PHONY: all venv setup tm sec crosswalk analysis paper figures industry clean clean-results help
 
 help:
 	@echo "Targets:"
-	@echo "  setup       create venv, install deps"
-	@echo "  tm          download every NICE class + build vocab/surprise/firm-year/survival"
-	@echo "  sec         download SEC FSDS, parse to firm-year financials"
-	@echo "  crosswalk   USPTO -> SEC entity match (exact normalize + fuzzy expansion)"
-	@echo "  analysis    regenerate every figure + table the paper consumes"
-	@echo "  paper       compile paper/main.pdf"
-	@echo "  all         setup + tm + sec + crosswalk + analysis + paper"
+	@echo "  setup         create venv, install deps"
+	@echo "  tm            download every NICE class, build vocab/surprise/firm-year/outcomes"
+	@echo "  sec           download SEC FSDS, parse to firm-year financials"
+	@echo "  crosswalk     USPTO owner_name <-> SEC CIK match"
+	@echo "  analysis      regenerate every figure, table, and per-class summary"
+	@echo "  paper         compile paper/main.pdf"
+	@echo "  industry      regenerate the per-industry appendix .tex fragments"
+	@echo "  all           setup + tm + sec + crosswalk + analysis + paper"
+	@echo "  clean         remove LaTeX intermediates"
+	@echo "  clean-results remove every generated figure/table (forces rebuild)"
 
+# ---------------------------------------------------------------------------
+# Stage 1: setup
+# ---------------------------------------------------------------------------
 setup: .venv/bin/python
 .venv/bin/python:
 	python3.11 -m venv .venv
@@ -22,37 +41,113 @@ setup: .venv/bin/python
 	$(PY) -m pip install --quiet -e .
 	$(PY) -m pip install --quiet statsmodels matplotlib rapidfuzz
 
-# Universal sweep: writes data/processed/tm_class<NNN>.parquet for every NICE
-# class with any matching filings. Then per-class dictionary/surprise/firm-year/
-# survival.
+# ---------------------------------------------------------------------------
+# Stage 2: TM corpus (download + per-class vocab/surprise/firm-year/outcomes)
+# H=2y exponential-decay reference is production default; flat-window
+# baseline kept under src/novelty/surprise.py for the half-life sweep only.
+# ---------------------------------------------------------------------------
 tm: $(DATA)/.tm_done
 $(DATA)/.tm_done: $(PY)
-	PYTHONPATH=src $(PY) scripts/download_all_classes.py
-	PYTHONPATH=src $(PY) scripts/process_all_classes.py
+	$(PPYTHON) scripts/download_all_classes.py
+	$(PPYTHON) scripts/process_all_classes.py
+	$(PPYTHON) scripts/recompute_h2.py
 	touch $@
 
+# ---------------------------------------------------------------------------
+# Stage 3: SEC EDGAR financials + crosswalk
+# ---------------------------------------------------------------------------
 sec: $(DATA)/sec_firm_year.parquet
 $(DATA)/sec_firm_year.parquet: $(PY)
 	$(PY) scripts/download_sec_fsds.py
-	PYTHONPATH=src $(PY) scripts/sec_extract.py
+	$(PPYTHON) scripts/sec_extract.py
 
 crosswalk: $(DATA)/uspto_sec_crosswalk.parquet
 $(DATA)/uspto_sec_crosswalk.parquet: $(DATA)/sec_firm_year.parquet $(DATA)/.tm_done
-	PYTHONPATH=src $(PY) scripts/sec_link.py
+	$(PPYTHON) scripts/sec_link.py
 
-analysis: paper/results/_metrics.json
-paper/results/_metrics.json: $(DATA)/.tm_done $(DATA)/uspto_sec_crosswalk.parquet
-	PYTHONPATH=src $(PY) scripts/analysis_full.py
-	PYTHONPATH=src $(PY) scripts/financials_regression.py
-	PYTHONPATH=src $(PY) scripts/cross_industry.py
+# ---------------------------------------------------------------------------
+# Stage 4: analysis - regenerate every figure and table the paper consumes
+# ---------------------------------------------------------------------------
+ANALYSIS_DEPS := $(DATA)/.tm_done $(DATA)/uspto_sec_crosswalk.parquet
 
+# Catch-all metrics + the core figure/table builders the paper imports.
+$(RES)/_metrics.json: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/analysis_full.py
+	$(PPYTHON) scripts/financials_regression.py
+	$(PPYTHON) scripts/cross_industry.py
+	$(PPYTHON) scripts/returns_regression.py
+	$(PPYTHON) scripts/r2_decomposition.py
+	$(PPYTHON) scripts/per_firm_dynamics.py
+	$(PPYTHON) scripts/u_shape_analysis.py
+	$(PPYTHON) scripts/industry_vs_finance.py
+	$(PPYTHON) scripts/templated_survival.py
+	$(PPYTHON) scripts/patent_compare.py
+	$(PPYTHON) scripts/vocab_trajectory.py
+
+# Headline-finding figures developed in the most recent rebuild.
+$(RES)/survival_by_kl_lines.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/survival_by_kl_lines.py
+$(RES)/outcome_by_kl_lines.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/outcome_by_kl_lines.py
+$(RES)/debut_outcome_by_kl.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/debut_outcome_by_kl.py
+$(RES)/halflife_signal_class009.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/halflife_signal.py
+
+# Flux-token + vanishing-trend evidence (token-level corroboration of the U).
+$(RES)/symmetric_flux_tokens.tex: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/symmetric_flux_tokens.py
+$(RES)/vanishing_trend_examples.txt: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/vanishing_trend_examples.py
+
+# Pioneer-ladder + cross-buzzword serial-pioneer analyses.
+$(RES)/pioneer_ladder_summary.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/pioneer_ladder.py
+$(RES)/cross_buzzword_pioneers.txt: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/cross_buzzword_pioneers.py
+
+# Canonical-winner + failed-firm KL profile.
+$(RES)/big_firm_kl_v2.tex: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/big_firm_kl_v2.py
+	$(PPYTHON) scripts/build_big_firm_kl_v2_tex.py
+
+# Per-industry appendix tex fragments (one row per NICE class).
+$(RES)/per_industry_appendix.tex: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/per_industry_appendix.py
+
+# All paper-consumed figures and tables.
+FIGURES := \
+  $(RES)/_metrics.json \
+  $(RES)/survival_by_kl_lines.png \
+  $(RES)/outcome_by_kl_lines.png \
+  $(RES)/debut_outcome_by_kl.png \
+  $(RES)/halflife_signal_class009.png \
+  $(RES)/symmetric_flux_tokens.tex \
+  $(RES)/vanishing_trend_examples.txt \
+  $(RES)/pioneer_ladder_summary.png \
+  $(RES)/cross_buzzword_pioneers.txt \
+  $(RES)/big_firm_kl_v2.tex \
+  $(RES)/per_industry_appendix.tex
+
+analysis: $(FIGURES)
+
+figures: analysis
+
+industry: $(RES)/per_industry_appendix.tex
+
+# ---------------------------------------------------------------------------
+# Stage 5: paper
+# ---------------------------------------------------------------------------
 paper: paper/main.pdf
-paper/main.pdf: paper/main.tex paper/results/_metrics.json
+paper/main.pdf: paper/main.tex $(FIGURES)
 	cd paper && pdflatex -interaction=nonstopmode main.tex
 	cd paper && pdflatex -interaction=nonstopmode main.tex
 
+# ---------------------------------------------------------------------------
 all: setup tm sec crosswalk analysis paper
 
 clean:
 	rm -f paper/main.aux paper/main.log paper/main.out paper/main.toc
-	rm -f $(DATA)/.tm_done
+
+clean-results:
+	rm -f $(RES)/*.png $(RES)/*.tex $(RES)/*.csv $(RES)/*.txt $(RES)/*.json

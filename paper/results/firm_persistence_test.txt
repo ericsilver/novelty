@@ -1,0 +1,8 @@
+Firm-persistence test: does the U-shape on filing-level survival
+persist within firms that demonstrably survived past one of their
+trademarks' Section-8 lapse?
+
+cohort              n_firms     n_filings    bot ΔKL    mid ΔKL    top ΔKL   U-depth
+  all_survived      197,583     1,030,360      1.000      1.000      1.000    +0.000
+  mixed             349,819     4,497,723      0.551      0.479      0.508    +0.072
+  all_failed        253,064     1,312,348      0.000      0.000      0.000    +0.000

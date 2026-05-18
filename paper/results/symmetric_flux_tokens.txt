@@ -1,0 +1,32 @@
+Symmetric flux tokens with token-level survival rates
+
+Each cell: token (survival% across all CLEAN filings containing the token).
+Lift = rate in stratum / rate in corpus; min token-pop 2,000.
+
+NEGATIVE  ΔKL ≤ -0.22  (harvest)              NEUTRAL  |ΔKL| < 0.02  (aligned)              POSITIVE  ΔKL ≥ 0.22  (innovate)              
+------------------------------------------------------------------------------------------------------------------------------------------
+mens                    66.8%  (3.23x)        outsource               32.8%  (1.91x)        non-fungible            62.7%  (7.93x)        
+periodically            48.6%  (3.09x)        colloquia               22.2%  (1.90x)        nfts                    59.9%  (7.88x)        
+sunless                 71.9%  (3.00x)        systematisation         27.9%  (1.90x)        authenticated           53.9%  (6.68x)        
+microfiche              36.5%  (2.99x)        systematization         22.8%  (1.89x)        blockchain-based        59.7%  (6.38x)        
+rejection               75.0%  (2.99x)        institutes              36.4%  (1.87x)        crypto                  57.0%  (5.93x)        
+womens                  60.7%  (2.91x)        organisational          14.9%  (1.87x)        cryptocurrencies        57.1%  (5.38x)        
+minicomputers           30.4%  (2.86x)        organisations           23.3%  (1.87x)        blockchain              54.8%  (5.25x)        
+lager                   54.5%  (2.81x)        taxation                36.4%  (1.86x)        cryptocurrency          54.8%  (5.14x)        
+astringent              69.9%  (2.80x)        enquiries               32.4%  (1.85x)        decentralized           53.9%  (5.08x)        
+dialing                 41.5%  (2.64x)        chocolate-coated        32.7%  (1.84x)        add-in                  40.1%  (4.18x)        
+dial-up                 43.8%  (2.59x)        cheese-based            46.4%  (1.84x)        cryptographic           53.1%  (4.17x)        
+proxy                   39.9%  (2.58x)        scheme                  26.5%  (1.83x)        repellers               36.4%  (4.12x)        
+pager                   45.8%  (2.55x)        mergers                 37.3%  (1.82x)        animal-activated        37.3%  (4.09x)        
+stout                   49.9%  (2.54x)        non-commercial          35.9%  (1.81x)        cartomizers             55.6%  (3.87x)        
+smartwatch              24.4%  (2.52x)        freighting              21.3%  (1.81x)        weaves                  32.6%  (3.86x)        
+productive              38.1%  (2.49x)        systemization           26.8%  (1.81x)        home-health             36.0%  (3.64x)        
+porter                  54.5%  (2.48x)        commissioned            40.5%  (1.81x)        party-themed            30.6%  (3.64x)        
+slogans                 69.2%  (2.42x)        get-togethers           35.2%  (1.81x)        toupees                 24.2%  (3.63x)        
+shandy                  49.8%  (2.41x)        chatroom                34.4%  (1.81x)        hairpieces              39.1%  (3.61x)        
+store-and-forward       51.8%  (2.36x)        traceability            25.0%  (1.80x)        bio-polymer             36.9%  (3.61x)        
+casualty                45.8%  (2.34x)        image-recorded          20.7%  (1.80x)        workbook                27.2%  (3.56x)        
+blemish                 62.1%  (2.31x)        guarantees              34.4%  (1.80x)        wig                     29.1%  (3.51x)        
+carry-out               57.1%  (2.28x)        choice                  29.5%  (1.79x)        enlargers               26.8%  (3.45x)        
+selfie                  22.3%  (2.27x)        computerised            26.9%  (1.79x)        agave                   49.0%  (3.44x)        
+sepsis                  54.7%  (2.23x)        schemes                 27.7%  (1.78x)        equivalent              63.3%  (3.44x)        

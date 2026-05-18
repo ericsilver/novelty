@@ -12,3 +12,6 @@ paper/main.aux
 paper/main.log
 paper/main.out
 paper/main.toc
+# Build logs + transient backup files
+logs/
+*.committed-baseline

@@ -1,0 +1,33 @@
+Top 30 pioneers of 'online retail'  (n=67,302 firms total)
+
+rank    yr  sur  sec    nT    tot  owner
+    1  1982    ·    ·     2     50  MONTGOMERY WARD, INC.
+    2  1993    ·    ·     1    106  TRACTOR SUPPLY CO. OF TEXAS, LP
+    3  1995    ·    ·     2      4  OUTER BANKS SHOES, INC.
+    4  1995    ·    ·     2      7  Cyberspace Malls International, Inc.
+    5  1995    ·    ·     1      1  PC WEST, INC.
+    6  1995    ·    ·     1      1  McNamara, J. Patrick
+    7  1995    ·    ·     2      3  NetOffice, Inc.
+    8  1995    ·    ·     1      1  DIVOTSTOMPERS, L.L.C.
+    9  1995    ·    ·     1      3  Redgate Communications Corporation
+   10  1995    Y    ·     2     12  BID.COM INTERNATIONAL INC.
+   11  1995    Y    ·     3     31  Sendai Interactive, Inc.
+   12  1995    ·    ·     2     52  GUTHY-RENKER CORPORATION
+   13  1995    ·    ·     1      1  Pary, Theodore
+   14  1996    Y    ·    12    215  Harlequin Enterprises Limited
+   15  1996    ·    ·     6    286  Jones International, Ltd.
+   16  1996    Y    ·     1      4  Entertainment Connection, Inc., The
+   17  1996    ·    ·     1      2  Issaqueena Interactive, L.L.C.
+   18  1996    ·    ·     4      4  CHILD GROWTH AND DEVELOPMENT CORPORATION, THE
+   19  1996    ·    ·     3     10  PC CONNECTION SALES CORP.
+   20  1996    Y    Y    22    159  PC Connection, Inc.
+   21  1996    Y    ·     2      2  Joe Depot, Inc., The
+   22  1996    Y    ·     3     21  Headbone Interactive, Inc.
+   23  1996    Y    ·     8     53  Biond Fury
+   24  1996    Y    ·     5     64  P.C. RICHARD & SON LONG ISLAND CORP.
+   25  1996    ·    ·     1      1  Divotstompers, L.L.C.
+   26  1996    Y    ·     1      1  Scott A. Cameron, a U.S. citizen, as The Executor of the Est
+   27  1996    Y    ·     1      5  Saron, Mark
+   28  1996    Y    ·     1    132  GEOFFREY, INC.
+   29  1996    ·    ·     6    244  GEOFFREY, LLC
+   30  1996    Y    ·     5      9  TRIP.COM., INC., THE

@@ -1,0 +1,7 @@
+INDIVIDUAL-LOOKING owners appearing in ≥3 buzzword pioneer pools
+
+  k  owner                                                   buzzwords (rank, year)
+   3  Irdeto B.V.                                             website(r781,y1998), artificial intelligence(r200,y1998), streaming(r78,y1998)
+   3  Sony Kabushiki Kaisha                                   wireless(r962,y1995), online retail(r796,y1999), streaming(r656,y2000)
+   3  AHMED, BURHAN U.                                        social media(r493,y2010), cloud computing(r171,y2010), saas(r612,y2010)
+   3  Paul Farkas                                             mobile app(r51,y2014), artificial intelligence(r651,y2014), blockchain(r510,y2018)

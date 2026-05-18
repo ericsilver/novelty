@@ -1,0 +1,33 @@
+Top 30 pioneers of 'website'  (n=216,036 firms total)
+
+rank    yr  sur  sec    nT    tot  owner
+    1  1991    ·    ·    10     50  SEMI
+    2  1994    ·    ·     4      5  ORANGE BRAND SERVICES, LIMITED
+    3  1994    ·    ·     4     67  CMP Media, Inc.
+    4  1995    ·    ·     1      5  ICON INTERNATIONAL, INC.
+    5  1995    ·    ·     3     19  Englewood Enterprises Corp.
+    6  1995    ·    ·     6     13  Imagine Publishing, Inc.
+    7  1995    ·    ·     2      2  International Health Care Foundation
+    8  1995    Y    ·     1      1  Uptime Computer Solutions, Inc.
+    9  1995    Y    ·     1     14  Marinex Multimedia Corp.
+   10  1995    Y    ·     1      1  Digital Extremes, Inc.
+   11  1995    ·    ·   821   2224  International Data Group, Inc.
+   12  1995    Y    ·     1      5  You Gotta Regatta Inc.
+   13  1995    Y    ·     2      6  Animatrix, Inc.
+   14  1995    Y    ·     1      1  CONTINUING MEDICAL EDUCATION INC.
+   15  1995    ·    ·    12     22  PETERSON'S LLC
+   16  1995    Y    ·     1      1  ibike, inc.
+   17  1995    ·    ·    29    111  Alaska Airlines, Inc.
+   18  1995    Y    ·     6    127  CMP Publications, Inc.
+   19  1995    Y    ·     1      9  Ohio Art Company, The
+   20  1995    Y    ·     2      2  FIRST PARTNERS
+   21  1995    Y    ·     1      2  Fine, Stephen
+   22  1995    ·    ·     1     14  WEBTRENDS INC.
+   23  1996    Y    ·     2      4  Internet Travel Guides
+   24  1996    Y    ·     1      1  INTERNET ASSOCIATES, INC.
+   25  1996    ·    ·     2     10  CMP MEDIA INC.
+   26  1996    Y    ·     2      3  American Medical Security
+   27  1996    ·    ·     2      6  ENERGY INTELLIGENCE GROUP, INC.
+   28  1996    Y    ·     1      5  Icon Ventures, Inc.
+   29  1996    ·    ·     2    105  MOLSON BREWERIES
+   30  1996    Y    ·     3     26  Virtual X, Inc.

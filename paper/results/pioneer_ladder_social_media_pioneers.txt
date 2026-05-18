@@ -1,0 +1,33 @@
+Top 30 pioneers of 'social media'  (n=39,023 firms total)
+
+rank    yr  sur  sec    nT    tot  owner
+    1  1978    ·    ·     2      2  LUCERNA FUND
+    2  2005    Y    ·     5     18  Juice Wireless, Inc.
+    3  2006    Y    ·     1      2  Push Creative, Inc.
+    4  2006    ·    ·     7      7  Groundswell LLC
+    5  2007    ·    ·     5      5  YOONO
+    6  2007    ·    ·     1      2  SOCIAL MEDIA GROUP INC.
+    7  2007    ·    ·     1      2  Oliver, Adam
+    8  2007    Y    ·    19     19  PodTech Network Inc.
+    9  2007    Y    ·     2      6  MetaRadar Inc.
+   10  2007    Y    ·     4     16  EVRI INC.
+   11  2007    Y    ·     4      4  GoListing.com, Inc.
+   12  2007    ·    ·    16     43  ProElite, Inc.
+   13  2007    Y    ·     1      1  Contagious Solutions, LLC
+   14  2007    Y    ·     2      4  Vitrue, Inc.
+   15  2007    Y    ·     2      2  Michael James Conner
+   16  2008    Y    ·     2      7  Media Trust Inc.
+   17  2008    ·    ·     2     17  Mainstream Holdings, Inc.
+   18  2008    Y    ·     1      1  CULTEVA INC.
+   19  2008    ·    ·     1      1  SOMEWHAT FRANK, LLC
+   20  2008    ·    Y     2     35  Izea, Inc.
+   21  2008    ·    ·    12     47  SHEMEDIA, LLC
+   22  2008    Y    ·     1      1  LiveHit, Inc.
+   23  2008    Y    ·     1      7  Acronym Media, Inc.
+   24  2008    ·    ·     2      2  Social Span Media LLC
+   25  2008    Y    ·     1      1  Miller, Marc D.
+   26  2008    Y    ·     1      1  Kaup, Jerry
+   27  2008    Y    ·     1      1  UnThink, LLC
+   28  2008    ·    ·     2      2  CERTEC EDV GmbH
+   29  2008    Y    ·     1      1  Christopher Leone
+   30  2008    Y    ·     3      3  Webmob-ad Inc

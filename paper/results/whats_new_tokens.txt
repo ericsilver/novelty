@@ -1,0 +1,74 @@
+
+=== 1985-1989 ===
+
+  --- unigrams absent in 1985-1989, ranked by total doc_freq ---
+  token                                 doc_freq  first_year
+  website                                764,981        1999
+  web                                    597,403        1990
+  wireless                               477,072        1991
+  phones                                 420,479        1993
+  hosting                                364,492        2000
+  saas                                   344,992        2018
+  site                                   337,766        1990
+  nutritional                            321,892        1990
+  cultural                               273,552        1991
+  platform                               251,578        1990
+  websites                               251,253        1996
+  fitted                                 215,986        1990
+  technological                          214,279        1990
+  babies                                 210,826        1990
+  search                                 210,389        1991
+  updating                               209,502        1995
+  dvds                                   208,757        2002
+  wellness                               204,469        2004
+  hooded                                 202,816        1998
+  evaluation                             190,981        1990
+  gaming                                 189,694        1991
+  provider                               189,247        1998
+  hoodies                                186,210        2013
+  relation                               182,178        1991
+  smart                                  181,530        1994
+  handheld                               181,194        1991
+  reproduction                           175,093        1990
+  particular                             173,578        1990
+  seats                                  172,153        1990
+  sanitary                               166,859        1990
+
+  --- bigrams absent in 1985-1989, ranked by total doc_freq ---
+  token                                 doc_freq  first_year
+  information field                      472,305        1992
+  website featuring                      422,625        2003
+  medical purposes                       375,767        1990
+  non-downloadable software              350,040        2000
+  design development                     323,257        1993
+  electronic publications                320,238        1996
+  mobile phones                          304,192        1998
+  featuring information                  294,490        1992
+  on-line retail                         285,782        1999
+  web site                               281,922        1999
+  online retail                          272,842        1999
+  downloadable electronic                260,224        2000
+  nutritional supplements                230,206        1991
+  software applications                  225,130        2004
+  training services                      221,761        1991
+  development computer                   216,886        1993
+  software mobile                        202,555        2005
+  computer application                   202,493        1992
+  dietary supplements                    199,518        1990
+  research development                   195,949        1990
+
+=== 1995-1999 ===
+
+  --- unigrams absent in 1995-1999, ranked by total doc_freq ---
+  token                                 doc_freq  first_year
+  saas                                   344,992        2018
+  blogs                                  163,199        2008
+  smartphones                            139,966        2012
+  paas                                   127,446        2020
+  usb                                    103,829        2008
+
+  --- bigrams absent in 1995-1999, ranked by total doc_freq ---
+  token                                 doc_freq  first_year
+  tablet computers                       115,637        2012
+  cloud computing                        115,306        2012
+  social media                           114,704        2012
