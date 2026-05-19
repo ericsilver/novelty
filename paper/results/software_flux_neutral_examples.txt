@@ -1,0 +1,132 @@
+Software (Class 9) flux-neutral failures (|ΔKL| <= 0.05), 1995-2019, n_terms >= 8.
+These are the failures in the squeeze: filings whose language
+is neither moving toward nor away from where the field is going.
+
+Class-9 flux-neutral cohort: 136,311 clean filings; 66,822 failed (survived_5y = False).
+Prospective-KL p10 = 4.47 nats, p90 = 7.05 nats.
+
+
+=== FLAVOUR (a): ΔKL≈0 AND high prospective KL — isolated outliers (distinctive against past AND future; no echo) ===
+
+  year 2017  pros=9.96  retr=10.01  ΔKL=-0.047  n_terms=9
+    owner: Mano LLC
+    mark:  SHARKBANZ REDUCE THE RISK
+    g/s:   Magnetic shark repelling device comprised primarily of magnets
+
+  year 2017  pros=9.78  retr=9.79  ΔKL=-0.007  n_terms=8
+    owner: GOOD FORTUNE INDUSTRIES LLC
+    mark:  TIPFORTIP PAYING GOOD FORTUNE FORWARD
+    g/s:   Electronic tip jar that dispenses customer appreciation coupons once a tip is received
+
+  year 2009  pros=9.75  retr=9.77  ΔKL=-0.016  n_terms=11
+    owner: SPD Control Systems Corporation
+    mark:  TINTMAKER
+    g/s:   Electronic controller for operating electronically alterable window tinting
+
+  year 2009  pros=9.61  retr=9.58  ΔKL=+0.032  n_terms=8
+    owner: Esco Technologies (Asia) PTE LTD
+    mark:  FRONTIER
+    g/s:   Laboratory equipment, namely, fume hoods, fume enclosures, fume cupboards and fume extractors
+
+  year 2009  pros=9.57  retr=9.52  ΔKL=+0.050  n_terms=11
+    owner: ALLA FRANCE
+    mark:  
+    g/s:   Measuring instruments, namely, aerometers, alcoholmeters, densimeters, hydrometers, lactodensimeters, lactometers, acid hydrometers, saccharometers, salinometers
+
+  year 2016  pros=9.50  retr=9.53  ΔKL=-0.025  n_terms=8
+    owner: Tenga Co., Ltd.
+    mark:  TENGA DELTA
+    g/s:   Electric massage appliances, namely, electric vibrating massager
+
+  year 2009  pros=9.49  retr=9.47  ΔKL=+0.019  n_terms=8
+    owner: Esco Technologies (Asia) PTE LTD
+    mark:  ISOCLEAN
+    g/s:   Pharmacy isolators and laminar flow devices, namely, laminar flow cabinets
+
+  year 2012  pros=9.47  retr=9.49  ΔKL=-0.024  n_terms=11
+    owner: ISCOPE OPTICS, LLC
+    mark:  THEISCOPE
+    g/s:   Smartphone adaptor for scopes, namely, firearm scopes, spotting scopes, crossbow scopes, bow scopes, microscopes, and telescopes
+
+  year 1996  pros=9.42  retr=9.42  ΔKL=-0.009  n_terms=10
+    owner: 21st Century Hard Armor Protection, Inc.
+    mark:  NO MAN DOWN
+    g/s:   bullet-proof vests, collars, and groin protectors which are worn by humans
+
+  year 2018  pros=9.41  retr=9.41  ΔKL=-0.003  n_terms=8
+    owner: BARE SPORTS CANADA, LTD.
+    mark:  BARE
+    g/s:   swim masks; scuba masks; snorkels Swim fins; scuba fins; free-diving fins; spear-fishing fins
+
+  year 2017  pros=9.33  retr=9.36  ΔKL=-0.029  n_terms=8
+    owner: BUSHNELL LLC
+    mark:  NEVER MISS
+    g/s:   riflescopes, binoculars, spotting scopes, laser rangefinders
+
+  year 2009  pros=9.33  retr=9.31  ΔKL=+0.021  n_terms=8
+    owner: OLIVER, KEITH
+    mark:  OSPREY
+    g/s:   Telescopic gun sights Non-telescopic gun sights for firearms
+
+
+=== FLAVOUR (b): ΔKL≈0 AND low prospective KL — pure boilerplate (mainstream language, neither leading nor trailing) ===
+
+  year 2014  pros=2.99  retr=3.00  ΔKL=-0.018  n_terms=46
+    owner: BRAINWAVE GAMES
+    mark:  PUZZABLE
+    g/s:   Computer application software for mobile phones, namely, software for MOBILE AND SOCIAL GAMING THAT ALLOWS USERS TO SEND PHOTOS TO OTHERS IN THE FORM OF PUZZLES; Computer application software for MOBILE PHONES, PERSONAL DIGITAL ASSISTANTS, SMARTPHONES, AND COMPUTERS, namely, software for MOBILE AND SOCIAL GAMING THAT ALLOWS USERS TO SEND PHOTOS TO OTHERS IN THE FORM OF PUZZLES; Computer game softw
+
+  year 2014  pros=2.99  retr=3.00  ΔKL=-0.018  n_terms=46
+    owner: BRAINWAVE GAMES
+    mark:  
+    g/s:   Computer application software for mobile phones, namely, software for MOBILE AND SOCIAL GAMING THAT ALLOWS USERS TO SEND PHOTOS TO OTHERS IN THE FORM OF PUZZLES; Computer application software for MOBILE PHONES, PERSONAL DIGITAL ASSISTANTS, SMARTPHONES, AND COMPUTERS, namely, software for MOBILE AND SOCIAL GAMING THAT ALLOWS USERS TO SEND PHOTOS TO OTHERS IN THE FORM OF PUZZLES; Computer game softw
+
+  year 2018  pros=2.99  retr=3.03  ΔKL=-0.034  n_terms=50
+    owner: Huizhou Dafeng Network Technology Co., Ltd.
+    mark:  FALLEN DARKNESS
+    g/s:   Computer game software; Data processing equipment, namely, couplers; Downloadable computer game software via a global computer network and wireless devices; Downloadable electronic game software for use on mobile phones; Downloadable electronic newsletters in the field of computer games; Electronic sheet music, downloadable; Memory cards for video game machines; Recorded computer game programs; Vi
+
+  year 2018  pros=2.99  retr=3.03  ΔKL=-0.034  n_terms=50
+    owner: Huizhou Dafeng Network Technology Co., Ltd.
+    mark:  WORDS OF LIGHT
+    g/s:   Computer game software; Data processing equipment, namely, couplers; Downloadable computer game software via a global computer network and wireless devices; Downloadable electronic game software for use on mobile phones; Downloadable electronic newsletters in the field of computer games; Electronic sheet music, downloadable; Memory cards for video game machines; Recorded computer game programs; Vi
+
+  year 2013  pros=3.02  retr=3.02  ΔKL=-0.002  n_terms=48
+    owner: Rio Perdido S.A.
+    mark:  JOURNALS OF THE UNKNOWN
+    g/s:   computer game entertainment software; computer game software for use in connection with computers, personal electronic devices, tablets, phones and other electronic mobile devices; video game software; downloadable electronic game programs; computer application software for computers, mobile phones, tablets and other electronic mobile devices, namely, software for computer games; downloadable comp
+
+  year 2019  pros=3.02  retr=3.00  ΔKL=+0.026  n_terms=46
+    owner: Zynga Inc.
+    mark:  TINY ROYALE
+    g/s:   Downloadable computer game software; Downloadable computer game programs; Downloadable electronic game programs; Interactive downloadable video game programs; Downloadable computer application software for use on mobile phones, namely, computer software for providing access to electronic games through online social networking websites; Downloadable computer game software for use on mobile devices 
+
+  year 2018  pros=3.06  retr=3.02  ΔKL=+0.038  n_terms=45
+    owner: REALNETWORKS LLC
+    mark:  SALLY'S SALON
+    g/s:   [ Entertainment services, namely, providing temporary use of non-downloadable computer games; Entertainment services, namely, providing temporary use of non-downloadable electronic games; Entertainment services, namely, providing temporary use of non-downloadable video games; Providing online non-downloadable game software; Providing temporary use of non-downloadable game software ] Computer game 
+
+  year 2019  pros=3.09  retr=3.11  ΔKL=-0.026  n_terms=39
+    owner: PLARIUM GLOBAL LTD.
+    mark:  P
+    g/s:   Downloadable computer game software for use on mobile and cellular phones; downloadable computer application software for mobile phones, portable media players, tablets, handheld computers and other electronic mobile devices, namely, downloadable software for video and computer games; downloadable computer game programs
+
+  year 2011  pros=3.09  retr=3.12  ΔKL=-0.037  n_terms=49
+    owner: G5 HOLDINGS LIMITED
+    mark:  SPECIAL ENQUIRY DETAIL
+    g/s:   Computer game programs; Computer game software; Computer game software downloadable from a global computer network; Computer game software for personal computers and home video game consoles; Computer programs for video and computer games; Downloadable computer game programs; Downloadable computer game software via a global computer network and wireless devices; Downloadable electronic game progra
+
+  year 2017  pros=3.09  retr=3.06  ΔKL=+0.023  n_terms=46
+    owner: REALNETWORKS LLC
+    mark:  HEART'S MEDICINE
+    g/s:   Entertainment services, namely, providing temporary use of non-downloadable electronic games; Entertainment services, namely, providing temporary use of non-downloadable computer games; Entertainment services, namely, providing temporary use of non-downloadable video games; Providing online non-downloadable game software; Providing temporary use of non-downloadable game software Downloadable elect
+
+  year 2014  pros=3.10  retr=3.14  ΔKL=-0.038  n_terms=47
+    owner: Big Fish Games, Inc.
+    mark:  FETCH
+    g/s:   [ Entertainment services namely, providing online computer games; online entertainment in the nature of computer games and video games; providing online entertainment information related to computer games ] Interactive computer game software; computer game software and video game software; computer application software for mobile and cellular phones, handheld computers and portable and handheld di
+
+  year 2015  pros=3.11  retr=3.15  ΔKL=-0.041  n_terms=32
+    owner: GRAM GAMES LIMITED
+    mark:  G GRAM GAMES
+    g/s:   Computer software development tools; game software; computer game software for use on mobile and cellular phones; downloadable computer game software via a global computer network and wireless devices; computer application software for mobile phones, namely, software for games
