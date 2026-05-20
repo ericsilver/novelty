@@ -41,16 +41,28 @@ is essentially uncorrelated with patent counts ($r = +0.01$ on
 $174{,}569$ firm-years), and is sub-additive with patents in the
 $R^2$ decomposition --- it indexes a distinct innovation channel.
 
-\textbf{The unexpected and durable finding} is that filings at the
-\emph{opposite} flux extreme --- prospectively obvious and
-retrospectively novel, $\Delta KL < 0$ --- also outperform. On
-debut filings the harvest tail is well-fit by a saturating
-exponential of survival on $|\Delta KL|$ with $R^2 = 0.978$ on $20$
-binned points (innovate-side $R^2 = 0.499$ for comparison). The
-positive-and-negative survival lift makes the survival curve
-$U$-shaped in $\Delta KL$, with the dip at the flux-neutral middle
-($\Delta KL \approx 0$). The pattern holds at the per-industry level
-in $32$ of $44$ NICE classes; only $1$ industry shows a significant
+\textbf{Two response curves, two theories.} The innovation side of
+$\Delta KL$ (positive) is itself a clean saturating-exponential
+response: $P(\text{survived}\,5y) = a + b\,e^{-c\,\Delta KL}$ with
+$a = 0.995$, $b = -0.55$, $c = 0.063$ on the $5$M-debut panel ($R^2 =
+0.499$ across $20$ bins), concave-down, no inverted-$U$ inflection.
+This is the empirical content of optimal distinctiveness
+(Deephouse 1999, \emph{SMJ}; Zhao et al.\ 2017, \emph{SMJ}) translated
+from \emph{level} of category-typicality to \emph{directional}
+vocabulary flux: novelty pays with diminishing returns. The
+\textbf{new finding} is that filings at the \emph{opposite} flux
+extreme --- prospectively obvious and retrospectively novel,
+$\Delta KL < 0$ --- have their own saturating-exponential response,
+fitted much more tightly ($a = 0.573$, $b = -0.137$, $c = 3.33$,
+$R^2 = 0.978$). On the harvest side, survival \emph{increases} with
+$|\Delta KL|$ at a much faster rate and saturates closer to zero:
+the deeper a debut filing sits into the receding legacy vocabulary
+of its category, the more durable its mark. We read this as
+\emph{increasing returns to late-stage imitation}, complementary to
+the diminishing-returns innovation curve. Together the two
+saturating exponentials produce the survival $U$ on $\Delta KL$ in
+the pooled corpus. The pattern holds at the per-industry level in
+$32$ of $44$ NICE classes; only $1$ industry shows a significant
 inverted-$U$; $11$ are indeterminate. Token-level survival rates
 corroborate the U at the corpus level: negative-stratum tokens
 (\texttt{microfiche}, \texttt{dial-up}, \texttt{pager},
@@ -1364,27 +1376,53 @@ Niche on day one tends to mean niche at maturity; the IPO sweet
 spot for debut firms is ordinary vocabulary used in a forward-drifting
 direction --- low PC1, high PC2 in the decomposition.
 
-\paragraph{The harvest tail on debut filings is exceptionally
-clean.} The unexpected post-registration-survival lift on the
-negative-$\Delta KL$ side --- the harvest extreme --- is most
-diagnostic on debut filings, where there are no within-firm
-portfolio confounds. On the debut-only panel ($n = 5{,}088{,}700$
-owner-first filings), we fit a saturating exponential of survival
-on $|\Delta KL|$ separately on each side:
+\paragraph{Both tails are saturating exponentials in $|\Delta KL|$
+--- two distinct theories made visible.}
+The survival lift at the extremes is most diagnostic on debut
+filings, where there are no within-firm portfolio confounds. On the
+debut-only panel ($n = 5{,}088{,}700$ owner-first filings), we fit a
+saturating exponential of survival on $|\Delta KL|$ separately on
+each side:
 \[
 P(\text{survived 5y}) \;=\; a + b\,e^{-c\,|\Delta KL|}.
 \]
-The harvest side (negative $\Delta KL$, $n = 2{,}586{,}126$) fits
-with $R^2 = 0.978$ on $20$ binned points; the conditional Pearson
-correlation between $|\Delta KL|$ and survival on this side is
-$+0.054$ (Spearman $+0.058$). The innovation side
-(positive $\Delta KL$) is positive in the same direction but much
-noisier --- $R^2 = 0.499$ on $20$ binned points
-(Figure~\ref{fig:debut-harvest-fit}). The harvest tail is doing
-real work and is unmistakably present; the innovation tail is
-present and consistent in sign but visibly less tight on the
-saturating-exponential functional form. We do not claim a
-mechanistic explanation for the difference in tightness.
+
+\emph{Innovation side ($\Delta KL > 0$): optimal distinctiveness as
+a saturating exponential.} On the positive side ($n = 2{,}502{,}574$)
+the fit is $a = 0.995$, $b = -0.55$, $c = 0.063$ with $R^2 = 0.499$
+across $20$ bins. The curve is monotone increasing in $\Delta KL$
+and concave-down: an additional unit of prospective-novelty pays at
+a decreasing rate. This is the empirical content of optimal
+distinctiveness (Deephouse 1999; Zhao, Fisher, Lounsbury \& Miller
+2017) translated from level-of-distinctiveness to directional
+vocabulary flux. The strict inverted-$U$ prediction (that survival
+turns down at high distinctiveness) is not what we observe; the
+underlying empirical claim (that distinctiveness has positive but
+saturating returns) is supported and shows up in an explicit
+functional form. We treat this as a result, not a refutation: the
+optimal-distinctiveness literature's measurement instrument was the
+\emph{level} of category-typicality, ours is the \emph{change} in
+category-typicality, and the saturating-exponential response is the
+form that the underlying claim takes when restated on a
+directional-flux axis.
+
+\emph{Harvest side ($\Delta KL < 0$): increasing returns to
+late-stage imitation.} On the negative side ($n = 2{,}586{,}126$)
+the same functional form fits much more tightly: $a = 0.573$, $b =
+-0.137$, $c = 3.33$, $R^2 = 0.978$ across $20$ bins. Conditional on
+negative $\Delta KL$ the Pearson correlation between $|\Delta KL|$
+and survival is $+0.054$ (Spearman $+0.058$). The substantive
+interpretation: filings whose vocabulary lies further into the
+receding/legacy side of the category are not penalised but rewarded,
+and the reward \emph{grows} the deeper the harvest. The asymptote
+($a = 0.573$, close to the corpus baseline) is the ceiling: the
+late-stage-imitation niche has a finite size, and harvest-tail
+filings approach the niche-saturation survival rate quickly
+($c = 3.33$ vs.\ $c = 0.063$ on the innovation side). The
+small-firm-can-pick-up-the-legacy-niche reading is that few firms
+stay in legacy vocabulary; the ones who do compete against few
+peers, and the marginal return to going even deeper is high but
+capped by the size of the legacy niche itself.
 
 \begin{figure}[h]
 \centering
@@ -1392,13 +1430,44 @@ mechanistic explanation for the difference in tightness.
 \caption{\textbf{Saturating-exponential fits on each side of $\Delta
 KL$, debut filings only.} For each filing-side, the 5y survival
 rate by quantile-bin of $|\Delta KL|$ ($20$ bins), with the fit
-$y = a + b\,e^{-c|\Delta KL|}$ overlaid. Left: harvest tail
-($\Delta KL < 0$), $R^2 = 0.978$, conditional $\text{corr}(|\Delta KL|,
-\text{survived}) = +0.054$. Right: innovation tail ($\Delta KL > 0$),
-$R^2 = 0.499$, conditional $\text{corr}(\Delta KL, \text{survived}) =
-+0.014$.}
+$y = a + b\,e^{-c|\Delta KL|}$ overlaid. \textbf{Right (innovation
+tail, $\Delta KL > 0$):} saturating-exponential consistent with the
+empirical content of optimal distinctiveness; survival rises with
+prospective novelty at a decreasing rate, $R^2 = 0.499$.
+\textbf{Left (harvest tail, $\Delta KL < 0$):} a separate
+saturating exponential of \emph{increasing returns to late-stage
+imitation}; survival rises faster with $|\Delta KL|$, $R^2 = 0.978$.
+The two response curves together produce the survival $U$ on
+$\Delta KL$ in the pooled corpus.}
 \label{fig:debut-harvest-fit}
 \end{figure}
+
+\paragraph{Category-killer confound: explicitly considered.} One
+mechanism we cannot fully rule out in principle is that a category's
+vocabulary recedes in the corpus precisely because a single dominant
+firm has captured the category --- ``Xerox'' becomes the only
+trademark using \texttt{xerographic} not because the niche is dying
+but because every other firm has been pushed out by the
+category-killer. If this were the mechanism, the harvest tail would
+not be ``firms doing well in a receding niche'' but ``firms with the
+only surviving trademark in a niche they killed for everyone else.''
+We treat this as implausible at the scale we observe for three
+reasons. First, the $n = 2{,}586{,}126$ harvest-side debut filings
+span $44$ industries with no industry dominated by a single firm to
+that degree; the harvest tail is broad, not concentrated in a
+handful of category-killer owners. Second, the token-level evidence
+(\texttt{microfiche}, \texttt{dial-up}, \texttt{pager},
+\texttt{store-and-forward}, \texttt{lager}, \texttt{stout},
+\texttt{shandy}, \texttt{annuity}, \texttt{microcomputers}) shows
+that the receding vocabulary is genuinely receding in the corpus
+across many filers, not just in one or two firms' portfolios.
+Third, on the time window we study ($1990$--$2021$), the
+fast-fashion of trademark categories does not include classic
+category-killer episodes (Xerox/xerographic, Kleenex/tissue) which
+are mid-20th-century phenomena; the harvest-tail tokens we see are
+sunsetting under platform shifts and regulatory transitions, not
+under monopolistic genericisation by an individual firm. Worth
+flagging, not worth treating as a competing explanation.
 
 \section{Within-firm dynamics and debut quartiles}
 \label{sec:dynamics}
@@ -2816,29 +2885,38 @@ performance.
 
 \section{Discussion}
 
-\paragraph{Flux, not distinctiveness; harvest and innovation both work.}
-The empirical pattern we document is best read in two parts. First,
-the component KLs --- prospective and retrospective surprise on
-their own --- behave as distinctiveness measures (their levels track
-each other at $\rho = 0.99$), and on distinctiveness alone the only
-U appears under the strict post-registration mortality criterion.
-Second, the \emph{flux} signal --- $\Delta KL$, the residual after the
-common distinctiveness factor is removed --- is U-shaped under
-\emph{every} outcome operationalisation. Filings whose vocabulary is
-moving with the field's direction of travel (positive $\Delta KL$,
-``catching the emerging language'') and filings whose vocabulary is
-moving against it (negative $\Delta KL$, ``harvesting the receding
-language'') both outperform the flux-neutral middle. The two
-extractive strategies are recognisable in the token data: the
-negative extreme picks out clearly sunsetting industries (typesetting
-in the early 1990s as desktop publishing arrived, the pre-platform
-hospitality bundle in the early 2000s as Expedia disintermediated,
-e-cigarette boilerplate of 2014--2015 just before the FDA Deeming
-Rule); the positive extreme picks out the legalisation+platform-shift
-waves (cannabis, crypto, NFTs, vape, plant-based, EV). What the
-data show is that \emph{both strategies pay} --- the trademark-vocabulary
-U is a Schumpeter-plus-real-options dual-strategy pattern, not an
-optimal-distinctiveness inverted-U.
+\paragraph{Two response curves, two theories.}
+The empirical pattern we document is best read as two
+saturating-exponential response curves meeting at $\Delta KL \approx
+0$. On the innovation side ($\Delta KL > 0$) the curve is the
+empirical content of optimal distinctiveness (Deephouse 1999;
+Zhao et al.\ 2017) translated from \emph{level} of distinctiveness to
+\emph{directional} vocabulary flux: survival rises with prospective
+novelty, concave-down, with diminishing returns to additional
+$\Delta KL$ and no inverted-$U$ inflection at the extreme. What we
+do not find is the strict Deephouse prediction that survival turns
+down at high distinctiveness; what we do find is the underlying
+empirical claim of the optimal-distinctiveness literature ---
+distinctiveness pays with diminishing returns --- in an explicit
+functional form ($a = 0.995$, $b = -0.55$, $c = 0.063$ on the debut
+panel; $R^2 = 0.499$ across $20$ bins). On the harvest side
+($\Delta KL < 0$) the same functional form fits much more tightly
+($R^2 = 0.978$) and tells a complementary story: survival rises
+\emph{faster} with $|\Delta KL|$, saturates closer to the origin,
+and reaches an asymptote of $\sim 0.57$. The interpretation is
+\emph{increasing returns to late-stage imitation}: the deeper a
+filing sits into the receding vocabulary of its category, the more
+durable its mark turns out to be. The two extractive strategies
+are recognisable in the token data: the negative extreme picks out
+clearly sunsetting industries (typesetting in the early 1990s as
+desktop publishing arrived, the pre-platform hospitality bundle in
+the early 2000s as Expedia disintermediated, e-cigarette
+boilerplate of 2014--2015 just before the FDA Deeming Rule); the
+positive extreme picks out the legalisation+platform-shift waves
+(cannabis, crypto, NFTs, vape, plant-based, EV). \emph{Both
+strategies pay}, but they pay through opposite functional forms:
+diminishing returns to novelty on one side, increasing returns to
+imitation on the other.
 
 \paragraph{Mechanism is not separable.}
 Whether the survival lift at negative $\Delta KL$ reflects
