@@ -1,0 +1,11 @@
+Apples-to-apples token-level flux: trademark-corpus vs Google Books.
+
+Tokens with usable data on both sides: 53
+
+corr(log trademark-lift, log Google-lift):  Pearson r = +0.466  Spearman = +0.388
+corr(trademark slope,    Google slope):    Pearson r = +0.443  Spearman = +0.344
+
+Per-stratum medians:
+  negative    n=23  median log_tm_lift=+0.28  median log_g_lift=+0.08
+  neutral     n=16  median log_tm_lift=+3.94  median log_g_lift=-0.22
+  positive    n=14  median log_tm_lift=+3.39  median log_g_lift=+0.07

@@ -1,0 +1,19 @@
+Google Books n-gram confound test
+
+Tokens fetched: 75 (25 per stratum)
+Tokens with non-zero Google Books data: 74
+Tokens used in correlations: 69
+
+Per-stratum mean Google log-frequency slope:
+ stratum  n  mean_tm_lift  mean_google_lift  median_google_lift  mean_google_slope  share_with_google_data
+negative 25        2.6276          144.1043              1.2164             0.0104                    1.00
+ neutral 25        1.8333           12.7579              0.9591             0.0129                    1.00
+positive 25        4.6183               inf              2.3593             0.0864                    0.96
+
+Cross-token correlations between trademark-flux lift and Google-corpus lift:
+  log(trademark lift) ~ log(Google lift):  Pearson r = +0.000  Spearman = +0.101
+  log(trademark lift) ~ Google log-slope:  Pearson r = -0.037  Spearman = +0.057
+
+Interpretation:
+  r near 1.0 -> trademark flux just tracks general English-language usage.
+  r near 0.0 -> trademark flux is a corpus-specific signal.

@@ -2905,4 +2905,35 @@ into a specific domain.
 
 \input{results/per_industry_appendix.tex}
 
+\section{Per-industry deep dives: trending, ending, and public debuts}
+\label{app:per-industry-deep}
+
+This appendix complements Appendix~\ref{app:per-industry} with a
+richer per-class snapshot. For each NICE class with at least
+$5{,}000$ clean H=2y filings, we present:
+\begin{itemize}
+  \item Summary statistics and the SEC-listed share of filings.
+  \item A scatter of all clean filings in the $(KL_\text{pros},
+        KL_\text{retr})$ plane, with the $\Delta KL = 0$ diagonal
+        and the top-10 SEC-listed firms whose first trademark filing
+        occurred in 1990--2021 marked as blue stars and labeled.
+  \item Top-10 \emph{trending} tokens (over-represented in the
+        top-decile-$\Delta KL$ stratum within this class) with their
+        intra-class 5y survival rates.
+  \item Top-10 \emph{ending} tokens (over-represented in the
+        bottom-decile-$\Delta KL$ stratum) with their intra-class
+        survival rates.
+  \item Top-10 flux-neutral tokens by frequency in the
+        $|\Delta KL| \leq 0.02$ stratum, with survival rates.
+  \item A table of the top-10 public firms with their debut filing's
+        mark, year, $KL_\text{pros}$, $\Delta KL$, and a g/s excerpt.
+\end{itemize}
+``Top-10 public firms'' are ranked by maximum observed annual revenue
+in the SEC EDGAR financial-statement panel. Firms whose primary
+trademark class is the focal class are eligible; firms whose first
+filing predates 1990 (i.e., they predated our observation window) are
+excluded.
+
+\input{results/per_industry_deep_appendix.tex}
+
 \end{document}
