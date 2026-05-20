@@ -20,84 +20,142 @@ backward flux}
 \maketitle
 
 \begin{abstract}
-We propose a Kullback--Leibler surprise difference $\Delta KL =
-KL_{\text{pros}} - KL_{\text{retr}}$ as an innovation measure for
-firm activity, computed on each of $10{,}060{,}073$ U.S.\ trademark
-filings in $1990$--$2021$ against per-day exponentially decay-weighted
-references of the same NICE class (half-life $H = 2$ years). The
-hypothesis going in: filings whose goods/services prose was
-\emph{prospectively novel} (unusual against the recent past) and
-\emph{retrospectively obvious} (similar to the near future) --- the
-trend-setters --- should outperform on post-registration survival,
-and $\Delta KL$ should be additive to the standard patent count
-proxy. Both predictions are confirmed: conditional on positive
-$\Delta KL$, the 4-year stock-return coefficient rises monotonically
-through firm-year deciles, and $\Delta KL$ adds explanatory power on
-top of $\log(1 + n_\text{patents})$ in the $R^2$ decomposition with
-sub-additivity (the two together explain more than either alone
-plus the residual). The innovation tail on debut filings is itself a
-saturating exponential in $\Delta KL$ --- diminishing returns to
-prospective novelty, with no inverted-$U$ inflection --- which is
-the empirical content of optimal distinctiveness (Deephouse 1999;
-Zhao et al.\ 2017) restated as a directional-flux response curve.
-\textbf{The new and unexpected finding} is that filings at the
-\emph{opposite} extreme --- prospectively obvious, retrospectively
-novel ($\Delta KL < 0$) --- also outperform, and the response curve
-on this side is a separate, much tighter saturating exponential
-($R^2 = 0.978$ on $20$ binned points). On the harvest side, returns
-\emph{increase} the deeper a debut filing sits into the receding
-legacy vocabulary of its category: late-stage imitation pays, and
-pays more the later one goes. The positive-versus-negative survival
-lift makes the survival curve $U$-shaped in $\Delta KL$. The $+U$
-holds in $32$ of $44$ NICE classes; only one industry has a
-significant inverted-$U$; $11$ are indeterminate. We rule out nine alternative explanations and identify
-the cluster-viability mediator that absorbs $84\%$ of the quadratic
-on survival, leaving a residual linear $\Delta KL$ effect intact.
+We compute a Kullback--Leibler surprise difference $\Delta KL =
+KL_{\text{pros}} - KL_{\text{retr}}$ on each of $10{,}060{,}073$
+U.S.\ trademark filings in $1990$--$2021$ against per-day
+exponentially decay-weighted references of the same NICE class
+(half-life $H = 2$ years; chosen by signal-maximising sweep).
+Trademark filings are a new substrate for the
+prospective/retrospective surprise framework of Murdock, Allen, and
+DeDeo (2017): they are fee-bearing, legally consequential, and
+filed under economic incentive, so the goods/services prose
+reflects the firm's deliberate language choice rather than
+incidental editorial drift. $\Delta KL$ is essentially uncorrelated
+with the dominant alternative innovation proxy --- firm-year patent
+counts, $r = +0.010$ on $174{,}569$ firm-years --- and the magnitude
+of its correlation with $4$-year stock excess returns is comparable
+to (slightly larger than) that of patents: incremental $R^2$ over
+controls of $+0.0046$ for $\Delta KL$ vs.\ $+0.0024$ for $\log(1 +
+n_\text{patents})$. Including both predictors yields $R^2$ gain of
+$+0.0069$, essentially the sum of the two separate contributions:
+the two innovation channels are independent and of comparable
+magnitude.
+
+\textbf{Where $\Delta KL$ aligns with the distinctiveness literature.}
+On debut filings, the response curve of $5$-year post-registration
+survival on the innovation side ($\Delta KL > 0$) is a clean
+saturating exponential: $P(\text{survived}) = 0.995 - 0.55\,
+e^{-0.063\,\Delta KL}$, $R^2 = 0.499$ across $20$ binned points.
+Survival rises with prospective novelty, concave-down, with
+diminishing returns. This is the empirical content of optimal
+distinctiveness (Deephouse, 1999; Zhao, Fisher, Lounsbury, \&
+Miller, 2017) translated from \emph{level} of category-typicality
+to \emph{directional} vocabulary flux.
+
+\textbf{Where it diverges.} The strict inverted-$U$ prediction of
+the optimal-distinctiveness literature ($U$-shaped pay-off on
+distinctiveness level, with a turning point at high distinctiveness)
+does not appear: the response curve keeps rising at the positive
+extreme, with no inflection. More surprisingly, the harvest side
+($\Delta KL < 0$) has its own saturating exponential, fitted much
+more tightly ($R^2 = 0.978$): filings whose vocabulary lies further
+into the receding/legacy side of the category are not penalised but
+rewarded, and the reward grows the deeper the harvest. We read this
+as \emph{increasing returns to late-stage imitation}, not predicted
+by the distinctiveness literature. Together the two saturating
+exponentials produce a survival $U$ on $\Delta KL$ in the pooled
+corpus; the $+U$ holds in $32$ of $44$ NICE classes, only one
+industry has a significant inverted-$U$, and $11$ are indeterminate.
+We rule out nine alternative explanations and identify a
+cluster-viability mediator that absorbs $84\%$ of the quadratic on
+survival, leaving a residual linear $\Delta KL$ effect intact.
+
+\textbf{An unresolved asymmetry: harvest dominates the
+public-listing signal.} The probability that a filing's owner ever
+appears in SEC EDGAR (proxy for IPO/public listing) is, at the
+filing level, monotone \emph{decreasing} in $\Delta KL$ rather than
+$U$-shaped: $5.78\%$ at the most-negative $\Delta KL$ decile, $4.0\%$
+at the flux-neutral middle, $3.49\%$ at the most-positive decile.
+The harvest tail captures the EDGAR-listing pattern far more cleanly
+than the innovation tail does. We do not have a single-mechanism
+explanation for why late-stage-imitation filings are so much more
+strongly associated with the public-listing outcome than novelty
+filings are at the unit of one filing.
+
 A long companion paper (\texttt{main.pdf}) reports the per-industry
-detail, the financial-outcomes panel, and the per-NICE-class deep
-dives.
+detail, the financial-outcomes panel on $\sim 1{,}500$ SEC-listed
+firms, the patent-counts crosswalk, the cluster-viability mediation,
+and the per-NICE-class deep dives.
 \end{abstract}
 
-\section{$\Delta KL$ as an innovation measure: the predicted result}
+\section{$\Delta KL$: construction, novelty of the substrate, and relation to existing innovation measures}
 
-For each filing $i$ at filing-date $t_i$ in NICE class $c$, the
-goods/services term distribution $P_i$ is compared via
-support-restricted KL divergence to two reference distributions
-$Q_i^{\text{pros}}$ and $Q_i^{\text{retr}}$ built by per-day
-exponential decay-weighting (half-life $H = 2$ years; the
+\paragraph{Construction.} For each filing $i$ at filing-date $t_i$
+in NICE class $c$, the goods/services term distribution $P_i$ is
+compared via support-restricted KL divergence to two reference
+distributions $Q_i^{\text{pros}}$ and $Q_i^{\text{retr}}$ built by
+per-day exponential decay-weighting (half-life $H = 2$ years; the
 signal-maximising choice across a sweep of $H \in \{0.5,1,2,3,5\}$
 years on Class~9) of all other filings in $c$ before and after
 $t_i$ respectively. $\Delta KL_i = KL_i^{\text{pros}} -
 KL_i^{\text{retr}}$ is positive when filing $i$'s vocabulary is
-unusual against the recent past \emph{and} closer to the near future
---- the directional resonance signal of Murdock, Allen \& DeDeo
-(\emph{Cognition}, 2017) applied to commercially incentivised text.
-The two component levels are correlated at $\rho = 0.99$ per filing;
-the difference is the directional residual.
+unusual against the recent past \emph{and} closer to the near
+future --- the directional resonance signal of Murdock, Allen, and
+DeDeo (2017) applied to commercially incentivised text. The two
+component levels are correlated at $\rho = 0.99$ per filing; the
+difference is the directional residual.
 
-\paragraph{Hypothesis going in.} Filings at positive $\Delta KL$ ---
-prospectively novel and retrospectively obvious --- should outperform
-on the standard measures of firm success: registration approval,
-post-registration survival, financial returns. $\Delta KL$ should be
-\emph{additive} to patent counts, not a noisy redrawing of the same
-construct.
+\paragraph{Why trademarks.} Trademark goods/services prose is a new
+substrate for the prospective/retrospective surprise framework, and
+its properties make it well-suited to the measurement question.
+Filings are \emph{fee-bearing} (each U.S.\ class costs the applicant
+\$250-\$350; abandonment penalties accrue), \emph{legally
+consequential} (granted marks become enforceable property rights;
+non-use within five years is grounds for cancellation), and
+\emph{filed under economic incentive} (firms file when they intend
+to commercialise, not when they're being literary). The prose
+therefore reflects deliberate language choice by a commercial actor
+with real money at stake on the front end and real legal exposure on
+the back end. Prior applications of the surprise framework (Murdock,
+Allen, \& DeDeo, 2017, on long-form essays; Barron, Huang, Spang, \&
+DeDeo, 2018, on parliamentary speech) have used corpora where the
+authors faced reputational but not direct economic cost for their
+linguistic choices. The trademark corpus is the first such
+application to incentivised commercial text at this scale
+($10$+ million filings).
 
-\paragraph{Confirmed.} Conditional on positive $\Delta KL$, the
-4-year excess-return coefficient over the S\&P~500 is monotone
-across firm-year deciles, the firm-debut 4-year excess-return effect
-size is approximately $+28$ percentage points per $\sigma$ of
-debut $\Delta KL$, and trailing-3-year mean $\Delta KL$ predicts
-$+3.2$ pp higher gross margin per $\sigma$ (SE $0.6$ pp) on the
-matched SEC-listed firm panel. $\Delta KL$ is essentially uncorrelated
-with firm-year patent counts ($r = +0.010$ on $174{,}569$ firm-years)
-and \emph{sub-additive} with patent counts in the $R^2$
-decomposition: the two predictors together explain more variance
-than either alone plus the residual would suggest, indicating they
-index distinct innovation channels. Patents proxy a firm's continuing
-R\&D output; $\Delta KL$ on the firm's debut filing proxies whether
-the firm started in fertile linguistic ground. This is the predicted
-result and we treat it as the warm-up; the unexpected finding
-follows.
+\paragraph{Relation to patents.} The dominant innovation measure in
+the firm-level empirical literature is the patent count (Hall, Jaffe,
+\& Trajtenberg, 2005; Kogan, Papanikolaou, Seru, \& Stoffman, 2017).
+$\Delta KL$ is essentially uncorrelated with firm-year patent counts
+($r = +0.010$ on $174{,}569$ firm-years), and the magnitude of its
+correlation with $4$-year excess stock returns is comparable to (and
+slightly larger than) that of patents. In the firm-year R$^2$
+decomposition for predicting $4$-year excess returns over the S\&P
+500: controls-only $R^2 = 0.0211$; adding $\log(1 + n_\text{patents})$
+gives $R^2 = 0.0235$ (incremental $+0.0024$); adding $\Delta KL$
+alone gives $R^2 = 0.0257$ (incremental $+0.0046$, roughly twice
+patents); including both gives $R^2 = 0.0280$ (incremental $+0.0069$
+over controls, essentially the sum of the two contributions). The
+two innovation channels are independent and of comparable magnitude.
+Patents proxy a firm's continuing R\&D output; $\Delta KL$ on the
+firm's debut filing proxies whether the firm started in fertile
+linguistic ground.
+
+\paragraph{Relation to the distinctiveness literature, in advance.}
+The closest-adjacent management-theory framework is optimal
+distinctiveness (Deephouse, 1999; Zhao, Fisher, Lounsbury, \&
+Miller, 2017), which predicts an inverted-$U$ payoff on the
+\emph{level} of category-distinctiveness: too typical is invisible,
+too distinctive is illegitimate. $\Delta KL$ is not a level measure
+of distinctiveness; it is a \emph{directional} measure of where a
+filing sits between recent past and near future of the category's
+vocabulary. The results that follow align with the empirical content
+of optimal distinctiveness on the positive-$\Delta KL$ side
+(saturating returns to novelty) but diverge from its strict
+inverted-$U$ prediction (no turn-down at the extreme) and add a
+second saturating-exponential response curve on the harvest side
+that the literature does not predict. We present both as results.
 
 \section{Two results: optimal distinctiveness on the innovation tail; increasing rewards to late-stage imitation on the harvest tail}
 
@@ -106,28 +164,35 @@ follows.
 \includegraphics[width=\linewidth]{results/outcome_by_kl_lines_v2.png}
 \caption{Three outcomes by KL bin (Wilson 95\% CIs as error bars),
 pooled across all $44$ NICE classes; $n = 10{,}060{,}073$ clean
-H=2y filings, $1990$--$2021$ cohorts. Panel A: probability the
-filing reached registration. \textbf{Panel B: probability the
-mark survived $5$ years \emph{conditional on having reached
-registration}} (the substantive post-registration mortality
-outcome). Panel C: probability the owner ever appears in SEC EDGAR.
-On $\Delta KL$ (blue) all three panels show the $U$. On the
-component KLs, registration is monotone-up (more-distinctive marks
-collide less with prior art and clear examination more easily under
-$15$~U.S.C.\ \S\,1052(d)); conditional 5y survival is U-shaped only
-on $\Delta KL$, indicating the post-registration mortality
-asymmetry is a flux phenomenon and not a distinctiveness phenomenon.}
+H=2y filings, $1990$--$2021$ cohorts. Each panel shows a different
+shape on $\Delta KL$ (blue). \textbf{Panel A
+($P(\text{reached registration})$):} $U$-shaped on $\Delta KL$,
+asymmetric, with the harvest extreme ($54.8\%$) higher than the
+innovation extreme ($47.5\%$) and the flux-neutral middle lowest
+($\sim 45\%$). \textbf{Panel B ($P(\text{survived 5y} \mid
+\text{reached registration})$):} \emph{monotone increasing} in
+$\Delta KL$ --- once past the examiner, more prospective novelty
+means more survival. The substantive post-registration mortality
+signal favours the innovation side. \textbf{Panel C ($P(\text{owner
+ever in SEC EDGAR})$):} \emph{monotone decreasing} in $\Delta KL$
+($5.78\%$ at the most-negative decile to $3.49\%$ at the
+most-positive decile). The public-listing signal is dominated by
+the harvest tail; we discuss this unresolved asymmetry below. On
+the component KLs (red, green), registration is monotone-up
+(more-distinctive marks collide less with prior art and clear
+examination more easily under $15$~U.S.C.\ \S\,1052(d)).}
 \label{fig:short-headline}
 \end{figure}
 
-Figure~\ref{fig:short-headline} is the central empirical object. The
-flux-neutral middle of $\Delta KL$ ($\Delta KL \approx 0$) has the
-lowest post-registration $5$-year survival rate in the corpus. Both
-extremes outperform it: filings whose vocabulary anticipated where
-the field was going (the predicted positive-$\Delta KL$ winners) and
-\emph{also} filings whose vocabulary was closer to where the field
-had been --- the harvest extreme. The functional form of each tail
-is itself informative.
+Figure~\ref{fig:short-headline} is the central empirical object.
+The $U$ on \emph{joint} 5-year survival (reached registration
+\emph{and} still live; not separately plotted but obtained by
+multiplying Panel A by Panel B per bin) places the flux-neutral
+middle of $\Delta KL$ lowest in the corpus at $37\%$ vs.\ $44\%$ at
+the harvest extreme and $41\%$ at the innovation extreme. Both
+extremes outperform the middle on this joint outcome; the
+functional form of each tail tells a different theoretical story,
+to which we now turn.
 
 \paragraph{Innovation tail: optimal distinctiveness as a saturating
 exponential.} On the debut-filings-only panel ($n = 5{,}088{,}700$
