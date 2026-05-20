@@ -1,0 +1,12 @@
+Debut-only panel: n = 5,088,700 filings.
+Overall corr(ΔKL, survived_5y):     Pearson r = -0.0306  Spearman = -0.0376
+
+Negative-ΔKL side (n = 2,586,126):
+  corr(|ΔKL|, survived):  Pearson r = +0.0545  Spearman = +0.0583
+  Exponential fit y = a + b*exp(-c*|ΔKL|):  a=0.5729, b=-0.1374, c=3.328
+  R² of exponential fit on 20 binned points: 0.9783
+
+Positive-ΔKL side (n = 2,502,574):
+  corr(ΔKL, survived):  Pearson r = +0.0142  Spearman = +0.0111
+  Exponential fit y = a + b*exp(-c*ΔKL):  a=0.9955, b=-0.5502, c=0.063
+  R² of exponential fit on 20 binned points: 0.4994

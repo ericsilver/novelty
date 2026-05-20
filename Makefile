@@ -89,8 +89,14 @@ $(RES)/survival_by_kl_lines.png: $(ANALYSIS_DEPS)
 	$(PPYTHON) scripts/survival_by_kl_lines.py
 $(RES)/outcome_by_kl_lines.png: $(ANALYSIS_DEPS)
 	$(PPYTHON) scripts/outcome_by_kl_lines.py
+$(RES)/outcome_by_kl_lines_v2.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/outcome_by_kl_lines_v2.py
 $(RES)/debut_outcome_by_kl.png: $(ANALYSIS_DEPS)
 	$(PPYTHON) scripts/debut_outcome_by_kl.py
+$(RES)/debut_harvest_fit.png: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/debut_harvest_fit.py
+$(RES)/u_shape_industry_year_table.tex: $(ANALYSIS_DEPS)
+	$(PPYTHON) scripts/u_shape_industry_year_matrix.py
 $(RES)/halflife_signal_class009.png: $(ANALYSIS_DEPS)
 	$(PPYTHON) scripts/halflife_signal.py
 
@@ -120,7 +126,10 @@ FIGURES := \
   $(RES)/_metrics.json \
   $(RES)/survival_by_kl_lines.png \
   $(RES)/outcome_by_kl_lines.png \
+  $(RES)/outcome_by_kl_lines_v2.png \
   $(RES)/debut_outcome_by_kl.png \
+  $(RES)/debut_harvest_fit.png \
+  $(RES)/u_shape_industry_year_table.tex \
   $(RES)/halflife_signal_class009.png \
   $(RES)/symmetric_flux_tokens.tex \
   $(RES)/vanishing_trend_examples.txt \
@@ -142,7 +151,10 @@ paper: paper/main.pdf paper/short.pdf
 paper/main.pdf: paper/main.tex $(FIGURES)
 	cd paper && pdflatex -interaction=nonstopmode main.tex
 	cd paper && pdflatex -interaction=nonstopmode main.tex
-paper/short.pdf: paper/short.tex $(RES)/outcome_by_kl_lines.png $(RES)/competition_density.png
+paper/short.pdf: paper/short.tex \
+                 $(RES)/outcome_by_kl_lines_v2.png \
+                 $(RES)/u_shape_industry_year_table.tex \
+                 $(RES)/competition_density.png
 	cd paper && pdflatex -interaction=nonstopmode short.tex
 	cd paper && pdflatex -interaction=nonstopmode short.tex
 

@@ -21,35 +21,48 @@
 \maketitle
 
 \begin{abstract}
-We measure vocabulary flux in firm activity using the goods-and-services
-descriptions of $16.5$ million U.S.\ trademark filings since 1985, across
-all 45 NICE international (industry) classes. For each filing we compute
-two information-theoretic surprise scores against per-day exponentially
-decay-weighted reference distributions of the same NICE class:
-\emph{prospective surprise} (distance from the recent past) and
-\emph{retrospective surprise} (distance from the near future). Their
-difference $\Delta KL = KL_{\text{pros}} - KL_{\text{retr}}$ is a
-\emph{flux} signal: positive when a filing's vocabulary anticipates
-where the field is going, negative when it extracts from where the
-field has been. Flux is orthogonal to distinctiveness (the principal
-component the two surprise levels share); the substantive direction
-sits entirely in the residual.
+We propose a Kullback--Leibler surprise difference $\Delta KL =
+KL_{\text{pros}} - KL_{\text{retr}}$ as an innovation measure for
+trademark filings: $\Delta KL > 0$ when a filing's goods/services
+vocabulary is prospectively novel (unusual against the recent past)
+and retrospectively obvious (similar to the near future) --- the
+directional resonance signal of Murdock, Allen \& DeDeo
+(\emph{Cognition}, 2017) applied to commercially incentivised text.
+We compute $\Delta KL$ on each of the $16.5$ million U.S.\ trademark
+filings since 1985 against per-day exponentially decay-weighted
+reference distributions of the same NICE class (half-life $H = 2$
+years; chosen by signal-maximising sweep). The hypothesis going in
+was that firms with positive $\Delta KL$ would outperform on
+standard measures of firm success, and that $\Delta KL$ would be
+additive to the standard patent-count innovation proxy. Both
+predictions are confirmed: $\Delta KL$ predicts 4-year stock
+excess returns and gross margin conditional on positive $\Delta KL$,
+is essentially uncorrelated with patent counts ($r = +0.01$ on
+$174{,}569$ firm-years), and is sub-additive with patents in the
+$R^2$ decomposition --- it indexes a distinct innovation channel.
 
-\textbf{The headline finding is a squeeze on flux-neutral filings.}
-Post-registration 5-year survival is U-shaped in $\Delta KL$ under every
-operationalisation we tried: both the harvest extreme (negative
-$\Delta KL$ --- receding vocabulary, sunsetting categories) and the
-innovate extreme (positive $\Delta KL$ --- emerging vocabulary, the
-2014+ cannabis, crypto, vape, NFT and AI waves) survive at roughly
-$50$--$55\%$; the flux-neutral middle survives at $\sim 45\%$. The
-pattern holds at the per-industry level in $27$ of $44$ industries,
-on token-level survival rates (negative-stratum and positive-stratum
-tokens both survive well above the corpus baseline; neutral tokens
-like \texttt{organisational}, \texttt{conformity}, \texttt{freighting}
-all sit at $11$--$26\%$), and in our hand-curated panel of $41$
-canonical ``winner'' firms ($37/41$ have positive firm-mean
-$\Delta KL$). What the mechanism is --- intelligent harvesting of
-vanishing concepts, recognition of emerging ones, or selection on an
+\textbf{The unexpected and durable finding} is that filings at the
+\emph{opposite} flux extreme --- prospectively obvious and
+retrospectively novel, $\Delta KL < 0$ --- also outperform. On
+debut filings the harvest tail is well-fit by a saturating
+exponential of survival on $|\Delta KL|$ with $R^2 = 0.978$ on $20$
+binned points (innovate-side $R^2 = 0.499$ for comparison). The
+positive-and-negative survival lift makes the survival curve
+$U$-shaped in $\Delta KL$, with the dip at the flux-neutral middle
+($\Delta KL \approx 0$). The pattern holds at the per-industry level
+in $32$ of $44$ NICE classes; only $1$ industry shows a significant
+inverted-$U$; $11$ are indeterminate. Token-level survival rates
+corroborate the U at the corpus level: negative-stratum tokens
+(\texttt{microfiche}, \texttt{dial-up}, \texttt{pager},
+\texttt{lager}, \texttt{annuity}) and positive-stratum tokens
+(\texttt{blockchain}, \texttt{cannabidiol}, \texttt{non-fungible})
+both survive well above the corpus baseline; flux-neutral tokens
+(\texttt{organisational}, \texttt{conformity}, \texttt{freighting})
+survive at $11$--$26\%$ vs.\ a corpus baseline of $\sim 49\%$. In
+our hand-curated panel of $41$ canonical ``winner'' firms,
+$37/41$ have positive firm-mean $\Delta KL$. What the mechanism on
+the harvest side is --- intelligent harvesting of vanishing
+concepts, recognition of emerging ones, or selection on an
 unobservable correlate --- is not separable in the trademark record;
 what is unambiguous is that filings whose vocabulary places them
 squarely \emph{on trend} in the centre of the distribution survive at
@@ -961,22 +974,23 @@ the only one stable across both regimes.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{results/outcome_by_kl_lines.png}
+\includegraphics[width=\linewidth]{results/outcome_by_kl_lines_v2.png}
 \caption{\textbf{Three outcomes by $\Delta KL$, $KL_{\text{pros}}$,
-and $KL_{\text{retr}}$ bin, pooled across all 45 NICE classes
-(n=10.1M clean H=2y filings, 1985--2021).} Each panel is one outcome:
-\textbf{(A)} $P(\text{reached registration})$ --- examiner approval;
-\textbf{(B)} $P(\text{survived 5y conditional on reaching
-registration})$; \textbf{(C)} $P(\text{owner ever in SEC EDGAR})$.
-The supported finding is that $\Delta KL$ (blue) is \emph{U-shaped}
-under every outcome definition --- both flux extremes outperform the
-flux-neutral middle by 5--10 percentage points on post-registration
-survival --- while $KL_{\text{pros}}$ and $KL_{\text{retr}}$
-individually are monotone-increasing on examiner approval and only
-become U-shaped under the strict post-registration mortality criterion.
-The U on $\Delta KL$ is the headline; the U on the components is an
-artefact of layering the maintenance-lapse filter onto the
-approval-monotone regime.}
+and $KL_{\text{retr}}$ bin (Wilson 95\% CIs as error bars), pooled
+across all $44$ NICE classes (n=$10{,}060{,}073$ clean H=2y filings,
+$1990$--$2021$ cohorts).} \textbf{(A)} $P(\text{reached registration})$
+--- examiner approval. \textbf{(B)} $P(\text{currently live at }5y
+\mid \text{reached registration})$ --- the substantive
+post-registration mortality outcome, properly conditioned on
+registration (the V1 figure had a different denominator and was less
+interpretable). \textbf{(C)} $P(\text{owner ever in SEC EDGAR})$.
+The supported finding: $\Delta KL$ (blue) is $U$-shaped on the
+substantive Panel B and on Panel C; the component KLs are
+monotone-increasing on examiner approval (statutorily explainable
+under 15~U.S.C.\ \S\,1052(d), where less-distinctive marks collide
+with prior art) and approximately monotone-increasing on conditional
+survival as well. The $U$ on $\Delta KL$ is therefore not an
+examination-pipeline artefact: it survives the conditional cut.}
 \label{fig:outcome-by-kl}
 \end{figure}
 
@@ -1349,6 +1363,42 @@ average-distinctiveness debut firms ($0.51\%$ overall baseline).
 Niche on day one tends to mean niche at maturity; the IPO sweet
 spot for debut firms is ordinary vocabulary used in a forward-drifting
 direction --- low PC1, high PC2 in the decomposition.
+
+\paragraph{The harvest tail on debut filings is exceptionally
+clean.} The unexpected post-registration-survival lift on the
+negative-$\Delta KL$ side --- the harvest extreme --- is most
+diagnostic on debut filings, where there are no within-firm
+portfolio confounds. On the debut-only panel ($n = 5{,}088{,}700$
+owner-first filings), we fit a saturating exponential of survival
+on $|\Delta KL|$ separately on each side:
+\[
+P(\text{survived 5y}) \;=\; a + b\,e^{-c\,|\Delta KL|}.
+\]
+The harvest side (negative $\Delta KL$, $n = 2{,}586{,}126$) fits
+with $R^2 = 0.978$ on $20$ binned points; the conditional Pearson
+correlation between $|\Delta KL|$ and survival on this side is
+$+0.054$ (Spearman $+0.058$). The innovation side
+(positive $\Delta KL$) is positive in the same direction but much
+noisier --- $R^2 = 0.499$ on $20$ binned points
+(Figure~\ref{fig:debut-harvest-fit}). The harvest tail is doing
+real work and is unmistakably present; the innovation tail is
+present and consistent in sign but visibly less tight on the
+saturating-exponential functional form. We do not claim a
+mechanistic explanation for the difference in tightness.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/debut_harvest_fit.png}
+\caption{\textbf{Saturating-exponential fits on each side of $\Delta
+KL$, debut filings only.} For each filing-side, the 5y survival
+rate by quantile-bin of $|\Delta KL|$ ($20$ bins), with the fit
+$y = a + b\,e^{-c|\Delta KL|}$ overlaid. Left: harvest tail
+($\Delta KL < 0$), $R^2 = 0.978$, conditional $\text{corr}(|\Delta KL|,
+\text{survived}) = +0.054$. Right: innovation tail ($\Delta KL > 0$),
+$R^2 = 0.499$, conditional $\text{corr}(\Delta KL, \text{survived}) =
++0.014$.}
+\label{fig:debut-harvest-fit}
+\end{figure}
 
 \section{Within-firm dynamics and debut quartiles}
 \label{sec:dynamics}
@@ -1987,23 +2037,60 @@ concave-up (``U-shape'').}
 
 \paragraph{The U-shape is present in most --- but not all ---
 industries.} Fitting the quadratic per industry on the 5y-survival
-outcome ($n = 44$ industries with at least $5{,}000$ clean
-filings), the quadratic coefficient on $z(\Delta KL)^2$ is positive
-in $27$ of $44$ industries ($61\%$) and is individually significant
-at $p < 0.05$ in $21$ of those $44$ ($48\%$). The U-shape dominates
-in consumer-goods classes (Household Utensils, Furniture, Leather,
-Textiles, Common Metals, etc.), where heavy templated filing by
-large incumbents and distinct novelty waves coexist. Several large
-information-economy classes show the opposite, an \emph{inverted-U}:
-\textbf{Software \& Electronics} ($t = -18.2$ on
-$\beta_{(\Delta KL)^2}$), \textbf{Insurance \& Financial}
-($t = -13.8$), \textbf{Scientific \& Tech Services} ($t = -12.9$),
-\textbf{Advertising \& Retail} ($t = -10.7$), and
-\textbf{Telecommunications} ($t = -10.6$). In these industries
-$\Delta KL$ acts like a linear positive predictor of survival
-without a harvest tail. Table~\ref{tab:u-shape-industries}
-reports the 15 industries with the strongest U-curvature and the
-5 with the strongest inverted-U.
+outcome \emph{pooled across all years} ($n = 44$ industries with at
+least $5{,}000$ clean filings), the quadratic coefficient on
+$z(\Delta KL)^2$ is positive in $27$ of $44$ industries ($61\%$) and
+individually significant at $p < 0.05$ in $21$ of those $44$ ($48\%$).
+The U-shape dominates in consumer-goods classes (Household Utensils,
+Furniture, Leather, Textiles, Common Metals, etc.), where heavy
+templated filing by large incumbents and distinct novelty waves
+coexist. Several large information-economy classes show the opposite
+on the pooled-years fit, an apparent \emph{inverted-U}: Software \&
+Electronics ($t = -18.2$), Insurance \& Financial ($t = -13.8$),
+Scientific \& Tech Services ($t = -12.9$), Advertising \& Retail
+($t = -10.7$), Telecommunications ($t = -10.6$).
+
+\paragraph{Per-(industry $\times$ year) refinement.} The pooled-years
+fit hides whether an industry is consistently $+U$, consistently
+inverted-$U$, or shifting between regimes. We re-fit the quadratic
+logit separately for every (industry, year) cell ($44$ industries
+$\times$ $32$ years, requiring $\geq 500$ filings and convergent
+logit; $1{,}267$ cells where both conditions hold), and classify each
+industry by the majority-of-years rule with a margin of $2$ cells
+(Table~\ref{tab:u-shape-classification}). On this refinement, the
+pooled-years inverted-$U$ assignment to Software \& Electronics,
+Insurance \& Financial, Scientific \& Tech, and Advertising \&
+Retail is \emph{not} replicated at the year level: those industries
+have year-by-year quadratic coefficients that flip sign and are
+mostly indeterminate. Only one industry has a clean inverted-$U$ at
+the year level (Telecommunications, NICE 038). Eleven additional
+industries are indeterminate (no significant year-level curvature
+in either direction). The $+U$ holds in $32$ of $44$ industries.
+
+\begin{table}[h]
+\centering
+\small
+\input{results/u_shape_industry_year_table.tex}
+\caption{$U$-shape classification of $44$ NICE classes individually
+(majority-of-years rule, margin $= 2$) and of the $1{,}267$
+$($industry, year$)$ cells where a logit fit converged on $\geq 500$
+filings. The pooled $+U$ holds in $32$ of $44$ industries; only $1$
+has a significant inverted-$U$ (Telecommunications); the remaining
+$11$ are indeterminate, not inverted-$U$. Cell-level: $27\%$ have a
+significant $+U$ on $\Delta KL$, $6\%$ a significant inverted-$U$,
+$67\%$ indeterminate. Linear-direction counting at the cell level
+shows a striking asymmetry: $38\%$ of cells have a significant
+linear advantage to \emph{negative} $\Delta KL$ (the harvest
+direction), versus $16\%$ with a significant linear advantage to
+positive $\Delta KL$.}
+\label{tab:u-shape-classification}
+\end{table}
+
+Table~\ref{tab:u-shape-industries}
+reports the pooled-years ranking of the 15 industries with the
+strongest U-curvature and the 5 with the strongest pooled-years
+inverted-$U$, for reference and comparison with the year-level
+classification above.
 
 \begin{table}[h]
 \centering
@@ -2222,12 +2309,20 @@ macro cycle. The pooled-across-years result is the average of mostly
 year-by-year positive coefficients, not an aggregation artefact.
 (9) Competition-density mediation: \textbf{not a confound, but a
 mediator}. On 10{,}000 stratified Class-9 focal filings we count
-near-competitors (cosine $\geq 0.7$ on g/s TF-IDF) within
-$[t-2y,\, t+5y]$ of the focal's filing date and how many survived 5y.
-Flux extremes are in clusters with \emph{more} surviving peers, not
-fewer; the flux-neutral middle has the fewest live peers. Adding
-$\log(1 + \text{live\_competitors})$ as a control absorbs $84\%$ of
-the $\Delta KL$ quadratic on survival (Figure~\ref{fig:competition-density}).
+near-competitors (cosine $\geq 0.7$ on g/s TF-IDF) within an
+asymmetric hard window $[t-2y,\, t+5y]$ of the focal's filing date
+(no decay weighting; this window is for the cosine-neighbour search
+only and is distinct from the H=2y exponential-decay reference used
+for the KL surprise itself --- a separate object). The pre-window of
+2y captures established competitors at filing-time; the post-window
+of 5y matches the focal filing's 5y survival horizon (i.e.\ peers
+that could plausibly have shaped or been shaped by the focal in its
+formative window). We count how many such peers survived 5y from
+their own filing date. Flux extremes are in clusters with \emph{more}
+surviving peers, not fewer; the flux-neutral middle has the fewest
+live peers. Adding $\log(1 + \text{live\_competitors})$ as a control
+absorbs $84\%$ of the $\Delta KL$ quadratic on survival
+(Figure~\ref{fig:competition-density}).
 The U is therefore mediated by niche viability: filings at flux
 extremes sit in vocabulary clusters where peers also survive, and the
 $\Delta KL$ signal is partly a proxy for which clusters can support real

@@ -12,6 +12,11 @@ paper/main.aux
 paper/main.log
 paper/main.out
 paper/main.toc
+paper/short.aux
+paper/short.log
+paper/short.out
+# Large per-filing intermediate; regenerable from scripts/debut_harvest_fit.py
+paper/results/debut_harvest_fit.csv
 # Build logs + transient backup files
 logs/
 *.committed-baseline
