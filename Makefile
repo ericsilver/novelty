@@ -138,16 +138,20 @@ industry: $(RES)/per_industry_appendix.tex
 # ---------------------------------------------------------------------------
 # Stage 5: paper
 # ---------------------------------------------------------------------------
-paper: paper/main.pdf
+paper: paper/main.pdf paper/short.pdf
 paper/main.pdf: paper/main.tex $(FIGURES)
 	cd paper && pdflatex -interaction=nonstopmode main.tex
 	cd paper && pdflatex -interaction=nonstopmode main.tex
+paper/short.pdf: paper/short.tex $(RES)/outcome_by_kl_lines.png $(RES)/competition_density.png
+	cd paper && pdflatex -interaction=nonstopmode short.tex
+	cd paper && pdflatex -interaction=nonstopmode short.tex
 
 # ---------------------------------------------------------------------------
 all: setup tm sec crosswalk analysis paper
 
 clean:
 	rm -f paper/main.aux paper/main.log paper/main.out paper/main.toc
+	rm -f paper/short.aux paper/short.log paper/short.out paper/short.toc
 
 clean-results:
 	rm -f $(RES)/*.png $(RES)/*.tex $(RES)/*.csv $(RES)/*.txt $(RES)/*.json

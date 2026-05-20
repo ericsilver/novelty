@@ -11,8 +11,8 @@
 \usepackage{array}
 \usepackage{pdflscape}
 
-\title{Innovation as prospective-but-not-retrospective surprise:\\
-       Kullback--Leibler novelty scores on 2.0 million USPTO trademark filings}
+\title{Vocabulary flux in U.S.\ trademark filings:\\
+       a Kullback--Leibler surprise analysis of the 16.5-million-filing backfile}
 \author{Eric Silver}
 \affil{}
 \date{April 2026}
@@ -161,47 +161,47 @@ two density floors on the per-class reference distributions
 ensure $KL$ scores reflect a real vocabulary distribution rather than
 small-sample noise, and a per-filing token-count floor
 ($n_{\text{terms}} \geq 3$) that prevents 1- or 2-token descriptions
-from producing degenerate $KL$ values. Of $16{,}730{,}022$ raw
-filings, $\textbf{7{,}908{,}949}$ ($47.3\%$) survive the full filter
-and form the analytic corpus.
+from producing degenerate $KL$ values. Of $16{,}530{,}448$ raw
+filings with parsed surprise data, $\textbf{10{,}060{,}073}$
+($60.9\%$) survive the full filter and form the analytic corpus.
 
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{lrrr}
+\begin{tabular}{lrr}
 \toprule
-Clause & dropped alone & added back if dropped \\
+Clause & dropped alone & added back if relaxed \\
        & (vs.\ raw, \%)& (vs.\ \textsc{clean}, \%) \\
 \midrule
-\texttt{year} $\geq 1990$           & $1{,}246{,}246$ ($7.4\%$)   & $+2{,}597$ ($+0.0\%$) \\
-\texttt{year} $\leq 2018$           & $5{,}821{,}920$ ($34.8\%$)  & $+4{,}952{,}237$ ($+62.6\%$) \\
-\texttt{n\_ref\_pros} $\geq 1{,}000$ & $2{,}709{,}751$ ($16.2\%$)  & $+9{,}140$ ($+0.1\%$) \\
-\texttt{n\_ref\_retr} $\geq 1{,}000$ & $2{,}931{,}686$ ($17.5\%$)  & $+0$ ($+0.0\%$) \\
-$n_{\text{terms}} \geq 3$           & $3{,}639{,}965$ ($21.8\%$)  & $+602{,}341$ ($+7.6\%$) \\
+\texttt{year} in $[1990, 2021]$      & $4{,}490{,}092$ ($27.2\%$)  & $+2{,}985{,}245$ ($+29.7\%$) \\
+\texttt{n\_ref\_pros} $\geq 1{,}000$ & $2{,}503{,}062$ ($15.1\%$)  & $+3{,}371$ ($+0.0\%$) \\
+\texttt{n\_ref\_retr} $\geq 1{,}000$ & $2{,}543{,}635$ ($15.4\%$)  & $+0$ ($+0.0\%$) \\
+$n_{\text{terms}} \geq 3$           & $3{,}440{,}391$ ($20.8\%$)  & $+745{,}431$ ($+7.4\%$) \\
 \midrule
-\textsc{clean} (all of the above)   & $8{,}821{,}073$ ($52.7\%$)  & --- \\
+\textsc{clean} (all of the above)   & $6{,}470{,}375$ ($39.1\%$ excluded) & --- \\
 \bottomrule
 \end{tabular}
-\caption{Per-clause filter effects on the $16{,}730{,}022$-filing raw
+\caption{Per-clause filter effects on the $16{,}530{,}448$-filing raw
 corpus. ``Dropped alone'' is the share that fails the clause when
-applied in isolation to the raw corpus; ``added back'' is the share
-that the clause is uniquely binding on, i.e.\ what would re-enter the
-analytic corpus if we relaxed only that one clause. The two density
-floors (\texttt{n\_ref\_pros}, \texttt{n\_ref\_retr}) are nearly
-redundant once the year window is in place: their alone-restriction
-is large because they bind on the burn-in years 1985--1989 and
-2021--2025, which the year clauses already exclude.}
+applied in isolation to the raw corpus; ``added back'' is what would
+re-enter the analytic corpus if we relaxed only that one clause while
+keeping the others. The year window is the dominant binder; the two
+$N_{\text{eff}}$ density floors are nearly redundant once the year
+window is in place because they bind on the same burn-in years
+(1985--1989 on the past side, 2022--2025 on the future side) that
+the year clause already excludes.}
 \label{tab:clean-filter}
 \end{table}
 
-The dominant binder is the upper year cutoff, \texttt{year}
-$\leq 2018$, which alone accounts for $5.0$M of the $5.0$M filings
-that the post-registration survival outcome could not be observed for
-on the May 2026 data extraction. The lower bound, \texttt{year}
-$\geq 1990$, is the literal five-year arithmetic burn-in described in
-the Method section. The token-count floor, $n_{\text{terms}} \geq 3$,
-is the only other clause that uniquely excludes a meaningful share
-($+602$k filings rescued if dropped); when we look at the templated
+The dominant binder is the year window, $[1990, 2021]$. The lower
+bound is the literal arithmetic burn-in described in the Method
+section (the corpus begins in 1984 and we leave a margin for the
+decay reference). The upper bound is the cohort cap: with a 2026
+freeze date and a 5-year post-registration survival window, filings
+must be from 2021 or earlier for \texttt{survived\_5y} to be
+observable. The token-count floor, $n_{\text{terms}} \geq 3$, is the
+only other clause that uniquely excludes a meaningful share ($+745$k
+filings rescued if dropped); when we look at the templated
 short-description analysis in Section~\ref{sec:templated-survival} we
 report results both with and without this clause, since the most
 heavily templated G/S strings (\textit{e.g.}~``restaurant services'',
