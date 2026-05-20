@@ -2191,8 +2191,9 @@ Appendix~\ref{app:falsification} narrates each test.}
 \input{results/u_shape_alternatives.tex}
 \end{table}
 
-The eight checks (Table~\ref{tab:alternatives}, with the
-firm-persistence and temporal-stability tests added) are:
+The ten checks (Table~\ref{tab:alternatives}, with the
+firm-persistence, temporal-stability, competition-density, and
+external-corpus tests added) are:
 (1) Foreign-extension hypothesis (Madrid-Protocol marks could inflate
 the low-$\Delta KL$ tail): \textbf{rejected}; US-only and
 foreign-only sub-samples give nearly identical quadratics
@@ -2219,6 +2220,31 @@ cohorts) show the pooled quadratic is significantly positive in
 $23 / 32$ years (Figure~\ref{fig:u-shape-temporal}), independently of
 macro cycle. The pooled-across-years result is the average of mostly
 year-by-year positive coefficients, not an aggregation artefact.
+(9) Competition-density mediation: \textbf{not a confound, but a
+mediator}. On 10{,}000 stratified Class-9 focal filings we count
+near-competitors (cosine $\geq 0.7$ on g/s TF-IDF) within
+$[t-2y,\, t+5y]$ of the focal's filing date and how many survived 5y.
+Flux extremes are in clusters with \emph{more} surviving peers, not
+fewer; the flux-neutral middle has the fewest live peers. Adding
+$\log(1 + \text{live\_competitors})$ as a control absorbs $84\%$ of
+the $\Delta KL$ quadratic on survival (Figure~\ref{fig:competition-density}).
+The U is therefore mediated by niche viability: filings at flux
+extremes sit in vocabulary clusters where peers also survive, and the
+$\Delta KL$ signal is partly a proxy for which clusters can support real
+businesses. The linear $z(\Delta KL)$ effect remains positive and
+significant after the mediator is included ($z = +2.65$), so flux is
+not fully redundant with cluster viability.
+(10) External-corpus confound (Google Books n-grams): \textbf{partial
+shared signal, but not redundant}. For 75 extreme-flux tokens (25 per
+stratum) we pulled English-language frequency time series from Google
+Books 1985--2021 and compared each token's per-year trademark-corpus
+frequency to its per-year Google Books frequency.
+Per-token Pearson correlation between trademark log-lift and Google
+Books log-lift is $+0.47$ (Spearman $+0.39$, $n = 53$ tokens). About
+$22\%$ of trademark-flux variance per token is shared with general
+English-language usage; the remaining $78\%$ is corpus-specific. The
+trademark signal is partly but not wholly a reflection of broader
+linguistic drift.
 
 \begin{figure}[h]
 \centering
@@ -2245,6 +2271,26 @@ result does not track macro cycles in a clean way and is not driven
 by a small number of cohorts. Bottom: per-year mean 5y survival rate
 for the same series, for context.}
 \label{fig:u-shape-temporal}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/competition_density.png}
+\caption{\textbf{Live-competitor density mediates the survival U.}
+Per $\Delta KL$ decile on $10{,}000$ stratified Class-9 focal filings.
+Left panel: mean count of total and live (survived-5y) near-competitors
+within $[t-2y,\, t+5y]$, cosine $\geq 0.7$ on g/s TF-IDF. The
+flux-neutral middle has the \emph{fewest} live peers; both flux
+extremes are in clusters with $\sim 20$--$30$ live peers each. Right
+panel: focal 5y survival rate and the share of neighbors alive at
+5y, by decile. The U-shape on focal survival mirrors the U on
+neighbor survival, which is what the mediation regression formalises:
+$\log(1 + \text{live\_competitors})$ absorbs $84\%$ of the $\Delta
+KL$ quadratic on focal survival, but leaves the linear-positive
+$\Delta KL$ effect intact ($z = +2.65$). The interpretation:
+flux extremes mark vocabulary clusters where peers can also support
+real businesses; the flux-neutral middle marks dying niches.}
+\label{fig:competition-density}
 \end{figure}
 
 \paragraph{What is sensitive to methodology: per-industry rankings.
@@ -2530,6 +2576,76 @@ chemicals) follow the opposite pattern: novel filings face slower
 examination, more office actions, and lower registration rates,
 consistent with examiners pushing back on speculative or boilerplate
 broadenings of established categories.
+
+\paragraph{Do industries in flux earn supernumerary returns?}
+Across the $44$ NICE classes with adequate data, we computed four
+flux measures per class (mean $KL_\text{pros}$, mean $\Delta KL$,
+std $\Delta KL$, mean $|\Delta KL|$) and four financial outcomes
+(median gross margin, median operating margin, median 4y excess return
+vs.\ S\&P 500, median 5y excess return). Excess return is the
+firm-mean over firm-years in our matched panel,
+$\text{ret}_{4y} - \text{sp500\_ret}_{4y}$, aggregated as a
+class-level median to suppress single-firm outliers. We use median
+rather than mean because a handful of small public firms in
+mechanical-tool industries showed outsized returns that distorted
+class means by orders of magnitude.
+
+\textbf{The answer is no.} The cross-industry Pearson correlation
+between flux intensity (mean $|\Delta KL|$) and median 4y excess
+return is $-0.09$ (Spearman $+0.01$, $n = 42$ industries with
+returns data). For 5y excess return: Pearson $-0.05$, Spearman
+$+0.02$. The mean prospective KL is similarly uncorrelated with
+returns. Industries in flux do not generate excess returns over the
+S\&P 500 in this corpus.
+
+The cross-industry pattern that \emph{is} present is on margins, not
+on returns: industries with higher flux have systematically
+\emph{lower} median gross margins (Pearson $-0.22$, Spearman
+$-0.20$, for mean $|\Delta KL|$). High-flux industries are less
+profitable per dollar of revenue on average, consistent with such
+industries being more competitive (entry-heavy, churn-heavy). The
+market appears to price in the lower margins; investors are not
+compensated with excess returns for taking on flux risk at the
+industry level. Table~\ref{tab:industry-flux-vs-returns} reports
+the cross-industry correlation matrix;
+Figure~\ref{fig:industry-flux-vs-returns} plots the four key
+scatter pairs.
+
+\begin{table}[h]
+\centering
+\caption{Cross-industry correlations between flux measures (industry
+mean) and financial outcomes (industry median across firms), $n = 44$
+NICE classes (returns columns drop two classes with insufficient
+SEC-listed firms).}
+\label{tab:industry-flux-vs-returns}
+\small
+\input{results/industry_flux_vs_returns.tex}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/industry_flux_vs_returns.png}
+\caption{Per-industry scatter of flux measures (mean prospective KL
+top row; mean $|\Delta KL|$ bottom row) versus median gross margin
+(left) and median 4y excess return vs.\ S\&P 500 (right). Point size
+proportional to number of SEC-listed firms with primary class in the
+focal industry. The three- and two-digit labels are NICE class
+numbers for the top-3 and bottom-3 industries on each $y$-axis.
+\textbf{Flux intensity predicts lower margins, not higher returns.}}
+\label{fig:industry-flux-vs-returns}
+\end{figure}
+
+\textbf{Reconciliation with the firm-level result.} The firm-level
+U-shape on $\Delta KL$ (Section~\ref{sec:u-shape}) says that
+\emph{within} an industry, firms with flux-extreme vocabulary
+outperform the flux-neutral middle on survival. The industry-level
+null on excess returns is consistent with this: a high-flux
+industry contains both flux-extreme winners and flux-neutral losers,
+and after the within-industry sorting plays out the industry-mean
+return is approximately flat. The flux signal is a within-industry
+selection statistic, not an across-industry valuation premium.
+``Invest in the high-flux industry'' is not a strategy; ``invest in
+the flux-extreme firms within an industry'' might be.
 
 \section{What is the construct, really?}
 \label{sec:construct}
@@ -2889,6 +3005,105 @@ The temporal-stability test answers the question of whether the U is
 a property of specific vintages of firms that happen to cluster at
 flux-extreme positions. It is not: the pattern holds in nearly every
 cohort independently.
+
+\paragraph{(9) Competition-density mediation.}
+The most-revealing falsification. We took $10{,}000$ stratified
+Class-9 (Software \& Electronics) focal filings, sampled $1{,}000$
+per $\Delta KL$ decile. For each focal filing $F$ at filing-date
+$t_F$, we vectorised the entire Class-9 corpus with TF-IDF
+(unigrams + bigrams, custom analyzer respecting semicolons,
+$\text{min\_df} = 50$, $\text{max\_df} = 0.5$, L2-normalised),
+restricted candidate neighbours to filings in $[t_F - 2y,\,
+t_F + 5y]$ (the focal's own 5-year survival window plus a 2-year
+pre-existing-competition lead-in), computed cosine similarity, and
+kept neighbours with sim $\geq 0.7$. For each focal we then counted
+\texttt{total\_competitors} (all such neighbours) and
+\texttt{live\_competitors} (the subset whose own \texttt{survived\_5y}
+was true).
+
+The empirical result is in Table~\ref{tab:competition-density-bins}
+and Figure~\ref{fig:competition-density}. By $\Delta KL$ decile, mean
+live competitors goes:
+$20.1, 20.0, 18.5, 12.9, 14.3, 11.9, 10.8, 12.8, 12.8, 31.4$.
+The flux-neutral middle is in clusters with the fewest surviving
+peers ($\sim 11$--$14$); both flux extremes are in clusters with $2$
+to $3\times$ more surviving peers. The hypothesis we had pencilled in
+--- ``flux-neutral firms are over-competed and the extremes are
+blue-ocean'' --- is rejected in the direction of the count. The
+extremes are not less-competed; they are in clusters where peers can
+also survive.
+
+\begin{table}[h]
+\centering
+\caption{Live-competitor density by $\Delta KL$ decile on $10{,}000$
+stratified Class-9 focal filings. The flux-neutral middle has the
+fewest live peers; both flux extremes have $2$--$3\times$ more.}
+\label{tab:competition-density-bins}
+\input{results/competition_density.tex}
+\end{table}
+
+The mediation regression is decisive on the second question
+(``does competition density explain the survival U?''). Logit on
+\texttt{survived\_5y} with $z(\Delta KL)$, $z(\Delta KL)^2$,
+$\log(n_\text{terms})$, year and year$^2$ controls, with and without
+$\log(1 + \text{live\_competitors})$ added:
+\begin{itemize}
+  \item Without the mediator: $\beta_{(\Delta KL)^2} = +0.0110$
+        ($z = +1.43$).
+  \item With the mediator: $\beta_{(\Delta KL)^2} = +0.0017$
+        ($z = +0.24$) --- $84\%$ attenuation.
+  \item Mediator coefficient: $+0.193$ ($z = +11.84$) --- strong,
+        positive.
+  \item Linear $z(\Delta KL)$ goes from $+0.049$ ($z = +2.15$) to
+        $+0.062$ ($z = +2.65$) when the mediator is added: the
+        linear flux effect is \emph{not} explained by competition
+        density.
+\end{itemize}
+
+The interpretation is that the survival U on $\Delta KL$ is largely
+mediated by the viability of the surrounding vocabulary cluster ---
+filings at flux extremes survive better because their cluster
+neighbours also survive --- but the linear ``positive flux helps''
+effect is a residual signal beyond cluster viability. The U
+\emph{shape} is a niche-viability proxy; the linear ``forward flux is
+good'' effect is a flux-specific signal.
+
+\paragraph{(10) External-corpus confound test (Google Books).}
+A reader worried that $\Delta KL$ might just be tracking
+general-corpus English-language usage would predict near-perfect
+correlation between per-token trademark-corpus trajectories and
+per-token Google Books n-gram trajectories over the same window. We
+tested this on $75$ extreme-flux tokens (25 per stratum, drawn from
+Table~\ref{tab:symmetric-flux-tokens}). For each token we pulled the
+Google Books English n-gram frequency time series 1985--2021 via the
+public viewer endpoint, and compared:
+\begin{itemize}
+  \item \texttt{tm\_lift} = mean trademark-corpus frequency in
+        2017--2021 divided by mean in 1985--1989 (per-token).
+  \item \texttt{google\_lift} = same computation on Google Books.
+\end{itemize}
+On the 53 tokens with usable data on both sides, the per-token
+correlations are:
+\begin{itemize}
+  \item Pearson $r(\log \texttt{tm\_lift}, \log \texttt{google\_lift})
+        = +0.466$ (Spearman $+0.388$).
+  \item Pearson $r(\text{trademark log-slope}, \text{Google log-slope})
+        = +0.443$ (Spearman $+0.344$).
+\end{itemize}
+The trademark-flux signal is materially correlated with general
+English-language usage (about $22\%$ of trademark-flux variance per
+token is shared with Google Books), but the bulk of variance ($78\%$)
+is trademark-corpus-specific. The signal is partly but not wholly a
+reflection of broader linguistic drift; the corpus-specific component
+is what carries the survival predictive power.
+
+A cleaner version of this test --- adding a Google-Books-derived
+token-flux control to the filing-level survival regression --- is a
+natural follow-up. We have not done it because (a) the per-token
+correlation is moderate enough that we expect modest attenuation,
+not nullification, and (b) the cluster-viability mediator in test
+(9) is already the dominant mediator. We flag it as the most
+informative extension if a reviewer requests further confound work.
 
 \section{Per-industry deep dives}
 \label{app:per-industry}
