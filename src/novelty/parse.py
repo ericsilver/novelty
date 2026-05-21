@@ -26,6 +26,8 @@ class CaseFile:
     nice_classes: list[str] = field(default_factory=list)
     us_classes: list[str] = field(default_factory=list)
     owner_name: str | None = None
+    owner_state: str | None = None  # US state (2-char) if US-domiciled
+    owner_country: str | None = None  # 2-char ISO country (e.g., 'US', 'CN', 'JP')
     goods_services: str = ""
 
 
@@ -60,11 +62,18 @@ def _record_to_case_file(elem) -> CaseFile:
                     us.append(n.text.strip())
 
     owner_name = None
+    owner_state = None
+    owner_country = None
     owners = elem.find("case-file-owners")
     if owners is not None:
         first = owners.find("case-file-owner")
         if first is not None:
             owner_name = _text(first, "party-name")
+            # USPTO Trademark Case File DTD: case-file-owner has child
+            # elements address-1, address-2, city, state (US 2-letter),
+            # postcode, country (2-letter ISO). Older records may omit.
+            owner_state = _text(first, "state")
+            owner_country = _text(first, "country")
 
     parts: list[str] = []
     statements = elem.find("case-file-statements")
@@ -86,6 +95,8 @@ def _record_to_case_file(elem) -> CaseFile:
         nice_classes=sorted(set(nice)),
         us_classes=sorted(set(us)),
         owner_name=owner_name,
+        owner_state=owner_state,
+        owner_country=owner_country,
         goods_services=goods,
     )
 

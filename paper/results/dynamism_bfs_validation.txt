@@ -1,0 +1,16 @@
+BFS validation of USPTO trademark debut counts as a business-formation proxy
+============================================================================
+USPTO debut years available: 1884-2026
+BFS years available (complete months): 2005-2025
+Overlap years for correlation: 21 (debut years intersected with complete BFS years)
+
+Pearson  r (levels)         : +0.935
+Spearman r (levels)         : +0.934
+Pearson  r (year-over-year) : +0.558
+
+Interpretation:
+  - Level correlation captures the joint trend (both grew over 2004-2025).
+  - YoY correlation is a stricter test of co-movement once the trend is removed.
+  - YoY r > 0.5 supports the trademark debut count as a higher-resolution
+    complement to BFS. YoY r near 0 means the two series only share a trend,
+    not turning points.

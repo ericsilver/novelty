@@ -1,0 +1,219 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\definecolor{flagcolor}{HTML}{8b0000}
+
+\title{Dynamism brief: results review and validations in progress}
+\author{Eric Silver}
+\affil{}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\noindent
+This is a short read-along of the business-dynamism work on the
+\texttt{business-dynamism} branch. Three new analyses since the last
+PDF, plus a hypothesis the user posed (``nearly the entire drop in
+registration is due to decrease in White-founded firms'') tested
+against our data.
+
+\section*{Plot 1: US firms in existence + entry rate, 1978--2023}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/firm_stock_flow.png}
+\caption{\textbf{Top:} the US firm stock (Census BDS, annual). $3.6$M
+firms in 1978, $5.6$M in 2023 -- a $1.6\times$ rise. The denominator
+in the dynamism literature \emph{grew}. \textbf{Bottom:} establishment
+entry and exit rates. The Decker, Haltiwanger, Jarmin, \& Miranda
+(2014, \emph{JEP}) ``$12\%$ to $8\%$'' decline is the entry-rate
+line. The exit rate fell in parallel; the gap between entry and exit
+(net firm change) compressed but stayed positive.}
+\end{figure}
+
+\paragraph{What this means for our coverage question.} The dynamism
+decline is a \emph{rate} story, not an \emph{absolute count} story.
+There are more firms than ever, but the share of them that are new
+each year fell roughly in half. The denominator in our USPTO/BFS
+coverage ratio (BFS-HBA) is approximately constant in absolute
+counts $2004$--$2018$ ($\sim 1.2$M HBA/year), then jumps with the
+pandemic-era surge ($\sim 1.7$M HBA/year, $2020$--$2024$).
+
+\clearpage
+\section*{Plot 2: USPTO debut filings by surname-imputed ethnicity, absolute counts}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/surname_ethnicity_counts.png}
+\caption{\textbf{Top:} log-scale absolute counts of USPTO debut
+filers whose name parses as a personal name, by surname-imputed
+race/ethnicity (Census 2010 surname probabilities). \textbf{Bottom:}
+stacked-area linear-scale of the same. Dashed vertical line at
+$2019.6$: USPTO foreign-counsel rule (Aug 3, 2019, requiring
+foreign-domiciled applicants to use US-licensed counsel). Dotted
+line at $2021.7$: USPTO signature-verification rule.}
+\end{figure}
+
+\paragraph{Testing the hypothesis that ``the entire drop in
+registration is due to decline in White-founded firms''.} The data do
+not support this. \textbf{White debut count is not declining.} Absolute
+debut counts among White-classified surname filers were $\sim 31$K in
+$2018$, $\sim 32$K in $2019$, $\sim 30$K in $2022$, $\sim 32$K in
+$2024$ -- essentially flat over a seven-year window. The pandemic
+years ($2020$--$2021$) spiked to $40$--$44$K, then reverted.
+
+\noindent
+\textbf{What did change is Asian/Pacific Islander.}
+The API-classified count went from $\sim 9$K in $2018$ to $35$K in
+$2020$, then to $\sim 22$K in $2022$, then to $\sim 27$K in $2024$.
+The Aug-2019 foreign-counsel rule and the Aug-2021
+signature-verification rule are both visible: each is followed by an
+API retreat (foreign filers withdrew under the new compliance
+burden), but the retreat is partial, and API counts in $2024$ remain
+$\sim 3\times$ their pre-$2018$ level.
+
+\noindent
+The fall in White \emph{share} ($75\%$ in $1990$s, $44\%$ in $2020$--$24$)
+is therefore an arithmetic consequence of API \emph{growth}, not a
+White \emph{decline}. The dynamism decline ($12\% \to 8\%$ in BDS) is
+about firms in the BLS/Census universe, not in our trademark
+sub-population, so this finding does not refute the dynamism story
+itself -- it refutes \emph{a particular causal attribution} of the
+trademark-side shift to White-founded firms specifically.
+
+\clearpage
+\section*{Plot 3: Sectoral coverage (NICE--NAICS), 2004--2024}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/sectoral_coverage.png}
+\caption{USPTO debut filings as a share of BFS High-Propensity
+Business Applications, by NAICS sector, log scale. Sectoral
+crosswalk is the first-cut hand-built mapping in
+\texttt{reference\_data/nice\_naics\_crosswalk.csv}.}
+\end{figure}
+
+\paragraph{Coarseness of the first-pass crosswalk.} Manufacturing
+(\texttt{NAICSMNF}) sits implausibly high ($\sim 588\%$ in
+$2019$--$2024$) because the hand-built crosswalk assigns nearly every
+NICE goods class ($001$--$034$) to Manufacturing, including NICE $009$
+which alone has $\sim 3$M filings and is dominantly \emph{software/tech}
+businesses, not hardware manufacturing. Hall, Helmers, Rogers, \&
+Sena ($2014$, \emph{JEL}) document this exact NICE--NAICS attribution
+problem and recommend allocating $009$ across NAICS $334$
+(electronics manufacturing), $511$ (publishing), and $541$
+(professional services) via goods/services text similarity rather
+than a single primary code. This refinement is a clear next step.
+
+\noindent
+The remaining sectors fall in plausible ranges:
+\begin{itemize}\setlength\itemsep{0pt}
+\item Arts/Entertainment ($71$): $85\%$ -- artists/musicians/studios trademark heavily
+\item Agriculture ($11$): $12\%$ -- farm trademark filings against ag SS-4 base
+\item Finance/Insurance ($52$): $12\%$
+\item Retail Trade ($44$--$45$): $10\%$
+\item Prof.\ Sci.\ Tech.\ ($54$): $6\%$
+\item Information ($51$): $5\%$ (artificially low because software pulled into MNF)
+\item Health Care ($62$): $3\%$
+\item Transport/Warehouse: $2\%$
+\item Accommodation/Food ($72$): $2\%$ -- restaurants trademark rarely
+\item Construction ($23$): $2\%$ -- contractors rarely trademark
+\end{itemize}
+
+The Accommodation/Food number ($2\%$) is worth flagging: this is
+where ``IHOP'' / franchise consolidation lives, and the very-low
+coverage means trademark data is a poor lens on dynamism in this
+sector. We would need state Secretary-of-State filings or SBA loan
+data to see independent-restaurant dynamics.
+
+\clearpage
+\section*{Coverage of new business formation (recap, with refinement)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/dynamism_coverage.png}
+\caption{From the earlier write-up: USPTO debut filers vs.\ BFS BA and
+HBA, $2004$--$2024$. Headline: $8\%$ in $2004$--$2008$ rising to
+$17.6\%$ in $2019$--$2024$ against the HBA denominator.}
+\end{figure}
+
+The two-decade rise in coverage is real and substantial, but the
+mechanism is now decomposable across the three readings we outlined:
+\begin{enumerate}\setlength\itemsep{0pt}
+\item Sectoral tilt toward IP-intensive sectors (more software / DTC
+brands relative to construction / restaurants): visible in the
+sectoral plot above, but not cleanly quantifiable until the
+NICE-NAICS crosswalk is refined.
+\item Falling cost of filing: not separately testable from our data
+alone.
+\item Denominator dilution by non-operating SS-4 filings: BFS-HBA
+specifically excludes these by design, so this reading is partly
+ruled out, but the $5\%$--$6\%$ ratio against BFS-BA (the unfiltered
+SS-4 series) is consistent with substantial non-operating dilution
+in the BA series.
+\end{enumerate}
+
+\section*{Status of the foreign-applicant deconfounding}
+
+The cleanest test of whether the post-$2018$ API surge is foreign or
+US Asian-American requires extracting the
+\texttt{<case-file-owner>/<state>} and
+\texttt{<case-file-owner>/<country>} fields from the USPTO XML.
+
+\paragraph{Parser extension: done and verified.} The streaming parser
+(\texttt{src/novelty/parse.py}) now extracts \texttt{owner\_state} and
+\texttt{owner\_country}.  A smoke test on the 2017-05-21 daily file
+($1{,}558$ records) confirms the fields populate correctly:
+\begin{itemize}\setlength\itemsep{0pt}
+\item $64.2\%$ of records have a US state (US-domiciled).
+\item $35.6\%$ of records have a country tag (foreign-domiciled).
+\item Top foreign country in the 2017 sample is already China
+($97$ filings, $\sim 6.2\%$ of all 2017-05-21 applications).
+\end{itemize}
+
+\paragraph{Full re-parse: blocked on \texttt{USPTO\_ODP\_API\_KEY}.}
+The Open Data Portal at \texttt{data.uspto.gov} now gates bulk
+archive downloads behind an API key. To run the full backfile
+re-parse (\texttt{make -f Makefile.dynamism reparse}, expected
+runtime $30$--$60$ minutes), add a key to \texttt{.env}:
+\begin{verbatim}
+USPTO_ODP_API_KEY=<your-key-from-data.uspto.gov>
+\end{verbatim}
+
+\section*{Pipeline status (\texttt{Makefile.dynamism})}
+
+\begin{tabular}{lll}
+\toprule
+Stage & Target & Status \\
+\midrule
+Download reference data & \texttt{make ... download}   & complete (BFS, Census surnames, BDS) \\
+Hand-built crosswalk    & \texttt{nice\_naics\_crosswalk.csv} & v1 in repo; refinement needed \\
+Analysis (5 figures)    & \texttt{make ... analysis}   & complete \\
+Re-parse USPTO XML      & \texttt{make ... reparse}    & \textcolor{flagcolor}{\textbf{blocked: API key}} \\
+Review PDF              & \texttt{make ... review}     & this document \\
+Open locally            & \texttt{make ... open}       & macOS \texttt{open} command \\
+\bottomrule
+\end{tabular}
+
+\section*{What I'd want feedback on}
+\begin{enumerate}\setlength\itemsep{2pt}
+\item Confirm that the rejection of the White-decline hypothesis is
+read correctly: White absolute count is stable at $\sim 31$K/yr since
+$2018$; the share fall is API growth, not White decline.
+\item Should I refine the NICE-NAICS crosswalk for NICE $009$
+specifically (split across MNF/Information/Prof.\ Sci.\ Tech.\ by
+goods/services text)? It would meaningfully change the sectoral
+plot but is non-trivial work.
+\item Provision an \texttt{USPTO\_ODP\_API\_KEY} so the full re-parse
+can run, or use the iCloud-cached daily files for a smaller sample?
+\end{enumerate}
+
+\end{document}

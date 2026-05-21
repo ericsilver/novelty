@@ -1,0 +1,128 @@
+# Business-dynamism analysis pipeline
+# ===================================
+#
+# Companion to the main Makefile. Builds the trademark-vs-Census coverage
+# analysis, the surname-based ethnic composition, the sectoral coverage
+# decomposition, and the review PDF. Independent of the ΔKL/innovation
+# work but assumes data/processed/tm_class*.parquet already exists.
+#
+# Top-level targets:
+#   make -f Makefile.dynamism download   download all reference data
+#   make -f Makefile.dynamism analysis   regenerate every figure + table
+#   make -f Makefile.dynamism review     compile review PDF
+#   make -f Makefile.dynamism open       open review PDF (macOS)
+#   make -f Makefile.dynamism all        download + analysis + review + open
+#   make -f Makefile.dynamism reparse    re-parse USPTO XML for state/country
+#                                        (requires USPTO_ODP_API_KEY in .env;
+#                                         runtime ~30-60 minutes; not in 'all')
+#
+# Reference data is cached under reference_data/. Re-download by removing
+# the corresponding directory.
+
+PY      := .venv/bin/python
+PPYTHON := PYTHONPATH=src $(PY)
+REF     := reference_data
+RES     := paper/results
+PROC    := data/processed
+
+.PHONY: all download analysis review open reparse clean help
+
+help:
+	@echo "Targets:"
+	@echo "  download   download BFS + Census surname + BDS reference data"
+	@echo "  analysis   regenerate every figure + table"
+	@echo "  review     compile review PDF (paper/dynamism_review.pdf)"
+	@echo "  open       open review PDF on macOS"
+	@echo "  all        download + analysis + review + open"
+	@echo "  reparse    re-parse USPTO XML for state/country (needs API key, ~30-60min)"
+	@echo "  clean      remove generated figures and review PDF intermediates"
+
+# ---------------------------------------------------------------------------
+# Stage 1: reference data download
+# ---------------------------------------------------------------------------
+download: $(REF)/bfs/bfs_monthly.csv \
+          $(REF)/bfs/bfs_quarterly.csv \
+          $(REF)/census_surnames/Names_2010Census.csv \
+          $(REF)/bds/bds_national.csv \
+          $(REF)/nice_naics_crosswalk.csv
+
+$(REF)/bfs/bfs_monthly.csv:
+	mkdir -p $(REF)/bfs
+	curl -sL -o $@ "https://www.census.gov/econ/bfs/csv/bfs_monthly.csv"
+
+$(REF)/bfs/bfs_quarterly.csv:
+	mkdir -p $(REF)/bfs
+	curl -sL -o $@ "https://www.census.gov/econ/bfs/csv/bfs_quarterly.csv"
+
+$(REF)/census_surnames/Names_2010Census.csv:
+	mkdir -p $(REF)/census_surnames
+	curl -sL -o $(REF)/census_surnames/names.zip \
+	    "https://www2.census.gov/topics/genealogy/2010surnames/names.zip"
+	cd $(REF)/census_surnames && unzip -o names.zip Names_2010Census.csv
+
+$(REF)/bds/bds_national.csv:
+	mkdir -p $(REF)/bds
+	curl -sL -o $@ "https://www2.census.gov/programs-surveys/bds/tables/time-series/2023/bds2023.csv"
+
+# nice_naics_crosswalk.csv is a hand-built mapping checked into the repo;
+# no download target.
+
+# ---------------------------------------------------------------------------
+# Stage 2: analysis
+# ---------------------------------------------------------------------------
+analysis: $(RES)/dynamism_coverage.png \
+          $(RES)/surname_ethnicity.png \
+          $(RES)/surname_ethnicity_counts.png \
+          $(RES)/firm_stock_flow.png \
+          $(RES)/sectoral_coverage.png
+
+$(RES)/dynamism_coverage.png: scripts/business_dynamism_coverage.py $(REF)/bfs/bfs_monthly.csv
+	$(PPYTHON) $<
+
+$(RES)/surname_ethnicity.png: scripts/surname_ethnicity.py $(REF)/census_surnames/Names_2010Census.csv
+	$(PPYTHON) $<
+
+$(RES)/surname_ethnicity_counts.png: scripts/surname_ethnicity_counts.py $(RES)/surname_ethnicity.png
+	$(PPYTHON) $<
+
+$(RES)/firm_stock_flow.png: scripts/firm_stock_and_flow.py $(REF)/bds/bds_national.csv
+	$(PPYTHON) $<
+
+$(RES)/sectoral_coverage.png: scripts/sectoral_coverage.py $(REF)/bfs/bfs_monthly.csv $(REF)/nice_naics_crosswalk.csv
+	$(PPYTHON) $<
+
+# ---------------------------------------------------------------------------
+# Stage 3: (optional) re-parse USPTO XML to extract state and country
+# ---------------------------------------------------------------------------
+reparse: $(PROC)/owner_address.parquet
+
+$(PROC)/owner_address.parquet:
+	@if [ -z "$$USPTO_ODP_API_KEY" ] && ! grep -q '^USPTO_ODP_API_KEY=..*' .env 2>/dev/null; then \
+	    echo "ERROR: USPTO_ODP_API_KEY not set. Add to .env (get key at https://data.uspto.gov)."; \
+	    exit 2; \
+	fi
+	$(PPYTHON) scripts/extract_owner_addresses.py
+
+# ---------------------------------------------------------------------------
+# Stage 4: review PDF
+# ---------------------------------------------------------------------------
+review: paper/dynamism_review.pdf
+
+paper/dynamism_review.pdf: paper/dynamism_review.tex \
+                           $(RES)/dynamism_coverage.png \
+                           $(RES)/firm_stock_flow.png \
+                           $(RES)/surname_ethnicity_counts.png \
+                           $(RES)/sectoral_coverage.png
+	cd paper && pdflatex -interaction=nonstopmode dynamism_review.tex
+	cd paper && pdflatex -interaction=nonstopmode dynamism_review.tex
+
+open: paper/dynamism_review.pdf
+	open paper/dynamism_review.pdf
+
+all: download analysis review open
+
+clean:
+	rm -f paper/dynamism_review.aux paper/dynamism_review.log paper/dynamism_review.out
+	rm -f $(RES)/dynamism_coverage.png $(RES)/surname_ethnicity*.png
+	rm -f $(RES)/firm_stock_flow.png $(RES)/sectoral_coverage.png
+	rm -f paper/dynamism_review.pdf

@@ -1,0 +1,11 @@
+C1: top-N owner concentration descriptives
+============================================================
+
+Headline numbers (selected classes, 1985 vs 2025):
+
+Class | Top-10 share 1985 | Top-10 share 2025 | Slope pp/yr | Top-5 owners
+  042 Scientific & Tech Services       |   2.7% |   0.8% | -0.023 | Amazon Technologies, Inc.; Microsoft Corporation; International Data Group, Inc.
+  009 Software & Electronics           |   2.3% |   1.0% | -0.025 | Samsung Electronics Co., Ltd.; IGT; Microsoft Corporation; INTERNATIONAL BUSINES
+  016 Paper, Print & Office            |   3.4% |   1.0% | -0.067 | KONAMI CORPORATION; International Data Group, Inc.; Disney Enterprises, Inc.; Ko
+  035 Advertising & Retail             |   5.5% |   0.5% | -0.075 | Target Brands, Inc.; Amazon Technologies, Inc.; UNITED STATES POSTAL SERVICE; De
+  038 Telecommunications               |  13.5% |   2.9% | -0.327 | MCI Communications Corporation; AT&T INTELLECTUAL PROPERTY II, L.P.; Deutsche Te
