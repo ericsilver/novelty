@@ -1,0 +1,878 @@
+cls,class_name,owner_name,ipo_fy,n_filings_5y
+001,Chemicals & Industrial,BIOAMBER INC.,2013,8
+001,Chemicals & Industrial,"Bellicum Pharmaceuticals, Inc.",2015,5
+001,Chemicals & Industrial,Celularity Inc.,2019,6
+001,Chemicals & Industrial,Compass Therapeutics LLC,2018,7
+001,Chemicals & Industrial,"Cytek Biosciences, Inc.",2021,7
+001,Chemicals & Industrial,"Eco Building Products, Inc.",2012,5
+001,Chemicals & Industrial,"Forma Therapeutics, Inc.",2020,7
+001,Chemicals & Industrial,"Grove, Inc.",2021,6
+001,Chemicals & Industrial,INSTIL BIO INC.,2021,5
+001,Chemicals & Industrial,"NANTKWEST, INC.",2015,9
+001,Chemicals & Industrial,"Nautilus Biotechnology, Inc.",2021,7
+001,Chemicals & Industrial,Neptune Wellness Solutions Inc.,2021,9
+001,Chemicals & Industrial,"New Energy Technologies, Inc.",2012,6
+001,Chemicals & Industrial,"Organovo, Inc",2012,11
+001,Chemicals & Industrial,"Prometheus Biosciences, Inc.",2021,5
+001,Chemicals & Industrial,"SOLARWINDOW TECHNOLOGIES, INC.",2012,8
+001,Chemicals & Industrial,"Singular Genomics Systems, Inc.",2021,10
+001,Chemicals & Industrial,"T2 Biosystems, Inc.",2014,14
+001,Chemicals & Industrial,"Zero Gravity Solutions, Inc.",2015,9
+002,Paints & Coatings,Axalta Coating Systems IP Co. LLC,2016,23
+003,Cosmetics & Cleaning,Bumble Holding Limited,2021,10
+003,Cosmetics & Cleaning,CRONOS GROUP INC.,2019,9
+003,Cosmetics & Cleaning,Canopy Growth Corporation,2019,7
+003,Cosmetics & Cleaning,"Geo Management, Inc.",2016,8
+003,Cosmetics & Cleaning,"Grove Collaborative, Inc.",2021,29
+003,Cosmetics & Cleaning,"Immudyne, Inc.",2013,7
+003,Cosmetics & Cleaning,"Kythera Biopharmaceuticals, Inc.",2012,12
+003,Cosmetics & Cleaning,Neptune Wellness Solutions Inc.,2021,18
+003,Cosmetics & Cleaning,Nextcell Medical Company,2012,6
+003,Cosmetics & Cleaning,"Olaplex, Inc.",2021,5
+003,Cosmetics & Cleaning,"Pura Naturals, Inc.",2013,5
+004,Lubricants & Fuels,Bumble Holding Limited,2021,7
+004,Lubricants & Fuels,California Resources Corporation,2014,5
+005,Pharmaceuticals,AFT Pharmaceuticals Limited,2020,5
+005,Pharmaceuticals,"ARATANA THERAPEUTICS, INC.",2013,8
+005,Pharmaceuticals,AbbVie Inc.,2013,47
+005,Pharmaceuticals,"Aclaris Therapeutics, Inc.",2015,10
+005,Pharmaceuticals,Alector LLC,2019,5
+005,Pharmaceuticals,"Allogene Therapeutics, Inc.",2018,12
+005,Pharmaceuticals,"Amylyx Pharmaceuticals, Inc.",2022,6
+005,Pharmaceuticals,"Animal Pharmaceuticals, Inc.",2018,5
+005,Pharmaceuticals,"Aprea Therapeutics, Inc.",2019,5
+005,Pharmaceuticals,"Aquestive Therapeutics, Inc.",2018,18
+005,Pharmaceuticals,"Arcutis Biotherapeutics, Inc.",2020,9
+005,Pharmaceuticals,"Atara Biotherapeutics, Inc.",2014,7
+005,Pharmaceuticals,"Atea Pharmaceuticals, Inc.",2020,5
+005,Pharmaceuticals,"Athenex, Inc.",2017,14
+005,Pharmaceuticals,"Aucta Pharmaceuticals, Inc.",2020,5
+005,Pharmaceuticals,"Audentes Therapeutics, Inc.",2016,5
+005,Pharmaceuticals,Aurinia Pharmaceuticals Inc.,2020,8
+005,Pharmaceuticals,"Auspex Pharmaceuticals, Inc.",2014,5
+005,Pharmaceuticals,"Avenue Therapeutics, Inc.",2017,5
+005,Pharmaceuticals,"Avidity Biosciences, Inc.",2020,9
+005,Pharmaceuticals,Axovant Sciences GmbH,2015,11
+005,Pharmaceuticals,"BeiGene, Ltd.",2016,30
+005,Pharmaceuticals,"Bellicum Pharmaceuticals, Inc.",2015,15
+005,Pharmaceuticals,"BioAtla, Inc.",2021,8
+005,Pharmaceuticals,Biohaven Pharmaceutical Holding Company Limited,2017,8
+005,Pharmaceuticals,"Bioxcel Therapeutics, Inc.",2018,10
+005,Pharmaceuticals,Bumble Holding Limited,2021,15
+005,Pharmaceuticals,Canopy Growth Corporation,2019,19
+005,Pharmaceuticals,Celularity Inc.,2019,12
+005,Pharmaceuticals,"Clovis Oncology, Inc.",2012,6
+005,Pharmaceuticals,"Codiak Biosciences, Inc.",2020,5
+005,Pharmaceuticals,"Coherus BioSciences, Inc.",2014,6
+005,Pharmaceuticals,Compass Therapeutics LLC,2018,7
+005,Pharmaceuticals,"CytomX Therapeutics, Inc.",2015,7
+005,Pharmaceuticals,"DERMTECH, INC.",2017,9
+005,Pharmaceuticals,"Day One Biopharmaceuticals, Inc.",2021,9
+005,Pharmaceuticals,"Dicerna Pharmaceuticals, Inc.",2014,5
+005,Pharmaceuticals,"Dyne Therapeutics, Inc.",2020,5
+005,Pharmaceuticals,"Edge Therapeutics, Inc.",2015,7
+005,Pharmaceuticals,Entos Pharmaceuticals Inc.,2021,5
+005,Pharmaceuticals,"Entrada Therapeutics, Inc.",2021,7
+005,Pharmaceuticals,"Forma Therapeutics, Inc.",2020,9
+005,Pharmaceuticals,"Frequency Therapeutics, Inc.",2019,5
+005,Pharmaceuticals,"Galera Therapeutics, Inc.",2019,8
+005,Pharmaceuticals,Gamida Cell Inc.,2021,7
+005,Pharmaceuticals,"Geo Management, Inc.",2016,6
+005,Pharmaceuticals,"Global Blood Therapeutics, Inc.",2015,12
+005,Pharmaceuticals,"Grace Therapeutics, Inc.",2019,5
+005,Pharmaceuticals,"GreenLight Biosciences, Inc.",2021,5
+005,Pharmaceuticals,"Grove Collaborative, Inc.",2021,14
+005,Pharmaceuticals,"Grove, Inc.",2021,11
+005,Pharmaceuticals,"Harpoon Therapeutics, Inc.",2018,5
+005,Pharmaceuticals,"Homology Medicines, Inc.",2018,5
+005,Pharmaceuticals,"ICC HOLDINGS, LLC",2017,9
+005,Pharmaceuticals,INSTIL BIO INC.,2021,9
+005,Pharmaceuticals,"ISP ACQUISITION COMPANY, INC.",2022,5
+005,Pharmaceuticals,"Immudyne, Inc.",2013,8
+005,Pharmaceuticals,"Intellia Therapeutics, Inc.",2016,5
+005,Pharmaceuticals,"Invivyd, Inc.",2021,7
+005,Pharmaceuticals,"JAGUAR HEALTH, INC.",2015,5
+005,Pharmaceuticals,"Juno Therapeutics, Inc.",2015,8
+005,Pharmaceuticals,"Kala Pharmaceuticals, Inc.",2017,9
+005,Pharmaceuticals,"Karuna Therapeutics, Inc.",2019,5
+005,Pharmaceuticals,Karyopharm Therapeutics Inc.,2013,10
+005,Pharmaceuticals,"KemPharm, Inc.",2015,7
+005,Pharmaceuticals,"Kindred Biosciences, Inc.",2014,25
+005,Pharmaceuticals,"Kiromic Biopharma, Inc.",2020,7
+005,Pharmaceuticals,"Kite Pharma, Inc.",2014,20
+005,Pharmaceuticals,"Kymera Therapeutics, Inc.",2020,6
+005,Pharmaceuticals,"Kythera Biopharmaceuticals, Inc.",2012,27
+005,Pharmaceuticals,"Le-Vel Brands, LLC",2017,24
+005,Pharmaceuticals,"Lenz Therapeutics, Inc.",2021,9
+005,Pharmaceuticals,LifeVantage Corporation,2012,5
+005,Pharmaceuticals,"Loxo Oncology, Inc.",2014,5
+005,Pharmaceuticals,Mallinckrodt LLC,2013,18
+005,Pharmaceuticals,"Marrone Bio Innovations, Inc.",2013,18
+005,Pharmaceuticals,"Mirum Pharmaceuticals, Inc.",2019,9
+005,Pharmaceuticals,"NANTKWEST, INC.",2015,9
+005,Pharmaceuticals,NUVATION BIO INC.,2021,11
+005,Pharmaceuticals,"NUZEE, INC.",2012,5
+005,Pharmaceuticals,"Neos Therapeutics, Inc.",2015,9
+005,Pharmaceuticals,Neptune Wellness Solutions Inc.,2021,13
+005,Pharmaceuticals,Nextcell Medical Company,2012,5
+005,Pharmaceuticals,Nutrafuels,2013,5
+005,Pharmaceuticals,OPTINOSE INC.,2017,5
+005,Pharmaceuticals,"Omega Therapeutics, Inc.",2021,12
+005,Pharmaceuticals,"Organovo, Inc",2012,11
+005,Pharmaceuticals,Ovid Therapeutics Inc.,2017,9
+005,Pharmaceuticals,"Oxygen Biotherapeutics, Inc.",2012,10
+005,Pharmaceuticals,"Oyster Point Pharma, Inc.",2019,11
+005,Pharmaceuticals,"PHARMAGENX, INC.",2012,10
+005,Pharmaceuticals,"Pazoo, Inc.",2012,5
+005,Pharmaceuticals,"Portola Pharmaceuticals, Inc.",2013,15
+005,Pharmaceuticals,"Precision BioSciences, Inc.",2019,6
+005,Pharmaceuticals,"Prometheus Biosciences, Inc.",2021,5
+005,Pharmaceuticals,"RAPT THERAPEUTICS, INC.",2019,9
+005,Pharmaceuticals,"RVL PHARMACEUTICALS, INC.",2018,6
+005,Pharmaceuticals,"Reata Pharmaceuticals, Inc.",2016,5
+005,Pharmaceuticals,"Recro Pharma, Inc.",2014,5
+005,Pharmaceuticals,"Relypsa, Inc.",2014,8
+005,Pharmaceuticals,Replimune Limited,2018,6
+005,Pharmaceuticals,"Rhythm Pharmaceuticals, Inc.",2017,7
+005,Pharmaceuticals,Roivant Sciences GmbH,2021,14
+005,Pharmaceuticals,"Rubius Therapeutics, Inc.",2018,6
+005,Pharmaceuticals,"SERES THERAPEUTICS, INC.",2015,7
+005,Pharmaceuticals,SQZ Biotechnologies Company,2020,8
+005,Pharmaceuticals,Seraphina Therapeutics,2018,6
+005,Pharmaceuticals,"Seres Therapeutics, Inc.",2015,11
+005,Pharmaceuticals,"Singular Genomics Systems, Inc.",2021,8
+005,Pharmaceuticals,"Spark Therapeutics, Inc.",2015,31
+005,Pharmaceuticals,"Surface Oncology, Inc.",2018,5
+005,Pharmaceuticals,"Synlogic, Inc.",2015,6
+005,Pharmaceuticals,"T2 Biosystems, Inc.",2014,14
+005,Pharmaceuticals,"TNI BIOTECH, INC.",2013,7
+005,Pharmaceuticals,"Tarsus Pharmaceuticals, Inc.",2020,14
+005,Pharmaceuticals,"Tetraphase Pharmaceuticals, Inc.",2013,10
+005,Pharmaceuticals,Teva Pharmaceutical Industries Limited,2017,38
+005,Pharmaceuticals,"Tocagen, Inc.",2017,5
+005,Pharmaceuticals,"Tricida, Inc.",2018,14
+005,Pharmaceuticals,"Trovagene, Inc.",2012,7
+005,Pharmaceuticals,Urovant Sciences GmbH,2018,5
+005,Pharmaceuticals,V International,2015,14
+005,Pharmaceuticals,"VIELA BIO, INC.",2019,8
+005,Pharmaceuticals,"VOR BIOPHARMA, INC.",2021,5
+005,Pharmaceuticals,VSL Pharmaceuticals Inc.,2018,7
+005,Pharmaceuticals,Verona Pharma PLC,2020,5
+005,Pharmaceuticals,"Versartis, Inc.",2014,5
+005,Pharmaceuticals,"Vertical Pharmaceuticals, LLC",2018,21
+005,Pharmaceuticals,Virpax Pharmaceuticals Inc.,2021,7
+005,Pharmaceuticals,"Vital Pharmaceuticals, Inc.,",2014,10
+005,Pharmaceuticals,"Vitane Pharmaceuticals, Inc.",2014,8
+005,Pharmaceuticals,"Xeris Pharmaceuticals, Inc.",2018,17
+005,Pharmaceuticals,"Y-mAbs Therapeutics, Inc",2018,7
+005,Pharmaceuticals,"ZS PHARMA, INC.",2014,7
+005,Pharmaceuticals,Zoetis LLC,2013,19
+005,Pharmaceuticals,aTyr Pharma,2015,11
+005,Pharmaceuticals,"iSatori, Inc.",2012,6
+006,Common Metals,Agriforce Growing Systems Ltd.,2021,6
+006,Common Metals,"FTC Solar, Inc.",2021,8
+006,Common Metals,Wayfair LLC,2014,22
+006,Common Metals,WireCo WorldGroup Inc.,2012,7
+007,Machines & Power Tools,"ABM International, Inc.",2012,6
+007,Machines & Power Tools,"Berkshire Grey, Inc.",2021,10
+007,Machines & Power Tools,"Cricut, Inc.",2021,8
+007,Machines & Power Tools,"Desktop Metal, Inc.",2019,10
+007,Machines & Power Tools,"DoorDash, Inc.",2020,9
+007,Machines & Power Tools,"Energy Vault, Inc.",2021,5
+007,Machines & Power Tools,NCS MULTISTAGE LLC,2017,5
+007,Machines & Power Tools,Rocket Lab USA Inc.,2021,7
+007,Machines & Power Tools,"SPX FLOW, Inc.",2015,9
+007,Machines & Power Tools,"Sauer Energy, Inc.",2012,7
+008,Hand Tools,Bumble Holding Limited,2021,8
+008,Hand Tools,"W.S. Industries, Inc.",2012,5
+009,Software & Electronics,"10X Genomics, Inc.",2019,7
+009,Software & Electronics,"AEYE, Inc.",2020,6
+009,Software & Electronics,Airgain Incorporated,2016,12
+009,Software & Electronics,"Akoya Biosciences, Inc.",2021,8
+009,Software & Electronics,"Allegro MicroSystems, LLC",2020,9
+009,Software & Electronics,Altair Engineering Inc,2017,8
+009,Software & Electronics,"Alteryx, Inc.",2017,6
+009,Software & Electronics,"Aries Technology, LLC",2022,10
+009,Software & Electronics,"BBMK Technologies, LLC",2018,6
+009,Software & Electronics,"Berkshire Grey, Inc.",2021,5
+009,Software & Electronics,"Box, Inc.",2015,14
+009,Software & Electronics,Bubblr Limited,2021,5
+009,Software & Electronics,Bumble Holding Limited,2021,66
+009,Software & Electronics,"C3.AI, Inc.",2021,13
+009,Software & Electronics,"CDK Global, LLC",2015,5
+009,Software & Electronics,"Charge Enterprises, Inc.",2021,7
+009,Software & Electronics,Columbia Care LLC,2022,5
+009,Software & Electronics,Coupang Corp.,2021,45
+009,Software & Electronics,"Cytek Biosciences, Inc.",2021,13
+009,Software & Electronics,DXC Technology Company,2017,8
+009,Software & Electronics,DataChat Inc.,2021,5
+009,Software & Electronics,"Datadog, Inc.",2019,8
+009,Software & Electronics,"DoorDash, Inc.",2020,25
+009,Software & Electronics,Dragonfly Energy Corp.,2021,7
+009,Software & Electronics,ENERGOUS CORPORATION,2014,5
+009,Software & Electronics,"ENSYNC, INC.",2012,11
+009,Software & Electronics,"ESS Tech, Inc.",2021,5
+009,Software & Electronics,Energous Corporation,2014,6
+009,Software & Electronics,"Energy Vault, Inc.",2021,10
+009,Software & Electronics,"Enphase Energy, Inc.",2012,5
+009,Software & Electronics,"Espen Technology, Inc",2022,6
+009,Software & Electronics,"Evolv Technologies, Inc.",2020,10
+009,Software & Electronics,"Expion360, Inc",2022,8
+009,Software & Electronics,FOXO TECHNOLOGIES INC.,2022,5
+009,Software & Electronics,"Fusion-IO, Inc.",2012,5
+009,Software & Electronics,GDC Technology Limited,2017,7
+009,Software & Electronics,Gigamon Inc.,2013,6
+009,Software & Electronics,GitLab Inc.,2021,6
+009,Software & Electronics,"GoodRx, Inc.",2020,9
+009,Software & Electronics,"HYPERFINE, INC.",2021,5
+009,Software & Electronics,"Humbl, Inc.",2022,6
+009,Software & Electronics,"I3 VERTICALS, LLC",2018,5
+009,Software & Electronics,"IonQ, Inc.",2021,12
+009,Software & Electronics,"Jive Software, Inc.",2012,6
+009,Software & Electronics,"Knightscope, Inc.",2021,5
+009,Software & Electronics,"KnowBe4, Inc.",2021,14
+009,Software & Electronics,"Kyocera Communications, Inc.",2012,72
+009,Software & Electronics,"L3 Technologies, Inc.",2016,7
+009,Software & Electronics,"Le Technology, Inc.",2014,29
+009,Software & Electronics,Lindsay Corporation,2012,5
+009,Software & Electronics,"MISTRAS Group, Inc.",2012,14
+009,Software & Electronics,"MSP Recovery, LLC",2020,5
+009,Software & Electronics,"MX TECHNOLOGIES, INC.",2012,12
+009,Software & Electronics,"Meta Platforms, Inc.",2012,7
+009,Software & Electronics,"Mobix Labs, Inc.",2022,7
+009,Software & Electronics,Movano Inc.,2021,8
+009,Software & Electronics,"Mueller International, LLC",2012,16
+009,Software & Electronics,National Bank Holdings Corporation,2012,6
+009,Software & Electronics,"Nautilus Biotechnology, Inc.",2021,7
+009,Software & Electronics,Navitas Semiconductor Limited,2020,7
+009,Software & Electronics,Nuvectra Corporation,2016,5
+009,Software & Electronics,"Organovo, Inc",2012,5
+009,Software & Electronics,"Ouster, Inc.",2021,6
+009,Software & Electronics,"Patriot National, Inc.",2015,9
+009,Software & Electronics,Paymentus Corporation,2021,12
+009,Software & Electronics,"Peloton Interactive, Inc.",2020,9
+009,Software & Electronics,"Pure Storage, Inc.",2015,14
+009,Software & Electronics,Quantenna Communications Inc.,2017,6
+009,Software & Electronics,"Recursion Pharmaceuticals, Inc.",2021,9
+009,Software & Electronics,"Redwire Holdings, LLC",2021,13
+009,Software & Electronics,Rockley Photonics Limited,2021,5
+009,Software & Electronics,"Romeo Power, Inc.",2019,7
+009,Software & Electronics,SALT BLOCKCHAIN INC.,2021,6
+009,Software & Electronics,"SHOALS TECHNOLOGIES GROUP, LLC",2021,14
+009,Software & Electronics,SPLUNK INC.,2012,5
+009,Software & Electronics,Sezzle Inc.,2021,5
+009,Software & Electronics,"Shift4 Payments, LLC",2020,18
+009,Software & Electronics,"Singular Genomics Systems, Inc.",2021,7
+009,Software & Electronics,Snap Inc.,2017,45
+009,Software & Electronics,"Snap One, LLC",2021,5
+009,Software & Electronics,Snowflake Inc.,2020,6
+009,Software & Electronics,"Solarna, LLC",2014,9
+009,Software & Electronics,"Sonos, Inc.",2018,7
+009,Software & Electronics,Splunk Inc.,2012,6
+009,Software & Electronics,T Stamp Inc.,2021,7
+009,Software & Electronics,"Telenav, Inc.",2012,11
+009,Software & Electronics,Teva Pharmaceutical Industries Limited,2017,5
+009,Software & Electronics,Textura Corporation,2013,5
+009,Software & Electronics,"TuSimple, Inc.",2021,19
+009,Software & Electronics,"Twitter, Inc.",2014,9
+009,Software & Electronics,"UiPath, Inc.",2021,10
+009,Software & Electronics,"VOD Acquisition Co, LLC",2021,37
+009,Software & Electronics,VirTra Inc.,2017,6
+009,Software & Electronics,"Visualant, Inc.",2012,7
+009,Software & Electronics,Warby Parker Inc.,2021,6
+009,Software & Electronics,"XOS, INC.",2021,5
+009,Software & Electronics,"ZIPRECRUITER, INC.",2021,5
+009,Software & Electronics,"Zedge, Inc.",2016,5
+009,Software & Electronics,"Zendesk, Inc.",2014,6
+009,Software & Electronics,"Zoom Video Communications, Inc.",2019,5
+009,Software & Electronics,Zynga Inc.,2012,120
+009,Software & Electronics,"iCrypto, Inc.",2016,8
+009,Software & Electronics,"mySkin, Inc.",2012,12
+010,Medical Devices,"Atossa Genetics, Inc.",2012,5
+010,Medical Devices,"Avinger, Inc.",2015,5
+010,Medical Devices,Bumble Holding Limited,2021,6
+010,Medical Devices,"CID Resources, Inc.",2013,14
+010,Medical Devices,CareFusion Corporation,2012,5
+010,Medical Devices,"Clearside Biomedical, Inc.",2016,7
+010,Medical Devices,"Cytek Biosciences, Inc.",2021,5
+010,Medical Devices,"Ekso Bionics, Inc.",2012,7
+010,Medical Devices,"FIGS, Inc.",2021,19
+010,Medical Devices,Femasys Inc.,2021,5
+010,Medical Devices,"Globus Medical, Inc",2012,45
+010,Medical Devices,"Grove Collaborative, Inc.",2021,9
+010,Medical Devices,"HYPERFINE, INC.",2021,6
+010,Medical Devices,"HeartBeam, Inc.",2021,6
+010,Medical Devices,INSTIL BIO INC.,2021,8
+010,Medical Devices,"Inari Medical, Inc.",2020,13
+010,Medical Devices,Medovex Corp.,2015,10
+010,Medical Devices,Movano Inc.,2021,6
+010,Medical Devices,NUVECTRA CORPORATION,2016,8
+010,Medical Devices,Nevro Corp.,2014,16
+010,Medical Devices,Nuvectra Corporation,2016,9
+010,Medical Devices,OPTINOSE INC.,2017,5
+010,Medical Devices,PAVmed Inc.,2016,16
+010,Medical Devices,"Reliabrand, Inc.",2012,5
+010,Medical Devices,"SMILEDIRECTCLUB, LLC",2019,8
+010,Medical Devices,"Sensus Healthcare, Inc.",2016,5
+010,Medical Devices,"Sharps Compliance, Inc.",2012,6
+010,Medical Devices,"Shockwave Medical, Inc.",2019,5
+010,Medical Devices,"T2 Biosystems, Inc.",2014,11
+010,Medical Devices,"TELA Bio, Inc.",2019,6
+010,Medical Devices,"Tenon Medical, Inc.",2022,21
+010,Medical Devices,Teva Pharmaceutical Industries Limited,2017,7
+010,Medical Devices,"Vicarious Surgical, Inc.",2021,8
+010,Medical Devices,"Xeris Pharmaceuticals, Inc.",2018,9
+010,Medical Devices,Zoetis LLC,2013,6
+011,"Lighting, HVAC & Appliances",Bumble Holding Limited,2021,7
+011,"Lighting, HVAC & Appliances",FGI Industries Inc.,2022,46
+011,"Lighting, HVAC & Appliances","Heliogen, Inc.",2021,6
+011,"Lighting, HVAC & Appliances","Hydrofarm, LLC",2021,6
+011,"Lighting, HVAC & Appliances",Lindsay Corporation,2012,6
+011,"Lighting, HVAC & Appliances","MOLEKULE GROUP, INC.",2021,5
+011,"Lighting, HVAC & Appliances","Solo Brands, LLC",2021,6
+011,"Lighting, HVAC & Appliances",Wayfair LLC,2014,32
+012,Vehicles,"Atlis Motor Vehicles, Inc.",2022,5
+012,Vehicles,"Lightning eMotors, Inc.",2020,13
+012,Vehicles,Lordstown Motors Corp.,2019,6
+012,Vehicles,Nikola Corporation,2018,17
+012,Vehicles,Rocket Lab USA Inc.,2021,7
+012,Vehicles,TWIN VEE POWERCATS CO.,2021,8
+012,Vehicles,"TuSimple, Inc.",2021,10
+012,Vehicles,"Volcon, Inc.",2021,9
+013,Firearms & Pyrotechnics,Magnus International Limited Corp,2021,11
+014,Jewelry & Watches,"BRILLIANT EARTH, LLC",2021,6
+014,Jewelry & Watches,Bumble Holding Limited,2021,16
+014,Jewelry & Watches,Wayfair LLC,2014,24
+016,"Paper, Print & Office",AbbVie Inc.,2013,10
+016,"Paper, Print & Office",Bumble Holding Limited,2021,32
+016,"Paper, Print & Office","GREEN HYGIENICS, INC.",2012,5
+016,"Paper, Print & Office","Graphic Packaging International, LLC",2018,10
+016,"Paper, Print & Office",Nuvectra Corporation,2016,5
+016,"Paper, Print & Office","RAPT THERAPEUTICS, INC.",2019,5
+016,"Paper, Print & Office",Resolute Forest Products Inc.,2013,7
+016,"Paper, Print & Office","US Foods, Inc.",2013,5
+016,"Paper, Print & Office",Wayfair LLC,2014,27
+018,Leather & Luggage,Bumble Holding Limited,2021,34
+019,Building Materials,Agriforce Growing Systems Ltd.,2021,6
+019,Building Materials,"Arcosa, Inc.",2018,5
+019,Building Materials,CPG International LLC,2013,8
+019,Building Materials,"Eco Building Products, Inc.",2012,5
+019,Building Materials,FGI Industries Inc.,2022,13
+020,Furniture,Bumble Holding Limited,2021,7
+020,Furniture,"Casper Sleep, Inc.",2020,9
+020,Furniture,FGI Industries Inc.,2022,6
+020,Furniture,La-Z-Boy Incorporated,2012,5
+020,Furniture,"Purple Innovation, LLC",2016,13
+020,Furniture,Wayfair LLC,2014,34
+021,Household Utensils,Bumble Holding Limited,2021,29
+021,Household Utensils,GREENLANE HOLDINGS INC,2019,6
+021,Household Utensils,"Grove Collaborative, Inc.",2021,7
+021,Household Utensils,"Pura Naturals, Inc.",2013,5
+021,Household Utensils,Wayfair LLC,2014,27
+022,"Ropes, Tents & Textiles (raw)",WireCo WorldGroup Inc.,2012,7
+024,Textiles & Bedding,Bumble Holding Limited,2021,9
+024,Textiles & Bedding,"Casper Sleep, Inc.",2020,8
+024,Textiles & Bedding,Wayfair LLC,2014,31
+025,"Clothing, Footwear & Headwear","Allay Pharmaceuticals, LLC",2017,6
+025,"Clothing, Footwear & Headwear","Allbirds, Inc.",2021,18
+025,"Clothing, Footwear & Headwear",Bumble Holding Limited,2021,45
+025,"Clothing, Footwear & Headwear","CID Resources, Inc.",2013,12
+025,"Clothing, Footwear & Headwear","Dutch Bros., LLC",2021,5
+025,"Clothing, Footwear & Headwear","FIGS, Inc.",2021,20
+025,"Clothing, Footwear & Headwear",Nikola Corporation,2018,8
+025,"Clothing, Footwear & Headwear","One World Ventures, LLC",2022,5
+025,"Clothing, Footwear & Headwear",Rocket Lab USA Inc.,2021,5
+025,"Clothing, Footwear & Headwear","Super League Gaming, Inc.",2019,26
+025,"Clothing, Footwear & Headwear","ZULILY, LLC",2014,14
+025,"Clothing, Footwear & Headwear",Zynga Inc.,2012,6
+026,"Trim, Lace & Notions",Bumble Holding Limited,2021,7
+027,Carpets & Wall Hangings,Wayfair LLC,2014,32
+028,"Toys, Games & Sporting Goods","Aries Technology, LLC",2022,23
+028,"Toys, Games & Sporting Goods",BCPK INVESTMENTS,2022,6
+028,"Toys, Games & Sporting Goods",Bumble Holding Limited,2021,10
+028,"Toys, Games & Sporting Goods","F45 Training, Inc.",2021,8
+028,"Toys, Games & Sporting Goods","NEFF, LLC",2014,5
+028,"Toys, Games & Sporting Goods",UT Brands LLC,2019,8
+028,"Toys, Games & Sporting Goods","UT Brands, LLC",2019,6
+028,"Toys, Games & Sporting Goods",Zynga Inc.,2012,18
+029,"Meat, Dairy & Prepared Foods","Beyond Meat, Inc.",2019,61
+029,"Meat, Dairy & Prepared Foods",Bumble Holding Limited,2021,9
+029,"Meat, Dairy & Prepared Foods",Canopy Growth Corporation,2019,5
+029,"Meat, Dairy & Prepared Foods","Lamb Weston, Inc.",2017,20
+029,"Meat, Dairy & Prepared Foods",ORIZON S.A.,2019,7
+029,"Meat, Dairy & Prepared Foods",One World Ventures LLC,2022,7
+029,"Meat, Dairy & Prepared Foods",Paramount Holding Group Inc.,2015,8
+029,"Meat, Dairy & Prepared Foods","REAL GOOD FOODS, LLC",2021,6
+029,"Meat, Dairy & Prepared Foods","STRYVE FOODS, LLC",2019,16
+029,"Meat, Dairy & Prepared Foods","US Foods, Inc.",2013,22
+029,"Meat, Dairy & Prepared Foods","Unified Grocers, Inc.",2012,6
+030,"Coffee, Tea, Bakery & Spices","Beyond Meat, Inc.",2019,23
+030,"Coffee, Tea, Bakery & Spices",Bumble Holding Limited,2021,12
+030,"Coffee, Tea, Bakery & Spices",Canopy Growth Corporation,2019,8
+030,"Coffee, Tea, Bakery & Spices","Dutch Bros., LLC",2021,17
+030,"Coffee, Tea, Bakery & Spices","Hostess Brands, LLC",2018,15
+030,"Coffee, Tea, Bakery & Spices","NUZEE, INC.",2012,11
+030,"Coffee, Tea, Bakery & Spices",Paramount Holding Group Inc.,2015,8
+030,"Coffee, Tea, Bakery & Spices","REAL GOOD FOODS, LLC",2021,5
+030,"Coffee, Tea, Bakery & Spices","US Foods, Inc.",2013,13
+030,"Coffee, Tea, Bakery & Spices","Unified Grocers, Inc.",2012,5
+031,Agriculture & Live Animals,BETTER CHOICE COMPANY INC.,2012,8
+031,Agriculture & Live Animals,Big Heart Pet Brands,2013,14
+031,Agriculture & Live Animals,Bumble Holding Limited,2021,9
+031,Agriculture & Live Animals,Canopy Growth Corporation,2019,12
+032,Beer & Soft Drinks,Bumble Holding Limited,2021,9
+032,Beer & Soft Drinks,Canopy Growth Corporation,2019,6
+032,Beer & Soft Drinks,"Dutch Bros., LLC",2021,7
+032,Beer & Soft Drinks,"Rocky Mountain High Brands, Inc.",2016,5
+033,Wine & Spirits,Bumble Holding Limited,2021,9
+033,Wine & Spirits,Endeavour Group Limited,2021,51
+033,Wine & Spirits,"FRESH VINE WINE, INC.",2022,5
+033,Wine & Spirits,Vintage Wine Estates,2021,27
+034,Tobacco & Smokers' Articles,1606 Corp.,2021,6
+034,Tobacco & Smokers' Articles,GREENLANE HOLDINGS INC,2019,6
+034,Tobacco & Smokers' Articles,Neptune Wellness Solutions Inc.,2021,15
+034,Tobacco & Smokers' Articles,"Toast Holdings, Inc.",2021,5
+035,Advertising & Retail,"2U, Inc.",2014,8
+035,Advertising & Retail,"ATERIAN GROUP, INC.",2019,7
+035,Advertising & Retail,"Allay Pharmaceuticals, LLC",2017,6
+035,Advertising & Retail,"Allbirds, Inc.",2021,7
+035,Advertising & Retail,Aurinia Pharmaceuticals Inc.,2020,9
+035,Advertising & Retail,BETTER HOME & FINANCE HOLDING COMPANY,2021,6
+035,Advertising & Retail,"BRILLIANT EARTH, LLC",2021,6
+035,Advertising & Retail,"Blackhawk Network, Inc.",2013,5
+035,Advertising & Retail,Bumble Holding Limited,2021,43
+035,Advertising & Retail,"C3.AI, Inc.",2021,18
+035,Advertising & Retail,"CGFNS International, Inc.",2013,5
+035,Advertising & Retail,CORDIA LLC,2021,5
+035,Advertising & Retail,"Campus Crest Communities, Inc.",2013,6
+035,Advertising & Retail,Canopy Growth Corporation,2019,18
+035,Advertising & Retail,"Cargurus, Inc.",2017,7
+035,Advertising & Retail,"Cars.com, LLC",2017,5
+035,Advertising & Retail,"Carvana, LLC",2017,7
+035,Advertising & Retail,"Casper Sleep, Inc.",2020,9
+035,Advertising & Retail,Columbia Care LLC,2022,6
+035,Advertising & Retail,Coupang Corp.,2021,44
+035,Advertising & Retail,Coupons.com Incorporated,2014,6
+035,Advertising & Retail,DHL International GmbH,2012,5
+035,Advertising & Retail,DXC Technology Company,2017,6
+035,Advertising & Retail,"DoorDash, Inc.",2020,43
+035,Advertising & Retail,"Dutch Bros., LLC",2021,8
+035,Advertising & Retail,"EverQuote, Inc.",2018,13
+035,Advertising & Retail,"Everyday Health, Inc.",2014,5
+035,Advertising & Retail,"Fold, Inc.",2022,6
+035,Advertising & Retail,"Foundation Building Materials, LLC",2017,7
+035,Advertising & Retail,"GXO Logistics, Inc.",2021,5
+035,Advertising & Retail,"GoodRx, Inc.",2020,12
+035,Advertising & Retail,"Grove Collaborative, Inc.",2021,15
+035,Advertising & Retail,"Grove, Inc.",2021,8
+035,Advertising & Retail,GrubHub Holdings Inc.,2014,8
+035,Advertising & Retail,"Inovalon, Inc.",2015,9
+035,Advertising & Retail,"Kyndryl, Inc.",2021,7
+035,Advertising & Retail,"Le Technology, Inc.",2014,14
+035,Advertising & Retail,LifeVantage Corporation,2012,8
+035,Advertising & Retail,"Lulu's Fashion Lounge, LLC",2021,5
+035,Advertising & Retail,MNG Acquisition Corp.,2019,6
+035,Advertising & Retail,"MODIV, LLC",2016,5
+035,Advertising & Retail,"MX TECHNOLOGIES, INC.",2012,5
+035,Advertising & Retail,"MacroGenics, Inc.",2013,13
+035,Advertising & Retail,"Meta Platforms, Inc.",2012,7
+035,Advertising & Retail,Neptune Wellness Solutions Inc.,2021,11
+035,Advertising & Retail,PETROGAS GROUP LIMITED,2014,5
+035,Advertising & Retail,Paymentus Corporation,2021,5
+035,Advertising & Retail,ProFrac Holding Corp.,2022,9
+035,Advertising & Retail,"RETAILMENOT, INC.",2013,6
+035,Advertising & Retail,"Rent the Runway, Inc.",2021,5
+035,Advertising & Retail,Rocket Fuel Inc.,2013,5
+035,Advertising & Retail,"Santander Consumer USA, Inc.",2014,5
+035,Advertising & Retail,"Sears Hometown and Outlet Stores, Inc.",2012,14
+035,Advertising & Retail,Semrush Inc.,2021,7
+035,Advertising & Retail,"Shift4 Payments, LLC",2020,5
+035,Advertising & Retail,"Shutterstock, Inc.",2012,6
+035,Advertising & Retail,"Signify Health, LLC",2021,6
+035,Advertising & Retail,Snap Inc.,2017,14
+035,Advertising & Retail,Snowflake Inc.,2020,11
+035,Advertising & Retail,Talen Energy Corporation,2015,7
+035,Advertising & Retail,Teva Pharmaceutical Industries Limited,2017,5
+035,Advertising & Retail,"TrueCar, Inc.",2014,13
+035,Advertising & Retail,"TuSimple, Inc.",2021,7
+035,Advertising & Retail,"US Foods, Inc.",2013,17
+035,Advertising & Retail,"Veritone, Inc.",2017,5
+035,Advertising & Retail,"Vivint Solar, Inc.",2014,6
+035,Advertising & Retail,Wayfair LLC,2014,26
+035,Advertising & Retail,"ZIPRECRUITER, INC.",2021,10
+035,Advertising & Retail,ZoomInfo Technologies LLC,2020,5
+035,Advertising & Retail,"eCareer, Inc.",2012,5
+035,Advertising & Retail,"frontdoor, inc.",2018,6
+036,Insurance & Financial,"American Homes 4 Rent, LP",2018,9
+036,Insurance & Financial,"Angel Studios, Inc.",2022,7
+036,Insurance & Financial,"BBVA Compass Bancshares, Inc.",2014,23
+036,Insurance & Financial,BETTER HOME & FINANCE HOLDING COMPANY,2021,19
+036,Insurance & Financial,BRIDGE INVESTMENT GROUP HOLDINGS LLC,2021,7
+036,Insurance & Financial,"Blackhawk Network, Inc.",2013,11
+036,Insurance & Financial,Bumble Holding Limited,2021,15
+036,Insurance & Financial,CORDIA LLC,2021,5
+036,Insurance & Financial,"Campus Crest Communities, Inc.",2013,6
+036,Insurance & Financial,"Care Capital Properties, Inc.",2015,6
+036,Insurance & Financial,"Carvana, LLC",2017,6
+036,Insurance & Financial,"Communications Sales & Leasing, Inc.",2016,6
+036,Insurance & Financial,Community Choice Financial Inc.,2012,5
+036,Insurance & Financial,"Corebridge Financial, Inc.",2022,9
+036,Insurance & Financial,Coupang Corp.,2021,28
+036,Insurance & Financial,"DVC Acquisition, LLC",2021,11
+036,Insurance & Financial,DXC Technology Company,2017,5
+036,Insurance & Financial,"DoorDash, Inc.",2020,6
+036,Insurance & Financial,"Dutch Bros., LLC",2021,6
+036,Insurance & Financial,"Eagle Bancorp Montana, Inc.",2012,5
+036,Insurance & Financial,"Equitable Holdings, Inc.",2018,105
+036,Insurance & Financial,FOXO TECHNOLOGIES INC.,2022,5
+036,Insurance & Financial,"First Foundation, Inc.",2014,7
+036,Insurance & Financial,"Fold, Inc.",2022,6
+036,Insurance & Financial,GrubHub Holdings Inc.,2014,5
+036,Insurance & Financial,HF FINANCIAL CORP.,2012,11
+036,Insurance & Financial,"Humbl, Inc.",2022,5
+036,Insurance & Financial,"I3 VERTICALS, LLC",2018,5
+036,Insurance & Financial,"Intercontinental Exchange Holdings, Inc.",2013,9
+036,Insurance & Financial,JBG SMITH Properties LP,2017,6
+036,Insurance & Financial,"KCG Holdings, Inc.",2013,6
+036,Insurance & Financial,"LifeLock, Inc.",2012,6
+036,Insurance & Financial,Luther Burbank Corporation,2018,7
+036,Insurance & Financial,National Bank Holdings Corporation,2012,8
+036,Insurance & Financial,"National General Holdings, Corp.",2014,6
+036,Insurance & Financial,"PALOMAR HOLDINGS, INC.",2019,5
+036,Insurance & Financial,PARTNERS BANCORP,2019,5
+036,Insurance & Financial,"PAYA, INC.",2021,10
+036,Insurance & Financial,PHYSICIANS REALTY TRUST,2013,6
+036,Insurance & Financial,"Patriot National, Inc.",2015,12
+036,Insurance & Financial,Paymentus Corporation,2021,16
+036,Insurance & Financial,People's Utah Bancorp,2015,5
+036,Insurance & Financial,ProFrac Holding Corp.,2022,6
+036,Insurance & Financial,"ProSight Global, Inc.",2019,9
+036,Insurance & Financial,"Ryan Specialty, LLC",2021,8
+036,Insurance & Financial,"Santander Consumer USA, Inc.",2014,5
+036,Insurance & Financial,"Sears Hometown and Outlet Stores, Inc.",2012,14
+036,Insurance & Financial,Sezzle Inc.,2021,5
+036,Insurance & Financial,"Shift4 Payments, LLC",2020,19
+036,Insurance & Financial,Sotherly Hotels Inc.,2014,5
+036,Insurance & Financial,Stonegate Mortgage Corporation,2013,8
+036,Insurance & Financial,Teva Pharmaceutical Industries Limited,2017,6
+036,Insurance & Financial,US Alliance Corporation,2016,13
+036,Insurance & Financial,United States Commodity Funds LLC,2012,41
+036,Insurance & Financial,"Vantiv, LLC",2012,7
+036,Insurance & Financial,"Vivint Solar, Inc.",2014,6
+037,Construction & Repair,"American Homes 4 Rent, LP",2018,5
+037,Construction & Repair,CORDIA LLC,2021,5
+037,Construction & Repair,"Charge Enterprises, Inc.",2021,5
+037,Construction & Repair,DXC Technology Company,2017,6
+037,Construction & Repair,"Evolv Technologies, Inc.",2020,5
+037,Construction & Repair,"Independence Contract Drilling, Inc.",2014,5
+037,Construction & Repair,"MISTRAS Group, Inc.",2012,6
+037,Construction & Repair,NCS MULTISTAGE LLC,2017,5
+037,Construction & Repair,PETROGAS GROUP LIMITED,2014,6
+037,Construction & Repair,ProFrac Holding Corp.,2022,6
+037,Construction & Repair,"Sears Hometown and Outlet Stores, Inc.",2012,14
+037,Construction & Repair,"Sharps Compliance, Inc.",2012,6
+037,Construction & Repair,"Summit Materials, LLC",2013,9
+037,Construction & Repair,"TRI POINTE HOMES HOLDINGS, INC.",2013,6
+037,Construction & Repair,"TuSimple, Inc.",2021,5
+037,Construction & Repair,"Vivint Solar, Inc.",2014,6
+037,Construction & Repair,"frontdoor, inc.",2018,5
+038,Telecommunications,Bubblr Limited,2021,5
+038,Telecommunications,Bumble Holding Limited,2021,26
+038,Telecommunications,Coupang Corp.,2021,30
+038,Telecommunications,DXC Technology Company,2017,6
+038,Telecommunications,"F45 Training, Inc.",2021,9
+038,Telecommunications,"Le Technology, Inc.",2014,14
+038,Telecommunications,"MSP Recovery, LLC",2020,5
+038,Telecommunications,"Meta Platforms, Inc.",2012,5
+038,Telecommunications,Planet Labs PBC,2021,6
+038,Telecommunications,Snap Inc.,2017,9
+038,Telecommunications,Splunk Inc.,2012,5
+038,Telecommunications,"Twitter, Inc.",2014,6
+038,Telecommunications,"Zayo Group, LLC",2012,5
+039,Transport & Logistics,"ADS Waste Holdings, Inc.",2013,5
+039,Transport & Logistics,Archer Aviation Inc.,2021,5
+039,Transport & Logistics,"Astra Space, Inc.",2021,9
+039,Transport & Logistics,"Carvana, LLC",2017,6
+039,Transport & Logistics,Coupang Corp.,2021,37
+039,Transport & Logistics,DHL International GmbH,2012,6
+039,Transport & Logistics,"DoorDash, Inc.",2020,42
+039,Transport & Logistics,ENERGOUS CORPORATION,2014,5
+039,Transport & Logistics,ElectraMeccanica Vehicles Corp.,2022,5
+039,Transport & Logistics,Era Group Inc.,2013,5
+039,Transport & Logistics,GREENLANE HOLDINGS INC,2019,6
+039,Transport & Logistics,"GXO Logistics, Inc.",2021,5
+039,Transport & Logistics,"Global Crossing Airlines, Inc",2022,22
+039,Transport & Logistics,"Global Crossing Airlines, Inc.",2022,7
+039,Transport & Logistics,"GoodRx, Inc.",2020,8
+039,Transport & Logistics,"Heliogen, Inc.",2021,6
+039,Transport & Logistics,INSTIL BIO INC.,2021,7
+039,Transport & Logistics,"One World Ventures, LLC",2022,10
+039,Transport & Logistics,"RXO, Inc.",2022,5
+039,Transport & Logistics,Rocket Lab USA Inc.,2021,7
+039,Transport & Logistics,"Sears Hometown and Outlet Stores, Inc.",2012,14
+039,Transport & Logistics,"Sidus Space, Inc.",2021,8
+039,Transport & Logistics,Tricon International Ltd.,2016,6
+039,Transport & Logistics,"TuSimple, Inc.",2021,19
+039,Transport & Logistics,"Unleashed, LLC",2015,8
+039,Transport & Logistics,"Vivint Solar, Inc.",2014,6
+040,Materials Treatment,"ADS Waste Holdings, Inc.",2013,5
+040,Materials Treatment,CORDIA LLC,2021,5
+040,Materials Treatment,"Ginkgo Bioworks, Inc.",2021,7
+040,Materials Treatment,"Heliogen, Inc.",2021,6
+040,Materials Treatment,KINETIK HOLDINGS INC.,2017,5
+040,Materials Treatment,"Kite Pharma, Inc.",2014,13
+040,Materials Treatment,Metaldyne Performance Group Inc.,2015,5
+040,Materials Treatment,Neptune Wellness Solutions Inc.,2021,8
+040,Materials Treatment,"One World Ventures, LLC",2022,9
+040,Materials Treatment,ProFrac Holding Corp.,2022,6
+040,Materials Treatment,"SIDUS SPACE, INC.",2021,7
+040,Materials Treatment,"Sidus Space, Inc.",2021,10
+041,Education & Entertainment,"2U, Inc.",2014,9
+041,Education & Entertainment,"Angel Studios, Inc.",2022,6
+041,Education & Entertainment,"Aries Technology, LLC",2022,5
+041,Education & Entertainment,Aurinia Pharmaceuticals Inc.,2020,6
+041,Education & Entertainment,Bumble Holding Limited,2021,45
+041,Education & Entertainment,"C3.AI, Inc.",2021,5
+041,Education & Entertainment,CURIOSITYSTREAM INC.,2020,5
+041,Education & Entertainment,Canopy Growth Corporation,2019,16
+041,Education & Entertainment,Compass Therapeutics LLC,2018,6
+041,Education & Entertainment,Coupang Corp.,2021,11
+041,Education & Entertainment,DXC Technology Company,2017,5
+041,Education & Entertainment,"DoorDash, Inc.",2020,8
+041,Education & Entertainment,F45 Training Incorporated,2021,10
+041,Education & Entertainment,"F45 Training, Inc.",2021,14
+041,Education & Entertainment,"FIREEYE, INC.",2013,5
+041,Education & Entertainment,"Fuse, LLC",2016,24
+041,Education & Entertainment,GrubHub Holdings Inc.,2014,5
+041,Education & Entertainment,"KnowBe4, Inc.",2021,13
+041,Education & Entertainment,"Kyndryl, Inc.",2021,5
+041,Education & Entertainment,"Le Technology, Inc.",2014,12
+041,Education & Entertainment,"Life Time, Inc.",2021,15
+041,Education & Entertainment,"MX TECHNOLOGIES, INC.",2012,7
+041,Education & Entertainment,"Meta Platforms, Inc.",2012,5
+041,Education & Entertainment,"Motivating The Masses, Inc.",2013,7
+041,Education & Entertainment,"Peloton Interactive, Inc.",2020,7
+041,Education & Entertainment,"RLJ Entertainment, Inc.",2014,5
+041,Education & Entertainment,ROCK ENTERTAINMENT GROUP LLC,2022,7
+041,Education & Entertainment,Snap Inc.,2017,23
+041,Education & Entertainment,Snowflake Inc.,2020,13
+041,Education & Entertainment,"Super League Gaming, Inc.",2019,36
+041,Education & Entertainment,Teva Pharmaceutical Industries Limited,2017,5
+041,Education & Entertainment,"Twitter, Inc.",2014,6
+041,Education & Entertainment,Ubiquity Broadcasting Corporation,2012,7
+041,Education & Entertainment,"UiPath, Inc.",2021,8
+041,Education & Entertainment,"VIP PLAY, INC.",2021,11
+041,Education & Entertainment,"VOD Acquisition Co, LLC",2021,39
+041,Education & Entertainment,"ZIPRECRUITER, INC.",2021,5
+041,Education & Entertainment,Zynga Inc.,2012,116
+042,Scientific & Tech Services,"2seventy bio, Inc.",2021,12
+042,Scientific & Tech Services,ABSCI CORPORATION,2021,6
+042,Scientific & Tech Services,AbbVie Inc.,2013,5
+042,Scientific & Tech Services,Adaptive Biotechnologies Corp.,2019,7
+042,Scientific & Tech Services,Agrify Corporation,2021,6
+042,Scientific & Tech Services,"Akoya Biosciences, Inc.",2021,8
+042,Scientific & Tech Services,Alector LLC,2019,5
+042,Scientific & Tech Services,"Allegro MicroSystems, LLC",2020,5
+042,Scientific & Tech Services,"Anaplan, Inc.",2018,6
+042,Scientific & Tech Services,"Atossa Genetics, Inc.",2012,6
+042,Scientific & Tech Services,Aurinia Pharmaceuticals Inc.,2020,19
+042,Scientific & Tech Services,"Avidity Biosciences, Inc.",2020,11
+042,Scientific & Tech Services,BETTER HOME & FINANCE HOLDING COMPANY,2021,8
+042,Scientific & Tech Services,"Box, Inc.",2015,19
+042,Scientific & Tech Services,Brand Engagement Network Inc.,2021,5
+042,Scientific & Tech Services,"BullFrog AI, Inc.",2022,6
+042,Scientific & Tech Services,Bumble Holding Limited,2021,44
+042,Scientific & Tech Services,Business Warrior Corporation,2022,7
+042,Scientific & Tech Services,"C3.AI, Inc.",2021,17
+042,Scientific & Tech Services,"C4 Therapeutics, Inc.",2020,5
+042,Scientific & Tech Services,"CDK Global, LLC",2015,6
+042,Scientific & Tech Services,Canopy Growth Corporation,2019,5
+042,Scientific & Tech Services,"Cellarity, Inc.",2019,7
+042,Scientific & Tech Services,"Charge Enterprises, Inc.",2021,9
+042,Scientific & Tech Services,"Codiak Biosciences, Inc.",2020,6
+042,Scientific & Tech Services,Compass Therapeutics LLC,2018,7
+042,Scientific & Tech Services,"Convey Health Solutions, Inc.",2021,14
+042,Scientific & Tech Services,Coupa Software Incorporated,2016,7
+042,Scientific & Tech Services,Coupang Corp.,2021,10
+042,Scientific & Tech Services,"CrowdStrike, Inc.",2019,5
+042,Scientific & Tech Services,DXC Technology Company,2017,14
+042,Scientific & Tech Services,DataChat Inc.,2021,5
+042,Scientific & Tech Services,"Datadog, Inc.",2019,10
+042,Scientific & Tech Services,"Definitive Healthcare, LLC",2021,6
+042,Scientific & Tech Services,"Dicerna Pharmaceuticals, Inc.",2014,5
+042,Scientific & Tech Services,"DoorDash, Inc.",2020,25
+042,Scientific & Tech Services,ENERGOUS CORPORATION,2014,5
+042,Scientific & Tech Services,"ENVISION ENERGY CO., LTD.",2016,5
+042,Scientific & Tech Services,Energous Corporation,2014,5
+042,Scientific & Tech Services,"Entrada Therapeutics, Inc.",2021,8
+042,Scientific & Tech Services,"Evofem Biosciences, Inc.",2015,5
+042,Scientific & Tech Services,"Evolv Technologies, Inc.",2020,7
+042,Scientific & Tech Services,F45 Training Incorporated,2021,5
+042,Scientific & Tech Services,"F45 Training, Inc.",2021,8
+042,Scientific & Tech Services,FOXO TECHNOLOGIES INC.,2022,8
+042,Scientific & Tech Services,"FTC Solar, Inc.",2021,11
+042,Scientific & Tech Services,"Forma Therapeutics, Inc.",2020,9
+042,Scientific & Tech Services,"Foundation Medicine, Inc.",2013,5
+042,Scientific & Tech Services,"Fulcrum Therapeutics, Inc.",2019,5
+042,Scientific & Tech Services,GREENLANE HOLDINGS INC,2019,7
+042,Scientific & Tech Services,"Ginkgo Bioworks, Inc.",2021,16
+042,Scientific & Tech Services,GitLab Inc.,2021,5
+042,Scientific & Tech Services,"Global Blood Therapeutics, Inc.",2015,6
+042,Scientific & Tech Services,"GoodRx, Inc.",2020,11
+042,Scientific & Tech Services,"Harpoon Therapeutics, Inc.",2018,6
+042,Scientific & Tech Services,"Invivyd, Inc.",2021,5
+042,Scientific & Tech Services,"IonQ, Inc.",2021,12
+042,Scientific & Tech Services,"Kiromic Biopharma, Inc.",2020,14
+042,Scientific & Tech Services,"Kite Pharma, Inc.",2014,10
+042,Scientific & Tech Services,"Knightscope, Inc.",2021,7
+042,Scientific & Tech Services,"KnowBe4, Inc.",2021,30
+042,Scientific & Tech Services,"Kymera Therapeutics, Inc.",2020,8
+042,Scientific & Tech Services,"Kyndryl, Inc.",2021,7
+042,Scientific & Tech Services,"Landos Biopharma, Inc.",2021,5
+042,Scientific & Tech Services,"Le Technology, Inc.",2014,16
+042,Scientific & Tech Services,"Lyell Immunopharma, Inc.",2021,10
+042,Scientific & Tech Services,"MAGNITE, INC.",2014,6
+042,Scientific & Tech Services,"MISTRAS Group, Inc.",2012,8
+042,Scientific & Tech Services,MRI Software LLC,2013,7
+042,Scientific & Tech Services,"MSP Recovery, LLC",2020,5
+042,Scientific & Tech Services,"MX TECHNOLOGIES, INC.",2012,12
+042,Scientific & Tech Services,"MacroGenics, Inc.",2013,12
+042,Scientific & Tech Services,"Marathon Patent Group, Inc.",2012,5
+042,Scientific & Tech Services,"Meta Platforms, Inc.",2012,5
+042,Scientific & Tech Services,"Mueller International, LLC",2012,19
+042,Scientific & Tech Services,"NANTKWEST, INC.",2015,8
+042,Scientific & Tech Services,NUVATION BIO INC.,2021,6
+042,Scientific & Tech Services,"NantHealth, Inc.",2016,7
+042,Scientific & Tech Services,"Natera, Inc.",2015,5
+042,Scientific & Tech Services,"Nautilus Biotechnology, Inc.",2021,6
+042,Scientific & Tech Services,Neptune Wellness Solutions Inc.,2021,11
+042,Scientific & Tech Services,"NextCure, Inc.",2019,7
+042,Scientific & Tech Services,Olo Inc.,2021,18
+042,Scientific & Tech Services,"Omega Therapeutics, Inc.",2021,6
+042,Scientific & Tech Services,"OneGevity Health, LLC",2021,5
+042,Scientific & Tech Services,"Organovo, Inc",2012,9
+042,Scientific & Tech Services,"Outset Medical, Inc.",2020,6
+042,Scientific & Tech Services,"Patriot National, Inc.",2015,11
+042,Scientific & Tech Services,Paymentus Corporation,2021,19
+042,Scientific & Tech Services,"Personalis, Inc.",2019,22
+042,Scientific & Tech Services,Planet Labs PBC,2021,6
+042,Scientific & Tech Services,"Precision BioSciences, Inc.",2019,6
+042,Scientific & Tech Services,"Prometheus Biosciences, Inc.",2021,7
+042,Scientific & Tech Services,"Pure Storage, Inc.",2015,8
+042,Scientific & Tech Services,"Quoin Pharmaceuticals, Inc.",2022,5
+042,Scientific & Tech Services,"RAPT THERAPEUTICS, INC.",2019,8
+042,Scientific & Tech Services,"Recursion Pharmaceuticals, Inc.",2021,20
+042,Scientific & Tech Services,"Redwire Holdings, LLC",2021,13
+042,Scientific & Tech Services,"Relay Therapeutics, Inc.",2020,5
+042,Scientific & Tech Services,Resonant Inc.,2014,6
+042,Scientific & Tech Services,Rockley Photonics Limited,2021,6
+042,Scientific & Tech Services,Roivant Sciences GmbH,2021,17
+042,Scientific & Tech Services,SALT BLOCKCHAIN INC.,2021,5
+042,Scientific & Tech Services,"SIDUS SPACE, INC.",2021,5
+042,Scientific & Tech Services,SPLUNK INC.,2012,6
+042,Scientific & Tech Services,Semrush Inc.,2021,7
+042,Scientific & Tech Services,"SentinelOne, Inc.",2021,6
+042,Scientific & Tech Services,Sezzle Inc.,2021,5
+042,Scientific & Tech Services,"Shift4 Payments, LLC",2020,10
+042,Scientific & Tech Services,"Shutterstock, Inc.",2012,9
+042,Scientific & Tech Services,"Sidus Space, Inc.",2021,11
+042,Scientific & Tech Services,"Singular Genomics Systems, Inc.",2021,5
+042,Scientific & Tech Services,Snap Inc.,2017,19
+042,Scientific & Tech Services,Snowflake Inc.,2020,24
+042,Scientific & Tech Services,Splunk Inc.,2012,6
+042,Scientific & Tech Services,"Super League Gaming, Inc.",2019,7
+042,Scientific & Tech Services,T Stamp Inc.,2021,9
+042,Scientific & Tech Services,"TRI POINTE HOMES HOLDINGS, INC.",2013,6
+042,Scientific & Tech Services,TechnipFMC PLC,2016,6
+042,Scientific & Tech Services,"Telenav, Inc.",2012,8
+042,Scientific & Tech Services,Textura Corporation,2013,7
+042,Scientific & Tech Services,"Trovagene, Inc.",2012,7
+042,Scientific & Tech Services,"TrueCar, Inc.",2014,5
+042,Scientific & Tech Services,"TuSimple, Inc.",2021,17
+042,Scientific & Tech Services,Twilio Inc.,2016,5
+042,Scientific & Tech Services,"Twitter, Inc.",2014,9
+042,Scientific & Tech Services,"UiPath, Inc.",2021,5
+042,Scientific & Tech Services,"VERITONE, INC.",2017,6
+042,Scientific & Tech Services,VTV THERAPEUTICS LLC,2015,5
+042,Scientific & Tech Services,"Vantiv, LLC",2012,5
+042,Scientific & Tech Services,"Veritone, Inc.",2017,11
+042,Scientific & Tech Services,Verona Pharma PLC,2020,5
+042,Scientific & Tech Services,"Vir Biotechnology, Inc.",2019,5
+042,Scientific & Tech Services,"Virion Therapeutics, LLC",2021,7
+042,Scientific & Tech Services,"Visualant, Inc.",2012,5
+042,Scientific & Tech Services,"Vivint Solar, Inc.",2014,6
+042,Scientific & Tech Services,"Y-mAbs Therapeutics, Inc",2018,7
+042,Scientific & Tech Services,"ZIPRECRUITER, INC.",2021,10
+042,Scientific & Tech Services,"Zedge, Inc.",2016,5
+042,Scientific & Tech Services,"Zendesk, Inc.",2014,5
+042,Scientific & Tech Services,Zeta Global Corp.,2021,11
+042,Scientific & Tech Services,Zoetis LLC,2013,5
+042,Scientific & Tech Services,ZoomInfo Technologies LLC,2020,6
+042,Scientific & Tech Services,"Zscaler, Inc.",2018,11
+042,Scientific & Tech Services,"frontdoor, inc.",2018,5
+043,Restaurants & Hotels,Bumble Holding Limited,2021,15
+043,Restaurants & Hotels,"DoorDash, Inc.",2020,9
+043,Restaurants & Hotels,"Dutch Bros., LLC",2021,6
+043,Restaurants & Hotels,F45 Training Incorporated,2021,6
+043,Restaurants & Hotels,"J. Alexander's, LLC",2015,11
+043,Restaurants & Hotels,One World Ventures LLC,2022,5
+043,Restaurants & Hotels,Paramount Holding Group Inc.,2015,6
+044,Medical & Personal Care,"21ST CENTURY ONCOLOGY, LLC",2013,6
+044,Medical & Personal Care,"ADITXT, INC.",2020,5
+044,Medical & Personal Care,AbbVie Inc.,2013,17
+044,Medical & Personal Care,Adaptive Biotechnologies Corp.,2019,5
+044,Medical & Personal Care,Agriforce Growing Systems Ltd.,2021,9
+044,Medical & Personal Care,"Akouos, Inc.",2020,7
+044,Medical & Personal Care,Alector LLC,2019,8
+044,Medical & Personal Care,"Atossa Genetics, Inc.",2012,6
+044,Medical & Personal Care,Aurinia Pharmaceuticals Inc.,2020,14
+044,Medical & Personal Care,"Aveanna Healthcare, LLC",2021,5
+044,Medical & Personal Care,Axovant Sciences GmbH,2015,9
+044,Medical & Personal Care,Bumble Holding Limited,2021,7
+044,Medical & Personal Care,"Cano Health, LLC",2020,9
+044,Medical & Personal Care,Canopy Growth Corporation,2019,17
+044,Medical & Personal Care,Castle Biosciences Incorporated,2019,12
+044,Medical & Personal Care,Columbia Care LLC,2022,5
+044,Medical & Personal Care,"DERMTECH, INC.",2017,7
+044,Medical & Personal Care,"Day One Biopharmaceuticals, Inc.",2021,11
+044,Medical & Personal Care,"Diplomat Pharmacy, Inc.",2014,7
+044,Medical & Personal Care,"Everyday Health, Inc.",2014,5
+044,Medical & Personal Care,F45 Training Incorporated,2021,5
+044,Medical & Personal Care,"Forma Therapeutics, Inc.",2020,7
+044,Medical & Personal Care,"Foundation Medicine, Inc.",2013,9
+044,Medical & Personal Care,"Ginkgo Bioworks, Inc.",2021,9
+044,Medical & Personal Care,"GoodRx, Inc.",2020,8
+044,Medical & Personal Care,INSTIL BIO INC.,2021,5
+044,Medical & Personal Care,"Lyell Immunopharma, Inc.",2021,5
+044,Medical & Personal Care,"NANTKWEST, INC.",2015,7
+044,Medical & Personal Care,"NantHealth, Inc.",2016,7
+044,Medical & Personal Care,Nobilis Health Corp.,2014,9
+044,Medical & Personal Care,"Ovascience, Inc.",2012,5
+044,Medical & Personal Care,"Personalis, Inc.",2019,22
+044,Medical & Personal Care,"Precision BioSciences, Inc.",2019,6
+044,Medical & Personal Care,"Privia Health, LLC",2021,5
+044,Medical & Personal Care,"Prometheus Biosciences, Inc.",2021,5
+044,Medical & Personal Care,"Rhythm Pharmaceuticals, Inc.",2017,6
+044,Medical & Personal Care,Roivant Sciences GmbH,2021,17
+044,Medical & Personal Care,"SMILEDIRECTCLUB, LLC",2019,8
+044,Medical & Personal Care,SQZ Biotechnologies Company,2020,8
+044,Medical & Personal Care,Signal Genetics LLC,2014,12
+044,Medical & Personal Care,"Spark Therapeutics, Inc.",2015,18
+044,Medical & Personal Care,"T2 Biosystems, Inc.",2014,8
+044,Medical & Personal Care,Teva Pharmaceutical Industries Limited,2017,11
+044,Medical & Personal Care,"Trovagene, Inc.",2012,10
+044,Medical & Personal Care,Urovant Sciences GmbH,2018,6
+044,Medical & Personal Care,Zoetis LLC,2013,5
+045,Legal & Personal Services,Bumble Holding Limited,2021,62
+045,Legal & Personal Services,Coupang Corp.,2021,6
+045,Legal & Personal Services,DXC Technology Company,2017,5
+045,Legal & Personal Services,"Knightscope, Inc.",2021,7
+045,Legal & Personal Services,"LifeLock, Inc.",2012,7
+045,Legal & Personal Services,"Marathon Patent Group, Inc",2012,6
+045,Legal & Personal Services,"Meta Platforms, Inc.",2012,6
+045,Legal & Personal Services,"Shutterstock, Inc.",2012,5
+045,Legal & Personal Services,Snap Inc.,2017,5
+045,Legal & Personal Services,"Twitter, Inc.",2014,9
+045,Legal & Personal Services,"Worldpay, LLC",2012,5
+045,Legal & Personal Services,Zynga Inc.,2012,5
+045,Legal & Personal Services,"iCrypto, Inc.",2016,7

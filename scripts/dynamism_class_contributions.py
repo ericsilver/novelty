@@ -115,11 +115,13 @@ def main() -> int:
            r"\midrule",
            r"\textbf{Largest positive contributors to debut-share rise, 2001--2025} & & \\"]
     for _, r in top5.iterrows():
-        tex.append(f"  {r['class_name']} & {r['within_sum']*100:+.2f} pp & {r['comp_sum']*100:+.2f} pp \\\\")
+        name = r["class_name"].replace("&","\\&")
+        tex.append(f"  {name} & {r['within_sum']*100:+.2f} pp & {r['comp_sum']*100:+.2f} pp \\\\")
     tex.append(r"\midrule")
     tex.append(r"\textbf{Largest negative contributors} & & \\")
     for _, r in bot5.iterrows():
-        tex.append(f"  {r['class_name']} & {r['within_sum']*100:+.2f} pp & {r['comp_sum']*100:+.2f} pp \\\\")
+        name = r["class_name"].replace("&","\\&")
+        tex.append(f"  {name} & {r['within_sum']*100:+.2f} pp & {r['comp_sum']*100:+.2f} pp \\\\")
     tex.append(r"\bottomrule")
     tex.append(r"\end{tabular}")
     (RES / "dynamism_class_contributions.tex").write_text("\n".join(tex))

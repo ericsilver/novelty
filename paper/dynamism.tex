@@ -9,7 +9,9 @@
 \usepackage{array}
 \usepackage[hidelinks]{hyperref}
 
-\title{How much of US new-business formation does the USPTO\\trademark corpus capture? Coverage 2004--2024, and\\evidence on race/ethnicity composition by surname}
+\title{Trademark filings and declining US business dynamism:\\
+coverage of business formation, three failed tests of the\\
+crowding hypothesis, and surname-based ethnic composition}
 \author{Eric Silver}
 \affil{}
 \date{May 2026}
@@ -41,6 +43,30 @@ $33\%$ in 2020--2024); we flag the well-documented $2018$--$2021$
 foreign-applicant filing surge from China as a confound and discuss
 what an unconfounded estimate would require (applicant country from
 the USPTO XML, not currently in our processed panel).
+
+\textbf{Three failed tests of the trademark-crowding hypothesis.}
+Motivated by the declining-business-dynamism literature
+(Decker et al.\ JEP, 2014; Akcigit \& Ates AEJ:Macro, 2021) and the
+``kill zones'' framework
+(Kamepalli, Rajan, \& Zingales AEJ:Micro, 2022;
+Cunningham, Ederer, \& Ma JPE, 2021), we test three predictions of
+the hypothesis that incumbent firms are crowding out new-entrant
+trademark activity. All three fail. First, the pooled
+first-time-filer share is \emph{rising}, not falling: $46$--$49\%$
+trough in $1996$--$2003$, $56$--$58\%$ at present. Second, the top-$10$
+owner share of filings is \emph{falling} in every NICE class --- the
+``FAANG concentration'' story is not visible in trademark filings.
+Third, an IPO event study on $877$ class-events from $2{,}536$ public
+firms finds no chilling effect on within-class first-time-filer
+counts at $t\pm 3$ years around the IPO (post coefficient
+$+0.007$ on $\log(1 + \text{debuts})$, $t = +0.67$, $p = 0.50$).
+The conventional crowding story that would tie declining business
+dynamism to trademark concentration is not supported. The selective
+within-class signal that does survive --- falling debut share in
+tech-info classes (Sci~\&~Tech $042$, Telecommunications $038$) ---
+is driven by mid-tier multi-filer proliferation (not top-$10$
+concentration) and even that fails as a causal mechanism in the
+within-class panel regression with class and year fixed effects.
 \end{abstract}
 
 \section{Why this measurement question matters}
@@ -262,6 +288,283 @@ share of trademark debuts \emph{underestimates} the Hispanic share
 of business starts in absolute terms. The rising-over-time pattern is
 more interpretable than the absolute level.
 
+\section{Multi-filer mix and the first-time-filer share, 1985--2025}
+\label{sec:firsttimer-share}
+
+For each year $y$ and each NICE class $c$, we compute the number of
+filings whose owner had no earlier trademark filing in any class ---
+the \emph{debut} filings --- and the total filing count. The
+debut share $s_{c,y} = n_\text{debut} / n_\text{total}$ measures the
+share of class-year filing activity from first-time filers.
+
+Figure~\ref{fig:firsttimer-pooled} plots the pooled (across all 44
+NICE classes with $\geq 5{,}000$ filings) annual totals.
+Total filings grew from $71{,}459$ in $1985$ to $832{,}505$ in $2025$
+(a factor of $11.6\times$). Debut filings grew from $37{,}705$ to
+$469{,}199$ (a factor of $12.4\times$, slightly faster). The pooled
+debut share is \emph{not falling}: a trough at $46$--$49\%$ in
+$1996$--$2003$, a rise to $52$--$56\%$ from $2015$ onward, and a
+pandemic-era peak of $57$--$58\%$ in $2020$--$2025$. This trajectory
+is the opposite of the falling new-entrant share that the conventional
+declining-business-dynamism story would predict.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/dynamism_firsttimer_share_pooled.png}
+\caption{Pooled USPTO trademark filing counts and first-time-filer
+(debut) share, 1985--2025. Total filings (grey, left axis) and debut
+filings (blue, left axis) both rise by $\sim 12\times$ over the
+window; debut share (red dashed, right axis) is flat-to-rising, not
+falling.}
+\label{fig:firsttimer-pooled}
+\end{figure}
+
+\subsection*{Sectoral decomposition: where the trend hides}
+
+The pooled rise in the debut share is composition-driven. We
+decompose $\Delta s_\text{pooled} = \sum_c w_c\,\Delta s_c + \sum_c
+s_c^{\text{lag}}\,\Delta w_c$ where $w_c$ is class $c$'s share of
+total filings. The within-class effect ($w_c\,\Delta s_c$) and the
+composition effect ($s_c\,\Delta w_c$) are reported separately in
+Table~\ref{tab:firsttimer-decomp} for the $2001$--$2025$ rise.
+
+\begin{table}[h]
+\centering
+\small
+\input{results/dynamism_class_contributions.tex}
+\caption{Top-5 and bottom-5 NICE-class contributions to the
+$2001$--$2025$ pooled debut-share rise, decomposed into within-class
+(change in class-specific debut share at fixed weight) and
+composition (change in class's share of total filings at fixed
+within-class debut share). The pooled $+10$ percentage-point rise is
+roughly $35\%$ within-class and $65\%$ composition: classes with
+high within-class debut shares (consumer goods, services) grew as a
+share of total filings, while classes with lower within-class debut
+shares (Sci~\&~Tech $042$, Software $009$, Advertising $035$) shrank.}
+\label{tab:firsttimer-decomp}
+\end{table}
+
+The five largest positive contributors are
+Clothing/Footwear (NICE $025$, $+2.3$ pp),
+Medical \& Personal Care ($044$, $+1.6$ pp),
+Education \& Entertainment ($041$, $+1.6$ pp),
+Household Utensils ($021$, $+1.5$ pp), and
+Cosmetics \& Cleaning ($003$, $+1.3$ pp).
+The five largest negative contributors are
+Scientific~\& Tech Services ($042$, $-5.3$ pp),
+Advertising~\& Retail ($035$, $-2.1$ pp),
+Software~\& Electronics ($009$, $-1.9$ pp),
+Telecommunications ($038$, $-1.8$ pp), and
+Insurance~\& Financial ($036$, $-1.2$ pp). The economy-wide debut
+share rose mostly because services and consumer-goods classes
+(where most filings are first-time) grew as a share of total
+trademark activity, while tech-information classes shrank.
+
+\subsection*{Within-class debut share: where it does fall}
+
+Within tech-information classes specifically, the debut share is
+falling. Three illustrative time-series slopes ($1985$--$2025$
+linear fit to within-class debut share):
+\begin{itemize}\setlength\itemsep{0pt}
+\item Scientific \& Tech Services (NICE $042$): $-0.42$ pp/year
+  (debut share $67.5\% \to 54.5\%$).
+\item Telecommunications (NICE $038$): $-0.08$ pp/year
+  (debut share $59.0\% \to 46.1\%$).
+\item Software \& Electronics (NICE $009$): $+0.06$ pp/year, flat
+  near $53\%$.
+\end{itemize}
+By contrast, consumer-services classes have rising within-class debut
+shares: Medical~\& Personal Care ($044$) $51\% \to 64\%$,
+Legal~\& Personal Services ($045$) $50\% \to 63\%$,
+Restaurants~\& Hotels ($043$) $49\% \to 60\%$. The next two sections
+ask whether the within-class debut-share decline in tech-information
+classes is mechanically explained by incumbent owner concentration.
+
+\section{Top-$N$ owner concentration: the FAANG-crowding hypothesis fails}
+\label{sec:topN-concentration}
+
+For each (class, year) we computed the top-$10$ owner share of
+filings and the Herfindahl index on owner shares
+(Figure~\ref{fig:topN-byclass}). \textbf{Every NICE class shows
+top-10 owner share decreasing over the panel.} The most dramatic
+declines are in Telecommunications ($038$, HHI $48.4 \to 4.4$),
+Sci~\& Tech ($042$, HHI $3.3 \to 0.5$),
+Software ($009$, HHI $3.2 \to 0.4$), and
+Beverages ($032$, top-10 share $15.1\% \to 2.4\%$). Even in classes
+where the within-class debut share is falling, the top-$10$
+incumbents have a \emph{lower} share of filings than they did in
+the 1990s.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/dynamism_topN_share_byclass.png}
+\caption{Per-NICE-class top-10 owner share of filings, 1985--2025.
+Red lines: class-specific top-10 share; grey: pooled. No class
+shows a rising top-10 share. The very-high top-10 shares in the
+early years (e.g., $90$--$94\%$ in services classes $043$, $044$,
+$045$) reflect tiny early-year sample sizes; the trend over the
+1995--2025 window is more reliable. The FAANG-crowding hypothesis
+that ``Google/Amazon/Microsoft/Apple are squeezing out new-entrant
+trademark activity'' is not supported in any class.}
+\label{fig:topN-byclass}
+\end{figure}
+
+The natural reconciliation with the tech-class debut-share decline
+is that the rise in non-debut filings within tech is coming from
+\emph{mid-tier} multi-filers (owners with $2$--$9$ filings per year),
+not top-$10$ incumbents. We test this directly.
+
+\section{Mid-tier proliferation: the reframed hypothesis also fails}
+\label{sec:midtier}
+
+For each (class, year) we partition filings by owner intensity:
+single-filer ($k = 1$ filing in that class-year), mid-tier
+($2 \le k \le 9$), heavy ($k \ge 10$), and top-$10$. We then
+regress the year-over-year change in debut share on the lagged
+year-over-year changes in mid-tier, heavy, and top-$10$ shares,
+with class and year fixed effects and standard errors clustered by
+class:
+$$\Delta s_{c,y}^{\text{debut}} \;=\; \beta_1 \Delta s_{c,y-1}^{\text{midtier}}
+   \;+\; \beta_2 \Delta s_{c,y-1}^{\text{heavy}}
+   \;+\; \beta_3 \Delta s_{c,y-1}^{\text{top10}}
+   \;+\; \alpha_c + \alpha_y + \epsilon_{c,y}.$$
+
+The crowding hypothesis predicts $\beta_1 < 0$ (mid-tier proliferation
+absorbs filings that would otherwise be first-time). What we find
+(Table~\ref{tab:midtier-regression}): $\beta_1 = +0.197$
+($t = +1.95$, $p = 0.051$). The coefficient is the wrong sign.
+
+\begin{table}[h]
+\centering
+\small
+\input{results/dynamism_midtier_regression.tex}
+\caption{Within-class panel regression of $\Delta$debut share on
+lagged $\Delta$multi-filer shares. All three coefficients are
+positive --- the within-class year-over-year predictors all
+co-move with debut share, not against it. Cluster-by-class
+standard errors. $N = 1{,}755$ (class $\times$ year) cells.}
+\label{tab:midtier-regression}
+\end{table}
+
+The substantive interpretation is that within a class, year-over-year
+filing-volume shocks (e.g., the 2020 pandemic surge) raise both
+mid-tier filing and first-time filing together: established firms
+file more line-extension marks in busy years, and new firms file
+their debut marks in those same busy years. Filing activity at
+different intensity tiers \emph{co-moves} with the wave, not against
+it. The mid-tier-proliferation crowding mechanism is not what
+explains the tech-class within-class debut-share decline.
+
+\section{IPO chilling at the NICE-class level: a clean null}
+\label{sec:ipo-chilling}
+
+The third test draws on the kill-zone literature
+(Kamepalli, Rajan \& Zingales, 2022; Cunningham, Ederer \& Ma, 2021),
+which finds that a Big-Tech acquisition or major IPO in a narrow
+vertical chills venture-capital funding in adjacent verticals. The
+analogous trademark question: when an IPO firm goes public, does
+first-time-filer trademark activity in the IPO firm's NICE class
+decline relative to the pre-IPO trend?
+
+\paragraph{Event panel.} We join the USPTO--SEC owner crosswalk to
+the SEC firm-year financials and define each public firm's
+\emph{IPO year} as the first fiscal year in which it appears in our
+SEC data, restricted to firms with first SEC year $\ge 2012$ (when
+Census FSDS coverage stabilises) and USPTO first-trademark year
+within $5$ years of the IPO (filtering out pre-existing public firms
+that merely appear in the SEC data later). This yields $2{,}536$
+IPO-firm events. For each IPO firm we identify the NICE classes in
+which it actively files trademarks ($\ge 5$ filings in the
+$\pm 2$ year window around IPO), producing $877$ active-filer
+class-events spanning $230$ unique (class, IPO-year) cells.
+
+\paragraph{Event-study specification.} For each class-event, we
+stack non-IPO-firm debut counts at relative years $t \in [-3, +3]$
+around the IPO. Two-way fixed-effects regression:
+$$\log\bigl(1 + n_\text{debut}^{c,y}\bigr) = \beta\,\mathbf{1}\{y \ge y_e\}
+   + \alpha_c + \alpha_y + \epsilon_{c,y,e}.$$
+Cluster-by-class standard errors. We also fit a separately-sloped
+specification, replacing the post indicator with two slopes
+(pre-event and post-event) on the relative-year axis.
+
+\paragraph{Result.} No detectable chilling effect
+(Table~\ref{tab:ipo-chilling}). The post coefficient is $+0.007$
+($t = +0.67$, $p = 0.50$); the implied multiplicative effect on
+debut counts is $e^{+0.007} = 1.007$, indistinguishable from one.
+The slope decomposition is also weak: pre-event slope
+$+0.0042$/year, post-event slope $-0.0020$/year, difference
+$-0.0063$/year. Figure~\ref{fig:ipo-chilling} shows the mean
+trajectory of debut counts across event years $-3$ to $+3$.
+
+\begin{table}[h]
+\centering
+\small
+\input{results/dynamism_ipo_chilling.tex}
+\caption{Event-study DiD for the IPO-chilling test. Post coefficient
+indistinguishable from zero at conventional significance, both as a
+post-vs-pre indicator and as a slope difference. $877$ class-events
+from $2{,}536$ IPO-firm events, $2012$--$2022$ IPO years.}
+\label{tab:ipo-chilling}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/dynamism_ipo_chilling.png}
+\caption{Mean log debut count by event-relative year for $877$
+IPO class-events. The mean continues to rise across the event
+window; the IPO at $t = 0$ does not produce a visible break in the
+trajectory. Class-level test only --- the finer token-vertical
+specification (cosine-similarity neighbourhoods of the IPO firm's
+goods/services vocabulary) is left for future work.}
+\label{fig:ipo-chilling}
+\end{figure}
+
+\paragraph{Scope of the null.} The class-level test is a coarse
+operationalisation of the kill-zone hypothesis. The original VC kill
+zone effect operates at the level of \emph{specific verticals}
+defined by product-token overlap, not by SIC/NICE class. Our
+$44$-NICE-class partition is coarser than the Kamepalli et al.\ unit
+of analysis. We do not claim that no kill zones exist in
+trademark-filing space; we report that the coarse class-level test
+finds no effect, and flag the finer-grained token-vertical test
+(cosine-similarity neighbourhoods of the IPO firm's pre-IPO
+goods/services prose) as a follow-up that should be run before
+declaring the hypothesis dead.
+
+\section{What is left of the crowding story}
+
+After three failed tests, the conventional incumbent-crowding
+narrative does not survive at the trademark-filing level. What
+\emph{is} visible in our data:
+\begin{itemize}\setlength\itemsep{2pt}
+\item The within-class debut-share decline in tech-information
+  classes is a real $13$ pp drop (Sci~\&~Tech $042$:
+  $67.5\% \to 54.5\%$) and a $13$ pp drop in Telecommunications
+  ($038$). The drop is not explained by top-$10$ concentration
+  (which fell) or mid-tier proliferation in a within-class panel
+  sense.
+\item The composition shift away from tech-information classes and
+  toward consumer-services classes is itself the dominant driver of
+  the rising pooled debut share. This is a sectoral story, not a
+  concentration story.
+\item Trademark activity is broadly \emph{decentralising}, not
+  concentrating, across the entire $1985$--$2025$ panel. This
+  contradicts the qualitative version of the declining-business-
+  dynamism narrative even as it tracks the BFS quantitative trend
+  in business applications.
+\end{itemize}
+The reconciliation we read in the data is that the BDS-measured
+declining startup rate
+(Decker et al., 2014; Akcigit \& Ates, 2021) is about
+\emph{employer} firms (establishments with payrolls), while
+trademark filings include large numbers of brand-aware solo
+operators, DTC consumer-goods startups, and online businesses that
+either do not employ or report through different establishment
+structures. The two populations are diverging: employer business
+formation is becoming less dynamic, brand-aware new-firm formation
+is becoming \emph{more} dynamic, and the trademark corpus mostly
+captures the latter.
+
 \section{Next steps required for publication}
 
 The current results are publishable as descriptive statistics with
@@ -292,13 +595,45 @@ filings.} State-level cross-check of the BFS denominator using
 California, Texas, Florida, and New York monthly entity-formation
 counts.
 
+(5) \textbf{Token-vertical IPO chilling test.} Replace the
+NICE-class operationalisation in Section~\ref{sec:ipo-chilling}
+with cosine-similarity neighbourhoods of the IPO firm's pre-IPO
+goods/services prose (the same infrastructure as Section~5 of the
+companion $\Delta KL$ paper). Compare core vertical (cosine
+$\ge 0.7$), adjacent vertical (cosine $0.5$--$0.7$), and matched
+non-event control verticals on debut-count trajectory. The
+class-level null in this paper does not rule out a token-vertical
+kill-zone effect.
+
+(6) \textbf{Acquisition events as the canonical kill-zone test.}
+The Kamepalli et al.\ result is on acquisitions, not IPOs.
+Augmenting our event panel with Crunchbase or SEC 8-K-parsed
+acquisitions ($2010$--$2024$) would let us replicate the kill-zone
+test in its original form on trademark debuts.
+
+(7) \textbf{Reconciling BDS vs.\ BFS vs.\ trademark debuts.}
+The three series tell different stories about the same underlying
+question. BDS (employer firm entry rate) is falling. BFS (all
+business applications, BA) is rising sharply post-$2020$. Trademark
+debuts are rising. A clean joint reconciliation requires
+employer/non-employer disaggregation of trademark debuts using the
+Census restricted LBD --- which is precisely what Dinlersoz et al.\
+(2018) had access to. The version of their analysis with a
+$2024$ cutoff is the natural next data ask.
+
 \section*{Data and code}
-All code is in \texttt{scripts/business\_dynamism\_coverage.py} and
-\texttt{scripts/surname\_ethnicity.py} of the
-\texttt{business-dynamism} branch of the project repository. BFS
-data is at
-\texttt{census.gov/econ/bfs/csv/bfs\_monthly.csv}. The Census surname
-file is at
+All code is in the \texttt{business-dynamism} branch of the
+project repository:
+\texttt{scripts/business\_dynamism\_coverage.py} (coverage),
+\texttt{scripts/surname\_ethnicity.py} (surname race/ethnicity),
+\texttt{scripts/dynamism\_firsttimer\_share.py} (debut-share panel),
+\texttt{scripts/dynamism\_class\_contributions.py} (decomposition),
+\texttt{scripts/dynamism\_topN\_share.py} (top-$N$ concentration),
+\texttt{scripts/dynamism\_midtier\_regression.py} (panel regression),
+and
+\texttt{scripts/dynamism\_ipo\_chilling.py} (event study).
+BFS data is at \texttt{census.gov/econ/bfs/csv/bfs\_monthly.csv}.
+The Census surname file is at
 \texttt{www2.census.gov/topics/genealogy/2010surnames/names.zip}.
 
 \section*{References}
@@ -306,6 +641,12 @@ file is at
 \item Akcigit, U., \& Ates, S.~T. (2021). Ten facts on declining
   business dynamism and lessons from endogenous growth theory.
   \emph{American Economic Journal: Macroeconomics}, $13$(1), $257$--$298$.
+\item Cunningham, C., Ederer, F., \& Ma, S. (2021). Killer
+  acquisitions. \emph{Journal of Political Economy}, $129$(3),
+  $649$--$702$.
+\item Kamepalli, S.~K., Rajan, R., \& Zingales, L. (2022). Kill
+  zone. \emph{American Economic Journal: Microeconomics},
+  forthcoming.
 \item Decker, R.~A., Haltiwanger, J., Jarmin, R.~S., \& Miranda, J.
   (2014). The role of entrepreneurship in US job creation and
   economic dynamism. \emph{Journal of Economic Perspectives},

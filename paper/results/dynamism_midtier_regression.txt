@@ -1,0 +1,25 @@
+C2 reframed regression: does mid-tier multi-filer proliferation predict
+a fall in within-class debut share, with class and year fixed effects?
+======================================================================
+
+Panel cells used:    1,755  (2 classes x ~years)
+R² (within):         0.2663
+R² adjusted:         0.2289
+
+Coefficients on lagged-Δ share predictors (class FE + year FE; cluster-by-class SE):
+
+  predictor                            coef          SE        t         p
+  d_midtier_share_lag1              +0.1965      0.1007    +1.95    0.0511
+  d_heavy_share_lag1                +0.1029      0.0807    +1.27    0.2024
+  d_top10_share_lag1                +0.0814      0.0399    +2.04    0.0415
+
+Interpretation:
+  - corr(Δslope midtier, Δslope debut)  across classes: -0.255
+  - corr(Δslope heavy,   Δslope debut)  across classes: +0.076
+  - corr(Δslope top10,   Δslope debut)  across classes: +0.475
+
+Causal-vs-common-shock caveat: this is a panel of partial correlations with
+class FE + year FE. It removes class-level constants and secular trends, but
+a within-class shock that simultaneously raises mid-tier filing and lowers
+debut filing (e.g. an IP-thicket regime in software) would generate the same
+signature. Read as 'consistent with', not 'caused by'.

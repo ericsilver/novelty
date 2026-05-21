@@ -1,0 +1,19 @@
+D3 IPO chilling event study at the NICE-class level
+======================================================================
+IPO firm events:                2,536
+Active-filer class-events:      877
+Event cells in regression:      6,139
+
+Within-treated DiD (post vs pre, class FE + year FE, cluster-by-class SE):
+  post coefficient on log(1+debut_count): +0.0069  SE=0.0103  t=+0.67  p=0.5030
+  Implied effect: post-event debut count multiplied by 1.007
+
+Slope regression: log_debut on rel_year split into rel_neg + rel_pos:
+  rel_neg slope: +0.0042  SE=0.0038  t=+1.11
+  rel_pos slope: -0.0020  SE=0.0025  t=-0.82
+  rel_pos - rel_neg = -0.0063
+
+Interpretation:
+  - Negative post coefficient => chilling effect (fewer first-time-filers post-IPO)
+  - rel_pos < rel_neg => slope flips down after the IPO
+  - Class-level test only; finer token-vertical version not run yet.
