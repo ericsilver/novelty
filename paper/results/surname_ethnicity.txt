@@ -1,0 +1,40 @@
+Surname-based race/ethnicity composition of USPTO debut filers
+======================================================================
+
+Debut owners total:          5,674,909
+Parse as individuals:        1,827,163  (32.2% of debuts)
+Matched in Census surname:   1,390,267  (76.1% of individuals)
+
+Headline shares over time (% of individual-name matched debut filers):
+
+1990-1999  (n=  118,180)
+   Non-Hispanic White                   74.64%
+   Non-Hispanic Black                   11.04%
+   Asian / Pacific Islander              5.22%
+   Hispanic (any race)                   6.31%
+   Two or More Races                     1.78%
+   American Indian / Alaska Native       0.61%
+
+2000-2009  (n=  272,077)
+   Non-Hispanic White                   70.31%
+   Non-Hispanic Black                   11.55%
+   Asian / Pacific Islander              6.91%
+   Hispanic (any race)                   8.44%
+   Two or More Races                     1.80%
+   American Indian / Alaska Native       0.61%
+
+2010-2019  (n=  427,009)
+   Non-Hispanic White                   61.38%
+   Non-Hispanic Black                   11.73%
+   Asian / Pacific Islander             14.17%
+   Hispanic (any race)                   9.94%
+   Two or More Races                     1.81%
+   American Indian / Alaska Native       0.60%
+
+2020-2024  (n=  406,166)
+   Non-Hispanic White                   43.89%
+   Non-Hispanic Black                   10.74%
+   Asian / Pacific Islander             33.44%
+   Hispanic (any race)                   9.38%
+   Two or More Races                     1.77%
+   American Indian / Alaska Native       0.48%

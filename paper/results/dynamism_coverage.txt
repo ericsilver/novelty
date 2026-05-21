@@ -1,0 +1,14 @@
+USPTO trademark debuts vs Census Business Formation Statistics
+======================================================================
+
+2004-2008:  USPTO debuts      464,273
+            BFS BA         10,293,896    ratio  0.045
+            BFS HBA         5,768,077    ratio  0.080
+
+2014-2018:  USPTO debuts      907,851
+            BFS BA         15,104,778    ratio  0.060
+            BFS HBA         6,199,297    ratio  0.146
+
+2019-2024:  USPTO debuts    1,753,741
+            BFS BA         29,002,345    ratio  0.060
+            BFS HBA         9,963,498    ratio  0.176
