@@ -39,22 +39,53 @@ patent-inventor rows, $4.26$M unique inventors $1990$--$2024$).
 
 \section*{(1) Ethnic clusters in NICE classes: harvest or innovation?}
 
-For each (NICE class, surname-imputed ethnicity) cell we compute
-fractional debut counts via Census 2010 surname-race probabilities
-(Word, Coleman, Nunziata, \& Kominski, 2008), and the n-effective-
-weighted mean $\Delta KL$ on debut filings in that cell. An
-\emph{enclave} cell is one where the ethnic group's share of
-individual-name debuts in the class is over $1.5\times$ its overall
-share, the share is $> 10\%$, and the effective $n$ is $> 500$.
+\paragraph{Ethnic-cluster industries are well-documented.} The
+sociology and economics literature on \emph{ethnic enclave
+entrepreneurship} has documented for fifty years that certain
+ethnic and immigrant groups concentrate in specific industries far
+beyond what population shares would predict (Bonacich, 1973, on
+``middleman minorities''; Light, 1972, \emph{Ethnic Enterprise in
+America}; Waldinger, Aldrich, \& Ward, 1990, \emph{Ethnic
+Entrepreneurs}; Portes \& Manning, 1986, on the enclave economy;
+Min, 1996, \emph{Caught in the Middle}, on Korean-American
+small-business owners; Kerr \& Mandorff, 2023, \emph{JoLE}, with
+the recent administrative-data treatment). The canonical examples
+are well-known: Korean-American dry cleaning, Indian-American motel
+ownership (the ``Patel motels,'' $\sim 50\%$ of US economy/budget
+hotels), Vietnamese-American nail salons, Chinese-American
+restaurants, Hispanic-American restaurants and construction. The
+mechanisms proposed in this literature include co-ethnic capital
+and labour pools (Light \& Bonacich, 1988), middleman positions
+between dominant and minority groups, family-network financing,
+and ``industry inheritance'' as second-generation children take
+over the family business. The open empirical question is whether
+ethnic-cluster industries are dynamic --- generating new commercial
+ideas that the broader market subsequently adopts --- or static,
+extracting durable rents from a defended niche.
+
+\paragraph{Our test, on trademark data.} For each (NICE class,
+surname-imputed ethnicity) cell we compute fractional debut counts
+via Census 2010 surname-race probabilities (Word, Coleman,
+Nunziata, \& Kominski, 2008), and the n-effective-weighted mean
+$\Delta KL$ on debut filings in that cell. An \emph{enclave} cell
+is one where the ethnic group's share of individual-name debuts in
+the class is over $1.5\times$ its overall share, the share is
+$> 10\%$, and the effective $n$ is $> 500$.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{results/ethnic_cluster_dkl.png}
-\caption{Per-NICE-class mean $\Delta KL$ on debut filings, against
-that ethnic group's share of individual-name debuts in the class.
-Point size $\propto$ effective $n$; colour = over-index vs.\ the
-ethnic group's overall share of all individual debuts. NICE class
-numbers are labelled where the over-index exceeds $1.5$.}
+\caption{Per-NICE-class mean $\Delta KL$ on individual-name debut
+filings, against that ethnic group's share of individual-name
+debuts in the class. Point size $\propto$ effective $n$; colour =
+over-index vs.\ the ethnic group's overall share of all individual
+debuts. \textbf{Each panel labels the top enclave classes by
+industry name} so the substantive identification is visible:
+Hispanic enclaves are Alcoholic Beverages and Hotel/Restaurant/Food;
+API ``enclaves'' span consumer-manufactured-goods classes
+(Carpets, Lighting/Heating, Lace, Fabrics, Household Utensils,
+Furniture, etc.) which is the foreign-applicant signature of the
+Chinese cross-border filing surge.}
 \label{fig:ethnic-cluster-dkl}
 \end{figure}
 
@@ -104,12 +135,29 @@ The Hispanic enclaves are the cleaner domestic-pattern test:
 (NICE 043)}. Hispanic-classified individuals are $1.5$--$2.5\times$
 over-represented in these classes vs.\ their overall share. Mean
 $\Delta KL$ in these enclave cells is approximately $+0.08$, again
-on the innovation side rather than the harvest side. This contradicts
-the strong form of the Borjas ($1992$) / Kerr-Mandorff ($2023$)
-ethnic-cluster-as-stagnation prediction in the trademark data.
-Hispanic-American restaurant/food/beverage entrepreneurs file
-\emph{novel} goods/services prose at a higher rate than the corpus
-baseline, not legacy/recycled prose.
+on the innovation side rather than the harvest side.
+
+\paragraph{What does it mean substantively that the Hispanic
+enclaves run on positive $\Delta KL$?} A positive $\Delta KL$ means
+the filing's goods/services vocabulary is \emph{prospectively novel}
+(unusual against the recent past of the class) and
+\emph{retrospectively obvious} (close to the near future of the
+class). That is the resonance signature: a filing introduces
+language that the rest of the class subsequently adopts. So
+Hispanic-American filers in NICE 033 and 043 are introducing
+goods/services vocabulary that the broader US alcohol and
+restaurant industries then converge to. Substantive plausibility
+check: the recent two decades have seen \texttt{tequila},
+\texttt{mezcal}, \texttt{palmas}, \texttt{micheladas},
+\texttt{horchata}, \texttt{cochinita}, \texttt{birria},
+\texttt{taqueria}, \texttt{fonda}, and \texttt{tortilleria} all
+enter mainstream US trademark prose, with Hispanic-American small
+businesses overwhelmingly the early filers. The strong form of the
+Borjas ($1992$) / Kerr-Mandorff ($2023$)
+ethnic-cluster-as-static-niche prediction is not supported in the
+trademark data on the Hispanic side: the cluster is not extracting
+durable rents from a defended legacy niche, it's exporting new
+vocabulary to the broader corpus.
 
 \paragraph{What we don't see.} No White or Black enclave cells
 trigger our $1.5\times$ over-representation threshold. White is the
@@ -118,7 +166,80 @@ majority in essentially every class, so no class is
 overall share of individual-name debuts is roughly $11\%$ uniformly
 across classes (extremely stable; flagged in the broader review
 PDF); there's no class where Black share is $> 17\%$ at the size
-threshold.
+threshold. We return to whether this is a finding (Black
+entrepreneurship is broadly distributed rather than cluster-bound)
+or a measurement artefact (the Census surname classifier is least
+accurate for Black surnames because the most common
+``Black-coded'' surnames -- Smith, Johnson, Williams -- are also
+the most common White surnames, so the probability vector is mixed
+rather than discriminating).
+
+\section*{(1b) Does cultural concentration correlate with innovation?}
+
+Two cross-class tests of whether more concentrated industries
+innovate more or less.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/concentration_vs_innovation.png}
+\caption{\textbf{Left:} per NICE class, ethnic concentration
+(1 $-$ normalised entropy over the four-bucket ethnic share)
+vs.\ class-level mean $\Delta KL$ on individual-name debut filings.
+$n = 44$ classes. \textbf{Right:} per CPC class, inventor-surname
+HHI in the $2010$s vs.\ log growth in inventor count from the
+$2010$s to the $2020$s. $n = 115$ classes. Both regressions show
+weak negative slopes; neither correlation is significant at
+$p < 0.05$.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+Test & $n$ & Pearson $r$ & Spearman $\rho$ & Slope sign \\
+\midrule
+Trademark: ethnic concentration $\to$ mean $\Delta KL$ & $44$ classes
+  & $-0.175$ $(p=0.25)$ & $-0.194$ $(p=0.21)$ & negative \\
+Patent: surname HHI $\to$ log inventor growth & $115$ classes
+  & $-0.127$ $(p=0.18)$ & $-0.140$ $(p=0.14)$ & negative \\
+\bottomrule
+\end{tabular}
+\caption{Both correlations are weakly negative but neither is
+significant at conventional thresholds. Read: across the universe
+of NICE classes (trademarks) and CPC classes (patents), cultural
+concentration is \emph{not} a strong driver of innovation in
+either direction.}
+\label{tab:conc-innov}
+\end{table}
+
+\paragraph{What we can claim and what we can't.}
+\textbf{Can claim:} there is no positive correlation between
+cultural concentration and innovation in either measure. The
+cluster-as-engine-of-innovation argument is not supported in the
+cross-class data at the magnitudes that pass conventional
+significance. Specific cells (Hispanic enclaves in $033$/$043$)
+do show positive within-cell mean $\Delta KL$, but those are not
+the most-concentrated classes overall and they don't drive a
+significant association at the class level.
+
+\textbf{Can't claim:} that cultural concentration \emph{hurts}
+innovation either. Point estimates are negative but $p$-values are
+$0.14$--$0.25$. With $n = 44$ NICE classes and the noisy $\Delta KL$
+measurement we have, we are statistically powerless to detect
+correlations smaller than $|r| \approx 0.3$ at the $5\%$ level.
+The null result is honest evidence \emph{against} a large positive
+effect, not evidence \emph{for} a small or zero effect.
+
+\textbf{The right read:} the action is at the cell level, not the
+class level. Specific ethnic-cluster cells run on positive $\Delta
+KL$ (Hispanic in 033/043, with the substantive interpretation
+above). But \emph{which class} happens to be a Hispanic enclave
+does not, on its own, predict the class's overall mean innovation
+rate -- because the class is the union of many ethnic cells, not
+all of which are clustered. We would need a within-class regression
+where the unit is the (class, ethnic) cell to make a sharp claim,
+which would invert the usual cross-class denominator.
 
 \section*{(2) Patent inventor ethnic composition, 1990--2024}
 
@@ -440,6 +561,8 @@ filings? Is the drift ethnically systematic?
 \item Bernstein, S., Diamond, R., McQuade, T., \& Pousada, B.
   ($2022$). The Contribution of High-Skilled Immigrants to Innovation
   in the United States. NBER Working Paper $30797$.
+\item Bonacich, E. ($1973$). A Theory of Middleman Minorities.
+  \emph{American Sociological Review}, $38$($5$), $583$--$594$.
 \item Borjas, G.~J. ($1992$). Ethnic Capital and Intergenerational
   Mobility. \emph{Quarterly Journal of Economics}, $107$($1$), $123$--$150$.
 \item Cook, L.~D. ($2014$). Violence and Economic Activity: Evidence
@@ -453,6 +576,22 @@ filings? Is the drift ethnically systematic?
   $41$($1$), $1$--$36$.
 \item Kerr, W.~R. ($2018$). \emph{The Gift of Global Talent}.
   Stanford University Press.
+\item Light, I.~H. ($1972$). \emph{Ethnic Enterprise in America:
+  Business and Welfare Among Chinese, Japanese, and Blacks}.
+  University of California Press.
+\item Light, I.~H., \& Bonacich, E. ($1988$). \emph{Immigrant
+  Entrepreneurs: Koreans in Los Angeles, 1965--1982}. University
+  of California Press.
+\item Min, P.~G. ($1996$). \emph{Caught in the Middle: Korean
+  Communities in New York and Los Angeles}. University of
+  California Press.
+\item Portes, A., \& Manning, R.~D. ($1986$). The Immigrant Enclave:
+  Theory and Empirical Examples. In J. Nagel \& S. Olzak (Eds.),
+  \emph{Competitive Ethnic Relations} (pp.\ $47$--$68$). Academic
+  Press.
+\item Waldinger, R., Aldrich, H., \& Ward, R. ($1990$).
+  \emph{Ethnic Entrepreneurs: Immigrant Business in Industrial
+  Societies}. Sage Publications.
 \item Word, D.~L., Coleman, C.~D., Nunziata, R., \& Kominski, R.
   ($2008$). Demographic Aspects of Surnames from Census $2000$. US
   Census Bureau working paper.

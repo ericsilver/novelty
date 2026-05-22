@@ -230,29 +230,38 @@ def main() -> int:
                                           float_format=lambda x: f"{x:.3f}"))
 
     # Plot: ethnic share within class vs mean ΔKL of that ethnic group's debuts in the class
-    fig, axes = plt.subplots(2, 2, figsize=(13, 9))
+    fig, axes = plt.subplots(2, 2, figsize=(15, 11))
     for ax, eth_key in zip(axes.flat, ["White", "API", "Hispanic", "Black"]):
         sub = panel.filter(pl.col("ethnic") == eth_key).to_pandas()
         # Compute over-index for color
         sub = sub.merge(overall.to_pandas(), on="ethnic")
         sub["over_index"] = sub["share_in_class"] / sub["share_overall"]
         sc = ax.scatter(sub["share_in_class"], sub["mean_dkl"],
-                        s=np.clip(sub["n_eff"]/30, 8, 200),
+                        s=np.clip(sub["n_eff"]/30, 8, 240),
                         c=sub["over_index"], cmap="viridis", alpha=0.85,
                         edgecolor="black", lw=0.4)
-        # Label points with over_index > 1.5
-        for _, r in sub[sub["over_index"] > 1.5].iterrows():
-            ax.annotate(f"{r['class_id']}", (r["share_in_class"], r["mean_dkl"]),
-                        xytext=(3,3), textcoords="offset points", fontsize=7)
-        ax.set_xlabel(f"{eth_key} share of indiv. debuts in NICE class")
-        ax.set_ylabel(r"Mean $\Delta KL$ (signed; positive=innovation)")
-        ax.set_title(f"{eth_key}-classified debut filers per NICE class")
+        # Label the top-N enclave (most over-indexed) classes with their
+        # industry NAME. Cap to top 6 so the plot doesn't get unreadable.
+        encl = sub[sub["over_index"] > 1.3].sort_values("over_index", ascending=False).head(6)
+        for _, r in encl.iterrows():
+            label = INDUSTRY_NAMES.get(r["class_id"], r["class_id"])
+            # Trim very long names
+            if len(label) > 22:
+                label = label[:22] + "…"
+            ax.annotate(label, (r["share_in_class"], r["mean_dkl"]),
+                        xytext=(5, 5), textcoords="offset points",
+                        fontsize=8, color="#222",
+                        bbox=dict(boxstyle="round,pad=0.2", fc="white",
+                                  ec="#888", lw=0.5, alpha=0.85))
+        ax.set_xlabel(f"{eth_key}-classified share of individual-name debuts in NICE class")
+        ax.set_ylabel(r"Mean $\Delta KL$ (signed; positive = innovation)")
+        ax.set_title(f"{eth_key}-classified debut filers, per NICE class")
         ax.axhline(0, color="#444", lw=0.7)
         ax.grid(alpha=0.3)
-        plt.colorbar(sc, ax=ax, label="over-index vs overall")
-    fig.suptitle("Within-class ΔKL by surname-imputed ethnicity\n"
-                 "(point size ∝ n_effective; labels = NICE class number where over-index > 1.5)",
-                 fontsize=11)
+        plt.colorbar(sc, ax=ax, label="over-index vs.\ overall share")
+    fig.suptitle("Where ethnic clusters form, and what their vocabulary looks like\n"
+                 "(point size ∝ n_effective; labels show top enclave-class industry names)",
+                 fontsize=12, y=1.00)
     fig.tight_layout()
     fig.savefig(OUT / "ethnic_cluster_dkl.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
