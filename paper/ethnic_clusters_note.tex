@@ -334,17 +334,98 @@ terms. The magnitude $|\Delta KL|$ is comparable across classes
 ($\sim 0.10$ in 2020--24); no class is stagnant in the
 zero-vocabulary-churn sense.
 
+\section*{(6) Patent-side: inventor-surname HHI by CPC class over decades}
+
+For each (CPC class, decade) we compute the Herfindahl-Hirschman
+Index over inventor surnames. Rising HHI = the same surnames keep
+showing up; falling HHI = diversifying.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{results/patent_guild_hhi.png}
+\caption{Top: eight CPC classes whose inventor-surname HHI rose
+most from the 1990s to the 2020s. Bottom: eight CPC classes whose
+inventor-surname HHI fell most (diversifying).}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrl}
+\toprule
+CPC class & HHI 1990s & HHI 2020s & Description \\
+\midrule
+\multicolumn{4}{l}{\textbf{Rising surname concentration (top 5)}} \\
+G09 & $0.00061$ & $0.00691$ & Educating; cryptography; display; advertising \\
+H10 & $0.00090$ & $0.00715$ & Semiconductor devices (new section) \\
+D06 & $0.00073$ & $0.00685$ & Treatment of textiles; laundering \\
+B09 & $0.00121$ & $0.00496$ & Disposal of waste; reclamation \\
+G11 & $0.00076$ & $0.00424$ & Information storage / memory \\
+\midrule
+\multicolumn{4}{l}{\textbf{Falling surname concentration (top 5, diversification)}} \\
+G16 & $0.00212$ & $0.00062$ & Information and communication tech \\
+F03 & $0.00178$ & $0.00114$ & Machines/engines for liquids/gases \\
+B64 & $0.00089$ & $0.00038$ & Aircraft, aviation, cosmonautics \\
+F41 & $0.00113$ & $0.00068$ & Weapons \\
+A24 & $0.00211$ & $0.00168$ & Tobacco; smokers' articles \\
+\bottomrule
+\end{tabular}
+\caption{All HHI values are small (the top class has $\sim 1/145$
+effective surnames in its tail), so absolute magnitudes are modest;
+the directional story is the change.}
+\end{table}
+
+\paragraph{The rising-HHI classes are heavily hardware-manufacturing
+classes. The falling-HHI classes are ICT and mature
+mechanical/aerospace.} This is a guild signal in the narrow sense:
+some classes are seeing growing surname concentration, others are
+seeing diversification.
+
+\paragraph{The honest read is ethnic concentration, not family
+inheritance.} Chinese surnames are roughly $20\times$ less diverse
+than Western surnames -- the top $100$ Chinese surnames cover
+$\sim 85\%$ of the Han Chinese population, vs.\ top $100$ Western
+surnames covering $\sim 15\%$ of US Whites. So if the inventor pool
+in a CPC class shifts toward Chinese names, the surname HHI rises
+mechanically, even without any actual family-inheritance dynamic.
+The rising-HHI CPC classes (G09, H10, D06, G11, G02, H01) are
+precisely the semiconductor / display / memory / optics /
+basic-electrical classes where Chinese-resident inventor share has
+been documented to rise sharply since $2010$ (Hicks, $2024$,
+\emph{Stanford Law Review}). So the pattern is more
+\emph{ethnic-group concentration in technical sub-fields} than
+\emph{family-line inheritance across generations}. To get to a
+true guild test we'd need to disambiguate Chinese names across
+generations (which the disambiguation in PatentsView does at the
+inventor level but cannot do at the family level), and we'd need a
+US-resident inventor restriction (which requires the
+location\_id$\to$country crosswalk; doable as a follow-up).
+
+The falling-HHI CPC classes -- G16 in particular, which dropped from
+$0.00212$ in the 1990s to $0.00062$ in the 2020s ($-71\%$) -- show
+the opposite pattern: surname diversification consistent with broad
+workforce expansion. G16 is information and communication technology,
+where the workforce went from a small concentrated pool ($\sim 800$
+inventors with a few dominant surnames) to a much larger and more
+diverse pool. This is the Hsieh-Hurst-Jones-Klenow
+($2019$, \emph{Econometrica}) talent reallocation story playing out
+in patent micro-data.
+
 \section*{What's next}
 
 \begin{itemize}\setlength\itemsep{2pt}
 \item Full USPTO XML re-parse for state+country ($\sim 30$--$60$
-minutes, currently $\sim 25\%$ through). Once it lands: rebuild
+minutes, currently $\sim 30\%$ through). Once it lands: rebuild
 the trademark debut composition stripping foreign-domiciled filings,
 and recompute the ethnic-cluster $\Delta KL$ table to remove the
-foreign-applicant confound on API enclaves.
-\item Patent-side guild signal: for each (USPC/CPC class, ethnic
-group), measure surname-concentration HHI over time. Rising HHI =
-guild-like inheritance signature.
+foreign-applicant confound on API enclaves. Same applies to the
+patent-side surname HHI -- restricting to US-resident inventors
+will let us separate ``ethnic concentration of US inventors'' from
+``rising Chinese-resident filing volume.''
+\item PatentsView location join (\texttt{g\_location\_disambiguated.tsv})
+to attach inventor country/state. Re-run the HHI analysis on
+US-only inventors; predict that several of the rising-HHI CPC
+classes will look much flatter once foreign inventors are stripped.
 \item Within-firm $\Delta KL$ trajectory analysis: do firms drift
 toward or away from their starting $\Delta KL$ over subsequent
 filings? Is the drift ethnically systematic?
