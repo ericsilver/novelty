@@ -532,24 +532,178 @@ diverse pool. This is the Hsieh-Hurst-Jones-Klenow
 ($2019$, \emph{Econometrica}) talent reallocation story playing out
 in patent micro-data.
 
+\section*{(7) US-only re-run: stripping the foreign-applicant confound}
+
+The USPTO XML re-parse finished while the rest of this note was
+being drafted. It produced \texttt{owner\_address.parquet} with
+$13{,}993{,}768$ records, each tagged with the owner's domicile
+country at the time of filing. Joining the debut-owner panel to
+this address parquet identifies the country of $4{,}087{,}491$
+US-domiciled owners ($72.0\%$ of all unique debut owners).
+
+\paragraph{The post-2018 API surge was almost entirely foreign
+filings.}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/surname_ethnicity_us_compare.png}
+\caption{Effect of stripping foreign-domiciled trademark filings on
+the apparent ethnic composition of debut filers. Left: all filings
+(includes the Chinese-applicant surge). Right: US-domiciled only.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Period & White & API & Hispanic & Black & Two+ & AIAN \\
+\midrule
+\multicolumn{7}{l}{\textbf{All trademark debuts (includes foreign filings):}} \\
+1990--1999 & $74.6\%$ & $5.2\%$  & $6.3\%$  & $11.0\%$ & $1.8\%$ & $0.6\%$ \\
+2010--2019 & $61.4\%$ & $14.2\%$ & $9.9\%$  & $11.7\%$ & $1.8\%$ & $0.6\%$ \\
+2020--2024 & $43.9\%$ & $33.4\%$ & $9.4\%$  & $10.7\%$ & $1.8\%$ & $0.5\%$ \\
+\midrule
+\multicolumn{7}{l}{\textbf{US-domiciled debuts only:}} \\
+1990--1999 & $76.2\%$ & $4.0\%$  & $5.6\%$  & $11.4\%$ & $1.8\%$ & $0.6\%$ \\
+2010--2019 & $67.5\%$ & $6.6\%$  & $9.9\%$  & $13.2\%$ & $1.8\%$ & $0.7\%$ \\
+2020--2024 & $62.0\%$ & $7.1\%$  & $12.3\%$ & $15.7\%$ & $1.9\%$ & $0.7\%$ \\
+\bottomrule
+\end{tabular}
+\caption{All-filings vs US-only ethnic composition. The 2020-24
+API drop from $33.4\%$ to $7.1\%$ confirms that essentially the
+entire post-2018 API ``surge'' in the trademark data was foreign-
+domiciled filings (mostly Chinese applicants seeking US trademark
+protection for export brands), not US Asian-American
+entrepreneurship. The US-only API trajectory is much flatter: $4\%
+\to 7\%$ over 30 years.}
+\end{table}
+
+\paragraph{The trademark-vs-patent API gap is now sharp.} On the
+patent side (PatentsView inventor data) the API share rose smoothly
+from $21.2\%$ in the 1990s to $41.4\%$ in 2020--2024 -- a real
+underlying demographic shift of US-resident inventors. On the
+\emph{US-domiciled} trademark debut side the API share rose only
+from $4.0\%$ to $7.1\%$ over the same period. The mechanism is
+different: skilled Asian-American immigration shows up in patent
+inventor names but not in trademark applicant names, because
+high-skill founders patent their inventions while their LLCs and
+brands (which would carry their surname) are masked by the entity
+layer. The trademark-side surname classifier therefore misses
+exactly the cohort the patent classifier picks up.
+
+\paragraph{US-only Black and Hispanic shares are higher than the
+all-filings panel said.} The all-filings panel reported $10.7\%$
+Black and $9.4\%$ Hispanic in 2020--24. The US-only panel reports
+$15.7\%$ Black and $12.3\%$ Hispanic. Reading: foreign filings
+diluted the apparent US-domestic shares of Black and Hispanic
+debut filers downward. After stripping, the US-resident
+domestic-formation data show a substantial Black and Hispanic
+share, rising over time.
+
+\subsection*{US-only ethnic enclaves}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/ethnic_cluster_dkl_us.png}
+\caption{US-only ethnic enclaves: per-NICE-class mean $\Delta KL$
+on US-domiciled individual-name debut filings, by ethnic group.
+Labels show top-6 enclave classes per group by industry name.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{rlrrr}
+\toprule
+NICE & Industry & Share in class & Over-index & Mean $\Delta KL$ \\
+\midrule
+\multicolumn{5}{l}{\textbf{API enclaves (US-only, over-index > 1.3, share > 8\%, n > 200):}} \\
+043 & Hotel/Restaurant/Food   & $12.9\%$ & $2.06$ & $+0.072$ \\
+011 & Lighting/Heating        & $11.7\%$ & $1.87$ & $+0.113$ \\
+034 & Tobacco                 & $10.7\%$ & $1.71$ & $+0.237$ \\
+005 & Pharmaceuticals         & $10.3\%$ & $1.64$ & $+0.090$ \\
+029 & Meat/Fish/Dairy         & $10.3\%$ & $1.64$ & $+0.023$ \\
+018 & Leather                 &  $9.7\%$ & $1.55$ & $+0.033$ \\
+021 & Household Utensils      &  $9.6\%$ & $1.52$ & $+0.099$ \\
+010 & Surgical/Medical/Dental &  $9.5\%$ & $1.52$ & $+0.066$ \\
+008 & Hand Tools              &  $9.1\%$ & $1.45$ & $+0.085$ \\
+030 & Coffee/Tea/Sugar        &  $8.9\%$ & $1.43$ & $+0.056$ \\
+014 & Jewelry                 &  $8.9\%$ & $1.42$ & $+0.065$ \\
+024 & Fabrics                 &  $8.5\%$ & $1.36$ & $+0.072$ \\
+007 & Machines                &  $8.4\%$ & $1.34$ & $+0.067$ \\
+003 & Cosmetics \& Cleaning   &  $8.4\%$ & $1.34$ & $+0.071$ \\
+026 & Lace/Embroidery         &  $8.3\%$ & $1.32$ & $+0.206$ \\
+\midrule
+\multicolumn{5}{l}{\textbf{Hispanic enclaves (same thresholds):}} \\
+033 & Alcoholic Beverages     & $14.2\%$ & $1.47$ & $+0.094$ \\
+043 & Hotel/Restaurant/Food   & $13.6\%$ & $1.40$ & $+0.072$ \\
+\bottomrule
+\end{tabular}
+\caption{US-only ethnic enclaves identified by the surname
+classifier. Every cell runs on positive $\Delta KL$, mostly in the
+$+0.07$ to $+0.10$ range -- meaningfully above the non-enclave
+baseline of $+0.018$ (API) and $+0.021$ (Hispanic). N-weighted
+enclave-vs-non-enclave difference is $+0.059$ (API) and $+0.057$
+(Hispanic). Even with the foreign-applicant confound stripped, US
+ethnic enclaves are on the innovation tail, not the harvest tail.}
+\end{table}
+
+\paragraph{The US-only enclaves are the canonical
+immigrant-cluster industries.} Setting aside the foreign confound,
+the API enclave list now reads exactly as the sociology literature
+predicts: restaurants, lighting and household appliances, tobacco,
+pharmacies, meat/fish/dairy (food distribution), leather goods,
+household utensils, surgical/dental practices, hand tools,
+coffee/tea, jewelry, fabrics, machines (small-business
+distribution), cosmetics, lace/embroidery. These map directly to
+the documented Korean dry-cleaning / Indian motel / Chinese
+restaurant / Vietnamese nail salon / Asian-American dental and
+medical practice / Asian-American jewelry retail clusters in Light
+(1972), Min (1996), Waldinger et al.\ (1990), Kerr \& Mandorff
+(2023). The Hispanic enclaves (Alcoholic Beverages, Hotel/Restaurant/
+Food) match Hispanic-American restaurant and beverage
+entrepreneurship.
+
+\paragraph{Every US-only enclave runs on positive $\Delta KL$.}
+The within-enclave mean $\Delta KL$ ranges from $+0.02$ to $+0.24$,
+with most cells in $+0.07$ to $+0.10$. Tobacco (NICE 034) at $+0.24$
+and Lace/Embroidery (NICE 026) at $+0.21$ are the highest. These
+are the same vocabulary-export pattern we saw in the
+foreign-confounded panel: US Asian-American and Hispanic-American
+small-business founders in these classes write goods/services
+prose that is novel against the recent past of the class
+\emph{and} close to the near future. The cluster is generating
+language, not recycling it. \textbf{The strong ethnic-cluster-as-
+stagnation prediction is refuted in the US-only data, with the
+foreign-applicant confound out of the picture.}
+
+\paragraph{NICE 009 (Electronics \& Software) is NOT a US Asian-
+American enclave.} Crucially, the high-tech-startup classes (009,
+042 Scientific \& Tech Services) do not appear on the US-only API
+enclave list. The Kerr/Saxenian high-skill-immigrant-tech-founder
+phenomenon is visible in patent data ($21\%\to 41\%$ API inventors)
+but not in trademark data. This is because tech founders trademark
+their corporate brand (LLC name) rather than their personal name,
+which the surname classifier cannot see.
+
 \section*{What's next}
 
 \begin{itemize}\setlength\itemsep{2pt}
-\item Full USPTO XML re-parse for state+country ($\sim 30$--$60$
-minutes, currently $\sim 30\%$ through). Once it lands: rebuild
-the trademark debut composition stripping foreign-domiciled filings,
-and recompute the ethnic-cluster $\Delta KL$ table to remove the
-foreign-applicant confound on API enclaves. Same applies to the
-patent-side surname HHI -- restricting to US-resident inventors
-will let us separate ``ethnic concentration of US inventors'' from
-``rising Chinese-resident filing volume.''
-\item PatentsView location join (\texttt{g\_location\_disambiguated.tsv})
-to attach inventor country/state. Re-run the HHI analysis on
-US-only inventors; predict that several of the rising-HHI CPC
-classes will look much flatter once foreign inventors are stripped.
-\item Within-firm $\Delta KL$ trajectory analysis: do firms drift
-toward or away from their starting $\Delta KL$ over subsequent
-filings? Is the drift ethnically systematic?
+\item Patent-side US-only re-run: join PatentsView
+\texttt{g\_location\_disambiguated.tsv} to attach inventor country/
+state, then re-run the surname HHI analysis on US-resident
+inventors only. Predict that several of the previously-rising HHI
+classes (semiconductors, displays, optics) flatten substantially
+once Chinese-resident inventors are stripped.
+\item Within-firm $\Delta KL$ trajectory analysis: do US-domiciled
+firms drift toward or away from their starting $\Delta KL$ over
+subsequent filings? Is the drift ethnically systematic?
+\item Decompose Black trademark debut share trajectory (rising
+from $11.4\%$ to $15.7\%$ over $1990$--$2024$ in US-only data)
+against patent-side Black inventor share (falling from $6.6\%$ to
+$4.5\%$ over the same period). The opposite-direction trends are
+worth understanding.
 \end{itemize}
 
 \section*{References}
