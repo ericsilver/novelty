@@ -687,23 +687,185 @@ but not in trademark data. This is because tech founders trademark
 their corporate brand (LLC name) rather than their personal name,
 which the surname classifier cannot see.
 
+\section*{(8) Patent guild HHI: US-only re-run}
+
+We download PatentsView \texttt{g\_location\_disambiguated.tsv}
+($1{,}089{,}000$ disambiguated locations), join it to
+\texttt{g\_inventor\_disambiguated} via the
+\texttt{location\_id} key, restrict to inventors with
+\texttt{country == \mbox{`US'}}, and re-compute the
+inventor-surname HHI by (CPC class, decade). The US-resident
+inventor table contains $2{,}072{,}183$ unique inventors with
+$1{,}671{,}509$ matched Census surnames ($80.7\%$ match rate;
+slightly higher than the all-inventor rate because non-ASCII
+foreign surnames drop out).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/patent_guild_hhi_compare.png}
+\caption{Surname-HHI trajectories of the top-8 CPC classes by
+all-inventor HHI rise (1990s$\to$2020s). Left panel reproduces the
+all-inventor result. Right panel restricts to US-resident
+inventors only. Every previously-rising class is flat or falling
+in the US-only data.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+CPC class & $\Delta$HHI all & $\Delta$HHI US-only & US shift \\
+\midrule
+G09 (display, advertising) & $+0.00630$ & $-0.00033$ & $-0.00663$ \\
+H10 (semiconductor devices) & $+0.00624$ & $+0.00047$ & $-0.00578$ \\
+D06 (textile treatment) & $+0.00613$ & $-0.00050$ & $-0.00663$ \\
+G11 (memory / information storage) & $+0.00347$ & $+0.00065$ & $-0.00283$ \\
+G02 (optics) & $+0.00293$ & $-0.00001$ & $-0.00295$ \\
+C21 (iron metallurgy) & $+0.00224$ & $-0.00012$ & $-0.00236$ \\
+H01 (basic electrical elements) & $+0.00220$ & $+0.00003$ & $-0.00217$ \\
+\bottomrule
+\end{tabular}
+\caption{HHI change 1990s$\to$2020s for the previously-rising CPC
+classes, all-inventor vs.\ US-resident-only. The US-only column
+is near-zero or negative for every class. The rising-HHI signal
+was Chinese-resident-inventor concentration, not a US guild
+dynamic.}
+\end{table}
+
+\paragraph{The guild interpretation collapses.} Every previously-
+rising CPC class is flat or falling in the US-only re-run. The
+Chinese-surname-clustering effect (Chinese surname diversity is
+$\sim 20\times$ lower than Western) accounted for essentially the
+entire all-inventor HHI rise in semiconductors, displays, optics,
+memory, and basic electrical. With US-resident inventors only,
+surname HHI is flat in these classes ($|{\Delta\text{HHI}}| < 0.001$
+across the four-decade window). \textbf{There is no patent-side
+guild signal in US-resident inventor data} at the CPC-class level
+of resolution we tested.
+
+\paragraph{Where US-only HHI rose modestly:} B06 (mechanical
+vibration/shock), G04 (horology), G11 (memory, still slightly up
+in US-only), B03 (separation of solids), D21 (paper-making), H10
+(semiconductors, much smaller rise), H03 (electronic basic). These
+are smaller-class niche fields; even the biggest US-only rise
+(B06, $+0.00075$) is about a tenth the magnitude of the all-inventor
+G09 rise.
+
+\paragraph{Where US-only HHI fell (diversifying):} A24 (tobacco,
+$-0.00404$), F03 (machines for liquids), G16 (information \&
+communication technology, $-0.00228$), C05 (fertilizers), B28
+(cement/stone), F17 (fluid storage), B64 (aircraft), E21 (earth
+drilling). G16's continued fall in the US-only data is the
+Hsieh-Hurst-Jones-Klenow ($2019$) talent reallocation playing out
+in patent micro-data for US-resident inventors: ICT workforce
+broadened in surname diversity even when restricted to US
+inventors only, consistent with deep workforce expansion in that
+field.
+
+\section*{(9) Black trademark-rise vs.\ patent-fall: a real divergence}
+
+Both sides US-only. US-domiciled Black trademark debut share rises
+across four decades; US-resident Black patent inventor share falls.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{results/black_tm_vs_patent_divergence.png}
+\caption{Four-panel comparison of US-only surname-imputed ethnic
+share over time: trademark debut filers (blue) vs.\ patent
+inventor debuts (red), for the four largest ethnic buckets.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Period & TM White & PV White & TM Black & PV Black & TM API & PV API & TM Hisp & PV Hisp \\
+\midrule
+1990--1999 & $76.2\%$ & $74.2\%$ & $11.4\%$ & $8.6\%$  & $4.0\%$ & $9.7\%$  & $5.6\%$  & $4.8\%$ \\
+2000--2009 & $72.1\%$ & $68.2\%$ & $12.0\%$ & $7.9\%$  & $5.4\%$ & $15.9\%$ & $7.7\%$  & $5.2\%$ \\
+2010--2019 & $67.5\%$ & $63.8\%$ & $13.2\%$ & $7.4\%$  & $6.6\%$ & $20.0\%$ & $9.9\%$  & $6.0\%$ \\
+2020--2024 & $62.0\%$ & $59.4\%$ & $15.7\%$ & $7.0\%$  & $7.1\%$ & $23.9\%$ & $12.3\%$ & $7.0\%$ \\
+\bottomrule
+\end{tabular}
+\caption{US-only surname-imputed ethnic composition of trademark
+debut filers (TM) and patent inventor debuts (PV) across decades.
+``TM'' is restricted to US-domiciled trademark applicants per the
+re-parse address join; ``PV'' is restricted to US-resident
+inventors per the PatentsView location join.}
+\end{table}
+
+\paragraph{Black: trademark up, patents down.} Black trademark
+debut share rises from $11.4\%$ (1990s) to $15.7\%$ (2020--24); Black
+patent inventor share falls from $8.6\%$ (1990s) to $7.0\%$
+(2020--24). The gap widens from $+2.8$pp to $+8.7$pp. This is a real
+divergence in formal innovation activity by US Black Americans: more
+brand/small-business filings, fewer (relative) patent inventions.
+
+\paragraph{API: patents up, trademarks flat.} The Kerr / Saxenian
+high-skill-immigrant story shows up unambiguously in
+US-\emph{resident} patent inventor data: API share rises from $9.7\%$
+to $23.9\%$ across thirty years, more than doubling. The same
+demographic is essentially invisible in the trademark data
+($4.0\% \to 7.1\%$, flat in absolute terms). This is consistent
+with the trademark surname classifier missing tech founders behind
+the LLC entity layer: Asian-American tech founders patent under
+their own names but trademark under their corporate brand names,
+which the surname classifier cannot see.
+
+\paragraph{Hispanic and White: parallel slow shifts.} Both
+trademark and patent Hispanic shares rise modestly ($5.6\% \to
+12.3\%$ TM, $4.8\% \to 7.0\%$ PV), consistent with the broad
+demographic shift in the US Hispanic population. Both Whites'
+shares fall as the non-White shares rise.
+
+\paragraph{Caveats on the Black trademark rise.}
+\begin{itemize}\setlength\itemsep{2pt}
+\item The biggest single-year jump in TM Black share is 2019$\to$2020
+($+5$pp). This coincides with the pandemic-era surge in
+SBA-loan-receiving small-business formation. Some of the rise may
+be SBA-PPP-related Black-owned LLC formations that filed
+trademarks at higher rates than the pre-pandemic baseline.
+\item The Census 2010 surname classifier has well-known accuracy
+limitations for Black surnames specifically: the most-common
+``Black'' surnames (Smith, Johnson, Williams) are also the
+most-common White surnames, so the probability vector is mixed
+rather than discriminating. Bell, Chetty, Jaravel, Petkova, \&
+Van Reenen ($2019$, \emph{QJE}) use the Census surname approach for
+the same demographic question and document the same identification
+issue.
+\item The patent-side Black fall is documented in Cook
+($2014$, \emph{JEG}) and Bell et al.\ ($2019$): Black inventor share
+has been declining as the patent system has grown.
+\end{itemize}
+
+\paragraph{Interpretation.} The trademark/patent divergence for
+Black Americans is consistent with a story where Black formal
+innovation activity has shifted toward consumer-facing brand
+formation (small businesses, DTC, services) and away from
+upstream R\&D-intensive invention. The same demographic shows up in
+trademark filings -- where the threshold is low (a $\$250$ filing
+fee) -- but not in patent filings -- where the threshold is high
+(corporate R\&D job, attorney, multi-year prosecution). The
+divergence is a measurement of \emph{which channel of formal
+innovation activity is accessible to which demographic}, not of
+total innovation effort.
+
 \section*{What's next}
 
 \begin{itemize}\setlength\itemsep{2pt}
-\item Patent-side US-only re-run: join PatentsView
-\texttt{g\_location\_disambiguated.tsv} to attach inventor country/
-state, then re-run the surname HHI analysis on US-resident
-inventors only. Predict that several of the previously-rising HHI
-classes (semiconductors, displays, optics) flatten substantially
-once Chinese-resident inventors are stripped.
-\item Within-firm $\Delta KL$ trajectory analysis: do US-domiciled
-firms drift toward or away from their starting $\Delta KL$ over
-subsequent filings? Is the drift ethnically systematic?
-\item Decompose Black trademark debut share trajectory (rising
-from $11.4\%$ to $15.7\%$ over $1990$--$2024$ in US-only data)
-against patent-side Black inventor share (falling from $6.6\%$ to
-$4.5\%$ over the same period). The opposite-direction trends are
-worth understanding.
+\item Decompose the Black trademark rise by NICE class: which
+classes drive the $4$pp rise? Hypothesis: NICE 025 (clothing /
+streetwear), 035 (advertising / retail), 041 (entertainment /
+music), 043 (food services).
+\item Decompose the Black patent fall by CPC class. Hypothesis:
+chemical / pharmaceutical (where Black inventor share was
+historically higher per Cook 2014) vs.\ ICT (where Black share is
+lowest currently per Bell et al.\ 2019).
+\item Within-firm $\Delta KL$ trajectory analysis on the US-only
+sample: do firms drift toward or away from their debut $\Delta KL$
+over subsequent filings? Is the drift ethnically systematic?
 \end{itemize}
 
 \section*{References}
