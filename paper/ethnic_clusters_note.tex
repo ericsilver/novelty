@@ -852,20 +852,259 @@ divergence is a measurement of \emph{which channel of formal
 innovation activity is accessible to which demographic}, not of
 total innovation effort.
 
+\section*{(10) Decomposing the Black divergence by class}
+
+\paragraph{Note on calculation.} Before reading these decompositions:
+the six surname-imputed shares (White, Black, API, Hispanic, Two+
+races, AIAN) are independent weights derived from the Census 2010
+surname file probabilities, which sum to $\sim 100$ per surname.
+Year-level shares sum to $\sim 99.6\%$ across all categories (the
+$0.4\%$ deficit is from suppressed cells for small surnames).
+\emph{Each ethnic share is computed directly from the Census
+probabilities, not derived from any other share.} The apparent
+visual inverse between White and API in earlier plots is the
+partition-sum constraint: when one share grows, the residual
+$\sim 100\%$ must absorb the loss across the other five. In the
+all-filings plot, Black/Hispanic/AIAN/Two$+$ stayed roughly stable
+while API surged from foreign filings, so the White share absorbed
+almost all of the constraint mechanically.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/black_decomposition.png}
+\caption{Decomposing the Black-American divergence. Left: top 12
+NICE classes driving the trademark Black-share rise, ranked by
+absolute Black-debut count gain 1990--99 to 2020--24. Right: top 12
+CPC classes driving the patent Black-share fall, ranked by absolute
+Black-inventor count loss over the same window.}
+\end{figure}
+
+\subsection*{Trademark side: where the Black rise lives}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{rlrrrrr}
+\toprule
+NICE & Industry & $n$ 1990s & $n$ 2020s & Share 1990s & Share 2020s & $\Delta n$ \\
+\midrule
+025 & Clothing \& Footwear        & $12{,}572$ & $54{,}717$ & $12.7\%$ & $19.0\%$ & $+8{,}781$ \\
+041 & Education \& Entertainment  & $11{,}383$ & $40{,}170$ & $12.0\%$ & $16.9\%$ & $+5{,}416$ \\
+035 & Advertising \& Retail       & $7{,}240$  & $25{,}955$ & $11.0\%$ & $16.2\%$ & $+3{,}403$ \\
+003 & Cosmetics \& Cleaning       & $2{,}679$  & $11{,}846$ & $10.9\%$ & $18.2\%$ & $+1{,}859$ \\
+009 & Electronics \& Software     & $10{,}998$ & $15{,}529$ & $10.9\%$ & $14.2\%$ & $+1{,}013$ \\
+036 & Insurance \& Financial      & $2{,}594$  &  $7{,}179$ & $14.8\%$ & $15.7\%$ &   $+745$ \\
+030 & Coffee/Tea/Sugar            & $2{,}447$  &  $6{,}477$ & $11.2\%$ & $13.6\%$ &   $+605$ \\
+021 & Household Utensils          & $1{,}708$  &  $5{,}713$ & $11.0\%$ & $12.1\%$ &   $+505$ \\
+005 & Pharmaceuticals             & $1{,}670$  &  $4{,}661$ & $10.1\%$ & $12.0\%$ &   $+392$ \\
+040 & Materials Treatment         &    $351$   &  $2{,}545$ &  $9.8\%$ & $16.4\%$ &   $+383$ \\
+\bottomrule
+\end{tabular}
+\caption{Top 10 NICE classes by Black-debut-count growth, US-only
+data, 1990--99 vs 2020--24.}
+\end{table}
+
+\paragraph{The Black trademark rise is overwhelmingly consumer-
+facing brand formation.} Clothing \& Footwear (NICE 025) alone
+accounts for $\sim 30\%$ of the total Black-debut-count growth,
+with the within-class Black share rising from $12.7\%$ to
+$19.0\%$. The fashion/streetwear/sneaker/athletic-apparel brand
+wave of the past two decades is unmistakable in the data. Add
+Entertainment (041), Advertising/Retail (035), and Cosmetics (003),
+and the four together drive over half of the total Black-debut
+rise. This is the post-pandemic DTC brand era playing out at the
+USPTO. Electronics \& Software (009) is on the list but at a much
+smaller magnitude and a smaller share rise -- the brand category
+where Black entrepreneurship has grown is consumer goods, not
+software-as-product.
+
+\paragraph{Largest within-class share rises (not absolute count):}
+NICE 026 Lace/Embroidery ($+8.1$pp), NICE 004 Oils \& Fuels
+($+7.9$pp), NICE 003 Cosmetics ($+7.2$pp), NICE 034 Tobacco
+($+6.9$pp), NICE 040 Materials Treatment ($+6.6$pp), NICE 025
+Clothing ($+6.3$pp). The Cosmetics and Tobacco rises are
+substantively large (Black-owned cosmetics brands and Black-owned
+cigar/cannabis labels). The Oils \& Fuels rise is interesting and
+worth flagging -- likely small-business energy/petroleum-products
+resellers and lubricant brands.
+
+\subsection*{Patent side: where the Black fall lives}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{rlrrrrr}
+\toprule
+CPC & Section & $n$ 1990s & $n$ 2020s & Share 1990s & Share 2020s & $\Delta n$ \\
+\midrule
+G01 & Physics measurement/testing  & $18{,}234$ & $10{,}958$ & $8.2\%$ & $6.6\%$ & $-778$ \\
+H01 & Basic electrical elements    & $14{,}191$ &  $5{,}774$ & $7.8\%$ & $6.0\%$ & $-755$ \\
+A61 & Medical or veterinary        & $27{,}190$ & $23{,}713$ & $8.4\%$ & $7.1\%$ & $-599$ \\
+C07 & Organic chemistry            & $11{,}727$ &  $5{,}017$ & $7.5\%$ & $6.0\%$ & $-573$ \\
+B65 & Conveying/packaging          &  $8{,}284$ &  $3{,}231$ & $8.9\%$ & $8.4\%$ & $-463$ \\
+A63 & Sports/games                 &  $7{,}517$ &  $3{,}424$ & $9.3\%$ & $8.9\%$ & $-391$ \\
+A01 & Agriculture                  &  $7{,}351$ &  $3{,}958$ & $9.6\%$ & $8.4\%$ & $-374$ \\
+A47 & Furniture/household          &  $7{,}709$ &  $3{,}849$ & $9.6\%$ & $9.6\%$ & $-372$ \\
+F16 & Engineering elements         &  $6{,}797$ &  $3{,}117$ & $8.6\%$ & $7.8\%$ & $-342$ \\
+B60 & Vehicles                     &  $8{,}860$ &  $6{,}514$ & $8.9\%$ & $7.2\%$ & $-324$ \\
+G11 & Memory/information storage   &  $3{,}882$ &     $709$  & $7.1\%$ & $5.2\%$ & $-238$ \\
+C08 & Polymers                     &  $4{,}327$ &  $1{,}690$ & $7.9\%$ & $6.6\%$ & $-233$ \\
+\bottomrule
+\end{tabular}
+\caption{Top 12 CPC classes by Black-inventor-count loss, US-resident
+data, 1990--99 vs 2020--24.}
+\end{table}
+
+\paragraph{The Black patent fall is concentrated in
+traditional-engineering / physical-sciences classes.} The biggest
+single-class loss is G01 (physics measurement \& testing) at $-778$
+inventors. H01 (basic electrical), A61 (medical/pharma), and C07
+(organic chemistry) follow. These are the traditional industrial-
+research disciplines where Cook ($2014$, \emph{Journal of
+Economic Growth}) documented historical Black inventor activity
+through the early-20th-century era. The biggest share-fall classes
+($-2$pp to $-3.25$pp) are F24 (heating/HVAC), G10 (musical
+instruments), G03 (photography/optics), C01 (inorganic chemistry),
+G06 (computing), F28 (heat exchange), E21 (drilling), C03 (glass).
+The post-1990 fall is broad-based across physical-sciences and
+engineering CPCs, not concentrated in one sub-field.
+
+\paragraph{The two channels are nearly mutually exclusive.} The
+Black trademark rise lives in consumer-product NICE classes
+(Clothing, Entertainment, Cosmetics, Retail) where patent filing
+is uncommon for individual inventors. The Black patent fall lives
+in traditional-engineering CPC classes (Physics measurement,
+Basic electrical, Organic chemistry, Vehicles) where trademark
+filing is uncommon for individual inventors. The two demographics
+are doing different things, in different formal-innovation
+channels, and the channel that grew is the consumer-brand channel
+while the channel that shrank is the corporate-R\&D channel. This
+is consistent with -- and a measurement of -- the documented
+collapse of Black representation in US corporate R\&D departments
+(Bell et al.\ $2019$).
+
+\section*{(11) Within-firm $\Delta KL$ trajectory: debut is a spike, not a structural feature}
+
+For each US-domiciled owner with $\geq 3$ clean filings, compute
+the debut $\Delta KL$ and the mean of subsequent filings'
+$\Delta KL$. The drift is $\text{subsequent\_mean} - \text{debut}$.
+$670{,}361$ US-domiciled owners have valid debut $+$ subsequent
+$\Delta KL$ values; $100{,}309$ of those parse as individual-name
+filers with a matched Census surname.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{results/within_firm_dkl_trajectory.png}
+\caption{Left: mean within-firm $\Delta KL$ drift after debut, by
+surname-imputed ethnicity and whether the debut class is an
+enclave for that ethnicity. Right: pooled regression-to-mean check
+-- mean subsequent $\Delta KL$ vs debut $\Delta KL$ bin, against a
+$45^\circ$ reference (no drift) and a $y=0$ reference (full mean
+reversion).}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lcrrrrr}
+\toprule
+Ethnic & Enclave debut? & Debut sign & $n$ & Mean debut & Mean subsequent & Mean drift \\
+\midrule
+API      & No  & negative & $2{,}220$ & $-0.136$ & $-0.033$ & $+0.103$ \\
+API      & No  & positive & $2{,}343$ & $+0.177$ & $+0.087$ & $-0.090$ \\
+API      & Yes & negative &   $836$   & $-0.114$ & $-0.034$ & $+0.080$ \\
+API      & Yes & positive & $1{,}351$ & $+0.182$ & $+0.081$ & $-0.102$ \\
+Black    & No  & negative & $1{,}916$ & $-0.137$ & $-0.057$ & $+0.080$ \\
+Black    & No  & positive & $1{,}930$ & $+0.152$ & $+0.066$ & $-0.086$ \\
+Hispanic & No  & negative & $3{,}301$ & $-0.134$ & $-0.041$ & $+0.093$ \\
+Hispanic & No  & positive & $3{,}547$ & $+0.158$ & $+0.071$ & $-0.087$ \\
+White    & No  & negative & $38{,}432$ & $-0.141$ & $-0.053$ & $+0.088$ \\
+White    & No  & positive & $41{,}016$ & $+0.168$ & $+0.073$ & $-0.096$ \\
+\bottomrule
+\end{tabular}
+\caption{Within-firm $\Delta KL$ drift after debut, by ethnic
+group, in-enclave status, and debut-$\Delta KL$ sign. The pattern
+is the same across every group: strong symmetric mean reversion
+toward zero. Enclave debut and non-enclave debut produce
+essentially identical drift magnitudes.}
+\end{table}
+
+\paragraph{Three findings:}
+
+\textbf{(a) The $\Delta KL$ signal is a debut-specific spike, not a
+structural feature of how the firm operates.} For every ethnic
+group and every debut-sign condition, mean drift is roughly
+$\pm 0.09$ toward zero. A firm whose debut had $\Delta KL = +0.17$
+files subsequent trademarks at $\Delta KL = +0.08$ on average; a
+firm whose debut had $\Delta KL = -0.14$ files subsequent at
+$\Delta KL = -0.04$. The drift is large relative to the original
+deviation -- about $55$--$65\%$ of the gap to zero closes by the
+firm's later filings.
+
+\textbf{(b) Enclave debut and non-enclave debut produce essentially
+identical drift.} API enclave debutants drift at $-0.10$ from
+positive-debut; API non-enclave drift at $-0.09$. The
+ethnic-enclave-rooted firm does not sustain elevated $\Delta KL$ any
+more than the non-enclave firm. The cluster's positive $\Delta KL$
+we identified in Section (1) is a property of \emph{which filing
+is the firm's debut} -- the firm registers a brand introducing new
+vocabulary -- but the firm's subsequent line extensions / brand
+variants regress to corpus mean like everyone else's.
+
+\textbf{(c) No ethnic group is the systematic outlier on drift.}
+The differences between groups are smaller than the within-group
+differences across enclave status. White (the largest group with
+$\sim 80$K owners) drifts at $+0.088$/$-0.096$. Hispanic
+($\sim 6.8$K owners) drifts at $+0.093$/$-0.087$. Black ($\sim 3.8$K
+owners) drifts at $+0.080$/$-0.086$, a hair smaller in magnitude
+but not meaningfully so. The corpus-mean-reversion process is
+ethnic-blind.
+
+\paragraph{What this means for the cluster interpretation.}
+The ``Hispanic-Americans introduce \texttt{tequila}, \texttt{taqueria},
+\texttt{birria} which the rest of the industry adopts'' reading from
+Section (1) is consistent with this: the introduction happens at
+the firm's debut filing, and once the term has been introduced,
+the firm's subsequent filings sit in vocabulary that has now spread
+through the corpus and is no longer novel. The vocabulary export is
+a debut-level phenomenon. The firm does not keep introducing new
+vocabulary at the same rate after its first filing -- it has
+already done its work.
+
+\paragraph{Honest framing.} This is not a story about ``the
+firm stops innovating.'' It is a story about how the $\Delta KL$
+measure works: $\Delta KL$ measures one filing's vocabulary against
+the recent past and near future of its NICE class. Once a firm has
+contributed a novel term, subsequent filings either re-use that
+term (now part of the recent past) or introduce additional terms
+that are typically less radical than the first one. The drift
+toward zero is the expected behaviour of the measure under serial
+filing, not a behavioural decline of the firm. The right way to
+read the firm-level claim is: \emph{the first filing is the one
+that matters for measuring whether a firm is on the
+vocabulary-export side or the vocabulary-recycling side; the firm
+does not keep delivering at the same rate.}
+
 \section*{What's next}
 
 \begin{itemize}\setlength\itemsep{2pt}
-\item Decompose the Black trademark rise by NICE class: which
-classes drive the $4$pp rise? Hypothesis: NICE 025 (clothing /
-streetwear), 035 (advertising / retail), 041 (entertainment /
-music), 043 (food services).
-\item Decompose the Black patent fall by CPC class. Hypothesis:
-chemical / pharmaceutical (where Black inventor share was
-historically higher per Cook 2014) vs.\ ICT (where Black share is
-lowest currently per Bell et al.\ 2019).
-\item Within-firm $\Delta KL$ trajectory analysis on the US-only
-sample: do firms drift toward or away from their debut $\Delta KL$
-over subsequent filings? Is the drift ethnically systematic?
+\item Pre-pandemic-only check on the Black trademark rise: how
+much of the $+4.3$pp share rise survives if we restrict the
+``late'' cohort to $2017$--$2019$ rather than $2020$--$2024$? If
+most of the rise is pandemic-era SBA / e-commerce / DTC formation,
+the pre-pandemic version will be smaller.
+\item Comparison to Census ASE / SBO administrative-data Black
+ownership shares for the same NAICS sectors via the NICE-NAICS
+crosswalk. ASE/SBO are the gold-standard for sectoral ownership;
+we can validate whether the trademark surname-imputed Black share
+matches the administrative number in the same NICE-mapped sectors.
+\item Bell et al.\ ($2019$) Black inventor-share decline by parent
+income decile -- their result is that Black children with
+inventor-quality test scores are systematically less likely to
+become inventors than White children with the same scores; the
+gap is not in ability but in exposure. Our patent-side fall is
+consistent with their finding at the aggregate level; a more
+granular within-CPC-class test would extend their work.
 \end{itemize}
 
 \section*{References}
