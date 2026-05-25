@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{authblk}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\definecolor{flag}{HTML}{8b0000}
+\newcommand{\dkl}{\Delta KL}
+
+\title{Request for criticism:\\
+have we established that trademark filings measure\\
+anything --- innovation, business formation, or otherwise?}
+\author{Eric Silver}
+\affil{}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\noindent
+\textbf{What I am asking you to do.} Attack the construct validity of
+this body of work. I am not asking whether the regressions are coded
+correctly (assume they are; the code is reproducible) or whether the
+prose is polished. I am asking the one question that, if answered
+badly, makes everything downstream worthless: \emph{does a trademark
+filing, and the $\dkl$ statistic I compute on its goods/services
+text, measure anything real --- innovation, business formation, or
+even meaningful commercial activity --- or am I measuring the
+drafting habits of trademark attorneys and calling it economics?}
+
+I have written this to make your job easy. Below I state the claims,
+then I steelman the case that the whole edifice is measuring noise,
+then I lay out the thin evidence I have for validity, then I offer
+four reframings from strong to weak and ask you to tell me which (if
+any) survives. Be as brutal as the strongest version of the
+objection warrants. I would rather kill the ``innovation'' framing
+now than have a referee or a serious reader kill it later.
+
+\section{The claims, briefly}
+
+There are two bodies of work sharing one measurement apparatus.
+
+\paragraph{(A) The $\dkl$ papers (\texttt{main.pdf}, \texttt{short.pdf}).}
+For each of $10{,}060{,}073$ ``clean'' US trademark filings
+(1990--2021 cohorts), I compute a Kullback--Leibler surprise
+difference $\dkl = KL_{\text{pros}} - KL_{\text{retr}}$ on the
+goods/services description text, against per-day exponentially
+decay-weighted reference distributions of the same NICE class
+(half-life $H = 2$y). $\dkl > 0$ when a filing's vocabulary is
+unusual against the recent past and close to the near future --- the
+directional resonance signal of Murdock, Allen, \& DeDeo (2017),
+applied for the first time to commercially-incentivised text. The
+papers claim: $\dkl$ is an innovation measure; it predicts
+post-registration survival ($U$-shaped) and financial outcomes; it
+is statistically independent of patent counts ($r = +0.01$ on
+$174{,}569$ firm-years) and of comparable correlation magnitude;
+the innovation tail aligns with the empirical content of optimal
+distinctiveness and the harvest tail is an unexplained surprise.
+
+\paragraph{(B) The dynamism / ethnic-cluster work
+(\texttt{dynamism.pdf}, \texttt{ethnic\_clusters\_note.pdf}).}
+Treating a firm's first-ever filing (``debut'') as a proxy for
+business formation, I show trademark debuts cover $8$--$18\%$ of
+Census High-Propensity Business Applications; I impute applicant
+race/ethnicity from surnames; I document ethnic-cluster industries,
+a Black trademark-rise / patent-fall divergence, and the collapse of
+an apparent ``patent guild'' signal once foreign inventors are
+stripped.
+
+Everything in (B) inherits the validity of the measurement in (A),
+plus its own surname-imputation problems. So the load-bearing
+question is shared.
+
+\section{Steelman: the case that this measures nothing real}
+
+Here is the argument I most want you to either complete or refute. I
+find it uncomfortably strong. \textbf{[moderate]} that at least the
+first three links are serious and not fully answered by the current
+drafts.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{A trademark is a brand, not an invention, and the
+goods/services text is a legal instrument, not a description of
+novelty.} The g/s description exists to define the \emph{scope of
+protection}, drafted by an attorney (or selected from the USPTO's
+pre-approved \emph{ID Manual}) to be as broad as the examiner will
+allow. Two firms selling physically identical products can write
+wildly different descriptions; a firm with a genuinely novel product
+can file boilerplate. So $\dkl$ measures the novelty of the
+\emph{prose}, and the prose is several steps removed from the
+product. Why should I believe the prose tracks the innovation?
+
+\item \textbf{Vocabulary novelty has at least four generators, and I
+have separated none of them.} A high-$\dkl$ filing uses words that
+are unusual-then-common. That could be (a) a genuine new product
+category (crypto, vape, NFT); (b) legal-drafting fashion; (c)
+attorneys copying each other's successful protective language; (d)
+the USPTO updating its ID Manual, which mechanically shifts the
+reference vocabulary for everyone. The cannabis/crypto examples I
+parade are consistent with (a), but they are also exactly the cases
+where new ID-Manual entries appeared. I have not shown the signal
+is (a) rather than (d).
+
+\item \textbf{The resonance interpretation was validated on a
+different species of text.} Murdock, Allen, \& DeDeo (2017,
+\emph{Cognition}) developed the framework on Darwin's private
+reading notebooks; Barron, Huang, Spang, \& DeDeo (2018,
+\emph{PNAS}) on French Revolution parliamentary debates --- in both,
+the text is a window into the author's cognitive or rhetorical
+state, authored by the person whose novelty is being measured. A
+trademark
+g/s description is drafted for protection scope by a third-party
+agent. Importing the ``resonance = the field moved toward this
+filing'' interpretation assumes the signal means the same thing in
+a corpus where the author is a lawyer optimising a legal outcome. I
+assert the analogy; I do not re-validate it.
+
+\item \textbf{Selection: I only ever observe the $\sim 8$--$18\%$ of
+business starts that trademark.} Coverage against Census
+High-Propensity Business Applications is $8\%$ (2004--08) rising to
+$18\%$ (2019--24). The trademark-filing population is selected on
+branding intensity, consumer-facing orientation, and capitalisation.
+Every sentence I write ``about firms'' is really about the
+trademark-filing subset, and that subset is exactly the set of firms
+for which branding-vocabulary is salient --- which is precisely the
+variable $\dkl$ measures. The selection is on the regressor.
+
+\item \textbf{``Survival'' is trademark maintenance, not firm
+survival.} My headline outcome --- 5-year survival --- is the owner
+paying the \S\,8 declaration-of-use fee. A live firm can abandon a
+mark; a dead firm's mark can sit registered until renewal lapses.
+The outcome is a portfolio-management decision correlated with, but
+not identical to, firm viability. The $U$-shape on $\dkl$ could be a
+$U$-shape in \emph{which marks firms bother to maintain}, not in
+which firms survive.
+
+\item \textbf{The financial validation is small and one of the
+numbers is implausible.} The patent $R^2$ decomposition is on
+$8{,}118$ firm-years; the gross-margin effect is $+3.2$pp per
+$\sigma$ (SE $0.6$); these are real but modest. The claimed
+$+28$ percentage-point 4-year excess return per $\sigma$ of debut
+$\dkl$ is, on its face, \textbf{[low]} confidence and probably too
+large to believe --- a $\sigma$ move in a text statistic should not
+move 4-year returns by $28$pp; I suspect a specification or
+sample-composition artefact and want it stress-tested.
+
+\item \textbf{Independence from patents cuts both ways.} I sell
+$r = +0.01$ with patent counts as evidence that $\dkl$ is ``a
+distinct innovation channel.'' The skeptic's reading is the
+opposite: $\dkl$ is uncorrelated with the one measure we
+\emph{know} tracks invention because $\dkl$ is not measuring
+invention at all --- it is measuring marketing/branding activity,
+which is orthogonal to R\&D by construction. Independence is
+necessary for ``distinct channel'' but equally consistent with
+``not an innovation measure.''
+
+\item \textbf{The ethnic / dynamism layer multiplies the problem.}
+Surname imputation is probabilistic, restricted to the $\sim 32\%$
+of filers parsing as individuals, static to the 2010 Census, and
+weakest exactly for Black surnames (Smith/Johnson/Williams load on
+both White and Black). On top of that it inherits the whole
+proxy-validity question: if trademark debut is not business
+formation, the coverage ratios and ethnic-composition trends
+describe ``who files trademarks,'' not ``who starts businesses.''
+\end{enumerate}
+
+\section{What I actually have for validity (honest accounting)}
+
+I am not claiming the steelman wins. Here is the evidence on the
+other side, with its limits stated.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Patent independence + comparable magnitude.}
+$r = +0.01$ with patent counts ($174{,}569$ firm-years); incremental
+4-year-return $R^2$ of $+0.0046$ for $\dkl$ vs $+0.0024$ for
+$\log(1+\text{patents})$, roughly additive. \emph{Limit:} small
+$R^2$ absolute; comparable-to-patents is a low bar if patents
+themselves explain little return variance in this panel.
+\item \textbf{Survival is $U$-shaped under multiple
+operationalisations and in $32/44$ NICE classes.} \emph{Limit:}
+all of them are maintenance-based; the robustness is across
+definitions of maintenance, not across independent firm-outcome
+data.
+\item \textbf{Cluster-viability mediation absorbs $84\%$ of the
+quadratic.} This is the one result that looks mechanism-like rather
+than mechanical. \emph{Limit:} the mediator is itself built from
+trademark data (cosine-neighbour survival), so it does not break out
+of the corpus.
+\item \textbf{Coverage brackets Dinlersoz et al.\ (2018).} Our
+$8$--$18\%$ spans their restricted-LBD $10$--$15\%$. \emph{Limit:}
+agreement on the \emph{coverage fraction} is not validation that the
+covered filings \emph{mean} anything; it just says we count debut
+filers the way Census counts them.
+\item \textbf{Face validity.} Canonical winners skew positive
+$\dkl$; flux-neutral tokens (\texttt{organisational},
+\texttt{conformity}) die. \emph{Limit:} selected ex-post; not a
+test.
+\end{itemize}
+
+\noindent
+My own read \textbf{[moderate]}: I can defend ``$\dkl$ is a
+nontrivial, patent-orthogonal signal that predicts trademark-level
+outcomes and correlates weakly with firm financials.'' I cannot
+currently defend ``$\dkl$ is an innovation measure'' against a
+determined skeptic, because every outcome I validate against is
+either inside the trademark corpus or a small noisy financial panel.
+
+\section{Four reframings --- which survives?}
+
+I want you to tell me which of these I can defend, and whether the
+strong claim is salvageable with additional work or should be
+abandoned.
+
+\begin{description}[leftmargin=*]
+\item[(I) Strong --- ``$\dkl$ is an innovation measure.''] The
+current framing. Requires that vocabulary novelty in g/s prose
+tracks product/market innovation. My confidence this survives
+review as stated: \textbf{[low]}.
+\item[(II) Medium --- ``$\dkl$ is a leading indicator of commercial
+category emergence.''] Claims the corpus-level signal (which
+\emph{vocabularies} are forming and being adopted) is real and
+useful, while staying agnostic about whether any individual filer is
+``innovative.'' The cannabis/crypto/NFT waves are the evidence; the
+firm-level survival/returns become secondary. Confidence:
+\textbf{[moderate]}.
+\item[(III) Weak/descriptive --- ``$\dkl$ measures the linguistic
+position of a filing relative to its NICE class's vocabulary
+trajectory.''] Purely descriptive. Every downstream correlation
+(survival, returns, ethnic clusters) becomes an empirical regularity
+to be explained, not a validation of an innovation construct. This
+is almost certainly defensible \textbf{[high]} but gives up the
+headline.
+\item[(IV) Activity proxy --- ``a trademark debut is formal
+commercial activity with branding intent.''] For the dynamism work
+specifically: not innovation, not business formation \emph{per se},
+but a measurable, name-disclosed, near-real-time signal of
+branding-intent commercial activity, explicitly the $8$--$18\%$
+branding-intensive slice of formation. Confidence: \textbf{[moderate]}.
+\end{description}
+
+\noindent
+A plausible restructure: lead with (III) as the measurement
+contribution, establish (II) at the corpus level with the
+category-emergence evidence, and present the firm-level
+innovation/financial results as \emph{suggestive regularities under
+(III)} rather than as proof of (I). The dynamism work then stands on
+(IV) and does not need (I) at all. Tell me if this is cowardice or
+rigor.
+
+\section{Specific questions}
+
+\begin{enumerate}[leftmargin=*]
+\item Is link 1 (prose $\neq$ product) fatal, or is there a
+defensible argument that attorney-drafted scope language still
+carries firm-level signal because the firm chooses what to claim?
+\item What is the cheapest decisive test that would separate
+``genuine category emergence'' from ``ID-Manual / drafting-fashion
+drift''? (My best idea: hold out the ID-Manual update history and
+show $\dkl$ predicts adoption \emph{before} the manual codifies the
+term. I have not done this.)
+\item Is there any external, non-trademark, non-financial outcome I
+could validate survival against --- business registration death,
+UCC-lien termination, Form-D withdrawal, domain expiry --- that
+would break the maintenance-vs-survival circularity?
+\item Does the $+28$pp/$\sigma$ return number kill my credibility on
+sight? Should I drop it pending re-estimation?
+\item For the ethnic work: is surname imputation usable at all given
+the Black-surname cross-loading, or should I restrict to the
+Hispanic and API analyses where the Census classifier is
+discriminating and drop Black claims to a flagged-caveat appendix?
+\item Is reframing (III)+(II)+(IV) the right retreat, or is it
+giving up a defensible (I) too cheaply?
+\end{enumerate}
+
+\section{Artifacts and reproduction}
+
+All on branch \texttt{business-dynamism} of the project repo.
+\texttt{main.pdf} (long $\dkl$ paper, 223pp), \texttt{short.pdf}
+(7pp), \texttt{dynamism.pdf} (13pp), \texttt{ethnic\_clusters\_note.pdf}
+(21pp). Pipelines: \texttt{Makefile} and \texttt{Makefile.dynamism}.
+Every figure regenerates from \texttt{scripts/} against the
+per-NICE-class parquets; the surname work uses the 2010 Census
+surname file and a full re-parse of the USPTO XML for applicant
+country (\texttt{owner\_address.parquet}, $13{,}993{,}768$ records).
+
+\section*{References}
+\begin{itemize}[leftmargin=*]\setlength\itemsep{2pt}
+\item Akcigit, U., \& Ates, S.~T. (2021). Ten facts on declining
+business dynamism and lessons from endogenous growth theory.
+\emph{American Economic Journal: Macroeconomics}, 13(1), 257--298.
+\item Barron, A.~T.~J., Huang, J., Spang, R.~L., \& DeDeo, S. (2018).
+Individuals, institutions, and innovation in the debates of the
+French Revolution. \emph{PNAS}, 115(18), 4607--4612.
+\item Dinlersoz, E., Goldschlag, N., Myers, A., \& Zolas, N. (2018).
+An anatomy of US firms seeking trademark registration. Center for
+Economic Studies WP 18--46, US Census Bureau.
+\item Decker, R.~A., Haltiwanger, J., Jarmin, R.~S., \& Miranda, J.
+(2014). The role of entrepreneurship in US job creation and economic
+dynamism. \emph{Journal of Economic Perspectives}, 28(3), 3--24.
+\item Murdock, J., Allen, C., \& DeDeo, S. (2017). Exploration and
+exploitation of Victorian science in Darwin's reading notebooks.
+\emph{Cognition}, 159, 117--126.
+\item Word, D.~L., Coleman, C.~D., Nunziata, R., \& Kominski, R.
+(2008). Demographic aspects of surnames from Census 2000. US Census
+Bureau working paper.
+\end{itemize}
+
+\end{document}
