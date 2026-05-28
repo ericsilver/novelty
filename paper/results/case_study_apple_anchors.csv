@@ -1,0 +1,12 @@
+brand,story,launch_year,filing_date,serial_number,mark_identification,nice_classes,dkl,prospective_kl,retrospective_kl,goods_services
+IPOD,iPod launched Oct 2001,2001,20000724,78018061,IPOD,009,-0.2354684888169727,5.787539664688208,6.023008153505181,public Internet kiosk enclosure containing computer hardware
+IPHONE,iPhone launched Jun 2007,2007,19960320,75076573,IPHONE,009,0.27902209407256073,5.286487867390775,5.007465773318215,computer hardware and software for providing integrated telephone communication with computerized global information networks
+IPAD,iPad launched Apr 2010,2010,20030307,76497338,IPAD,009,,,,HAND-HELD COMPUTING DEVICE FOR WIRELESS NETWORKING IN A RETAIL ENVIRONMENT
+SIRI,Siri shipped with iPhone 4S Oct 2011,2011,20080522,77481847,SIRI,035,0.15920758648272137,6.554115311758577,6.394907725275855,"Providing consumer information via voice-controlled automated inquiries, namely, providing an online automated consumer resource for searching, locating, rating and providing directions for the purchase, consumption and use of a wide range "
+APPLE WATCH,Apple Watch launched Apr 2015,2015,20140909,86390028,APPLE WATCH,009,0.1399630427969365,3.211380520954144,3.0714174781572074,"Computers; computers, namely, smartwatches; computer peripheral devices; computer hardware; computer hardware for use in measuring heart rhythm; computer hardware for use in taking electrocardiograms; personal digital assistants; electronic"
+AIRPODS,AirPods launched Dec 2016,2016,20150922,86764566,AIRPODS,009,-0.03373360208832521,3.6530339587679843,3.6867675608563095,"Sound reproducing apparatus; audio speakers; earphones; headphones; microphones; voice recording apparatuses, namely, digital voice recorders; voice recognition apparatuses, namely, microphones for receiving voice data; radios, radio transm"
+HOMEPOD,HomePod launched Feb 2018,2018,20170613,87486450,HOMEPOD,009,-0.13545160884433027,4.006092310057431,4.141543918901761,"Audio speakers, amplifiers and receivers; digital audio players; sound reproducing apparatus; voice recording and recognition apparatus; microphones; radios, radio transmitters, and radio receivers; wireless communication devices for voice "
+VISION PRO,Vision Pro launched Feb 2024,2024,20230608,98033785,VISION PRO,009,-0.0941237524747871,3.666713297802648,3.760837050277435,"Computers; computer hardware; wireless communication devices for
+            providing access to the Internet and sending, receiving, and
+            transmitting data, images, audio, video, and multimedia content;
+            wearable comp"

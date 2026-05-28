@@ -1,0 +1,67 @@
+FIRM CASE STUDY: Dyson
+=====================
+
+Patents: 1,349 grants, 2002-2025.
+Top CPC subclasses: A47L(355), F04D(151), F04F(117), A45D(65), F24F(59)
+Peak patent-grant years:
+  2019: 149 grants
+  2016: 119 grants
+  2017: 117 grants
+  2014: 96 grants
+  2013: 95 grants
+
+Trademark filings (post-1995, all NICE classes): 282
+Top mean-DeltaKL years (n_filings >= 3):
+  2001: mean_dkl=+0.276  n=7
+  2020: mean_dkl=+0.256  n=12
+  2013: mean_dkl=+0.247  n=4
+  2019: mean_dkl=+0.225  n=17
+  2016: mean_dkl=+0.210  n=19
+Bottom mean-DeltaKL years (n_filings >= 3):
+  2026: mean_dkl=-0.408  n=4
+  2009: mean_dkl=-0.151  n=6
+  2007: mean_dkl=-0.049  n=7
+  2011: mean_dkl=-0.042  n=3
+  2022: mean_dkl=-0.026  n=24
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  DUAL CYCLONE    19970929  dKL=+0.085  NICE=003,007,011  [Dual Cyclone bagless vacuum 1993-]
+     g/s: refrigerators and freezers, tumble dryers, hair dryers and parts and fittings therefor washing machines for clothes, dishwashing machines; floor washing machine
+  AIRBLADE        20070307  dKL=-0.203  NICE=007,011  [Airblade hand dryer launched 2006]
+     g/s: [ Electrical apparatus for kitchen and laundry use, namely, clothes washing machines and dishwashers; apparatus for cleaning, polishing and shampooing floors an
+  AIRWRAP         20171201  dKL=+0.035  NICE=008,011,021  [Airwrap launched 2018]
+     g/s: Electric hair dryers; hair dryers; cases, boxes and bags specially adapted for all the aforesaid goods; parts for the aforesaid goods Hair styling apparatus, na
+  SUPERSONIC      20160418  dKL=+0.207  NICE=011  [Supersonic hair dryer launched 2016]
+     g/s: Hair dryers; cases specially adapted for hair dryers; accessories for hair dryers, namely, diffusers, smoothing nozzles, and concentrator nozzles; parts and fit
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1997  pat=    0  tm=  6  mean_dkl=+0.183
+  1999  pat=    0  tm=  1  mean_dkl=    n/a
+  2001  pat=    0  tm=  7  mean_dkl=+0.276
+  2002  pat=    7  tm=  4  mean_dkl=+0.105
+  2003  pat=   14  tm=  2  mean_dkl=+0.048
+  2004  pat=    6  tm=  1  mean_dkl=-0.189
+  2005  pat=   14  tm=  2  mean_dkl=-0.287
+  2006  pat=   31  tm=  1  mean_dkl=+0.148
+  2007  pat=   13  tm=  7  mean_dkl=-0.049
+  2008  pat=   28  tm=  5  mean_dkl=+0.044
+  2009  pat=   39  tm=  6  mean_dkl=-0.151
+  2010  pat=   21  tm=  2  mean_dkl=-0.039
+  2011  pat=   29  tm=  3  mean_dkl=-0.042
+  2012  pat=   48  tm=  7  mean_dkl=+0.078
+  2013  pat=   95  tm=  4  mean_dkl=+0.247
+  2014  pat=   96  tm=  1  mean_dkl=+0.586
+  2015  pat=   86  tm= 30  mean_dkl=+0.109
+  2016  pat=  119  tm= 19  mean_dkl=+0.210
+  2017  pat=  117  tm= 14  mean_dkl=+0.163
+  2018  pat=   87  tm= 14  mean_dkl=+0.164
+  2019  pat=  149  tm= 17  mean_dkl=+0.225
+  2020  pat=   64  tm= 12  mean_dkl=+0.256
+  2021  pat=   36  tm= 20  mean_dkl=+0.078
+  2022  pat=   45  tm= 24  mean_dkl=-0.026
+  2023  pat=   43  tm= 18  mean_dkl=-0.010
+  2024  pat=   75  tm= 30  mean_dkl=+0.000
+  2025  pat=   87  tm= 21  mean_dkl=+0.009
+  2026  pat=    0  tm=  4  mean_dkl=-0.408

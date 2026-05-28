@@ -1,0 +1,80 @@
+FIRM CASE STUDY: NVIDIA
+======================
+
+Patents: 5,302 grants, 1997-2025.
+Top CPC subclasses: G06F(2540), G06T(1819), G09G(542), H04N(502), G06N(501)
+Peak patent-grant years:
+  2024: 418 grants
+  2025: 387 grants
+  2023: 371 grants
+  2016: 354 grants
+  2014: 339 grants
+
+Trademark filings (post-1995, all NICE classes): 355
+Top mean-DeltaKL years (n_filings >= 3):
+  2024: mean_dkl=+0.261  n=4
+  2011: mean_dkl=+0.222  n=3
+  2022: mean_dkl=+0.202  n=10
+  2017: mean_dkl=+0.194  n=7
+  2025: mean_dkl=+0.177  n=11
+Bottom mean-DeltaKL years (n_filings >= 3):
+  1996: mean_dkl=-0.240  n=6
+  1998: mean_dkl=-0.211  n=6
+  2006: mean_dkl=-0.200  n=9
+  2000: mean_dkl=-0.181  n=4
+  2002: mean_dkl=-0.131  n=13
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  GEFORCE         20020207  dKL=-0.017  NICE=009  [GeForce 256 launched Oct 1999]
+     g/s: Computer hardware, namely, integrated circuits, semiconductors and chipsets
+  CUDA            20070207  dKL=-0.066  NICE=009  [CUDA released Jun 2007]
+     g/s: Computer software, namely, graphics processing unit software; computer software development programs; computer software development tools for programming graphi
+  TEGRA           20080408  dKL=+0.418  NICE=009  [Tegra SoC announced 2008]
+     g/s: Integrated circuits for use in handheld and mobile devices, namely, mobile phones, MP3 players, portable navigation devices featuring a global positioning syste
+  G-SYNC          20131112  dKL=+0.084  NICE=009,028  [G-Sync introduced Oct 2013]
+     g/s: [ Apparatus for playing electronic computer games other than those adapted for use with an external display screen or monitor ] Computer hardware with specializ
+  DGX             20170307  dKL=+0.461  NICE=009,042  [DGX-1 announced Apr 2016]
+     g/s: Advanced product research in the field of artificial intelligence; consulting services in the fields of gaming technology and computer graphics software; provid
+  RTX             20180321  dKL=+0.277  NICE=009  [GeForce RTX 20 series Aug 2018]
+     g/s: Software for ray tracing and image rendering, modeling, and image manipulation and processing; software for use as an application programming interface (API) fo
+  JETSON          20180603  dKL=+0.153  NICE=009  [Jetson AGX Xavier announced Jun 2018]
+     g/s: Self-driving and autonomous land vehicle electronic computing platform consisting of software for artificial intelligence, machine learning, deep learning, natu
+  OMNIVERSE       20190325  dKL=+0.060  NICE=009,042  [Omniverse public beta Dec 2020]
+     g/s: downloadable application programming interface (API) for computer software for ray tracing and image rendering, modeling, and image manipulation and processing;
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1993  pat=    0  tm=  1  mean_dkl=+0.090
+  1994  pat=    0  tm=  1  mean_dkl=+0.089
+  1996  pat=    0  tm=  6  mean_dkl=-0.240
+  1997  pat=   10  tm=  1  mean_dkl=-0.256
+  1998  pat=   12  tm=  6  mean_dkl=-0.211
+  1999  pat=    5  tm=  1  mean_dkl=-0.120
+  2000  pat=    6  tm=  4  mean_dkl=-0.181
+  2001  pat=   14  tm= 36  mean_dkl=-0.089
+  2002  pat=   15  tm= 13  mean_dkl=-0.131
+  2003  pat=   25  tm=  4  mean_dkl=+0.047
+  2004  pat=   42  tm= 27  mean_dkl=-0.112
+  2005  pat=   52  tm=  5  mean_dkl=+0.078
+  2006  pat=  103  tm=  9  mean_dkl=-0.200
+  2007  pat=  108  tm=  9  mean_dkl=-0.095
+  2008  pat=  175  tm= 11  mean_dkl=+0.001
+  2009  pat=  272  tm=  5  mean_dkl=-0.084
+  2010  pat=  229  tm=  2  mean_dkl=-0.052
+  2011  pat=  264  tm=  3  mean_dkl=+0.222
+  2012  pat=  267  tm=  7  mean_dkl=+0.116
+  2013  pat=  289  tm= 27  mean_dkl=+0.072
+  2014  pat=  339  tm=  3  mean_dkl=+0.018
+  2015  pat=  326  tm= 12  mean_dkl=+0.001
+  2016  pat=  354  tm=  4  mean_dkl=+0.041
+  2017  pat=  278  tm=  7  mean_dkl=+0.194
+  2018  pat=  197  tm= 66  mean_dkl=+0.154
+  2019  pat=  166  tm= 15  mean_dkl=+0.086
+  2020  pat=  158  tm= 15  mean_dkl=+0.079
+  2021  pat=  206  tm= 16  mean_dkl=+0.084
+  2022  pat=  214  tm= 10  mean_dkl=+0.202
+  2023  pat=  371  tm= 11  mean_dkl=-0.016
+  2024  pat=  418  tm=  4  mean_dkl=+0.261
+  2025  pat=  387  tm= 11  mean_dkl=+0.177
+  2026  pat=    0  tm=  3  mean_dkl=+0.079

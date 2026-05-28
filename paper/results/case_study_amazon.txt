@@ -1,0 +1,79 @@
+FIRM CASE STUDY: Amazon
+======================
+
+Patents: 22,106 grants, 2006-2025.
+Top CPC subclasses: G06F(11139), H04L(6977), G06Q(3809), H04N(1789), G10L(1672)
+Peak patent-grant years:
+  2019: 2,535 grants
+  2020: 2,360 grants
+  2018: 2,088 grants
+  2021: 2,020 grants
+  2017: 2,000 grants
+
+Trademark filings (post-1995, all NICE classes): 2724
+Top mean-DeltaKL years (n_filings >= 3):
+  1997: mean_dkl=+0.165  n=6
+  2008: mean_dkl=+0.090  n=50
+  2019: mean_dkl=+0.064  n=171
+  2009: mean_dkl=+0.058  n=50
+  2023: mean_dkl=+0.044  n=99
+Bottom mean-DeltaKL years (n_filings >= 3):
+  1995: mean_dkl=-0.281  n=6
+  2001: mean_dkl=-0.183  n=4
+  2026: mean_dkl=-0.076  n=11
+  2003: mean_dkl=-0.076  n=25
+  2000: mean_dkl=-0.047  n=26
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  KINDLE          20060502  dKL=+0.189  NICE=009,038,041  [Kindle launched Nov 2007]
+     g/s: Transmission of text, images and sound through a portable electronic device Providing information in the field of electronic publishing in all forms, via a glob
+  FIRE TV         20180905  dKL=-0.044  NICE=009,035,038,041,042  [Fire TV launched Apr 2014]
+     g/s: Educational services in the nature of classroom instruction and on-line distance learning on topics of current events, education, history, language, liberal art
+  ECHO            20141106  dKL=+0.183  NICE=035  [Echo launched Nov 2014]
+     g/s: providing consumer information and related news in the field of sports, entertainment, business and finance, politics and government, health and physical fitnes
+  ALEXA           19970218  dKL=+0.074  NICE=042  [Alexa shipped with Echo Nov 2014]
+     g/s: providing a wide range of information via global computer networks
+  PRIME AIR       20140521  dKL=+0.147  NICE=009,035  [Prime Air drone announced Dec 2013]
+     g/s: Advertising services; retail store services and online retail store services featuring a wide range of consumer goods; retail store services and online retail s
+  BLINK           20180126  dKL=-0.125  NICE=009  [Blink cameras (acquired 2017)]
+     g/s: Apparatus for reproduction of sound; Computer hardware for recording, transmitting, and streaming images, audio, video, and data files; Camera stands
+  RING            20140129  dKL=+0.410  NICE=009  [Ring (acquired 2018)]
+     g/s: Consumer electronic products, namely, doorbells, motion sensors and monitoring equipment, namely, [ video monitors and ] video cameras for monitoring the interi
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1990  pat=    0  tm=  2  mean_dkl=+0.345
+  1993  pat=    0  tm=  3  mean_dkl=-0.368
+  1994  pat=    0  tm=  1  mean_dkl=-0.846
+  1995  pat=    0  tm=  6  mean_dkl=-0.281
+  1997  pat=    0  tm=  6  mean_dkl=+0.165
+  1998  pat=    0  tm=  7  mean_dkl=+0.007
+  1999  pat=    0  tm= 11  mean_dkl=+0.031
+  2000  pat=    0  tm= 26  mean_dkl=-0.047
+  2001  pat=    0  tm=  4  mean_dkl=-0.183
+  2002  pat=    0  tm=  8  mean_dkl=-0.032
+  2003  pat=    0  tm= 25  mean_dkl=-0.076
+  2004  pat=    0  tm= 20  mean_dkl=-0.019
+  2005  pat=    0  tm= 26  mean_dkl=-0.043
+  2006  pat=    4  tm= 62  mean_dkl=-0.026
+  2007  pat=    6  tm= 94  mean_dkl=-0.011
+  2008  pat=   24  tm= 50  mean_dkl=+0.090
+  2009  pat=   55  tm= 50  mean_dkl=+0.058
+  2010  pat=  122  tm= 37  mean_dkl=+0.004
+  2011  pat=  183  tm= 78  mean_dkl=-0.001
+  2012  pat=  290  tm= 81  mean_dkl=+0.034
+  2013  pat=  542  tm= 65  mean_dkl=+0.024
+  2014  pat=  754  tm=151  mean_dkl=-0.003
+  2015  pat= 1160  tm=141  mean_dkl=+0.009
+  2016  pat= 1703  tm=203  mean_dkl=+0.025
+  2017  pat= 2000  tm=218  mean_dkl=+0.012
+  2018  pat= 2088  tm=266  mean_dkl=-0.011
+  2019  pat= 2535  tm=171  mean_dkl=+0.064
+  2020  pat= 2360  tm=204  mean_dkl=+0.011
+  2021  pat= 2020  tm=172  mean_dkl=-0.037
+  2022  pat= 1953  tm=171  mean_dkl=+0.006
+  2023  pat= 1669  tm= 99  mean_dkl=+0.044
+  2024  pat= 1543  tm=133  mean_dkl=-0.019
+  2025  pat= 1095  tm=116  mean_dkl=-0.021
+  2026  pat=    0  tm= 11  mean_dkl=-0.076

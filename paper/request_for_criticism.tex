@@ -4,14 +4,15 @@
 \usepackage{amsmath, amssymb}
 \usepackage{booktabs}
 \usepackage{enumitem}
+\usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \definecolor{flag}{HTML}{8b0000}
 \newcommand{\dkl}{\Delta KL}
 
 \title{Request for criticism:\\
-have we established that trademark filings measure\\
-anything --- innovation, business formation, or otherwise?}
+if $\dkl$ isn't innovation, what is it ---\\
+and how do we isolate the part that is?}
 \author{Eric Silver}
 \affil{}
 \date{May 2026}
@@ -21,22 +22,38 @@ anything --- innovation, business formation, or otherwise?}
 
 \noindent
 \textbf{What I am asking you to do.} Attack the construct validity of
-this body of work. I am not asking whether the regressions are coded
-correctly (assume they are; the code is reproducible) or whether the
-prose is polished. I am asking the one question that, if answered
-badly, makes everything downstream worthless: \emph{does a trademark
-filing, and the $\dkl$ statistic I compute on its goods/services
-text, measure anything real --- innovation, business formation, or
-even meaningful commercial activity --- or am I measuring the
-drafting habits of trademark attorneys and calling it economics?}
+this body of work, but constructively. I am not asking whether the
+regressions are coded correctly (assume they are; the code is
+reproducible) or whether the prose is polished. The defensive
+question --- ``is $\dkl$ a valid innovation measure?'' --- is a dead
+end, because I already suspect the honest answer is ``not in the
+strong sense.'' The two questions worth your time are sharper:
 
-I have written this to make your job easy. Below I state the claims,
-then I steelman the case that the whole edifice is measuring noise,
-then I lay out the thin evidence I have for validity, then I offer
-four reframings from strong to weak and ask you to tell me which (if
-any) survives. Be as brutal as the strongest version of the
-objection warrants. I would rather kill the ``innovation'' framing
-now than have a referee or a serious reader kill it later.
+\begin{quote}
+\textbf{Q1. If $\dkl$ is not innovation, what is it?} Give the
+construct its correct name, so the downstream results mean something
+precise rather than something inflated.
+
+\textbf{Q2. How do we isolate the part of $\dkl$ that genuinely is
+innovation?} Treat the observed signal as a composite and tell me
+which decomposition cleanly extracts the innovation component ---
+or prove no such component is identifiable from this data.
+\end{quote}
+
+My own answer to Q1, which I want you to attack: $\dkl$ measures
+\textbf{lexical timing} --- whether a filing's registration language
+sat \emph{ahead of} (positive) or \emph{behind} (negative) its
+commercial category's vocabulary trajectory at the moment of filing.
+It is not lexical novelty as such: a filing can be highly distinctive
+(high on both component KLs) yet have $\dkl \approx 0$ if it is
+equally far from the class's past and future. Positive $\dkl$ means
+``wrote in language the field moved toward.'' That construct is
+well-defined and, I think, defensible \textbf{[high]}. The open
+question is \emph{why} a filing is ahead of the curve: firm
+foresight (the innovation interpretation), attorney drafting fashion,
+or mere exposure to a churning category. Sections 2--4 lay out the
+steelman for ``it's mostly the latter two,'' my evidence, and the
+decomposition program for Q2.
 
 \section{The claims, briefly}
 
@@ -207,11 +224,10 @@ currently defend ``$\dkl$ is an innovation measure'' against a
 determined skeptic, because every outcome I validate against is
 either inside the trademark corpus or a small noisy financial panel.
 
-\section{Four reframings --- which survives?}
+\section{Q1: if not innovation, what is it? --- four candidate names}
 
-I want you to tell me which of these I can defend, and whether the
-strong claim is salvageable with additional work or should be
-abandoned.
+A ladder of constructs from strong to weak. Tell me which is the
+correct name for what $\dkl$ measures.
 
 \begin{description}[leftmargin=*]
 \item[(I) Strong --- ``$\dkl$ is an innovation measure.''] The
@@ -241,38 +257,271 @@ branding-intensive slice of formation. Confidence: \textbf{[moderate]}.
 \end{description}
 
 \noindent
-A plausible restructure: lead with (III) as the measurement
-contribution, establish (II) at the corpus level with the
-category-emergence evidence, and present the firm-level
-innovation/financial results as \emph{suggestive regularities under
-(III)} rather than as proof of (I). The dynamism work then stands on
-(IV) and does not need (I) at all. Tell me if this is cowardice or
-rigor.
+My current bet \textbf{[moderate]}: the correct primitive name is
+(III) lexical timing; (II) is the defensible \emph{corpus-level}
+claim built on top of it; (I) is only licensed for the subset of
+$\dkl$ that survives the isolation program in the next section; and
+(IV) is what the dynamism work should stand on, needing none of the
+above. The restructure I am tempted by: lead with (III) as the
+measurement contribution, establish (II) with the category-emergence
+evidence, present firm-level survival/financial results as
+\emph{regularities under (III) awaiting the (I) decomposition}, and
+let the dynamism work rest on (IV). Tell me if that is rigor or
+cowardice.
+
+\section{Q2: how do we isolate the innovation component?}
+
+Model the observed statistic as a composite:
+\[
+\dkl_{\text{filing}} = \underbrace{\beta\,\text{(firm innovation)}}_{\text{the part we want}}
+  + \underbrace{\gamma\,\text{(attorney/drafting style)}}_{\text{fashion}}
+  + \underbrace{\delta\,\text{(category churn exposure)}}_{\text{being in a hot class}}
+  + \varepsilon.
+\]
+The whole question is whether $\beta\,\text{(firm innovation)}$ is
+separately identifiable. Five tests, ranked by decisiveness $\times$
+feasibility. Tell me which is decisive, which is hopeless, and what
+I am missing.
+
+\begin{description}[leftmargin=*]
+\item[(C) Within-firm $\dkl$ vs.\ patent timing --- \emph{runnable
+now}.] For firms that both patent and trademark, test whether a
+firm's high-$\dkl$ trademark years coincide with its high-patent
+years. Within-firm temporal co-movement is hard to explain by
+drafting fashion or category churn and would be direct evidence
+$\beta > 0$. Temporal independence would say $\dkl$ and invention
+are unrelated \emph{even inside the same firm}. We have
+\texttt{firm\_dkl\_vs\_patents.parquet}; I can run this immediately.
+\item[(D) Term-provenance decomposition --- \emph{runnable now}.]
+Split each filing's $\dkl$ contribution into tokens
+\emph{new to the class} vs.\ recombined pre-existing tokens. Genuine
+novelty should load on new tokens; drafting fashion on unusual
+recombination of old tokens. If the survival/return effects
+concentrate in the new-token component, that is the innovation part
+isolated. We have the per-class vocab and per-filing tokens.
+\item[(A) Attorney / correspondent fixed effects --- \emph{cheap
+re-parse}.] The strongest design. The USPTO XML carries the
+correspondent/attorney of record; we already re-parsed once for
+applicant country, so adding the attorney field is incremental.
+Within-attorney variation in $\dkl$ nets out $\gamma$ (drafting
+style) by construction. If the survival/financial effects survive
+attorney fixed effects, $\dkl$ is not drafting fashion.
+\item[(B) ID-Manual-only vs.\ free-text split --- \emph{moderate}.]
+The USPTO \emph{ID Manual} is a controlled vocabulary of
+pre-approved descriptions. Filings using only ID-Manual language
+have mechanically constrained vocabulary ($\dkl$ is pure $\delta$,
+category-churn exposure); filings with free-text descriptions carry
+discretionary language that can encode $\beta$. If the effects
+concentrate in free-text filings, that localises the innovation
+component. Needs the ID Manual (downloadable).
+\item[(E) ID-Manual adoption prediction --- \emph{moderate}.] The
+institutional validation test: does a high-$\dkl$ filing use terms
+that the ID Manual \emph{later} codifies? If filings that are
+``ahead of the curve'' by $\dkl$ are using terms the USPTO itself
+subsequently standardises, the leadership is real and externally
+validated, not an artefact of my reference window. Needs ID-Manual
+version history.
+\end{description}
+
+\noindent
+My plan, pending your verdict: run (C) and (D) now, add the attorney
+field on the next re-parse for (A), and treat (B)/(E) as the
+ID-Manual work package. If (C) shows within-firm co-movement and the
+(D) new-token component carries the survival effect, I will claim
+(I) \emph{for that isolated component only} and keep (III) as the
+name for the rest. If both come back null, (I) is dead and I retreat
+to (III)+(II)+(IV).
 
 \section{Specific questions}
 
 \begin{enumerate}[leftmargin=*]
-\item Is link 1 (prose $\neq$ product) fatal, or is there a
-defensible argument that attorney-drafted scope language still
-carries firm-level signal because the firm chooses what to claim?
-\item What is the cheapest decisive test that would separate
-``genuine category emergence'' from ``ID-Manual / drafting-fashion
-drift''? (My best idea: hold out the ID-Manual update history and
-show $\dkl$ predicts adoption \emph{before} the manual codifies the
-term. I have not done this.)
-\item Is there any external, non-trademark, non-financial outcome I
-could validate survival against --- business registration death,
+\item Is (A) attorney fixed effects actually clean, or does the
+firm choose its attorney partly \emph{for} drafting style, so that
+attorney FE absorbs real firm-level signal along with the fashion?
+\item Is (C) within-firm $\dkl$/patent co-movement convincing
+evidence of $\beta > 0$, or is there a confound (e.g., both spike
+when the firm enters a new product line) that co-movement cannot
+rule out?
+\item For (D): is ``new-to-class token'' the right operationalisation
+of the innovation component, or should novelty be measured against
+the whole-corpus vocabulary rather than the class?
+\item Is there an external, non-trademark, non-financial outcome to
+validate survival against --- business-registration death,
 UCC-lien termination, Form-D withdrawal, domain expiry --- that
-would break the maintenance-vs-survival circularity?
+breaks the maintenance-vs-survival circularity?
 \item Does the $+28$pp/$\sigma$ return number kill my credibility on
-sight? Should I drop it pending re-estimation?
-\item For the ethnic work: is surname imputation usable at all given
-the Black-surname cross-loading, or should I restrict to the
-Hispanic and API analyses where the Census classifier is
-discriminating and drop Black claims to a flagged-caveat appendix?
-\item Is reframing (III)+(II)+(IV) the right retreat, or is it
-giving up a defensible (I) too cheaply?
+sight? Drop it pending re-estimation?
+\item For the ethnic work: is surname imputation usable given the
+Black-surname cross-loading (Smith/Johnson/Williams), or do I
+restrict to the discriminating Hispanic and API analyses and demote
+Black claims to a flagged-caveat appendix?
 \end{enumerate}
+
+\section{First isolation results: lead-lag, cross-class transfer, case studies}
+
+Three of the Q2 tests have first results. They land on a sharper
+picture than either the strong (I) or full-retreat (III) framing
+anticipated. The headline: $\dkl$ tracks invention activity at the
+\emph{between-firm} level but not (cleanly) within-firm at annual
+resolution, and an idea-transfer signature is visible in the
+filing-level vocabulary data.
+
+\subsection*{Lead-lag: patents \emph{do} lead high-$\dkl$ trademarks
+between firms, but not within firms at this resolution}
+
+The pipeline framing (patents $\to$ products $\to$ trademarks)
+predicts that contemporaneous patent--$\dkl$ correlation can be
+zero while lagged correlation is positive. We rebuilt an outer-join
+firm $\times$ year panel restricted to patent-active firms ($n =
+54{,}323$ firms with $\geq 1$ patent in any year), keyed patents to
+\emph{application} date (the invention-timing proxy) rather than
+grant date, and computed
+$\mathrm{corr}(\text{patents}(t),\, Y(t+k))$ for $k = -5\ldots+5$,
+where $Y$ is either the firm's mean $\dkl$ or its count of
+positive-$\dkl$ filings that year.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{results/leadlag_v2.png}
+\caption{Lead-lag cross-correlation. Left: patents$\to$mean $\dkl$.
+Right: patents$\to$count of positive-$\dkl$ trademark filings.
+Blue = application date (clean), red = grant date (robustness; grant
+lags application by $\sim 2.5$y so trademarks can legitimately
+precede grant). 95\% CIs via Fisher $z$.}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{rrrrr}
+\toprule
+$k$ & $n$ & $r$(pat$_{\text{app}}$, $\overline{\dkl}$) & $r$(pat$_{\text{app}}$, $n_{\dkl>0}$) & $r$(pat$_{\text{grant}}$, $n_{\dkl>0}$) \\
+\midrule
+$-3$ & $4{,}811{,}278$ & $+0.080$ & $+0.074$ & $+0.117$ \\
+$-2$ & $5{,}362{,}199$ & $+0.039$ & $+0.100$ & $+0.128$ \\
+$-1$ & $4{,}622{,}243$ & $+0.085$ & $+0.125$ & $\mathbf{+0.142}$ \\
+$\phantom{+}0$ & $5{,}035{,}558$ & $+0.064$ & $+0.126$ & $+0.101$ \\
+$+1$ & $4{,}590{,}147$ & $\mathbf{+0.115}$ & $\mathbf{+0.179}$ & $+0.083$ \\
+$+2$ & $3{,}658{,}631$ & $+0.052$ & $+0.149$ & $+0.063$ \\
+$+3$ & $5{,}170{,}367$ & $+0.087$ & $+0.119$ & $+0.057$ \\
+$+5$ & $2{,}825{,}536$ & $+0.050$ & $+0.056$ & $+0.046$ \\
+\bottomrule
+\end{tabular}
+\caption{Pearson correlation between firm-year patents and a future
+trademark outcome. Application-date $\overline{\dkl}$ peaks at
+$k=+1$ ($r = +0.115$); positive-$\dkl$ count peaks at $k=+1$
+($r = +0.179$). Grant-date positive-$\dkl$ count peaks at $k=-1$,
+exactly what the $\sim 2.5$y application-to-grant lag predicts if
+trademarks come during patent pendency. $n$ is firm-year-pair
+observations.}
+\end{table}
+
+\paragraph{The compositional caveat.} Within-firm FE regressions of
+the same outcomes on patent-application lags $0$--$3$, clustered SE,
+restricted to firms with $\geq 5$ firm-years of trademark $\dkl$
+($n = 1{,}146$ firms, $13{,}425$ firm-years), produce
+\emph{statistically insignificant} coefficients across all lags
+(largest $|t| \approx 1.7$, all $p > 0.08$).  Direction on
+positive-$\dkl$ count is consistent with the pipeline (lag-$1$
+coef $+0.014$, lag-$2$ coef $+0.014$) but neither passes
+significance.
+
+What this means \textbf{[high]}: the population-level lead-lag is
+\emph{between-firm}. Patent-active firms file systematically more
+positive-$\dkl$ trademarks than non-patent firms, and the
+between-firm covariance accumulates across years to produce the
+$r = +0.18$ at $k = +1$. \emph{Within} a firm, knowing how many
+patents it filed last year does not predict how many positive-$\dkl$
+trademarks it will file this year, at annual resolution and on this
+sample.
+
+\paragraph{Interpretation for Q1 and Q2.} The straight pipeline
+narrative (``last year's patent caused this year's trademark'') is
+not supported as a within-firm temporal mechanism in our data. What
+\emph{is} supported is firm-level co-selection: the population of
+patent-active firms overlaps with the population of high-$\dkl$
+trademark filers, and the lead-lag profile of the population
+covariance is consistent with the broad direction of the pipeline
+(patents earlier, trademarks later). The conservative
+reformulation: $\dkl$-positive trademarks identify the same set of
+firms that patenting identifies, with a roughly $+1$-year lag at the
+population level, but $\dkl$ does \emph{not} cleanly time-resolve a
+within-firm innovation pulse. This is closer to reframing~(I) being
+partially licensed --- for the patent-overlap subset, $\dkl$ does
+co-localise with invention activity --- than to either~(III) being
+the full retreat or~(I) being licensed in the strong causal sense.
+
+\paragraph{Reasons the within-firm test may underpower a real
+pipeline.} $n = 1{,}146$ firms is small; annual resolution may be
+too coarse (patent-to-launch cycles are often months, not years);
+patents come in bunches; not every patent leads to a trademark; and
+the relationship is plausibly heterogeneous across industries
+(pharma vs.\ software vs.\ hardware) which we have not stratified.
+Higher-frequency timing data (monthly patent applications $\to$
+monthly trademark filings) and within-CPC-to-NICE stratification
+would be the next steps.
+
+\subsection*{Cross-class vocabulary transfer: positive $\dkl$ comes at the cost of registration}
+
+A separate test of what $\dkl$ measures: identify trademark filings
+whose goods/services prose imports tokens recently ascendant in a
+\emph{different} NICE class (vocabulary moving across industry
+boundaries). On $7{,}290{,}115$ clean-panel filings, with the
+operational definition ``a filing imports $\geq 2$ tokens currently
+rising in some other class but not yet rising in its own,'' transfer
+filings have $\mathbf{higher\ \dkl}$ ($+0.033$ pooled, $+0.031$ within
+class$\times$year cell) and \emph{simultaneously}
+$\mathbf{lower\ registration}$ rate ($-4.4$pp pooled, $-2.8$pp within
+cell, both $z > 11$). The face-validity examples are correct: the
+top-intensity transfer filings are $2014$--$2015$ vape and
+e-cigarette filings importing class-$34$ (tobacco) vocabulary into
+classes $1, 10, 11, 35, 38$.
+
+This is the cleanest result on Q1 so far. Cross-class imports both
+\emph{look novel} (positive $\dkl$, because they carry tokens that
+are unusual against the destination class's recent past) and
+\emph{fare worse at the examination gate} (lower registration,
+because examiners and prior-art collisions disfavour them). Both
+priors I considered turn out to be partially right \emph{at the same
+time}: validated-novelty and category-mismatch are simultaneous
+forces, not alternatives. Detail: see \texttt{paper/cross\_class\_transfer\_note.pdf}.
+
+\subsection*{Firm case studies: the pipeline is visible firm-by-firm even when the panel won't show it}
+
+A complementary qualitative check on eight IP-heavy firms (Apple,
+Tesla, NVIDIA, Pfizer, Moderna, Dyson, Amazon, Salesforce). The
+cleanest patent$\to$trademark linkages, where the within-firm
+pipeline is visible by inspection:
+\begin{itemize}\setlength\itemsep{2pt}
+\item \textbf{NVIDIA TEGRA ($2008$, $\dkl = +0.42$), DGX ($2017$,
+$+0.46$), RTX ($2018$, $+0.28$)} --- three textbook technology
+discontinuities (mobile SoCs, AI compute, ray tracing), each landing
+a $> +0.25$ $\dkl$ on the firm's own trademark filing at the time
+of the corresponding patent-cluster activity.
+\item \textbf{Tesla 2015 firm-mean $\dkl = +0.33$, $n=12$ filings},
+the firm's largest single-year $\dkl$ spike, coincident with the
+Powerwall and Powerpack stationary-storage launches.
+\item \textbf{Amazon KINDLE ($2006$, $+0.19$), ECHO ($2014$,
+$+0.16$), PRIME AIR ($2014$, $+0.15$)} --- three sequential
+novel-vocabulary filings tracking Amazon's hardware push.
+\end{itemize}
+Honest negative findings: Pfizer's pipeline is broken by IP-holdco
+filings (Warner-Lambert / Wyeth / BioNTech as legal owners); Apple
+\texttt{IPHONE} ($1996$) is a parked filing $11$ years pre-launch,
+unrelated to the eventual product; Salesforce \texttt{SLACK} is
+acquisition-conditional. Detail: \texttt{paper/firm\_case\_studies\_note.pdf}.
+
+\paragraph{What the case studies and the panel jointly say.} For the
+right kind of firm (hardware-with-a-clear-new-product-name and not a
+holdco) the within-firm pipeline is visible by eye --- NVIDIA is
+near-perfect. The panel regression's within-firm null is therefore
+\emph{not} ``no firm exhibits the pipeline,'' it is ``averaging
+across $1{,}146$ firms with $\geq 5$ TM-$\dkl$-years does not
+recover an annual-resolution lag coefficient.'' Both are honest. The
+question for you (reviewer): is the right test stratified by firm
+type (hardware vs.\ pharma vs.\ software) and at higher temporal
+resolution, or is the population-level lead-lag $+ $ case-study
+qualitative evidence enough?
 
 \section{Artifacts and reproduction}
 

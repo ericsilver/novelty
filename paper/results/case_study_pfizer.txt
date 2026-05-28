@@ -1,0 +1,82 @@
+FIRM CASE STUDY: Pfizer
+======================
+
+Patents: 4,493 grants, 1976-2025.
+Top CPC subclasses: C07D(2811), A61P(2710), A61K(1363), C07C(619), C07K(454)
+Peak patent-grant years:
+  2003: 199 grants
+  2002: 194 grants
+  2001: 177 grants
+  2004: 172 grants
+  2005: 166 grants
+
+Trademark filings (post-1995, all NICE classes): 4168
+Top mean-DeltaKL years (n_filings >= 3):
+  2001: mean_dkl=+0.234  n=164
+  2002: mean_dkl=+0.119  n=179
+  2021: mean_dkl=+0.064  n=171
+  2025: mean_dkl=+0.059  n=97
+  2026: mean_dkl=+0.042  n=24
+Bottom mean-DeltaKL years (n_filings >= 3):
+  1997: mean_dkl=-0.233  n=69
+  2011: mean_dkl=-0.228  n=76
+  2006: mean_dkl=-0.176  n=171
+  1998: mean_dkl=-0.170  n=38
+  1996: mean_dkl=-0.165  n=61
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  VIAGRA          20020724  dKL=+0.047  NICE=005  [Viagra approved Mar 1998]
+     g/s: pharmaceutical preparations for the treatment of sexual dysfunction.
+  CELEBREX        NOT FOUND   Celebrex approved Dec 1998 (co-marketed)
+  LIPITOR         20010828  dKL=  n/a  NICE=016,042  [Lipitor approved 1996, Pfizer marketed]
+     g/s: COMPUTER SERVICES, NAMELY, PROVIDING INFORMATION RELATED TO CORONARY HEART DISEASES VIA GLOBAL COMPUTER NETWORKS PRINTED MATERIALS, NAMELY, BROCHURES, NEWSLETTE
+  LYRICA          NOT FOUND   Lyrica approved Dec 2004
+  CHANTIX         20060313  dKL=-0.250  NICE=005  [Chantix approved May 2006]
+     g/s: Pharmaceutical preparations, namely, smoking cessation preparations
+  XELJANZ         20090311  dKL=-0.056  NICE=005  [Xeljanz approved Nov 2012]
+     g/s: Pharmaceutical preparations for the treatment of immunological and inflammatory diseases and disorders; pharmaceutical preparations for the treatment of pain; p
+  PREVNAR         NOT FOUND   Prevnar/Prevnar 13/20
+  COMIRNATY       NOT FOUND   Comirnaty (BNT162b2) EUA Dec 2020
+  PAXLOVID        20210413  dKL=+0.127  NICE=005  [Paxlovid EUA Dec 2021]
+     g/s: Pharmaceutical preparations for the treatment of infectious and viral diseases and disorders; Pharmaceutical preparations, namely, anti-infective preparations
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1990  pat=   84  tm= 35  mean_dkl=+0.540
+  1991  pat=   92  tm= 17  mean_dkl=+0.084
+  1992  pat=   81  tm= 14  mean_dkl=-0.031
+  1993  pat=   68  tm= 24  mean_dkl=-0.243
+  1994  pat=   77  tm= 51  mean_dkl=-0.170
+  1995  pat=   76  tm= 37  mean_dkl=-0.067
+  1996  pat=   84  tm= 61  mean_dkl=-0.165
+  1997  pat=  102  tm= 69  mean_dkl=-0.233
+  1998  pat=  120  tm= 38  mean_dkl=-0.170
+  1999  pat=  118  tm= 72  mean_dkl=-0.147
+  2000  pat=  165  tm= 82  mean_dkl=+0.007
+  2001  pat=  177  tm=164  mean_dkl=+0.234
+  2002  pat=  194  tm=179  mean_dkl=+0.119
+  2003  pat=  199  tm=115  mean_dkl=-0.020
+  2004  pat=  172  tm=187  mean_dkl=-0.133
+  2005  pat=  166  tm=127  mean_dkl=-0.124
+  2006  pat=  148  tm=171  mean_dkl=-0.176
+  2007  pat=  112  tm=100  mean_dkl=-0.137
+  2008  pat=   83  tm=128  mean_dkl=-0.095
+  2009  pat=   89  tm= 67  mean_dkl=-0.148
+  2010  pat=   81  tm= 98  mean_dkl=-0.128
+  2011  pat=   58  tm= 76  mean_dkl=-0.228
+  2012  pat=   79  tm= 53  mean_dkl=-0.123
+  2013  pat=   45  tm= 41  mean_dkl=-0.103
+  2014  pat=   63  tm= 56  mean_dkl=-0.087
+  2015  pat=   72  tm=126  mean_dkl=-0.118
+  2016  pat=   67  tm=100  mean_dkl=-0.161
+  2017  pat=   75  tm= 73  mean_dkl=-0.116
+  2018  pat=   58  tm= 79  mean_dkl=-0.101
+  2019  pat=   63  tm=101  mean_dkl=-0.055
+  2020  pat=   82  tm=134  mean_dkl=+0.026
+  2021  pat=   58  tm=171  mean_dkl=+0.064
+  2022  pat=   42  tm= 85  mean_dkl=+0.037
+  2023  pat=   49  tm=132  mean_dkl=-0.004
+  2024  pat=   54  tm= 79  mean_dkl=-0.075
+  2025  pat=   39  tm= 97  mean_dkl=+0.059
+  2026  pat=    0  tm= 24  mean_dkl=+0.042

@@ -1,0 +1,54 @@
+FIRM CASE STUDY: Moderna
+=======================
+
+Patents: 261 grants, 2014-2025.
+Top CPC subclasses: A61K(234), C12N(204), A61P(169), C07K(153), C12Y(68)
+Peak patent-grant years:
+  2019: 37 grants
+  2025: 30 grants
+  2024: 29 grants
+  2023: 26 grants
+  2020: 25 grants
+
+Trademark filings (post-1995, all NICE classes): 333
+Top mean-DeltaKL years (n_filings >= 3):
+  2012: mean_dkl=+0.285  n=4
+  2021: mean_dkl=+0.191  n=18
+  2014: mean_dkl=+0.183  n=22
+  2024: mean_dkl=+0.135  n=40
+  2013: mean_dkl=+0.118  n=16
+Bottom mean-DeltaKL years (n_filings >= 3):
+  2023: mean_dkl=-0.029  n=41
+  2025: mean_dkl=+0.011  n=37
+  2026: mean_dkl=+0.032  n=19
+  2016: mean_dkl=+0.045  n=17
+  2022: mean_dkl=+0.058  n=79
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  MODERNA         20100907  dKL=-0.019  NICE=001,005  [Moderna Therapeutics name 2010-]
+     g/s: Medical, biological and pharmaceutical preparations for scientific, research, medical, or pharmaceutical use, namely, preparations for treating cancers, neurolo
+  SPIKEVAX        20201011  dKL=  n/a  NICE=005  [Spikevax (mRNA-1273) brand 2021]
+     g/s: Vaccines
+  MRESVIA         20230117  dKL=-0.063  NICE=005  [mResvia RSV vaccine approved May 2024]
+     g/s: vaccines for human use
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  2010  pat=    0  tm=  1  mean_dkl=-0.019
+  2011  pat=    0  tm=  2  mean_dkl=+0.057
+  2012  pat=    0  tm=  4  mean_dkl=+0.285
+  2013  pat=    0  tm= 16  mean_dkl=+0.118
+  2014  pat=    5  tm= 22  mean_dkl=+0.183
+  2015  pat=   16  tm=  9  mean_dkl=+0.106
+  2016  pat=   14  tm= 17  mean_dkl=+0.045
+  2017  pat=   14  tm=  5  mean_dkl=+0.063
+  2018  pat=   21  tm=  4  mean_dkl=+0.095
+  2019  pat=   37  tm=  0  mean_dkl=    n/a
+  2020  pat=   25  tm= 19  mean_dkl=+0.115
+  2021  pat=   22  tm= 18  mean_dkl=+0.191
+  2022  pat=   22  tm= 79  mean_dkl=+0.058
+  2023  pat=   26  tm= 41  mean_dkl=-0.029
+  2024  pat=   29  tm= 40  mean_dkl=+0.135
+  2025  pat=   30  tm= 37  mean_dkl=+0.011
+  2026  pat=    0  tm= 19  mean_dkl=+0.032

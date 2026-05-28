@@ -1,0 +1,10 @@
+brand,story,launch_year,filing_date,serial_number,mark_identification,nice_classes,dkl,prospective_kl,retrospective_kl,goods_services
+VIAGRA,Viagra approved Mar 1998,1998,20020724,78147133,VIAGRA-FEM,005,0.04716395991338551,4.266949340271748,4.2197853803583625,pharmaceutical preparations for the treatment of sexual dysfunction.
+CELEBREX,Celebrex approved Dec 1998 (co-marketed),1998,,,,,,,,
+LIPITOR,"Lipitor approved 1996, Pfizer marketed",1996,20010828,78081376,LIPITOR. FOR CHOLESSTEROL,"016,042",,,,"COMPUTER SERVICES, NAMELY, PROVIDING INFORMATION RELATED TO CORONARY HEART DISEASES VIA GLOBAL COMPUTER NETWORKS PRINTED MATERIALS, NAMELY, BROCHURES, NEWSLETTERS, BULLETINS ON THE TOPIC OF CORONARY HEART DISEASES"
+LYRICA,Lyrica approved Dec 2004,2004,,,,,,,,
+CHANTIX,Chantix approved May 2006,2006,20060313,78835879,CHANTIX,005,-0.2498300360993042,5.222486190287478,5.472316226386782,"Pharmaceutical preparations, namely, smoking cessation preparations"
+XELJANZ,Xeljanz approved Nov 2012,2012,20090311,77688128,XELJANZ,005,-0.05632291421163993,3.3309240786561505,3.3872469928677904,"Pharmaceutical preparations for the treatment of immunological and inflammatory diseases and disorders; pharmaceutical preparations for the treatment of pain; pharmaceutical preparations, namely, dermatological preparations"
+PREVNAR,Prevnar/Prevnar 13/20,2010,,,,,,,,
+COMIRNATY,Comirnaty (BNT162b2) EUA Dec 2020,2020,,,,,,,,
+PAXLOVID,Paxlovid EUA Dec 2021,2021,20210413,90642654,PAXLOVID,005,0.12729375833072254,4.146024968406456,4.0187312100757335,"Pharmaceutical preparations for the treatment of infectious and viral diseases and disorders; Pharmaceutical preparations, namely, anti-infective preparations"

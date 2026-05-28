@@ -1,0 +1,69 @@
+FIRM CASE STUDY: Tesla
+=====================
+
+Patents: 806 grants, 1976-2025.
+Top CPC subclasses: Y02E(270), H01M(186), Y02T(166), B60L(144), H02J(98)
+Peak patent-grant years:
+  2019: 86 grants
+  2020: 70 grants
+  2021: 63 grants
+  2023: 59 grants
+  2013: 58 grants
+
+Trademark filings (post-1995, all NICE classes): 172
+Top mean-DeltaKL years (n_filings >= 3):
+  2015: mean_dkl=+0.334  n=12
+  2025: mean_dkl=+0.069  n=18
+  2023: mean_dkl=+0.033  n=12
+  2022: mean_dkl=+0.032  n=17
+  2019: mean_dkl=+0.022  n=10
+Bottom mean-DeltaKL years (n_filings >= 3):
+  2005: mean_dkl=-0.120  n=3
+  2026: mean_dkl=-0.101  n=12
+  2016: mean_dkl=-0.097  n=10
+  2021: mean_dkl=-0.089  n=7
+  2017: mean_dkl=-0.027  n=15
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  MODEL S         20090327  dKL=+0.249  NICE=012,037  [Model S launched Jun 2012]
+     g/s: electric automobiles [ ; electric automobile parts, namely, motors ] [ providing maintenance and repair services for electric automobiles ]
+  MODEL X         20120213  dKL=-0.101  NICE=037  [Model X launched Sep 2015]
+     g/s: providing maintenance and repair services for electric automobiles
+  MODEL 3         20140605  dKL=-0.041  NICE=025  [Model 3 announced Mar 2016, ship Jul 2017]
+     g/s: Articles of clothing, namely, t-shirts, hats; headgear, namely, sports hats, caps
+  POWERWALL       20150429  dKL=+0.064  NICE=037  [Powerwall announced Apr 2015]
+     g/s: Installation, maintenance and repair and upgrading of wirelessly connected electric battery apparatus, and consulting related thereto, for the storage and disch
+  POWERPACK       NOT FOUND   Powerpack commercial battery 2015
+  MEGAPACK        20181203  dKL=+0.056  NICE=009  [Megapack announced Jul 2019]
+     g/s: Batteries; battery systems and devices comprised of inverters, switchgear, power controllers and software for regulating energy cells and modules for use with t
+  CYBERTRUCK      20191106  dKL=+0.070  NICE=012  [Cybertruck unveiled Nov 2019, ship Nov 2023]
+     g/s: Land vehicles; electric vehicles, namely, automobiles and trucks; trucks; pick-up trucks; automobiles; and structural parts therefor
+  AUTOPILOT       NOT FOUND   Autopilot v1 Oct 2015
+  ROBOTAXI        20241010  dKL=+0.052  NICE=012  [Robotaxi/Cybercab unveil Oct 2024]
+     g/s: Land vehicles; electric vehicles, namely automobiles; automobiles and structural parts therefor
+  CYBERCAB        20241017  dKL=-0.045  NICE=035,039  [Robotaxi/Cybercab unveil Oct 2024]
+     g/s: Leasing of motor vehicles; transportation and storage of automobiles; coordinating travel arrangements for individuals and for groups, namely, arranging time-ba
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  2005  pat=    0  tm=  3  mean_dkl=-0.120
+  2008  pat=    2  tm=  0  mean_dkl=    n/a
+  2009  pat=    6  tm=  7  mean_dkl=+0.022
+  2010  pat=   24  tm=  0  mean_dkl=    n/a
+  2011  pat=   22  tm=  0  mean_dkl=    n/a
+  2012  pat=   40  tm=  2  mean_dkl=-0.107
+  2013  pat=   58  tm= 19  mean_dkl=+0.007
+  2014  pat=   56  tm=  3  mean_dkl=+0.011
+  2015  pat=   36  tm= 12  mean_dkl=+0.334
+  2016  pat=   33  tm= 10  mean_dkl=-0.097
+  2017  pat=   42  tm= 15  mean_dkl=-0.027
+  2018  pat=   53  tm=  2  mean_dkl=+0.351
+  2019  pat=   86  tm= 10  mean_dkl=+0.022
+  2020  pat=   70  tm=  2  mean_dkl=+0.355
+  2021  pat=   63  tm=  7  mean_dkl=-0.089
+  2022  pat=   57  tm= 17  mean_dkl=+0.032
+  2023  pat=   59  tm= 12  mean_dkl=+0.033
+  2024  pat=   52  tm= 21  mean_dkl=-0.003
+  2025  pat=   46  tm= 18  mean_dkl=+0.069
+  2026  pat=    0  tm= 12  mean_dkl=-0.101

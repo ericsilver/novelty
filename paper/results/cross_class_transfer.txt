@@ -1,0 +1,75 @@
+Cross-class vocabulary transfer — headline summary
+====================================================
+
+Population: clean-panel filings, years 1995–2018
+  Total filings: 7,290,115
+  Transfer filings: 5,914,300
+  Transfer rate: 0.8113
+
+Rising-token construct:
+  recent window: 2y; old window: 2y prior to that
+  RECENT_MIN_COUNT=50
+  RECENT_MIN_RATE=5e-05
+  RISE_RATIO=2.0
+  top-K rising per (class, year): 500
+
+Group means (raw, pooled across years and classes)
+----------------------------------------------------
+group                   n   reg_mean    reg_se    5y_mean     5y_se   dkl_mean    dkl_se
+non_transfer    1,375,815     0.5404   0.00042     0.5404   0.00042    -0.0475   0.00024
+transfer        5,914,300     0.4960   0.00021     0.4959   0.00021    -0.0143   0.00008
+
+Pooled difference (transfer − non-transfer)
+----------------------------------------------------
+  registration: -0.0444  (z = -94.17)
+  5y survival:  -0.0445  (z = -94.19)
+  dkl:          +0.0332  (z = +132.86)
+
+Import-intensity quintiles (pooled across destination classes and years)
+----------------------------------------------------
+Q              n   imp_mean   reg_mean   sv5_mean   dkl_mean
+Q1     1,458,029    0.00002     0.5228     0.5228    -0.0370
+Q2     1,458,017    0.00013     0.5014     0.5014    -0.0228
+Q3     1,458,023    0.00028     0.4981     0.4980    -0.0170
+Q4     1,458,023    0.00059     0.5003     0.5003    -0.0090
+Q5     1,458,023    0.00216     0.4991     0.4991    -0.0168
+
+Within (dest_class, year) cell averages of (transfer − non-transfer)
+Cells require n>=30 in each arm.
+----------------------------------------------------
+  reg_within:  mean diff = -0.0282  (se = 0.00200, z = -14.11, n_cells = 1043)
+  sv5_within:  mean diff = -0.0282  (se = 0.00200, z = -14.11, n_cells = 1043)
+  dkl_within:  mean diff = +0.0309  (se = 0.00271, z = +11.40, n_cells = 1043)
+
+Top transfer examples (highest import intensity, 2005–2015):
+----------------------------------------------------
+  sn=79082139 y=2010 B=38<-A=13 n_imp=51 intensity=0.1725 dkl=-0.027 reg=False sv5=False tokens=['services', 'computer', 'information', 'data', 'advertising', 'entertainment', 'video', 'telecommunications']
+  sn=79118050 y=2012 B=36<-A=02 n_imp=84 intensity=0.1021 dkl=-0.402 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=36<-A=02 n_imp=84 intensity=0.1021 dkl=-0.402 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=86572909 y=2015 B=35<-A=34 n_imp=23 intensity=0.0998 dkl=+0.097 reg=True sv5=True tokens=['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'refill', 'flavorings', 'chemical']
+  sn=79118050 y=2012 B=39<-A=02 n_imp=85 intensity=0.0985 dkl=-0.424 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=39<-A=02 n_imp=85 intensity=0.0985 dkl=-0.424 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=76716700 y=2014 B=11<-A=34 n_imp=11 intensity=0.0903 dkl=-0.137 reg=True sv5=True tokens=['electronic', 'liquid', 'e-liquid', 'vegetable', 'propylene', 'glycerin', 'vapor', 'tubes']
+  sn=76716701 y=2014 B=11<-A=34 n_imp=11 intensity=0.0903 dkl=-0.137 reg=True sv5=True tokens=['electronic', 'liquid', 'e-liquid', 'vegetable', 'propylene', 'glycerin', 'vapor', 'tubes']
+  sn=79118050 y=2012 B=16<-A=02 n_imp=92 intensity=0.0886 dkl=-0.273 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=16<-A=02 n_imp=92 intensity=0.0886 dkl=-0.274 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=76716700 y=2014 B=01<-A=34 n_imp=5 intensity=0.0885 dkl=-0.208 reg=True sv5=True tokens=['electronic', 'liquid', 'vapor', 'tubes', 'pipe']
+  sn=76716701 y=2014 B=01<-A=34 n_imp=5 intensity=0.0885 dkl=-0.208 reg=True sv5=True tokens=['electronic', 'liquid', 'vapor', 'tubes', 'pipe']
+  sn=86662537 y=2015 B=35<-A=34 n_imp=31 intensity=0.0881 dkl=+0.064 reg=False sv5=False tokens=['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'refill', 'sold', 'pipes']
+  sn=78567521 y=2005 B=41<-A=22 n_imp=108 intensity=0.0814 dkl=-0.162 reg=True sv5=True tokens=['body', 'food', 'accessories', 'power', 'cards', 'business', 'music', 'sports']
+  sn=79186980 y=2015 B=10<-A=34 n_imp=27 intensity=0.0810 dkl=+0.063 reg=False sv5=False tokens=['electronic', 'cigarettes', 'liquid', 'cartridges', 'refill', 'sold', 'pipes', 'flavorings']
+  sn=79118050 y=2012 B=35<-A=02 n_imp=92 intensity=0.0787 dkl=-0.222 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=35<-A=02 n_imp=92 intensity=0.0787 dkl=-0.222 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79118050 y=2012 B=37<-A=02 n_imp=89 intensity=0.0773 dkl=-0.116 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=37<-A=02 n_imp=89 intensity=0.0773 dkl=-0.116 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79118050 y=2012 B=42<-A=02 n_imp=91 intensity=0.0757 dkl=-0.323 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=79117648 y=2012 B=42<-A=02 n_imp=91 intensity=0.0755 dkl=-0.323 reg=False sv5=False tokens=['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+  sn=86608763 y=2015 B=35<-A=34 n_imp=39 intensity=0.0755 dkl=-0.032 reg=True sv5=True tokens=['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'thread', 'refill', 'sold']
+  sn=78715463 y=2005 B=16<-A=23 n_imp=50 intensity=0.0715 dkl=+0.332 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=28<-A=23 n_imp=50 intensity=0.0715 dkl=+0.298 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=35<-A=23 n_imp=50 intensity=0.0715 dkl=+0.144 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=36<-A=23 n_imp=50 intensity=0.0715 dkl=+0.148 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=41<-A=23 n_imp=49 intensity=0.0714 dkl=+0.073 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=18<-A=23 n_imp=49 intensity=0.0714 dkl=+0.270 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=12<-A=23 n_imp=49 intensity=0.0714 dkl=-0.199 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+  sn=78715463 y=2005 B=14<-A=23 n_imp=48 intensity=0.0714 dkl=+0.176 reg=False sv5=False tokens=['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']

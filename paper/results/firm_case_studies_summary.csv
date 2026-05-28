@@ -1,0 +1,9 @@
+firm,key,n_patents,n_tm_filings,n_anchors_attempted,n_anchors_found,top_cpc
+Apple,apple,40420,1741,8,8,G06F;H04W;H04L;H04N;G06T
+Tesla,tesla,806,172,10,8,Y02E;H01M;Y02T;B60L;H02J
+NVIDIA,nvidia,5302,355,8,8,G06F;G06T;G09G;H04N;G06N
+Pfizer,pfizer,4493,4168,9,5,C07D;A61P;A61K;C07C;C07K
+Moderna,moderna,261,333,3,3,A61K;C12N;A61P;C07K;C12Y
+Dyson,dyson,1349,282,4,4,A47L;F04D;F04F;A45D;F24F
+Amazon,amazon,22106,2724,7,7,G06F;H04L;G06Q;H04N;G10L
+Salesforce,salesforce,4479,569,7,7,G06F;H04L;G06Q;G06N;H04W

@@ -1,0 +1,86 @@
+FIRM CASE STUDY: Apple
+=====================
+
+Patents: 40,420 grants, 1978-2025.
+Top CPC subclasses: G06F(15346), H04W(6982), H04L(6629), H04N(3512), G06T(3084)
+Peak patent-grant years:
+  2024: 3,506 grants
+  2020: 3,160 grants
+  2021: 2,984 grants
+  2023: 2,927 grants
+  2019: 2,819 grants
+
+Trademark filings (post-1995, all NICE classes): 1741
+Top mean-DeltaKL years (n_filings >= 3):
+  1995: mean_dkl=+0.220  n=13
+  2012: mean_dkl=+0.119  n=56
+  2005: mean_dkl=+0.102  n=29
+  2010: mean_dkl=+0.097  n=120
+  2001: mean_dkl=+0.077  n=15
+Bottom mean-DeltaKL years (n_filings >= 3):
+  2026: mean_dkl=-0.200  n=10
+  1998: mean_dkl=-0.178  n=18
+  2000: mean_dkl=-0.097  n=24
+  2002: mean_dkl=-0.061  n=32
+  2022: mean_dkl=-0.059  n=50
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  IPOD            20000724  dKL=-0.235  NICE=009  [iPod launched Oct 2001]
+     g/s: public Internet kiosk enclosure containing computer hardware
+  IPHONE          19960320  dKL=+0.279  NICE=009  [iPhone launched Jun 2007]
+     g/s: computer hardware and software for providing integrated telephone communication with computerized global information networks
+  IPAD            20030307  dKL=  n/a  NICE=009  [iPad launched Apr 2010]
+     g/s: HAND-HELD COMPUTING DEVICE FOR WIRELESS NETWORKING IN A RETAIL ENVIRONMENT
+  SIRI            20080522  dKL=+0.159  NICE=035  [Siri shipped with iPhone 4S Oct 2011]
+     g/s: Providing consumer information via voice-controlled automated inquiries, namely, providing an online automated consumer resource for searching, locating, rating
+  APPLE WATCH     20140909  dKL=+0.140  NICE=009  [Apple Watch launched Apr 2015]
+     g/s: Computers; computers, namely, smartwatches; computer peripheral devices; computer hardware; computer hardware for use in measuring heart rhythm; computer hardwa
+  AIRPODS         20150922  dKL=-0.034  NICE=009  [AirPods launched Dec 2016]
+     g/s: Sound reproducing apparatus; audio speakers; earphones; headphones; microphones; voice recording apparatuses, namely, digital voice recorders; voice recognition
+  HOMEPOD         20170613  dKL=-0.135  NICE=009  [HomePod launched Feb 2018]
+     g/s: Audio speakers, amplifiers and receivers; digital audio players; sound reproducing apparatus; voice recording and recognition apparatus; microphones; radios, ra
+  VISION PRO      20230608  dKL=-0.094  NICE=009  [Vision Pro launched Feb 2024]
+     g/s: Computers; computer hardware; wireless communication devices for
+            providing access to the Internet and sending, receiving, and
+            transmitti
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1990  pat=   26  tm=  1  mean_dkl=+2.495
+  1991  pat=   34  tm=  2  mean_dkl=+0.279
+  1992  pat=   48  tm=  8  mean_dkl=-0.008
+  1993  pat=   69  tm= 20  mean_dkl=+0.104
+  1994  pat=   66  tm= 13  mean_dkl=-0.070
+  1995  pat=  124  tm= 13  mean_dkl=+0.220
+  1996  pat=  185  tm= 11  mean_dkl=+0.062
+  1997  pat=  230  tm=  9  mean_dkl=-0.042
+  1998  pat=  261  tm= 18  mean_dkl=-0.178
+  1999  pat=  182  tm= 28  mean_dkl=-0.044
+  2000  pat=  126  tm= 24  mean_dkl=-0.097
+  2001  pat=  109  tm= 15  mean_dkl=+0.077
+  2002  pat=   96  tm= 32  mean_dkl=-0.061
+  2003  pat=  100  tm= 28  mean_dkl=+0.025
+  2004  pat=  122  tm= 37  mean_dkl=-0.024
+  2005  pat=  103  tm= 29  mean_dkl=+0.102
+  2006  pat=  132  tm= 38  mean_dkl=+0.060
+  2007  pat=  156  tm= 57  mean_dkl=+0.037
+  2008  pat=  253  tm= 42  mean_dkl=+0.040
+  2009  pat=  399  tm= 38  mean_dkl=+0.040
+  2010  pat=  722  tm=120  mean_dkl=+0.097
+  2011  pat=  805  tm= 69  mean_dkl=+0.016
+  2012  pat= 1291  tm= 56  mean_dkl=+0.119
+  2013  pat= 1958  tm= 74  mean_dkl=-0.011
+  2014  pat= 2202  tm= 70  mean_dkl=+0.020
+  2015  pat= 2147  tm= 99  mean_dkl=-0.018
+  2016  pat= 2551  tm= 55  mean_dkl=-0.040
+  2017  pat= 2583  tm= 80  mean_dkl=-0.033
+  2018  pat= 2470  tm= 94  mean_dkl=+0.030
+  2019  pat= 2819  tm= 98  mean_dkl=+0.047
+  2020  pat= 3160  tm= 98  mean_dkl=+0.036
+  2021  pat= 2984  tm= 81  mean_dkl=-0.039
+  2022  pat= 2818  tm= 50  mean_dkl=-0.059
+  2023  pat= 2927  tm= 80  mean_dkl=-0.023
+  2024  pat= 3506  tm= 44  mean_dkl=+0.003
+  2025  pat= 2596  tm= 42  mean_dkl=-0.052
+  2026  pat=    0  tm= 10  mean_dkl=-0.200

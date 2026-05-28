@@ -1,0 +1,72 @@
+FIRM CASE STUDY: Salesforce
+==========================
+
+Patents: 4,479 grants, 2007-2025.
+Top CPC subclasses: G06F(3512), H04L(1738), G06Q(815), G06N(508), H04W(181)
+Peak patent-grant years:
+  2023: 571 grants
+  2022: 535 grants
+  2021: 519 grants
+  2020: 486 grants
+  2024: 431 grants
+
+Trademark filings (post-1995, all NICE classes): 569
+Top mean-DeltaKL years (n_filings >= 3):
+  1999: mean_dkl=+0.430  n=3
+  2023: mean_dkl=+0.186  n=5
+  2009: mean_dkl=+0.182  n=17
+  2008: mean_dkl=+0.175  n=8
+  2005: mean_dkl=+0.173  n=22
+Bottom mean-DeltaKL years (n_filings >= 3):
+  2018: mean_dkl=-0.045  n=21
+  2021: mean_dkl=+0.013  n=13
+  2022: mean_dkl=+0.015  n=9
+  2016: mean_dkl=+0.035  n=16
+  2011: mean_dkl=+0.044  n=44
+
+ANCHOR MARKS (hand-curated, mapped to product launches):
+--------------------------------------------------------
+  CHATTER         20080107  dKL=+0.190  NICE=038,042,045  [Chatter social-collab launched 2010]
+     g/s: Online social networking services for businesses and individuals via a global communications network Computer services, namely, the creation and management of o
+  HEROKU          20110714  dKL=+0.038  NICE=042  [Heroku (acquired Dec 2010)]
+     g/s: Computer services, namely, hosting computer software applications of others, website hosting services, computer programming, and rental of database servers
+  PARDOT          20140910  dKL=+0.053  NICE=035,042  [Pardot (acquired Jun 2013)]
+     g/s: business consultancy services for others in connection with customer engagement on the Internet and other media; advisory services relating to advertising and m
+  MULESOFT        20130221  dKL=+0.149  NICE=009,042  [MuleSoft (acquired May 2018)]
+     g/s: Computer software for application and database integration; computer software for integration of computer systems, applications, data and databases; computer so
+  TABLEAU         20041207  dKL=-0.023  NICE=009  [Tableau (acquired Aug 2019)]
+     g/s: Computer software for data mining, data query, and data analysis
+  TRAILHEAD       20150406  dKL=+0.200  NICE=041,042  [Trailhead launched 2014]
+     g/s: Educational services, namely, providing online learning portals, e-learning platforms and learning management systems, namely, learning modules, courses and int
+  SLACK           20130501  dKL=+0.699  NICE=042  [Slack (acquired Jul 2021)]
+     g/s: Platform as a service (PAAS) featuring computer software platforms for use in group communication, namely, postings, memoranda and instant messaging, file shari
+
+YEARLY TIMELINE (year, patents, n_filings, mean_dkl):
+--------------------------------------------------------
+  1999  pat=    0  tm=  3  mean_dkl=+0.430
+  2001  pat=    0  tm=  6  mean_dkl=+0.044
+  2002  pat=    0  tm=  1  mean_dkl=+0.416
+  2003  pat=    0  tm=  4  mean_dkl=+0.112
+  2004  pat=    0  tm= 32  mean_dkl=+0.110
+  2005  pat=    0  tm= 22  mean_dkl=+0.173
+  2006  pat=    0  tm=  9  mean_dkl=+0.117
+  2007  pat=    1  tm= 11  mean_dkl=+0.098
+  2008  pat=    0  tm=  8  mean_dkl=+0.175
+  2009  pat=    5  tm= 17  mean_dkl=+0.182
+  2010  pat=   17  tm= 75  mean_dkl=+0.135
+  2011  pat=   16  tm= 44  mean_dkl=+0.044
+  2012  pat=   49  tm= 38  mean_dkl=+0.073
+  2013  pat=  127  tm= 45  mean_dkl=+0.045
+  2014  pat=  173  tm= 33  mean_dkl=+0.106
+  2015  pat=  194  tm= 24  mean_dkl=+0.048
+  2016  pat=  242  tm= 16  mean_dkl=+0.035
+  2017  pat=  243  tm= 49  mean_dkl=+0.070
+  2018  pat=  220  tm= 21  mean_dkl=-0.045
+  2019  pat=  342  tm= 12  mean_dkl=+0.069
+  2020  pat=  486  tm= 34  mean_dkl=+0.068
+  2021  pat=  519  tm= 13  mean_dkl=+0.013
+  2022  pat=  535  tm=  9  mean_dkl=+0.015
+  2023  pat=  571  tm=  5  mean_dkl=+0.186
+  2024  pat=  431  tm= 22  mean_dkl=+0.123
+  2025  pat=  308  tm=  4  mean_dkl=+0.164
+  2026  pat=    0  tm= 12  mean_dkl=+0.119

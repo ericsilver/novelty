@@ -1,0 +1,62 @@
+Top 30 cross-class transfer filings by import_intensity (2005-2015)
+---------------------------------------------------------------
+sn=79082139 year=2010 dest=38 src=13 n_imported=51 intensity=0.1725 dkl=-0.027 reg=False sv5=False
+   example tokens: ['services', 'computer', 'information', 'data', 'advertising', 'entertainment', 'video', 'telecommunications']
+sn=79118050 year=2012 dest=36 src=02 n_imported=84 intensity=0.1021 dkl=-0.402 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=36 src=02 n_imported=84 intensity=0.1021 dkl=-0.402 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=86572909 year=2015 dest=35 src=34 n_imported=23 intensity=0.0998 dkl=+0.097 reg=True sv5=True
+   example tokens: ['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'refill', 'flavorings', 'chemical']
+sn=79118050 year=2012 dest=39 src=02 n_imported=85 intensity=0.0985 dkl=-0.424 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=39 src=02 n_imported=85 intensity=0.0985 dkl=-0.424 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=76716700 year=2014 dest=11 src=34 n_imported=11 intensity=0.0903 dkl=-0.137 reg=True sv5=True
+   example tokens: ['electronic', 'liquid', 'e-liquid', 'vegetable', 'propylene', 'glycerin', 'vapor', 'tubes']
+sn=76716701 year=2014 dest=11 src=34 n_imported=11 intensity=0.0903 dkl=-0.137 reg=True sv5=True
+   example tokens: ['electronic', 'liquid', 'e-liquid', 'vegetable', 'propylene', 'glycerin', 'vapor', 'tubes']
+sn=79118050 year=2012 dest=16 src=02 n_imported=92 intensity=0.0886 dkl=-0.273 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=16 src=02 n_imported=92 intensity=0.0886 dkl=-0.274 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=76716700 year=2014 dest=01 src=34 n_imported=5 intensity=0.0885 dkl=-0.208 reg=True sv5=True
+   example tokens: ['electronic', 'liquid', 'vapor', 'tubes', 'pipe']
+sn=76716701 year=2014 dest=01 src=34 n_imported=5 intensity=0.0885 dkl=-0.208 reg=True sv5=True
+   example tokens: ['electronic', 'liquid', 'vapor', 'tubes', 'pipe']
+sn=86662537 year=2015 dest=35 src=34 n_imported=31 intensity=0.0881 dkl=+0.064 reg=False sv5=False
+   example tokens: ['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'refill', 'sold', 'pipes']
+sn=78567521 year=2005 dest=41 src=22 n_imported=108 intensity=0.0814 dkl=-0.162 reg=True sv5=True
+   example tokens: ['body', 'food', 'accessories', 'power', 'cards', 'business', 'music', 'sports']
+sn=79186980 year=2015 dest=10 src=34 n_imported=27 intensity=0.0810 dkl=+0.063 reg=False sv5=False
+   example tokens: ['electronic', 'cigarettes', 'liquid', 'cartridges', 'refill', 'sold', 'pipes', 'flavorings']
+sn=79118050 year=2012 dest=35 src=02 n_imported=92 intensity=0.0787 dkl=-0.222 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=35 src=02 n_imported=92 intensity=0.0787 dkl=-0.222 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79118050 year=2012 dest=37 src=02 n_imported=89 intensity=0.0773 dkl=-0.116 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=37 src=02 n_imported=89 intensity=0.0773 dkl=-0.116 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79118050 year=2012 dest=42 src=02 n_imported=91 intensity=0.0757 dkl=-0.323 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=79117648 year=2012 dest=42 src=02 n_imported=91 intensity=0.0755 dkl=-0.323 reg=False sv5=False
+   example tokens: ['machines', 'metal', 'apparatus', 'computer', 'equipment', 'air', 'materials', 'parts']
+sn=86608763 year=2015 dest=35 src=34 n_imported=39 intensity=0.0755 dkl=-0.032 reg=True sv5=True
+   example tokens: ['electronic', 'cigarette', 'cigarettes', 'liquid', 'cartridges', 'thread', 'refill', 'sold']
+sn=78715463 year=2005 dest=16 src=23 n_imported=50 intensity=0.0715 dkl=+0.332 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=28 src=23 n_imported=50 intensity=0.0715 dkl=+0.298 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=35 src=23 n_imported=50 intensity=0.0715 dkl=+0.144 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=36 src=23 n_imported=50 intensity=0.0715 dkl=+0.148 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=41 src=23 n_imported=49 intensity=0.0714 dkl=+0.073 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=18 src=23 n_imported=49 intensity=0.0714 dkl=+0.270 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=12 src=23 n_imported=49 intensity=0.0714 dkl=-0.199 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
+sn=78715463 year=2005 dest=14 src=23 n_imported=48 intensity=0.0714 dkl=+0.176 reg=False sv5=False
+   example tokens: ['metal', 'purposes', 'precious', 'accessories', 'recording', 'management', 'cards', 'business']
