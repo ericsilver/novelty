@@ -126,16 +126,19 @@ level, \dkl{} predicts post-registration §8 maintenance in a U-shape that is
 robust to operationalization but whose mechanism is not separable with the
 trademark record alone.
 
-What the paper does not claim. \dkl{} does not measure innovation in any
-strong sense. The within-firm patent-orthogonality refutes the
-``\dkl{} replaces patents as an innovation measure'' reading; the framework's
-status as commercially-incentivised text refutes the cognitive-state reading
+\dkl{} does not measure innovation itself in any strong sense. The
+within-firm patent-orthogonality refutes the ``\dkl{} replaces patents as
+an innovation measure'' reading; the framework's status as
+commercially-incentivised text refutes the cognitive-state reading
 inherited from Darwin's notebooks; and the small-$n$ validation against
 expert ``most innovative'' lists ($n=48$ matched firms) is too weak to
 license the strong claim. What \dkl{} measures, on this evidence, is
 \emph{lexical resonance} on commercial text: a filing's forward-leaning
-position in its industry's vocabulary trajectory, with interpretable
-empirical consequences that are documented and bounded below.
+position in its industry's vocabulary trajectory. The resonance is
+correlated with post-registration mark re-registration to a degree that
+deserves further work --- the U-shape in \S8 maintenance is the central
+empirical pattern of the paper and the link from a measurement of text
+position to a commercially meaningful outcome.
 
 A worked methodological discipline is folded into Section~\ref{sec:rq4}: the
 question of whether new themes are carried predominantly by entrants or
@@ -221,6 +224,28 @@ smoothing ($\alpha = 1$ per cell) to avoid infinite surprise from
 zero-count tokens. The within-class vocabulary is the set of unigrams and
 bigrams with document frequency $\geq 50$.
 
+\subsection{Reference-window density and burn-in}
+
+The signal depends on having enough past and future filings to populate the
+reference distributions. Figure~\ref{fig:burnin} shows the reference-window
+density by year for two diagnostic classes (software/electronics and beer/
+soft drinks). The 5-year past window is incomplete before 1990 and the 5-year
+future window is incomplete after 2020; both are excluded from the
+construct's interpretable range. Within the supported window
+(1990--2020), the four NICE classes in this paper have between
+$\sim$3{,}500 and $\sim$80{,}000 filings per year, which is more than enough
+to stabilize the unigram and bigram count distributions at $W = 5$.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.85\textwidth]{results/burnin.png}
+\caption{Reference-window density by year on log scale. Hatched regions are
+the past-side and future-side burn-in zones where the 5-year window is
+incomplete. The illustration draws on two classes from a broader diagnostic
+build; the four-class subset analyzed here sits in the upper range of the
+density curves.}
+\label{fig:burnin}
+\end{figure}
+
 \subsection{What the construct does and does not measure}
 
 The construct's known fragilities have been documented in companion analysis
@@ -233,6 +258,33 @@ magnitude $|\Delta\mathrm{KL}|$ inflates monotonically for short filings
 more terms) --- a length artifact that requires control in any per-filing
 analysis. Pre-1995 readings are contaminated by thin past (mean \dkl{} of
 $+2.05$ in 1990); the burn-in cut should exclude these years.
+
+Figure~\ref{fig:quadrant} grounds the construct in recognizable examples.
+The two scatter axes are prospective surprise (the filing relative to its
+preceding 5 years) and retrospective surprise (the filing relative to its
+following 5 years), with \dkl{} as the diagonal residual. Filings above the
+diagonal are \emph{fired} (the language looked already-played-out in
+hindsight; the future moved away from this filing); filings below the
+diagonal are \emph{innovator} (the language looked unusual at filing and
+became standard afterwards; the future caught up to this filing). The
+labeled examples are recognizable brand introductions positioned according
+to their goods/services text on this scatter.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/quadrant.png}
+\caption{Prospective KL versus retrospective KL with \dkl{} as the
+above-diagonal/below-diagonal residual. Labeled examples are recognizable
+brand introductions. \emph{Left:} the software/electronics class. Innovator
+quadrant contains Kindle (2010), Photoshop (1992), Kubernetes (2014),
+Instagram (2011), Uber (2014), Claude (2023), ChatGPT (2022), Airpods
+(2018), OpenAI (2023), iPod (2001); fired quadrant contains Windows (1990).
+\emph{Right:} a beer/soft-drinks diagnostic class. Innovator quadrant
+contains White Claw (2016), Liquid Death (2017); fired quadrant contains
+Pabst (1933, registered later), Fiji (2005), Hard Mtn Dew (2021),
+Rockstar (2002). The construct's substantive interpretability is most
+legible at the case level; the math is in the next subsection.}
+\label{fig:quadrant}
+\end{figure}
 
 Window sensitivity is bounded. Across $W \in \{3, 5, 7\}$ years, only
 6.9--10.4\% of filings flip sign --- the direction of the residual is robust
@@ -327,6 +379,42 @@ points more often than filings whose \dkl{} sits near zero. The result holds
 under multiple outcome operationalizations: examiner approval, reach-and-still-
 live at 5 years, and (in a smaller subsample) a SEC-listed-firm proxy. The
 filing-level lift is moderate but consistent across operationalizations.
+
+Figure~\ref{fig:ushape} makes the U-shape visible and shows how it composes
+from the two directional pieces. The first two panels show the monotonic
+relationship between each directional KL (prospective, retrospective) and
+the 5-year survival outcome. The third panel shows the U-shape in their
+signed difference \dkl{}.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/outcome_curves_software.png}
+\caption{5-year mark survival in software/electronics as a function of
+prospective KL (left), retrospective KL (middle), and signed \dkl{}
+(right). The directional pieces are both monotonically positive; their
+signed difference is U-shaped, with the lift at both tails and the
+depression near zero.}
+\label{fig:ushape}
+\end{figure}
+
+The same shape is present when the analysis is restricted to debut-only
+filings --- filings made by an owner for whom the filing is the first ever
+across the four-class corpus. This is the natural objection-killing
+restriction: if the U-shape were driven by incumbent firms with thick
+existing portfolios who file many marks across many tail positions, it would
+disappear under a debut-only restriction. It does not.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
+\caption{Outcomes for debut-only filings (owner's first-ever filing,
+$n = 5{,}090{,}053$) by KL value. Panels show P(reached registration),
+P(survived 5 years), and P(owner ever appears in the SEC EDGAR listed
+universe). The U-shape in signed \dkl{} (blue) is preserved while the
+directional pieces (red, green) remain monotonically positive. The third
+panel shows the construct is also informative for an external outcome ---
+eventual SEC-listed status of the owner --- with $\sim$30\% lift between the
+left and right tails of the directional pieces.}
+\label{fig:debut}
+\end{figure}
 
 \subsection{Token-level result}
 
@@ -519,7 +607,19 @@ The within-firm analysis uses a published panel of 174{,}569 firm-years
 covering 14{,}463 trademark owners that have been name-matched to PatentsView
 patent assignees \citep{PatentsView}. The panel and the matching code are in
 the public repository (see Section~\ref{sec:repro}); the panel is used here
-only to validate the construct against the patent-track measure. I fit a two-way (firm + year) fixed-effects regression of
+only to validate the construct against the patent-track measure. The
+matching procedure normalizes both sides (strip corporate-form suffixes
+``inc.'', ``llc.'', ``corp.'', ``ltd.'' and punctuation, collapse whitespace,
+lowercase) and joins on exact normalized-name equality; the universe is
+restricted to firms with at least two filings in the four-class corpus and
+at least one year with patenting activity, which is what produces the 14{,}463
+matched-firm panel. The match is conservative --- it loses partial-name
+overlaps and subsidiary structures --- but is reproducible from the code
+without manual cleaning, which matters for the construct-validity claim. A
+fuzzy-match alternative using the maximum patent count over candidate
+assignees per trademark owner yields a coefficient of $-0.048\sigma$ at
+$t = -8.0$ on the same panel, reported as a robustness row in
+Table~\ref{tab:patent_within_firm}. I fit a two-way (firm + year) fixed-effects regression of
 standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ with
 firm-clustered standard errors. The standard deviation of mean \dkl{} on the
 collapsed firm-year panel is 0.214.
@@ -637,11 +737,28 @@ The methodological point: the trademark-text literature is particularly
 exposed to base-rate bias because the corpus is mechanically saturated in
 entrants, and any analysis that reports raw population shares without
 year-matched baseline contrast risks reading mechanical corpus structure as
-substantive finding. I report this result not because Schumpeter Mark~I is
-the central question of the paper but because the discipline of base-rate
-contrast is what distinguishes useful from inflated findings in this kind of
-analysis, and the discipline should be visible in any work that uses
-trademark text to ask population-share questions.
+substantive finding. I report this result not because the
+entrant-vs-incumbent question is the central question of the paper but
+because the discipline of base-rate contrast is what distinguishes useful
+from inflated findings in this kind of analysis, and the discipline should
+be visible in any work that uses trademark text to ask population-share
+questions.
+
+A secondary observation worth surfacing without elevating to a headline. The
+themes that show the strongest negative excess --- carried disproportionately
+by incumbents relative to baseline --- include environmental/sustainability,
+natural gas / petroleum / utility, artificial-intelligence / compliance /
+machine, and cloud-computing/lighting-fixtures (Table~\ref{tab:raw_schumpeter}).
+The canonically ``new'' technology themes of the 2010s and early 2020s are
+in this list, not the entrant-led one. The intuitive read --- that incumbent
+firms diversifying into AI and cloud are pulling the trademark-vocabulary
+signal forward, rather than de-novo entrants doing so --- is consistent with
+the construct's within-firm patent orthogonality of
+Section~\ref{sec:patent}: the firms moving the vocabulary are not necessarily
+the firms moving the patents. The finding is intuitively plausible and would
+not on its own clear a publication bar, but it is a useful sense-check that
+the construct is responding to a substantive corpus phenomenon and not just
+to corpus mechanics.
 
 \section{Scope and limits}\label{sec:scope}
 
