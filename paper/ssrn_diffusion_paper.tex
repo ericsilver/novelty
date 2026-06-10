@@ -33,12 +33,13 @@ patent, and empirically distinct from patent-track invention.
 
 \noindent Three validation results anchor the construct. First, \dkl{}
 predicts commercial outcomes in a consistent forward-favoring direction:
-5-year mark renewal conditional on completed registration (innovator-tail
-vocabulary renews at $\sim$87\% versus $\sim$80\% for the going-out-of-fashion
-tail in the diagnostic class), gross margin on an SEC-matched panel
-($+3.2$pp per $\sigma$, $t = 5.3$), excess stock returns at 1--4 year
-horizons ($+1.5$ to $+5.0$pp per $\sigma$, decaying by year five), and
-eventual public listing among first-time filers. Notably, prospective
+5-year mark renewal conditional on completed registration is increasing in
+\dkl{} in 43 of the 44 NICE classes with sufficient volume, and monotone
+across \dkl{} quintiles (79.4\% to 85.1\%) when all 9.26 million clean
+filings are pooled in a single run; gross margin on an SEC-matched panel
+runs $+3.2$pp per $\sigma$ ($t = 5.3$); excess stock returns run $+1.5$ to
+$+5.0$pp per $\sigma$ at 1--4 year horizons, decaying by year five; and
+eventual public listing among first-time filers rises in \dkl{}. Notably, prospective
 surprise alone predicts none of these; only the signed resonance does.
 Second, \dkl{} is orthogonal-to-negative with patent counts within firm
 ($-0.048\sigma$, $t = -7.9$ on 14{,}463 matched firms), while expert
@@ -286,9 +287,51 @@ from $\sim$0.40\% at the negative tail to $\sim$0.55\% at the positive
 tail, against a 0.47\% base rate. The debut restriction matters here: at
 the whole-firm level, selection into public markets is dominated by filing
 volume (a tenfold increase in filings raises the odds of listing roughly
-fivefold), and firm-level \dkl{} quintiles show no lift. The construct's
-signal for eventual public listing is concentrated at the moment of entry,
-before portfolio-scale effects swamp it.
+fivefold), and in the all-filings pool the relationship inverts (3.8\%
+at the bottom \dkl{} quintile to 2.8\% at the top), which is the
+line-extension confound in raw form: established public firms file many
+class-typical marks. The construct's signal for eventual public listing is
+concentrated at the moment of entry, before portfolio-scale effects swamp
+it.
+
+\subsection{The renewal result across all 45 classes}
+
+The conditional renewal relationship is not a property of the four-class
+diffusion build. Running the full pipeline on every NICE class with
+sufficient post-1990 volume (44 of 45 classes; yarns/threads falls below
+the floor) gives a positive top-versus-bottom \dkl{}-quintile renewal lift
+in 43 of 44, the single exception being firearms (class 013,
+$-1.3$pp on $n = 12{,}432$). Figure~\ref{fig:forest} shows the per-class
+lifts. Pooled across all 9.26 million clean filings in one run, conditional
+renewal is monotone in \dkl{} quintile: 79.4\%, 79.6\%, 80.3\%, 81.8\%,
+85.1\%, a $+5.7$pp top-versus-bottom lift with a 0.06pp standard error.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.72\textwidth]{results/per_industry_renewal_forest.png}
+\caption{Conditional-renewal lift (\dkl{} top minus bottom quintile,
+P(alive at 5 years $\mid$ registration)) for the 44 NICE classes with
+sufficient volume, with 95\% intervals. Per-class figures and the summary
+table are in the repository under \texttt{paper/results/per\_industry/}.}
+\label{fig:forest}
+\end{figure}
+
+The cross-industry gradient is itself informative: physical-goods classes
+(cordage, hand tools, lighting, agricultural products, machinery,
+vehicles) show the largest lifts, in the $+12$ to $+16$pp range, while
+services and technology classes (telecommunications, insurance/finance,
+software) sit at $+1$ to $+5$pp. One reading is that forward-leaning
+vocabulary is rarer and more informative where vocabulary turns over
+slowly; whether the gradient tracks class-level vocabulary churn is a
+direct follow-up computation.
+
+The registration step behaves differently from the renewal step in the
+pooled run, and the contrast is worth stating. Registration probability
+\emph{falls} modestly across \dkl{} quintiles (53.4\% to 47.4\%), even
+though it rises steeply in the KL level. Forward-leaning applications
+clear examination slightly less often, but the ones that register renew
+substantially more often. Whatever the registration process screens on,
+it is not the same thing the renewal decision rewards, which is the
+pattern the conditioning exists to separate.
 
 \subsection{Margins and returns on the SEC panel}
 
@@ -512,14 +555,15 @@ The paper makes four substantive claims. \dkl{}, computed as in
 \citet{Murdock2017, Barron2018} on granted USPTO trademark filings,
 produces interpretable structure on commercially-incentivised legal text.
 It predicts commercial outcomes in a consistent forward-favoring
-direction: renewal conditional on registration, gross margin, 1--4 year
-excess returns, and eventual listing among first-time filers, with the
-signed resonance carrying the signal and prospective surprise alone
-carrying none. It is empirically distinct from patent-track invention
-within firm while aligning with expert innovation judgment. And it
-supports direct measurement of cross-industry vocabulary diffusion, with
-multi-year origin-to-arrival lags, Bass-fittable adoption, and strongly
-asymmetric flow out of software and tech services.
+direction: renewal conditional on registration (positive in 43 of 44
+classes and monotone across quintiles in the 9.26M-filing pooled run),
+gross margin, 1--4 year excess returns, and eventual listing among
+first-time filers, with the signed resonance carrying the signal and
+prospective surprise alone carrying none. It is empirically distinct from
+patent-track invention within firm while aligning with expert innovation
+judgment. And it supports direct measurement of cross-industry vocabulary
+diffusion, with multi-year origin-to-arrival lags, Bass-fittable
+adoption, and strongly asymmetric flow out of software and tech services.
 
 The paper rejects two readings the construct does not support. \dkl{} does
 not measure innovation in any strong sense; the defended primitive is
@@ -531,16 +575,20 @@ sample-size diagnostic.
 The renewal results are conditional on completed registration and do not
 describe the full application distribution; an applicant whose vocabulary
 keeps the filing from registering is excluded from the renewal
-denominator. The margin and returns results are associational, identified
-within an SEC-matched panel that itself selects on scale. The diffusion
-asymmetry is a four-class result pending a 45-class build. The expert-list
-discriminant rests on 43 matched firms.
+denominator, and registration probability falls modestly across \dkl{}
+quintiles in the pooled run even as it rises in the KL level. The margin
+and returns results are associational, identified within an SEC-matched
+panel that itself selects on scale. The theme-level diffusion analysis is
+a four-class build; per-class \dkl{} scores now exist for all 45 classes,
+but the theme panel and flow graph have not been re-estimated on the full
+set. The expert-list discriminant rests on 43 matched firms.
 
 Questions owed to follow-up work: the four agenda items of
-Section~\ref{sec:agenda}; whether the conditional renewal pattern extends
-beyond the diagnostic class to the full corpus pooled; and whether the
-residual renewal gap between forward and backward tails reflects vocabulary
-position itself or selection on owner covariates.
+Section~\ref{sec:agenda}; whether the residual renewal gap between
+forward and backward tails reflects vocabulary position itself or
+selection on owner covariates; whether the cross-industry gradient in
+renewal lift tracks class-level vocabulary churn; and what the
+registration screen selects on that the renewal decision does not.
 
 \section{Reproducibility}\label{sec:repro}
 

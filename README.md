@@ -96,6 +96,8 @@ The empirical claims in the paper and their script → output paths:
 | Claim | Script | Output |
 |---|---|---|
 | Debut outcomes: registration; renewal and EDGAR conditional on registration | `scripts/debut_outcome_by_kl_v2.py` | `paper/results/debut_outcome_by_kl.{png,csv}` |
+| All-45-class build (vocab + surprise per class) | `scripts/run_full_corpus.py` | `data/processed/surprise_class*.parquet` (not committed) |
+| Per-industry conditional outcomes + forest + pooled run (43/44 positive, +5.7pp pooled) | `scripts/per_industry_outcomes.py` | `paper/results/per_industry/`, `per_industry_summary.{csv,json}`, `per_industry_renewal_forest.png`, `pooled_outcomes_all_classes.{png,json}` |
 | Conditional 5-year renewal, class-009 filing level (87/82/80) | `scripts/regen_outcome_curves_software_v2.py` | `paper/results/outcome_curves_software.png` |
 | Conditional renewal, token level (blockchain 99.7% … typesetting 63%) | `scripts/token_survival_conditional.py` | stdout table |
 | Gross margin +3.2pp/σ (t=5.3); pros/retr decomposition | `scripts/financials_regression.py` | `paper/results/financials_metrics.json` |
