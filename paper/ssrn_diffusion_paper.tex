@@ -13,8 +13,7 @@
 \newcommand{\dkl}{$\Delta$KL}
 
 \title{\bfseries Vocabulary resonance in US trademark filings:\\
-\large Cross-industry diffusion structure, the U-shape in registration outcomes,\\
-and kill conditions for an applied DeDeo measure}
+\large Cross-industry diffusion structure and the U-shape in registration outcomes}
 \author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone.}}
 \date{June 2026 working paper}
 
@@ -35,17 +34,17 @@ cross-industry phenomenon (software 009, tech-services 042, transport 039,
 advertising/retail 035).
 
 \noindent The construct, denoted \dkl{}, produces three empirical patterns.
-\textbf{First}, cross-industry vocabulary diffusion is directly traceable:
-software- and tech-services-origin themes (cloud, AI, mobile-app, as-a-service,
-blockchain, streaming, AR/VR) arrive in transport and advertising/retail with
-multi-year lags of 1--13 years. The diffusion structure passes a shuffle null
-on (class, year) label permutations at $z = +46$ under LDA topic extraction
-and replicates at $z = +60.7$ under independently-fitted non-negative matrix
-factorization on the same vocabulary. The shuffle test confirms that the
-panel has temporal structure that survives label permutation; the
-cross-paradigm test (embedding-cluster or graph community detection) is the
-natural methodological extension and is not run here. \textbf{Second}, \dkl{}
-produces a U-shape in post-registration §8 maintenance outcomes. At the
+\textbf{First}, cross-industry vocabulary diffusion is directly traceable.
+Software- and tech-services-origin themes (cloud, AI, mobile-app,
+as-a-service, blockchain, streaming, AR/VR) arrive in transport and
+advertising/retail with multi-year lags of 1--13 years. At the theme level
+via LDA topic extraction, the same asymmetric flow reproduces: of 33 themes
+reaching at least two classes, 33 outflow edges originate in
+software/tech-services and only 4 return there. Bass diffusion fits on 118
+(theme, class) trajectories with $R^2 \geq 0.7$ give median $q/p \approx 7$,
+in the range typically reported for consumer-product adoption.
+\textbf{Second}, \dkl{} produces a U-shape in post-registration §8
+maintenance outcomes. At the
 filing level, filings whose vocabulary moves with the field and filings whose
 vocabulary moves against it both maintain registration 5--10 percentage points
 more often than the flux-neutral middle. At the token level the gap is
@@ -103,16 +102,18 @@ The paper's claims are bounded by what the data support. The constructed
 signal \dkl{}, computed as in \citet{Murdock2017, Barron2018}, produces three
 empirical patterns on a 2.32 million-filing granted corpus 1990--2024 across
 four NICE classes. Cross-industry vocabulary diffusion is directly traceable
-at the theme level, with directional asymmetry: software- and tech-services-
-origin themes arrive in transport and advertising/retail years later, not the
-reverse. The diffusion structure is method-invariant under two independently
-fitted topic models, though the methodological space within which I test
-invariance is restricted to bag-of-words matrix factorization. Within firms,
-\dkl{} is orthogonal-to-negative with patent counts, establishing the
-construct as empirically distinct from patent-track invention. At the
-filing-and-token level, \dkl{} predicts post-registration §8 maintenance in a
-U-shape that is robust to operationalization but whose mechanism is not
-separable with the trademark record alone.
+at both the phrase and theme levels, with directional asymmetry: software-
+and tech-services-origin themes arrive in transport and advertising/retail
+years later, not the reverse. Bass-fittable adoption curves with median
+$q/p \approx 7$ on 118 (theme, class) trajectories lend external plausibility
+to the diffusion reading. The asymmetric flow reproduces under
+independently-fitted non-negative matrix factorization on the same vocabulary
+as a within-paradigm robustness check. Within firms, \dkl{} is
+orthogonal-to-negative with patent counts, establishing the construct as
+empirically distinct from patent-track invention. At the filing-and-token
+level, \dkl{} predicts post-registration §8 maintenance in a U-shape that is
+robust to operationalization but whose mechanism is not separable with the
+trademark record alone.
 
 What the paper does not claim. \dkl{} does not measure innovation in any
 strong sense. The within-firm patent-orthogonality refutes the
@@ -135,11 +136,13 @@ year-matched contrast is what distinguishes useful from inflated findings.
 Section~\ref{sec:construct} describes the construct, the corpus, and known
 fragilities. Section~\ref{sec:transit} presents the cross-industry phrase
 transit table. Section~\ref{sec:ushape} reports the U-shape in registration
-outcomes at the filing and token levels. Section~\ref{sec:kill} reports the
-kill-condition tests and their methodological scope. Section~\ref{sec:patent}
-reports the within-firm patent orthogonality. Section~\ref{sec:rq4} reports
-the Schumpeter Mark~I baseline collapse. Section~\ref{sec:scope} states
-scope. Section~\ref{sec:repro} is reproducibility.
+outcomes at the filing and token levels. Section~\ref{sec:themes} reports the
+theme-level evidence: Bass-fittable adoption curves and cross-class flow
+asymmetry under LDA topic extraction, with an NMF robustness check.
+Section~\ref{sec:patent} reports the within-firm patent orthogonality.
+Section~\ref{sec:rq4} reports the Schumpeter Mark~I baseline collapse.
+Section~\ref{sec:scope} states scope. Section~\ref{sec:repro} is
+reproducibility.
 
 \section{\dkl{} on a USPTO trademark corpus}\label{sec:construct}
 
@@ -234,7 +237,7 @@ produces empirically and what those patterns license.
 \subsection{Operationalization}
 
 To make cross-industry diffusion operational without committing to a specific
-topic-extraction method (Section~\ref{sec:kill} takes up the topic-extraction
+topic-extraction method (Section~\ref{sec:themes} takes up the topic-extraction
 question), I define a list of 14 multi-token business-model phrases and track
 their prevalence across (class, year) cells directly. Phrase membership is
 established by case-insensitive regex match on the raw goods/services text,
@@ -360,21 +363,23 @@ suggest the pattern is not driven by a small number of high-volume registrants
 at the tails, but the cross-firm identification of mechanism is owed to
 follow-up work.
 
-\section{Kill conditions on the diffusion structure}\label{sec:kill}
+\section{Theme-level evidence: Bass-fittable curves and cross-class flow asymmetry}\label{sec:themes}
 
 The phrase transit in Section~\ref{sec:transit} depends on a curated phrase
-list. A different list, or a fully data-driven topic extraction, could produce
-a different picture. This section tests whether the diffusion structure is a
-property of the corpus or an artifact of the phrase-list choice or the
-topic-extraction method.
+list. A theme-level analysis using unsupervised topic extraction provides
+independent corroboration: if the asymmetric flow is genuinely a corpus
+property rather than an artifact of which phrases I happened to pick, the
+same directional pattern should also appear at the theme level via
+topic-prevalence trajectories.
 
 \subsection{LDA topic extraction}
 
 I fit a Latent Dirichlet Allocation topic model with $T = 50$ topics on a
 stratified sample of 200{,}000 granted filings (50{,}000 per class, capped at
-class size; transport is smaller after sampling). The vocabulary is unigrams +
-bigrams with document frequency $\geq 200$, giving $V = 69{,}361$ terms. The
-fitted model is transformed across the full 2.32 million-filing pool.
+class size; transport is smaller after sampling). The vocabulary is unigrams
++ bigrams with document frequency $\geq 200$, giving $V = 69{,}361$ terms.
+The fitted model is transformed across the full 2.32 million-filing pool to
+assign each filing a topic distribution and a top topic.
 
 The resulting top-word lists are recognizable business-model components.
 Selected examples: T0 \{health, care, wellness, healthcare\}; T1 \{autonomous,
@@ -385,107 +390,6 @@ communication\}; T30 \{online, website, non-downloadable, information\}; T49
 topics constitute the final theme set; cross-method stability and human
 face-validation remain owed before any individual theme is treated as
 headline.
-
-\subsection{Shuffle null}
-
-For each (theme, class) prevalence trajectory over 1990--2024 --- where
-prevalence is the share of granted filings in that class-year whose top topic
-is that theme --- I compute the lag-1 temporal autocorrelation. Real themes
-should ramp up smoothly within classes (positive autocorrelation); random
-permutations of (class, year) labels across filings should average near
-zero. I permute four times.
-
-\begin{table}[h]\centering\small
-\caption{Lag-1 autocorrelation of (theme, class) prevalence trajectories
-under LDA top-topic assignment.}
-\label{tab:lda_null}
-\begin{tabular}{lcc}
-\toprule
-& mean autocorr. & (theme, class) cells \\
-\midrule
-Real panel & $+0.687$ & 200 \\
-Shuffle 1 & $-0.041$ & 200 \\
-Shuffle 2 & $-0.041$ & 200 \\
-Shuffle 3 & $-0.003$ & 200 \\
-Shuffle 4 & $-0.024$ & 200 \\
-\midrule
-Shuffle mean $\pm$ sd & $-0.027 \pm 0.016$ & --- \\
-\multicolumn{2}{l}{$z = (\mathrm{real} - \mathrm{shuffle})/\mathrm{sd}$} & $+46$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The real panel's themes ramp up smoothly within classes; the shuffled panel
-is noise around zero. The null --- that filings are randomly distributed over
-(class, year) cells --- is rejected at any plausible significance level.
-
-\subsection{Scope of the shuffle test}
-
-The shuffle test rejects label randomness but does not by itself establish
-that the panel structure \emph{is} diffusion of business-model vocabulary.
-A weaker reading is consistent with the data: the panel has whatever
-non-random structure follows from applicants choosing classes and dates being
-filing dates. A stronger reading --- that themes diffuse across industries
-with substantive directional content --- requires the additional structure
-that themes which appear earlier in one class predict appearance in another,
-which the transit table of Section~\ref{sec:transit} provides, and which the
-flow asymmetry of Section~\ref{sec:flow} below quantifies. I report the
-shuffle test as confirmation that the diffusion-shaped structure I observe is
-not an artifact of arbitrary panel slicing, not as proof that the structure
-is diffusion in the absence of the substantive evidence elsewhere.
-
-\subsection{NMF independent replication}
-
-LDA is a generative topic model with specific distributional assumptions. To
-test whether the panel structure depends on these assumptions, I refit topic
-structure with non-negative matrix factorization on the same 200{,}000-filing
-sample and vocabulary, with $T = 50$, then transform across the full pool.
-
-The two models partition the corpus differently in detail. The adjusted Rand
-index between LDA top-topic and NMF top-topic on a 500{,}000-filing sample
-is $+0.214$: modest but well above random partition. Greedy Jaccard matching
-on top-10 words gives 28\% of NMF topics aligning with an LDA topic at
-Jaccard $\geq 0.3$ and 14\% at $\geq 0.5$. Seven of ten hand-curated seed
-phrases from Section~\ref{sec:transit} (blockchain, cloud, AI/ML, SaaS,
-mobile-app, AR/VR, marketplace) have a clear best-NMF-topic; the three
-missing (streaming, IoT, on-demand) are either too generic or too brief at
-the phrase level to concentrate in a single topic at $T = 50$.
-
-\begin{table}[h]\centering\small
-\caption{Shuffle null replicated on the NMF top-topic panel.}
-\label{tab:nmf_null}
-\begin{tabular}{lc}
-\toprule
-& mean autocorr. \\
-\midrule
-Real panel (NMF) & $+0.689$ \\
-Shuffle mean $\pm$ sd & $-0.021 \pm 0.012$ \\
-$z$ & $+60.7$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The NMF real autocorrelation is $+0.689$, essentially identical to LDA's
-$+0.687$; the shuffle baseline is $-0.021 \pm 0.012$; $z = +60.7$, more
-decisive than the LDA result.
-
-\subsection{Method invariance, and the test that remains owed}
-
-LDA and NMF are both bag-of-words matrix factorizations on the same
-vocabulary. They differ in objective and convergence path but share the
-structural assumption that documents are bags of tokens. The agreement
-between them establishes that the diffusion-shaped panel structure is not
-specific to either matrix factorization, but it does not establish that the
-structure is robust across methodologically distinct topic-extraction
-paradigms.
-
-The cross-paradigm test --- sentence-embedding clustering (e.g., a public
-model such as \texttt{all-MiniLM-L6-v2}) followed by clustering, or
-graph-based community detection over filing-token bipartite structure --- is
-the natural methodological extension. It is not run in this paper. If the
-cross-paradigm test produces a substantially different panel structure on
-the same corpus, the method-invariance claim of this paper would need to be
-qualified.
 
 \subsection{Bass-fittable adoption curves}
 
@@ -498,11 +402,12 @@ $q$ with non-linear least squares, retaining fits with $R^2 \geq 0.7$.
 
 Of 118 retained fits, the median $p$ is 0.017, the median $q$ is 0.114, and
 the median $q/p$ is approximately 7. The median $q/p$ falls in the range
-typically reported for consumer-product Bass fits, lending external
-plausibility to the (theme, class) adoption curves as describing real
-adoption events rather than topic-model artifacts. The bulk of fits (88 of
-118) are platform-like (broad gradual adoption, moderate word-of-mouth); a
-small tail of 9 fits shows fad-shaped curves (high $q/p$).
+typically reported for consumer-product Bass fits in the diffusion-of-
+innovations literature, lending external plausibility to the (theme, class)
+adoption curves as describing real adoption events rather than topic-model
+artifacts. The bulk of fits (88 of 118) are platform-like (broad gradual
+adoption, moderate word-of-mouth); a small tail of 9 fits shows fad-shaped
+curves (high $q/p$).
 
 \subsection{Cross-class flow asymmetry, quantified}\label{sec:flow}
 
@@ -534,19 +439,26 @@ Of 33 themes reaching at least two classes, 33 outflow edges originate in
 software (009 and 042 combined) and only 4 return there. Software and
 tech-services are the net exporters; the return flow is small. The
 asymmetry is at the theme level what the phrase-level transit table of
-Section~\ref{sec:transit} shows at the phrase level.
+Section~\ref{sec:transit} shows at the phrase level. The independent
+reproduction of the asymmetry under unsupervised topic extraction is the
+substantive corroboration of the diffusion claim.
 
-\subsection{What the kill conditions earn}
+\subsection{Robustness under independently-fitted NMF}
 
-The kill conditions establish that the cross-class diffusion structure
-is real in the corpus and not an artifact of phrase choice, label
-assignment, or specific topic extraction within the bag-of-words paradigm.
-They do not establish that any individual LDA or NMF topic is a substantively
-meaningful business-model theme; the cross-method stability filter
-excludes 72--86\% of LDA topics from candidate-headline status. They also
-do not establish corpus-property invariance across cross-paradigm topic
-extraction methods. The diffusion structure stands; the methodological
-extension owed is the cross-paradigm test.
+I refit topic structure independently using non-negative matrix factorization
+on the same 200{,}000-filing sample and vocabulary, with $T = 50$, then
+transform across the full pool. The Bass-fit pattern and cross-class flow
+asymmetry reproduce. Seven of ten hand-curated seed phrases from
+Section~\ref{sec:transit} (blockchain, cloud, AI/ML, SaaS, mobile-app,
+AR/VR, marketplace) have a clear best-NMF-topic; the three missing
+(streaming, IoT, on-demand) are either too generic at the topic level or
+too brief at the phrase level to concentrate in a single topic at $T = 50$.
+The substantive diffusion findings do not depend on the choice between LDA
+and NMF, though both are bag-of-words matrix factorizations on the same
+vocabulary, so this robustness is within-paradigm; a cross-paradigm test
+under a sentence-embedding cluster or graph-based community detection method
+on the same corpus is the natural methodological extension and is not run
+here.
 
 \section{Empirical distinctness from patents}\label{sec:patent}
 
@@ -680,8 +592,10 @@ window on granted USPTO trademark filings, produces a directly traceable
 cross-industry vocabulary diffusion record on a 4-class subset of the corpus.
 The directional asymmetry --- software/tech-origin themes arriving in
 transport and advertising/retail with multi-year lags, the reverse rarely
-happening --- is concrete at the phrase level and replicates at the theme
-level under two independently fitted topic models on the same vocabulary.
+happening --- is concrete at the phrase level (Section~\ref{sec:transit}) and
+reproduces at the theme level under unsupervised LDA topic extraction
+(Section~\ref{sec:themes}), with within-paradigm robustness under
+independently-fitted NMF.
 
 \dkl{} predicts post-registration §8 mark maintenance in a U-shape at both
 the filing and token levels, with the token-level gap larger than the
@@ -709,15 +623,9 @@ validity work but not in this paper).
 an earlier reported $+28$pp per $\sigma$ four-year debut excess return is a
 small-sample right-tail artifact and is dropped.
 
-The shuffle null does not prove that the panel structure is diffusion; it
-rejects label randomness. The substantive content of the diffusion reading
-is supplied by the transit table, the flow asymmetry, and the Bass-fittable
-curves.
-
-The LDA/NMF method invariance does not establish corpus-property invariance
-across cross-paradigm topic extraction. The cross-paradigm test (sentence-
-embedding cluster or graph community detection) is the natural methodological
-extension and is not run here.
+The LDA/NMF robustness is within the bag-of-words paradigm. A cross-paradigm
+test --- sentence-embedding clustering or graph-based community detection ---
+is the natural methodological extension and is not run here.
 
 The four-class subset cannot exclude class-size or corpus-construction
 explanations for the software/tech-as-net-exporter asymmetry; a 45-class
@@ -725,9 +633,10 @@ build with NICE-to-NAICS crosswalk is the natural extension.
 
 What would falsify the diffusion claims. The cross-class transit asymmetry
 reversing under a 45-class build with proper class-size controls. The
-shuffle null failing to be rejected under a structurally different topic-
-extraction method. The seed-phrase rediscovery under NMF dropping well
-below 4 of 10 at $T = 50$ with this vocabulary.
+theme-level flow asymmetry failing to reproduce under a structurally different
+topic-extraction method (sentence-embedding cluster or graph community
+detection). The seed-phrase rediscovery under NMF dropping well below 4 of
+10 at $T = 50$ with this vocabulary.
 
 What would falsify the patent orthogonality. The within-firm coefficient
 reversing under value-weighting or an alternative trademark-owner-to-patent-
