@@ -54,11 +54,11 @@ the same ordering holds: positive-tail tokens
 (blockchain 99.7\%, cryptocurrency 99.9\%, cbd 100\%) renew highest,
 flux-neutral middle tokens (organisational 92\%, conformity 85\%,
 freighting 95\%) in between, and negative-tail tokens (typesetting 63\%,
-dial-up 89\%, underwriting 84\%) lowest. The unconditional U-shape on this
-corpus reported in earlier work is almost entirely a registration-success
-pattern: middle-vocabulary applications register at much lower rates than
-tail-vocabulary applications, which inflates the apparent tail survival
-unconditionally; conditioning on registration removes the U.
+dial-up 89\%, underwriting 84\%) lowest. The conditioning matters: middle-
+vocabulary applications register at much lower rates than tail-vocabulary
+applications ($\sim$15--26\% versus $\sim$30--60\% in the diagnostic class),
+so an unconditional survival statistic conflates the registration step with
+the renewal step. Conditioning isolates the renewal step.
 \textbf{Third}, the signal is orthogonal-to-negative with patents within firm:
 $-0.048\sigma$, $t = -7.9$ on 14{,}463 trademark-and-patent-matched firms.
 \dkl{} is empirically distinct from patent-track invention.
@@ -106,10 +106,10 @@ distinct from patent-track invention, not a noisier version of it. Second,
 does the signal predict commercially meaningful outcomes? Analyzed throughout
 as renewal conditional on completed registration, the answer is yes and the
 direction is monotone: at both the filing level and the token level,
-forward-leaning vocabulary correlates with higher renewal rates. The
-unconditional U-shape that earlier analysis reported on this corpus is shown
-here to be primarily a registration-success pattern; conditioning on
-registration removes it.
+forward-leaning vocabulary correlates with higher renewal rates.
+Conditioning on completed registration isolates the renewal decision from
+the registration-success decision, which are different commercial acts
+with different drivers and should not be pooled.
 
 The empirical record in text-based economics has converged on text-similarity
 methods --- the text-based network industry classification of
@@ -134,9 +134,7 @@ orthogonal-to-negative with patent counts, establishing the construct as
 empirically distinct from patent-track invention. \dkl{} predicts
 post-registration §8 mark renewal, framed throughout as renewal conditional
 on completed registration, with the same forward-favoring direction at the
-filing level and the token level. The unconditional U-shape reported in
-earlier work on this corpus is shown here to be primarily a
-registration-success pattern.
+filing level and the token level.
 
 \dkl{} does not measure innovation itself in any strong sense. The
 within-firm patent-orthogonality refutes the ``\dkl{} replaces patents as
@@ -147,10 +145,10 @@ expert ``most innovative'' lists ($n=48$ matched firms) is too weak to
 license the strong claim. What \dkl{} measures, on this evidence, is
 \emph{lexical resonance} on commercial text: a filing's forward-leaning
 position in its industry's vocabulary trajectory. The resonance is
-correlated with post-registration mark re-registration to a degree that
-deserves further work --- the U-shape in \S8 maintenance is the central
-empirical pattern of the paper and the link from a measurement of text
-position to a commercially meaningful outcome.
+correlated with post-registration mark renewal at every level of
+measurement under conditioning on completed registration, and it is the
+link from a measurement of text position to commercially meaningful
+outcomes that makes the construct worth defending on this kind of corpus.
 
 Section~\ref{sec:rq4} also reports a methodological aside. The question of
 whether new themes are carried predominantly by entrants or incumbents
@@ -241,8 +239,8 @@ bigrams with document frequency $\geq 50$.
 paper reports a survival or §8 mark renewal rate at the filing level, the
 denominator is restricted to filings that reached registration (status
 bucket 6 or 8). This isolates the renewal decision from the
-registration-success decision; it differs from earlier analyses on this
-corpus that pooled both. The numerator is filings that remain alive and
+registration-success decision, which are different commercial acts with
+different drivers. The numerator is filings that remain alive and
 maintained at the time of measurement (status bucket 6), which on the
 five-year-old cohort approximates ``survived the §8 maintenance gate.'' The
 token-level survival statistic uses a different denominator (marks
@@ -274,9 +272,9 @@ density curves.}
 
 \subsection{What the construct does and does not measure}
 
-The construct's known fragilities have been documented in companion analysis
-on a complete Class~009 corpus of 1{,}807{,}636 filings. Prospective and
-retrospective KL are correlated at $r = +0.971$ across 1.56M scored filings;
+The construct has known fragilities on this kind of text. On a complete
+Class~009 corpus of 1{,}807{,}636 filings, prospective and retrospective
+KL are correlated at $r = +0.971$ across 1.56M scored filings;
 signed \dkl{} is therefore a small residual of two large, highly correlated
 quantities. \emph{This residual is noisy at the per-filing level.} The
 magnitude $|\Delta\mathrm{KL}|$ inflates monotonically for short filings
@@ -414,49 +412,41 @@ $\sim$92\% at the low end to $\sim$78\% at the high end.
 \caption{5-year renewal rate (mark still alive and maintaining at the time
 of measurement) for software/electronics filings, conditional on completed
 registration. Higher prospective or retrospective KL both predict lower
-conditional renewal. The signed \dkl{} panel is forward-favoring rather than
-strictly U-shaped: the right tail (innovator vocabulary) sits clearly above
-the centre; the left tail (going-out-of-fashion vocabulary) sits at or
-below the centre, with a slight uptick at the far edge.}
+conditional renewal; the signed \dkl{} panel is forward-favoring, with the
+innovator-tail renewal rate above the centre and the going-out-of-fashion
+negative tail at or below it.}
 \label{fig:ushape}
 \end{figure}
 
-The conditional reading is the right way to think about the construct's link
-to commercial outcomes: it isolates the renewal decision from the
-registration-success decision. The unconditional U-shape reported in earlier
-work on this corpus is real, but it is largely a registration-success
-story --- negative-tail vocabulary is less likely to register at all, and
-the marks that do register die at roughly the same rate as the middle.
-Conditional on registration, the surviving signal is monotone-ish and
-favors forward-leaning vocabulary.
-
-The same forward-favoring pattern is present when the analysis is restricted
-to debut-only filings (filings made by an owner for whom the filing is the
-first ever across the four-class corpus), and it extends to a longer-horizon
-external outcome: whether the owner ever appears in the SEC EDGAR listed
-universe.
+The conditional framing is the natural one for thinking about the
+construct's link to commercial outcomes: it isolates the renewal decision
+from the registration-success decision, which are different commercial acts
+with different drivers. The same forward-favoring pattern is present when
+the analysis is restricted to debut-only filings (filings made by an owner
+for whom the filing is the first ever across the four-class corpus), and it
+extends to the longer-horizon outcome of whether the owner ever appears in
+the SEC EDGAR listed universe.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
 \caption{Outcomes for debut-only filings (owner's first-ever filing,
-$n = 5{,}090{,}053$) by KL value. The signed \dkl{} (blue) shows the
-filing-level U-shape that the conditional reading in
-Figure~\ref{fig:ushape} flattens out, evidence that the unconditional
-U-shape is concentrated in the registration-success step. The
-SEC-EDGAR-listed-owner panel (third panel) is monotonically up-and-to-the-
-right in the directional KL pieces, with a $\sim$30\% lift between the left
-and right tails, consistent with the conditional renewal-rate finding.}
+$n = 5{,}090{,}053$) by KL value. Panels show P(reached registration),
+P(survived 5 years), and P(owner ever appears in the SEC EDGAR listed
+universe). The SEC-EDGAR-listed-owner panel is monotonically
+up-and-to-the-right in the directional KL pieces, with a $\sim$30\% lift
+between the left and right tails of the prospective and retrospective KL
+distributions, consistent with the conditional renewal-rate result of
+Figure~\ref{fig:ushape}.}
 \label{fig:debut}
 \end{figure}
 
 \subsection{Token-level result}
 
 The token-level pattern, applied with the same conditioning on completed
-registration, mirrors the filing-level forward-favoring ordering rather
-than reproducing the U-shape that earlier unconditional analysis on this
-corpus reported. Conditional renewal rates for example tokens in the
-software/electronics diagnostic class, with the unconditional rate shown
-in parentheses for comparison:
+registration, mirrors the filing-level forward-favoring ordering.
+Conditional renewal rates for example tokens in the software/electronics
+diagnostic class, with the unconditional rate shown in parentheses for
+context on the size of the registration-step filter:
 
 \begin{itemize}[noitemsep]
 \item Positive tail (emerging vocabulary): \emph{blockchain} 99.7\%
@@ -473,15 +463,12 @@ in parentheses for comparison:
 Conditional on registration, the negative-tail tokens renew at $\sim$80--90\%,
 the flux-neutral middle at $\sim$85--99\%, and the positive tail at
 $\sim$97--100\%. The ordering is essentially monotone in the direction of
-the filing-level forward-favoring pattern. The unconditional U-shape that
-earlier analysis reported (50--80\% at the tails versus 11--26\% in the
-middle) was almost entirely a registration-success pattern: middle-vocabulary
-applications register at $\sim$15--26\%, tail-vocabulary applications at
-$\sim$30--60\%, so the tail \emph{unconditional} survival rate was higher
-than the middle \emph{unconditional} survival rate not because tail-vocabulary
-\emph{marks} survive better but because tail-vocabulary \emph{applications}
-register more often. Conditioning isolates the renewal step and removes the
-U.
+the filing-level forward-favoring pattern. The size of the registration-
+step filter explains why the conditional and unconditional readings differ
+so much: middle-vocabulary applications register at $\sim$15--26\% while
+tail-vocabulary applications register at $\sim$30--60\%, so an
+unconditional survival statistic on these tokens is dominated by the
+registration-step gap rather than by the renewal-step gap.
 
 \subsection{Robustness and mechanism}
 
@@ -493,15 +480,14 @@ electronics diagnostic class. Whether it extends to all four classes in the
 diagnostic subset and to a pooled run on the full $\sim$45-class trademark
 corpus is the natural next robustness check and is not done here.
 
-The mechanism candidate that survives the conditioning step is the simple
-one: forward-leaning vocabulary at filing time is a marker of an applicant
-who has identified a commercially viable position; commercial viability
-predicts both registration completion and post-registration renewal; and
-the registration step is by far the larger filter, which is why the
-unconditional reading produces a U-shape and the conditional reading does
-not. Whether the residual conditional gap between innovator-tail and
-going-out-of-fashion vocabulary reflects intrinsic vocabulary effects or
-selection on owner covariates is owed to follow-up work.
+The natural mechanism candidate is the simple one: forward-leaning
+vocabulary at filing time is a marker of an applicant who has identified a
+commercially viable position; commercial viability predicts both
+registration completion and post-registration renewal; and the registration
+step is by far the larger filter. Whether the residual conditional gap
+between innovator-tail and going-out-of-fashion vocabulary reflects
+intrinsic vocabulary effects or selection on owner covariates is owed to
+follow-up work.
 
 \section{Theme-level evidence: Bass-fittable curves and cross-class flow asymmetry}\label{sec:themes}
 
@@ -796,9 +782,7 @@ forward-favoring at every level of measurement under this conditioning: at
 the filing level in the diagnostic class (innovator tail $\sim$87\%, middle
 $\sim$82\%, negative tail $\sim$80\%), at the token level (positive-tail
 tokens 97--100\%, middle tokens 85--99\%, negative-tail tokens 63--89\%),
-and at the longer-horizon outcome of eventual SEC-EDGAR-listed status. The
-unconditional U-shape reported in earlier work on this corpus is shown here
-to be primarily a registration-success pattern.
+and at the longer-horizon outcome of eventual SEC-EDGAR-listed status.
 
 Third, \dkl{} is empirically orthogonal-to-negative with patent counts
 within firm, confirming the construct is distinct from patent-track
@@ -818,13 +802,12 @@ investment return premium on extreme-tail debut filings.
 The renewal results are conditional on completed registration and should
 not be read as describing the full distribution of trademark applications.
 The decision to register and the decision to renew are different commercial
-acts; this paper isolates the second by conditioning on the first. An
-applicant whose vocabulary disqualifies the filing from registration in
-the first place is excluded from the renewal denominator, and the
-unconditional U-shape reported in earlier work on this corpus reflects both
-steps mixed. The conditioning makes the renewal pattern interpretable as a
-post-registration commercial signal rather than as a registration-success
-proxy; it also limits the claim to filings that already cleared examination.
+acts with different drivers; this paper isolates the second by conditioning
+on the first. An applicant whose vocabulary disqualifies the filing from
+registration in the first place is excluded from the renewal denominator,
+which makes the renewal pattern interpretable as a post-registration
+commercial signal rather than as a registration-success proxy and limits
+the claim to filings that already cleared examination.
 
 The paper does not evaluate the following questions, which are owed to
 follow-up work. Whether the theme-level flow asymmetry reproduces under a
@@ -837,7 +820,8 @@ result extends to all four classes in the subset and to the full corpus
 pooled in one go. Whether a within-phrase decomposition of cross-industry
 arrivals into ``offer-is-the-thing'' versus ``offer-supplies-the-thing''
 separates the two carrier types of cross-industry adoption
-(Section~\ref{sec:transit}). Whether mechanism on the U-shape can be
+(Section~\ref{sec:transit}). Whether the residual conditional renewal-rate
+gap between innovator-tail and going-out-of-fashion vocabulary can be
 disambiguated using out-of-corpus firm covariates.
 
 \section{Reproducibility}\label{sec:repro}
