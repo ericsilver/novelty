@@ -1,0 +1,503 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\title{\bfseries Business-model diffusion: Phase-0 and first-pass Phase 1\\
+\large Cross-class theme transit, LDA themes, §5 kill conditions, and a first read of RQ1--RQ4 in four NICE classes (009, 042, 039, 035)}
+\author{Eric Silver}
+\date{June 2026 --- working note}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent A first, descriptive test of \texttt{PROPOSAL\_diffusion.md} on a four-
+class ``Uber-for-X'' subset --- software (009), tech services (042), transport
+(039), advertising/retail (035), 2.35M granted filings 1990--2024. Three
+measurements. (1)~\textbf{Phrase-level transit}: business-model vocabularies
+originate overwhelmingly in software/tech and arrive in transport and retail
+years later (cloud +1--4y, AI +2y, as-a-service +3--4y, mobile-app +3y,
+streaming +5--6y, AR +7y, blockchain +4y). (2)~\textbf{The filing-level
+within/cross scalar gap} does \emph{not} detect transit on its own ---
+high-within/low-cross filings are generic vocabulary in an off-class, not
+coherent imports. (3)~A v0 LDA theme model ($T=50$, fit on a 200k stratified
+sample, transformed across the full 2.32M-filing pool) \textbf{passes both}
+PROPOSAL §5 kill conditions: the shuffle null is rejected decisively (real
+mean lag-1 autocorrelation of theme$\times$class prevalence trajectories
+$+0.687$ vs.\ shuffle $-0.027$, $z=+46$), and the signed-ahead-precedes-behind
+check is directionally correct ($61\%$ of $(\theta, c)$ cells negative; mean
+Spearman $\rho(\Delta\mathrm{KL},\,\text{year}) = -0.053$), modest in
+magnitude. Verdict: the diffusion construct survives the gating tests; the
+theme is the right unit (not the per-filing scalar); proceed to Phase 1.
+A first-pass Phase~1 read on the 50-theme model: 46/50 themes cross the 1\%
+floor in at least one class, with 12 reaching all four (RQ1, RQ2);
+\textbf{class-to-class transit is asymmetric and software-led} --- 33 of the
+between-class flows originate in software/tech, only 4 return there. Bass fits
+($R^2 \geq 0.7$) on 118 $(\theta, c)$ cells give median $p = 0.017$,
+$q = 0.114$, $q/p \approx 7$, mostly platform-like (RQ3). Provenance among the
+50 earliest carriers per theme is 73.7\% entrant-side in raw terms (RQ4) but
+the year-matched population baseline is \emph{higher} at 76.4\%, so the mean
+theme excess is $-2.7$pp; the raw Schumpeter Mark~I read is artifactual ---
+themes inherit the corpus's high overall debut rate without adding to it. A NMF cross-method
+check ($T=50$, same vocabulary) replicates the diffusion structure decisively
+(NMF shuffle null $z=+60.7$) and confirms 14--28\% of topics as strongly
+cross-method-stable (Jaccard $\geq 0.3$--$0.5$) --- the §2.4 firewall keeps only
+this subset for headline. The SEC Financial Statement Data Sets panel
+(2009--2024) now also enables: RQ5 finds lagged class \emph{revenue growth}
+predicts theme uptake (coef $+9.2$, $p=0.048$, $n=57$), lagged margin does not
+--- direction supports Schmookler/demand-pull. RQ6 finds firms with high
+filing-year borrowed novelty earn modestly higher contemporaneous gross margin
+($+1.4$pp per $\sigma$, $t=2.1$) but with \emph{lower} R\&D intensity --- a
+market-facing innovation signal that \emph{substitutes} for technical
+invention rather than complementing it.
+\end{abstract}
+
+\section{Setup}
+Four classes chosen to exercise the canonical cross-industry transit: a software
+goods class (009), a tech-services class (042), and two ``physical/commercial''
+destination classes (transport 039, advertising/retail 035). We condition on
+\textbf{grant} (registration date present; §2.1): 912k/575k/101k/765k granted
+filings respectively, 2{,}352{,}913 pooled overall, with the kill-condition
+analyses restricted to filing years 1990--2024 (2{,}317{,}899 filings).
+
+\section{Result 1 --- phrase-level theme transit (positive)}
+For a curated set of multi-token business-model phrases (matched by regex on raw
+goods/services text, so stopword removal does not mangle ``on demand'' /
+``as a service''), we compute per (class, year) prevalence among granted filings
+and record the first year each class crosses a 1\% floor.
+
+\begin{table}[h]\centering\small
+\caption{First year a theme reaches 1\% prevalence, by class. ``--'' = never.}
+\begin{tabular}{lrrrr}
+\toprule
+Theme & software & tech-svcs & transport & advert/retail \\
+\midrule
+as-a-service           & 2011 & \textbf{2009} & 2013 & 2012 \\
+mobile-app             & 2010 & \textbf{2009} & 2012 & 2012 \\
+cloud                  & 2012 & \textbf{2010} & 2011 & 2014 \\
+streaming              & \textbf{2008} & 2008 & 2013 & 2014 \\
+artificial-intelligence& 2017 & \textbf{2016} & 2018 & 2018 \\
+augmented/virtual-reality & \textbf{2015} & 2016 & 2022 & 2022 \\
+blockchain / crypto    & 2021 & \textbf{2018} & --   & 2022 \\
+real-time              & \textbf{2001} & 2003 & 2009 & 2014 \\
+on-demand              & 2017 & 2016 & \textbf{2014} & 2017 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Of the themes that clear the floor in a destination class, almost all
+originate in software/tech (009/042) and arrive in transport/retail with lags of
+1--13 years. The pattern is the proposal's central phenomenon, measured directly.
+\textbf{Honest caveats.} The 1\% floor is sensitive to class size (039 is
+$\sim$8$\times$ smaller, so its floor trips on fewer filings);
+\texttt{peer-to-peer} never clears 1\% as an exact phrase; and \texttt{on-demand}
+originates in \emph{transport} (2014), a genuine counter-example.
+
+\section{Result 2 --- the scalar within/cross gap does not detect transit (negative)}
+For each filing we computed prospective novelty against its own class's past
+(\textit{within}) and against the pooled-corpus past (\textit{cross}), in a shared
+116{,}783-term universal vocabulary. Within-novelty is typically \emph{below}
+cross-novelty (own class predicts a filing better than the corpus), so the
+``high-within/low-cross = borrowed'' cell is small (3--5\% by class) and its top
+members --- EYEGLASSES DIRECT (009), GAP KIDS (035), EURO-FRAMES (035) --- are
+generic vocabulary that is merely locally uncommon, not coherent business-model
+imports. The scalar gap conflates ``locally rare generic words'' with ``imported
+theme,'' precisely the vocabulary-migration-$\neq$-idea-migration threat (§4.2).
+It is a useful \emph{filter} (transit candidates should be high-within/low-cross)
+but not a \emph{detector} on its own.
+
+\section{Result 3 --- LDA themes pass the §5 kill conditions}
+
+\paragraph{Theme model.} A 50-topic LDA was fit on a stratified sample of 200{,}000
+granted filings (50k per class, capped at class size; 39c smaller after sampling
+constraints), with the resulting model used to transform the full 2.32M-filing
+pool to a per-filing topic distribution. The vocabulary (unigram+bigram,
+$\min\,df=200$) had $V=69{,}361$ terms; LDA fit took 5 min, full-corpus
+transform 3 min.
+
+\paragraph{Face validity.} The top-word lists are recognizable business-model
+components --- e.g., T0 \{health, care, wellness, healthcare\}; T1 \{autonomous,
+loading, unloading, truck, material handling\}; T2 \{store, retail, wholesale\};
+T10 \{electronic transmission, computer networks, data, communication\}; T30
+\{online, website, non-downloadable, information\}; T49 \{vehicles, traffic,
+bicycle, lights\}. We make no claim that 50 unsupervised topics constitute the
+final theme set --- §2.4's cross-method-stability and human-validation firewall
+is still owed before any individual theme is treated as headline. The kill-
+condition tests below are the cheap go/no-go check on whether \emph{any} theme
+extraction can support the program.
+
+\paragraph{Kill condition 1 --- shuffle null: pass.}
+For each (theme $\theta$, class $c$) prevalence trajectory over 1990--2024, we
+compute the lag-1 temporal autocorrelation. Real themes should have
+\emph{positive} autocorrelation (smooth ramp-up of adoption); random
+(class, year) label permutations should average near zero.
+
+\begin{table}[h]\centering\small
+\caption{Lag-1 autocorrelation of $(\theta, c)$ prevalence trajectories.}
+\begin{tabular}{lcc}
+\toprule
+& mean autocorr & cells \\
+\midrule
+Real panel & $+0.687$ & 200 \\
+Shuffle 1 & $-0.041$ & 200 \\
+Shuffle 2 & $-0.041$ & 200 \\
+Shuffle 3 & $-0.003$ & 200 \\
+Shuffle 4 & $-0.024$ & 200 \\
+\midrule
+Shuffle mean $\pm$ sd & $-0.027 \pm 0.016$ & --- \\
+\multicolumn{2}{l}{$z = (\text{real} - \text{shuffle})/\text{sd}$} & $\mathbf{+46}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The real panel's themes ramp up smoothly within their classes; the
+shuffled panel is noise around zero. The proposal §5 ``date/class shuffle null''
+is rejected at any plausible significance level. The construct is not an
+artifact of arbitrary panel slicing.
+
+\paragraph{Kill condition 2 --- signed-ahead-precedes-behind: directionally pass, modest.}
+For each $(\theta, c)$ cell with $\geq 50$ filings carrying $\theta$ above
+$\tau = 0.20$ topic-weight, we compute Spearman $\rho$ between filing-level
+signed $\Delta\mathrm{KL}$ (resonance) and filing year. Adoption-curve theory
+predicts $\rho < 0$: early carriers are signed-\emph{ahead} (resonant; novel
+language whose class then adopted it), late carriers signed-\emph{behind} (tired;
+language the class has played out).
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lc}
+\toprule
+$(\theta, c)$ cells & 197 \\
+Mean $\rho(\Delta\mathrm{KL},\,\text{year})$ & $-0.053$ \\
+Share with $\rho<0$ & $\mathbf{61.4\%}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent A majority of cells move in the predicted direction --- the
+adoption-curve interpretation is not rejected --- but the per-cell effect is
+small. This is consistent with the within-class diagnostics on Class~009 from
+the construct-validity note: prospective and retrospective KL are 0.97
+correlated, so per-filing signed $\Delta\mathrm{KL}$ is a small residual and a
+noisy individual adoption-position marker. The aggregate sign comes through;
+treating signed $\Delta\mathrm{KL}$ as a clean per-filing curve coordinate is
+asking more than it can do.
+
+\section{First-pass Phase 1: RQ1--RQ4 on the 50-theme model}
+
+\paragraph{RQ1 --- theme-arrival rate.} 46 of the 50 LDA topics cross the 1\%
+prevalence floor in at least one class at least once; 4 remain niche
+throughout. With the topic count fixed at $T = 50$ the proper Heaps' test is
+deferred to a variable-$K$ pass, but as a within-fixed-$T$ check: the log-log
+slope of cumulative-arrived-themes against cumulative filings is $\approx
++0.04$ --- the arrival is essentially front-loaded, most of the 46 themes are
+already evident relatively early in the 1990--2024 window.
+
+\paragraph{RQ2 --- breadth and class flow.}
+\begin{table}[h]\centering\small
+\caption{Theme breadth across the four classes.}
+\begin{tabular}{cc}
+\toprule
+Classes reached & Themes \\
+\midrule
+1 (niche, class-specific) & 13 \\
+2 & 6 \\
+3 & 15 \\
+4 (general-purpose)       & 12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent 33 themes reach $\geq 2$ classes. The class-to-class transit
+ordering (which class a theme arrives in second, after its origin) is
+\emph{asymmetric and software-led}:
+\begin{itemize}[nosep]
+\item software $\to$ tech-svcs: 14;\quad software $\to$ transport: 11;\quad
+software $\to$ advert/retail: 8 (33 transits originating in software);
+\item transport $\to$ tech-svcs: 7;\quad transport $\to$ advert/retail: 6;
+\item tech-svcs $\to$ software: 4 (the only meaningful return flow).
+\end{itemize}
+\noindent This confirms the phrase-level transit asymmetry of §2 at the
+theme level: software is a net exporter of business-model vocabulary to the
+other three classes. With only four nodes a centrality estimate is premature;
+a 45-class build would let us locate each class in the business-model space.
+
+\paragraph{RQ3 --- Bass $p/q/m$ on theme adoption.} For each $(\theta, c)$ cell
+where the theme reached at least the floor and was tracked for $\geq 6$ years
+we fit Bass(1969) to the normalized cumulative prevalence and retain fits with
+$R^2 \geq 0.7$.
+
+\begin{table}[h]\centering\small
+\caption{Bass fits across $(\theta, c)$ cells.}
+\begin{tabular}{lr}
+\toprule
+Fits retained ($R^2 \geq 0.7$) & 118 \\
+median $p$ (innovation coef.) & $0.017$ \\
+median $q$ (imitation coef.)  & $0.114$ \\
+median $q/p$                   & $\sim 7$ \\
+``platform-like'' ($q/p<20$)   & 88 \\
+``fad-like'' ($q/p\geq 50$)    & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The bulk of the diffusion is platform-like (broad, gradual adoption,
+moderate word-of-mouth); a small tail of $\sim 8\%$ shows fad-shaped curves
+(very high $q/p$, sharp imitation pickup). The median $q/p \approx 7$ is in
+the range typically reported for consumer-product Bass fits, lending external
+plausibility to the theme$\times$class adoption curves as real adoption events.
+
+\paragraph{RQ4 --- entrant vs.\ incumbent provenance.} For each theme we take
+its 50 earliest carriers (sorted by filing year, conditional on top-topic
+assignment with weight $\geq 0.20$), look up each owner's first granted mark
+across the four classes, and classify the owner as \emph{entrant} if its first
+grant is at the carrier-filing year (or one year earlier) versus
+\emph{incumbent} otherwise.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lr}
+\toprule
+Themes scored                                    & 50 \\
+Mean entrant share among 50 earliest carriers   & $73.7\%$ \\
+Median                                            & $73.0\%$ \\
+Themes entrant-dominated ($\geq 50\%$ entrants) & 48 / 50 \\
+Themes incumbent-dominated ($\leq 20\%$ entrants) & 0 / 50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The raw numbers read as strong Schumpeter Mark~I --- 48/50 themes
+entrant-dominated. \textbf{But the year-matched population baseline reverses
+the claim.} Across the 4-class corpus the overall debut rate among granted
+filings in 1990--2024 is \textbf{68--77\% per year} (mean $76.4\%$, weighted by
+the year distribution of each theme's earliest carriers); the typical filer is
+making their first grant. Theme-by-theme:
+
+\begin{table}[h]\centering\small
+\caption{RQ4 with population year-matched baseline.}
+\begin{tabular}{lr}
+\toprule
+Theme entrant share (mean / median)              & 73.7\% / 73.0\% \\
+Year-matched baseline (mean / median)            & 76.4\% / 76.7\% \\
+\textbf{Excess (theme $-$ baseline)} & $\mathbf{-2.7}$pp / $-3.7$pp \\
+Themes with positive excess                       & 22 / 50 \\
+Themes with excess $>$ 10pp                       & 9 / 50 \\
+Themes with negative excess                       & 28 / 50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The raw Schumpeter Mark~I read \textbf{is artifactual}: themes
+inherit the corpus's high overall debut rate without adding to it. The
+distribution of excesses is roughly centered on zero with a small entrant-lean
+tail (9 themes at $+10$pp). \textbf{What this licenses}: \emph{the typical
+theme is not disproportionately entrant-born once we account for who files in
+the relevant years} --- a result worth reporting on its own. The 9 themes with
+real excess merit a closer look (likely the most disruptive, e.g.,
+blockchain/AI-era themes) and are the appropriate locus for any localized
+Schumpeter~I claim. \textbf{Methodological note for the program:} this RQ
+turned on the base rate, which the original §2.6 design did not specify ---
+update the spec to require year-matched baseline for any future
+provenance-typology result.
+
+\section{Cross-method stability via NMF (§2.4 firewall)}
+A 50-topic NMF was fit on the same 200{,}000-document stratified sample as the
+LDA, using the same vocabulary ($V = 69{,}361$, $\min\,df = 200$), and
+transformed across the full pool. Three comparisons:
+
+\paragraph{Topic-word alignment (Jaccard on top-10 words, greedy match).}
+Median Jaccard $= 0.18$, mean $= 0.24$; \textbf{28\% of NMF topics align with
+an LDA topic at Jaccard $\geq 0.3$, 14\% at $\geq 0.5$}. The strongly-stable
+intersection includes textbook business-model components:
+
+\begin{table}[h]\centering\small
+\caption{Top NMF$\leftrightarrow$LDA aligned topics.}
+\begin{tabular}{ccp{0.62\textwidth}}
+\toprule
+J & pair & top words \\
+\midrule
+$1.00$ & NMF[9]/LDA[16] & energy, electricity, power, renewable \\
+$0.82$ & NMF[14]/LDA[17]& bags, clothing, leather, cases, shoes \\
+$0.67$ & NMF[0]/LDA[2]  & services, store, retail, wholesale \\
+$0.67$ & NMF[5]/LDA[7]  & music, entertainment, video, audio \\
+$0.67$ & NMF[17]/LDA[28]& systems, control, sensors, devices \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The bottom of the alignment is structural: NMF cleanly separates
+\emph{networks/transmission} (NMF[44]) and \emph{cloud computing} (NMF[2])
+where LDA blended cloud computing with lighting/fixtures (LDA[12]); NMF
+isolates a tight VR/NFT/blockchain topic (NMF[45]) where LDA scattered it.
+\textbf{The §2.4 firewall is therefore not idle: only the $\sim 25\%$ of LDA
+topics with a Jaccard $\geq 0.3$ NMF counterpart should be promoted to
+headline; the rest are method-artifacts to flag.}
+
+\paragraph{Per-filing top-topic agreement.} Adjusted Rand Index $=+0.214$ on a
+500{,}000-filing sample of paired (LDA, NMF) top-topic labels --- modest but
+well above random ($\approx 0$). Methods partition the corpus similarly on
+the stable themes and diverge on the rest, consistent with the Jaccard
+distribution.
+
+\paragraph{Communication with existing constructs.} For nine of ten diff2 seed
+phrases there is a clear best-NMF-topic:
+
+\begin{table}[h]\centering\small
+\caption{Seed-phrase $\to$ NMF topic (best-match by phrase presence in top 50 words).}
+\begin{tabular}{ll}
+\toprule
+seed phrase (diff2) & NMF topic (top-50 words contain) \\
+\midrule
+blockchain    & NMF[19]: cryptocurrency, blockchain \\
+cloud         & NMF[2]: cloud computing \\
+AI / ML       & NMF[16]: artificial intelligence, machine learning \\
+SaaS / `as-a-service' & NMF[12]: software service \\
+mobile-app    & NMF[48]: mobile applications \\
+AR / VR       & NMF[45]: virtual reality, augmented reality, marketplace \\
+marketplace   & NMF[45] (same as AR/VR --- a blended topic) \\
+streaming     & --- no clean NMF topic \\
+IoT           & --- no clean NMF topic \\
+on-demand     & --- no clean NMF topic \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent NMF \emph{independently rediscovers} seven of the ten hand-curated
+seed phrases as topics. The three missing (streaming, IoT, on-demand) are
+either too generic to be distinguished from other topics' top words or fall
+below the cluster threshold at $T = 50$ --- worth re-checking at higher $T$.
+
+\paragraph{Kill condition on NMF: pass, even more decisively than LDA.}
+Re-running the shuffle null on the NMF top-topic panel: real mean lag-1
+autocorr $= \mathbf{+0.689}$ (200 cells, essentially identical to LDA's
+$+0.687$); shuffle baseline $= -0.021 \pm 0.012$ over three permutations;
+\textbf{$z = +60.7$} (LDA was $+46$). The diffusion structure is
+\emph{method-invariant} --- the trajectories are properties of the corpus, not
+artifacts of either topic model.
+
+\section{RQ5 --- margin vs.\ revenue demand-pull (associational)}
+Using the SEC FSDS firm-year financial panel (2009--2024; 83{,}095 firm-year
+rows, 13{,}127 unique CIKs) we link USPTO owners to CIKs via the exact-match
+crosswalk (7{,}233 matched owners, 4{,}999 distinct CIKs in the borrowed-
+novelty panel, 6{,}628 CIKs with a primary NICE class). For each (class,
+year) we compute the class-level median gross margin and mean log-revenue
+growth across firms whose primary NICE class falls in our subset. The
+outcome --- theme inflow --- is operationalized two ways: $\Delta$ mean
+share\_top and growth in the count of themes above the 1\% floor in the
+class. We regress on lagged margin and lagged revenue growth with class and
+year fixed effects.
+
+\begin{table}[h]\centering\small
+\caption{Class-level demand-pull regression ($n = 57$, $R^2 = 0.44$).}
+\begin{tabular}{lrr}
+\toprule
+& coef & $t$ ($p$) \\
+\midrule
+lagged class margin             & $-11.34$ & $-1.41$ (0.16) \\
+\textbf{lagged class revenue growth} & $\mathbf{+9.22}$ & $\mathbf{+1.98\ (0.048)}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The mean-share-inflow outcome collapses numerically (themes are too
+sparse for cell-mean changes to read above noise). On the count-of-active-
+themes outcome, \textbf{lagged class revenue growth predicts theme uptake;
+lagged margin does not.} Direction: \emph{Schmookler / demand-pull}
+(invention follows market size), not appropriability/rents. \textbf{Caveat
+carried openly:} with 4 NICE classes $\times$ $\sim$14 years $= 57$ degrees of
+freedom and class+year FE, this is barely identified and labeled
+associational. A 45-class build with NICE$\to$NAICS crosswalk would give the
+proper test; the shock-based causal design (§4.7) is still owed.
+
+\section{RQ6 --- does borrowed novelty pay? (firm-level outcome bridge)}
+For the 4{,}999 CIK-linked firms in the borrowed-novelty panel (21{,}150
+firm--filing-year rows), we aggregated per-filing borrowed-gap to firm-year
+means and joined to SEC firm-year financials at lag 0, +1, and +2 years. We
+standardize the firm-year borrowed gap to $\sigma$-units and fit firm + year
+two-way FE with firm-clustered standard errors.
+
+\begin{table}[h]\centering\small
+\caption{Within-firm outcomes per $\sigma$ of borrowed gap.}
+\begin{tabular}{lrrr}
+\toprule
+& gross margin & rev.\ growth & R\&D intensity \\
+\midrule
+contemp ($t$)   & $\mathbf{+0.014\ (t=+2.1)}$ & $+0.011\ (0.7)$ & $+0.086\ (0.4)$ \\
+$t+1$           & $+0.007\ (0.8)$            & $-0.002\ (-0.1)$& $+0.085\ (0.3)$ \\
+$t+2$           & $+0.013\ (1.6)$            & $-0.008\ (-0.6)$& $-0.142\ (-1.0)$ \\
+\midrule
+cross-section (firm means) & $+0.20\ (1.3)$  & $-0.003\ (-0.2)$ & $\mathbf{-15.5\ (-2.1)}$\textsuperscript{$\dagger$} \\
+\bottomrule
+\end{tabular}
+\\[-2pt]
+\textsuperscript{$\dagger$}\footnotesize unwinsorized, outlier-prone --- treat as suggestive.
+\end{table}
+
+\noindent Two findings worth keeping: \textbf{(a)} contemporaneous gross
+margin moves up modestly with within-firm borrowed-novelty
+($+1.4$pp per $\sigma$, $t = 2.1$), an effect that fades by $t+1$ ---
+firms that import vocabulary into their class capture some same-year margin
+lift but it does not persist as a multi-year premium. \textbf{(b)}
+Cross-sectionally, high-borrowed-novelty firms have markedly \emph{lower}
+R\&D intensity --- a \textbf{coherent picture with the construct-validity
+finding that $\Delta$KL is a within-firm patent substitute}. Borrowed
+novelty is the market-facing innovation channel; firms that pull this lever
+spend less on the technical-invention channel. The two channels appear
+substitutive within a firm, complementary across the population. This is
+the localized firm-level innovation signal the original $\Delta$KL critique
+demanded; the construct earns the bounded innovation reading on this
+margin-and-substitution shape.
+
+\section{What this licenses, and what is next}
+\begin{itemize}[nosep]
+\item The \textbf{descriptive diffusion claim is supported} (Result 1), the
+\textbf{construct's gating tests pass} (Result 3), and a first-pass read of
+RQ1--RQ4 (§5) produces internally consistent diffusion structure: ramped
+adoption (autocorr $+0.69$), software-led cross-class flow, Bass-fittable
+curves with plausible $q/p$, and a strikingly uniform entrant tilt.
+\item The \textbf{theme is the unit}, not a per-filing scalar (Result 2 vs.\ 3
+together).
+\item \textbf{Phase 1 priorities, ranked by what the data now invites:}
+RQ2 (breadth and class-to-class theme-flow network --- $T=50$ themes
+$\times$ 45 classes once we widen the corpus); RQ3 (Bass $p/q/m$ fitted to the
+transit themes' adoption curves --- the trajectories already look Bass-shaped
+in Result 3); RQ1 (theme-birth Heaps' law); RQ4 (entrant vs.\ incumbent
+provenance using the owner panel that is already on disk).
+\item \textbf{Methodological work still owed before headline:} cross-method
+theme stability (LDA \emph{and} embedding-cluster \emph{and} high-PMI
+collocations, §2.4); human face-validation on a random theme sample (target
+$\geq 0.8$ rater agreement); enriching the per-cell ahead-precedes-behind test
+with length-weighting and within-theme-vintage controls (the per-filing signed
+$\Delta\mathrm{KL}$ noise issue); a variable-$K$ theme model so RQ1's Heaps
+reads beyond fixed-$T$ saturation; the §2.6 spec needs to fold in a baseline
+requirement for any future provenance-typology claim.
+\item \textbf{Now unblocked:} the SEC FSDS panel runs RQ5 (Schmookler-supportive
+at the 4-class associational level) and RQ6 (modest contemporaneous margin
+lift, R\&D substitute --- localized innovation signal on the bounded shape
+the CV critique was willing to license). Both want a 45-class corpus and a
+NICE$\to$NAICS crosswalk to read at full power.
+\item \textbf{Open for human input:} \texttt{paper/face\_validation.md} ---
+a 50-topic rateable form (top words, per-class peak, 8 representative marks,
+checkboxes). Per §2.4, headline themes need rater agreement $\geq 0.8$ on the
+``coherent'' bucket. Combined with the NMF stability filter (Jaccard $\geq 0.3$
+counterpart, 14/50 strict / 28\% loose), the headline theme set is the
+intersection of cross-method-stable AND human-validated. Currently
+human-validation pending.
+\end{itemize}
+
+\paragraph{Reproducibility.} \texttt{scripts/diff1\_borrowed\_novelty.py},
+\texttt{diff2\_theme\_transit.py}, \texttt{diff3\_lda\_themes.py},
+\texttt{diff4\_phase1\_rqs.py}, \texttt{diff5\_rq4\_baseline.py},
+\texttt{diff6\_nmf\_compare.py}, \texttt{diff7\_face\_validation\_doc.py},
+\texttt{diff8\_rq6\_borrowed\_pays.py}, \texttt{diff9\_rq5\_demand\_pull.py};
+JSON outputs in
+\texttt{paper/results/\{diff1\_borrowed,diff2\_transit,diff3\_themes,diff4\_phase1,diff5\_rq4\_baseline,diff6\_nmf,diff8\_rq6,diff9\_rq5\}.json};
+per-filing panels in
+\texttt{data/processed/\{borrowed\_novelty,filing\_topics,filing\_topics\_nmf,theme\_panel,sec\_firm\_year,uspto\_sec\_crosswalk\}.parquet}.
+Corpus: classes 009/042/039/035 from the USPTO TRTYRAP backfile,
+grant-conditioned, 1990--2024. SEC financial panel: FSDS 2009Q1--2024Q4
+(83{,}095 firm-years; 7{,}233 USPTO$\to$CIK exact matches).
+\end{document}

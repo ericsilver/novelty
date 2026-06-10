@@ -1,4 +1,5 @@
 .venv/
+.venv-analysis/
 __pycache__/
 *.pyc
 *.egg-info/
@@ -7,16 +8,32 @@ data/
 data
 *.zip
 .DS_Store
-# LaTeX intermediates (keep main.pdf)
-paper/main.aux
-paper/main.log
-paper/main.out
-paper/main.toc
-paper/short.aux
-paper/short.log
-paper/short.out
+
+# Local-only archives (preserved offline; not for public distribution)
+_archive_mac_syndication_*/
+_archive_novelty_proj/
+
+# Paper build intermediates
+paper/_bundle_build/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+
+# Large generated bundle (regenerable from scripts; release asset, not git)
+paper/review_bundle.pdf
+
 # Large per-filing intermediate; regenerable from scripts/debut_harvest_fit.py
 paper/results/debut_harvest_fit.csv
+
 # Build logs + transient backup files
 logs/
 *.committed-baseline
+
+# OS / editor noise
+Thumbs.db
+.idea/
+.vscode/

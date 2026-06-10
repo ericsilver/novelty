@@ -1,0 +1,1012 @@
+{
+  "T": 50,
+  "vocab_size": 69361,
+  "sample_size": 200000,
+  "alignment": {
+    "median_jaccard": 0.17647058823529413,
+    "mean_jaccard": 0.24069068702195637,
+    "share_ge_0.3": 0.28,
+    "share_ge_0.5": 0.14,
+    "pairs": [
+      {
+        "nmf": 0,
+        "lda": 2,
+        "jaccard": 0.6666666666666666
+      },
+      {
+        "nmf": 1,
+        "lda": 41,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 2,
+        "lda": 29,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 3,
+        "lda": 0,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 4,
+        "lda": 8,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 5,
+        "lda": 7,
+        "jaccard": 0.6666666666666666
+      },
+      {
+        "nmf": 6,
+        "lda": 32,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 7,
+        "lda": 9,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 8,
+        "lda": 11,
+        "jaccard": 0.3333333333333333
+      },
+      {
+        "nmf": 9,
+        "lda": 16,
+        "jaccard": 1.0
+      },
+      {
+        "nmf": 10,
+        "lda": 14,
+        "jaccard": 0.3333333333333333
+      },
+      {
+        "nmf": 11,
+        "lda": 6,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 12,
+        "lda": 23,
+        "jaccard": 0.42857142857142855
+      },
+      {
+        "nmf": 13,
+        "lda": 15,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 14,
+        "lda": 17,
+        "jaccard": 0.8181818181818182
+      },
+      {
+        "nmf": 15,
+        "lda": 45,
+        "jaccard": 0.3333333333333333
+      },
+      {
+        "nmf": 16,
+        "lda": 10,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 17,
+        "lda": 28,
+        "jaccard": 0.6666666666666666
+      },
+      {
+        "nmf": 18,
+        "lda": 43,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 19,
+        "lda": 19,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 20,
+        "lda": 24,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 21,
+        "lda": 39,
+        "jaccard": 0.3333333333333333
+      },
+      {
+        "nmf": 22,
+        "lda": 22,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 23,
+        "lda": 30,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 24,
+        "lda": 3,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 25,
+        "lda": 1,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 26,
+        "lda": 20,
+        "jaccard": 0.42857142857142855
+      },
+      {
+        "nmf": 27,
+        "lda": 18,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 28,
+        "lda": 31,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 29,
+        "lda": 42,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 30,
+        "lda": 26,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 31,
+        "lda": 34,
+        "jaccard": 0.5384615384615384
+      },
+      {
+        "nmf": 32,
+        "lda": 4,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 33,
+        "lda": 40,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 34,
+        "lda": 47,
+        "jaccard": 0.25
+      },
+      {
+        "nmf": 35,
+        "lda": 49,
+        "jaccard": 0.1111111111111111
+      },
+      {
+        "nmf": 36,
+        "lda": 35,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 37,
+        "lda": 27,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 38,
+        "lda": 33,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 39,
+        "lda": 5,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 40,
+        "lda": 46,
+        "jaccard": 0.42857142857142855
+      },
+      {
+        "nmf": 41,
+        "lda": 38,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 42,
+        "lda": 48,
+        "jaccard": 0.5384615384615384
+      },
+      {
+        "nmf": 43,
+        "lda": 36,
+        "jaccard": 0.05263157894736842
+      },
+      {
+        "nmf": 44,
+        "lda": 12,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 45,
+        "lda": 13,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 46,
+        "lda": 21,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 47,
+        "lda": 37,
+        "jaccard": 0.17647058823529413
+      },
+      {
+        "nmf": 48,
+        "lda": 25,
+        "jaccard": 0.0
+      },
+      {
+        "nmf": 49,
+        "lda": 44,
+        "jaccard": 0.0
+      }
+    ]
+  },
+  "ari": 0.2143539054601585,
+  "ari_n": 500000,
+  "seed_phrase_topics": {
+    "blockchain": {
+      "best_topic": 19,
+      "matched_words": [
+        "cryptocurrency",
+        "blockchain"
+      ],
+      "score": 2,
+      "topic_top_words": [
+        "digital",
+        "tokens",
+        "leather",
+        "assets",
+        "files",
+        "electronic",
+        "digital assets",
+        "non-fungible"
+      ]
+    },
+    "cloud": {
+      "best_topic": 2,
+      "matched_words": [
+        "cloud computing"
+      ],
+      "score": 1,
+      "topic_top_words": [
+        "computer",
+        "computer software",
+        "hardware",
+        "network",
+        "programs",
+        "design",
+        "computer hardware",
+        "computers"
+      ]
+    },
+    "ai_ml": {
+      "best_topic": 16,
+      "matched_words": [
+        "artificial intelligence",
+        "machine learning"
+      ],
+      "score": 2,
+      "topic_top_words": [
+        "data",
+        "processing",
+        "analysis",
+        "storage",
+        "information",
+        "data processing",
+        "databases",
+        "intelligence"
+      ]
+    },
+    "saas": {
+      "best_topic": 12,
+      "matched_words": [
+        "software service"
+      ],
+      "score": 1,
+      "topic_top_words": [
+        "software",
+        "computer software",
+        "computer",
+        "development",
+        "service",
+        "applications",
+        "application",
+        "featuring software"
+      ]
+    },
+    "mobile_app": {
+      "best_topic": 48,
+      "matched_words": [
+        "mobile applications"
+      ],
+      "score": 2,
+      "topic_top_words": [
+        "downloadable",
+        "downloadable computer",
+        "computer",
+        "software",
+        "recorded",
+        "computer software",
+        "downloadable software",
+        "electronic"
+      ]
+    },
+    "streaming": {
+      "best_topic": null
+    },
+    "ar_vr": {
+      "best_topic": 45,
+      "matched_words": [
+        "virtual reality",
+        "augmented reality"
+      ],
+      "score": 2,
+      "topic_top_words": [
+        "virtual",
+        "reality",
+        "tokens",
+        "online",
+        "entertainment",
+        "non-fungible",
+        "non-fungible tokens",
+        "goods"
+      ]
+    },
+    "iot": {
+      "best_topic": null
+    },
+    "marketplace": {
+      "best_topic": 45,
+      "matched_words": [
+        "marketplace"
+      ],
+      "score": 1,
+      "topic_top_words": [
+        "virtual",
+        "reality",
+        "tokens",
+        "online",
+        "entertainment",
+        "non-fungible",
+        "non-fungible tokens",
+        "goods"
+      ]
+    },
+    "on_demand": {
+      "best_topic": null
+    }
+  },
+  "nmf_shuffle_null": {
+    "real_mean_autocorr": 0.6890053419656859,
+    "n_cells": 200,
+    "shuffle_means": [
+      -0.024957363197294198,
+      -0.005006359307547888,
+      -0.03279234709693466
+    ],
+    "shuffle_mean": -0.020918689867258918,
+    "shuffle_sd": 0.011697534673330215,
+    "z": 60.69005578171403
+  },
+  "nmf_top_words": {
+    "0": [
+      "services",
+      "featuring",
+      "services featuring",
+      "store services",
+      "store",
+      "wholesale",
+      "wholesale store",
+      "retail store",
+      "retail",
+      "nature"
+    ],
+    "1": [
+      "machines",
+      "printing",
+      "printing machines",
+      "apparatus",
+      "security",
+      "machines apparatus",
+      "air",
+      "control",
+      "features",
+      "inkjet"
+    ],
+    "2": [
+      "computer",
+      "computer software",
+      "hardware",
+      "network",
+      "programs",
+      "design",
+      "computer hardware",
+      "computers",
+      "networks",
+      "information"
+    ],
+    "3": [
+      "services",
+      "care",
+      "healthcare",
+      "medical",
+      "treatment",
+      "practices",
+      "healthcare services",
+      "advisory",
+      "diagnosis",
+      "treatment services"
+    ],
+    "4": [
+      "electric",
+      "electrical",
+      "power",
+      "electronic",
+      "batteries",
+      "cables",
+      "control",
+      "electricity",
+      "battery",
+      "lighting"
+    ],
+    "5": [
+      "music",
+      "entertainment",
+      "musical",
+      "video",
+      "television",
+      "audio",
+      "featuring",
+      "recordings",
+      "production",
+      "live"
+    ],
+    "6": [
+      "management",
+      "compliance",
+      "business",
+      "risk",
+      "business management",
+      "customer",
+      "planning",
+      "field",
+      "consulting",
+      "health"
+    ],
+    "7": [
+      "metal",
+      "building",
+      "pipes",
+      "purposes",
+      "steel",
+      "non-metal",
+      "materials",
+      "hand",
+      "door",
+      "common"
+    ],
+    "8": [
+      "vehicles",
+      "vehicle",
+      "land",
+      "land vehicles",
+      "parts",
+      "engines",
+      "motor",
+      "motors",
+      "transport",
+      "automobiles"
+    ],
+    "9": [
+      "energy",
+      "electricity",
+      "power",
+      "renewable",
+      "production",
+      "renewable energy",
+      "solar",
+      "storage",
+      "plants",
+      "generation"
+    ],
+    "10": [
+      "medical",
+      "purposes",
+      "medical purposes",
+      "research",
+      "diagnostic",
+      "preparations",
+      "scientific",
+      "pharmaceutical",
+      "veterinary",
+      "blood"
+    ],
+    "11": [
+      "machines",
+      "apparatus",
+      "machines apparatus",
+      "rental",
+      "purposes",
+      "repair maintenance",
+      "repair",
+      "maintenance",
+      "waste",
+      "household"
+    ],
+    "12": [
+      "software",
+      "computer software",
+      "computer",
+      "development",
+      "service",
+      "applications",
+      "application",
+      "featuring software",
+      "software service",
+      "computing"
+    ],
+    "13": [
+      "information",
+      "thereto",
+      "pertinent",
+      "information relating",
+      "relating",
+      "rental",
+      "apparatus information",
+      "relating thereto",
+      "health",
+      "insurance"
+    ],
+    "14": [
+      "bags",
+      "clothing",
+      "leather",
+      "cases",
+      "shoes",
+      "shirts",
+      "jackets",
+      "textile",
+      "pants",
+      "footwear"
+    ],
+    "15": [
+      "field",
+      "research",
+      "development",
+      "design",
+      "technology",
+      "educational",
+      "training",
+      "education",
+      "services field",
+      "engineering"
+    ],
+    "16": [
+      "data",
+      "processing",
+      "analysis",
+      "storage",
+      "information",
+      "data processing",
+      "databases",
+      "intelligence",
+      "analytics",
+      "collection"
+    ],
+    "17": [
+      "systems",
+      "control",
+      "equipment",
+      "sensors",
+      "devices",
+      "hardware",
+      "electronic",
+      "monitoring",
+      "electrical",
+      "computer hardware"
+    ],
+    "18": [
+      "machines",
+      "printing",
+      "apparatus",
+      "air",
+      "equipment",
+      "printing machines",
+      "heat",
+      "control",
+      "systems",
+      "devices"
+    ],
+    "19": [
+      "digital",
+      "tokens",
+      "leather",
+      "assets",
+      "files",
+      "electronic",
+      "digital assets",
+      "non-fungible",
+      "technology",
+      "nature"
+    ],
+    "20": [
+      "advertising",
+      "marketing",
+      "services",
+      "design",
+      "goods",
+      "media",
+      "purposes",
+      "development",
+      "goods services",
+      "marketing services"
+    ],
+    "21": [
+      "games",
+      "game",
+      "video",
+      "computer",
+      "gaming",
+      "electronic",
+      "video games",
+      "computer games",
+      "video game",
+      "playing"
+    ],
+    "22": [
+      "travel",
+      "information",
+      "transport",
+      "booking",
+      "transportation",
+      "reservation",
+      "reservations",
+      "services",
+      "arranging",
+      "tours"
+    ],
+    "23": [
+      "services",
+      "provision",
+      "services field",
+      "services relating",
+      "advisory",
+      "services nature",
+      "management services",
+      "facilities",
+      "consulting",
+      "information"
+    ],
+    "24": [
+      "apparatus",
+      "instruments",
+      "measuring",
+      "apparatus instruments",
+      "optical",
+      "electronic",
+      "devices",
+      "equipment",
+      "sensors",
+      "nature"
+    ],
+    "25": [
+      "driving",
+      "assisted",
+      "vehicles",
+      "autonomous",
+      "automated",
+      "autonomous vehicles",
+      "automated driving",
+      "intervention",
+      "semi-automated",
+      "computer"
+    ],
+    "26": [
+      "paper",
+      "tools",
+      "purposes",
+      "plastic",
+      "packaging",
+      "cardboard",
+      "cleaning",
+      "printed",
+      "boxes",
+      "cards"
+    ],
+    "27": [
+      "security",
+      "monitoring",
+      "protection",
+      "access",
+      "control",
+      "computer security",
+      "remote",
+      "technology",
+      "data",
+      "network"
+    ],
+    "28": [
+      "relating",
+      "services relating",
+      "on-line",
+      "services",
+      "ordering",
+      "computerized",
+      "ordering services",
+      "on-line ordering",
+      "computerized on-line",
+      "consultancy"
+    ],
+    "29": [
+      "construction",
+      "building",
+      "materials",
+      "engineering",
+      "building construction",
+      "buildings",
+      "design",
+      "industrial",
+      "concrete",
+      "products"
+    ],
+    "30": [
+      "cameras",
+      "images",
+      "audio",
+      "video",
+      "photographic",
+      "programs",
+      "recorded",
+      "digital",
+      "processing",
+      "computer programs"
+    ],
+    "31": [
+      "products",
+      "preparations",
+      "food",
+      "beverages",
+      "purposes",
+      "meat",
+      "care",
+      "hair",
+      "cosmetic",
+      "oils"
+    ],
+    "32": [
+      "online",
+      "non-downloadable",
+      "featuring",
+      "software",
+      "temporary",
+      "non-downloadable software",
+      "online non-downloadable",
+      "service",
+      "information",
+      "on-line"
+    ],
+    "33": [
+      "maintenance",
+      "repair",
+      "repair maintenance",
+      "installation",
+      "equipment",
+      "installation services",
+      "maintenance repair",
+      "cleaning",
+      "relating",
+      "power"
+    ],
+    "34": [
+      "goods",
+      "transportation",
+      "transport",
+      "storage",
+      "logistics",
+      "delivery",
+      "freight",
+      "rental",
+      "air",
+      "packaging"
+    ],
+    "35": [
+      "furniture",
+      "lighting",
+      "electric",
+      "apparatus",
+      "nature",
+      "parts",
+      "cables",
+      "racks",
+      "storage",
+      "lighting apparatus"
+    ],
+    "36": [
+      "retail",
+      "store",
+      "retail store",
+      "store services",
+      "services",
+      "online",
+      "online retail",
+      "services online",
+      "services wholesale",
+      "relation"
+    ],
+    "37": [
+      "sports",
+      "events",
+      "entertainment",
+      "sporting",
+      "training",
+      "cards",
+      "video",
+      "television",
+      "cultural",
+      "field sports"
+    ],
+    "38": [
+      "machines",
+      "parts",
+      "industrial",
+      "machine",
+      "tools",
+      "processing",
+      "parts machines",
+      "engines",
+      "installations",
+      "nature"
+    ],
+    "39": [
+      "content",
+      "nature",
+      "users",
+      "software",
+      "audio",
+      "game",
+      "visual",
+      "audiovisual",
+      "enabling",
+      "rewards"
+    ],
+    "40": [
+      "financial",
+      "insurance",
+      "investment",
+      "payment",
+      "processing",
+      "electronic",
+      "credit",
+      "card",
+      "cards",
+      "transactions"
+    ],
+    "41": [
+      "water",
+      "installations",
+      "waste",
+      "air",
+      "industrial",
+      "treatment",
+      "heating",
+      "filters",
+      "valves",
+      "units"
+    ],
+    "42": [
+      "computers",
+      "mobile",
+      "devices",
+      "phones",
+      "mobile phones",
+      "portable",
+      "software",
+      "electronic",
+      "tablet",
+      "application"
+    ],
+    "43": [
+      "gas",
+      "oil",
+      "oil gas",
+      "industrial",
+      "facilities",
+      "engineering",
+      "production",
+      "equipment",
+      "chemical",
+      "fuel"
+    ],
+    "44": [
+      "electronic",
+      "transmission",
+      "information",
+      "networks",
+      "data",
+      "communication",
+      "access",
+      "telecommunications",
+      "global",
+      "network"
+    ],
+    "45": [
+      "virtual",
+      "reality",
+      "tokens",
+      "online",
+      "entertainment",
+      "non-fungible",
+      "non-fungible tokens",
+      "goods",
+      "authenticated",
+      "virtual reality"
+    ],
+    "46": [
+      "estate",
+      "real",
+      "real estate",
+      "rental",
+      "property",
+      "insurance",
+      "commercial",
+      "residential",
+      "field",
+      "brokerage"
+    ],
+    "47": [
+      "business",
+      "information",
+      "business management",
+      "consultancy",
+      "management",
+      "field business",
+      "relating",
+      "e-commerce",
+      "purposes",
+      "commercial"
+    ],
+    "48": [
+      "downloadable",
+      "downloadable computer",
+      "computer",
+      "software",
+      "recorded",
+      "computer software",
+      "downloadable software",
+      "electronic",
+      "mobile",
+      "downloadable recorded"
+    ],
+    "49": [
+      "disorders",
+      "diseases",
+      "preparations",
+      "pharmaceutical",
+      "treatment",
+      "research",
+      "pharmaceutical preparations",
+      "conditions",
+      "related",
+      "prevention"
+    ]
+  }
+}

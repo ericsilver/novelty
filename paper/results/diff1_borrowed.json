@@ -1,0 +1,169 @@
+{
+  "classes": [
+    "009",
+    "042",
+    "039",
+    "035"
+  ],
+  "W": 5,
+  "min_df": 100,
+  "n": 2097093,
+  "within_median": 4.974872468108627,
+  "cross_median": 5.267582603239057,
+  "by_class": {
+    "009": {
+      "n": 801509,
+      "borrowed_share": 0.049113609454167075,
+      "born_new_share": 0.5124633659759279,
+      "mean_gap": -0.2327811378156126
+    },
+    "042": {
+      "n": 512102,
+      "borrowed_share": 0.04563348707874603,
+      "born_new_share": 0.3883445094922496,
+      "mean_gap": -0.20755860186362377
+    },
+    "039": {
+      "n": 84506,
+      "borrowed_share": 0.02929969469623459,
+      "born_new_share": 0.4420277850093485,
+      "mean_gap": -0.7506385393311212
+    },
+    "035": {
+      "n": 698976,
+      "borrowed_share": 0.03197677745730898,
+      "born_new_share": 0.44925004578125716,
+      "mean_gap": -0.3289833924237632
+    }
+  },
+  "examples": {
+    "009": [
+      {
+        "year": 1997,
+        "mark_identification": "EYEGLASSES DIRECT",
+        "borrowed_gap": 1.4884174702948973
+      },
+      {
+        "year": 2002,
+        "mark_identification": "PRECISION SPORT",
+        "borrowed_gap": 1.4199112361060964
+      },
+      {
+        "year": 1991,
+        "mark_identification": "OMNIHOST",
+        "borrowed_gap": 1.4071024934283898
+      },
+      {
+        "year": 2003,
+        "mark_identification": "CASH MAGIC",
+        "borrowed_gap": 1.4022329372929976
+      },
+      {
+        "year": 1994,
+        "mark_identification": "PROFESSIONAL SABRE",
+        "borrowed_gap": 1.3901810000721326
+      },
+      {
+        "year": 1996,
+        "mark_identification": "STAR ALLIANCE",
+        "borrowed_gap": 1.3341304945133707
+      }
+    ],
+    "042": [
+      {
+        "year": 1991,
+        "mark_identification": "HEALTHEXPERT SYSTEMS",
+        "borrowed_gap": 1.1844422332488467
+      },
+      {
+        "year": 2016,
+        "mark_identification": "BYEM",
+        "borrowed_gap": 1.1128561971624453
+      },
+      {
+        "year": 2008,
+        "mark_identification": "EIGHT BRAND",
+        "borrowed_gap": 1.1101601815213673
+      },
+      {
+        "year": 2015,
+        "mark_identification": "CLOSET LONDON",
+        "borrowed_gap": 1.1026076741127326
+      },
+      {
+        "year": 2015,
+        "mark_identification": "CLOSET. LONDON CURVES",
+        "borrowed_gap": 1.098520149668765
+      },
+      {
+        "year": 2011,
+        "mark_identification": "CRISTIANO CABRANO",
+        "borrowed_gap": 1.0982540281989657
+      }
+    ],
+    "039": [
+      {
+        "year": 1997,
+        "mark_identification": "M.O.M.",
+        "borrowed_gap": 1.838921397381537
+      },
+      {
+        "year": 1992,
+        "mark_identification": "N NEUTRAL FILMBOND INC.",
+        "borrowed_gap": 1.8342735461316328
+      },
+      {
+        "year": 1992,
+        "mark_identification": "N NEUTRAL DISTRIBUTING SERVICES INC.",
+        "borrowed_gap": 1.8342735461316328
+      },
+      {
+        "year": 1991,
+        "mark_identification": "POLK",
+        "borrowed_gap": 1.8199719006649477
+      },
+      {
+        "year": 1996,
+        "mark_identification": "LAWPLUS PARTNER",
+        "borrowed_gap": 1.7161493371646035
+      },
+      {
+        "year": 1996,
+        "mark_identification": "LAWPLUS",
+        "borrowed_gap": 1.7121625627460446
+      }
+    ],
+    "035": [
+      {
+        "year": 1993,
+        "mark_identification": "EURO-FRAMES",
+        "borrowed_gap": 1.612469125361871
+      },
+      {
+        "year": 1992,
+        "mark_identification": "GAP KIDS",
+        "borrowed_gap": 1.5585386094462343
+      },
+      {
+        "year": 1992,
+        "mark_identification": "GAP KIDS",
+        "borrowed_gap": 1.5585386094462343
+      },
+      {
+        "year": 1995,
+        "mark_identification": "ATC ACCU-TECH CORPORATION",
+        "borrowed_gap": 1.4126729286293944
+      },
+      {
+        "year": 1991,
+        "mark_identification": "POLYCENTER",
+        "borrowed_gap": 1.4018983540045653
+      },
+      {
+        "year": 1996,
+        "mark_identification": "NATURAL SELECTIONS",
+        "borrowed_gap": 1.3958928240104669
+      }
+    ]
+  }
+}

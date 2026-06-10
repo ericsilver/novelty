@@ -1,0 +1,44 @@
+{
+  "K": 3,
+  "window": [
+    1996,
+    2020
+  ],
+  "n": 872747,
+  "mean_novel_share": 0.010343314496558684,
+  "pearson_novelshare_dkl": 0.28759967137056014,
+  "spearman": 0.21191116122717762,
+  "spearman_p": 0.0,
+  "by_quintile": [
+    {
+      "quintile": 1,
+      "novel_share_mid": NaN,
+      "mean_dkl": NaN,
+      "n": 0
+    },
+    {
+      "quintile": 2,
+      "novel_share_mid": NaN,
+      "mean_dkl": NaN,
+      "n": 0
+    },
+    {
+      "quintile": 3,
+      "novel_share_mid": NaN,
+      "mean_dkl": NaN,
+      "n": 0
+    },
+    {
+      "quintile": 4,
+      "novel_share_mid": 0.0003226096878846576,
+      "mean_dkl": -0.030642134809264213,
+      "n": 698016
+    },
+    {
+      "quintile": 5,
+      "novel_share_mid": 0.050374060544663535,
+      "mean_dkl": 0.10312462453619402,
+      "n": 174731
+    }
+  ]
+}

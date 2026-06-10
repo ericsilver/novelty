@@ -1,0 +1,643 @@
+{
+  "n_themes": 50,
+  "pop_entrant_share_by_year": [
+    {
+      "year": 1990,
+      "share": 0.7666323088455772,
+      "n": 21344
+    },
+    {
+      "year": 1991,
+      "share": 0.7571292775665399,
+      "n": 21040
+    },
+    {
+      "year": 1992,
+      "share": 0.7141427466678797,
+      "n": 21983
+    },
+    {
+      "year": 1993,
+      "share": 0.7039049368721416,
+      "n": 25583
+    },
+    {
+      "year": 1994,
+      "share": 0.7015795067248141,
+      "n": 27287
+    },
+    {
+      "year": 1995,
+      "share": 0.7020050353383687,
+      "n": 32967
+    },
+    {
+      "year": 1996,
+      "share": 0.7069872462905067,
+      "n": 40302
+    },
+    {
+      "year": 1997,
+      "share": 0.6980946354496238,
+      "n": 42669
+    },
+    {
+      "year": 1998,
+      "share": 0.7009836798569193,
+      "n": 44730
+    },
+    {
+      "year": 1999,
+      "share": 0.717510060792876,
+      "n": 58395
+    },
+    {
+      "year": 2000,
+      "share": 0.7213308485977911,
+      "n": 66003
+    },
+    {
+      "year": 2001,
+      "share": 0.6701837469217655,
+      "n": 52790
+    },
+    {
+      "year": 2002,
+      "share": 0.6333110398745416,
+      "n": 43361
+    },
+    {
+      "year": 2003,
+      "share": 0.62863828466369,
+      "n": 41881
+    },
+    {
+      "year": 2004,
+      "share": 0.6468035494526848,
+      "n": 46317
+    },
+    {
+      "year": 2005,
+      "share": 0.657822724568709,
+      "n": 50430
+    },
+    {
+      "year": 2006,
+      "share": 0.666373523816361,
+      "n": 55718
+    },
+    {
+      "year": 2007,
+      "share": 0.6684864071695672,
+      "n": 63379
+    },
+    {
+      "year": 2008,
+      "share": 0.6630351437699681,
+      "n": 62600
+    },
+    {
+      "year": 2009,
+      "share": 0.653549178154825,
+      "n": 60352
+    },
+    {
+      "year": 2010,
+      "share": 0.6520843431895298,
+      "n": 66016
+    },
+    {
+      "year": 2011,
+      "share": 0.6560438825339487,
+      "n": 74745
+    },
+    {
+      "year": 2012,
+      "share": 0.6624827253939878,
+      "n": 78873
+    },
+    {
+      "year": 2013,
+      "share": 0.656503214048223,
+      "n": 81206
+    },
+    {
+      "year": 2014,
+      "share": 0.6703632402273277,
+      "n": 86747
+    },
+    {
+      "year": 2015,
+      "share": 0.6813491894651746,
+      "n": 94012
+    },
+    {
+      "year": 2016,
+      "share": 0.6902069907211056,
+      "n": 96671
+    },
+    {
+      "year": 2017,
+      "share": 0.701030732502179,
+      "n": 105556
+    },
+    {
+      "year": 2018,
+      "share": 0.6981864807025312,
+      "n": 108408
+    },
+    {
+      "year": 2019,
+      "share": 0.68904679085946,
+      "n": 107521
+    },
+    {
+      "year": 2020,
+      "share": 0.7236298249039901,
+      "n": 122904
+    },
+    {
+      "year": 2021,
+      "share": 0.720007941234862,
+      "n": 125925
+    },
+    {
+      "year": 2022,
+      "share": 0.69779959130054,
+      "n": 109616
+    },
+    {
+      "year": 2023,
+      "share": 0.6991934498350239,
+      "n": 98196
+    },
+    {
+      "year": 2024,
+      "share": 0.7262286324786325,
+      "n": 82368
+    }
+  ],
+  "summary": {
+    "theme_entrant_mean": 0.7372,
+    "theme_entrant_median": 0.73,
+    "baseline_mean": 0.7637696370534376,
+    "baseline_median": 0.7666323088455773,
+    "excess_mean": -0.02656963705343747,
+    "excess_median": -0.03663230884557733,
+    "share_excess_positive": 0.44,
+    "share_excess_above_10pp": 0.18,
+    "share_excess_negative": 0.56
+  },
+  "by_theme": [
+    {
+      "theme": 0,
+      "n_early": 50,
+      "theme_entrant_share": 0.86,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.09336769115442267,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 1,
+      "n_early": 50,
+      "theme_entrant_share": 0.8,
+      "baseline_share": 0.7391067248176969,
+      "excess": 0.06089327518230314,
+      "year_min": 1990,
+      "year_max": 1993
+    },
+    {
+      "theme": 2,
+      "n_early": 50,
+      "theme_entrant_share": 0.9,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.1333676911544227,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 3,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 4,
+      "n_early": 50,
+      "theme_entrant_share": 0.72,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.04663230884557734,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 5,
+      "n_early": 50,
+      "theme_entrant_share": 0.86,
+      "baseline_share": 0.7492832982834113,
+      "excess": 0.11071670171658865,
+      "year_min": 1990,
+      "year_max": 1992
+    },
+    {
+      "theme": 6,
+      "n_early": 50,
+      "theme_entrant_share": 0.76,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.006632308845577306,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 7,
+      "n_early": 50,
+      "theme_entrant_share": 0.88,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.11336769115442269,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 8,
+      "n_early": 50,
+      "theme_entrant_share": 0.58,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.18663230884557735,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 9,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 10,
+      "n_early": 50,
+      "theme_entrant_share": 0.72,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.04663230884557734,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 11,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 12,
+      "n_early": 50,
+      "theme_entrant_share": 0.6,
+      "baseline_share": 0.7615006719548972,
+      "excess": -0.16150067195489726,
+      "year_min": 1990,
+      "year_max": 1991
+    },
+    {
+      "theme": 13,
+      "n_early": 50,
+      "theme_entrant_share": 0.8,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.03336769115442273,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 14,
+      "n_early": 50,
+      "theme_entrant_share": 0.72,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.04663230884557734,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 15,
+      "n_early": 50,
+      "theme_entrant_share": 0.78,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.013367691154422712,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 16,
+      "n_early": 50,
+      "theme_entrant_share": 0.84,
+      "baseline_share": 0.7254961863426855,
+      "excess": 0.11450381365731443,
+      "year_min": 1990,
+      "year_max": 1995
+    },
+    {
+      "theme": 17,
+      "n_early": 50,
+      "theme_entrant_share": 0.9,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.1333676911544227,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 18,
+      "n_early": 50,
+      "theme_entrant_share": 0.7,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.06663230884557736,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 19,
+      "n_early": 50,
+      "theme_entrant_share": 0.84,
+      "baseline_share": 0.7635913388362855,
+      "excess": 0.07640866116371448,
+      "year_min": 1990,
+      "year_max": 1991
+    },
+    {
+      "theme": 20,
+      "n_early": 50,
+      "theme_entrant_share": 0.86,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.09336769115442267,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 21,
+      "n_early": 50,
+      "theme_entrant_share": 0.28,
+      "baseline_share": 0.7311763476477282,
+      "excess": -0.4511763476477282,
+      "year_min": 1990,
+      "year_max": 1995
+    },
+    {
+      "theme": 22,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 23,
+      "n_early": 50,
+      "theme_entrant_share": 0.92,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.15336769115442273,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 24,
+      "n_early": 50,
+      "theme_entrant_share": 0.78,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.013367691154422712,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 25,
+      "n_early": 50,
+      "theme_entrant_share": 0.82,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.053367691154422636,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 26,
+      "n_early": 50,
+      "theme_entrant_share": 0.7,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.06663230884557736,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 27,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 28,
+      "n_early": 50,
+      "theme_entrant_share": 0.74,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.026632308845577324,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 29,
+      "n_early": 50,
+      "theme_entrant_share": 0.78,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.013367691154422712,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 30,
+      "n_early": 50,
+      "theme_entrant_share": 0.86,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.09336769115442267,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 31,
+      "n_early": 50,
+      "theme_entrant_share": 0.88,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.11336769115442269,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 32,
+      "n_early": 50,
+      "theme_entrant_share": 0.72,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.04663230884557734,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 33,
+      "n_early": 50,
+      "theme_entrant_share": 0.74,
+      "baseline_share": 0.7615006719548972,
+      "excess": -0.021500671954897244,
+      "year_min": 1990,
+      "year_max": 1991
+    },
+    {
+      "theme": 34,
+      "n_early": 50,
+      "theme_entrant_share": 0.54,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.22663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 35,
+      "n_early": 50,
+      "theme_entrant_share": 0.82,
+      "baseline_share": 0.7632112175851239,
+      "excess": 0.05678878241487606,
+      "year_min": 1990,
+      "year_max": 1991
+    },
+    {
+      "theme": 36,
+      "n_early": 50,
+      "theme_entrant_share": 0.44,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.3266323088455773,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 37,
+      "n_early": 50,
+      "theme_entrant_share": 0.88,
+      "baseline_share": 0.7616907325804779,
+      "excess": 0.11830926741952208,
+      "year_min": 1990,
+      "year_max": 1991
+    },
+    {
+      "theme": 38,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 39,
+      "n_early": 50,
+      "theme_entrant_share": 0.72,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.04663230884557734,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 40,
+      "n_early": 50,
+      "theme_entrant_share": 0.78,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.013367691154422712,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 41,
+      "n_early": 50,
+      "theme_entrant_share": 0.7,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.06663230884557736,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 42,
+      "n_early": 50,
+      "theme_entrant_share": 0.68,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.08663230884557727,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 43,
+      "n_early": 50,
+      "theme_entrant_share": 0.64,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.1266323088455773,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 44,
+      "n_early": 50,
+      "theme_entrant_share": 0.56,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.20663230884557726,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 45,
+      "n_early": 50,
+      "theme_entrant_share": 0.86,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.09336769115442267,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 46,
+      "n_early": 50,
+      "theme_entrant_share": 0.68,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.08663230884557727,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 47,
+      "n_early": 50,
+      "theme_entrant_share": 0.9,
+      "baseline_share": 0.7666323088455773,
+      "excess": 0.1333676911544227,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 48,
+      "n_early": 50,
+      "theme_entrant_share": 0.7,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.06663230884557736,
+      "year_min": 1990,
+      "year_max": 1990
+    },
+    {
+      "theme": 49,
+      "n_early": 50,
+      "theme_entrant_share": 0.66,
+      "baseline_share": 0.7666323088455773,
+      "excess": -0.10663230884557728,
+      "year_min": 1990,
+      "year_max": 1990
+    }
+  ]
+}

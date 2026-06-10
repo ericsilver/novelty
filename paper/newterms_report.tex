@@ -1,0 +1,229 @@
+
+\documentclass[11pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage[hidelinks]{hyperref}
+
+\title{\bfseries New trademark vocabulary, 1995--2021\\
+\large Tokens introduced after a 1990--1994 burn-in, where they originated,\\ and how they spread across industries}
+\author{Eric Silver}
+\date{June 2026 --- working note}
+
+\begin{document}
+\maketitle
+
+\section*{What this is}
+A pass over the full cross-industry token panel
+(\texttt{\_cct\_year\_class\_token\_counts.parquet}, 10{,}617{,}183 rows;
+1990--2021; 42{,}645 distinct tokens across 45 NICE classes) identifying
+vocabulary that was introduced \emph{after} a 1990--1994 burn-in and that
+crossed a substantive-use threshold in the study period 1995--2021. The
+panel reports, for each (year, NICE class, token), the number of granted
+filings whose goods/services text contained that token.
+
+\paragraph{New-term definition.} A token qualifies if its total count over
+1990--1994 is exactly 0, its total count over 1995--2021 is at least 200,
+and it is present in at least 5 distinct study-period years.
+\textbf{Result:} 3{,}653 tokens meet the criteria. The top 100 by total
+study-period count are below.
+
+\paragraph{Origin industry.} The NICE class with the largest count for the
+token in its first two appearance years. This is informative but noisy at
+very small first-window counts (e.g., \textbf{e-commerce} shows origin
+``Household Utensils 21'' on just 2 stray filings in 1995--1996 before
+1997's class 9/42 explosion --- the \texttt{origin\_5y=2} next to
+\texttt{other\_total=146k} makes the noise visible).
+
+\paragraph{Truncation.} Terms born $\geq$2013 have trailing zero
+\texttt{y8}/\texttt{y9}/\texttt{y10} entries because the panel ends in 2021;
+this is data-truncation, not absence (e.g., blockchain $y_8 = 29{,}314$,
+$y_9 = y_{10} = 0$).
+
+\paragraph{HHI.} Herfindahl on non-origin-industry shares. Higher = adoption
+concentrated in a small number of other industries; lower = adoption spread.
+
+\clearpage
+\section*{Overall: top-10 themes' total utilization}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{results/newterms_overall.png}
+\caption{Total registrations across all industries, 1995--2021, for the top
+10 new themes by study-period total. Bar color = origin industry.}
+\end{figure}
+
+\clearpage
+\section*{Per-theme yearly registrations by industry (top 10)}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/websites.png}
+\caption{\textbf{websites} (born 1995, origin 042 Scientific \& Tech Services). Total study-period registrations: 323,376; HHI across other industries 0.14.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/smartphones.png}
+\caption{\textbf{smartphones} (born 1999, origin 009 Software \& Electronics). Total study-period registrations: 166,570; HHI across other industries 0.06.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/e-commerce.png}
+\caption{\textbf{e-commerce} (born 1995, origin 021 Household Utensils). Total study-period registrations: 146,207; HHI across other industries 0.13.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/blogs.png}
+\caption{\textbf{blogs} (born 2001, origin 009 Software \& Electronics). Total study-period registrations: 145,227; HHI across other industries 0.23.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/mp.png}
+\caption{\textbf{mp} (born 1997, origin 009 Software \& Electronics). Total study-period registrations: 131,166; HHI across other industries 0.07.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/podcasts.png}
+\caption{\textbf{podcasts} (born 1998, origin 009 Software \& Electronics). Total study-period registrations: 129,696; HHI across other industries 0.22.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/hoodies.png}
+\caption{\textbf{hoodies} (born 1998, origin 025 Clothing, Footwear \& Headwear). Total study-period registrations: 100,642; HHI across other industries 0.07.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/paas.png}
+\caption{\textbf{paas} (born 1996, origin 042 Scientific \& Tech Services). Total study-period registrations: 91,983; HHI across other industries 0.16.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/cryptocurrency.png}
+\caption{\textbf{cryptocurrency} (born 2013, origin 009 Software \& Electronics). Total study-period registrations: 77,521; HHI across other industries 0.22.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.92\textwidth]{results/newterms_top10/asp.png}
+\caption{\textbf{asp} (born 1998, origin 042 Scientific \& Tech Services). Total study-period registrations: 70,320; HHI across other industries 0.16.}
+\end{figure}
+
+
+\clearpage
+\begin{landscape}
+\section*{Top 100 new themes (full table)}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}l c p{2.6cm} r p{6.2cm} r r r@{}}
+\toprule
+theme & born & origin industry & 5y orig & y1 / y2 / \dots / y10 (count) & HHI\textsubscript{other} & other total & total \\
+\midrule
+\endhead
+websites & 1995 & 042 Scientific \& Tech & 2,208 & \scriptsize{28 / 224 / 363 / 1,201 / 3,964 / 8,151 / 3,647 / 2,768 / 2,549 / 3,146} & 0.14 & 250,283 & 323,376 \\
+smartphones & 1999 & 009 Software \& Electr & 26 & \scriptsize{1 / 23 / 37 / 6 / 10 / 24 / 151 / 98 / 157 / 225} & 0.06 & 72,058 & 166,570 \\
+e-commerce & 1995 & 021 Household Utensils & 2 & \scriptsize{1 / 0 / 48 / 334 / 2,559 / 7,166 / 3,012 / 1,170 / 1,037 / 1,480} & 0.13 & 145,654 & 146,207 \\
+blogs & 2001 & 009 Software \& Electr & 47 & \scriptsize{8 / 10 / 2 / 22 / 549 / 1,327 / 3,265 / 3,715 / 3,950 / 5,026} & 0.23 & 130,468 & 145,227 \\
+mp & 1997 & 009 Software \& Electr & 800 & \scriptsize{19 / 60 / 264 / 1,121 / 701 / 921 / 842 / 1,913 / 2,541 / 4,244} & 0.07 & 79,709 & 131,166 \\
+podcasts & 1998 & 009 Software \& Electr & 2 & \scriptsize{10 / 0 / 0 / 0 / 0 / 0 / 1 / 79 / 400 / 2,298} & 0.22 & 105,437 & 129,696 \\
+hoodies & 1998 & 025 Clothing, Footwear & 27 & \scriptsize{1 / 6 / 2 / 9 / 15 / 38 / 66 / 67 / 71 / 173} & 0.07 & 40,173 & 100,642 \\
+paas & 1996 & 042 Scientific \& Tech & 3 & \scriptsize{3 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0} & 0.16 & 55,700 & 91,983 \\
+cryptocurrency & 2013 & 009 Software \& Electr & 737 & \scriptsize{54 / 132 / 34 / 273 / 2,348 / 16,005 / 9,394 / 9,968 / 39,313 / 0} & 0.22 & 60,090 & 77,521 \\
+asp & 1998 & 042 Scientific \& Tech & 921 & \scriptsize{27 / 45 / 507 / 590 / 706 / 710 / 671 / 868 / 1,868 / 2,121} & 0.16 & 43,658 & 70,320 \\
+blockchain & 2014 & 009 Software \& Electr & 4,048 & \scriptsize{41 / 184 / 547 / 2,278 / 13,684 / 11,966 / 10,257 / 29,314 / 0 / 0} & 0.20 & 52,658 & 68,271 \\
+webinars & 2002 & 041 Education \& Enter & 59 & \scriptsize{1 / 3 / 15 / 50 / 94 / 178 / 269 / 690 / 1,344 / 1,801} & 0.14 & 34,861 & 59,945 \\
+cbd & 2013 & 005 Pharmaceuticals & 756 & \scriptsize{170 / 368 / 343 / 526 / 1,120 / 4,455 / 22,647 / 12,561 / 16,016 / 0} & 0.09 & 48,729 & 58,206 \\
+delta- & 2014 & 005 Pharmaceuticals & 1,102 & \scriptsize{26 / 16 / 51 / 695 / 4,575 / 20,274 / 15,066 / 13,351 / 0 / 0} & 0.09 & 47,251 & 54,054 \\
+cloud-based & 2000 & 042 Scientific \& Tech & 2 & \scriptsize{1 / 1 / 0 / 0 / 0 / 0 / 3 / 4 / 3 / 22} & 0.20 & 30,920 & 50,396 \\
+internet-based & 1995 & 042 Scientific \& Tech & 132 & \scriptsize{4 / 21 / 21 / 53 / 327 / 813 / 494 / 337 / 198 / 295} & 0.14 & 35,836 & 46,813 \\
+blogging & 2003 & 041 Education \& Enter & 144 & \scriptsize{1 / 0 / 59 / 261 / 563 / 782 / 709 / 1,111 / 2,963 / 3,761} & 0.18 & 39,255 & 44,497 \\
+caf & 1999 & 042 Scientific \& Tech & 33 & \scriptsize{7 / 118 / 116 / 71 / 204 / 334 / 486 / 371 / 407 / 800} & 0.22 & 42,422 & 43,126 \\
+webcasts & 1998 & 041 Education \& Enter & 51 & \scriptsize{10 / 14 / 119 / 19 / 54 / 43 / 35 / 80 / 138 / 1,614} & 0.14 & 29,032 & 42,792 \\
+cyber & 1995 & 035 Advertising \& Ret & 5 & \scriptsize{1 / 2 / 1 / 4 / 8 / 33 / 5 / 19 / 20 / 275} & 0.18 & 31,012 & 35,333 \\
+iot & 2012 & 042 Scientific \& Tech & 547 & \scriptsize{6 / 11 / 118 / 637 / 1,437 / 6,991 / 5,646 / 5,986 / 6,104 / 7,621} & 0.15 & 26,532 & 34,557 \\
+nondownloadable & 1996 & 042 Scientific \& Tech & 120 & \scriptsize{2 / 1 / 5 / 40 / 191 / 164 / 81 / 111 / 106 / 170} & 0.16 & 25,089 & 33,498 \\
+nutraceuticals & 1995 & 001 Chemicals \& Indus & 30 & \scriptsize{12 / 8 / 52 / 87 / 168 / 206 / 313 / 300 / 263 / 313} & 0.25 & 30,185 & 32,580 \\
+smartphone & 2000 & 042 Scientific \& Tech & 1 & \scriptsize{1 / 0 / 1 / 0 / 2 / 7 / 1 / 0 / 3 / 30} & 0.46 & 29,238 & 31,938 \\
+rfid & 1995 & 009 Software \& Electr & 29 & \scriptsize{9 / 2 / 6 / 17 / 4 / 33 / 33 / 43 / 82 / 259} & 0.08 & 20,808 & 31,446 \\
+smartwatches & 2013 & 009 Software \& Electr & 4,076 & \scriptsize{60 / 58 / 288 / 2,360 / 4,505 / 4,679 / 5,333 / 6,417 / 7,048 / 0} & 0.06 & 14,799 & 30,748 \\
+intranet & 1995 & 042 Scientific \& Tech & 454 & \scriptsize{7 / 200 / 314 / 246 / 695 / 3,026 / 2,755 / 886 / 1,128 / 1,522} & 0.15 & 22,831 & 28,444 \\
+intranets & 1995 & 009 Software \& Electr & 235 & \scriptsize{5 / 92 / 68 / 68 / 647 / 1,113 / 1,439 / 484 / 475 / 994} & 0.14 & 23,405 & 28,117 \\
+marijuana & 1995 & 042 Scientific \& Tech & 2 & \scriptsize{3 / 0 / 2 / 0 / 1 / 3 / 1 / 2 / 2 / 1} & 0.08 & 26,441 & 27,619 \\
+user-generated & 1996 & 035 Advertising \& Ret & 9 & \scriptsize{2 / 0 / 0 / 9 / 15 / 10 / 0 / 1 / 0 / 20} & 0.16 & 22,845 & 25,673 \\
+esports & 2007 & 042 Scientific \& Tech & 1 & \scriptsize{3 / 0 / 0 / 0 / 0 / 1 / 0 / 15 / 41 / 867} & 0.15 & 22,935 & 24,650 \\
+chatrooms & 1996 & 042 Scientific \& Tech & 39 & \scriptsize{3 / 7 / 10 / 23 / 104 / 23 / 41 / 74 / 12 / 66} & 0.13 & 21,685 & 24,520 \\
+voip & 1998 & 038 Telecommunications & 54 & \scriptsize{4 / 39 / 78 / 59 / 33 / 39 / 233 / 717 / 852 / 1,039} & 0.23 & 18,188 & 24,462 \\
+non-fungible & 2000 & 035 Advertising \& Ret & 1 & \scriptsize{1 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 0} & 0.17 & 19,987 & 23,909 \\
+cybersecurity & 2003 & 035 Advertising \& Ret & 1 & \scriptsize{1 / 0 / 1 / 0 / 10 / 1 / 4 / 1 / 101 / 44} & 0.22 & 19,799 & 22,778 \\
+e-liquid & 2009 & 034 Tobacco \& Smokers & 168 & \scriptsize{1 / 0 / 1 / 7 / 734 / 1,872 / 2,697 / 2,546 / 2,391 / 2,729} & 0.11 & 10,233 & 22,597 \\
+cor & 1999 & 020 Furniture & 12 & \scriptsize{5 / 2 / 3 / 12 / 158 / 145 / 379 / 521 / 684 / 264} & 0.10 & 20,191 & 21,542 \\
+vegan & 1997 & 029 Meat, Dairy \& Pre & 9 & \scriptsize{1 / 6 / 6 / 15 / 2 / 18 / 11 / 20 / 11 / 13} & 0.13 & 17,239 & 20,867 \\
+pdas & 1997 & 009 Software \& Electr & 251 & \scriptsize{9 / 10 / 56 / 266 / 240 / 254 / 232 / 556 / 623 / 742} & 0.08 & 14,741 & 20,768 \\
+moisture-wicking & 2002 & 025 Clothing, Footwear & 10 & \scriptsize{7 / 3 / 0 / 1 / 2 / 14 / 1,061 / 1,276 / 970 / 907} & 0.07 & 6,795 & 20,509 \\
+blog & 2004 & 041 Education \& Enter & 285 & \scriptsize{3 / 49 / 89 / 344 / 567 / 384 / 479 / 1,153 / 937 / 818} & 0.14 & 13,763 & 19,274 \\
+mindfulness & 1999 & 041 Education \& Enter & 5 & \scriptsize{1 / 3 / 3 / 3 / 1 / 3 / 65 / 4 / 2 / 2} & 0.11 & 13,092 & 18,719 \\
+cannabidiol & 2011 & 035 Advertising \& Ret & 48 & \scriptsize{1 / 0 / 3 / 115 / 237 / 196 / 439 / 1,499 / 8,033 / 3,737} & 0.11 & 16,352 & 18,667 \\
+apps & 1998 & 009 Software \& Electr & 3 & \scriptsize{1 / 1 / 0 / 4 / 0 / 0 / 0 / 0 / 0 / 0} & 0.10 & 13,161 & 17,165 \\
+streamed & 1996 & 009 Software \& Electr & 30 & \scriptsize{1 / 22 / 6 / 46 / 134 / 213 / 325 / 187 / 379 / 450} & 0.19 & 13,886 & 16,476 \\
+crypto & 1995 & 009 Software \& Electr & 6 & \scriptsize{1 / 0 / 11 / 2 / 0 / 1 / 1 / 0 / 0 / 18} & 0.19 & 12,446 & 15,920 \\
+e-sports & 2012 & 041 Education \& Enter & 115 & \scriptsize{1 / 1 / 25 / 467 / 193 / 632 / 1,715 / 2,094 / 4,832 / 5,194} & 0.12 & 11,296 & 15,154 \\
+ringtones & 2001 & 009 Software \& Electr & 147 & \scriptsize{19 / 52 / 30 / 134 / 319 / 267 / 1,016 / 1,135 / 776 / 802} & 0.16 & 11,521 & 15,142 \\
+hyperlinks & 1995 & 042 Scientific \& Tech & 59 & \scriptsize{1 / 1 / 17 / 24 / 169 / 344 / 377 / 215 / 217 / 317} & 0.31 & 12,870 & 14,804 \\
+ecommerce & 1998 & 042 Scientific \& Tech & 242 & \scriptsize{42 / 123 / 339 / 127 / 42 / 48 / 41 / 97 / 279 / 86} & 0.17 & 10,610 & 14,545 \\
+sms & 1998 & 009 Software \& Electr & 104 & \scriptsize{8 / 11 / 72 / 131 / 146 / 57 / 182 / 162 / 223 / 276} & 0.17 & 11,131 & 14,092 \\
+webcasting & 1996 & 041 Education \& Enter & 146 & \scriptsize{2 / 3 / 41 / 308 / 489 / 256 / 131 / 164 / 133 / 239} & 0.17 & 11,679 & 14,036 \\
+worlds & 1995 & 009 Software \& Electr & 28 & \scriptsize{6 / 11 / 23 / 4 / 24 / 115 / 1 / 1 / 9 / 13} & 0.15 & 10,825 & 14,025 \\
+extranets & 1995 & 009 Software \& Electr & 116 & \scriptsize{3 / 3 / 15 / 45 / 461 / 492 / 589 / 156 / 172 / 216} & 0.09 & 11,816 & 13,940 \\
+seed-based & 1996 & 030 Coffee, Tea, Baker & 3 & \scriptsize{3 / 0 / 3 / 4 / 1 / 0 / 0 / 2 / 0 / 9} & 0.29 & 10,344 & 13,205 \\
+self-fulfillment & 1997 & 009 Software \& Electr & 33 & \scriptsize{2 / 63 / 0 / 86 / 3 / 3 / 6 / 170 / 148 / 364} & 0.22 & 11,908 & 13,084 \\
+cellphones & 1995 & 009 Software \& Electr & 2 & \scriptsize{2 / 0 / 0 / 0 / 0 / 2 / 7 / 21 / 80 / 50} & 0.06 & 3,488 & 12,792 \\
+cryptocurrencies & 2013 & 009 Software \& Electr & 237 & \scriptsize{3 / 4 / 9 / 191 / 796 / 2,972 / 1,356 / 948 / 6,498 / 0} & 0.18 & 10,234 & 12,777 \\
+virtualization & 1999 & 009 Software \& Electr & 29 & \scriptsize{2 / 4 / 9 / 13 / 11 / 29 / 21 / 34 / 80 / 76} & 0.28 & 9,242 & 12,741 \\
+blockchain-based & 2015 & 042 Scientific \& Tech & 991 & \scriptsize{1 / 7 / 194 / 1,245 / 2,052 / 1,600 / 7,606 / 0 / 0 / 0} & 0.20 & 9,418 & 12,705 \\
+uavs & 2003 & 012 Vehicles & 24 & \scriptsize{7 / 0 / 2 / 15 / 35 / 2 / 11 / 33 / 21 / 76} & 0.12 & 10,003 & 12,319 \\
+outsource & 1995 & 035 Advertising \& Ret & 20 & \scriptsize{5 / 2 / 6 / 16 / 13 / 30 / 35 / 29 / 11 / 56} & 0.18 & 8,815 & 11,978 \\
+rotorcraft & 2000 & 028 Toys, Games \& Spo & 5 & \scriptsize{9 / 0 / 9 / 1 / 1 / 0 / 4 / 3 / 81 / 0} & 0.04 & 11,219 & 11,735 \\
+authenticated & 1996 & 009 Software \& Electr & 44 & \scriptsize{3 / 1 / 69 / 4 / 61 / 59 / 22 / 21 / 9 / 6} & 0.14 & 8,332 & 11,425 \\
+smartglasses & 2014 & 009 Software \& Electr & 3,417 & \scriptsize{17 / 48 / 1,011 / 1,790 / 2,300 / 1,936 / 2,010 / 2,205 / 0 / 0} & 0.06 & 4,623 & 11,317 \\
+webpages & 1996 & 042 Scientific \& Tech & 143 & \scriptsize{6 / 8 / 20 / 95 / 200 / 41 / 11 / 17 / 80 / 26} & 0.15 & 8,066 & 11,062 \\
+selfie & 2011 & 009 Software \& Electr & 64 & \scriptsize{1 / 0 / 0 / 66 / 85 / 225 / 590 / 695 / 2,654 / 3,540} & 0.05 & 4,369 & 10,968 \\
+nutraceutical & 1995 & 032 Beer \& Soft Drink & 6 & \scriptsize{1 / 1 / 40 / 56 / 45 / 56 / 182 / 39 / 50 / 91} & 0.14 & 10,478 & 10,930 \\
+geospatial & 1995 & 042 Scientific \& Tech & 14 & \scriptsize{3 / 0 / 8 / 8 / 14 / 30 / 30 / 21 / 55 / 120} & 0.15 & 7,391 & 10,183 \\
+e-mails & 1995 & 009 Software \& Electr & 23 & \scriptsize{2 / 0 / 5 / 12 / 42 / 143 / 34 / 70 / 55 / 94} & 0.17 & 7,564 & 9,849 \\
+datacenter & 1999 & 035 Advertising \& Ret & 6 & \scriptsize{9 / 6 / 10 / 1 / 3 / 0 / 2 / 2 / 9 / 12} & 0.26 & 8,592 & 9,740 \\
+biofuels & 2002 & 001 Chemicals \& Indus & 10 & \scriptsize{7 / 22 / 6 / 42 / 83 / 366 / 719 / 570 / 549 / 640} & 0.08 & 8,709 & 9,432 \\
+ai & 1995 & 007 Machines \& Power  & 1 & \scriptsize{3 / 0 / 0 / 0 / 5 / 5 / 2 / 0 / 0 / 0} & 0.21 & 9,360 & 9,413 \\
+intermediation & 1997 & 036 Insurance \& Finan & 25 & \scriptsize{2 / 22 / 12 / 57 / 17 / 1 / 6 / 10 / 36 / 18} & 0.10 & 8,696 & 9,413 \\
+malware & 2003 & 009 Software \& Electr & 89 & \scriptsize{1 / 34 / 27 / 87 / 142 / 85 / 131 / 162 / 211 / 314} & 0.32 & 6,693 & 9,347 \\
+loading-unloading & 2002 & 007 Machines \& Power  & 48 & \scriptsize{1 / 24 / 84 / 101 / 256 / 61 / 111 / 101 / 170 / 369} & 0.06 & 7,557 & 8,708 \\
+nfc & 2005 & 009 Software \& Electr & 54 & \scriptsize{5 / 0 / 1 / 54 / 49 / 12 / 171 / 737 / 1,047 / 774} & 0.13 & 5,558 & 8,672 \\
+software-as-a-service & 2007 & 042 Scientific \& Tech & 119 & \scriptsize{25 / 13 / 59 / 44 / 80 / 181 / 235 / 417 / 614 / 395} & 0.21 & 4,739 & 8,486 \\
+optimisation & 1997 & 037 Construction \& Re & 7 & \scriptsize{13 / 0 / 33 / 27 / 1 / 3 / 6 / 14 / 56 / 27} & 0.12 & 8,173 & 8,449 \\
+vpn & 1997 & 009 Software \& Electr & 68 & \scriptsize{5 / 1 / 20 / 103 / 85 / 46 / 86 / 68 / 109 / 118} & 0.19 & 6,023 & 8,406 \\
+collaborate & 1996 & 042 Scientific \& Tech & 67 & \scriptsize{3 / 0 / 2 / 31 / 116 / 87 / 78 / 21 / 30 / 71} & 0.20 & 5,493 & 8,339 \\
+webcams & 1999 & 042 Scientific \& Tech & 21 & \scriptsize{47 / 14 / 13 / 33 / 11 / 28 / 59 / 18 / 61 / 118} & 0.56 & 7,957 & 8,288 \\
+video-receivers & 1997 & 038 Telecommunications & 6 & \scriptsize{32 / 42 / 0 / 0 / 2 / 0 / 0 / 3 / 4 / 12} & 0.43 & 7,961 & 8,265 \\
+subscription-based & 1997 & 038 Telecommunications & 16 & \scriptsize{3 / 4 / 19 / 40 / 38 / 4 / 23 / 40 / 40 / 50} & 0.15 & 7,809 & 8,185 \\
+faith-based & 1999 & 042 Scientific \& Tech & 27 & \scriptsize{32 / 18 / 15 / 32 / 90 / 74 / 29 / 114 / 102 / 62} & 0.18 & 7,883 & 8,132 \\
+vague & 2003 & 035 Advertising \& Ret & 34 & \scriptsize{4 / 46 / 76 / 156 / 188 / 80 / 26 / 91 / 234 / 168} & 0.06 & 7,183 & 8,098 \\
+hand-sanitizing & 2006 & 005 Pharmaceuticals & 196 & \scriptsize{7 / 51 / 74 / 129 / 63 / 94 / 102 / 60 / 61 / 74} & 0.13 & 3,699 & 8,084 \\
+inkjets & 2000 & 009 Software \& Electr & 2 & \scriptsize{4 / 0 / 0 / 2 / 1 / 2 / 0 / 3 / 0 / 1} & 0.08 & 6,880 & 8,026 \\
+hookah & 2001 & 043 Restaurants \& Hot & 3 & \scriptsize{1 / 1 / 6 / 7 / 32 / 26 / 6 / 33 / 72 / 165} & 0.42 & 7,714 & 7,959 \\
+price-comparison & 2004 & 035 Advertising \& Ret & 307 & \scriptsize{2 / 0 / 0 / 157 / 273 / 294 / 624 / 1,131 / 873 / 542} & 0.13 & 3,488 & 7,717 \\
+microdermabrasion & 1998 & 010 Medical Devices & 38 & \scriptsize{4 / 23 / 46 / 31 / 23 / 31 / 69 / 280 / 202 / 213} & 0.23 & 6,657 & 7,698 \\
+hepatological & 1998 & 005 Pharmaceuticals & 7 & \scriptsize{3 / 1 / 1 / 4 / 1 / 2 / 0 / 0 / 41 / 223} & 0.10 & 2,817 & 7,597 \\
+bullying & 1998 & 041 Education \& Enter & 21 & \scriptsize{3 / 4 / 4 / 15 / 17 / 1 / 21 / 5 / 97 / 50} & 0.10 & 5,825 & 7,567 \\
+cannabinoids & 1998 & 005 Pharmaceuticals & 1 & \scriptsize{1 / 0 / 0 / 0 / 0 / 0 / 0 / 0 / 8 / 0} & 0.08 & 6,395 & 7,545 \\
+bill-posting & 1995 & 035 Advertising \& Ret & 5 & \scriptsize{3 / 6 / 1 / 7 / 0 / 15 / 41 / 72 / 46 / 66} & 0.06 & 5,426 & 7,509 \\
+bioinformatics & 1996 & 009 Software \& Electr & 145 & \scriptsize{12 / 23 / 28 / 71 / 255 / 236 / 314 / 103 / 110 / 174} & 0.18 & 6,039 & 7,453 \\
+in-company & 1996 & 016 Paper, Print \& Of & 3 & \scriptsize{6 / 5 / 0 / 0 / 1 / 0 / 3 / 0 / 3 / 3} & 0.48 & 7,009 & 7,421 \\
+toboggan & 1995 & 025 Clothing, Footwear & 4 & \scriptsize{1 / 4 / 1 / 0 / 0 / 0 / 1 / 14 / 2 / 22} & 0.11 & 1,748 & 7,360 \\
+get-togethers & 2002 & 016 Paper, Print \& Of & 7 & \scriptsize{1 / 4 / 17 / 9 / 15 / 184 / 409 / 239 / 236 / 262} & 0.24 & 7,095 & 7,348 \\
+co-working & 2008 & 036 Insurance \& Finan & 16 & \scriptsize{1 / 1 / 2 / 19 / 24 / 89 / 105 / 224 / 327 / 834} & 0.15 & 5,491 & 7,238 \\
+\bottomrule
+\end{longtable}
+}
+\end{landscape}
+
+\end{document}

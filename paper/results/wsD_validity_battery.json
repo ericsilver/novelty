@@ -1,0 +1,41 @@
+{
+  "patent_corr": {
+    "r_pearson_raw": 0.010093956450777541,
+    "r_pearson_log": -0.00920123810247264,
+    "r_spearman": -0.014701849664930567,
+    "spearman_p": 8.101058803207552e-10,
+    "n": 174569
+  },
+  "population": {
+    "n_firms": 7431,
+    "mean_dkl": -0.017632769271342268,
+    "sd_dkl": 0.1748832083010516
+  },
+  "lists": {
+    "BCG Most Innovative (2021-23 union)": {
+      "n_matched": 31,
+      "listed_mean_dkl": 0.032050620429869156,
+      "listed_median_dkl": 0.0324528842538947,
+      "baseline_mean_dkl": -0.01771694017271254,
+      "diff_in_pop_sd": 0.2845759812280527,
+      "mannwhitney_p": 0.011723466631993845,
+      "listed_median_pctile": 67.15112367110753
+    },
+    "MIT TR 50 Smartest Companies (2015)": {
+      "n_matched": 17,
+      "listed_mean_dkl": 0.06909556891434504,
+      "listed_median_dkl": 0.0706143510016051,
+      "baseline_mean_dkl": -0.01779149794741506,
+      "diff_in_pop_sd": 0.496829099293449,
+      "mannwhitney_p": 0.0005970676138662714,
+      "listed_median_pctile": 76.20777822634908
+    },
+    "POOLED": {
+      "n_matched": 43,
+      "listed_mean_dkl": 0.04242641285634057,
+      "baseline_mean_dkl": -0.01781995328346958,
+      "diff_in_pop_sd": 0.34449485874080843,
+      "mannwhitney_p": 0.0002768351447161696
+    }
+  }
+}

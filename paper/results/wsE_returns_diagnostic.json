@@ -1,0 +1,73 @@
+{
+  "profile": {
+    "1": {
+      "debut_coef": 0.03632147003109047,
+      "debut_se": 0.01842290655689357,
+      "debut_t": 1.9715385256350624,
+      "debut_n": 1446,
+      "fy_coef": 0.01507579056536411,
+      "fy_se": 0.005092062174959311,
+      "fy_t": 2.9606454217116025,
+      "fy_n": 16334,
+      "ratio_debut_over_fy": 2.4092580666739476
+    },
+    "2": {
+      "debut_coef": 0.06673348611245597,
+      "debut_se": 0.027237192620691623,
+      "debut_t": 2.450086800126372,
+      "debut_n": 1446,
+      "fy_coef": 0.035456970812037296,
+      "fy_se": 0.009225955590717034,
+      "fy_t": 3.843175968429045,
+      "fy_n": 16332,
+      "ratio_debut_over_fy": 1.882097781737198
+    },
+    "3": {
+      "debut_coef": 0.19202435662767614,
+      "debut_se": 0.055164259174006046,
+      "debut_t": 3.4809559577691194,
+      "debut_n": 1446,
+      "fy_coef": 0.049949226962916905,
+      "fy_se": 0.013354318720177996,
+      "fy_t": 3.74030514094628,
+      "fy_n": 16330,
+      "ratio_debut_over_fy": 3.8443909606496622
+    },
+    "4": {
+      "debut_coef": 0.28441256156523176,
+      "debut_se": 0.08614011529780052,
+      "debut_t": 3.301743451143185,
+      "debut_n": 1447,
+      "fy_coef": 0.04103616623300986,
+      "fy_se": 0.016374608906299166,
+      "fy_t": 2.506085273109858,
+      "fy_n": 16329,
+      "ratio_debut_over_fy": 6.9307780836614254
+    },
+    "5": {
+      "debut_coef": 0.14881036711336584,
+      "debut_se": 0.0651537020056073,
+      "debut_t": 2.2839894362496675,
+      "debut_n": 1447,
+      "fy_coef": 0.01594899210956588,
+      "fy_se": 0.020313881590178155,
+      "fy_t": 0.7851277481738046,
+      "fy_n": 16329,
+      "ratio_debut_over_fy": 9.3303931741312
+    }
+  },
+  "verdict": {
+    "coef_is_per_sigma": true,
+    "debut_excess_profile": [
+      0.03632147003109047,
+      0.06673348611245597,
+      0.19202435662767614,
+      0.28441256156523176,
+      0.14881036711336584
+    ],
+    "peak_horizon": 4,
+    "non_monotone": true,
+    "debut_4y_over_firmyear_4y": 6.9307780836614254,
+    "recommendation": "Drop the +28pp/sigma debut figure from the headline. It peaks at 4y and collapses at 5y, and is ~7x the firm-year estimate on 11x less data -- a small-sample right-tail signature. Report the firm-year effect (+4pp/sigma at 4y, t~2.5, n=16k) as the defensible financial association, pending value-weighted, delisting-adjusted, 5/95-winsorized re-estimation."
+  }
+}
