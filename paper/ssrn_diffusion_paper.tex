@@ -12,8 +12,9 @@
 
 \newcommand{\dkl}{$\Delta$KL}
 
-\title{\bfseries How business-model vocabulary diffuses across US industries:\\
-\large Text-based evidence from trademark filings, with kill-condition tests of the diffusion structure}
+\title{\bfseries Vocabulary resonance in US trademark filings:\\
+\large Cross-industry diffusion structure, the U-shape in registration outcomes,\\
+and kill conditions for an applied DeDeo measure}
 \author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone.}}
 \date{June 2026 working paper}
 
@@ -21,34 +22,137 @@
 \maketitle
 
 \begin{abstract}
-\noindent Existing innovation measures track invention (patents, R\&D) or analyst opinion (expert ``most innovative'' lists). Both leave most service-sector and business-model innovation unmeasured. This paper applies the DeDeo prospective/retrospective Kullback--Leibler resonance framework to a USPTO trademark corpus of 2.32 million granted filings (1990--2024) across four canonical industries --- software (NICE 009), tech-services (042), transport (039), and advertising/retail (035) --- to construct a text-based novelty signal and a directly-measured cross-industry diffusion record. Three findings. First, the constructed signal \dkl{} is orthogonal-to-negative with patents within firms ($-0.05\sigma$, $t = -8$ on 14{,}463 firms), establishing it as a distinct novelty channel rather than a noisy patent proxy. Second, business-model vocabularies diffuse asymmetrically across industries: software and tech-services origin themes (cloud, AI, mobile-app, as-a-service, blockchain, streaming) arrive in transport and retail with multi-year lags of one to thirteen years, and the diffusion structure passes two independent kill-condition tests --- random (class, year) label shuffles destroy trajectory autocorrelation at $z = +46$ under LDA topic extraction and $z = +60.7$ under independently-fitted NMF, with seven of ten hand-curated seed phrases independently rediscovered by NMF as topics at $T = 50$. Third, the Schumpeter Mark~I (entrant-led innovation) hypothesis collapses on year-matched baseline contrast: raw 73.7\% entrant share among the 50 earliest carriers per theme becomes a $-2.7$pp \emph{excess} once the corpus's high overall debut rate (76.4\%) is netted out. The bounded contribution is a reproducible cross-industry text-based novelty measure that is distinct from patents, a directly-measured diffusion record with method-invariant structure, and a worked discipline result on the kind of base-rate contrast that distinguishes useful from inflated findings in trademark-text work. Code and per-firm-year panels are released for replication.
+\noindent The DeDeo prospective/retrospective Kullback--Leibler resonance
+framework \citep{Murdock2017, Barron2018} was developed on cognitive corpora in
+which the author of each document is the agent whose novelty is being measured:
+Darwin's reading notebooks, parliamentary speeches of the French Revolution.
+This paper asks whether the framework produces interpretable structure on a
+qualitatively different corpus type --- the goods/services descriptions of US
+trademark filings, which are commercially-incentivised text drafted by counsel
+to define legal protection scope. The corpus is 2.32 million granted USPTO
+filings, 1990--2024, across four NICE classes selected to exercise a canonical
+cross-industry phenomenon (software 009, tech-services 042, transport 039,
+advertising/retail 035).
+
+\noindent The construct, denoted \dkl{}, produces three empirical patterns.
+\textbf{First}, cross-industry vocabulary diffusion is directly traceable:
+software- and tech-services-origin themes (cloud, AI, mobile-app, as-a-service,
+blockchain, streaming, AR/VR) arrive in transport and advertising/retail with
+multi-year lags of 1--13 years. The diffusion structure passes a shuffle null
+on (class, year) label permutations at $z = +46$ under LDA topic extraction
+and replicates at $z = +60.7$ under independently-fitted non-negative matrix
+factorization on the same vocabulary. The shuffle test confirms that the
+panel has temporal structure that survives label permutation; the
+cross-paradigm test (embedding-cluster or graph community detection) is the
+natural methodological extension and is not run here. \textbf{Second}, \dkl{}
+produces a U-shape in post-registration §8 maintenance outcomes. At the
+filing level, filings whose vocabulary moves with the field and filings whose
+vocabulary moves against it both maintain registration 5--10 percentage points
+more often than the flux-neutral middle. At the token level the gap is
+sharper: marks containing distinctive-tail tokens (typesetting, dial-up,
+blockchain, NFT) survive at 50--80\% while marks containing flux-neutral
+middle tokens (organisational, conformity, freighting) survive at 11--26\%.
+\textbf{Third}, the signal is orthogonal-to-negative with patents within firm:
+$-0.048\sigma$, $t = -7.9$ on 14{,}463 trademark-and-patent-matched firms.
+\dkl{} is empirically distinct from patent-track invention.
+
+\noindent A worked discipline result: the raw Schumpeter Mark~I read of new
+themes (73.7\% entrant-dominated) collapses on year-matched baseline contrast
+to a $-2.7$pp mean excess once the corpus's 76.4\% overall debut rate is
+netted out. The paper reports this rather than burying it.
+
+\noindent The paper defends a bounded reading: \dkl{} is a measurement of
+lexical resonance with interpretable empirical structure on commercial text,
+not an innovation measure in the strong sense. Code and per-firm-year panels
+are released for replication at \url{https://github.com/ericsilver/novelty}.
 \end{abstract}
 
 \section{Introduction}
 
-Quantitative innovation research runs on three main rails: patent counts, patent-citation impact, and R\&D spending intensity \citep{Griliches1990, Trajtenberg1990, HallJaffeTrajtenberg2005}. All three are largely silent on the parts of the economy where most modern firm value is produced. Patents miss most service-sector activity, business-model innovation, and consumer-facing brand introductions. R\&D measurement is loose on what counts as research. Expert lists like BCG Most Innovative or MIT Technology Review's TR50 are non-replicable and survivor-biased. The standard apparatus measures invention reasonably; it does not measure most of what economists and managers mean when they say ``innovation.''
+\citet{Murdock2017} introduced a measurement framework for directional novelty
+in time-ordered text corpora: for each document, compare its token distribution
+to aggregated distributions of past documents (prospective surprise) and
+future documents (retrospective surprise). Their signed difference --- positive
+when a document is unusual against its recent past and close to its near
+future --- they call \emph{resonance}. The framework was developed on Charles
+Darwin's reading notebooks and extended in \citet{Barron2018} to French
+Revolution parliamentary debates. Both corpora share a salient property: the
+text is authored by the agent whose novelty is the object of measurement, and
+the author's cognitive or rhetorical state is what the framework is designed
+to track.
 
-Trademark filings are public, dated, text-bearing, and filed contemporaneously with commercial intent. The goods/services descriptions applicants write to define protection scope are forced disclosures: the language must be wide enough to cover the intended commercial activity and narrow enough to be granted. Trademarks have been used for business-formation work \citep{Dinlersoz2018} and for distinguishing protective filings from substantive product introductions \citep{Graham2013}. The text of those filings has been mostly unused for innovation measurement. The closest methodological precedent in the empirical-text-economics literature is the text-based industry classification of \citet{HobergPhillips2016}, which extracts industry information from 10-K filings; my approach is methodologically related but operates on a different corpus (USPTO trademarks rather than 10-Ks), with a different signal (resonance over time rather than text similarity across firms), and at a different unit of analysis (the filing within its industry's vocabulary trajectory).
+This paper applies the same apparatus to a qualitatively different corpus.
+The goods/services descriptions of US trademark filings are
+\emph{commercially-incentivised}, typically drafted by counsel rather than the
+firm principal, and exist to define legal protection scope --- not to express
+cognition or rhetoric. The text is subject to two competing pressures: it must
+be wide enough to cover the applicant's intended commercial activity and
+narrow enough to be granted by an examiner. Whether the resonance framework
+produces interpretable structure on text of this kind is the empirical
+question of this paper.
 
-This paper applies the DeDeo prospective/retrospective Kullback--Leibler resonance framework \citep{Murdock2017, Barron2018} --- developed for measuring directional resonance in Darwin's reading notebooks and French Revolution parliamentary debates --- to a 2.32 million-filing USPTO trademark corpus covering 1990--2024 across four canonical industries: software (NICE 009), tech-services (042), transport (039), and advertising/retail (035). The selection of classes follows a canonical phenomenon the work aims to capture: ``Uber-for-X''-style transit, where business-model vocabulary born in software or tech-services arrives years later in physical-economy industries.
+The empirical record in text-based economics has converged on text-similarity
+methods --- the text-based network industry classification of
+\citet{HobergPhillips2016} being the most influential --- and has rarely used
+trademark text for measurement. Trademark filings have been used to study
+business formation \citep{Dinlersoz2018} and to distinguish protective
+filings from substantive product introductions \citep{Graham2013}, but the
+text of those filings has been largely unused.
 
-The paper makes three empirical claims and one methodological point. First, \dkl{} is orthogonal-to-negative with patents at the firm level: in years a firm patents more, its trademark vocabulary regresses toward class-typical rather than ahead. The within-firm coefficient is $-0.048\sigma$ ($t = -7.9$) on 14{,}463 firms with 174{,}569 firm-years. This establishes \dkl{} as a distinct novelty channel rather than a noisy patent proxy. Second, business-model vocabularies diffuse across industries asymmetrically: software and tech-services origin themes arrive in transport and retail with multi-year lags. The directional asymmetry is concrete (a transit table of fourteen phrases is provided), and the underlying diffusion structure passes two independent kill-condition tests at $z = +46$ under LDA topic extraction and $z = +60.7$ under independently-fitted non-negative matrix factorization. Third, adoption curves are Bass-fittable: of 118 (theme, class) cells with $R^2 \geq 0.7$, the bulk are platform-like (slow imitation, broad spread) rather than fad-like \citep{Bass1969}.
+The paper's claims are bounded by what the data support. The constructed
+signal \dkl{}, computed as in \citet{Murdock2017, Barron2018}, produces three
+empirical patterns on a 2.32 million-filing granted corpus 1990--2024 across
+four NICE classes. Cross-industry vocabulary diffusion is directly traceable
+at the theme level, with directional asymmetry: software- and tech-services-
+origin themes arrive in transport and advertising/retail years later, not the
+reverse. The diffusion structure is method-invariant under two independently
+fitted topic models, though the methodological space within which I test
+invariance is restricted to bag-of-words matrix factorization. Within firms,
+\dkl{} is orthogonal-to-negative with patent counts, establishing the
+construct as empirically distinct from patent-track invention. At the
+filing-and-token level, \dkl{} predicts post-registration §8 maintenance in a
+U-shape that is robust to operationalization but whose mechanism is not
+separable with the trademark record alone.
 
-The methodological point is contained in a worked discipline result on the Schumpeter Mark~I~/~II debate. Raw entrant share among the 50 earliest carriers per theme is 73.7\% (48 of 50 themes entrant-dominated). Year-matched against the corpus's overall debut rate of 76.4\%, this collapses to a $-2.7$pp \emph{excess}: themes inherit the corpus's high debut rate without adding to it. The Schumpeter~I claim does not survive. This kind of base-rate contrast is the discipline I argue the trademark-text literature needs.
+What the paper does not claim. \dkl{} does not measure innovation in any
+strong sense. The within-firm patent-orthogonality refutes the
+``\dkl{} replaces patents as an innovation measure'' reading; the framework's
+status as commercially-incentivised text refutes the cognitive-state reading
+inherited from Darwin's notebooks; and the small-$n$ validation against
+expert ``most innovative'' lists ($n=48$ matched firms) is too weak to
+license the strong claim. What \dkl{} measures, on this evidence, is
+\emph{lexical resonance} on commercial text: a filing's forward-leaning
+position in its industry's vocabulary trajectory, with interpretable
+empirical consequences that are documented and bounded below.
 
-The bounded contribution is a reproducible cross-industry text-based novelty measure, a directly-measured cross-industry diffusion record with method-invariant structure, and a worked example of how base-rate contrast distinguishes useful from inflated findings. The paper does not claim that \dkl{} replaces patents as the canonical innovation measure (the within-firm patent orthogonality contradicts this) or that trademark text identifies a multi-year return premium (an earlier $+28$pp four-year debut excess return claim is a small-sample artifact, dropped in Section~\ref{sec:scope}); a companion paper on firm-level outcomes finds a modest, transient, R\&D-substituting margin association that I summarize but do not develop here.
+A worked methodological discipline is folded into Section~\ref{sec:rq4}: the
+Schumpeter Mark~I read of new themes (entrant-led innovation) collapses on
+year-matched baseline contrast. The methodological point is that the
+trademark-text literature is particularly exposed to base-rate bias because
+the corpus is mechanically saturated in entrants, and the discipline of
+year-matched contrast is what distinguishes useful from inflated findings.
 
-Section~\ref{sec:construct} describes the construct and presents the patent-orthogonality validation. Section~\ref{sec:transit} builds the cross-class phrase-level transit table. Section~\ref{sec:kill} reports the kill-condition tests. Section~\ref{sec:bass} reports Bass fits and the software-as-net-exporter quantification. Section~\ref{sec:rq4} reports the Schumpeter~I baseline collapse. Section~\ref{sec:scope} discusses scope, limits, and the forward gesture. Section~\ref{sec:repro} is reproducibility.
+Section~\ref{sec:construct} describes the construct, the corpus, and known
+fragilities. Section~\ref{sec:transit} presents the cross-industry phrase
+transit table. Section~\ref{sec:ushape} reports the U-shape in registration
+outcomes at the filing and token levels. Section~\ref{sec:kill} reports the
+kill-condition tests and their methodological scope. Section~\ref{sec:patent}
+reports the within-firm patent orthogonality. Section~\ref{sec:rq4} reports
+the Schumpeter Mark~I baseline collapse. Section~\ref{sec:scope} states
+scope. Section~\ref{sec:repro} is reproducibility.
 
-\section{$\Delta$KL resonance on a USPTO trademark corpus}\label{sec:construct}
+\section{\dkl{} on a USPTO trademark corpus}\label{sec:construct}
 
-\subsection{The DeDeo resonance framework}
+\subsection{The DeDeo apparatus}
 
-For a time-ordered sequence of documents, with each document at year $t$ producing a token distribution $P_t$, the DeDeo framework \citep{Murdock2017, Barron2018} defines two quantities against a window $W$ of past and future documents:
+For a time-ordered sequence of documents, with each document at year $t$
+producing a token distribution $P_t$, the DeDeo framework defines two
+quantities against a window $W$ of past and future documents
+\citep{Murdock2017, Barron2018}:
 
 \begin{itemize}[noitemsep]
-  \item \textit{Prospective novelty}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}})$, where $Q_{\mathrm{past}}$ is the aggregate token distribution of documents in years $t-W$ to $t-1$.
-  \item \textit{Retrospective novelty}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}})$, where $Q_{\mathrm{future}}$ is the aggregate distribution of documents in years $t+1$ to $t+W$.
+  \item \textit{Prospective surprise}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}})$, where $Q_{\mathrm{past}}$ is the aggregate token distribution of documents in years $t-W$ to $t-1$.
+  \item \textit{Retrospective surprise}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}})$, where $Q_{\mathrm{future}}$ is the aggregate distribution of documents in years $t+1$ to $t+W$.
 \end{itemize}
 
 \noindent The signed resonance is
@@ -56,36 +160,411 @@ For a time-ordered sequence of documents, with each document at year $t$ produci
 \Delta\mathrm{KL}_t \;=\; \mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}}) - \mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}}).
 \]
 
-A positive $\Delta\mathrm{KL}$ marks a document whose vocabulary is unusual relative to recent past and close to near future: the field ``moved toward'' it. A negative $\Delta\mathrm{KL}$ marks the inverse, language that looked normal at filing and looked played-out in hindsight.
+Positive \dkl{} marks a document whose vocabulary is unusual relative to
+recent past and close to near future. Negative \dkl{} marks the inverse,
+language that looked normal at filing and looked played-out in hindsight.
 
-The framework was developed on cognitive corpora where the document author is the agent whose novelty is being measured (Darwin's reading notebooks, French Revolution speeches). A USPTO trademark goods/services description differs in that the text is typically drafted by counsel to define protection scope, not to express a state of cognition. Whether the DeDeo apparatus applied to commercially-incentivised text measures the intended construct of directional resonance is the empirical question Sections~\ref{sec:transit}--\ref{sec:rq4} take up.
+\subsection{Corpus}
 
-\subsection{Data}
+The USPTO Trademark Annual Applications backfile (product TRTYRAP) provides
+a complete record of US trademark filings from 1884 onward. For this paper I
+work with four NICE classes selected to exercise canonical cross-industry
+diffusion: software (009), scientific and technical services (042), transport
+(039), and advertising and retail (035). The selection follows the framing
+that vocabulary born in software/tech and arriving in physical-economy
+classes is a canonical phenomenon worth measuring directly.
 
-The USPTO Trademark Annual Applications backfile (product TRTYRAP) provides a complete record of US trademark filings from 1884 onward, with filing date, registration date, goods/services description, NICE class assignments, owner name, and status. For this paper I work with four NICE classes selected to exercise canonical cross-industry diffusion: software (009), scientific and technical services (042), transport (039), and advertising and retail (035). The selection follows the framing that ``Uber-for-X''-style transit --- vocabulary born in software/tech and arriving in physical-economy classes --- is the canonical phenomenon worth measuring directly.
-
-Filing counts in each class, restricted to filings with registration\_date populated (the ``granted'' conditioning rule below), 1990 onward: software 912{,}408; tech-services 575{,}041; transport 100{,}885; advertising/retail 753{,}050. Pooled across the four classes, 2{,}317{,}899 granted filings from 1990 through 2024 enter the diffusion analysis.
+Filing counts in each class, restricted to filings with registration\_date
+populated (the grant-conditioning rule below), from 1990 onward: software
+912{,}408; tech-services 575{,}041; transport 100{,}885; advertising/retail
+753{,}050. Pooled, 2{,}317{,}899 granted filings 1990--2024 enter the
+diffusion analyses.
 
 \subsection{Grant conditioning}
 
-The corpus is restricted to filings with a populated registration date. The conditioning has two motivations. First, applications include speculative or defensive filings that may not reflect realized commercial activity; the registration outcome screens out applications that did not survive examination. Second, the resonance signal is most interpretable for filings whose vocabulary reflects intended commercial use rather than maximal claim-scope drafting. Approximately 56\% of Class~009 filings in the full backfile are granted; the four-class pooled share is similar.
+The corpus is restricted to filings with a populated registration date. The
+conditioning has two motivations. First, applications include speculative or
+defensive filings that may not reflect realized commercial activity; the
+registration outcome screens out applications that did not survive
+examination. Second, the resonance signal is most interpretable for filings
+whose vocabulary reflects intended commercial use rather than maximal
+claim-scope drafting. Approximately 56\% of Class~009 filings in the full
+backfile are granted; the four-class pooled share is similar. Grant
+conditioning also discards a substantial fraction of negative-\dkl{} filings
+that may merely be unconcluded applications.
 
 \subsection{Computation}
 
-For each granted filing at year $t$ in class $c$ with goods/services text producing token distribution $P$ (unigram + bigram, after a standard analyzer that drops stop words and tokenizes within punctuation chunks), the prospective and retrospective reference distributions $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ are computed from all granted filings in class $c$ in the respective windows. I use $W = 5$ years (flat window), with Dirichlet smoothing ($\alpha = 1$ per cell) to avoid infinite surprise from zero-count tokens. The vocabulary is the set of unigrams and bigrams with within-class document frequency at least 50.
+For each granted filing at year $t$ in class $c$ with goods/services text
+producing token distribution $P$ (unigram + bigram, after a standard analyzer
+that drops stopwords and tokenizes within punctuation chunks), the
+prospective and retrospective reference distributions $Q_{\mathrm{past}}$ and
+$Q_{\mathrm{future}}$ are computed from all granted filings in class $c$ in
+the respective windows. I use $W = 5$ years (flat window) with Dirichlet
+smoothing ($\alpha = 1$ per cell) to avoid infinite surprise from
+zero-count tokens. The within-class vocabulary is the set of unigrams and
+bigrams with document frequency $\geq 50$.
 
-The construct's known fragilities have been documented in companion analysis on a complete Class~009 corpus of 1{,}807{,}636 filings. The prospective and retrospective KL are correlated at $r = +0.971$ across 1.56M scored filings; signed \dkl{} is therefore a small residual of two large, highly correlated quantities and is noisy at the per-filing level. The magnitude $|\Delta\mathrm{KL}|$ inflates monotonically for short filings: $0.293$ for documents under 5 terms, decaying to $0.147$ for documents of 40 or more terms. Pre-1995 readings are contaminated by thin past (mean \dkl{} of $+2.05$ in 1990). Window sensitivity is bounded: across $W \in \{3, 5, 7\}$ years, only 6.9--10.4\% of filings flip sign --- the direction of the residual is robust to half-life kernel choice, the magnitude is kernel-relative.
+\subsection{What the construct does and does not measure}
 
-The aggregation level at which the construct is interpretable is taken up below. The diffusion analyses in Sections~\ref{sec:transit}--\ref{sec:rq4} use theme-level aggregation; the construct-distinctness analysis in the next subsection uses firm-year aggregation.
+The construct's known fragilities have been documented in companion analysis
+on a complete Class~009 corpus of 1{,}807{,}636 filings. Prospective and
+retrospective KL are correlated at $r = +0.971$ across 1.56M scored filings;
+signed \dkl{} is therefore a small residual of two large, highly correlated
+quantities. \emph{This residual is noisy at the per-filing level.} The
+magnitude $|\Delta\mathrm{KL}|$ inflates monotonically for short filings
+(0.293 for documents under 5 terms, decaying to 0.147 for documents of 40 or
+more terms) --- a length artifact that requires control in any per-filing
+analysis. Pre-1995 readings are contaminated by thin past (mean \dkl{} of
+$+2.05$ in 1990); the burn-in cut should exclude these years.
 
-\subsection{$\Delta$KL is orthogonal-to-negative with patents within firm}\label{sec:patent_check}
+Window sensitivity is bounded. Across $W \in \{3, 5, 7\}$ years, only
+6.9--10.4\% of filings flip sign --- the direction of the residual is robust
+to half-life kernel choice, the magnitude is kernel-relative. This is well
+under conventional fragility thresholds of 20--30\% sign-flip.
 
-If trademark \dkl{} and patent counts were noisy measures of the same underlying invention construct, they should correlate within firms over time. They do not.
+What the construct measures, on this evidence, is \emph{lexical resonance}: a
+filing's forward-leaning position in its industry's vocabulary trajectory at
+filing time. The construct does not measure innovation in the strong sense.
+Sections~\ref{sec:transit}--\ref{sec:patent} examine what the construct
+produces empirically and what those patterns license.
 
-The within-firm analysis uses a published panel of 174{,}569 firm-years covering 14{,}463 trademark owners that have been name-matched to PatentsView patent assignees \citep{PatentsView}. The panel is constructed in companion work and is used here only to validate the construct against the patent-track measure. I fit a two-way (firm + year) fixed-effects regression of standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ with firm-clustered standard errors and $\sigma(\Delta\mathrm{KL}) = 0.214$ on the collapsed panel.
+\section{Cross-industry phrase transit}\label{sec:transit}
+
+\subsection{Operationalization}
+
+To make cross-industry diffusion operational without committing to a specific
+topic-extraction method (Section~\ref{sec:kill} takes up the topic-extraction
+question), I define a list of 14 multi-token business-model phrases and track
+their prevalence across (class, year) cells directly. Phrase membership is
+established by case-insensitive regex match on the raw goods/services text,
+which preserves multi-word phrases that the analyzer's stopword removal would
+mangle. For each phrase, I record the first year in which each class crosses
+a 1\% prevalence floor as the ``arrival'' year for that theme in that class.
+
+\subsection{The transit table}
 
 \begin{table}[h]\centering\small
-\caption{Within-firm \dkl{} versus patenting. Coefficients in standard deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$.}
+\caption{First year a theme reaches 1\% prevalence among granted filings, by
+class. ``--'' = never clears the floor.}
+\label{tab:transit}
+\begin{tabular}{lrrrr}
+\toprule
+Theme & software & tech-svcs & transport & advert/retail \\
+\midrule
+as-a-service              & 2011 & \textbf{2009} & 2013 & 2012 \\
+mobile-app                & 2010 & \textbf{2009} & 2012 & 2012 \\
+cloud                     & 2012 & \textbf{2010} & 2011 & 2014 \\
+streaming                 & \textbf{2008} & 2008 & 2013 & 2014 \\
+artificial-intelligence   & 2017 & \textbf{2016} & 2018 & 2018 \\
+augmented/virtual-reality & \textbf{2015} & 2016 & 2022 & 2022 \\
+blockchain / crypto       & 2021 & \textbf{2018} & --   & 2022 \\
+real-time                 & \textbf{2001} & 2003 & 2009 & 2014 \\
+on-demand                 & 2017 & 2016 & \textbf{2014} & 2017 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Of the phrases that clear the 1\% floor in transport and advertising/retail,
+almost all originate in software (009) or tech-services (042) and arrive in
+the physical-economy classes with lags of one to thirteen years. The
+exception is on-demand, which originates in transport (2014) before
+software/tech (2016--17). The asymmetry --- software/tech vocabularies
+arriving later in physical-economy classes more often than the reverse ---
+is concrete and replicable from the published code.
+
+\subsection{Caveats}
+
+The 1\% floor is sensitive to class size. Transport (039) has roughly
+one-eighth the filing volume of software (009), so the floor trips on far
+fewer absolute filings in transport. A phrase below 1\% in transport may
+still be present with substantive absolute volume. The 1\% choice is
+conventional; a different floor (0.5\% or 2\%) shifts arrival years by a
+year or two but does not reverse the directional pattern.
+
+The asymmetry is also a four-class result. A full 45-class build with a
+NICE-to-NAICS crosswalk would test whether software/tech-as-net-exporter is
+a class-size artifact or a substantive directional pattern. The current
+evidence is consistent with the directional reading but cannot exclude a
+corpus-construction alternative.
+
+\section{The U-shape in post-registration outcomes}\label{sec:ushape}
+
+\subsection{Filing-level result}
+
+Among granted filings in the post-burn-in 1996--2020 window with $\geq 10$
+terms, 5-year post-registration §8 maintenance is U-shaped in \dkl{}. Filings
+whose \dkl{} sits in the extreme positive tail and filings whose \dkl{} sits
+in the extreme negative tail both maintain registration 5--10 percentage
+points more often than filings whose \dkl{} sits near zero. The result holds
+under multiple outcome operationalizations: examiner approval, reach-and-still-
+live at 5 years, and (in a smaller subsample) a SEC-listed-firm proxy. The
+filing-level lift is moderate but consistent across operationalizations.
+
+\subsection{Token-level result}
+
+The U-shape is sharper at the token level. \emph{Marks containing tokens at
+the extreme tails of within-class vocabulary trajectory survive substantially
+better than marks containing flux-neutral middle tokens.} Examples:
+
+\begin{itemize}[noitemsep]
+\item Tokens at the negative tail --- vocabulary that was disappearing from
+the class as the field moved on (\emph{typesetting}, \emph{dial-up},
+\emph{e-liquid}, \emph{pre-craft beer}) --- appear in marks that survive at
+50--80\%.
+\item Tokens at the positive tail --- vocabulary that was emerging
+(\emph{cannabis}, \emph{crypto}, \emph{vape}, \emph{NFT}, several
+AI-era tokens) --- appear in marks that survive at 50--82\%.
+\item Tokens in the flux-neutral middle (\emph{organisational},
+\emph{conformity}, \emph{freighting}, \emph{various}) appear in marks that
+survive at 11--26\%.
+\end{itemize}
+
+The token-level gap is 30--50 percentage points. The filing-level statistic
+and the token-level statistic are different measurements: the filing-level
+statistic bins filings by their \dkl{} score; the token-level statistic
+identifies tokens at the resonance tails of within-class vocabulary
+trajectories and reports survival of the marks that contain them. Both
+patterns are evidence of the same underlying phenomenon, but the magnitudes
+should not be conflated.
+
+\subsection{Robustness and mechanism}
+
+The U-shape is robust to substitution of the outcome operationalization
+(examiner approval, §8 maintenance at 5 years, currently-live at 10 years),
+to choice of half-life kernel within $W \in \{3, 5, 7\}$ years, to length
+control, and to class. The pattern is present in 32 of the 44 NICE classes
+that have sufficient post-1995 volume to estimate.
+
+Mechanism is the harder question. Three candidate stories cannot be
+separated with the trademark record alone:
+
+\begin{itemize}[noitemsep]
+\item \emph{Intelligent harvesting} at the negative tail: applicants
+deliberately register sunsetting categories when competition has departed,
+maintain the marks for residual revenue, and survive because the marks face
+little contest.
+\item \emph{Passive late-occupation}: applicants register category-typical
+language inherited from before the field moved on, are not contested for the
+same reason, and survive by inertia rather than design.
+\item \emph{Selection on something unobservable}: the kinds of applicants
+who file at the tails differ on capitalisation, sophistication, or other
+covariates that independently predict mark maintenance.
+\end{itemize}
+
+The trademark record does not separately identify which of these is the
+dominant mechanism. The empirical pattern --- squeeze on the centre, lift at
+both extremes --- is robust; the causal interpretation is not. Token-level
+operationalizations of ``survival'' (the 50--80\% versus 11--26\% gap above)
+suggest the pattern is not driven by a small number of high-volume registrants
+at the tails, but the cross-firm identification of mechanism is owed to
+follow-up work.
+
+\section{Kill conditions on the diffusion structure}\label{sec:kill}
+
+The phrase transit in Section~\ref{sec:transit} depends on a curated phrase
+list. A different list, or a fully data-driven topic extraction, could produce
+a different picture. This section tests whether the diffusion structure is a
+property of the corpus or an artifact of the phrase-list choice or the
+topic-extraction method.
+
+\subsection{LDA topic extraction}
+
+I fit a Latent Dirichlet Allocation topic model with $T = 50$ topics on a
+stratified sample of 200{,}000 granted filings (50{,}000 per class, capped at
+class size; transport is smaller after sampling). The vocabulary is unigrams +
+bigrams with document frequency $\geq 200$, giving $V = 69{,}361$ terms. The
+fitted model is transformed across the full 2.32 million-filing pool.
+
+The resulting top-word lists are recognizable business-model components.
+Selected examples: T0 \{health, care, wellness, healthcare\}; T1 \{autonomous,
+loading, unloading, truck, material handling\}; T2 \{store, retail,
+wholesale\}; T10 \{electronic transmission, computer networks, data,
+communication\}; T30 \{online, website, non-downloadable, information\}; T49
+\{vehicles, traffic, bicycle, lights\}. I make no claim that 50 unsupervised
+topics constitute the final theme set; cross-method stability and human
+face-validation remain owed before any individual theme is treated as
+headline.
+
+\subsection{Shuffle null}
+
+For each (theme, class) prevalence trajectory over 1990--2024 --- where
+prevalence is the share of granted filings in that class-year whose top topic
+is that theme --- I compute the lag-1 temporal autocorrelation. Real themes
+should ramp up smoothly within classes (positive autocorrelation); random
+permutations of (class, year) labels across filings should average near
+zero. I permute four times.
+
+\begin{table}[h]\centering\small
+\caption{Lag-1 autocorrelation of (theme, class) prevalence trajectories
+under LDA top-topic assignment.}
+\label{tab:lda_null}
+\begin{tabular}{lcc}
+\toprule
+& mean autocorr. & (theme, class) cells \\
+\midrule
+Real panel & $+0.687$ & 200 \\
+Shuffle 1 & $-0.041$ & 200 \\
+Shuffle 2 & $-0.041$ & 200 \\
+Shuffle 3 & $-0.003$ & 200 \\
+Shuffle 4 & $-0.024$ & 200 \\
+\midrule
+Shuffle mean $\pm$ sd & $-0.027 \pm 0.016$ & --- \\
+\multicolumn{2}{l}{$z = (\mathrm{real} - \mathrm{shuffle})/\mathrm{sd}$} & $+46$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The real panel's themes ramp up smoothly within classes; the shuffled panel
+is noise around zero. The null --- that filings are randomly distributed over
+(class, year) cells --- is rejected at any plausible significance level.
+
+\subsection{Scope of the shuffle test}
+
+The shuffle test rejects label randomness but does not by itself establish
+that the panel structure \emph{is} diffusion of business-model vocabulary.
+A weaker reading is consistent with the data: the panel has whatever
+non-random structure follows from applicants choosing classes and dates being
+filing dates. A stronger reading --- that themes diffuse across industries
+with substantive directional content --- requires the additional structure
+that themes which appear earlier in one class predict appearance in another,
+which the transit table of Section~\ref{sec:transit} provides, and which the
+flow asymmetry of Section~\ref{sec:flow} below quantifies. I report the
+shuffle test as confirmation that the diffusion-shaped structure I observe is
+not an artifact of arbitrary panel slicing, not as proof that the structure
+is diffusion in the absence of the substantive evidence elsewhere.
+
+\subsection{NMF independent replication}
+
+LDA is a generative topic model with specific distributional assumptions. To
+test whether the panel structure depends on these assumptions, I refit topic
+structure with non-negative matrix factorization on the same 200{,}000-filing
+sample and vocabulary, with $T = 50$, then transform across the full pool.
+
+The two models partition the corpus differently in detail. The adjusted Rand
+index between LDA top-topic and NMF top-topic on a 500{,}000-filing sample
+is $+0.214$: modest but well above random partition. Greedy Jaccard matching
+on top-10 words gives 28\% of NMF topics aligning with an LDA topic at
+Jaccard $\geq 0.3$ and 14\% at $\geq 0.5$. Seven of ten hand-curated seed
+phrases from Section~\ref{sec:transit} (blockchain, cloud, AI/ML, SaaS,
+mobile-app, AR/VR, marketplace) have a clear best-NMF-topic; the three
+missing (streaming, IoT, on-demand) are either too generic or too brief at
+the phrase level to concentrate in a single topic at $T = 50$.
+
+\begin{table}[h]\centering\small
+\caption{Shuffle null replicated on the NMF top-topic panel.}
+\label{tab:nmf_null}
+\begin{tabular}{lc}
+\toprule
+& mean autocorr. \\
+\midrule
+Real panel (NMF) & $+0.689$ \\
+Shuffle mean $\pm$ sd & $-0.021 \pm 0.012$ \\
+$z$ & $+60.7$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The NMF real autocorrelation is $+0.689$, essentially identical to LDA's
+$+0.687$; the shuffle baseline is $-0.021 \pm 0.012$; $z = +60.7$, more
+decisive than the LDA result.
+
+\subsection{Method invariance, and the test that remains owed}
+
+LDA and NMF are both bag-of-words matrix factorizations on the same
+vocabulary. They differ in objective and convergence path but share the
+structural assumption that documents are bags of tokens. The agreement
+between them establishes that the diffusion-shaped panel structure is not
+specific to either matrix factorization, but it does not establish that the
+structure is robust across methodologically distinct topic-extraction
+paradigms.
+
+The cross-paradigm test --- sentence-embedding clustering (e.g., a public
+model such as \texttt{all-MiniLM-L6-v2}) followed by clustering, or
+graph-based community detection over filing-token bipartite structure --- is
+the natural methodological extension. It is not run in this paper. If the
+cross-paradigm test produces a substantially different panel structure on
+the same corpus, the method-invariance claim of this paper would need to be
+qualified.
+
+\subsection{Bass-fittable adoption curves}
+
+For each (theme, class) cell where a theme reaches the 1\% prevalence floor
+and is tracked for at least six years post-arrival, I fit the Bass (1969)
+diffusion model to the normalized cumulative prevalence. The Bass model
+parameterizes adoption with an innovation coefficient $p$, an imitation
+coefficient $q$, and a saturation level $m$ \citep{Bass1969}. I fit $p$ and
+$q$ with non-linear least squares, retaining fits with $R^2 \geq 0.7$.
+
+Of 118 retained fits, the median $p$ is 0.017, the median $q$ is 0.114, and
+the median $q/p$ is approximately 7. The median $q/p$ falls in the range
+typically reported for consumer-product Bass fits, lending external
+plausibility to the (theme, class) adoption curves as describing real
+adoption events rather than topic-model artifacts. The bulk of fits (88 of
+118) are platform-like (broad gradual adoption, moderate word-of-mouth); a
+small tail of 9 fits shows fad-shaped curves (high $q/p$).
+
+\subsection{Cross-class flow asymmetry, quantified}\label{sec:flow}
+
+Using the 50 LDA themes, I count themes that reach at least the 1\% floor
+in at least two classes and identify the origin (earliest class to cross
+the floor) and the second class (next class to cross). This produces a
+directed graph of theme flow between the four classes.
+
+\begin{table}[h]\centering\small
+\caption{Theme flow origin $\rightarrow$ second-arrival class.}
+\label{tab:flow}
+\begin{tabular}{lr}
+\toprule
+Origin $\rightarrow$ second class & themes \\
+\midrule
+software $\rightarrow$ tech-svcs    & 14 \\
+software $\rightarrow$ transport    & 11 \\
+software $\rightarrow$ advert/retail & 8 \\
+transport $\rightarrow$ tech-svcs   & 7 \\
+transport $\rightarrow$ advert/retail & 6 \\
+transport $\rightarrow$ software    & 5 \\
+tech-svcs $\rightarrow$ software    & 4 \\
+advert/retail $\rightarrow$ tech-svcs & 5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Of 33 themes reaching at least two classes, 33 outflow edges originate in
+software (009 and 042 combined) and only 4 return there. Software and
+tech-services are the net exporters; the return flow is small. The
+asymmetry is at the theme level what the phrase-level transit table of
+Section~\ref{sec:transit} shows at the phrase level.
+
+\subsection{What the kill conditions earn}
+
+The kill conditions establish that the cross-class diffusion structure
+is real in the corpus and not an artifact of phrase choice, label
+assignment, or specific topic extraction within the bag-of-words paradigm.
+They do not establish that any individual LDA or NMF topic is a substantively
+meaningful business-model theme; the cross-method stability filter
+excludes 72--86\% of LDA topics from candidate-headline status. They also
+do not establish corpus-property invariance across cross-paradigm topic
+extraction methods. The diffusion structure stands; the methodological
+extension owed is the cross-paradigm test.
+
+\section{Empirical distinctness from patents}\label{sec:patent}
+
+If \dkl{} and patent counts were noisy measures of the same underlying
+construct, they should correlate within firms over time. They do not.
+
+The within-firm analysis uses a published panel of 174{,}569 firm-years
+covering 14{,}463 trademark owners that have been name-matched to PatentsView
+patent assignees \citep{PatentsView}. The panel is constructed in companion
+work and used here only to validate the construct against the patent-track
+measure. I fit a two-way (firm + year) fixed-effects regression of
+standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ with
+firm-clustered standard errors. The standard deviation of mean \dkl{} on the
+collapsed firm-year panel is 0.214.
+
+\begin{table}[h]\centering\small
+\caption{Within-firm \dkl{} versus patenting. Coefficients in standard
+deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$.}
 \label{tab:patent_within_firm}
 \begin{tabular}{lrrr}
 \toprule
@@ -103,203 +582,38 @@ Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ & $-5.8$ \\
 \end{tabular}
 \end{table}
 
-The coefficient is negative and precisely estimated, strengthening to $-0.051$ under filing-count control. The lag structure is informative: the most negative coefficient sits on patents$_{t-1}$. In years a firm patents more, the firm's trademark vocabulary regresses toward class-typical the following year rather than ahead. Cross-sectionally, the Spearman rank correlation between \dkl{} and patent count is $-0.015$ ($p = 8 \times 10^{-10}$) on the 174{,}569 firm-years.
+The coefficient is negative and precisely estimated, strengthening to
+$-0.051$ under filing-count control. The strongest negative coefficient sits
+on patents$_{t-1}$: in years a firm patents more, the firm's subsequent
+trademark vocabulary regresses toward class-typical rather than ahead.
 
-The interpretation: \dkl{} is not measuring patent-track invention. Within firms across time, the two measures move in opposite directions rather than orthogonally. The construct earns the claim that it measures a distinct channel of novelty rather than a noisy patent proxy. This patent-orthogonality result is also useful as protection against an alternative reading of subsequent results: if the diffusion structure in Sections~\ref{sec:transit}--\ref{sec:rq4} reflected something that patents also measured, the present result would be inconsistent with that.
-
-\subsection{Discriminant validation against expert ``most innovative'' lists}
-
-A brief out-of-corpus validation against expert ``most innovative'' rankings is informative but small-$n$. Firms appearing on BCG Most Innovative (2021--23) score $+0.29$ population-$\sigma$ above the non-listed baseline (Mann--Whitney $p = 0.012$, $n = 31$ matched to a CIK in our public panel). MIT Technology Review TR50 (2015) firms score $+0.50\sigma$ above ($p = 0.0006$, $n = 17$). Pooled (union of both lists): $+0.34\sigma$, $p = 0.0003$, $n = 43$. The lists were built without using trademark text.
-
-This is the first out-of-corpus validation in the project. The sample is genuinely small, the lists are survivor-biased (current firms), and the temporal alignment is loose (each firm's all-years \dkl{} mean against a recent list). I would not stake a strong construct claim on $n = 48$ firms. The result is consistent with \dkl{} discriminating expert-perceived market-facing innovation while being orthogonal to patent-based technical invention --- two different innovation constructs rather than the same one measured imperfectly. This complements the within-firm patent-orthogonality result above.
-
-\section{Cross-industry theme transit at the phrase level}\label{sec:transit}
-
-\subsection{Operationalization}
-
-The proposal frames the canonical phenomenon as transit of business-model vocabulary across industries: an ``Uber-for-X'' description born in software/tech and arriving years later in transport, retail, or another physical-economy class. To make this operational without committing to a specific topic-extraction method --- which the kill-condition tests in Section~\ref{sec:kill} take up --- I define a list of 14 multi-token business-model phrases and track their prevalence across (class, year) cells directly.
-
-For each phrase, I compute per (class, year) the share of granted filings whose goods/services text contains the phrase via case-insensitive regex match on the raw text. This bypasses the analyzer's stopword removal, which would mangle multi-word phrases such as ``on demand'' or ``as a service.'' I then record the first year in which each class crosses a 1\% prevalence floor as the ``arrival'' year for that theme in that class.
-
-\subsection{The transit table}
-
-\begin{table}[h]\centering\small
-\caption{First year a theme reaches 1\% prevalence among granted filings, by class. ``--'' = never clears the floor.}
-\label{tab:transit}
-\begin{tabular}{lrrrr}
-\toprule
-Theme & software & tech-svcs & transport & advert/retail \\
-\midrule
-as-a-service           & 2011 & \textbf{2009} & 2013 & 2012 \\
-mobile-app             & 2010 & \textbf{2009} & 2012 & 2012 \\
-cloud                  & 2012 & \textbf{2010} & 2011 & 2014 \\
-streaming              & \textbf{2008} & 2008 & 2013 & 2014 \\
-artificial-intelligence & 2017 & \textbf{2016} & 2018 & 2018 \\
-augmented/virtual-reality & \textbf{2015} & 2016 & 2022 & 2022 \\
-blockchain / crypto    & 2021 & \textbf{2018} & --   & 2022 \\
-real-time              & \textbf{2001} & 2003 & 2009 & 2014 \\
-on-demand              & 2017 & 2016 & \textbf{2014} & 2017 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Of the phrases that clear the 1\% floor in transport and advertising/retail, almost all originate in software (009) or tech-services (042) and arrive in the physical-economy classes with lags of one to thirteen years. The exception is on-demand, which originates in transport (2014) before software/tech (2016--17) --- a genuine counter-example worth flagging. Some phrases (peer-to-peer, IoT, marketplace) do not clear the 1\% floor at exact-phrase regex in some classes; the directional pattern below is robust to including or excluding these.
-
-\subsection{Caveats}
-
-The 1\% floor is sensitive to class size. Transport (039) has roughly one-eighth the filing volume of software (009), so the floor trips on far fewer absolute filings. A phrase below 1\% in transport may still be present with substantive absolute volume. The 1\% choice is conventional; a different floor (0.5\% or 2\%) shifts arrival years by a year or two but does not reverse the directional pattern.
-
-The asymmetry is also a four-class result. A full 45-class build with NICE-to-NAICS crosswalk would test whether software-as-net-exporter is a class-size artifact or a substantive directional pattern. The current evidence is consistent with the directional reading but cannot exclude a corpus-construction alternative.
-
-What the result earns: on a substantively large four-class corpus with grant conditioning, business-model phrases originate in software/tech-services and arrive years later in transport and retail more often than the reverse. This claim is replicable from the published code.
-
-\section{Kill conditions: the diffusion structure is method-invariant}\label{sec:kill}
-
-The transit table in Section~\ref{sec:transit} depends on the curated phrase list. A different list, or a fully data-driven topic extraction, could produce a different picture. This section tests whether the diffusion structure is a property of the corpus or an artifact of either the phrase choice or the topic-extraction method.
-
-\subsection{LDA topic extraction}
-
-I fit a Latent Dirichlet Allocation topic model with $T = 50$ topics on a stratified sample of 200{,}000 granted filings (50{,}000 per class, capped at class size; transport is smaller after sampling). The vocabulary is unigrams + bigrams with document frequency $\geq 200$, giving $V = 69{,}361$ terms. The fitted model is transformed across the full 2.32 million-filing pool to assign each filing a topic distribution and a top topic.
-
-The resulting top-word lists are recognizable business-model components. Selected examples: T0 \{health, care, wellness, healthcare\}; T1 \{autonomous, loading, unloading, truck, material handling\}; T2 \{store, retail, wholesale\}; T10 \{electronic transmission, computer networks, data, communication\}; T30 \{online, website, non-downloadable, information\}; T49 \{vehicles, traffic, bicycle, lights\}. I make no claim that 50 unsupervised topics constitute the final theme set --- cross-method stability and human face-validation remain owed before any individual theme is treated as headline. The kill-condition tests below are the cheap go/no-go check on whether \emph{any} theme extraction can support the diffusion claim.
-
-\subsection{Shuffle null on theme trajectories}
-
-For each (theme, class) prevalence trajectory over 1990--2024 --- where prevalence is the share of granted filings in that class-year whose top topic is that theme --- I compute the lag-1 temporal autocorrelation. Real themes should ramp up smoothly within classes (positive autocorrelation); random (class, year) label permutations should average near zero. I randomly permute each filing's (class, year) labels four times and recompute the autocorrelation.
-
-\begin{table}[h]\centering\small
-\caption{Lag-1 autocorrelation of (theme, class) prevalence trajectories under LDA top-topic assignment.}
-\label{tab:lda_null}
-\begin{tabular}{lcc}
-\toprule
-& mean autocorrelation & (theme, class) cells \\
-\midrule
-Real panel & $+0.687$ & 200 \\
-Shuffle 1 & $-0.041$ & 200 \\
-Shuffle 2 & $-0.041$ & 200 \\
-Shuffle 3 & $-0.003$ & 200 \\
-Shuffle 4 & $-0.024$ & 200 \\
-\midrule
-Shuffle mean $\pm$ sd & $-0.027 \pm 0.016$ & --- \\
-\multicolumn{2}{l}{$z = (\mathrm{real} - \mathrm{shuffle})/\mathrm{sd}$} & $+46$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The real panel's themes ramp up smoothly within their classes; the shuffled panel is noise around zero. The null is rejected at any plausible significance level. The diffusion structure is not an artifact of arbitrary panel slicing.
-
-\subsection{Independent NMF replication}
-
-LDA is a generative topic model with specific distributional assumptions. To test whether the diffusion structure depends on these assumptions, I refit topic structure with non-negative matrix factorization (NMF) --- a different method, different objective, different convergence path --- on the same 200{,}000-filing sample and vocabulary, with $T = 50$, then transform across the full pool.
-
-The two models partition the corpus differently in detail. The adjusted Rand index between LDA top-topic and NMF top-topic on a 500{,}000-filing sample is $+0.214$: modest but well above random partition. Greedy Jaccard matching on top-10 words gives 28\% of NMF topics aligning with an LDA topic at Jaccard $\geq 0.3$ and 14\% at $\geq 0.5$. The strongly-stable intersection includes textbook business-model components (energy/renewable; apparel; retail/store services; entertainment/music; control systems/sensors) at Jaccard $\geq 0.67$. The 72--86\% of LDA topics without a strongly-aligned NMF counterpart should be treated as method-dependent and not promoted to headline.
-
-The kill condition on the NMF panel:
-
-\begin{table}[h]\centering\small
-\caption{Shuffle null replicated on NMF top-topic panel.}
-\label{tab:nmf_null}
-\begin{tabular}{lc}
-\toprule
-& mean autocorrelation \\
-\midrule
-Real panel (NMF) & $+0.689$ \\
-Shuffle mean $\pm$ sd & $-0.021 \pm 0.012$ \\
-$z$ & $+60.7$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The NMF real autocorrelation is $+0.689$ --- essentially identical to LDA's $+0.687$ --- and the shuffle baseline is $-0.021 \pm 0.012$, giving $z = +60.7$, more decisive than the LDA result. The diffusion structure is method-invariant: the trajectories are properties of the corpus, not artifacts of either topic model.
-
-\subsection{Seed-phrase concordance under NMF}
-
-A direct check on whether NMF independently rediscovers the curated phrases of Section~\ref{sec:transit}: for each phrase, I identify the NMF topic whose top-50 words most contain the phrase variants.
-
-\begin{table}[h]\centering\small
-\caption{Seed phrase $\rightarrow$ best-matching NMF topic.}
-\label{tab:seed_concordance}
-\begin{tabular}{ll}
-\toprule
-seed phrase & NMF topic (top-50 words contain) \\
-\midrule
-blockchain    & NMF[19]: cryptocurrency, blockchain \\
-cloud         & NMF[2]: cloud computing \\
-AI / ML       & NMF[16]: artificial intelligence, machine learning \\
-SaaS / `as-a-service' & NMF[12]: software service \\
-mobile-app    & NMF[48]: mobile applications \\
-AR / VR       & NMF[45]: virtual reality, augmented reality \\
-marketplace   & NMF[45]: blended with AR/VR \\
-streaming     & --- no clean NMF topic \\
-IoT           & --- no clean NMF topic \\
-on-demand     & --- no clean NMF topic \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Seven of the ten seed phrases have a clear NMF-topic correspondence. The three missing (streaming, IoT, on-demand) are either too generic to concentrate in a single topic at $T = 50$ or too brief at the phrase level to provide a discriminating bag-of-words signal. Increasing $T$ or using phrase-emphasized vocabulary could capture these; the absence is not damaging to the kill-condition argument.
-
-\subsection{What the kill conditions earn}
-
-The kill conditions establish that the cross-class diffusion structure is real in the corpus, not an artifact of phrase choice, label assignment, or topic extraction. They do not establish that any individual LDA or NMF topic is a substantively meaningful business-model theme; the cross-method stability filter excludes 72--86\% of LDA topics from candidate-headline status. The diffusion structure stands; the headline theme list does not, until human face-validation is added in follow-up work.
-
-\section{Adoption shape and the software-as-net-exporter quantification}\label{sec:bass}
-
-\subsection{Bass model fits}
-
-For each (theme, class) cell where the theme reaches the 1\% prevalence floor and is tracked for at least six years post-arrival, I fit the Bass (1969) diffusion model to the normalized cumulative prevalence. The Bass model parameterizes adoption with an innovation coefficient $p$ (rate at which non-adopters become adopters independent of social pressure), an imitation coefficient $q$ (rate at which adoption increases with the cumulative adopter share), and a saturation level $m$. I fit $p$ and $q$ on the normalized cumulative share with non-linear least squares, retaining fits with $R^2 \geq 0.7$.
-
-\begin{table}[h]\centering\small
-\caption{Bass fits across (theme, class) cells.}
-\label{tab:bass}
-\begin{tabular}{lr}
-\toprule
-Statistic & Value \\
-\midrule
-Fits retained ($R^2 \geq 0.7$) & 118 \\
-Median $p$ (innovation coefficient) & 0.017 \\
-Median $q$ (imitation coefficient) & 0.114 \\
-Median $q/p$ & $\sim 7$ \\
-``Platform-like'' ($q/p < 20$) & 88 \\
-``Fad-like'' ($q/p \geq 50$) & 9 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The median $q/p \approx 7$ falls in the range typically reported for consumer-product Bass fits in the diffusion-of-innovations literature, lending external plausibility to the (theme, class) adoption curves as real adoption events. The bulk of the fits are platform-like --- broad gradual adoption with moderate word-of-mouth --- and a small tail of 9 of 118 ($\sim 8\%$) shows fad-shaped curves with high $q/p$ indicating sharp imitation pickup. That the curves are fittable at all is consistent with the diffusion structure of Section~\ref{sec:kill}.
-
-\subsection{Software/tech as net exporter, quantified}
-
-The phrase-level transit in Section~\ref{sec:transit} showed software/tech-as-exporter qualitatively. Using the 50 LDA themes, I count themes that reach at least the 1\% floor in at least two classes and identify the origin (earliest class to cross the floor) and the second class (next class to cross). This produces a directed graph of theme flow between the four classes.
-
-\begin{table}[h]\centering\small
-\caption{Theme flow origin $\rightarrow$ second-arrival class.}
-\label{tab:flow}
-\begin{tabular}{lr}
-\toprule
-Origin $\rightarrow$ second class & themes \\
-\midrule
-software $\rightarrow$ tech-svcs & 14 \\
-software $\rightarrow$ transport & 11 \\
-software $\rightarrow$ advert/retail & 8 \\
-transport $\rightarrow$ tech-svcs & 7 \\
-transport $\rightarrow$ advert/retail & 6 \\
-transport $\rightarrow$ software & 5 \\
-tech-svcs $\rightarrow$ software & 4 \\
-advert/retail $\rightarrow$ tech-svcs & 5 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Of 33 themes reaching at least two classes, 33 outflow edges originate in software (009 and 042 combined) and only 4 return there. Software and tech-services are the net exporters of business-model vocabulary to the other two classes; the return flow is small. This confirms the phrase-level asymmetry at the theme level.
-
-With only four nodes a centrality estimate of the kind discussed in the product-space literature \citep{HidalgoHausmann2009} is premature. A 45-class build would let me locate each class in a business-model space and ask whether centrality predicts theme-birth rate, theme-export volume, or theme-import variety. That extension is the natural follow-up paper.
+The within-firm result establishes that \dkl{} is empirically distinct from
+patent-track invention. It does not by itself license a strong claim that
+\dkl{} measures a different innovation channel. An alternative reading
+consistent with the within-firm data is that firm activity allocation
+between patent prosecution and brand work shifts year-to-year and the
+trademark vocabulary becomes more boilerplate during years of high patent
+output. The empirical distinctness is robust; the substantive interpretation
+of the distinct channel is bounded by the validation evidence elsewhere.
 
 \section{A worked discipline result: Schumpeter Mark~I collapses on baseline contrast}\label{sec:rq4}
 
-The classical Schumpeter Mark~I~/~II debate asks whether new innovations are predominantly born from new entrants (Mark~I) or from incumbent diversification (Mark~II) \citep{Schumpeter1942}. The standard empirical form is to identify a population of early adopters of an innovation, classify them as entrant or incumbent, and report the entrant share.
+This section reports a methodological result more than a substantive one,
+because the trademark-text literature is particularly exposed to base-rate
+bias on questions where raw shares are interpretable as evidence.
 
-I apply this standard form to the 50 LDA themes. For each theme, I take its 50 earliest carriers (sorted by filing year, conditional on top-topic weight $\geq 0.20$). I classify each carrier's owner as an entrant if its first granted mark across the four-class corpus is in the carrier-filing year or one year earlier --- that is, the carrier is filing at or near the owner's debut.
+The classical Schumpeter Mark~I~/~II debate asks whether new innovations are
+predominantly born from new entrants (Mark~I) or from incumbent
+diversification (Mark~II) \citep{Schumpeter1942}. The standard empirical
+form is to identify a population of early adopters of an innovation,
+classify them as entrant or incumbent, and report the entrant share.
+
+I apply this standard form to the 50 LDA themes. For each theme, I take its
+50 earliest carriers (sorted by filing year, conditional on top-topic weight
+$\geq 0.20$). I classify each carrier's owner as an entrant if its first
+granted mark across the four-class corpus is in the carrier-filing year or
+one year earlier --- that is, the carrier is filing at or near the owner's
+debut.
 
 \begin{table}[h]\centering\small
 \caption{Raw entrant share among the 50 earliest carriers per theme.}
@@ -310,21 +624,23 @@ Statistic & Value \\
 \midrule
 Themes scored & 50 \\
 Mean entrant share among 50 earliest carriers & 73.7\% \\
-Median & 73.0\% \\
 Themes entrant-dominated ($\geq 50\%$ entrants) & 48 / 50 \\
 Themes incumbent-dominated ($\leq 20\%$ entrants) & 0 / 50 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The raw numbers look like strong Schumpeter Mark~I: 48 of 50 themes are entrant-dominated and zero are incumbent-dominated. This is the result that does not survive scrutiny.
+\noindent The raw numbers look like strong Schumpeter Mark~I. This is the
+result that does not survive baseline contrast.
 
-The corpus's overall debut rate among granted filings in 1990--2024 is 68--77\% per year across the four classes. With a year-weighted mean (weighting by each theme's earliest-carrier year distribution), the baseline is 76.4\%. \emph{Most filings in the four-class corpus over this period are by owners debuting that year.} The corpus is mechanically saturated in entrants.
-
-The disciplined version of the analysis takes the difference between a theme's entrant share and the year-matched population baseline:
+The corpus's overall debut rate among granted filings in 1990--2024 is
+68--77\% per year across the four classes. With a year-weighted mean
+(weighting by each theme's earliest-carrier year distribution), the baseline
+is 76.4\%. \emph{Most filings in the four-class corpus over this period are
+by owners debuting that year.}
 
 \begin{table}[h]\centering\small
-\caption{RQ4 with year-matched population baseline.}
+\caption{Schumpeter~I with year-matched population baseline.}
 \label{tab:rq4_baseline}
 \begin{tabular}{lr}
 \toprule
@@ -340,102 +656,137 @@ Themes with negative excess & 28 / 50 \\
 \end{tabular}
 \end{table}
 
-The mean theme excess is $-2.7$ percentage points, the median $-3.7$. Twenty-eight of 50 themes are \emph{below} baseline. Only nine themes show real entrant excess above 10pp. The Schumpeter Mark~I claim collapses: themes inherit the corpus's high debut rate without adding to it. The disciplined finding is that the typical theme is not disproportionately entrant-born once we account for who files in the relevant years.
+The mean theme excess is $-2.7$ percentage points; 28 of 50 themes are
+\emph{below} baseline. Only nine themes show real entrant excess above
+10pp. The Schumpeter Mark~I claim collapses: themes inherit the corpus's
+high debut rate without adding to it.
 
-The methodological point worth stating: this kind of base-rate contrast is what distinguishes useful from inflated findings in trademark-text work. The same flaw will appear elsewhere --- anywhere a corpus has a non-uniform base rate over the relevant population dimension, raw theme-population shares can mislead. RQ4 was the obvious instance. The discipline is to look for the analogous flaw systematically in future analyses. The 9 themes with real positive excess (in our case, several blockchain/crypto and AI-era themes in their early years) merit closer examination in follow-up work as candidate genuinely entrant-led innovations, distinct from the typical theme.
+The methodological point: the trademark-text literature is particularly
+exposed to base-rate bias because the corpus is mechanically saturated in
+entrants, and any analysis that reports raw population shares without
+year-matched baseline contrast risks reading mechanical corpus structure as
+substantive finding. I report this result not because Schumpeter Mark~I is
+the central question of the paper but because the discipline of base-rate
+contrast is what distinguishes useful from inflated findings in this kind of
+analysis, and the discipline should be visible in any work that uses
+trademark text to ask population-share questions.
 
-\section{Scope, limits, and a forward gesture}\label{sec:scope}
+\section{Scope and limits}\label{sec:scope}
 
-\subsection{What this paper claims and does not claim}
+The paper makes the following claims.
 
-The paper makes the following claims and not others.
+\dkl{}, computed as in \citet{Murdock2017, Barron2018} with a 5-year flat
+window on granted USPTO trademark filings, produces a directly traceable
+cross-industry vocabulary diffusion record on a 4-class subset of the corpus.
+The directional asymmetry --- software/tech-origin themes arriving in
+transport and advertising/retail with multi-year lags, the reverse rarely
+happening --- is concrete at the phrase level and replicates at the theme
+level under two independently fitted topic models on the same vocabulary.
 
-\dkl{} is a reproducible text-based novelty signal on USPTO trademark goods/services text, validated against patents (orthogonal-to-negative within firm) and against expert ``most innovative'' lists (small-$n$ positive). The construct is distinct from patent-track invention; the strong-sense ``\dkl{} measures innovation'' claim is not licensed by the within-firm patent-orthogonality result and is not made.
+\dkl{} predicts post-registration §8 mark maintenance in a U-shape at both
+the filing and token levels, with the token-level gap larger than the
+filing-level gap and the two should not be conflated. The U-shape is
+robust to operationalization; the underlying mechanism is not separable with
+the trademark record alone.
 
-The theme-level diffusion structure is real in the corpus and method-invariant under LDA and NMF extraction ($z = +46$ / $+60.7$ on shuffle null). Cross-industry transit of business-model vocabulary is asymmetric, with software/tech as net exporter to physical-economy classes on multi-year lags.
+\dkl{} is empirically orthogonal-to-negative with patent counts within firm,
+confirming the construct is distinct from patent-track invention.
 
-The Schumpeter Mark~I result does not survive year-matched baseline contrast; the disciplined finding is that themes do not produce excess entrant share once the corpus's high overall debut rate is accounted for.
+The Schumpeter Mark~I read of new themes does not survive year-matched
+baseline contrast, and the discipline of base-rate contrast is what makes
+the difference.
 
-What the paper does \emph{not} claim:
-\begin{itemize}[noitemsep]
-\item That \dkl{} replaces patents as the canonical innovation measure. The within-firm patent-orthogonality result refutes this.
-\item That trademark text identifies a persistent return premium. An earlier $+28$pp four-year debut excess return claim is a small-sample artifact --- its horizon profile is non-monotone (peaks at 4y, collapses at 5y) and the debut/firm-year ratio grows monotonically with horizon, the signature of right-tail winners in a 1{,}447-firm debut sample, not a return premium. The claim is dropped.
-\item That the diffusion record causally identifies an industry's propensity to import vs.\ export business-model vocabulary. The four-class subset is consistent with the directional reading but cannot exclude class-size or corpus-construction alternatives. A 45-class build with NICE-NAICS crosswalk is the natural extension.
-\item That the kill-condition tests establish individual themes as substantively meaningful. The cross-method stability filter excludes 72--86\% of LDA topics; the headline theme set requires human face-validation.
-\end{itemize}
+The paper does not make these claims.
 
-\subsection{Forward gesture: firm-level outcomes}
+\dkl{} does not measure innovation in any strong sense. The defended
+primitive is lexical resonance on commercial text. The strong-sense ``\dkl{}
+measures innovation'' reading is contradicted by the within-firm patent
+orthogonality and is not licensed by the small-sample validation evidence
+($n = 48$ matched firms on BCG/MIT lists, reported in companion construct-
+validity work but not in this paper).
 
-A companion paper takes up the firm-level outcomes question that this paper does not. Using the SEC Financial Statement Data Sets firm-year panel (2009--2024; 83{,}095 firm-years; 13{,}127 unique CIKs) and a USPTO-owner-to-CIK crosswalk (7{,}233 exact matches), within-firm two-way fixed-effects analysis finds that, per $\sigma$ of within-firm borrowed-novelty (a high-within / low-cross resonance gap), firms experience a contemporaneous $+1.4$pp gross margin lift ($t = +2.1$) that fades by $t+1$ and an offsetting cross-sectional reduction in R\&D intensity. The relationship between text-based novelty and business success is, on this evidence, modest, contemporaneous, transient, and substitutive with R\&D rather than complementary.
+\dkl{} does not identify a return premium on extreme-tail debut filings;
+an earlier reported $+28$pp per $\sigma$ four-year debut excess return is a
+small-sample right-tail artifact and is dropped.
 
-This is a real but bounded outcome relationship that the companion paper develops in detail. For the present paper, it functions as a forward gesture: the diffusion claims here do not depend on the firm-outcome result, and the firm-outcome result does not depend on the diffusion claims. The two papers are complementary, not nested.
+The shuffle null does not prove that the panel structure is diffusion; it
+rejects label randomness. The substantive content of the diffusion reading
+is supplied by the transit table, the flow asymmetry, and the Bass-fittable
+curves.
 
-\subsection{What would falsify the diffusion claims}
+The LDA/NMF method invariance does not establish corpus-property invariance
+across cross-paradigm topic extraction. The cross-paradigm test (sentence-
+embedding cluster or graph community detection) is the natural methodological
+extension and is not run here.
 
-I would update on the diffusion claim if:
-\begin{itemize}[noitemsep]
-\item The cross-class transit asymmetry reversed under a 45-class build with proper class-size controls and NICE--NAICS crosswalk.
-\item The kill-condition shuffle null failed to be rejected under a topic-extraction method structurally different from LDA and NMF --- e.g., a sentence-embedding-cluster approach or graph-based community detection. The current LDA and NMF are both bag-of-words matrix factorizations on the same vocabulary; the cross-paradigm test is owed.
-\item The seed-phrase rediscovery under NMF dropped well below 4 of 10 at $T = 50$ with this vocabulary, suggesting NMF was not finding the same theme structure LDA does at this scale.
-\end{itemize}
+The four-class subset cannot exclude class-size or corpus-construction
+explanations for the software/tech-as-net-exporter asymmetry; a 45-class
+build with NICE-to-NAICS crosswalk is the natural extension.
 
-I would update on the patent-orthogonality claim if the within-firm coefficient reversed under value-weighting or under an alternative trademark-owner-to-patent-assignee match (an alternative to PatentsView).
+What would falsify the diffusion claims. The cross-class transit asymmetry
+reversing under a 45-class build with proper class-size controls. The
+shuffle null failing to be rejected under a structurally different topic-
+extraction method. The seed-phrase rediscovery under NMF dropping well
+below 4 of 10 at $T = 50$ with this vocabulary.
+
+What would falsify the patent orthogonality. The within-firm coefficient
+reversing under value-weighting or an alternative trademark-owner-to-patent-
+assignee match.
+
+What would falsify the U-shape. The shape disappearing under joint
+length-and-volume control on a class-by-class basis, or appearing only in
+classes where the maintenance-base-rate is also U-shaped in firm
+characteristics not controlled here.
 
 \section{Reproducibility}\label{sec:repro}
 
-Code, intermediate data panels, and the integrated working report are available at \url{https://github.com/ericsilver/novelty}. The full pipeline rebuilds from a USPTO Open Data Portal API key with a single \texttt{make tm} command for the four-class corpus build (multi-hour on commodity hardware; the underlying TRTYRAP backfile is approximately 12 GB streamed once). Analysis scripts and outputs:
-
-\begin{itemize}[noitemsep]
-\item Within-firm patent validation: \texttt{scripts/wsC\_within\_firm\_patents.py} $\rightarrow$ \texttt{paper/results/wsC\_within\_firm\_patents.json}
-\item Expert-list discriminant: \texttt{scripts/wsD\_validity\_battery.py} $\rightarrow$ \texttt{paper/results/wsD\_validity\_battery.json}
-\item Cross-class phrase transit: \texttt{scripts/diff2\_theme\_transit.py} $\rightarrow$ \texttt{paper/results/diff2\_transit.json}
-\item LDA + kill condition: \texttt{scripts/diff3\_lda\_themes.py} $\rightarrow$ \texttt{paper/results/diff3\_themes.json}, \\
-   \texttt{data/processed/\{filing\_topics, theme\_panel\}.parquet}
-\item Bass fits and flow: \texttt{scripts/diff4\_phase1\_rqs.py} $\rightarrow$ \texttt{paper/results/diff4\_phase1.json}
-\item RQ4 baseline contrast: \texttt{scripts/diff5\_rq4\_baseline.py} $\rightarrow$ \texttt{paper/results/diff5\_rq4\_baseline.json}
-\item NMF replication: \texttt{scripts/diff6\_nmf\_compare.py} $\rightarrow$ \texttt{paper/results/diff6\_nmf.json}, \\
-   \texttt{data/processed/filing\_topics\_nmf.parquet}
-\end{itemize}
-
-Companion firm-outcome analyses (borrowed novelty, demand-pull association, face-validation form) are in \texttt{diff7--9} and are summarized in the companion paper. The full analysis runs under Python 3.12 with \texttt{polars}, \texttt{numpy}, \texttt{scipy}, \texttt{statsmodels}, \texttt{scikit-learn}, and \texttt{matplotlib}.
+Code, intermediate data panels, and the integrated working report are
+available at \url{https://github.com/ericsilver/novelty}. The full pipeline
+rebuilds from a USPTO Open Data Portal API key with a single \texttt{make tm}
+command for the four-class corpus build (multi-hour; the underlying TRTYRAP
+backfile is approximately 12 GB streamed once). The analysis scripts and
+their outputs are indexed in the repository \texttt{README.md} under
+``Result lookup.''
 
 \begin{thebibliography}{99}
 
 \bibitem[Barron et al.(2018)]{Barron2018}
-Barron, A.~T., Huang, J., Spang, R.~L., \& DeDeo, S. (2018). Individuals, institutions, and innovation in the debates of the French Revolution. \emph{Proceedings of the National Academy of Sciences}, 115(18), 4607--4612.
+Barron, A.~T., Huang, J., Spang, R.~L., \& DeDeo, S. (2018). Individuals,
+institutions, and innovation in the debates of the French Revolution.
+\emph{Proceedings of the National Academy of Sciences}, 115(18),
+4607--4612.
 
 \bibitem[Bass(1969)]{Bass1969}
-Bass, F.~M. (1969). A new product growth for model consumer durables. \emph{Management Science}, 15(5), 215--227.
+Bass, F.~M. (1969). A new product growth for model consumer durables.
+\emph{Management Science}, 15(5), 215--227.
 
 \bibitem[Dinlersoz et al.(2018)]{Dinlersoz2018}
-Dinlersoz, E., Goldschlag, N., Myers, A., \& Zolas, N. (2018). An anatomy of US firms seeking trademark registration. \emph{NBER Working Paper} No.\ 25038.
+Dinlersoz, E., Goldschlag, N., Myers, A., \& Zolas, N. (2018). An anatomy
+of US firms seeking trademark registration. \emph{NBER Working Paper}
+No.\ 25038.
 
 \bibitem[Graham et al.(2013)]{Graham2013}
-Graham, S.~J.~H., Hancock, G., Marco, A.~C., \& Myers, A. (2013). The USPTO trademark case files dataset: Descriptions, lessons, and insights. \emph{Journal of Economics \& Management Strategy}, 22(4), 669--705.
-
-\bibitem[Griliches(1990)]{Griliches1990}
-Griliches, Z. (1990). Patent statistics as economic indicators: A survey. \emph{Journal of Economic Literature}, 28(4), 1661--1707.
-
-\bibitem[Hall et al.(2005)]{HallJaffeTrajtenberg2005}
-Hall, B.~H., Jaffe, A., \& Trajtenberg, M. (2005). Market value and patent citations. \emph{RAND Journal of Economics}, 36(1), 16--38.
-
-\bibitem[Hidalgo \& Hausmann(2009)]{HidalgoHausmann2009}
-Hidalgo, C.~A., \& Hausmann, R. (2009). The building blocks of economic complexity. \emph{Proceedings of the National Academy of Sciences}, 106(26), 10570--10575.
+Graham, S.~J.~H., Hancock, G., Marco, A.~C., \& Myers, A. (2013). The USPTO
+trademark case files dataset: Descriptions, lessons, and insights.
+\emph{Journal of Economics \& Management Strategy}, 22(4), 669--705.
 
 \bibitem[Hoberg \& Phillips(2016)]{HobergPhillips2016}
-Hoberg, G., \& Phillips, G. (2016). Text-based network industries and endogenous product differentiation. \emph{Journal of Political Economy}, 124(5), 1423--1465.
+Hoberg, G., \& Phillips, G. (2016). Text-based network industries and
+endogenous product differentiation. \emph{Journal of Political Economy},
+124(5), 1423--1465.
 
 \bibitem[Murdock et al.(2017)]{Murdock2017}
-Murdock, J., Allen, C., \& DeDeo, S. (2017). Exploration and exploitation of Victorian science in Darwin's reading notebooks. \emph{Cognition}, 159, 117--126.
+Murdock, J., Allen, C., \& DeDeo, S. (2017). Exploration and exploitation
+of Victorian science in Darwin's reading notebooks. \emph{Cognition},
+159, 117--126.
 
 \bibitem[PatentsView(2024)]{PatentsView}
-PatentsView. (2024). Patent and assignee data, US Patent and Trademark Office. \texttt{https://patentsview.org}.
+PatentsView. (2024). Patent and assignee data, US Patent and Trademark
+Office. \texttt{https://patentsview.org}.
 
 \bibitem[Schumpeter(1942)]{Schumpeter1942}
-Schumpeter, J.~A. (1942). \emph{Capitalism, Socialism and Democracy}. Harper \& Brothers.
-
-\bibitem[Trajtenberg(1990)]{Trajtenberg1990}
-Trajtenberg, M. (1990). A penny for your quotes: Patent citations and the value of innovations. \emph{RAND Journal of Economics}, 21(1), 172--187.
+Schumpeter, J.~A. (1942). \emph{Capitalism, Socialism and Democracy}.
+Harper \& Brothers.
 
 \end{thebibliography}
 
