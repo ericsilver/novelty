@@ -380,39 +380,53 @@ under multiple outcome operationalizations: examiner approval, reach-and-still-
 live at 5 years, and (in a smaller subsample) a SEC-listed-firm proxy. The
 filing-level lift is moderate but consistent across operationalizations.
 
-Figure~\ref{fig:ushape} makes the U-shape visible and shows how it composes
-from the two directional pieces. The first two panels show the monotonic
-relationship between each directional KL (prospective, retrospective) and
-the 5-year survival outcome. The third panel shows the U-shape in their
-signed difference \dkl{}.
+Figure~\ref{fig:ushape} shows the conditional renewal rate (denominator =
+filings that reached registration) by each of the three KL axes. Among
+registered marks, both directional pieces relate negatively to survival:
+high prospective surprise or high retrospective surprise both predict lower
+renewal, with the rate sliding from $\sim$92\% at the low end to $\sim$78\%
+at the high end. The signed difference \dkl{} is the right panel: forward-
+leaning vocabulary (positive \dkl{}) sits at $\sim$87\% renewal, the flux-
+neutral middle at $\sim$82\%, and the going-out-of-fashion negative tail at
+$\sim$80\% with a slight uptick at the far-left edge.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/outcome_curves_software.png}
-\caption{5-year mark survival in software/electronics as a function of
-prospective KL (left), retrospective KL (middle), and signed \dkl{}
-(right). The directional pieces are both monotonically positive; their
-signed difference is U-shaped, with the lift at both tails and the
-depression near zero.}
+\caption{5-year renewal rate (mark still alive and maintaining at the time
+of measurement) for software/electronics filings, conditional on completed
+registration. Higher prospective or retrospective KL both predict lower
+conditional renewal. The signed \dkl{} panel is forward-favoring rather than
+strictly U-shaped: the right tail (innovator vocabulary) sits clearly above
+the centre; the left tail (going-out-of-fashion vocabulary) sits at or
+below the centre, with a slight uptick at the far edge.}
 \label{fig:ushape}
 \end{figure}
 
-The same shape is present when the analysis is restricted to debut-only
-filings --- filings made by an owner for whom the filing is the first ever
-across the four-class corpus. This is the natural objection-killing
-restriction: if the U-shape were driven by incumbent firms with thick
-existing portfolios who file many marks across many tail positions, it would
-disappear under a debut-only restriction. It does not.
+The conditional reading is the right way to think about the construct's link
+to commercial outcomes: it isolates the renewal decision from the
+registration-success decision. The unconditional U-shape reported in earlier
+work on this corpus is real, but it is largely a registration-success
+story --- negative-tail vocabulary is less likely to register at all, and
+the marks that do register die at roughly the same rate as the middle.
+Conditional on registration, the surviving signal is monotone-ish and
+favors forward-leaning vocabulary.
+
+The same forward-favoring pattern is present when the analysis is restricted
+to debut-only filings (filings made by an owner for whom the filing is the
+first ever across the four-class corpus), and it extends to a longer-horizon
+external outcome: whether the owner ever appears in the SEC EDGAR listed
+universe.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
 \caption{Outcomes for debut-only filings (owner's first-ever filing,
-$n = 5{,}090{,}053$) by KL value. Panels show P(reached registration),
-P(survived 5 years), and P(owner ever appears in the SEC EDGAR listed
-universe). The U-shape in signed \dkl{} (blue) is preserved while the
-directional pieces (red, green) remain monotonically positive. The third
-panel shows the construct is also informative for an external outcome ---
-eventual SEC-listed status of the owner --- with $\sim$30\% lift between the
-left and right tails of the directional pieces.}
+$n = 5{,}090{,}053$) by KL value. The signed \dkl{} (blue) shows the
+filing-level U-shape that the conditional reading in
+Figure~\ref{fig:ushape} flattens out, evidence that the unconditional
+U-shape is concentrated in the registration-success step. The
+SEC-EDGAR-listed-owner panel (third panel) is monotonically up-and-to-the-
+right in the directional KL pieces, with a $\sim$30\% lift between the left
+and right tails, consistent with the conditional renewal-rate finding.}
 \label{fig:debut}
 \end{figure}
 
@@ -703,16 +717,21 @@ Themes incumbent-dominated ($\leq 20\%$ entrants) & 0 / 50 & --- \\
 \end{table}
 
 \noindent The raw numbers look like strong evidence of entrant-led adoption.
-This is the result that does not survive baseline contrast.
+But the question is not whether the entrant share exceeds 50\%; it is
+whether the entrant share among earliest theme-carriers exceeds the corpus
+baseline rate at which \emph{any} granted filing in this period is by a new
+entrant.
 
 The corpus's overall debut rate among granted filings in 1990--2024 is
 68--77\% per year across the four classes. With a year-weighted mean
 (weighting by each theme's earliest-carrier year distribution), the baseline
-is 76.4\%. \emph{Most filings in the four-class corpus over this period are
-by owners debuting that year.}
+is 76.4\% new entrants and 23.6\% incumbents. \emph{Most filings in the
+four-class corpus over this period are by owners debuting that year.}
+Against this baseline, the 73.7\% theme-carrier entrant share is slightly
+\emph{below} corpus-average, not strikingly entrant-led.
 
 \begin{table}[h]\centering\small
-\caption{Schumpeter~I with year-matched population baseline.}
+\caption{Portion of new themes filed by new entrants vs. corpus baseline.}
 \label{tab:rq4_baseline}
 \begin{tabular}{lr}
 \toprule
@@ -745,84 +764,70 @@ be visible in any work that uses trademark text to ask population-share
 questions.
 
 A secondary observation worth surfacing without elevating to a headline. The
-themes that show the strongest negative excess --- carried disproportionately
-by incumbents relative to baseline --- include environmental/sustainability,
+themes that show the strongest negative excess (carried disproportionately
+by incumbents relative to baseline) include environmental/sustainability,
 natural gas / petroleum / utility, artificial-intelligence / compliance /
 machine, and cloud-computing/lighting-fixtures (Table~\ref{tab:raw_schumpeter}).
 The canonically ``new'' technology themes of the 2010s and early 2020s are
-in this list, not the entrant-led one. The intuitive read --- that incumbent
-firms diversifying into AI and cloud are pulling the trademark-vocabulary
-signal forward, rather than de-novo entrants doing so --- is consistent with
-the construct's within-firm patent orthogonality of
-Section~\ref{sec:patent}: the firms moving the vocabulary are not necessarily
-the firms moving the patents. The finding is intuitively plausible and would
-not on its own clear a publication bar, but it is a useful sense-check that
-the construct is responding to a substantive corpus phenomenon and not just
-to corpus mechanics.
+in this list, not the entrant-led one. Incumbent firms diversifying into AI
+and cloud appear to be pulling the trademark-vocabulary signal forward,
+rather than de-novo entrants doing so. This is consistent with the
+within-firm patent orthogonality of Section~\ref{sec:patent}: the firms
+moving the vocabulary are not necessarily the firms moving the patents. The
+finding would not on its own clear a publication bar, but it is a useful
+sense-check that the construct is responding to a substantive corpus
+phenomenon rather than to corpus mechanics.
 
 \section{Scope and limits}\label{sec:scope}
 
-The paper makes the following claims.
+The paper makes four substantive claims.
 
-\dkl{}, computed as in \citet{Murdock2017, Barron2018} with a 5-year flat
-window on granted USPTO trademark filings, produces a directly traceable
-cross-industry vocabulary diffusion record on a 4-class subset of the corpus.
-The directional asymmetry --- software/tech-origin themes arriving in
-transport and advertising/retail with multi-year lags, the reverse rarely
-happening --- is concrete at the phrase level (Section~\ref{sec:transit}) and
-reproduces at the theme level under unsupervised LDA topic extraction
-(Section~\ref{sec:themes}), with within-paradigm robustness under
-independently-fitted NMF.
+First, \dkl{}, computed as in \citet{Murdock2017, Barron2018} with a 5-year
+flat window on granted USPTO trademark filings, produces a directly
+traceable cross-industry vocabulary diffusion record on a 4-class subset of
+the corpus. The directional asymmetry, with software/tech-origin themes
+arriving in transport and advertising/retail at multi-year lags and the
+reverse rarely happening, is concrete at the phrase level
+(Section~\ref{sec:transit}) and reproduces at the theme level under
+unsupervised LDA topic extraction (Section~\ref{sec:themes}), with
+within-paradigm robustness under independently-fitted NMF.
 
-\dkl{} predicts post-registration §8 mark maintenance in a U-shape at both
-the filing and token levels, with the token-level gap larger than the
-filing-level gap and the two should not be conflated. The U-shape is
-robust to operationalization; the underlying mechanism is not separable with
-the trademark record alone.
+Second, \dkl{} predicts post-registration §8 mark maintenance. The
+relationship is U-shaped at the token level (tail tokens survive at
+50--80\%; flux-neutral middle tokens at 11--26\%) and forward-favoring at the
+filing level conditional on completed registration (innovator-tail vocabulary
+sits 5--7 percentage points above the flux-neutral middle in the
+diagnostic class). The underlying mechanism is not separable with the
+trademark record alone.
 
-\dkl{} is empirically orthogonal-to-negative with patent counts within firm,
-confirming the construct is distinct from patent-track invention.
+Third, \dkl{} is empirically orthogonal-to-negative with patent counts
+within firm, confirming the construct is distinct from patent-track
+invention.
 
-The entrant-vs-incumbent reading of new themes (Schumpeter Mark~I in the
-classical framing) does not survive year-matched baseline contrast, and the
-discipline of base-rate contrast is what makes the difference.
+Fourth, the portion of new themes filed by new entrants (73.7\%) is slightly
+below the corpus baseline rate (76.4\% entrants, 23.6\% incumbents); the
+entrant-led reading of new themes does not survive baseline contrast, and
+the discipline of contrasting against the right baseline is what makes the
+difference.
 
-The paper does not make these claims.
+The paper rejects two claims that the construct does not support. \dkl{}
+does not measure innovation in any strong sense; the defended primitive is
+lexical resonance on commercial text. \dkl{} does not identify an
+investment return premium on extreme-tail debut filings.
 
-\dkl{} does not measure innovation in any strong sense. The defended
-primitive is lexical resonance on commercial text. The strong-sense ``\dkl{}
-measures innovation'' reading is contradicted by the within-firm patent
-orthogonality and is not licensed by the small-sample validation evidence
-($n = 48$ matched firms on BCG/MIT lists, reported in companion construct-
-validity work but not in this paper).
-
-\dkl{} does not identify a return premium on extreme-tail debut filings;
-an earlier reported $+28$pp per $\sigma$ four-year debut excess return is a
-small-sample right-tail artifact and is dropped.
-
-The LDA/NMF robustness is within the bag-of-words paradigm. A cross-paradigm
-test --- sentence-embedding clustering or graph-based community detection ---
-is the natural methodological extension and is not run here.
-
-The four-class subset cannot exclude class-size or corpus-construction
-explanations for the software/tech-as-net-exporter asymmetry; a 45-class
-build with NICE-to-NAICS crosswalk is the natural extension.
-
-What would falsify the diffusion claims. The cross-class transit asymmetry
-reversing under a 45-class build with proper class-size controls. The
-theme-level flow asymmetry failing to reproduce under a structurally different
-topic-extraction method (sentence-embedding cluster or graph community
-detection). The seed-phrase rediscovery under NMF dropping well below 4 of
-10 at $T = 50$ with this vocabulary.
-
-What would falsify the patent orthogonality. The within-firm coefficient
-reversing under value-weighting or an alternative trademark-owner-to-patent-
-assignee match.
-
-What would falsify the U-shape. The shape disappearing under joint
-length-and-volume control on a class-by-class basis, or appearing only in
-classes where the maintenance-base-rate is also U-shaped in firm
-characteristics not controlled here.
+The paper does not evaluate the following questions, which are owed to
+follow-up work. Whether the theme-level flow asymmetry reproduces under a
+structurally different topic-extraction method (sentence-embedding clustering
+or graph-based community detection, rather than the within-paradigm
+LDA/NMF used here). Whether the software-and-tech-services-as-net-exporter
+asymmetry survives a full 45-class build with a NICE-to-NAICS crosswalk and
+proper class-size controls. Whether the filing-level conditional renewal
+result extends to all four classes in the subset and to the full corpus
+pooled in one go. Whether a within-phrase decomposition of cross-industry
+arrivals into ``offer-is-the-thing'' versus ``offer-supplies-the-thing''
+separates the two carrier types of cross-industry adoption
+(Section~\ref{sec:transit}). Whether mechanism on the U-shape can be
+disambiguated using out-of-corpus firm covariates.
 
 \section{Reproducibility}\label{sec:repro}
 
