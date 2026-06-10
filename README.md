@@ -95,9 +95,9 @@ The empirical claims in the paper and their script → output paths:
 
 | Claim | Script | Output |
 |---|---|---|
-| Conditional 5-year renewal, filing level (87/82/80) | `scripts/regen_outcome_curves_software_v2.py` | `paper/results/outcome_curves_software.png` |
+| Debut outcomes: registration; renewal and EDGAR conditional on registration | `scripts/debut_outcome_by_kl_v2.py` | `paper/results/debut_outcome_by_kl.{png,csv}` |
+| Conditional 5-year renewal, class-009 filing level (87/82/80) | `scripts/regen_outcome_curves_software_v2.py` | `paper/results/outcome_curves_software.png` |
 | Conditional renewal, token level (blockchain 99.7% … typesetting 63%) | `scripts/token_survival_conditional.py` | stdout table |
-| Going public among debut filers (monotone in ΔKL) | `scripts/debut_outcome_by_kl.py` | `paper/results/debut_outcome_by_kl.png` |
 | Gross margin +3.2pp/σ (t=5.3); pros/retr decomposition | `scripts/financials_regression.py` | `paper/results/financials_metrics.json` |
 | Excess returns +1.5–5.0pp/σ over 1–4y; debut +28pp rejected | `scripts/returns_regression.py` + `wsE_returns_diagnostic.py` | `paper/results/returns_metrics.json`, `wsE_returns_diagnostic.json` |
 | Expert lists +0.34σ (n=43, p=0.0003); patents uncorrelated | `scripts/wsD_validity_battery.py` | `paper/results/wsD_validity_battery.json` |

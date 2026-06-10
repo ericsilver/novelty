@@ -237,25 +237,37 @@ firm earns margins, whether early vocabulary position precedes growth. It
 does, and in a consistent direction. Forward-leaning vocabulary is good
 news at every level of measurement.
 
-\subsection{Mark renewal conditional on registration}
+\subsection{Registration, renewal, and listing among first-time filers}
 
-Among granted software/electronics filings in the post-burn-in 1990--2020
-window that reached registration, 5-year renewal is forward-favoring in
-\dkl{}: the innovator tail renews at $\sim$87\%, the flux-neutral middle at
-$\sim$82\%, and the going-out-of-fashion negative tail at $\sim$80\%.
-Figure~\ref{fig:renewal} shows the conditional renewal rate by each of the
-three KL axes; both directional pieces relate negatively to renewal (high
-surprise in either direction predicts lower renewal, sliding from
-$\sim$92\% to $\sim$78\%), while the signed difference favors the forward
-tail.
+Figure~\ref{fig:outcomes} traces a debut filing (the owner's first-ever
+filing) through three successive outcomes: whether the application reaches
+registration, whether the registered mark is still alive and maintained
+five years on, and whether the owner ever appears in the SEC EDGAR listed
+universe. The panel sample is 1.49 million debut filings in the four-class
+build, of which 715{,}904 reached registration; the second and third
+outcomes are computed on the registered subset only.
 
 \begin{figure}[h]\centering
-\includegraphics[width=\textwidth]{results/outcome_curves_software.png}
-\caption{5-year renewal rate for software/electronics filings, conditional
-on completed registration, as a function of prospective KL (left),
-retrospective KL (middle), and signed \dkl{} (right).}
-\label{fig:renewal}
+\includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
+\caption{Outcomes for debut filings ($n = 1{,}494{,}615$; registered subset
+$n = 715{,}904$) by KL value, in quantile bins with 95\% intervals.
+\emph{A:} P(reached registration). \emph{B:} P(mark alive and maintained at
+5 years $\mid$ registration). \emph{C:} P(owner ever in SEC EDGAR $\mid$
+registration).}
+\label{fig:outcomes}
 \end{figure}
+
+The registration step (panel A) is the largest filter, and it selects on
+the KL \emph{level}: applications with higher prospective or retrospective
+surprise register more often (rising from $\sim$38\% to $\sim$57\% across
+the distribution), consistent with the examination standard rewarding
+distinctiveness. Conditional on registration (panel B), renewal is
+forward-favoring in the signed \dkl{}: marks at the innovator tail renew at
+$\sim$93\% against $\sim$84\% at the going-out-of-fashion tail, while the
+directional pieces show only a shallow dip-and-recover. The same ordering
+holds on the complete software/electronics class without the debut
+restriction (innovator tail $\sim$87\%, flux-neutral middle $\sim$82\%,
+negative tail $\sim$80\%).
 
 The token-level pattern matches. Conditional renewal rates for marks
 containing example tokens: positive-tail tokens renew highest
@@ -268,27 +280,15 @@ $\sim$15--26\% while tail-vocabulary applications register at
 $\sim$30--60\%, so an unconditional survival statistic on these tokens is
 dominated by the registration-step gap rather than the renewal-step gap.
 
-\subsection{Going public among first-time filers}
-
-Among 5.09 million debut filings (the owner's first-ever filing), the
-probability that the owner ever appears in the SEC EDGAR listed universe
-rises monotonically in the filing's \dkl{}, with roughly a 50\% relative
-lift from the negative to the positive tail
-(Figure~\ref{fig:debut}). The debut restriction matters here: at the
-whole-firm level, selection into public markets is dominated by filing
+Among registered debut filings, the probability that the owner ever
+appears in the SEC EDGAR listed universe (panel C) also rises in \dkl{},
+from $\sim$0.40\% at the negative tail to $\sim$0.55\% at the positive
+tail, against a 0.47\% base rate. The debut restriction matters here: at
+the whole-firm level, selection into public markets is dominated by filing
 volume (a tenfold increase in filings raises the odds of listing roughly
 fivefold), and firm-level \dkl{} quintiles show no lift. The construct's
-signal for eventual public listing is concentrated at the moment of
-entry, before portfolio-scale effects swamp it.
-
-\begin{figure}[h]\centering
-\includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
-\caption{Outcomes for debut-only filings ($n = 5{,}090{,}053$) by KL value:
-P(reached registration), P(survived 5 years), and P(owner ever appears in
-the SEC EDGAR listed universe). In the third panel the signed \dkl{}
-(blue) rises monotonically.}
-\label{fig:debut}
-\end{figure}
+signal for eventual public listing is concentrated at the moment of entry,
+before portfolio-scale effects swamp it.
 
 \subsection{Margins and returns on the SEC panel}
 
