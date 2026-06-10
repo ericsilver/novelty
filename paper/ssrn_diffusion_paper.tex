@@ -6,6 +6,7 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
+\usepackage{url}
 \usepackage{enumitem}
 \usepackage[round,sort,authoryear]{natbib}
 
@@ -13,7 +14,7 @@
 
 \title{\bfseries How business-model vocabulary diffuses across US industries:\\
 \large Text-based evidence from trademark filings, with kill-condition tests of the diffusion structure}
-\author{Eric Silver\thanks{Independent researcher. Comments welcome to epsilver@gmail.com.}}
+\author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone.}}
 \date{June 2026 working paper}
 
 \begin{document}
@@ -382,7 +383,7 @@ I would update on the patent-orthogonality claim if the within-firm coefficient 
 
 \section{Reproducibility}\label{sec:repro}
 
-Code, intermediate data panels, and the integrated working report are available at [repository URL to be added]. The full pipeline rebuilds from a USPTO Open Data Portal API key with a single \texttt{make tm} command for the four-class corpus build (multi-hour on commodity hardware; the underlying TRTYRAP backfile is approximately 12 GB streamed once). Analysis scripts and outputs:
+Code, intermediate data panels, and the integrated working report are available at \url{https://github.com/ericsilver/novelty}. The full pipeline rebuilds from a USPTO Open Data Portal API key with a single \texttt{make tm} command for the four-class corpus build (multi-hour on commodity hardware; the underlying TRTYRAP backfile is approximately 12 GB streamed once). Analysis scripts and outputs:
 
 \begin{itemize}[noitemsep]
 \item Within-firm patent validation: \texttt{scripts/wsC\_within\_firm\_patents.py} $\rightarrow$ \texttt{paper/results/wsC\_within\_firm\_patents.json}
