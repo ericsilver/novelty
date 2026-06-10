@@ -55,10 +55,10 @@ middle tokens (organisational, conformity, freighting) survive at 11--26\%.
 $-0.048\sigma$, $t = -7.9$ on 14{,}463 trademark-and-patent-matched firms.
 \dkl{} is empirically distinct from patent-track invention.
 
-\noindent A worked discipline result: the raw Schumpeter Mark~I read of new
-themes (73.7\% entrant-dominated) collapses on year-matched baseline contrast
-to a $-2.7$pp mean excess once the corpus's 76.4\% overall debut rate is
-netted out. The paper reports this rather than burying it.
+\noindent A worked discipline result: the raw test of whether new themes are
+carried predominantly by entrants or incumbents reads as 73.7\% entrant-led,
+but this collapses on year-matched baseline contrast to a $-2.7$pp mean excess
+once the corpus's 76.4\% overall debut rate is netted out.
 
 \noindent The paper defends a bounded reading: \dkl{} is a measurement of
 lexical resonance with interpretable empirical structure on commercial text,
@@ -71,9 +71,10 @@ are released for replication at \url{https://github.com/ericsilver/novelty}.
 \citet{Murdock2017} introduced a measurement framework for directional novelty
 in time-ordered text corpora: for each document, compare its token distribution
 to aggregated distributions of past documents (prospective surprise) and
-future documents (retrospective surprise). Their signed difference --- positive
-when a document is unusual against its recent past and close to its near
-future --- they call \emph{resonance}. The framework was developed on Charles
+future documents (retrospective surprise). The signed difference of those two
+quantities they call \emph{resonance}: it is positive when a document is
+unusual against its recent past and close to its near future, negative for
+the inverse. The framework was developed on Charles
 Darwin's reading notebooks and extended in \citet{Barron2018} to French
 Revolution parliamentary debates. Both corpora share a salient property: the
 text is authored by the agent whose novelty is the object of measurement, and
@@ -88,7 +89,17 @@ cognition or rhetoric. The text is subject to two competing pressures: it must
 be wide enough to cover the applicant's intended commercial activity and
 narrow enough to be granted by an examiner. Whether the resonance framework
 produces interpretable structure on text of this kind is the empirical
-question of this paper.
+question of this paper. Two follow-up questions discipline the reading. First,
+how does the constructed signal compare to other measures that have been
+treated as proxies for innovation --- patent counts in particular? On a
+within-firm panel of trademark owners matched to patent assignees, the answer
+is that the signal is orthogonal-to-negative with patents: it is empirically
+distinct from patent-track invention, not a noisier version of it. Second,
+does the signal predict commercially meaningful outcomes? At both the filing
+and the token level it predicts post-registration mark survival in a U-shape:
+filings whose vocabulary sits at either tail of the resonance distribution
+maintain their registrations more often than those whose vocabulary sits in
+the flux-neutral middle.
 
 The empirical record in text-based economics has converged on text-similarity
 methods --- the text-based network industry classification of
@@ -127,11 +138,12 @@ position in its industry's vocabulary trajectory, with interpretable
 empirical consequences that are documented and bounded below.
 
 A worked methodological discipline is folded into Section~\ref{sec:rq4}: the
-Schumpeter Mark~I read of new themes (entrant-led innovation) collapses on
-year-matched baseline contrast. The methodological point is that the
-trademark-text literature is particularly exposed to base-rate bias because
-the corpus is mechanically saturated in entrants, and the discipline of
-year-matched contrast is what distinguishes useful from inflated findings.
+question of whether new themes are carried predominantly by entrants or
+incumbents reads naively as overwhelming entrant dominance, but collapses on
+year-matched baseline contrast. The point is that the trademark-text
+literature is particularly exposed to base-rate bias because the corpus is
+mechanically saturated in entrants, and the discipline of year-matched
+contrast is what distinguishes useful from inflated findings.
 
 Section~\ref{sec:construct} describes the construct, the corpus, and known
 fragilities. Section~\ref{sec:transit} presents the cross-industry phrase
@@ -140,7 +152,8 @@ outcomes at the filing and token levels. Section~\ref{sec:themes} reports the
 theme-level evidence: Bass-fittable adoption curves and cross-class flow
 asymmetry under LDA topic extraction, with an NMF robustness check.
 Section~\ref{sec:patent} reports the within-firm patent orthogonality.
-Section~\ref{sec:rq4} reports the Schumpeter Mark~I baseline collapse.
+Section~\ref{sec:rq4} reports a worked discipline result on
+entrant-vs-incumbent classification under year-matched baseline contrast.
 Section~\ref{sec:scope} states scope. Section~\ref{sec:repro} is
 reproducibility.
 
@@ -291,6 +304,17 @@ a class-size artifact or a substantive directional pattern. The current
 evidence is consistent with the directional reading but cannot exclude a
 corpus-construction alternative.
 
+A second open question is whether a phrase that has crossed industries
+\emph{means the same thing} in its new class. When ``blogs'' (born in 009)
+arrives in 035 (advertising/retail), the filings may be either
+panners-for-gold --- firms whose offer \emph{is} a blog --- or
+sellers-of-pick-axes --- firms whose offer is a service \emph{to} bloggers
+(hosting, monetization, analytics). The two have different commercial
+trajectories. A within-phrase decomposition of the goods/services text
+into ``offer-is-the-thing'' versus ``offer-supplies-the-thing'' is a natural
+extension and is owed to follow-up work; this paper documents the arrival
+of the phrase in the new class without committing to which role it plays.
+
 \section{The U-shape in post-registration outcomes}\label{sec:ushape}
 
 \subsection{Filing-level result}
@@ -336,8 +360,15 @@ should not be conflated.
 The U-shape is robust to substitution of the outcome operationalization
 (examiner approval, §8 maintenance at 5 years, currently-live at 10 years),
 to choice of half-life kernel within $W \in \{3, 5, 7\}$ years, to length
-control, and to class. The pattern is present in 32 of the 44 NICE classes
-that have sufficient post-1995 volume to estimate.
+control, and to class. Estimated independently in each of the 44 NICE classes
+with sufficient post-1995 volume, the qualitative U-shape is present in 32;
+the per-class tail-vs-middle filing-level lift is in the 5--10pp range that
+matches the four-class pool. A pooled run on the full 1.8M-filing
+single-class diagnostic corpus (Class~009 alone) is reported in companion
+work and recovers the shape with a similar lift. A pooled run on the entire
+$\sim$45-class trademark corpus in one go --- testing the U-shape as a
+\emph{single} corpus-level pattern rather than a class-by-class
+regularity --- is the natural next robustness check and is not done here.
 
 Mechanism is the harder question. Three candidate stories cannot be
 separated with the trademark record alone:
@@ -353,6 +384,15 @@ same reason, and survive by inertia rather than design.
 \item \emph{Selection on something unobservable}: the kinds of applicants
 who file at the tails differ on capitalisation, sophistication, or other
 covariates that independently predict mark maintenance.
+\item \emph{Differentiation versus me-too}: the flux-neutral middle is
+populated by applicants whose offer is category-typical and undifferentiated
+--- the proverbial generic ``restaurant'' filing rather than the throwback
+diner or the chef's-table gamble that tries to move the category. On this
+reading, vocabulary at either resonance tail is a marker of substantive
+differentiation (in either direction); middle vocabulary is a marker of
+businesses bereft of a defensible angle, which predicts non-maintenance for
+ordinary commercial reasons rather than because of anything special about the
+text.
 \end{itemize}
 
 The trademark record does not separately identify which of these is the
@@ -405,9 +445,19 @@ the median $q/p$ is approximately 7. The median $q/p$ falls in the range
 typically reported for consumer-product Bass fits in the diffusion-of-
 innovations literature, lending external plausibility to the (theme, class)
 adoption curves as describing real adoption events rather than topic-model
-artifacts. The bulk of fits (88 of 118) are platform-like (broad gradual
-adoption, moderate word-of-mouth); a small tail of 9 fits shows fad-shaped
-curves (high $q/p$).
+artifacts. Illustrative platform-like fits (low $q/p$, broad gradual
+adoption): the travel/transportation theme in advertising/retail and tech-
+services ($q/p \in [0.07, 0.17]$); the retail/store-services theme in
+advertising/retail ($q/p \approx 0.66$); the electronic-transmission /
+computer-networks theme in advertising/retail ($q/p \approx 0.60$).
+Illustrative fad-shaped fits (high $q/p$, steep adoption with prevalence
+visibly receding in recent panel years): the renewable-energy theme in
+software and tech-services ($q/p > 100$); the virtual-reality/fitness theme
+in advertising/retail and tech-services ($q/p > 40$); the
+software/applications theme in transport and tech-services ($q/p > 130$),
+where the high $q/p$ reflects the rapid arrival of software-application
+vocabulary in physical-economy classes once it had already saturated in
+software (009).
 
 \subsection{Cross-class flow asymmetry, quantified}\label{sec:flow}
 
@@ -467,9 +517,9 @@ construct, they should correlate within firms over time. They do not.
 
 The within-firm analysis uses a published panel of 174{,}569 firm-years
 covering 14{,}463 trademark owners that have been name-matched to PatentsView
-patent assignees \citep{PatentsView}. The panel is constructed in companion
-work and used here only to validate the construct against the patent-track
-measure. I fit a two-way (firm + year) fixed-effects regression of
+patent assignees \citep{PatentsView}. The panel and the matching code are in
+the public repository (see Section~\ref{sec:repro}); the panel is used here
+only to validate the construct against the patent-track measure. I fit a two-way (firm + year) fixed-effects regression of
 standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ with
 firm-clustered standard errors. The standard deviation of mean \dkl{} on the
 collapsed firm-year panel is 0.214.
@@ -508,17 +558,19 @@ trademark vocabulary becomes more boilerplate during years of high patent
 output. The empirical distinctness is robust; the substantive interpretation
 of the distinct channel is bounded by the validation evidence elsewhere.
 
-\section{A worked discipline result: Schumpeter Mark~I collapses on baseline contrast}\label{sec:rq4}
+\section{A worked discipline result: do new themes come from incumbents or entrants?}\label{sec:rq4}
 
 This section reports a methodological result more than a substantive one,
 because the trademark-text literature is particularly exposed to base-rate
 bias on questions where raw shares are interpretable as evidence.
 
-The classical Schumpeter Mark~I~/~II debate asks whether new innovations are
-predominantly born from new entrants (Mark~I) or from incumbent
-diversification (Mark~II) \citep{Schumpeter1942}. The standard empirical
-form is to identify a population of early adopters of an innovation,
-classify them as entrant or incumbent, and report the entrant share.
+The question framed here is the old one: when a new theme appears in a
+corpus, is it carried predominantly by new entrants or by incumbents
+diversifying into the new theme? \citet{Schumpeter1942} introduced the
+distinction, and the literature labels the two regimes Mark~I (entrant-led)
+and Mark~II (incumbent-led). The standard empirical form is to identify a
+population of early adopters of an innovation, classify them as entrant or
+incumbent, and report the entrant share.
 
 I apply this standard form to the 50 LDA themes. For each theme, I take its
 50 earliest carriers (sorted by filing year, conditional on top-topic weight
@@ -528,22 +580,30 @@ one year earlier --- that is, the carrier is filing at or near the owner's
 debut.
 
 \begin{table}[h]\centering\small
-\caption{Raw entrant share among the 50 earliest carriers per theme.}
+\caption{Raw entrant share among the 50 earliest carriers per theme, with
+illustrative themes at the entrant-led and incumbent-leaning ends.}
 \label{tab:raw_schumpeter}
-\begin{tabular}{lr}
+\begin{tabular}{p{6.0cm} r p{6.5cm}}
 \toprule
-Statistic & Value \\
+Statistic & Value & Illustrative themes \\
 \midrule
-Themes scored & 50 \\
-Mean entrant share among 50 earliest carriers & 73.7\% \\
-Themes entrant-dominated ($\geq 50\%$ entrants) & 48 / 50 \\
-Themes incumbent-dominated ($\leq 20\%$ entrants) & 0 / 50 \\
+Themes scored & 50 & --- \\
+Mean entrant share among 50 earliest carriers & 73.7\% & --- \\
+Themes entrant-dominated ($\geq 50\%$ entrants) & 48 / 50 &
+software/applications (92\%); retail/store-services (90\%);
+clothing/bags/sportswear (90\%); aircraft/air-transport/storage (90\%);
+business-management/corporate-sales (88\%) \\
+Themes incumbent-leaning (lowest entrant share) & --- &
+environmental/sustainability/urban (28\%); natural-gas/petroleum/utility
+(44\%); food/preparations/hair-care (54\%); artificial-intelligence/
+compliance/machine (56\%); cloud-computing/lighting-fixtures (60\%) \\
+Themes incumbent-dominated ($\leq 20\%$ entrants) & 0 / 50 & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\noindent The raw numbers look like strong Schumpeter Mark~I. This is the
-result that does not survive baseline contrast.
+\noindent The raw numbers look like strong evidence of entrant-led adoption.
+This is the result that does not survive baseline contrast.
 
 The corpus's overall debut rate among granted filings in 1990--2024 is
 68--77\% per year across the four classes. With a year-weighted mean
@@ -606,9 +666,9 @@ the trademark record alone.
 \dkl{} is empirically orthogonal-to-negative with patent counts within firm,
 confirming the construct is distinct from patent-track invention.
 
-The Schumpeter Mark~I read of new themes does not survive year-matched
-baseline contrast, and the discipline of base-rate contrast is what makes
-the difference.
+The entrant-vs-incumbent reading of new themes (Schumpeter Mark~I in the
+classical framing) does not survive year-matched baseline contrast, and the
+discipline of base-rate contrast is what makes the difference.
 
 The paper does not make these claims.
 
