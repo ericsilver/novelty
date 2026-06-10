@@ -2,15 +2,15 @@
 
 Code, public data panels, and the working paper for an empirical application of the DeDeo prospective/retrospective Kullback–Leibler resonance framework (Murdock, Allen & DeDeo 2017; Barron, Huang, Spang & DeDeo 2018) to US trademark goods/services text.
 
-The framework was developed on cognitive corpora — Darwin's reading notebooks, French Revolution parliamentary debates — where the text is authored by the agent whose novelty is being measured. This work applies the same apparatus to a qualitatively different corpus type: commercially-incentivised legally-drafted text from 2.32 million granted USPTO filings (1990–2024) across four NICE classes (software, tech-services, transport, advertising/retail), and asks whether the framework produces interpretable empirical structure on text of this kind.
+The framework was developed on cognitive corpora — Darwin's reading notebooks, French Revolution parliamentary debates — where the text is authored by the agent whose novelty is being measured. This work applies the same apparatus to commercially-incentivised legally-drafted text: granted USPTO filings 1990–2024, with the deepest diagnostics on the complete software/electronics class (1.81M filings) and a four-class build (software, tech-services, transport, advertising/retail; 2.32M granted filings) for the cross-industry work.
 
-It does. Three patterns are documented:
+The construct, ΔKL, is a firm-level measure of commercial novelty that is cheap to compute, available for millions of firms that never patent, and empirically distinct from patent-track invention. Three validation results anchor it:
 
-1. **Cross-industry vocabulary diffusion is directly traceable** at the phrase level. Software- and tech-services-origin themes (cloud, AI, mobile-app, as-a-service, blockchain, streaming) arrive in transport and advertising/retail with multi-year lags of 1–13 years; the underlying panel structure passes a shuffle null on (class, year) label permutations at z = +46 under LDA topic extraction and replicates at z = +60.7 under independently-fitted NMF on the same vocabulary.
-2. **The signal predicts post-registration §8 mark maintenance in a U-shape.** At the filing level, the lift at the tails vs the middle is 5–10 percentage points; at the token level, marks containing distinctive-tail tokens (typesetting, dial-up, blockchain, NFT) survive at 50–80% while marks containing flux-neutral middle tokens (organisational, conformity, freighting) survive at 11–26%.
-3. **The signal is empirically distinct from patents.** Within-firm, ΔKL on log(1 + patents) gives a coefficient of −0.048σ (t = −7.9 on 14,463 trademark-and-patent-matched firms). The construct is not a patent proxy.
+1. **ΔKL predicts commercial outcomes in a consistent forward-favoring direction.** 5-year mark renewal conditional on completed registration (innovator-tail vocabulary renews at ~87% vs ~80% for the going-out-of-fashion tail); gross margin on an SEC-matched panel (+3.2pp per σ, t=5.3); excess stock returns at 1–4 year horizons (+1.5 to +5.0pp per σ, decaying by year five); and eventual public listing among first-time filers. Prospective surprise alone predicts none of these — only the signed resonance does.
+2. **ΔKL is empirically distinct from patents.** Within firm, ΔKL on log(1+patents) gives −0.048σ (t=−7.9 on 14,463 matched firms), while firms on BCG/MIT expert "most innovative" lists sit +0.34σ above the panel mean (p<0.001) and patent counts are uncorrelated with ΔKL on the same panel.
+3. **The construct supports direct measurement of cross-industry idea diffusion.** Software- and tech-services-origin themes (cloud, AI, as-a-service, blockchain, streaming) arrive in transport and advertising/retail with 1–13 year lags; theme adoption follows Bass curves (median q/p ≈ 7 on 118 fits); the cross-class flow is strongly asymmetric (33 outflow edges from software/tech, 4 returning).
 
-A worked discipline result is also reported: the raw Schumpeter Mark I read of new themes (73.7% entrant-dominated) collapses on year-matched baseline contrast to a −2.7pp mean excess once the corpus's 76.4% overall debut rate is netted out.
+A base-rate discipline result is also reported: the raw entrant share among earliest theme carriers (73.7%) sits slightly *below* the corpus debut-rate baseline (76.4%), and the themes that lean incumbent include AI, cloud, and sustainability — the canonically "new" themes are carried by incumbents diversifying in at least as much as by entrants.
 
 The paper defends a bounded reading: ΔKL is a measurement of lexical resonance with interpretable empirical structure on commercial text, not an innovation measure in any strong sense.
 
@@ -18,10 +18,10 @@ The paper defends a bounded reading: ΔKL is a measurement of lexical resonance 
 
 | File | Pages | Description |
 |---|---|---|
-| **`paper/ssrn_diffusion_paper.pdf`** | 12 | The working paper. **Read this first.** |
-| `paper/newterms_report.pdf` | 12 | Companion: cross-industry vocabulary identified as introduced after a 1990–1994 burn-in. Top 100 themes tabulated with adoption trajectories. |
+| **`paper/ssrn_diffusion_paper.pdf`** | 10 | The working paper. **Read this first.** |
+| `paper/newterms_report.pdf` | 12 | Companion: cross-industry vocabulary introduced after a 1990–1994 burn-in. Top 100 themes tabulated with adoption trajectories. |
 | `paper/face_validation.md` | — | Rateable form for the 50 LDA themes (top words, per-class peak, representative marks). |
-| `paper/_legacy/` | — | Earlier papers (main.pdf, short.pdf, dynamism, ethnic_clusters_note, construct_validity_note, diffusion_phase0_note, integrated_report). Preserved for reference. See `paper/_legacy/README.md`. |
+| `paper/_legacy/` | — | Earlier papers, preserved for reference. See `paper/_legacy/README.md`. |
 
 Design documents:
 
@@ -95,25 +95,21 @@ The empirical claims in the paper and their script → output paths:
 
 | Claim | Script | Output |
 |---|---|---|
+| Conditional 5-year renewal, filing level (87/82/80) | `scripts/regen_outcome_curves_software_v2.py` | `paper/results/outcome_curves_software.png` |
+| Conditional renewal, token level (blockchain 99.7% … typesetting 63%) | `scripts/token_survival_conditional.py` | stdout table |
+| Going public among debut filers (monotone in ΔKL) | `scripts/debut_outcome_by_kl.py` | `paper/results/debut_outcome_by_kl.png` |
+| Gross margin +3.2pp/σ (t=5.3); pros/retr decomposition | `scripts/financials_regression.py` | `paper/results/financials_metrics.json` |
+| Excess returns +1.5–5.0pp/σ over 1–4y; debut +28pp rejected | `scripts/returns_regression.py` + `wsE_returns_diagnostic.py` | `paper/results/returns_metrics.json`, `wsE_returns_diagnostic.json` |
+| Expert lists +0.34σ (n=43, p=0.0003); patents uncorrelated | `scripts/wsD_validity_battery.py` | `paper/results/wsD_validity_battery.json` |
 | ΔKL ⟂ patents within firm; −0.048σ, t = −7.9 | `scripts/wsC_within_firm_patents.py` | `paper/results/wsC_within_firm_patents.json` |
-| Class-009 diagnostics: 0.97 collinearity, length artifact, sign robustness 6.9–10.4% | `scripts/wsG_class009_analysis.py` | `paper/results/wsG_class009.json` |
-| Within-class term provenance: corr(novel_share, ΔKL) = +0.29 | `scripts/wsH_term_provenance009.py` | `paper/results/wsH_provenance009.json` |
+| Class-009 diagnostics: 0.97 collinearity, length artifact, sign robustness | `scripts/wsG_class009_analysis.py` | `paper/results/wsG_class009.json` |
 | Phrase transit table (cloud, AI, blockchain, …) | `scripts/diff2_theme_transit.py` | `paper/results/diff2_transit.json` |
-| LDA T = 50 + kill condition z = +46 | `scripts/diff3_lda_themes.py` | `paper/results/diff3_themes.json` |
+| LDA T = 50 themes | `scripts/diff3_lda_themes.py` | `paper/results/diff3_themes.json` |
 | Bass fits (median q/p ≈ 7) + class-flow asymmetry | `scripts/diff4_phase1_rqs.py` | `paper/results/diff4_phase1.json` |
-| Schumpeter I collapse: −2.7pp excess vs baseline | `scripts/diff5_rq4_baseline.py` | `paper/results/diff5_rq4_baseline.json` |
-| NMF cross-method check: z = +60.7; seed-phrase concordance 7/10 | `scripts/diff6_nmf_compare.py` | `paper/results/diff6_nmf.json` |
-| Face-validation form (50 LDA topics) | `scripts/diff7_face_validation_doc.py` | `paper/face_validation.md` |
-| New cross-industry vocabulary: 3,653 candidate terms 1995–2021 | `scripts/newterms_analysis.py` + `newterms_build_pdf.py` | `paper/results/newterms_top100.csv` + `paper/newterms_report.pdf` |
-
-The following analyses are run and outputs preserved in `paper/results/` but are not surfaced in the current paper (they relate to scope statements rather than headline claims):
-
-- `wsD_validity_battery.py` — small-n discriminant against BCG/MIT lists (n = 48 matched firms).
-- `wsE_returns_diagnostic.py` — identifies the prior +28pp/σ four-year debut excess return as a right-tail artifact.
-- `diff8_rq6_borrowed_pays.py` — within-firm borrowed-novelty contemporaneous margin lift (+1.4pp, t = +2.1, transient).
-- `diff9_rq5_demand_pull.py` — class-level demand-pull regression on n = 57; associational.
-
-The methodological next step on the methods side is `scripts/blocked/interaction_estimand.py` (a fully implemented but not-yet-run ΔKL ~ logpat × class-churn moderation with firm + year fixed effects and a kernel-independent churn measure) and a cross-paradigm topic-extraction test (sentence-embedding clustering or graph community detection) against the LDA/NMF kill conditions.
+| Entrant share −2.7pp vs year-matched baseline | `scripts/diff5_rq4_baseline.py` | `paper/results/diff5_rq4_baseline.json` |
+| NMF cross-method check; seed-phrase concordance 7/10 | `scripts/diff6_nmf_compare.py` | `paper/results/diff6_nmf.json` |
+| Borrowed-novelty margin lift +1.4pp/σ (agenda item) | `scripts/diff8_rq6_borrowed_pays.py` | `paper/results/diff8_rq6.json` |
+| New cross-industry vocabulary: 3,653 candidate terms | `scripts/newterms_analysis.py` + `newterms_build_pdf.py` | `paper/newterms_report.pdf` |
 
 ## Data not in this repo
 
@@ -123,7 +119,7 @@ The raw USPTO backfile (~12 GB), per-class records/vocab/surprise/outcome parque
 
 Working-paper citation (the SSRN ID will be added when posted):
 
-> Silver, E. (2026). *Vocabulary resonance in US trademark filings: cross-industry diffusion structure, the U-shape in registration outcomes, and kill conditions for an applied DeDeo measure*. SSRN Working Paper.
+> Silver, E. (2026). *Vocabulary resonance in US trademark filings: A measurement construct for commercial novelty, with validation and applications*. SSRN Working Paper.
 
 ## Author / contact
 
