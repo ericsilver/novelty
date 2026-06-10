@@ -1,41 +1,47 @@
-"""Merged outcome figure for the paper: debut filings (owner's first-ever
-filing), three panels by KL value:
+"""Debut-filing outcome figure with CORRECT outcome semantics.
 
-  A.  P(reached registration)                       - all debut filings
-  B.  P(survived 5y | reached registration)         - renewal among registered
-  C.  P(owner ever in SEC EDGAR | reached reg.)     - listing among registered
+  A. P(reached registration)            registration_date populated;
+                                         filing years 1990-2018 (resolved)
+  B. P(owner ever in SEC EDGAR | reg.)  same denominator as A's successes
 
-Outcomes derive from status codes on tm_class parquets (the old
-outcomes_class parquets defined survived_5y so loosely that it equalled
-reached_registration; see commit history). Conditional renewal here is
-status bucket 6 (live, maintained) among bucket 6 or 8 (ever registered).
+Section 8 gate survival is reported separately (s8_survival_corrected.py)
+because its clean cohort is registrations 2016-2018, which barely overlaps
+the debut panel's resolved-filing window.
 
 Outputs:
-  paper/results/debut_outcome_by_kl.png
+  paper/results/debut_outcome_by_kl.png   (overwrites the invalidated figure)
   paper/results/debut_outcome_by_kl.csv
+  paper/results/debut_outcome_metrics.json
 """
 from __future__ import annotations
 
 import gc
+import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import polars as pl
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 OUT = REPO / "paper" / "results"
 
-SURPRISE_CLASSES = ["009", "035", "039", "042"]
+FILE_LO, FILE_HI = 1990, 2018
 
 
 def all_class_list() -> list[str]:
-    return sorted(
-        p.stem.replace("tm_class", "")
-        for p in PROC.glob("tm_class*.parquet")
-        if p.stem.replace("tm_class", "").isdigit()
-    )
+    return sorted(p.stem.replace("tm_class", "")
+                  for p in PROC.glob("tm_class*.parquet")
+                  if p.stem.replace("tm_class", "").isdigit())
+
+
+def surprise_class_list() -> list[str]:
+    return sorted(p.stem.replace("surprise_class", "")
+                  for p in PROC.glob("surprise_class???.parquet"))
 
 
 def compute_owner_debut() -> pl.DataFrame:
@@ -58,11 +64,10 @@ def compute_owner_debut() -> pl.DataFrame:
 def pool_debut_panel(debut: pl.DataFrame) -> pl.DataFrame:
     sec = pl.read_parquet(PROC / "uspto_sec_crosswalk.parquet").select(
         "owner_name").unique().with_columns(pl.lit(True).alias("in_sec"))
-
     parts = []
-    for clss in SURPRISE_CLASSES:
+    for cls in surprise_class_list():
         s = pl.read_parquet(
-            PROC / f"surprise_class{clss}.parquet",
+            PROC / f"surprise_class{cls}.parquet",
             columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
                      "n_ref_prospective", "n_ref_retrospective", "n_terms"],
         ).filter(
@@ -71,26 +76,22 @@ def pool_debut_panel(debut: pl.DataFrame) -> pl.DataFrame:
             & (pl.col("n_terms") >= 3)
             & pl.col("prospective_kl").is_finite()
             & pl.col("retrospective_kl").is_finite()
-            & pl.col("year").is_between(1990, 2020)
+            & pl.col("year").is_between(FILE_LO, FILE_HI)
         )
         t = pl.read_parquet(
-            PROC / f"tm_class{clss}.parquet",
-            columns=["serial_number", "owner_name", "filing_date", "status_code"],
+            PROC / f"tm_class{cls}.parquet",
+            columns=["serial_number", "owner_name", "filing_date", "registration_date"],
         ).with_columns(
-            pl.col("status_code").str.slice(0, 1).alias("status_bucket"),
-        ).with_columns(
-            ((pl.col("status_bucket") == "6") | (pl.col("status_bucket") == "8")
+            (pl.col("registration_date").fill_null("").str.len_chars() >= 8
              ).alias("reached_registration"),
-            (pl.col("status_bucket") == "6").alias("renewed"),
         ).join(debut, on="owner_name", how="left").filter(
-            pl.col("filing_date") == pl.col("debut_date")
-        )
+            pl.col("filing_date") == pl.col("debut_date"))
         j = s.join(t, on="serial_number", how="inner")
         j = j.join(sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
             (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
         ).select("prospective_kl", "retrospective_kl", "dkl",
-                 "reached_registration", "renewed", "in_sec")
+                 "reached_registration", "in_sec")
         if j.height:
             parts.append(j)
         del s, t, j
@@ -112,61 +113,79 @@ def quantile_curve(df: pl.DataFrame, var: str, outcome: str, n_bins: int = 20) -
     z = 1.96; denom = 1 + z * z / n
     centre = (p + z * z / (2 * n)) / denom
     half = (z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / denom
-    return g.with_columns(pl.Series("lo", centre - half),
-                          pl.Series("hi", centre + half))
+    return g.with_columns(pl.Series("lo", centre - half), pl.Series("hi", centre + half))
+
+
+def quintile_stats(df: pl.DataFrame, var: str, outcome: str) -> dict:
+    arr = df[var].to_numpy()
+    cuts = np.quantile(arr, [0.2, 0.4, 0.6, 0.8])
+    qi = np.searchsorted(cuts, arr)
+    g = df.with_columns(pl.Series("q", qi)).group_by("q").agg(
+        pl.len().alias("n"),
+        pl.col(outcome).cast(pl.Float64).mean().alias("rate")).sort("q")
+    d = {f"q{int(r['q'])+1}": r["rate"] for r in g.iter_rows(named=True)}
+    d["lift_q5_q1"] = d["q5"] - d["q1"]
+    return d
 
 
 def main() -> int:
-    OUT.mkdir(parents=True, exist_ok=True)
-    print("[pass 1] owner debut dates ...", flush=True)
+    print("[pass 1] owner debut dates ...", file=sys.stderr, flush=True)
     debut = compute_owner_debut()
-    print(f"         {debut.height:,} unique owners", flush=True)
-
-    print("[pass 2] debut-only panel ...", flush=True)
+    print(f"         {debut.height:,} owners", file=sys.stderr, flush=True)
     df = pool_debut_panel(debut)
     reg = df.filter(pl.col("reached_registration"))
-    print(f"         {df.height:,} debut filings; {reg.height:,} reached registration", flush=True)
-    print(f"         P(reached_registration)      : {df['reached_registration'].cast(pl.Float64).mean():.3f}", flush=True)
-    print(f"         P(renewed | registered)      : {reg['renewed'].cast(pl.Float64).mean():.3f}", flush=True)
-    print(f"         P(in_sec | registered)       : {reg['in_sec'].cast(pl.Float64).mean():.4f}", flush=True)
+    print(f"[panel] {df.height:,} debut filings; {reg.height:,} registered",
+          file=sys.stderr, flush=True)
+
+    metrics = {
+        "n_debut": df.height,
+        "n_registered": reg.height,
+        "p_registered": float(df["reached_registration"].cast(pl.Float64).mean()),
+        "p_sec_given_reg": float(reg["in_sec"].cast(pl.Float64).mean()),
+        "registration": {v: quintile_stats(df, v, "reached_registration")
+                         for v in ("dkl", "prospective_kl", "retrospective_kl")},
+        "sec_given_reg": {v: quintile_stats(reg, v, "in_sec")
+                          for v in ("dkl", "prospective_kl", "retrospective_kl")},
+    }
+    (OUT / "debut_outcome_metrics.json").write_text(
+        json.dumps(metrics, indent=1, default=float))
+    print(json.dumps({k: metrics[k] for k in
+                      ("n_debut", "p_registered", "p_sec_given_reg")},
+                     indent=1, default=float), file=sys.stderr, flush=True)
+    print("reg by dkl:", metrics["registration"]["dkl"], file=sys.stderr, flush=True)
+    print("sec by dkl:", metrics["sec_given_reg"]["dkl"], file=sys.stderr, flush=True)
 
     axes_vars = [("dkl", "$\\Delta$KL", "#2b6cb0"),
                  ("prospective_kl", "Prospective KL", "#cc4444"),
                  ("retrospective_kl", "Retrospective KL", "#229922")]
     panels = [
         (df,  "reached_registration", "A. P(reached registration)"),
-        (reg, "renewed",              "B. P(survived 5y | registration)"),
-        (reg, "in_sec",               "C. P(owner ever in SEC EDGAR | registration)"),
+        (reg, "in_sec",               "B. P(owner ever in SEC EDGAR | registration)"),
     ]
-
     all_rows = []
-    fig, axs = plt.subplots(1, 3, figsize=(18, 6))
+    fig, axs = plt.subplots(1, 2, figsize=(13, 6))
     for ax, (frame, outcome, title) in zip(axs, panels):
         baseline = frame[outcome].cast(pl.Float64).mean()
         for var, var_label, color in axes_vars:
-            g = quantile_curve(frame, var, outcome, n_bins=20)
+            g = quantile_curve(frame, var, outcome)
             pdf = g.to_pandas()
             ax.plot(pdf["mid"], pdf["rate"], "-o", color=color, lw=2, ms=4, label=var_label)
             ax.fill_between(pdf["mid"], pdf["lo"], pdf["hi"], color=color, alpha=0.16)
             for r in g.iter_rows(named=True):
                 all_rows.append({"outcome": outcome, "axis": var_label, **r})
         ax.axhline(baseline, ls="--", color="#444", lw=1, label=f"mean={baseline:.3f}")
-        ax.set_xlabel("KL value (nats)")
-        ax.set_ylabel("rate")
-        ax.set_title(title)
-        ax.grid(alpha=0.3)
+        ax.set_xlabel("KL value (nats)"); ax.set_ylabel("rate")
+        ax.set_title(title); ax.grid(alpha=0.3)
         ax.legend(loc="best", fontsize=9, framealpha=0.9)
-
     fig.suptitle(
-        f"Outcomes by KL, debut filings (owner's first-ever filing); "
-        f"n={df.height:,}, registered subset n={reg.height:,}",
-        fontsize=12)
+        f"Debut filings (owner's first-ever filing), {FILE_LO}-{FILE_HI}; "
+        f"n={df.height:,}, registered n={reg.height:,}. Registration = "
+        "registration_date populated.", fontsize=11)
     fig.tight_layout()
-    out_png = OUT / "debut_outcome_by_kl.png"
-    fig.savefig(out_png, dpi=150, bbox_inches="tight")
+    fig.savefig(OUT / "debut_outcome_by_kl.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
     pl.from_dicts(all_rows).write_csv(OUT / "debut_outcome_by_kl.csv")
-    print(f"\n[done] wrote {out_png}", flush=True)
+    print("[done]", file=sys.stderr, flush=True)
     return 0
 
 
