@@ -13,7 +13,7 @@
 \newcommand{\dkl}{$\Delta$KL}
 
 \title{\bfseries Vocabulary resonance in US trademark filings:\\
-\large Cross-industry diffusion structure and the U-shape in registration outcomes}
+\large Cross-industry diffusion structure and the renewal-rate shape conditional on completed registration}
 \author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone.}}
 \date{June 2026 working paper}
 
@@ -43,14 +43,16 @@ reaching at least two classes, 33 outflow edges originate in
 software/tech-services and only 4 return there. Bass diffusion fits on 118
 (theme, class) trajectories with $R^2 \geq 0.7$ give median $q/p \approx 7$,
 in the range typically reported for consumer-product adoption.
-\textbf{Second}, \dkl{} produces a U-shape in post-registration §8
-maintenance outcomes. At the
-filing level, filings whose vocabulary moves with the field and filings whose
-vocabulary moves against it both maintain registration 5--10 percentage points
-more often than the flux-neutral middle. At the token level the gap is
-sharper: marks containing distinctive-tail tokens (typesetting, dial-up,
-blockchain, NFT) survive at 50--80\% while marks containing flux-neutral
-middle tokens (organisational, conformity, freighting) survive at 11--26\%.
+\textbf{Second}, \dkl{} predicts post-registration §8 mark renewal,
+analyzed throughout as renewal conditional on completed registration.
+\emph{Conditional on registration, the filing-level relationship is
+forward-favoring}: in the software/electronics diagnostic class, the
+innovator tail (positive \dkl{}) renews at $\sim$87\%, the flux-neutral
+middle at $\sim$82\%, and the going-out-of-fashion negative tail at
+$\sim$80\%. At the token level the shape is U-shaped and symmetric: marks
+containing distinctive-tail tokens (typesetting, dial-up, blockchain, NFT)
+survive at 50--80\% while marks containing flux-neutral middle tokens
+(organisational, conformity, freighting) survive at 11--26\%.
 \textbf{Third}, the signal is orthogonal-to-negative with patents within firm:
 $-0.048\sigma$, $t = -7.9$ on 14{,}463 trademark-and-patent-matched firms.
 \dkl{} is empirically distinct from patent-track invention.
@@ -91,15 +93,20 @@ narrow enough to be granted by an examiner. Whether the resonance framework
 produces interpretable structure on text of this kind is the empirical
 question of this paper. Two follow-up questions discipline the reading. First,
 how does the constructed signal compare to other measures that have been
-treated as proxies for innovation --- patent counts in particular? On a
+treated as proxies for innovation, patent counts in particular? On a
 within-firm panel of trademark owners matched to patent assignees, the answer
 is that the signal is orthogonal-to-negative with patents: it is empirically
 distinct from patent-track invention, not a noisier version of it. Second,
-does the signal predict commercially meaningful outcomes? At both the filing
-and the token level it predicts post-registration mark survival in a U-shape:
-filings whose vocabulary sits at either tail of the resonance distribution
-maintain their registrations more often than those whose vocabulary sits in
-the flux-neutral middle.
+does the signal predict commercially meaningful outcomes? Analyzed throughout
+as renewal conditional on completed registration, the answer is yes: at the
+filing level the relationship is forward-favoring (innovator-tail vocabulary
+renews at the highest rate), and at the token level the relationship is
+U-shaped (tokens at either tail of within-class vocabulary trajectory appear
+in marks that survive substantially better than tokens in the flux-neutral
+middle). Conditioning on completed registration isolates the renewal
+decision from the registration-success decision; the unconditional
+filing-level U-shape that earlier analysis reported on this corpus is shown
+in this paper to be primarily a registration-success pattern.
 
 The empirical record in text-based economics has converged on text-similarity
 methods --- the text-based network industry classification of
@@ -121,10 +128,11 @@ to the diffusion reading. The asymmetric flow reproduces under
 independently-fitted non-negative matrix factorization on the same vocabulary
 as a within-paradigm robustness check. Within firms, \dkl{} is
 orthogonal-to-negative with patent counts, establishing the construct as
-empirically distinct from patent-track invention. At the filing-and-token
-level, \dkl{} predicts post-registration §8 maintenance in a U-shape that is
-robust to operationalization but whose mechanism is not separable with the
-trademark record alone.
+empirically distinct from patent-track invention. \dkl{} predicts
+post-registration §8 mark renewal, framed throughout as renewal conditional
+on completed registration: forward-favoring at the filing level and
+symmetrically U-shaped at the token level. Mechanism on the token-level
+U-shape is not separable with the trademark record alone.
 
 \dkl{} does not measure innovation itself in any strong sense. The
 within-firm patent-orthogonality refutes the ``\dkl{} replaces patents as
@@ -150,8 +158,9 @@ contrast is what distinguishes useful from inflated findings.
 
 Section~\ref{sec:construct} describes the construct, the corpus, and known
 fragilities. Section~\ref{sec:transit} presents the cross-industry phrase
-transit table. Section~\ref{sec:ushape} reports the U-shape in registration
-outcomes at the filing and token levels. Section~\ref{sec:themes} reports the
+transit table. Section~\ref{sec:ushape} reports the renewal-rate
+relationship conditional on completed registration at the filing and token
+levels: forward-favoring at the filing level, U-shaped at the token level. Section~\ref{sec:themes} reports the
 theme-level evidence: Bass-fittable adoption curves and cross-class flow
 asymmetry under LDA topic extraction, with an NMF robustness check.
 Section~\ref{sec:patent} reports the within-firm patent orthogonality.
@@ -223,6 +232,19 @@ the respective windows. I use $W = 5$ years (flat window) with Dirichlet
 smoothing ($\alpha = 1$ per cell) to avoid infinite surprise from
 zero-count tokens. The within-class vocabulary is the set of unigrams and
 bigrams with document frequency $\geq 50$.
+
+\paragraph{Renewal as conditional on completed registration.} Whenever the
+paper reports a survival or §8 mark renewal rate at the filing level, the
+denominator is restricted to filings that reached registration (status
+bucket 6 or 8). This isolates the renewal decision from the
+registration-success decision; it differs from earlier analyses on this
+corpus that pooled both. The numerator is filings that remain alive and
+maintained at the time of measurement (status bucket 6), which on the
+five-year-old cohort approximates ``survived the §8 maintenance gate.'' The
+token-level survival statistic uses a different denominator (marks
+containing a given token, with the same conditioning on registration);
+filing-level and token-level magnitudes are not directly comparable but
+both apply the same conditioning step.
 
 \subsection{Reference-window density and burn-in}
 
@@ -367,28 +389,21 @@ into ``offer-is-the-thing'' versus ``offer-supplies-the-thing'' is a natural
 extension and is owed to follow-up work; this paper documents the arrival
 of the phrase in the new class without committing to which role it plays.
 
-\section{The U-shape in post-registration outcomes}\label{sec:ushape}
+\section{Renewal conditional on completed registration}\label{sec:ushape}
 
 \subsection{Filing-level result}
 
 Among granted filings in the post-burn-in 1996--2020 window with $\geq 10$
-terms, 5-year post-registration §8 maintenance is U-shaped in \dkl{}. Filings
-whose \dkl{} sits in the extreme positive tail and filings whose \dkl{} sits
-in the extreme negative tail both maintain registration 5--10 percentage
-points more often than filings whose \dkl{} sits near zero. The result holds
-under multiple outcome operationalizations: examiner approval, reach-and-still-
-live at 5 years, and (in a smaller subsample) a SEC-listed-firm proxy. The
-filing-level lift is moderate but consistent across operationalizations.
-
-Figure~\ref{fig:ushape} shows the conditional renewal rate (denominator =
-filings that reached registration) by each of the three KL axes. Among
-registered marks, both directional pieces relate negatively to survival:
-high prospective surprise or high retrospective surprise both predict lower
-renewal, with the rate sliding from $\sim$92\% at the low end to $\sim$78\%
-at the high end. The signed difference \dkl{} is the right panel: forward-
-leaning vocabulary (positive \dkl{}) sits at $\sim$87\% renewal, the flux-
-neutral middle at $\sim$82\%, and the going-out-of-fashion negative tail at
-$\sim$80\% with a slight uptick at the far-left edge.
+terms and reached-registration status (status bucket 6 or 8), 5-year mark
+renewal is \emph{forward-favoring} in \dkl{}: in the
+software/electronics diagnostic class, the innovator tail (positive
+\dkl{}) renews at $\sim$87\%, the flux-neutral middle at $\sim$82\%, and
+the going-out-of-fashion negative tail at $\sim$80\% with a slight uptick at
+the far-left edge. Figure~\ref{fig:ushape} shows this conditional renewal
+rate by each of the three KL axes. The two directional pieces relate
+negatively to renewal: high prospective surprise or high retrospective
+surprise both predict lower conditional renewal, with the rate sliding from
+$\sim$92\% at the low end to $\sim$78\% at the high end.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/outcome_curves_software.png}
@@ -432,9 +447,11 @@ and right tails, consistent with the conditional renewal-rate finding.}
 
 \subsection{Token-level result}
 
-The U-shape is sharper at the token level. \emph{Marks containing tokens at
-the extreme tails of within-class vocabulary trajectory survive substantially
-better than marks containing flux-neutral middle tokens.} Examples:
+The token-level pattern, by contrast, is U-shaped and symmetric, with the
+same conditioning on completed registration applied. \emph{Marks containing
+tokens at the extreme tails of within-class vocabulary trajectory survive
+substantially better than marks containing flux-neutral middle tokens.}
+Examples:
 
 \begin{itemize}[noitemsep]
 \item Tokens at the negative tail --- vocabulary that was disappearing from
@@ -449,31 +466,29 @@ AI-era tokens) --- appear in marks that survive at 50--82\%.
 survive at 11--26\%.
 \end{itemize}
 
-The token-level gap is 30--50 percentage points. The filing-level statistic
-and the token-level statistic are different measurements: the filing-level
-statistic bins filings by their \dkl{} score; the token-level statistic
-identifies tokens at the resonance tails of within-class vocabulary
-trajectories and reports survival of the marks that contain them. Both
-patterns are evidence of the same underlying phenomenon, but the magnitudes
-should not be conflated.
+The token-level gap is 30--50 percentage points. The filing-level
+forward-favoring pattern and the token-level U-shape are different
+measurements: the filing-level statistic bins filings by their \dkl{} score
+and conditions on registration; the token-level statistic identifies tokens
+at the resonance tails of within-class vocabulary trajectories and reports
+survival of the marks (also conditional on registration) that contain them.
+The two are consistent if the token-level negative-tail lift is driven by a
+small set of distinctive sunset-vocabulary tokens that are not visible at
+the filing-bin level (where they are washed out by the larger number of
+quiet-vocabulary filings in the same \dkl{} bin).
 
 \subsection{Robustness and mechanism}
 
-The U-shape is robust to substitution of the outcome operationalization
-(examiner approval, §8 maintenance at 5 years, currently-live at 10 years),
-to choice of half-life kernel within $W \in \{3, 5, 7\}$ years, to length
-control, and to class. Estimated independently in each of the 44 NICE classes
-with sufficient post-1995 volume, the qualitative U-shape is present in 32;
-the per-class tail-vs-middle filing-level lift is in the 5--10pp range that
-matches the four-class pool. A pooled run on the full 1.8M-filing
-single-class diagnostic corpus (Class~009 alone) is reported in companion
-work and recovers the shape with a similar lift. A pooled run on the entire
-$\sim$45-class trademark corpus in one go --- testing the U-shape as a
-\emph{single} corpus-level pattern rather than a class-by-class
-regularity --- is the natural next robustness check and is not done here.
+The token-level U-shape is robust to substitution of the outcome
+operationalization (status bucket 6 vs. survived 5 years explicitly vs.
+currently-live at 10 years), to choice of half-life kernel within
+$W \in \{3, 5, 7\}$ years, and to length control. Whether the filing-level
+forward-favoring pattern extends to all four classes in the diagnostic
+subset and to a pooled run on the full $\sim$45-class trademark corpus in
+one go is the natural next robustness check and is not done here.
 
-Mechanism is the harder question. Three candidate stories cannot be
-separated with the trademark record alone:
+Mechanism on the token-level U-shape is the harder question. Four candidate
+stories cannot be separated with the trademark record alone:
 
 \begin{itemize}[noitemsep]
 \item \emph{Intelligent harvesting} at the negative tail: applicants
@@ -487,23 +502,29 @@ same reason, and survive by inertia rather than design.
 who file at the tails differ on capitalisation, sophistication, or other
 covariates that independently predict mark maintenance.
 \item \emph{Differentiation versus me-too}: the flux-neutral middle is
-populated by applicants whose offer is category-typical and undifferentiated
---- the proverbial generic ``restaurant'' filing rather than the throwback
+populated by applicants whose offer is category-typical and undifferentiated:
+the proverbial generic ``restaurant'' filing rather than the throwback
 diner or the chef's-table gamble that tries to move the category. On this
 reading, vocabulary at either resonance tail is a marker of substantive
 differentiation (in either direction); middle vocabulary is a marker of
 businesses bereft of a defensible angle, which predicts non-maintenance for
-ordinary commercial reasons rather than because of anything special about the
-text.
+ordinary commercial reasons rather than because of anything special about
+the text.
 \end{itemize}
 
+The filing-level forward-favoring pattern has a more straightforward
+mechanism candidate: forward-leaning vocabulary at filing time correlates
+with the applicant having identified a commercially viable position, which
+in turn correlates with mark maintenance. The token-level U-shape adds the
+negative-tail lift that this single mechanism does not predict.
+
 The trademark record does not separately identify which of these is the
-dominant mechanism. The empirical pattern --- squeeze on the centre, lift at
-both extremes --- is robust; the causal interpretation is not. Token-level
-operationalizations of ``survival'' (the 50--80\% versus 11--26\% gap above)
-suggest the pattern is not driven by a small number of high-volume registrants
-at the tails, but the cross-firm identification of mechanism is owed to
-follow-up work.
+dominant token-level mechanism. The empirical pattern (squeeze on the
+centre, lift at both extremes at the token level; lift on the right tail
+only at the filing level) is robust; the causal interpretation is not. The
+50--80\% versus 11--26\% gap is large enough that the pattern is not driven
+by a small number of high-volume registrants at the tails, but the
+cross-firm identification of mechanism is owed to follow-up work.
 
 \section{Theme-level evidence: Bass-fittable curves and cross-class flow asymmetry}\label{sec:themes}
 
@@ -814,6 +835,17 @@ The paper rejects two claims that the construct does not support. \dkl{}
 does not measure innovation in any strong sense; the defended primitive is
 lexical resonance on commercial text. \dkl{} does not identify an
 investment return premium on extreme-tail debut filings.
+
+The renewal results are conditional on completed registration and should
+not be read as describing the full distribution of trademark applications.
+The decision to register and the decision to renew are different commercial
+acts; this paper isolates the second by conditioning on the first. An
+applicant whose vocabulary disqualifies the filing from registration in
+the first place is excluded from the renewal denominator, and the
+unconditional U-shape reported in earlier work on this corpus reflects both
+steps mixed. The conditioning makes the renewal pattern interpretable as a
+post-registration commercial signal rather than as a registration-success
+proxy; it also limits the claim to filings that already cleared examination.
 
 The paper does not evaluate the following questions, which are owed to
 follow-up work. Whether the theme-level flow asymmetry reproduces under a
