@@ -31,24 +31,27 @@ resulting construct, denoted \dkl{}, as a firm-level measure of commercial
 novelty that is cheap to compute, available for millions of firms that never
 patent, and empirically distinct from patent-track invention.
 
-\noindent Three validation results anchor the construct. First, \dkl{}
-behaves as a marker of commercial risk-taking, with opposite signs at the
-mark and firm levels. Forward-leaning marks fare worse in the legal
-lifecycle: they register slightly less often, and among 2016--2018
-registrations facing their first Section~8 maintenance gate, survival
-falls from 49.2\% to 43.3\% across \dkl{} quintiles ($n = 765{,}154$;
-negative in 31 of 41 industries). Re-scoring with mixed reference windows
-shows the gate penalty loads on rupture with the established past rather
-than on resemblance to the future: it more than doubles from a
-short-memory/long-foresight configuration ($-3.2$pp) to a
-long-memory/short-foresight one ($-7.3$pp). The firms that file
-forward-leaning marks fare better:
-eventual public listing among first-time filers rises $\sim$40\% in
-relative terms across \dkl{} quintiles, gross margin on an SEC-matched
-panel runs $+3.2$pp per $\sigma$ ($t = 5.3$), and excess stock returns run
-$+1.5$ to $+5.0$pp per $\sigma$ at 1--4 year horizons, decaying by year
-five. Prospective surprise alone predicts none of the firm-level outcomes;
-only the signed resonance does.
+\noindent Three validation results anchor the construct. All analyses
+condition on completed registration: completing registration mostly
+reflects whether the filer followed through to actual commercial use
+(nine in ten failed applications die by abandonment, not by refusal), so
+the conditioning separates businesses that launched from filings that
+remained intentions. First, \dkl{} behaves as a marker of commercial
+risk-taking, with opposite signs at the mark and firm levels. Among
+2016--2018 registrations facing their first Section~8 maintenance gate,
+marks written in language their industry was moving toward die more
+often: survival falls from 49.2\% to 43.3\% across \dkl{} quintiles
+($n = 765{,}154$; negative in 31 of 41 industries). Re-scoring with mixed
+reference windows shows the penalty comes from breaking with the
+established past, not from resembling the future ($-7.3$pp against
+$-3.2$pp). The firms that file these marks fare better: eventual public
+listing among first-time filers rises $\sim$40\% in relative terms across
+\dkl{} quintiles, gross margin on an SEC-matched panel runs $+3.2$pp per
+$\sigma$ ($t = 5.3$), and excess stock returns run $+1.5$ to $+5.0$pp per
+$\sigma$ at 1--4 year horizons, decaying by year five. Merely being
+surprising in the moment carries no information about these firm
+outcomes; the signal appears only when a filing's once-surprising
+elements are later picked up by the rest of the field.
 Second, \dkl{} is orthogonal-to-negative with patent counts within firm
 ($-0.048\sigma$, $t = -7.9$ on 14{,}470 matched firms), while expert
 ``most innovative'' lists sit $+0.34\sigma$ above the panel mean
@@ -105,11 +108,13 @@ this kind is the threshold question, and the answer this paper documents is
 yes. The construct, denoted \dkl{}, behaves as a marker of commercial
 risk-taking, with opposite signs at the mark and firm levels. Filings whose
 vocabulary leans toward where their industry's language is going fare worse
-as legal objects: they register slightly less often, and the registered
-marks fail the first Section~8 maintenance gate more often. The firms that
-file them fare better as businesses: higher gross margins, excess stock
-returns at one-to-four-year horizons, and a higher rate of eventually going
-public among first-time filers. The same signal is
+as legal objects: their applications complete registration slightly less
+often (a step that mostly measures follow-through to commercial use, since
+roughly nine in ten failed applications die by abandonment rather than by
+refusal), and the registered marks fail the first Section~8 maintenance
+gate more often. The firms that file them fare better as businesses:
+higher gross margins, excess stock returns at one-to-four-year horizons,
+and a higher rate of eventually going public among first-time filers. The same signal is
 uncorrelated-to-negatively correlated with patenting within firm, while
 firms on expert ``most innovative'' lists score high on it; \dkl{} captures
 a market-facing dimension of novelty that the patent record does not.
@@ -270,9 +275,10 @@ is noisy at the per-filing level. The magnitude $|\Delta\mathrm{KL}|$
 inflates monotonically for short filings (0.293 for documents under 5
 terms, decaying to 0.147 for documents of 40 or more terms), a length
 artifact that requires control in any per-filing analysis. Pre-1995
-readings are contaminated by thin past references. Window sensitivity is
-bounded: across $W \in \{3, 5, 7\}$ years, 6.9--10.4\% of filings flip
-sign, well under conventional fragility thresholds. The per-filing noise
+readings are contaminated by thin past references. \dkl{} is robust to
+the duration of the timing window considered: across $W \in \{3, 5, 7\}$
+years, only 6.9--10.4\% of filings flip sign, well under conventional
+fragility thresholds. The per-filing noise
 attenuates at every aggregation used in this paper: firm-year means,
 token-level pools, and theme-level prevalence trajectories.
 
@@ -330,17 +336,24 @@ $\mid$ registration).}
 \label{fig:outcomes}
 \end{figure}
 
-Registration (Figure~\ref{fig:outcomes}A; 3.58 million debut filings,
-57.6\% base rate) is an inverse-U in \dkl{}: the flux-neutral middle
-registers best (59.8\% at the third quintile) and both tails register
-less (54.0\% at the bottom quintile, 56.6\% at the top). In the KL level
-the top quintile is penalized on both axes (53.3\% for the most
-past-unusual fifth, 53.5\% for the most future-unusual), so the most
-distinctive applications clear examination least often. The inverse-U is
-the rule, not a pooled artifact: estimated class by class on all filings
-1995--2018, the middle-versus-tails depth is positive in 37 of 44 classes
-with sufficient volume and statistically distinguishable from zero in 33
-(the per-class figure and table are in the repository).
+Registration completion is better read as a launch indicator than as an
+examiner verdict: among applications that fail to register, roughly nine
+in ten die by abandonment (44\% never file the statement of use that
+registration requires; 45\% stop responding during prosecution) and only
+a few percent lose adversarial or appeal proceedings. Completion
+(Figure~\ref{fig:outcomes}A; 3.58 million debut filings, 57.6\% base
+rate) is an inverse-U in \dkl{}: the flux-neutral middle completes best
+(59.8\% at the third quintile) and both tails complete less (54.0\% at
+the bottom quintile, 56.6\% at the top), with the most distinctive
+applications on either KL axis completing least often (53.3--53.5\% at
+the top quintiles). On the launch-indicator reading, the inverse-U says
+that applicants filing category-typical language most reliably follow
+through to commercial use, while both kinds of vocabulary bet fail to
+launch more often. The inverse-U is the rule, not a pooled artifact:
+estimated class by class on all filings 1995--2018, the
+middle-versus-tails depth is positive in 37 of 44 classes with sufficient
+volume and statistically distinguishable from zero in 33 (the per-class
+figure and table are in the repository).
 
 The registration inverse-U is also why analyses that skip the
 registration conditioning see an inverse-U in downstream outcomes.
@@ -423,6 +436,22 @@ window mix (middle-versus-tails depth $+4.6$ to $+4.9$pp across all five
 variants), so the examiner and the marketplace are responding to
 different aspects of the same text.
 
+The decomposition extends below the year. Scoring class 009 at monthly
+resolution against two adjacent references, the twelve months ending one
+month before filing and the twelve months before those, the two surprise
+levels are nearly identical per filing ($r = 0.992$, the stability
+property again), but their difference, a months-scale freshness measure
+that is high when a filing resembles the very recent months far more
+than the year before them, reproduces the risk pattern: marks riding a
+wave that emerged within the prior year fail the gate at $-9.4$pp across
+freshness quintiles, a stronger separation than the symmetric \dkl{}
+baseline delivers in the same class. Two things follow. Month-scale
+position in a wave matters, with the penalty concentrated on the
+months-late rather than the months-early. And because freshness is built
+entirely from pre-filing text, it is computable on the filing date with
+no look-ahead, which makes it the construct family's real-time member.
+This is a single-class result and its corpus-wide estimation is owed.
+
 \begin{figure}[h]\centering
 \includegraphics[width=0.7\textwidth]{results/window_choice_all.png}
 \caption{First-gate survival by quintile of each reference-window
@@ -476,6 +505,39 @@ carries no return information; novelty the future moves toward does. A
 larger headline figure from a debut-only specification ($+28$pp at 4
 years) does not survive a sample-size diagnostic and is not claimed; the
 firm-year profile is the defensible one.
+
+A reader might worry that the firm-level advantages of forward-leaning
+vocabulary are manufactured by the registration filter itself: if
+examiners disproportionately removed weak firms, the survivors would show
+a gradient that says more about examination than about businesses. The
+data bound this channel tightly. Among applications that fail to
+register, only 4.3\% are removed adversarially (appeal, opposition, or
+inter partes proceedings); 42.6\% never file the statement of use and
+45.3\% stop responding during prosecution, applicant decisions rather
+than examiner ones. And the direct test is to drop the filter: computed
+over all debut filings with no registration conditioning, the listing
+gradient is essentially unchanged (0.26\% to 0.38\% across \dkl{}
+quintiles, against 0.29\% to 0.42\% conditional), retaining roughly nine
+tenths of the conditional lift. The same bound covers the inverse-U
+shapes: completion is driven by the abandonment margin, which is to say
+by which applicants follow through, and an examiner channel that touches
+under two percent of applications cannot generate quintile gaps of
+several percentage points.
+
+Two readings are consistent with these firm-level associations, and the
+panels do not separate them. The trademarked line itself may generate the
+margins and the returns, a realized-business channel in which the filing
+marks a product that pays. Or firms with a disposition to bet early may
+both file forward-leaning marks and earn superior outcomes, a propensity
+channel in which the filing is a symptom rather than a cause. Every panel
+in this section is built from granted filings, so the estimates inherit
+the conditioning on follow-through and cannot distinguish the two. The
+discriminating evidence sits in the applications that never registered: a
+forward-leaning application that was abandoned before use carries the
+propensity signal without the realized line, so firm outcomes following
+novel-but-abandoned filings would separate disposition from product. The
+corpus contains those applications, and the test is owed to follow-up
+work.
 
 \section{Distinctness from patents}\label{sec:patent}
 
