@@ -45,15 +45,15 @@ $+1.5$ to $+5.0$pp per $\sigma$ at 1--4 year horizons, decaying by year
 five. Prospective surprise alone predicts none of the firm-level outcomes;
 only the signed resonance does.
 Second, \dkl{} is orthogonal-to-negative with patent counts within firm
-($-0.048\sigma$, $t = -7.9$ on 14{,}463 matched firms), while expert
+($-0.048\sigma$, $t = -7.9$ on 14{,}470 matched firms), while expert
 ``most innovative'' lists sit $+0.34\sigma$ above the panel mean
 ($p < 0.001$); the construct captures a market-facing dimension of novelty
 that patents miss. Third, the construct supports direct measurement of
 cross-industry idea diffusion: software- and tech-services-origin themes
 arrive in transport and advertising/retail with 1--13 year lags, theme
-adoption follows Bass curves with median $q/p \approx 7$, and the
-cross-class flow is strongly asymmetric (33 outflow edges from
-software/tech, 4 returning).
+adoption follows Bass curves with median $q/p \approx 6.5$, and the
+cross-class flow is strongly asymmetric (software originates 33 of the 72
+origin-to-arrival edges and receives only 10).
 
 \noindent The paper closes with a research agenda the construct opens:
 whether ideas that transfer between industries hold their value, whether
@@ -175,6 +175,13 @@ status is read from the USPTO status-code dictionary directly (700
 registered; 701--705 Section~8 accepted; 710 cancelled for Section~8
 failure; 800 renewed; 900 expired), and maintenance is measured on
 registration cohorts for which exactly one Section~8 gate has elapsed.
+The dictionary-and-cohort design replaces a heuristic outcome coding used
+in earlier iterations of this analysis chain; the data provide a status
+snapshot rather than a status history, so the only way to attribute a
+cancellation to a specific maintenance gate is to restrict to cohorts in
+which exactly one gate has passed, and the only validated map from
+snapshot to outcome is the official code dictionary, ground-truthed here
+against marks with publicly known fates.
 
 \subsection{Computation}
 
@@ -216,11 +223,13 @@ the filing more than the future does.
 \includegraphics[width=\textwidth]{results/quadrant.png}
 \caption{Prospective KL versus retrospective KL with \dkl{} as the
 above-diagonal/below-diagonal residual. Labeled examples are recognizable
-brand introductions. \emph{Left:} software/electronics. The innovator
-quadrant contains Kindle, Photoshop, Kubernetes, Instagram, Uber, ChatGPT,
-OpenAI, and iPod; Windows (1990) sits on the tired side. \emph{Right:} a
-beer/soft-drinks diagnostic class, with White Claw and Liquid Death on the
-innovator side.}
+post-burn-in brand introductions, positioned by their goods/services text.
+\emph{Left:} software/electronics. OpenAI ($+2.09$), Claude ($+2.06$),
+Instagram, ChatGPT, iPod, Ethereum, and Uber sit on the innovator side;
+Photoshop (2003) and AirPods sit essentially on the diagonal.
+\emph{Right:} a beer/soft-drinks diagnostic class. White Claw ($+1.78$),
+Rockstar, and Red Bull lean innovator; Smartwater (1997) and Celsius
+(2004) lean tired.}
 \label{fig:quadrant}
 \end{figure}
 
@@ -249,9 +258,10 @@ retrospective KL on its 50-topic LDA distribution (the topic model of
 Section~\ref{sec:diffusion}) gives every filing a dense representation
 regardless of token count, and the length artifact largely dissolves:
 mean $|\Delta\mathrm{KL}|$ varies 2.5-fold across document-size bands
-under token scoring but only $\sim$1.3-fold under topic scoring. The two
-scorings agree moderately per filing (Pearson 0.46, Spearman 0.36 on 1.66M
-jointly scored filings), and the prospective/retrospective correlation is
+under token scoring but only $\sim$1.4-fold under topic scoring. The two
+scorings agree moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M
+jointly scored filing-class observations), and the
+prospective/retrospective correlation is
 nearly as high on topics (0.950) as on tokens (0.980), consistent with the
 stability reading: what has not been seen before will mostly not be seen
 again, and the signal lives in the difference. Re-estimating the outcome
@@ -299,7 +309,21 @@ registers best (59.7\% at the third quintile) and both tails register
 less (54.4\% at the bottom quintile, 56.4\% at the top). In the KL level
 the top quintile is penalized on both axes (53.5\% for the most
 past-unusual fifth, 53.6\% for the most future-unusual), so the most
-distinctive applications clear examination least often.
+distinctive applications clear examination least often. The inverse-U is
+the rule, not a pooled artifact: estimated class by class on all filings
+1990--2018, the middle-versus-tails depth is positive in 37 of 44 classes
+with sufficient volume and statistically distinguishable from zero in 32
+(the per-class figure and table are in the repository).
+
+The registration inverse-U is also why analyses that skip the
+registration conditioning see an inverse-U in downstream outcomes.
+Any unconditional success measure, mark survival included, is the product
+of the registration rate and the conditional rate, and the registration
+factor stamps its middle-favoring shape onto the composite: the
+flux-neutral middle registers best, so it appears to ``survive'' best
+unconditionally even where the conditional gate pattern says otherwise.
+Appendix~A reproduces the outcome analysis without the registration
+conditioning to make the composite shape visible.
 
 The first Section~8 gate is where forward-leaning marks pay.
 Figure~\ref{fig:s8pooled} shows the pooled result on 765{,}154 gated
@@ -331,6 +355,16 @@ physical-goods filing requires a product to exist by the gate year while a
 forward-leaning services filing can be serviced with capacity on hand;
 testing the gradient against class-level production lead times is a
 follow-up computation.
+
+Summarizing the cross-industry picture: the registration inverse-U is
+near-universal (37 of 44 classes), while the gate penalty is the majority
+pattern with a coherent minority. The gate exceptions are not noise
+scattered across the forest; they cluster in service classes where the
+cost of making a forward-leaning filing true by the gate year is lowest.
+One small class, lace and embroidery (026), shows a genuine mirror image,
+with tails registering better and forward-leaning marks passing the gate
+more often; every other class fits the headline pattern on at least one
+of the two steps.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.72\textwidth]{results/s8_corrected_forest.png}
@@ -382,14 +416,20 @@ firm-year profile is the defensible one.
 If \dkl{} and patent counts were noisy measures of the same underlying
 construct, they should correlate within firms over time. They do not.
 
-The within-firm analysis uses a published panel of 174{,}569 firm-years
-covering 14{,}463 trademark owners name-matched to PatentsView patent
-assignees \citep{PatentsView}; the panel and matching code are in the
-public repository. The matching normalizes both sides (strip corporate-form
+The within-firm analysis uses a published panel of 174{,}569 firm-years of
+trademark owners name-matched to PatentsView patent assignees
+\citep{PatentsView}; the fixed-effects estimation uses the 94{,}106
+firm-years across 14{,}470 firms with within-firm variation. The panel and
+matching code are in the public repository. The matching normalizes both sides (strip corporate-form
 suffixes and punctuation, lowercase) and joins on exact normalized-name
-equality. I fit a two-way (firm + year) fixed-effects regression of
-standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ with
-firm-clustered standard errors.
+equality. One provenance note: the published panel was constructed under
+an earlier exponential-decay kernel variant of the construct; its
+firm-year mean \dkl{} correlates at $r = 0.87$ with the current
+flat-window scoring on 68{,}013 matched owner-years, so the results below
+are expected to be kernel-stable, and re-estimation on the current
+scoring is owed with the next panel release. I fit a two-way (firm +
+year) fixed-effects regression of standardized firm-year mean \dkl{} on
+$\log(1 + \mathrm{patents})$ with firm-clustered standard errors.
 
 \begin{table}[h]\centering\small
 \caption{Within-firm \dkl{} versus patenting. Coefficients in standard
@@ -483,20 +523,24 @@ traffic).
 For each (theme, class) cell that reaches the 1\% floor and is tracked at
 least six years, I fit the Bass diffusion model \citep{Bass1969}. Of 118
 retained fits ($R^2 \geq 0.7$), the median innovation coefficient $p$ is
-0.017, the median imitation coefficient $q$ is 0.114, and median
-$q/p \approx 7$, in the range typically reported for consumer-product
+0.018, the median imitation coefficient $q$ is 0.110, and median
+$q/p \approx 6.5$, in the range typically reported for consumer-product
 adoption. Most fits are platform-like; a small tail is fad-shaped
 (renewable-energy and virtual-reality themes show $q/p > 40$, with steep
 adoption and visible recession).
 
-Counting themes that reach at least two classes and identifying the origin
-class produces a directed flow graph: of 33 multi-class themes, 33 outflow
-edges originate in software/tech-services and only 4 return there. The
-same asymmetry reproduces under independently-fitted NMF on the same
-sample and vocabulary, with seven of ten curated seed phrases recovering a
-clear best topic. Both methods are bag-of-words factorizations, so this
-robustness is within-paradigm; a sentence-embedding or graph-community
-extraction is the natural cross-paradigm test and is not run here.
+Tagging each multi-class theme's origin class (earliest to cross the
+floor) and counting one directed edge from the origin to each later
+arrival class gives 72 origin-to-arrival edges over the 33 multi-class
+themes. Software (009) is the dominant origin, contributing 33 of the 72
+edges against the 18 expected under symmetry, and receiving only 10; the
+software-plus-tech-services pair sends 26 edges to transport and
+advertising/retail and receives 18 back. The same asymmetry reproduces
+under independently-fitted NMF on the same sample and vocabulary, with
+seven of ten curated seed phrases recovering a clear best topic. Both
+methods are bag-of-words factorizations, so this robustness is
+within-paradigm; a sentence-embedding or graph-community extraction is the
+natural cross-paradigm test and is not run here.
 
 \section{Do new themes come from incumbents or entrants?}\label{sec:baserate}
 
@@ -586,7 +630,7 @@ none. It is empirically distinct from patent-track invention within firm
 while aligning with expert innovation judgment. And it supports direct
 measurement of cross-industry vocabulary diffusion, with multi-year
 origin-to-arrival lags, Bass-fittable adoption, and strongly asymmetric
-flow out of software and tech services.
+flow out of software.
 
 The paper rejects two readings the construct does not support. \dkl{} does
 not measure innovation in any strong sense; the defended primitive is
@@ -623,6 +667,39 @@ published panels include the SEC-matched firm-year \dkl{} panel
 ($n = 59{,}033$) and the PatentsView-joined panel ($n = 174{,}569$).
 Analysis scripts and their outputs are indexed in the repository
 \texttt{README.md}.
+
+\appendix
+\section{The outcome analysis without registration conditioning}\label{app:uncond}
+
+Figure~\ref{fig:uncond} repeats the lifecycle outcome analysis without the
+registration conditioning, on filings 2013--2015 pooled across all classes
+(a window whose registrations land by $\sim$2017 and face at least one
+Section~8 gate by the 2025 snapshot; the earliest registrations in the
+window also face their year-ten renewal, so panel B mixes one and two
+gates). Panel A is the unconditional composite, the probability that a
+filing both registers and passes the gate, measured over all filings
+including the never-registered. It is an inverse-U in \dkl{} (quintiles
+22.0\%, 22.9\%, 23.0\%, 22.5\%, 21.4\%; middle-versus-tails depth $+1.4$pp,
+SE 0.1pp), because the composite inherits the registration step's
+middle-favoring shape from Figure~\ref{fig:outcomes}A. Unconditional
+survival analyses on this corpus therefore recover an inverse-U whether or
+not the maintenance gate itself favors the middle, which is why the body
+of the paper conditions on registration throughout. Panel B shows the
+conditional gate outcome on the same filings for contrast; on this mixed
+one-to-two-gate cohort it is mildly inverse-U with a clearly penalized
+forward tail, consistent in the right tail with the cleaner single-gate
+cohort of Figure~\ref{fig:s8pooled} and a reminder that the left tail of
+the gate result is cohort-sensitive.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/appendix_unconditional.png}
+\caption{Filings 2013--2015 pooled across classes
+($n = 1{,}214{,}764$; gated subset $n = 654{,}235$). \emph{A:} the
+unconditional composite P(registered and passed first gate) over all
+filings. \emph{B:} P(passed $\mid$ registered and gated) on the same
+filings.}
+\label{fig:uncond}
+\end{figure}
 
 \begin{thebibliography}{99}
 

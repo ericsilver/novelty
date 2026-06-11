@@ -1,0 +1,118 @@
+"""Regenerate the two-panel quadrant scatter (Figure 2 of the paper) from
+the current surprise files, with brand-label hits verified at run time.
+
+Output: paper/results/quadrant.png
+        paper/results/quadrant_labeled_points.csv
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import polars as pl
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from adjustText import adjust_text
+
+REPO = Path(__file__).resolve().parents[1]
+PROC = REPO / "data" / "processed"
+RES = REPO / "paper" / "results"
+
+PANELS = [
+    # Examples restricted to post-burn-in filings (>= 1995), consistent
+    # with the paper's fragility note on pre-1995 contamination.
+    ("009", "Software & Electronics", [
+        ("OPENAI", 2016), ("CLAUDE", 2023), ("INSTAGRAM", 2011),
+        ("ETHEREUM", 2018), ("KUBERNETES", 2014), ("CHATGPT", 2022),
+        ("UBER", 2014), ("WINDOWS", 1995), ("PHOTOSHOP", 2003),
+        ("AIRPODS", 2015), ("KINDLE", 2010), ("IPOD", 2001),
+    ]),
+    ("032", "Beer & Soft Drinks", [
+        ("LIQUID DEATH", 2023), ("WHITE CLAW SELTZER WORKS", 2016),
+        ("ROCKSTAR", 2002), ("HARD MTN DEW", 2021), ("FIJI", 2005),
+        ("SMARTWATER", 1997), ("KOMBUCHA", 1997), ("POWERADE", 1996),
+        ("GATORADE", 1996), ("RED BULL", 1995), ("MONSTER ENERGY", 2002),
+        ("CELSIUS", 2004),
+    ]),
+]
+
+CLEAN = (
+    (pl.col("n_ref_prospective") >= 1000)
+    & (pl.col("n_ref_retrospective") >= 1000)
+    & (pl.col("n_terms") >= 3)
+)
+
+
+def main() -> int:
+    fig, axes = plt.subplots(1, 2, figsize=(13, 6.0))
+    rows = []
+    for ax, (cls, label, examples) in zip(axes, PANELS):
+        sp = pl.read_parquet(PROC / f"surprise_class{cls}.parquet").with_columns(
+            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+        ).filter(CLEAN)
+        sample = sp.sample(min(15000, sp.height), seed=7)
+        ax.scatter(sample["prospective_kl"], sample["retrospective_kl"],
+                   s=3, alpha=0.08, color="#888")
+        lo, hi = 2.0, 10.0
+        ax.plot([lo, hi], [lo, hi], color="black", linewidth=0.6, linestyle="--")
+        ax.text(hi - 0.1, hi - 0.1, "diagonal", fontsize=8,
+                ha="right", va="top", color="#444")
+
+        xs_lab, ys_lab, text_objs = [], [], []
+        for mark_q, year_q in examples:
+            hits = (sp.filter(
+                (pl.col("year") == year_q)
+                & pl.col("mark_identification").str.to_uppercase().str.contains(
+                    f"^{mark_q}$|^{mark_q} ")
+            ).sort("dkl", descending=True).head(1))
+            if hits.is_empty():
+                print(f"  miss [{cls}]: {mark_q} ({year_q})", file=sys.stderr)
+                continue
+            r = hits.row(0, named=True)
+            x, y = float(r["prospective_kl"]), float(r["retrospective_kl"])
+            if not (lo <= x <= hi and lo <= y <= hi):
+                print(f"  oob  [{cls}]: {mark_q} ({year_q}) ({x:.2f},{y:.2f})",
+                      file=sys.stderr)
+                continue
+            ax.scatter([x], [y], s=46, color="#d62728",
+                       edgecolor="black", linewidth=0.7, zorder=4)
+            xs_lab.append(x); ys_lab.append(y)
+            text_objs.append(ax.text(
+                x, y, f"{mark_q} ({year_q})", fontsize=8, zorder=5,
+                bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="none", alpha=0.85)))
+            rows.append({"cls": cls, "mark": mark_q, "year": year_q,
+                         "prospective_kl": x, "retrospective_kl": y, "dkl": x - y})
+            print(f"  hit  [{cls}]: {mark_q} ({year_q}) dkl={x-y:+.2f}",
+                  file=sys.stderr)
+        if text_objs:
+            adjust_text(text_objs, x=xs_lab, y=ys_lab, ax=ax,
+                        expand=(1.6, 1.8),
+                        arrowprops=dict(arrowstyle="-", color="#666", linewidth=0.5,
+                                        shrinkA=2, shrinkB=2),
+                        only_move={"text": "xy"},
+                        force_text=(0.6, 0.8), force_static=(0.4, 0.4), max_move=18)
+        ax.set_xlim(lo, hi); ax.set_ylim(lo, hi)
+        ax.set_xlabel("Prospective KL --- novelty at filing time\n"
+                      "(higher $\\rightarrow$ less like the previous 5 years' filings)")
+        ax.set_ylabel("Retrospective KL --- novelty in hindsight\n"
+                      "(higher $\\rightarrow$ less like the next 5 years' filings)")
+        ax.set_title(label)
+        ax.text(0.98, 0.02, "innovator\n(below diagonal:\nfuture resembles\nthis filing)",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=8.5,
+                color="#117a3a",
+                bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#117a3a", alpha=0.7))
+        ax.text(0.02, 0.98, "tired\n(above diagonal:\npast resembles\nthis filing)",
+                transform=ax.transAxes, va="top", fontsize=8.5, color="#7a1111",
+                bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#7a1111", alpha=0.7))
+        ax.grid(alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(RES / "quadrant.png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    pl.from_dicts(rows).write_csv(RES / "quadrant_labeled_points.csv")
+    print("[done]", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
