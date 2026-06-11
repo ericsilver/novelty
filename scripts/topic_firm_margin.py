@@ -11,7 +11,9 @@ Output: paper/results/topic_firm_margin.json
 from __future__ import annotations
 
 import json
+import os
 import sys
+SUFFIX = os.environ.get("TOPIC_SUFFIX", "")
 from pathlib import Path
 
 import polars as pl
@@ -28,7 +30,7 @@ YEAR_MAX = 2019
 def firm_year_topic() -> pl.DataFrame:
     parts = []
     for cls in CLASSES:
-        ts = pl.read_parquet(PROC / f"topic_surprise_class{cls}.parquet").filter(
+        ts = pl.read_parquet(PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet").filter(
             pl.col("topic_dkl").is_finite())
         tm = pl.read_parquet(PROC / f"tm_class{cls}.parquet",
                              columns=["serial_number", "owner_name"])
@@ -117,7 +119,7 @@ def main() -> int:
         print(f"        pros {dd['coef_mean_pros_3y']:+.4f} (t {dd['t_mean_pros_3y']:+.1f})"
               f"  retr {dd['coef_mean_retr_3y']:+.4f} (t {dd['t_mean_retr_3y']:+.1f})",
               file=sys.stderr, flush=True)
-    (RES / "topic_firm_margin.json").write_text(json.dumps(results, indent=1, default=float))
+    (RES / f"topic_firm_margin{SUFFIX}.json").write_text(json.dumps(results, indent=1, default=float))
     print("[done]", file=sys.stderr, flush=True)
     return 0
 

@@ -12,7 +12,9 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
+SUFFIX = os.environ.get("TOPIC_SUFFIX", "")
 from pathlib import Path
 
 import numpy as np
@@ -74,7 +76,7 @@ def all_classes() -> list[str]:
 
 
 def load_class(cls: str) -> pl.DataFrame | None:
-    tp = PROC / f"topic_surprise_class{cls}.parquet"
+    tp = PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet"
     sp = PROC / f"surprise_class{cls}.parquet"
     mp = PROC / f"tm_class{cls}.parquet"
     if not (tp.exists() and sp.exists() and mp.exists()):
@@ -150,7 +152,7 @@ def main() -> int:
         "corr_token_topic_gate_sample": float(np.corrcoef(
             gate_all["token_dkl"].to_numpy(), gate_all["topic_dkl"].to_numpy())[0, 1]),
     }
-    (RES / "topic_outcomes_all.json").write_text(json.dumps(out, indent=1, default=float))
+    (RES / f"topic_outcomes_all{SUFFIX}.json").write_text(json.dumps(out, indent=1, default=float))
     for k in ("gate_topic", "gate_token_same_sample",
               "registration_topic", "registration_token_same_sample"):
         d = out[k]
@@ -182,7 +184,7 @@ def main() -> int:
         ax.grid(alpha=0.3)
     fig.suptitle("Mark-level outcomes under topic vs token scoring, identical samples")
     fig.tight_layout()
-    fig.savefig(RES / "topic_outcomes_all.png", dpi=140, bbox_inches="tight")
+    fig.savefig(RES / f"topic_outcomes_all{SUFFIX}.png", dpi=140, bbox_inches="tight")
     plt.close(fig)
 
     ok = sorted(per_class, key=lambda r: r["gate_topic_lift_q5_q1"])
@@ -200,7 +202,7 @@ def main() -> int:
     ax.set_title("First-gate Section 8 survival lift by industry, topic scoring")
     ax.grid(alpha=0.3, axis="x")
     fig.tight_layout()
-    fig.savefig(RES / "topic_s8_forest.png", dpi=140, bbox_inches="tight")
+    fig.savefig(RES / f"topic_s8_forest{SUFFIX}.png", dpi=140, bbox_inches="tight")
     plt.close(fig)
     print("[done]", file=sys.stderr, flush=True)
     return 0

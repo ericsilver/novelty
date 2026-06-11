@@ -13,7 +13,9 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
+SUFFIX = os.environ.get("TOPIC_SUFFIX", "")
 from pathlib import Path
 
 import numpy as np
@@ -58,7 +60,7 @@ def main() -> int:
 
     parts = []
     for cls in all_classes():
-        tp = PROC / f"topic_surprise_class{cls}.parquet"
+        tp = PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet"
         if not tp.exists():
             continue
         topic = pl.read_parquet(tp).filter(
@@ -111,7 +113,7 @@ def main() -> int:
         "sec_given_reg": {v: quintiles(reg, v, "in_sec")
                           for v in ("topic_dkl", "topic_pros", "topic_retr")},
     }
-    (OUT / "debut_outcome_topic.json").write_text(
+    (OUT / f"debut_outcome_topic{SUFFIX}.json").write_text(
         json.dumps(metrics, indent=1, default=float))
     print("reg by topic_dkl:", {k: round(v, 4) for k, v in
                                 metrics["registration"]["topic_dkl"].items()},
@@ -154,7 +156,7 @@ def main() -> int:
         f"Debut filings under topic scoring, {FILE_LO}-{FILE_HI}; "
         f"n={df.height:,}, registered n={reg.height:,}", fontsize=11)
     fig.tight_layout()
-    fig.savefig(OUT / "debut_outcome_topic.png", dpi=150, bbox_inches="tight")
+    fig.savefig(OUT / f"debut_outcome_topic{SUFFIX}.png", dpi=150, bbox_inches="tight")
     print("[done]", file=sys.stderr, flush=True)
     return 0
 

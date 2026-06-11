@@ -27,41 +27,50 @@ which the author of each document is the agent whose novelty is being measured:
 Darwin's reading notebooks, parliamentary speeches of the French Revolution.
 This paper applies the framework to a qualitatively different corpus type, the
 goods/services descriptions of US trademark filings, and introduces the
-resulting construct, denoted \dkl{}, as a firm-level measure of commercial
+resulting construct, denoted \dkl{}, as a filing-level measure of commercial
 novelty that is cheap to compute, available for millions of firms that never
 patent, and empirically distinct from patent-track invention.
 
-\noindent Three validation results anchor the construct. All analyses
-condition on completed registration: completing registration mostly
-reflects whether the filer followed through to actual commercial use
-(nine in ten failed applications die by abandonment, not by refusal), so
-the conditioning separates businesses that launched from filings that
-remained intentions. First, \dkl{} behaves as a marker of commercial
-risk-taking, with opposite signs at the mark and firm levels. Among
-2016--2018 registrations facing their first Section~8 maintenance gate,
-marks written in language their industry was moving toward die more
-often: survival falls from 49.2\% to 43.3\% across \dkl{} quintiles
-($n = 765{,}154$; negative in 31 of 41 industries). Re-scoring with mixed
-reference windows shows the penalty comes from breaking with the
-established past, not from resembling the future ($-7.3$pp against
-$-3.2$pp). The firms that file these marks fare better: eventual public
-listing among first-time filers rises $\sim$40\% in relative terms across
-\dkl{} quintiles, gross margin on an SEC-matched panel runs $+3.2$pp per
-$\sigma$ ($t = 5.3$), and excess stock returns run $+1.5$ to $+5.0$pp per
-$\sigma$ at 1--4 year horizons, decaying by year five. Merely being
-surprising in the moment carries no information about these firm
-outcomes; the signal appears only when a filing's once-surprising
-elements are later picked up by the rest of the field.
-Second, \dkl{} is orthogonal-to-negative with patent counts within firm
-($-0.048\sigma$, $t = -7.9$ on 14{,}470 matched firms), while expert
-``most innovative'' lists sit $+0.34\sigma$ above the panel mean
-($p < 0.001$); the construct captures a market-facing dimension of novelty
-that patents miss. Third, the construct supports direct measurement of
-cross-industry idea diffusion: software- and tech-services-origin themes
-arrive in transport and advertising/retail with 1--13 year lags, theme
-adoption follows Bass curves with median $q/p \approx 6.5$, and the
-cross-class flow is strongly asymmetric (software originates 33 of the 72
-origin-to-arrival edges and receives only 10).
+\noindent The construct is scored on each filing's topic distribution
+rather than its raw token counts, following the source papers' own
+operationalization; this gives every filing a dense representation
+regardless of length, which matters because goods/services descriptions
+typically run 10--30 words. All analyses condition on completed
+registration: completing registration mostly reflects whether the filer
+followed through to actual commercial use (nine in ten failed
+applications die by abandonment, not by refusal), so the conditioning
+separates businesses that launched from filings that remained intentions.
+
+\noindent Three results anchor the paper. First, \dkl{} marks commercial
+risk at the mark level, robustly across scoring choices. Among 2016--2018
+registrations facing their first Section~8 maintenance gate, marks written
+in language their industry was moving toward die more often: survival
+falls $-5.5$pp across \dkl{} quintiles ($n = 770{,}000$; the same to
+within 0.2pp under token scoring and at four times the topic resolution),
+and applications register as an inverse-U, with the flux-neutral middle
+following through to use most reliably. Re-scoring with mixed reference
+windows shows the gate penalty comes from breaking with the established
+past, not from resembling the future ($-7.3$pp against $-3.2$pp). In
+either scoring, merely being surprising in the moment is not the signal;
+the information lives in comparing how surprising a filing is against its
+past with whether its surprising elements are then taken up by the filings
+that follow. Second,
+a methodological caution the construct itself surfaces: under term-level
+scoring, forward-leaning filings appear to mark better firms (higher
+margins, more public listings), but these firm-level associations dissolve
+or reverse under distribution scoring at every resolution tried, and the
+listing gradient dissolves under document-length controls. Term-level
+text measures can manufacture firm-performance correlations out of
+drafting style; distribution scoring is the guard. The firm-level claims
+are therefore not anchored here, and the within-firm patent contrast
+($-0.048\sigma$, $t = -7.9$) is read only as evidence that the construct
+is distinct from patent-track invention. Third, the construct supports
+direct measurement of cross-industry idea diffusion: software- and
+tech-services-origin themes arrive in transport and advertising/retail
+with 1--13 year lags, theme adoption follows Bass curves with median
+$q/p \approx 6.5$, and the cross-class flow is strongly asymmetric
+(software originates 33 of the 72 origin-to-arrival edges and receives
+only 10).
 
 \noindent The paper closes with a research agenda the construct opens:
 whether ideas that transfer between industries hold their value, whether
@@ -105,19 +114,22 @@ which is commercially incentivised, typically drafted by counsel, and
 exists to define legal protection scope rather than to express cognition.
 Whether the resonance framework produces interpretable structure on text of
 this kind is the threshold question, and the answer this paper documents is
-yes. The construct, denoted \dkl{}, behaves as a marker of commercial
-risk-taking, with opposite signs at the mark and firm levels. Filings whose
-vocabulary leans toward where their industry's language is going fare worse
-as legal objects: their applications complete registration slightly less
-often (a step that mostly measures follow-through to commercial use, since
-roughly nine in ten failed applications die by abandonment rather than by
-refusal), and the registered marks fail the first Section~8 maintenance
-gate more often. The firms that file them fare better as businesses:
-higher gross margins, excess stock returns at one-to-four-year horizons,
-and a higher rate of eventually going public among first-time filers. The same signal is
-uncorrelated-to-negatively correlated with patenting within firm, while
-firms on expert ``most innovative'' lists score high on it; \dkl{} captures
-a market-facing dimension of novelty that the patent record does not.
+yes. The construct, denoted \dkl{}, marks commercial risk at the level of
+the individual mark, robustly across scoring choices. Filings whose
+vocabulary leans toward where their industry's language is going fare
+worse as legal objects: their applications complete registration slightly
+less often (a step that mostly measures follow-through to commercial use,
+since roughly nine in ten failed applications die by abandonment rather
+than by refusal), and the registered marks fail the first Section~8
+maintenance gate more often. The construct also surfaces a methodological
+hazard that this paper documents rather than falls into: under term-level
+scoring, the same forward-leaning filings appear to belong to more
+successful firms, but those firm-level associations dissolve or reverse
+under distribution-based scoring at every resolution tried, and the
+listing gradient dissolves under document-length controls. The signal is
+uncorrelated-to-negatively correlated with patenting within firm; \dkl{}
+captures a dimension of commercial text that the patent record does not,
+whatever its ultimate relation to firm performance.
 
 Because the construct is computed from public text with public code, it
 scales to questions that firm-survey or patent-linked measures cannot
@@ -195,18 +207,34 @@ against marks with publicly known fates.
 
 \subsection{Computation}
 
-For each granted filing at year $t$ in class $c$ with goods/services text
-producing token distribution $P$ (unigram + bigram, after a standard
-analyzer that drops stopwords), the reference distributions
-$Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ are computed from all granted
-filings in class $c$ in the respective windows. The baseline uses
-$W = 5$ years (flat window) on both sides, with Dirichlet smoothing
-($\alpha = 1$ per cell); the full corpus is also scored at $W = 3$ and
-$W = 7$, and because the two windows need not match, the variants compose
-into asymmetric constructs (prospective surprise against one window,
-retrospective against another) that Section~\ref{sec:windows} uses to ask
-\emph{which} novelty the outcomes respond to. The within-class vocabulary
-is the set of unigrams and bigrams with document frequency $\geq 50$.
+The construct is scored on topic distributions, following the source
+papers' own operationalization: the Darwin and French Revolution analyses
+computed surprise on each document's topic mixture rather than its raw
+token counts \citep{Murdock2017, Barron2018}. A latent Dirichlet
+allocation model with $T = 50$ topics is fit on a stratified sample of
+448{,}437 filings drawn across all 45 classes (vocabulary of 62{,}168
+unigrams and bigrams), every filing 1990--2024 is transformed to a dense
+50-topic distribution, and each filing's prospective and retrospective KL
+are computed against class-year topic references at $W = 5$, scoring
+1995--2019. Topic scoring matters here for a reason the source corpora
+did not face: goods/services descriptions typically run 10--30 words, and
+on documents that short, token-level KL inflates mechanically (mean
+$|\Delta\mathrm{KL}|$ varies 2.5-fold across document-size bands), while
+every filing's topic distribution is dense regardless of length and the
+artifact largely disappears. A $T = 200$ refit confirms the headline
+results are not sensitive to topic resolution.
+
+A term-level variant is retained alongside: token distributions
+(unigram + bigram, within-class document frequency $\geq 50$) against the
+same class-year windows, with Dirichlet smoothing ($\alpha = 1$ per
+cell), computed at $W \in \{3, 5, 7\}$. The term variant is used where
+vocabulary identity is the object (the phrase-transit analysis, the
+reference-window decomposition, the months-scale freshness measure), and
+as a comparison scoring throughout; because its two windows need not
+match, it also composes into asymmetric constructs (prospective surprise
+against one window, retrospective against another) that
+Section~\ref{sec:windows} uses to ask \emph{which} novelty the outcomes
+respond to.
 
 The signal depends on having enough past and future filings to populate
 the references. Figure~\ref{fig:burnin} shows the reference-window density
@@ -267,53 +295,45 @@ Rockstar, and Red Bull lean innovator; Smartwater (1997) and Celsius
 
 \subsection{Known fragilities}
 
-The construct has documented fragilities on this kind of text. On the
-complete Class~009 corpus, prospective and retrospective KL are correlated
-at $r = +0.971$ across 1.56M scored filings; signed \dkl{} is therefore a
-small residual of two large, highly correlated quantities, and the residual
-is noisy at the per-filing level. The magnitude $|\Delta\mathrm{KL}|$
-inflates monotonically for short filings (0.293 for documents under 5
-terms, decaying to 0.147 for documents of 40 or more terms), a length
-artifact that requires control in any per-filing analysis. Pre-1995
-readings are contaminated by thin past references. \dkl{} is robust to
-the duration of the timing window considered: across $W \in \{3, 5, 7\}$
-years, only 6.9--10.4\% of filings flip sign, well under conventional
-fragility thresholds. The per-filing noise
-attenuates at every aggregation used in this paper: firm-year means,
-token-level pools, and theme-level prevalence trajectories.
-
-A topic-distribution variant addresses the short-document concern
-directly, following the operationalization of the framework's source
-papers, which scored Darwin's notebooks and the French Revolution debates
-on topic distributions rather than raw token distributions
-\citep{Murdock2017, Barron2018}. Re-scoring each filing's prospective and
-retrospective KL on its 50-topic LDA distribution (the topic model of
-Section~\ref{sec:diffusion}) gives every filing a dense representation
-regardless of token count, and the length artifact largely dissolves:
-mean $|\Delta\mathrm{KL}|$ varies 2.5-fold across document-size bands
-under token scoring but only $\sim$1.4-fold under topic scoring. The two
-scorings agree moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M
-jointly scored filing-class observations), and the
-prospective/retrospective correlation is
-nearly as high on topics (0.950) as on tokens (0.980), consistent with the
-stability reading: what has not been seen before will mostly not be seen
-again, and the signal lives in the difference. Re-estimating the outcome
-analyses under topic scoring is the natural robustness pass and is
-underway as follow-up work.
+The construct has documented fragilities on this kind of text, and they
+motivate the choice of topic scoring as the method. Prospective and
+retrospective KL are highly correlated however scored (term scoring:
+$r = +0.971$ on the complete Class~009 corpus; topic scoring: 0.950),
+so signed \dkl{} is a small residual of two large, stable quantities;
+what has not been seen before will mostly not be seen again, and the
+signal lives in the difference. Under term scoring the residual is noisy
+at the per-filing level, and its magnitude inflates mechanically for
+short filings (mean $|\Delta\mathrm{KL}|$ of 0.293 for documents under 5
+terms, decaying to 0.147 at 40 or more, a 2.5-fold gradient); under
+topic scoring the gradient falls to $\sim$1.4-fold, which is why topic
+scoring carries the outcome analyses. The two scorings agree only
+moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M jointly
+scored filing-class observations), which is what gives their agreement
+on the mark-level outcome patterns evidential force, and their
+disagreement on the firm-level patterns diagnostic force
+(Section~\ref{sec:firmlevel}). Pre-1995 readings are contaminated by
+thin past references. \dkl{} is robust to the duration of the timing
+window considered: across $W \in \{3, 5, 7\}$ years, only 6.9--10.4\% of
+filings flip sign, well under conventional fragility thresholds. The
+per-filing noise attenuates at every aggregation used in this paper:
+firm-year means, token-level pools, and theme-level prevalence
+trajectories.
 
 \section{Validation against commercial outcomes}\label{sec:outcomes}
 
 If \dkl{} measures something commercially real, it should predict outcomes
-that cost firms money. It does, and the pattern splits cleanly by the
-level of observation. At the \emph{mark} level, the trademark lifecycle
-selects against forward-leaning vocabulary: those applications register
-slightly less often, and the marks that do register fail the first
-maintenance gate more often. At the \emph{firm} level, the same signal
-points the other way: firms whose filings lean forward are more likely to
-eventually go public, earn higher gross margins, and earn excess stock
-returns. The two layers together read as a risk-and-return profile.
-Forward-leaning vocabulary marks a commercial bet; the bets die more often
-as individual marks, and the firms that place them do better.
+that cost firms money. At the \emph{mark} level it does, robustly: the
+trademark lifecycle selects against forward-leaning vocabulary, whose
+applications complete registration slightly less often and whose
+registered marks fail the first maintenance gate more often, under topic
+scoring at two resolutions and under term scoring alike. At the
+\emph{firm} level the corpus teaches a different lesson. Term-level
+scoring suggests that firms filing forward-leaning marks do better
+(listing, margins); distribution-based scoring erases or reverses those
+associations at every resolution tried. Section~\ref{sec:firmlevel}
+documents the divergence and reads it as a methodological hazard for
+text-based novelty measures generally, rather than asserting either sign
+as a property of firms.
 
 \subsection{Mark-level selection: registration and the first maintenance gate}
 
@@ -327,12 +347,13 @@ repeated gates, the gate analysis uses the 2016--2018 registration cohort,
 for which exactly one Section~8 gate has elapsed by the 2025 data snapshot.
 
 \begin{figure}[h]\centering
-\includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
+\includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
 \caption{Outcomes for debut filings (owner's first-ever filing) across all
-45 NICE classes, filing years 1995--2018, in quantile bins with 95\%
-intervals. $n = 3{,}584{,}711$; registered subset $n = 2{,}063{,}967$.
-\emph{A:} P(reached registration). \emph{B:} P(owner ever in SEC EDGAR
-$\mid$ registration).}
+45 NICE classes under topic scoring, filing years 1995--2018, in quantile
+bins with 95\% intervals. $n = 3{,}589{,}421$; registered subset
+$n = 2{,}066{,}855$. \emph{A:} P(reached registration). \emph{B:} P(owner
+ever in SEC EDGAR $\mid$ registration); the absence of a \dkl{} gradient
+in panel B is discussed in Section~\ref{sec:firmlevel}.}
 \label{fig:outcomes}
 \end{figure}
 
@@ -341,19 +362,19 @@ examiner verdict: among applications that fail to register, roughly nine
 in ten die by abandonment (44\% never file the statement of use that
 registration requires; 45\% stop responding during prosecution) and only
 a few percent lose adversarial or appeal proceedings. Completion
-(Figure~\ref{fig:outcomes}A; 3.58 million debut filings, 57.6\% base
-rate) is an inverse-U in \dkl{}: the flux-neutral middle completes best
-(59.8\% at the third quintile) and both tails complete less (54.0\% at
-the bottom quintile, 56.6\% at the top), with the most distinctive
-applications on either KL axis completing least often (53.3--53.5\% at
-the top quintiles). On the launch-indicator reading, the inverse-U says
-that applicants filing category-typical language most reliably follow
-through to commercial use, while both kinds of vocabulary bet fail to
-launch more often. The inverse-U is the rule, not a pooled artifact:
-estimated class by class on all filings 1995--2018, the
-middle-versus-tails depth is positive in 37 of 44 classes with sufficient
-volume and statistically distinguishable from zero in 33 (the per-class
-figure and table are in the repository).
+(Figure~\ref{fig:outcomes}A; 3.59 million debut filings, 57.6\% base
+rate) is an inverse-U in \dkl{}: the middle quintiles complete best
+($\sim$58.6--58.9\%) and both tails complete less (54.5\% at the bottom
+quintile, 56.8\% at the top), with the same hump in the topic-KL levels.
+On the launch-indicator reading, the inverse-U says that applicants
+filing category-typical language most reliably follow through to
+commercial use, while both kinds of vocabulary bet fail to launch more
+often. The shape is scoring-robust (term scoring gives depth $+4.8$pp on
+all filings pooled; topic scoring $+3.7$pp, and $+3.0$pp at $T = 200$)
+and is the rule rather than a pooled artifact: estimated class by class
+under term scoring, the middle-versus-tails depth is positive in 37 of 44
+classes with sufficient volume and statistically distinguishable from
+zero in 33 (per-class figure and table in the repository).
 
 The registration inverse-U is also why analyses that skip the
 registration conditioning see an inverse-U in downstream outcomes.
@@ -366,10 +387,13 @@ Appendix~A reproduces the outcome analysis without the registration
 conditioning to make the composite shape visible.
 
 The first Section~8 gate is where forward-leaning marks pay.
-Figure~\ref{fig:s8pooled} shows the pooled result on 765{,}154 gated
-registrations: survival falls across \dkl{} quintiles from 49.2\% to
-43.3\%, a $-5.9$pp lift (SE 0.2pp), while it \emph{rises} in the raw KL
-level ($+6.5$pp prospective, $+7.6$pp retrospective). Distinctive text
+Figure~\ref{fig:s8pooled} shows the pooled result on 769{,}704 gated
+registrations: survival falls $-5.5$pp across topic-\dkl{} quintiles
+(51.7\% at the bottom to 44.5\% at the fourth, with a small recovery to
+46.2\% at the top; SE 0.2pp). The result is indifferent to scoring:
+$-5.7$pp under term scoring on the identical sample, $-5.5$pp at
+$T = 200$. Under term scoring the gate survival \emph{rises} in the raw
+KL level ($+6.5$pp prospective, $+7.6$pp retrospective): distinctive text
 survives the use requirement better; forward-leaning text survives it
 worse. A natural mechanism runs through the use declaration itself:
 Section~8 requires continued use in commerce, and vocabulary that bets on
@@ -377,19 +401,22 @@ where the category is going belongs disproportionately to products that
 had not yet materialized at filing and sometimes never do.
 
 \begin{figure}[h]\centering
-\includegraphics[width=0.62\textwidth]{results/s8_corrected_pooled.png}
-\caption{First Section~8 gate survival by \dkl{}, pooled across classes.
-Registrations 2016--2018; survival = status 701/702/703/704/705/800,
-failure = status 710.}
+\includegraphics[width=\textwidth]{results/topic_outcomes_all.png}
+\caption{The two mark-level outcomes under topic and term scoring on
+identical samples, pooled across classes. \emph{Left:} first Section~8
+gate survival (registrations 2016--2018). \emph{Right:} registration
+completion (filings 1995--2018). Both patterns are scoring-robust.}
 \label{fig:s8pooled}
 \end{figure}
 
 The gate result is broad but not universal. Per class
-(Figure~\ref{fig:forest}), the \dkl{} top-versus-bottom quintile lift is
-negative in 31 of 41 classes with sufficient gated volume, with the
-largest negative lifts in physical-goods classes (medical apparatus
-$-21.7$pp, tobacco $-24.1$pp, lighting $-19.9$pp, machinery $-18.4$pp) and
-small positive lifts concentrated in services (legal services $+7.4$pp,
+(Figure~\ref{fig:forest}, term-scored; the topic-scored version is in the
+repository and agrees), the \dkl{} top-versus-bottom quintile lift is
+negative in 31 of 41 classes with sufficient gated volume under term
+scoring and 34 of 41 under topic scoring, with the largest negative lifts
+in physical-goods classes (medical apparatus $-21.7$pp, tobacco
+$-24.1$pp, lighting $-19.9$pp, machinery $-18.4$pp) and small positive
+lifts concentrated in services (legal services $+7.4$pp,
 telecommunications $+6.3$pp). One reading is that a forward-leaning
 physical-goods filing requires a product to exist by the gate year while a
 forward-leaning services filing can be serviced with capacity on hand;
@@ -468,76 +495,67 @@ quintile) by industry, registrations 2016--2018, with 95\% intervals.}
 \label{fig:forest}
 \end{figure}
 
-\subsection{Firm-level outcomes: listing, margins, returns}
+\subsection{Firm-level associations are scoring-dependent}\label{sec:firmlevel}
 
-Among registered debut filings, the probability that the owner ever
-appears in the SEC EDGAR listed universe (Figure~\ref{fig:outcomes}B)
-rises in \dkl{} from 0.29\% at the bottom quintile to 0.42\% at the top,
-roughly a 40\% relative lift on a 0.33\% base. The KL levels carry no such
-signal (flat to slightly negative across quintiles); as with returns
-below, the information is in the signed resonance, not in novelty per se.
-The debut restriction matters: at the whole-firm level, selection into
-public markets is dominated by filing volume (a tenfold increase in
-filings raises the odds of listing roughly fivefold), and in the
-all-filings pool the relationship inverts, the line-extension confound in
-raw form. The construct's listing signal is concentrated at the moment of
-entry, before portfolio-scale effects swamp it.
+Under term-level scoring, forward-leaning filings appear to belong to
+better firms. Among registered debut filings, the probability that the
+owner ever appears in the SEC EDGAR listed universe rises in term-\dkl{}
+from 0.29\% at the bottom quintile to 0.42\% at the top; on an
+SEC-matched panel of firm-years, trailing 3-year mean term-\dkl{}
+predicts gross margin at $+2.3$pp per $\sigma$ ($t = 2.7$ on the locally
+rebuilt panel through 2019; $+3.2$pp, $t = 5.3$, on the original panel
+through 2024), with prospective surprise entering positively and
+retrospective negatively, the resonance configuration; and firm-year
+term-\dkl{} predicts excess stock returns of $+1.5$ to $+5.0$pp per
+$\sigma$ at one-to-four-year horizons, decaying by year five, with
+prospective surprise alone predicting approximately zero at every
+horizon. A larger debut-only return figure ($+28$pp at 4 years) does not
+survive a sample-size diagnostic and is not claimed.
 
-\subsubsection*{Margins and returns on the SEC panel}
+None of these firm-level associations survives distribution-based
+scoring, and the paper therefore does not anchor on them. Under topic
+scoring on identical samples, the debut listing gradient is flat to
+declining (Figure~\ref{fig:outcomes}B), and the margin coefficient
+reverses: $-1.3$pp per $\sigma$ ($t = -1.8$) at $T = 50$ and $-2.2$pp
+($t = -3.1$) at $T = 200$, with the prospective/retrospective
+decomposition flipping sign. The resolution test is the informative part:
+if topic scoring had merely coarse-grained away a real term-level signal,
+quadrupling the topic count should move the estimates toward the
+term-level result. It moves them further away. Meanwhile the term-level
+listing gradient dissolves under document-length controls: within
+document-size bands it is U-shaped rather than rising, with the apparent
+monotone rise contributed by composition across lengths (listed firms'
+counsel write longer descriptions; the only large within-band effect is
+in 40-plus-term filings). The parsimonious reading is that the term-level
+firm associations ride on drafting-style correlates of firm type, length
+chief among them, exactly the channel topic scoring neutralizes. The
+mark-level results of Section~3.1 are unaffected: they hold under both
+scorings at both resolutions.
 
-On a panel of 5{,}319 firm-years (1{,}597 SEC-matched trademark owners,
-2009--2024), trailing 3-year mean \dkl{} predicts gross margin at
-$+3.2$pp per $\sigma$ ($t = 5.3$), controlling log revenue and R\&D
-intensity. The decomposition is instructive: prospective surprise enters at
-$+14.6$pp and retrospective surprise at $-19.1$pp (both $|t| > 3.5$), so
-the margin premium attaches to vocabulary that is unusual against the past
-\emph{and} close to the future, exactly the resonance configuration. On
-first-time filers alone, where reverse causality from established success
-is weakest, the effect remains at $+1.7$pp per $\sigma$
-($n = 6{,}525$ firms).
-
-Excess stock returns over the S\&P 500 show the same signature. Firm-year
-mean \dkl{} predicts $+1.5$pp per $\sigma$ at the 1-year horizon
-($t = 3.0$), $+3.5$pp at 2 years, $+5.0$pp at 3 years, $+4.1$pp at 4 years,
-and decays to insignificance at 5 years. Prospective surprise alone
-predicts approximately zero at every horizon. Mere novelty at filing time
-carries no return information; novelty the future moves toward does. A
-larger headline figure from a debut-only specification ($+28$pp at 4
-years) does not survive a sample-size diagnostic and is not claimed; the
-firm-year profile is the defensible one.
-
-A reader might worry that the firm-level advantages of forward-leaning
-vocabulary are manufactured by the registration filter itself: if
-examiners disproportionately removed weak firms, the survivors would show
-a gradient that says more about examination than about businesses. The
-data bound this channel tightly. Among applications that fail to
+This is a finding about measurement with reach beyond this corpus:
+term-resolved text-novelty measures can manufacture firm-performance
+correlations from drafting style, and a distribution-based rescoring is a
+cheap, decisive diagnostic. What does \emph{not} explain the firm-level
+divergence is the registration filter. Among applications that fail to
 register, only 4.3\% are removed adversarially (appeal, opposition, or
 inter partes proceedings); 42.6\% never file the statement of use and
 45.3\% stop responding during prosecution, applicant decisions rather
-than examiner ones. And the direct test is to drop the filter: computed
-over all debut filings with no registration conditioning, the listing
-gradient is essentially unchanged (0.26\% to 0.38\% across \dkl{}
-quintiles, against 0.29\% to 0.42\% conditional), retaining roughly nine
-tenths of the conditional lift. The same bound covers the inverse-U
-shapes: completion is driven by the abandonment margin, which is to say
-by which applicants follow through, and an examiner channel that touches
-under two percent of applications cannot generate quintile gaps of
-several percentage points.
+than examiner ones. Dropping the registration conditioning entirely
+leaves the term-level listing gradient essentially unchanged (0.26\% to
+0.38\% across quintiles against 0.29\% to 0.42\% conditional), so neither
+the term-level association nor its dissolution is an examiner artifact;
+and an examiner channel that touches under two percent of applications
+cannot generate the several-point quintile gaps of the registration
+inverse-U either.
 
-Two readings are consistent with these firm-level associations, and the
-panels do not separate them. The trademarked line itself may generate the
-margins and the returns, a realized-business channel in which the filing
-marks a product that pays. Or firms with a disposition to bet early may
-both file forward-leaning marks and earn superior outcomes, a propensity
-channel in which the filing is a symptom rather than a cause. Every panel
-in this section is built from granted filings, so the estimates inherit
-the conditioning on follow-through and cannot distinguish the two. The
-discriminating evidence sits in the applications that never registered: a
-forward-leaning application that was abandoned before use carries the
-propensity signal without the realized line, so firm outcomes following
-novel-but-abandoned filings would separate disposition from product. The
-corpus contains those applications, and the test is owed to follow-up
-work.
+If a genuine firm-level effect exists beneath the artifacts, the panels
+here cannot establish it, and two causal readings would still compete: a
+realized-business channel (the trademarked line itself pays) and a
+propensity channel (firms disposed to bet early both file forward-leaning
+marks and perform). The discriminating evidence sits in applications that
+never registered, which carry the propensity signal without the realized
+line; that test, and length-controlled re-estimation of the margin and
+returns panels, are the firm-level follow-up work this section motivates.
 
 \section{Distinctness from patents}\label{sec:patent}
 
@@ -594,8 +612,10 @@ Innovative lists (2021--23) sit $+0.28\sigma$ above the panel mean in
 ($n = 17$, $p = 0.0006$), and the pooled union sits $+0.34\sigma$ above
 ($n = 43$, $p = 0.0003$). Patent counts are uncorrelated with \dkl{} on the
 same panel (Pearson $+0.010$). The expert lists reward something patents do
-not capture, and \dkl{} tracks it. The matched samples are small and the
-result is a discriminant check, not a headline.
+not capture, and term-scored \dkl{} tracks it. The matched samples are
+small, the panel is term-scored and so inherits the firm-level scoring
+caveat of Section~\ref{sec:firmlevel}, and the result is a discriminant
+check, not a headline.
 
 \section{Application: cross-industry diffusion, measured directly}\label{sec:diffusion}
 
@@ -777,45 +797,50 @@ corpus would establish (or refute) paradigm independence.
 \section{Scope and limits}\label{sec:scope}
 
 The paper makes four substantive claims. \dkl{}, computed as in
-\citet{Murdock2017, Barron2018} on granted USPTO trademark filings,
-produces interpretable structure on commercially-incentivised legal text.
-It marks commercial risk-taking, with opposite signs at the mark and firm
-levels: forward-leaning marks register slightly less often and fail the
-first Section~8 maintenance gate more often ($-5.9$pp across \dkl{}
-quintiles pooled; negative in 31 of 41 industries), while the firms filing
-them show higher gross margins, 1--4 year excess returns, and a higher
-eventual-listing rate among first-time filers, with the signed resonance
-carrying the firm-level signal and prospective surprise alone carrying
-none. It is empirically distinct from patent-track invention within firm
-while aligning with expert innovation judgment. And it supports direct
-measurement of cross-industry vocabulary diffusion, with multi-year
-origin-to-arrival lags, Bass-fittable adoption, and strongly asymmetric
-flow out of software.
+\citet{Murdock2017, Barron2018} on topic distributions of USPTO trademark
+filings, produces interpretable structure on commercially-incentivised
+legal text. It marks commercial risk at the mark level, robustly across
+scoring choices: forward-leaning applications complete registration
+slightly less often (an inverse-U with the flux-neutral middle following
+through best) and forward-leaning registered marks fail the first
+Section~8 maintenance gate more often ($-5.5$pp across quintiles pooled,
+the same under term scoring and at $T = 200$; negative in 31--34 of 41
+industries depending on scoring). It is empirically distinct from
+patent-track invention within firm. And it supports direct measurement of
+cross-industry vocabulary diffusion, with multi-year origin-to-arrival
+lags, Bass-fittable adoption, and strongly asymmetric flow out of
+software.
 
-The paper rejects two readings the construct does not support. \dkl{} does
-not measure innovation in any strong sense; the defended primitive is
-lexical resonance on commercial text, and the validation evidence bounds
-the interpretation. \dkl{} does not identify an exploitable
-extreme-tail return premium; the large debut-specification figure fails a
-sample-size diagnostic.
+The paper rejects three readings the evidence does not support. \dkl{}
+does not measure innovation in any strong sense; the defended primitive
+is lexical resonance on commercial text. \dkl{} does not identify an
+exploitable extreme-tail return premium; the large debut-specification
+figure fails a sample-size diagnostic. And the term-scored firm-level
+advantages of forward-leaning filings (margins, listing) are not asserted
+as properties of firms: they dissolve or reverse under distribution
+scoring at every resolution tried and under document-length controls,
+and the paper reads them as drafting-style artifacts pending evidence to
+the contrary.
 
 The Section~8 gate result is identified on a single registration cohort
 (2016--2018, the cohort for which exactly one gate has elapsed), so
 cohort-specific shocks, including the pandemic years falling inside the
 gate window, are not separable from the \dkl{} gradient; replication on
 the 2019--2021 cohort as its gate completes is the direct check. The
-margin and returns results are associational, identified within an
-SEC-matched panel that itself selects on scale. The theme-level diffusion
-analysis is a four-class build; per-class \dkl{} scores now exist for all
-45 classes, but the theme panel and flow graph have not been re-estimated
-on the full set. The expert-list discriminant rests on 43 matched firms.
+theme-level diffusion analysis is a four-class build; per-class \dkl{}
+scores now exist for all 45 classes, but the theme panel and flow graph
+have not been re-estimated on the full set. The expert-list discriminant
+(term-scored, $+0.34\sigma$, 43 matched firms) inherits the firm-level
+scoring caveat and is read as suggestive only.
 
 Questions owed to follow-up work: the four agenda items of
 Section~\ref{sec:agenda}; whether the mark-level gate penalty reflects
 vocabulary position itself or selection on owner covariates; whether the
 cross-industry gradient in the gate penalty tracks production lead times
-or vocabulary churn; and re-estimation of the outcome analyses under
-topic-distribution scoring.
+or vocabulary churn; length-controlled re-estimation of the firm-level
+panels and the never-registered-applications test of
+Section~\ref{sec:firmlevel}; and corpus-wide estimation of the
+months-scale freshness measure.
 
 \section{Reproducibility}\label{sec:repro}
 

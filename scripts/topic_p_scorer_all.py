@@ -29,7 +29,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-T = 50
+import os
+T = int(os.environ.get("TOPIC_T", "50"))
+SUFFIX = "" if T == 50 else f"_T{T}"
 SAMPLE_PER_CLASS = 10_000
 MIN_DF_SAMPLE = 50
 YEAR_MIN, YEAR_MAX = 1990, 2024
@@ -97,14 +99,14 @@ def main() -> int:
     feature_names = vec.get_feature_names_out()
     top_words = {int(k): [feature_names[i] for i in comp.argsort()[-8:][::-1]]
                  for k, comp in enumerate(lda.components_)}
-    (PROC / "topic_lda_meta.json").write_text(json.dumps(
+    (PROC / f"topic_lda_meta{SUFFIX}.json").write_text(json.dumps(
         {"T": T, "V": int(V), "sample_per_class": SAMPLE_PER_CLASS,
          "min_df_sample": MIN_DF_SAMPLE, "top_words": top_words},
         indent=1))
 
     # ---- per class: transform + score ----
     for ci, cls in enumerate(classes, 1):
-        out_path = PROC / f"topic_surprise_class{cls}.parquet"
+        out_path = PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet"
         if out_path.exists():
             print(f"[{ci}/{len(classes)}] class {cls}: exists, skip",
                   file=sys.stderr, flush=True)

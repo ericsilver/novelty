@@ -4,11 +4,12 @@ Code, public data panels, and the working paper for an empirical application of 
 
 The framework was developed on cognitive corpora — Darwin's reading notebooks, French Revolution parliamentary debates — where the text is authored by the agent whose novelty is being measured. This work applies the same apparatus to commercially-incentivised legally-drafted text: granted USPTO filings 1990–2024, with the deepest diagnostics on the complete software/electronics class (1.81M filings) and a four-class build (software, tech-services, transport, advertising/retail; 2.32M granted filings) for the cross-industry work.
 
-The construct, ΔKL, is a firm-level measure of commercial novelty that is cheap to compute, available for millions of firms that never patent, and empirically distinct from patent-track invention. Three validation results anchor it:
+The construct, ΔKL, is a filing-level measure of commercial novelty that is cheap to compute, available for millions of firms that never patent, and empirically distinct from patent-track invention. Three validation results anchor it:
 
-1. **ΔKL marks commercial risk-taking, with opposite signs at the mark and firm levels.** Forward-leaning marks fare worse in the legal lifecycle: they register slightly less often, and among 2016–2018 registrations facing their first §8 maintenance gate, survival falls from 49.2% to 43.3% across ΔKL quintiles (n=765,154; negative in 31 of 41 industries). The firms that file them fare better: eventual public listing among first-time filers rises ~40% in relative terms across ΔKL quintiles; gross margin on an SEC-matched panel runs +3.2pp per σ (t=5.3); excess stock returns run +1.5 to +5.0pp per σ at 1–4 year horizons, decaying by year five. Prospective surprise alone predicts none of the firm-level outcomes — only the signed resonance does.
-2. **ΔKL is empirically distinct from patents.** Within firm, ΔKL on log(1+patents) gives −0.048σ (t=−7.9 on 14,470 matched firms), while firms on BCG/MIT expert "most innovative" lists sit +0.34σ above the panel mean (p<0.001) and patent counts are uncorrelated with ΔKL on the same panel.
-3. **The construct supports direct measurement of cross-industry idea diffusion.** Software- and tech-services-origin themes (cloud, AI, as-a-service, blockchain, streaming) arrive in transport and advertising/retail with 1–13 year lags; theme adoption follows Bass curves (median q/p ≈ 6.5 on 118 fits); the cross-class flow is strongly asymmetric (software originates 33 of 72 origin→arrival edges and receives only 10).
+1. **ΔKL marks commercial risk at the mark level, robustly across scoring choices.** The construct is scored on topic distributions (the source papers' own operationalization; dense regardless of document length). Forward-leaning applications complete registration slightly less often (an inverse-U; completion mostly measures follow-through to commercial use), and among 2016–2018 registrations facing their first §8 maintenance gate, survival falls −5.5pp across ΔKL quintiles (n≈770k) — the same to within 0.2pp under term scoring and at T=200.
+2. **A methodological caution the construct surfaces.** Under term-level scoring, forward-leaning filings appear to belong to better firms (margins +2–3pp/σ, listing +40% relative); these associations dissolve or reverse under distribution scoring at every resolution tried (margin −2.2pp/σ at T=200) and the listing gradient dissolves under document-length controls. Term-resolved text-novelty measures can manufacture firm-performance correlations from drafting style; the paper documents the hazard rather than anchoring on the firm-level claims.
+3. **ΔKL is empirically distinct from patents.** Within firm, ΔKL on log(1+patents) gives −0.048σ (t=−7.9 on 14,470 matched firms), while patent counts are uncorrelated with ΔKL on the same panel.
+4. **The construct supports direct measurement of cross-industry idea diffusion.** Software- and tech-services-origin themes (cloud, AI, as-a-service, blockchain, streaming) arrive in transport and advertising/retail with 1–13 year lags; theme adoption follows Bass curves (median q/p ≈ 6.5 on 118 fits); the cross-class flow is strongly asymmetric (software originates 33 of 72 origin→arrival edges and receives only 10).
 
 A base-rate discipline result is also reported: the raw entrant share among earliest theme carriers (73.7%) sits slightly *below* the corpus debut-rate baseline (76.4%), and the themes that lean incumbent include AI, cloud, and sustainability — the canonically "new" themes are carried by incumbents diversifying in at least as much as by entrants.
 
@@ -18,7 +19,7 @@ The paper defends a bounded reading: ΔKL is a measurement of lexical resonance 
 
 | File | Pages | Description |
 |---|---|---|
-| **`paper/ssrn_diffusion_paper.pdf`** | 14 | The working paper. **Read this first.** |
+| **`paper/ssrn_diffusion_paper.pdf`** | 17 | The working paper. **Read this first.** |
 | `paper/newterms_report.pdf` | 12 | Companion: cross-industry vocabulary introduced after a 1990–1994 burn-in. Top 100 themes tabulated with adoption trajectories. |
 | `paper/face_validation.md` | — | Rateable form for the 50 LDA themes (top words, per-class peak, representative marks). |
 | `paper/_legacy/` | — | Earlier papers, preserved for reference. See `paper/_legacy/README.md`. |
@@ -95,7 +96,7 @@ The empirical claims in the paper and their script → output paths:
 
 | Claim | Script | Output |
 |---|---|---|
-| Debut outcomes: registration (inverse-U in ΔKL) + EDGAR-given-registration (+~40% relative) | `scripts/debut_outcome_by_kl_v3.py` | `paper/results/debut_outcome_by_kl.{png,csv}`, `debut_outcome_metrics.json` |
+| Debut outcomes, term-scored: registration (inverse-U in ΔKL) + EDGAR-given-registration (term-only; see topic battery row) | `scripts/debut_outcome_by_kl_v3.py` | `paper/results/debut_outcome_by_kl.{png,csv}`, `debut_outcome_metrics.json` |
 | First §8 gate survival, correct status codes (−5.9pp pooled; negative in 31/41 classes) | `scripts/s8_survival_corrected.py` | `paper/results/s8_corrected_{summary.{csv,json},forest.png,pooled.png}` |
 | Registration inverse-U per industry (37/44 positive, 33 significant) | `scripts/registration_and_unconditional.py` | `paper/results/registration_by_industry.{csv,json}`, `registration_inverseU_forest.png` |
 | Burn-in optimization (1990 bias ~2.0 nats; ≤0.04 from 1993; standard 1995 cut) | `scripts/burnin_optimization.py` | `paper/results/burnin_by_class.{csv,json,png}`, `burnin_convergence_examples.png` |
@@ -103,7 +104,11 @@ The empirical claims in the paper and their script → output paths:
 | AI vs internet era comparison (AI at year 9 ≈ internet at year 5; no turbulence spike) | `scripts/era_turbulence.py` | `paper/results/era_turbulence.{json,png}` |
 | Unconditional composite outcome (appendix; inverse-U +1.4pp depth) | `scripts/registration_and_unconditional.py` | `paper/results/appendix_unconditional.{png,json}` |
 | Quadrant figure regeneration with verified post-burn-in brand labels | `scripts/quadrant_regen.py` | `paper/results/quadrant.png`, `quadrant_labeled_points.csv` |
-| Topic-distribution P robustness (length artifact flattens; concordance 0.46/0.36) | `scripts/topic_p_scorer.py` | `paper/results/topic_p_validation.json` |
+| Full-corpus topic scoring, the method (T=50; T=200 robustness) | `scripts/topic_p_scorer_all.py` | `data/processed/topic_surprise_class*.parquet` (not committed), `topic_lda_meta*.json` |
+| Topic-vs-token outcome battery (mark-level reproduces; firm-level dissolves/reverses) | `scripts/topic_outcomes_all.py` + `topic_debut.py` + `topic_firm_margin.py` | `paper/results/topic_outcomes_all*.{json,png}`, `debut_outcome_topic*.{json,png}`, `topic_firm_margin*.json`, `topic_s8_forest.png` |
+| Examiner bound + failure modes (4.3% adversarial; unconditional EDGAR test) | `scripts/examiner_confound.py` | `paper/results/examiner_confound.json` |
+| Sub-year freshness, class 009 (months-late penalty −9.4pp; no look-ahead) | `scripts/subyear_window_009.py` | `paper/results/subyear_window_009.json` |
+| 4-class topic-P pilot (length artifact, concordance) | `scripts/topic_p_scorer.py` | `paper/results/topic_p_validation.json` |
 | All-45-class build (vocab + surprise per class) | `scripts/run_full_corpus.py` | `data/processed/surprise_class*.parquet` (not committed) |
 | Gross margin +3.2pp/σ (t=5.3); pros/retr decomposition | `scripts/financials_regression.py` | `paper/results/financials_metrics.json` |
 | Excess returns +1.5–5.0pp/σ over 1–4y; debut +28pp rejected | `scripts/returns_regression.py` + `wsE_returns_diagnostic.py` | `paper/results/returns_metrics.json`, `wsE_returns_diagnostic.json` |
