@@ -99,6 +99,8 @@ The empirical claims in the paper and their script → output paths:
 | First §8 gate survival, correct status codes (−5.9pp pooled; negative in 31/41 classes) | `scripts/s8_survival_corrected.py` | `paper/results/s8_corrected_{summary.{csv,json},forest.png,pooled.png}` |
 | Registration inverse-U per industry (37/44 positive, 33 significant) | `scripts/registration_and_unconditional.py` | `paper/results/registration_by_industry.{csv,json}`, `registration_inverseU_forest.png` |
 | Burn-in optimization (1990 bias ~2.0 nats; ≤0.04 from 1993; standard 1995 cut) | `scripts/burnin_optimization.py` | `paper/results/burnin_by_class.{csv,json,png}`, `burnin_convergence_examples.png` |
+| Reference-window decomposition: gate penalty loads on past-rupture (−7.3pp) vs foresight (−3.2pp) | `scripts/run_full_corpus_w37.py` + `window_choice_all.py` (+ class-009 deep dive `window_choice_009.py`) | `paper/results/window_choice_all.{json,png}`, `window_choice_009.{json,png}` |
+| AI vs internet era comparison (AI at year 9 ≈ internet at year 5; no turbulence spike) | `scripts/era_turbulence.py` | `paper/results/era_turbulence.{json,png}` |
 | Unconditional composite outcome (appendix; inverse-U +1.4pp depth) | `scripts/registration_and_unconditional.py` | `paper/results/appendix_unconditional.{png,json}` |
 | Quadrant figure regeneration with verified post-burn-in brand labels | `scripts/quadrant_regen.py` | `paper/results/quadrant.png`, `quadrant_labeled_points.csv` |
 | Topic-distribution P robustness (length artifact flattens; concordance 0.46/0.36) | `scripts/topic_p_scorer.py` | `paper/results/topic_p_validation.json` |

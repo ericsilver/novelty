@@ -37,7 +37,12 @@ mark and firm levels. Forward-leaning marks fare worse in the legal
 lifecycle: they register slightly less often, and among 2016--2018
 registrations facing their first Section~8 maintenance gate, survival
 falls from 49.2\% to 43.3\% across \dkl{} quintiles ($n = 765{,}154$;
-negative in 31 of 41 industries). The firms that file them fare better:
+negative in 31 of 41 industries). Re-scoring with mixed reference windows
+shows the gate penalty loads on rupture with the established past rather
+than on resemblance to the future: it more than doubles from a
+short-memory/long-foresight configuration ($-3.2$pp) to a
+long-memory/short-foresight one ($-7.3$pp). The firms that file
+forward-leaning marks fare better:
 eventual public listing among first-time filers rises $\sim$40\% in
 relative terms across \dkl{} quintiles, gross margin on an SEC-matched
 panel runs $+3.2$pp per $\sigma$ ($t = 5.3$), and excess stock returns run
@@ -189,10 +194,14 @@ For each granted filing at year $t$ in class $c$ with goods/services text
 producing token distribution $P$ (unigram + bigram, after a standard
 analyzer that drops stopwords), the reference distributions
 $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ are computed from all granted
-filings in class $c$ in the respective windows. I use $W = 5$ years (flat
-window) with Dirichlet smoothing ($\alpha = 1$ per cell). The within-class
-vocabulary is the set of unigrams and bigrams with document frequency
-$\geq 50$.
+filings in class $c$ in the respective windows. The baseline uses
+$W = 5$ years (flat window) on both sides, with Dirichlet smoothing
+($\alpha = 1$ per cell); the full corpus is also scored at $W = 3$ and
+$W = 7$, and because the two windows need not match, the variants compose
+into asymmetric constructs (prospective surprise against one window,
+retrospective against another) that Section~\ref{sec:windows} uses to ask
+\emph{which} novelty the outcomes respond to. The within-class vocabulary
+is the set of unigrams and bigrams with document frequency $\geq 50$.
 
 The signal depends on having enough past and future filings to populate
 the references. Figure~\ref{fig:burnin} shows the reference-window density
@@ -383,6 +392,45 @@ One small class, lace and embroidery (026), shows a genuine mirror image,
 with tails registering better and forward-leaning marks passing the gate
 more often; every other class fits the headline pattern on at least one
 of the two steps.
+
+\subsection{Which novelty? Decomposing the gate penalty by reference window}\label{sec:windows}
+
+``Forward-leaning'' is relative to a reference, and the choice of
+reference window selects what kind of novelty is being measured. Scoring
+the full corpus at $W \in \{3, 5, 7\}$ and mixing windows across the two
+sides gives five variants: three symmetric, plus a foresight
+configuration (prospective against the recent 3-year past, retrospective
+against the distant 7-year future) and a past-rupture configuration
+(prospective against the established 7-year past, retrospective against
+the near 3-year future).
+
+The gate penalty is monotone in the mix (Figure~\ref{fig:windows}).
+Pooled across classes on the 2016--2018 gate cohort, the top-versus-bottom
+quintile lift runs $-3.2$pp for the foresight configuration, $-4.7$pp at
+symmetric $W=3$, $-5.7$pp at the $W=5$ baseline, $-6.1$pp at $W=7$, and
+$-7.3$pp for past-rupture, which is also the most pervasive variant across
+industries (negative in 35 of 41 classes, against 31 for the baseline).
+In software the decomposition is complete: the foresight configuration
+carries no gate penalty at all ($-0.3$pp) while past-rupture carries
+$-12.7$pp. The Section~8 risk attaches to breaking with the established
+past, not to resembling the future; lengthening the past window
+concentrates the penalty and lengthening the future window dilutes it.
+This is consistent with vocabulary leaving the corpus gradually rather
+than abruptly: the long-past reference holds the fading establishment,
+and distance from that establishment is what the use requirement
+punishes. The registration inverse-U, by contrast, is indifferent to the
+window mix (middle-versus-tails depth $+4.6$ to $+4.9$pp across all five
+variants), so the examiner and the marketplace are responding to
+different aspects of the same text.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.7\textwidth]{results/window_choice_all.png}
+\caption{First-gate survival by quintile of each reference-window
+variant, pooled across classes, registrations 2016--2018. The penalty
+deepens monotonically from the foresight configuration (pros $W$=3,
+retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
+\label{fig:windows}
+\end{figure}
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.72\textwidth]{results/s8_corrected_forest.png}
@@ -587,6 +635,38 @@ diversifying into AI and cloud pull the vocabulary signal forward at least
 as much as de-novo entrants do. This is consistent with the within-firm
 patent contrast of Section~\ref{sec:patent}; the firms moving the
 vocabulary are not necessarily the firms moving the patents.
+
+\subsection*{AI is not (yet) an entrepreneurial explosion}
+
+The corpus supports a direct comparison of the AI era to the one episode
+of genuine vocabulary rupture in the record. Aligning the two eras at
+their starts (internet 1994, AI 2015) and tracking era-term prevalence in
+the software and tech-services classes: through year four the two track
+each other almost exactly (internet 7.5\% of filings, AI 4.6\%), and then
+they diverge. Internet vocabulary tripled between years four and six,
+reaching 23\% of filings in 2000; AI vocabulary has compounded steadily
+to 12.9\% at year nine, roughly where the internet stood at year five
+(Figure~\ref{fig:era}). The release of consumer chatbots is visible as an
+acceleration (6.8\% in 2022 to 10.2\% in 2023), not a discontinuity.
+Corpus turbulence tells the same story: the per-year mean of prospective
+surprise, which spiked along with internet vocabulary in the late 1990s
+relative to its trend, shows no AI-era deviation at all through 2024.
+Combined with the incumbent lean of the AI theme above, the trademark
+record's current verdict is that AI is an incumbent-led vocabulary
+adoption, not an entrepreneurial explosion. The falsifiable forward
+claim: if AI follows the internet's path with a lag, its prevalence
+should triple within roughly three years of this paper's data edge, and
+the entrant share of its carriers should rise above the corpus baseline
+rather than sit below it.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/era_turbulence.png}
+\caption{\emph{Left:} per-year mean prospective KL by class and pooled,
+1995--2024, with the dot-com and AI spans shaded. \emph{Right:} era-term
+prevalence in classes 009+042, internet era (bottom axis, from 1994)
+against AI era (top axis, from 2015).}
+\label{fig:era}
+\end{figure}
 
 \section{A research agenda the construct opens}\label{sec:agenda}
 
