@@ -30,7 +30,10 @@ REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 OUT = REPO / "paper" / "results"
 
-FILE_LO, FILE_HI = 1990, 2018
+# 1995 = first scored year whose full 5-year past window lies in the dense
+# corpus; see burnin_optimization.py (1990 median |bias| ~2.0 nats, <=0.04
+# from 1993).
+FILE_LO, FILE_HI = 1995, 2018
 
 
 def all_class_list() -> list[str]:

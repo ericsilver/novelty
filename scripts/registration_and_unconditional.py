@@ -110,7 +110,8 @@ def main() -> int:
     # ---------- Part A: per-industry registration shape ----------
     rows = []
     for cls in sorted(NICE_NAMES):
-        df = load_class(cls, 1990, 2018)
+        # 1995 start per burnin_optimization.py (standard burn-in)
+        df = load_class(cls, 1995, 2018)
         if df is None or df.height < MIN_CLEAN:
             rows.append({"cls": cls, "label": NICE_NAMES[cls],
                          "n": 0 if df is None else df.height, "skipped": True})

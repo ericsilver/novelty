@@ -202,6 +202,24 @@ zones are excluded from the construct's interpretable range. Within the
 supported window the classes analyzed here have between $\sim$3{,}500 and
 $\sim$80{,}000 filings per year.
 
+The burn-in cut is set empirically rather than by the window arithmetic
+alone. Thin past references inflate prospective surprise, so contamination
+appears as a positive bias in the per-year mean of signed \dkl{} relative
+to the class's long-run level. Profiling that bias across all 44 classes
+with sufficient volume: the median absolute bias is $\sim$2.0 nats in 1990,
+0.25 in 1991, 0.10 in 1992, and 0.04 from 1993 onward, below any effect
+size this paper interprets. The deviations that reappear in 1995--1997
+($\sim$0.15--0.17) are not burn-in, because mechanical contamination cannot
+rebound; they are the dot-com era moving the corpus, which a longer burn-in
+would discard as data. Per-class burn-in lengths were also estimated under
+a stability-band criterion; the apparent cross-class differences track each
+class's noise floor rather than its reference density (correlation of
+burn-in length with early filing volume $+0.26$, with a slow-moving-class
+proxy $+0.14$), so there is no empirical case for industry-specific
+burn-ins. All analyses therefore use a single standard cut at 1995, the
+first scored year whose full 5-year past window lies inside the dense
+corpus, which the bias profile shows is conservative by about two years.
+
 \begin{figure}[h]\centering
 \includegraphics[width=0.85\textwidth]{results/burnin.png}
 \caption{Reference-window density by year on log scale. Hatched regions
@@ -296,23 +314,23 @@ for which exactly one Section~8 gate has elapsed by the 2025 data snapshot.
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_by_kl.png}
 \caption{Outcomes for debut filings (owner's first-ever filing) across all
-45 NICE classes, filing years 1990--2018, in quantile bins with 95\%
-intervals. $n = 3{,}897{,}304$; registered subset $n = 2{,}242{,}755$.
+45 NICE classes, filing years 1995--2018, in quantile bins with 95\%
+intervals. $n = 3{,}584{,}711$; registered subset $n = 2{,}063{,}967$.
 \emph{A:} P(reached registration). \emph{B:} P(owner ever in SEC EDGAR
 $\mid$ registration).}
 \label{fig:outcomes}
 \end{figure}
 
-Registration (Figure~\ref{fig:outcomes}A; 3.90 million debut filings,
-57.5\% base rate) is an inverse-U in \dkl{}: the flux-neutral middle
-registers best (59.7\% at the third quintile) and both tails register
-less (54.4\% at the bottom quintile, 56.4\% at the top). In the KL level
-the top quintile is penalized on both axes (53.5\% for the most
-past-unusual fifth, 53.6\% for the most future-unusual), so the most
+Registration (Figure~\ref{fig:outcomes}A; 3.58 million debut filings,
+57.6\% base rate) is an inverse-U in \dkl{}: the flux-neutral middle
+registers best (59.8\% at the third quintile) and both tails register
+less (54.0\% at the bottom quintile, 56.6\% at the top). In the KL level
+the top quintile is penalized on both axes (53.3\% for the most
+past-unusual fifth, 53.5\% for the most future-unusual), so the most
 distinctive applications clear examination least often. The inverse-U is
 the rule, not a pooled artifact: estimated class by class on all filings
-1990--2018, the middle-versus-tails depth is positive in 37 of 44 classes
-with sufficient volume and statistically distinguishable from zero in 32
+1995--2018, the middle-versus-tails depth is positive in 37 of 44 classes
+with sufficient volume and statistically distinguishable from zero in 33
 (the per-class figure and table are in the repository).
 
 The registration inverse-U is also why analyses that skip the
@@ -377,8 +395,8 @@ quintile) by industry, registrations 2016--2018, with 95\% intervals.}
 
 Among registered debut filings, the probability that the owner ever
 appears in the SEC EDGAR listed universe (Figure~\ref{fig:outcomes}B)
-rises in \dkl{} from 0.30\% at the bottom quintile to 0.42\% at the top,
-roughly a 40\% relative lift on a 0.34\% base. The KL levels carry no such
+rises in \dkl{} from 0.29\% at the bottom quintile to 0.42\% at the top,
+roughly a 40\% relative lift on a 0.33\% base. The KL levels carry no such
 signal (flat to slightly negative across quintiles); as with returns
 below, the information is in the signed resonance, not in novelty per se.
 The debut restriction matters: at the whole-firm level, selection into
