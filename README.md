@@ -19,7 +19,7 @@ The paper defends a bounded reading: ΔKL is a measurement of lexical resonance 
 
 | File | Pages | Description |
 |---|---|---|
-| **`paper/ssrn_diffusion_paper.pdf`** | 17 | The working paper. **Read this first.** |
+| **`paper/ssrn_diffusion_paper.pdf`** | 20 | The working paper. **Read this first.** |
 | `paper/newterms_report.pdf` | 12 | Companion: cross-industry vocabulary introduced after a 1990–1994 burn-in. Top 100 themes tabulated with adoption trajectories. |
 | `paper/face_validation.md` | — | Rateable form for the 50 LDA themes (top words, per-class peak, representative marks). |
 | `paper/_legacy/` | — | Earlier papers, preserved for reference. See `paper/_legacy/README.md`. |
@@ -97,7 +97,9 @@ The empirical claims in the paper and their script → output paths:
 | Claim | Script | Output |
 |---|---|---|
 | Debut outcomes, term-scored: registration (inverse-U in ΔKL) + EDGAR-given-registration (term-only; see topic battery row) | `scripts/debut_outcome_by_kl_v3.py` | `paper/results/debut_outcome_by_kl.{png,csv}`, `debut_outcome_metrics.json` |
-| First §8 gate survival, correct status codes (−5.9pp pooled; negative in 31/41 classes) | `scripts/s8_survival_corrected.py` | `paper/results/s8_corrected_{summary.{csv,json},forest.png,pooled.png}` |
+| Event-dated first-gate failure, all cohorts/classes (+3.9pp; modern emergence; counsel/basis strata) | `scripts/events_full_build.py` + `event_gates_all.py` | `paper/results/event_gates_all.json`, `event_gate_{cohort_curve,forest}.png`; `data/processed/case_{events,extras}.parquet` (not committed) |
+| Two-gate decomposition + latency telemetry + funded-flailing (class 009) | `scripts/hazard_pipeline_009.py` | `paper/results/hazard_009.json`, `two_gate_009.json` |
+| First §8 gate survival, snapshot single cohort (−5.5pp; scoring-robust) | `scripts/s8_survival_corrected.py` | `paper/results/s8_corrected_{summary.{csv,json},forest.png,pooled.png}` |
 | Registration inverse-U per industry (37/44 positive, 33 significant) | `scripts/registration_and_unconditional.py` | `paper/results/registration_by_industry.{csv,json}`, `registration_inverseU_forest.png` |
 | Burn-in optimization (1990 bias ~2.0 nats; ≤0.04 from 1993; standard 1995 cut) | `scripts/burnin_optimization.py` | `paper/results/burnin_by_class.{csv,json,png}`, `burnin_convergence_examples.png` |
 | Reference-window decomposition: gate penalty loads on past-rupture (−7.3pp) vs foresight (−3.2pp) | `scripts/run_full_corpus_w37.py` + `window_choice_all.py` (+ class-009 deep dive `window_choice_009.py`) | `paper/results/window_choice_all.{json,png}`, `window_choice_009.{json,png}` |
