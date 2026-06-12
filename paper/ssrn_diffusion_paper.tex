@@ -512,25 +512,23 @@ prospective surprise alone predicting approximately zero at every
 horizon. A larger debut-only return figure ($+28$pp at 4 years) does not
 survive a sample-size diagnostic and is not claimed.
 
-None of these firm-level associations survives distribution-based
-scoring, and the paper therefore does not anchor on them. Under topic
-scoring on identical samples, the debut listing gradient is flat to
-declining (Figure~\ref{fig:outcomes}B), and the margin coefficient
-reverses: $-1.3$pp per $\sigma$ ($t = -1.8$) at $T = 50$ and $-2.2$pp
-($t = -3.1$) at $T = 200$, with the prospective/retrospective
-decomposition flipping sign. The resolution test is the informative part:
-if topic scoring had merely coarse-grained away a real term-level signal,
-quadrupling the topic count should move the estimates toward the
-term-level result. It moves them further away. Meanwhile the term-level
+The \emph{signed} versions of these associations do not survive
+distribution-based scoring, and the paper therefore does not anchor on
+them. Under topic scoring on identical samples, the debut listing
+gradient in signed \dkl{} is flat to declining
+(Figure~\ref{fig:outcomes}B), and the margin coefficient reverses:
+$-1.3$pp per $\sigma$ ($t = -1.8$) at $T = 50$ and $-2.2$pp ($t = -3.1$)
+at $T = 200$, with the prospective/retrospective decomposition flipping
+sign. Quadrupling the topic count moves the estimates further from the
+term-level result, not toward it; this resolution test holds the topic
+vocabulary fixed, so it speaks to granularity but not to vocabulary
+coverage, which is tested separately below. Meanwhile the term-level
 listing gradient dissolves under document-length controls: within
 document-size bands it is U-shaped rather than rising, with the apparent
 monotone rise contributed by composition across lengths (listed firms'
 counsel write longer descriptions; the only large within-band effect is
-in 40-plus-term filings). The parsimonious reading is that the term-level
-firm associations ride on drafting-style correlates of firm type, length
-chief among them, exactly the channel topic scoring neutralizes. The
-mark-level results of Section~3.1 are unaffected: they hold under both
-scorings at both resolutions.
+in 40-plus-term filings). The mark-level results of Section~3.1 are
+unaffected: they hold under both scorings at both resolutions.
 
 The strongest objection to the artifact reading is vocabulary blindness:
 the topic model's vocabulary is built from a corpus sample, so rare and
@@ -552,8 +550,21 @@ flat to negative, while the gate penalty holds in both strata
 \emph{unsigned specificity}: serious firms describe specific products
 with specific, therefore rare, words, and rare-term mass inflates
 term-\dkl{} mechanically. What dissolves under topic scoring is the
-specificity channel; the directional resonance claim about firms is what
-remains, and it is empty.
+specificity channel as a \emph{signed} signal; the directional resonance
+claim about firms is what remains, and it is empty.
+
+The unsigned association itself is robust under every scoring, and it is
+the constructive residue of this section. Under topic scoring, the debut
+listing probability rises monotonically in the KL \emph{level} on both
+axes, from 0.20\% at the bottom prospective quintile to 0.51\% at the
+top, replicated at $T = 200$ (0.19\% to 0.50\%) and on the retrospective
+axis, a 2.5-fold gradient that cannot be a length artifact (the topic
+levels are nearly length-uncorrelated, and listed firms file long, so
+any length bias runs against it). Atypical text belongs to listed firms;
+text that leans \emph{forward} specifically does not belong to them any
+more than text that leans backward. Lexical distinctiveness, not
+resonance, is the firm-quality signal in this corpus, and measuring it
+directly is likely a better instrument than \dkl{} for firm-level work.
 
 This is a finding about measurement with reach beyond this corpus:
 term-resolved text-novelty measures can manufacture firm-performance
@@ -571,14 +582,21 @@ and an examiner channel that touches under two percent of applications
 cannot generate the several-point quintile gaps of the registration
 inverse-U either.
 
-If a genuine firm-level effect exists beneath the artifacts, the panels
-here cannot establish it, and two causal readings would still compete: a
-realized-business channel (the trademarked line itself pays) and a
-propensity channel (firms disposed to bet early both file forward-leaning
-marks and perform). The discriminating evidence sits in applications that
-never registered, which carry the propensity signal without the realized
-line; that test, and length-controlled re-estimation of the margin and
-returns panels, are the firm-level follow-up work this section motivates.
+If a genuine signed firm-level effect exists beneath the artifacts, the
+panels here cannot establish it, and two causal readings would still
+compete: a realized-business channel (the trademarked line itself pays)
+and a propensity channel (firms disposed to bet early both file
+forward-leaning marks and perform). Four tests would settle the remaining
+questions and are owed: rescoring topics on the full per-class term
+vocabulary (removing the sample-truncation objection entirely); a
+future-blind vintage refit of the topic model (removing the time-pooling
+objection); decomposing each filing's term-\dkl{} into in-vocabulary and
+out-of-vocabulary contributions and re-estimating the firm panels on
+each; and an emergence-event design that flags filings carrying a
+to-be-emergent term in its first corpus years and compares firm outcomes
+against class-, year-, and length-matched controls with
+attorney-of-record fixed effects. The never-registered-applications test
+of the propensity channel completes the list.
 
 \section{Distinctness from patents}\label{sec:patent}
 
