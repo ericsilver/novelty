@@ -61,7 +61,11 @@ def main() -> int:
     for suffix, name in (("", "T=50"), ("_T200", "T=200"), ("_T500", "T=500")):
         p = PROC / f"topic_model{suffix}.joblib"
         if p.exists():
-            models[name] = joblib.load(p)
+            m = joblib.load(p)
+            from sklearn.feature_extraction.text import CountVectorizer
+            m["vectorizer"] = CountVectorizer(analyzer=analyzer,
+                                              vocabulary=m["vocabulary"])
+            models[name] = m
             print(f"[model] {name} loaded", file=sys.stderr, flush=True)
 
     out = []

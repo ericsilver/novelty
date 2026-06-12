@@ -97,7 +97,7 @@ def main() -> int:
     print(f"[lda ] fit done ({time.time()-t0:.0f}s)", file=sys.stderr, flush=True)
 
     import joblib
-    joblib.dump({"vectorizer": vec, "lda": lda},
+    joblib.dump({"vocabulary": vec.vocabulary_, "lda": lda},
                 PROC / f"topic_model{SUFFIX}.joblib", compress=3)
     print(f"[save] topic_model{SUFFIX}.joblib", file=sys.stderr, flush=True)
 

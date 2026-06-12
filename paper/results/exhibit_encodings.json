@@ -280,7 +280,178 @@
     "in_term_vocab": true
    }
   ],
-  "topics": {}
+  "topics": {
+   "T=50": {
+    "oov_tokens": [
+     "computerized line",
+     "line search",
+     "search ordering",
+     "featuring wholesale",
+     "retail distribution",
+     "distribution books",
+     "software printed",
+     "audiocassettes",
+     "direct digital"
+    ],
+    "top_topics": [
+     {
+      "topic": 18,
+      "weight": 0.39713111449511657,
+      "top_words": [
+       "video",
+       "computer",
+       "electronic",
+       "music",
+       "games",
+       "audio",
+       "entertainment",
+       "television"
+      ]
+     },
+     {
+      "topic": 12,
+      "weight": 0.16183350214561787,
+      "top_words": [
+       "services",
+       "featuring",
+       "store",
+       "retail",
+       "store services",
+       "services featuring",
+       "retail store",
+       "advertising"
+      ]
+     },
+     {
+      "topic": 9,
+      "weight": 0.14119487103190934,
+      "top_words": [
+       "services",
+       "computer",
+       "software",
+       "information",
+       "data",
+       "management",
+       "business",
+       "electronic"
+      ]
+     },
+     {
+      "topic": 33,
+      "weight": 0.0988251684435225,
+      "top_words": [
+       "paper",
+       "books",
+       "printed",
+       "cards",
+       "stationery",
+       "cardboard",
+       "writing",
+       "pens"
+      ]
+     },
+     {
+      "topic": 5,
+      "weight": 0.08810570733198939,
+      "top_words": [
+       "software",
+       "online",
+       "downloadable",
+       "non-downloadable",
+       "virtual",
+       "featuring",
+       "digital",
+       "content"
+      ]
+     }
+    ]
+   },
+   "T=200": {
+    "oov_tokens": [
+     "computerized line",
+     "line search",
+     "search ordering",
+     "featuring wholesale",
+     "retail distribution",
+     "distribution books",
+     "software printed",
+     "audiocassettes",
+     "direct digital"
+    ],
+    "top_topics": [
+     {
+      "topic": 86,
+      "weight": 0.285845950404431,
+      "top_words": [
+       "entertainment",
+       "video",
+       "music",
+       "games",
+       "game",
+       "television",
+       "audio",
+       "featuring"
+      ]
+     },
+     {
+      "topic": 143,
+      "weight": 0.2228622077123006,
+      "top_words": [
+       "computer",
+       "software",
+       "data",
+       "computer software",
+       "hardware",
+       "electronic",
+       "computers",
+       "digital"
+      ]
+     },
+     {
+      "topic": 12,
+      "weight": 0.17022917308045285,
+      "top_words": [
+       "services",
+       "store",
+       "retail",
+       "store services",
+       "featuring",
+       "services featuring",
+       "retail store",
+       "wholesale"
+      ]
+     },
+     {
+      "topic": 81,
+      "weight": 0.10465582601859334,
+      "top_words": [
+       "services",
+       "electronic",
+       "computer",
+       "information",
+       "transmission",
+       "networks",
+       "network",
+       "global"
+      ]
+     },
+     {
+      "topic": 101,
+      "weight": 0.09567663856287294,
+      "top_words": [
+       "services",
+       "travel",
+       "rental",
+       "sports",
+       "events",
+       "arranging",
+       "facilities",
+       "information"
+      ]
+     }
+    ]
+   }
+  }
  },
  {
   "info": {
@@ -575,7 +746,186 @@
     "in_term_vocab": false
    }
   ],
-  "topics": {}
+  "topics": {
+   "T=50": {
+    "oov_tokens": [
+     "based kombucha",
+     "saccharose",
+     "yeast lactic",
+     "juices drinks",
+     "micro-organism",
+     "micro-organism cultures",
+     "cultures kombucha",
+     "supplements kombucha",
+     "dietary beverage",
+     "beverages kombucha",
+     "supplements stimulating",
+     "stimulating metabolism",
+     "metabolism kombucha"
+    ],
+    "top_topics": [
+     {
+      "topic": 44,
+      "weight": 0.6432833601336279,
+      "top_words": [
+       "beverages",
+       "fruit",
+       "drinks",
+       "milk",
+       "food",
+       "based",
+       "tea",
+       "non-alcoholic"
+      ]
+     },
+     {
+      "topic": 16,
+      "weight": 0.15882888385937186,
+      "top_words": [
+       "food",
+       "supplements",
+       "nutritional",
+       "dietary",
+       "beverages",
+       "drinks",
+       "purposes",
+       "nutritional supplements"
+      ]
+     },
+     {
+      "topic": 31,
+      "weight": 0.10500898481008385,
+      "top_words": [
+       "chemical",
+       "industry",
+       "industrial",
+       "chemicals",
+       "purposes",
+       "manufacture",
+       "preparations",
+       "industrial purposes"
+      ]
+     },
+     {
+      "topic": 48,
+      "weight": 0.08123320157663684,
+      "top_words": [
+       "preparations",
+       "veterinary",
+       "medical",
+       "materials",
+       "apparatus",
+       "substances",
+       "animals",
+       "purposes"
+      ]
+     },
+     {
+      "topic": 49,
+      "weight": 0.000253164556962604,
+      "top_words": [
+       "dental",
+       "carbon",
+       "fundraising",
+       "families",
+       "gases",
+       "hydrogen",
+       "fundraising services",
+       "gas"
+      ]
+     }
+    ]
+   },
+   "T=200": {
+    "oov_tokens": [
+     "based kombucha",
+     "saccharose",
+     "yeast lactic",
+     "juices drinks",
+     "micro-organism",
+     "micro-organism cultures",
+     "cultures kombucha",
+     "supplements kombucha",
+     "dietary beverage",
+     "beverages kombucha",
+     "supplements stimulating",
+     "stimulating metabolism",
+     "metabolism kombucha"
+    ],
+    "top_topics": [
+     {
+      "topic": 44,
+      "weight": 0.6024073363081335,
+      "top_words": [
+       "beverages",
+       "drinks",
+       "fruit",
+       "coffee",
+       "non-alcoholic",
+       "alcoholic",
+       "milk",
+       "tea"
+      ]
+     },
+     {
+      "topic": 108,
+      "weight": 0.26007913042105163,
+      "top_words": [
+       "purposes",
+       "medical",
+       "preparations",
+       "medical purposes",
+       "pharmaceutical",
+       "food",
+       "veterinary",
+       "supplements"
+      ]
+     },
+     {
+      "topic": 15,
+      "weight": 0.06719177068188834,
+      "top_words": [
+       "supplements",
+       "nutritional",
+       "dietary",
+       "nutritional supplements",
+       "supplement",
+       "dietary supplements",
+       "food supplements",
+       "vitamins"
+      ]
+     },
+     {
+      "topic": 146,
+      "weight": 0.019041107587395863,
+      "top_words": [
+       "live",
+       "fresh",
+       "food",
+       "fish",
+       "unprocessed",
+       "edible",
+       "purposes",
+       "dried"
+      ]
+     },
+     {
+      "topic": 48,
+      "weight": 0.0138486024833335,
+      "top_words": [
+       "medical",
+       "apparatus",
+       "purposes",
+       "medical purposes",
+       "instruments",
+       "devices",
+       "apparatus instruments",
+       "blood"
+      ]
+     }
+    ]
+   }
+  }
  },
  {
   "info": {
@@ -1398,6 +1748,229 @@
     "in_term_vocab": true
    }
   ],
-  "topics": {}
+  "topics": {
+   "T=50": {
+    "oov_tokens": [
+     "blockchain-based platforms",
+     "consensus",
+     "platforms distributed",
+     "distributed applications",
+     "software consensus",
+     "consensus engine",
+     "engine incorporating",
+     "incorporating blockchain",
+     "technology securing",
+     "securing data",
+     "data cryptographic",
+     "cryptographic information",
+     "platforms developing",
+     "developing building",
+     "building distributed",
+     "distributed software",
+     "applications distributed",
+     "platforms blockchains",
+     "blockchains services",
+     "token members",
+     "cryptocurrency services",
+     "incorporating cryptographic",
+     "cryptographic protocols",
+     "operate build",
+     "build applications",
+     "applications blockchains",
+     "blockchains decentralized",
+     "decentralized computer",
+     "platform method",
+     "method payment",
+     "technology distributed",
+     "connection development",
+     "software distributed",
+     "field blockchains",
+     "field distributed"
+    ],
+    "top_topics": [
+     {
+      "topic": 5,
+      "weight": 0.3312544778095963,
+      "top_words": [
+       "software",
+       "online",
+       "downloadable",
+       "non-downloadable",
+       "virtual",
+       "featuring",
+       "digital",
+       "content"
+      ]
+     },
+     {
+      "topic": 9,
+      "weight": 0.3192412833614589,
+      "top_words": [
+       "services",
+       "computer",
+       "software",
+       "information",
+       "data",
+       "management",
+       "business",
+       "electronic"
+      ]
+     },
+     {
+      "topic": 35,
+      "weight": 0.16551948683482898,
+      "top_words": [
+       "services",
+       "field",
+       "training",
+       "estate",
+       "educational",
+       "travel",
+       "events",
+       "conducting"
+      ]
+     },
+     {
+      "topic": 2,
+      "weight": 0.1507833532378031,
+      "top_words": [
+       "design",
+       "field",
+       "systems",
+       "development",
+       "services",
+       "equipment",
+       "technology",
+       "technical"
+      ]
+     },
+     {
+      "topic": 12,
+      "weight": 0.014973836909397064,
+      "top_words": [
+       "services",
+       "featuring",
+       "store",
+       "retail",
+       "store services",
+       "services featuring",
+       "retail store",
+       "advertising"
+      ]
+     }
+    ]
+   },
+   "T=200": {
+    "oov_tokens": [
+     "blockchain-based platforms",
+     "consensus",
+     "platforms distributed",
+     "distributed applications",
+     "software consensus",
+     "consensus engine",
+     "engine incorporating",
+     "incorporating blockchain",
+     "technology securing",
+     "securing data",
+     "data cryptographic",
+     "cryptographic information",
+     "platforms developing",
+     "developing building",
+     "building distributed",
+     "distributed software",
+     "applications distributed",
+     "platforms blockchains",
+     "blockchains services",
+     "token members",
+     "cryptocurrency services",
+     "incorporating cryptographic",
+     "cryptographic protocols",
+     "operate build",
+     "build applications",
+     "applications blockchains",
+     "blockchains decentralized",
+     "decentralized computer",
+     "platform method",
+     "method payment",
+     "technology distributed",
+     "connection development",
+     "software distributed",
+     "field blockchains",
+     "field distributed"
+    ],
+    "top_topics": [
+     {
+      "topic": 172,
+      "weight": 0.3653123117001951,
+      "top_words": [
+       "field",
+       "services",
+       "development",
+       "information",
+       "services field",
+       "consulting",
+       "educational",
+       "training"
+      ]
+     },
+     {
+      "topic": 106,
+      "weight": 0.2232655229407683,
+      "top_words": [
+       "software",
+       "downloadable",
+       "online",
+       "virtual",
+       "non-downloadable",
+       "service",
+       "featuring",
+       "non-downloadable software"
+      ]
+     },
+     {
+      "topic": 143,
+      "weight": 0.17228961438067011,
+      "top_words": [
+       "computer",
+       "software",
+       "data",
+       "computer software",
+       "hardware",
+       "electronic",
+       "computers",
+       "digital"
+      ]
+     },
+     {
+      "topic": 62,
+      "weight": 0.05630892149449297,
+      "top_words": [
+       "industry",
+       "cryptocurrency",
+       "blockchain",
+       "blockchain technology",
+       "cryptographic",
+       "cryptocurrency transactions",
+       "automotive industry",
+       "transactions blockchain"
+      ]
+     },
+     {
+      "topic": 81,
+      "weight": 0.04251054333056156,
+      "top_words": [
+       "services",
+       "electronic",
+       "computer",
+       "information",
+       "transmission",
+       "networks",
+       "network",
+       "global"
+      ]
+     }
+    ]
+   }
+  }
  }
 ]
