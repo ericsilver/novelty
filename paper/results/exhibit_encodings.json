@@ -1,0 +1,1403 @@
+[
+ {
+  "info": {
+   "cls": "035",
+   "label": "AMAZON.COM (1997)",
+   "serial": "75277670",
+   "filing_date": "19970418",
+   "text": "computerized on line search and ordering service featuring the wholesale and retail distribution of books, music, motion pictures, multimedia products and computer software in the form of printed books, audiocassettes, videocassettes, compact disks, floppy disks, CD ROMs, and direct digital transmission"
+  },
+  "n_tokens": 47,
+  "tokens": [
+   {
+    "token": "books",
+    "count": 2,
+    "class_df": 76648,
+    "in_term_vocab": true
+   },
+   {
+    "token": "disks",
+    "count": 2,
+    "class_df": 6822,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computerized",
+    "count": 1,
+    "class_df": 54083,
+    "in_term_vocab": true
+   },
+   {
+    "token": "line",
+    "count": 1,
+    "class_df": 10262,
+    "in_term_vocab": true
+   },
+   {
+    "token": "search",
+    "count": 1,
+    "class_df": 49278,
+    "in_term_vocab": true
+   },
+   {
+    "token": "ordering",
+    "count": 1,
+    "class_df": 40823,
+    "in_term_vocab": true
+   },
+   {
+    "token": "service",
+    "count": 1,
+    "class_df": 136732,
+    "in_term_vocab": true
+   },
+   {
+    "token": "featuring",
+    "count": 1,
+    "class_df": 526482,
+    "in_term_vocab": true
+   },
+   {
+    "token": "wholesale",
+    "count": 1,
+    "class_df": 107813,
+    "in_term_vocab": true
+   },
+   {
+    "token": "retail",
+    "count": 1,
+    "class_df": 479196,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distribution",
+    "count": 1,
+    "class_df": 89668,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computerized line",
+    "count": 1,
+    "class_df": 379,
+    "in_term_vocab": true
+   },
+   {
+    "token": "line search",
+    "count": 1,
+    "class_df": 134,
+    "in_term_vocab": true
+   },
+   {
+    "token": "search ordering",
+    "count": 1,
+    "class_df": 355,
+    "in_term_vocab": true
+   },
+   {
+    "token": "ordering service",
+    "count": 1,
+    "class_df": 3111,
+    "in_term_vocab": true
+   },
+   {
+    "token": "service featuring",
+    "count": 1,
+    "class_df": 8451,
+    "in_term_vocab": true
+   },
+   {
+    "token": "featuring wholesale",
+    "count": 1,
+    "class_df": 370,
+    "in_term_vocab": true
+   },
+   {
+    "token": "wholesale retail",
+    "count": 1,
+    "class_df": 35701,
+    "in_term_vocab": true
+   },
+   {
+    "token": "retail distribution",
+    "count": 1,
+    "class_df": 596,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distribution books",
+    "count": 1,
+    "class_df": 172,
+    "in_term_vocab": true
+   },
+   {
+    "token": "music",
+    "count": 1,
+    "class_df": 50435,
+    "in_term_vocab": true
+   },
+   {
+    "token": "motion",
+    "count": 1,
+    "class_df": 14647,
+    "in_term_vocab": true
+   },
+   {
+    "token": "pictures",
+    "count": 1,
+    "class_df": 16270,
+    "in_term_vocab": true
+   },
+   {
+    "token": "motion pictures",
+    "count": 1,
+    "class_df": 6449,
+    "in_term_vocab": true
+   },
+   {
+    "token": "multimedia",
+    "count": 1,
+    "class_df": 33852,
+    "in_term_vocab": true
+   },
+   {
+    "token": "products",
+    "count": 1,
+    "class_df": 202842,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer",
+    "count": 1,
+    "class_df": 261856,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software",
+    "count": 1,
+    "class_df": 175634,
+    "in_term_vocab": true
+   },
+   {
+    "token": "printed",
+    "count": 1,
+    "class_df": 73118,
+    "in_term_vocab": true
+   },
+   {
+    "token": "multimedia products",
+    "count": 1,
+    "class_df": 1408,
+    "in_term_vocab": true
+   },
+   {
+    "token": "products computer",
+    "count": 1,
+    "class_df": 649,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer software",
+    "count": 1,
+    "class_df": 106949,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software printed",
+    "count": 1,
+    "class_df": 272,
+    "in_term_vocab": true
+   },
+   {
+    "token": "printed books",
+    "count": 1,
+    "class_df": 3331,
+    "in_term_vocab": true
+   },
+   {
+    "token": "audiocassettes",
+    "count": 1,
+    "class_df": 293,
+    "in_term_vocab": true
+   },
+   {
+    "token": "videocassettes",
+    "count": 1,
+    "class_df": 633,
+    "in_term_vocab": true
+   },
+   {
+    "token": "compact",
+    "count": 1,
+    "class_df": 14214,
+    "in_term_vocab": true
+   },
+   {
+    "token": "compact disks",
+    "count": 1,
+    "class_df": 1698,
+    "in_term_vocab": true
+   },
+   {
+    "token": "floppy",
+    "count": 1,
+    "class_df": 2192,
+    "in_term_vocab": true
+   },
+   {
+    "token": "floppy disks",
+    "count": 1,
+    "class_df": 1044,
+    "in_term_vocab": true
+   },
+   {
+    "token": "direct",
+    "count": 1,
+    "class_df": 37904,
+    "in_term_vocab": true
+   },
+   {
+    "token": "digital",
+    "count": 1,
+    "class_df": 91495,
+    "in_term_vocab": true
+   },
+   {
+    "token": "transmission",
+    "count": 1,
+    "class_df": 64128,
+    "in_term_vocab": true
+   },
+   {
+    "token": "direct digital",
+    "count": 1,
+    "class_df": 109,
+    "in_term_vocab": true
+   },
+   {
+    "token": "digital transmission",
+    "count": 1,
+    "class_df": 2034,
+    "in_term_vocab": true
+   }
+  ],
+  "topics": {}
+ },
+ {
+  "info": {
+   "cls": "032",
+   "label": "KOMBUCHA (1997)",
+   "serial": "75396545",
+   "filing_date": "19971126",
+   "text": "fruit drinks [,  fruit juices ] and drinks based on kombucha tea, sugar, saccharose, glucose, fructose, yeast or lactic acid [ ; and preparations for making fruit drinks, fruit juices and drinks based on kombucha tea, sugar, saccharose, glucose, fructose, yeast or lactic acid ] [ media for bacteriological cultures, namely, micro-organism cultures made from kombucha; dietary supplements containing kombucha; dietary beverage supplements, namely, beverages containing kombucha tea, sugar, saccharose, glucose, fructose, yeast or lactic acid; dietary supplements for use in stimulating metabolism containing kombucha ] kombucha tea [ and yeast ]"
+  },
+  "n_tokens": 96,
+  "tokens": [
+   {
+    "token": "kombucha",
+    "count": 7,
+    "class_df": 567,
+    "in_term_vocab": true
+   },
+   {
+    "token": "fruit",
+    "count": 4,
+    "class_df": 66261,
+    "in_term_vocab": true
+   },
+   {
+    "token": "drinks",
+    "count": 4,
+    "class_df": 81118,
+    "in_term_vocab": true
+   },
+   {
+    "token": "tea",
+    "count": 4,
+    "class_df": 20793,
+    "in_term_vocab": true
+   },
+   {
+    "token": "kombucha tea",
+    "count": 4,
+    "class_df": 384,
+    "in_term_vocab": true
+   },
+   {
+    "token": "yeast",
+    "count": 4,
+    "class_df": 4903,
+    "in_term_vocab": true
+   },
+   {
+    "token": "sugar",
+    "count": 3,
+    "class_df": 9221,
+    "in_term_vocab": true
+   },
+   {
+    "token": "saccharose",
+    "count": 3,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "glucose",
+    "count": 3,
+    "class_df": 933,
+    "in_term_vocab": true
+   },
+   {
+    "token": "fructose",
+    "count": 3,
+    "class_df": 297,
+    "in_term_vocab": true
+   },
+   {
+    "token": "lactic",
+    "count": 3,
+    "class_df": 772,
+    "in_term_vocab": true
+   },
+   {
+    "token": "acid",
+    "count": 3,
+    "class_df": 1349,
+    "in_term_vocab": true
+   },
+   {
+    "token": "yeast lactic",
+    "count": 3,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "lactic acid",
+    "count": 3,
+    "class_df": 651,
+    "in_term_vocab": true
+   },
+   {
+    "token": "dietary",
+    "count": 3,
+    "class_df": 10648,
+    "in_term_vocab": true
+   },
+   {
+    "token": "supplements",
+    "count": 3,
+    "class_df": 14012,
+    "in_term_vocab": true
+   },
+   {
+    "token": "fruit drinks",
+    "count": 2,
+    "class_df": 25049,
+    "in_term_vocab": true
+   },
+   {
+    "token": "juices",
+    "count": 2,
+    "class_df": 44859,
+    "in_term_vocab": true
+   },
+   {
+    "token": "fruit juices",
+    "count": 2,
+    "class_df": 38257,
+    "in_term_vocab": true
+   },
+   {
+    "token": "based",
+    "count": 2,
+    "class_df": 13717,
+    "in_term_vocab": true
+   },
+   {
+    "token": "drinks based",
+    "count": 2,
+    "class_df": 366,
+    "in_term_vocab": true
+   },
+   {
+    "token": "based kombucha",
+    "count": 2,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "cultures",
+    "count": 2,
+    "class_df": 443,
+    "in_term_vocab": true
+   },
+   {
+    "token": "dietary supplements",
+    "count": 2,
+    "class_df": 6322,
+    "in_term_vocab": true
+   },
+   {
+    "token": "preparations",
+    "count": 1,
+    "class_df": 20518,
+    "in_term_vocab": true
+   },
+   {
+    "token": "making",
+    "count": 1,
+    "class_df": 32398,
+    "in_term_vocab": true
+   },
+   {
+    "token": "preparations making",
+    "count": 1,
+    "class_df": 13929,
+    "in_term_vocab": true
+   },
+   {
+    "token": "making fruit",
+    "count": 1,
+    "class_df": 3491,
+    "in_term_vocab": true
+   },
+   {
+    "token": "juices drinks",
+    "count": 1,
+    "class_df": 224,
+    "in_term_vocab": true
+   },
+   {
+    "token": "media",
+    "count": 1,
+    "class_df": 2084,
+    "in_term_vocab": true
+   },
+   {
+    "token": "bacteriological",
+    "count": 1,
+    "class_df": 212,
+    "in_term_vocab": true
+   },
+   {
+    "token": "media bacteriological",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "bacteriological cultures",
+    "count": 1,
+    "class_df": 66,
+    "in_term_vocab": true
+   },
+   {
+    "token": "micro-organism",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "micro-organism cultures",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "cultures kombucha",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "supplements kombucha",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "beverage",
+    "count": 1,
+    "class_df": 13271,
+    "in_term_vocab": true
+   },
+   {
+    "token": "dietary beverage",
+    "count": 1,
+    "class_df": 406,
+    "in_term_vocab": true
+   },
+   {
+    "token": "beverage supplements",
+    "count": 1,
+    "class_df": 439,
+    "in_term_vocab": true
+   },
+   {
+    "token": "beverages",
+    "count": 1,
+    "class_df": 76824,
+    "in_term_vocab": true
+   },
+   {
+    "token": "beverages kombucha",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "stimulating",
+    "count": 1,
+    "class_df": 88,
+    "in_term_vocab": true
+   },
+   {
+    "token": "metabolism",
+    "count": 1,
+    "class_df": 203,
+    "in_term_vocab": true
+   },
+   {
+    "token": "supplements stimulating",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "stimulating metabolism",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "metabolism kombucha",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   }
+  ],
+  "topics": {}
+ },
+ {
+  "info": {
+   "cls": "009",
+   "label": "ETHEREUM (2018)",
+   "serial": "79249467",
+   "filing_date": "20180813",
+   "text": "Computer application software for blockchain-based platforms, namely, software platforms for distributed applications and software using a consensus engine incorporating blockchain technology for securing data with cryptographic information; computer software platforms for developing and building of distributed software applications and distributed computing platforms; computer software platforms for blockchains Cryptocurrency services, namely, providing a digital currency or digital token for use by members of an on-line community via a global computer network; cryptocurrency services, namely, a digital currency or digital token, incorporating cryptographic protocols, used to operate and build applications and blockchains on a decentralized computer platform and as a method of payment for goods and services Developing, arranging, and conducting educational conferences in the field of blockchain technology; educational services, namely, developing, arranging and conducting classes, seminars, conferences, workshops, retreats, camps and field trips in the field of blockchain technology and distributed computing platforms, and distribution of training material in connection therewith Software development services; design, development and implementation of software for distributed computing platforms; design, development and implementation of software in the field of blockchains; research and development of computer software; software development and product development consulting in the field of distributed computing platforms; software development and product development consulting in the field of blockchains"
+  },
+  "n_tokens": 229,
+  "tokens": [
+   {
+    "token": "software",
+    "count": 11,
+    "class_df": 808163,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platforms",
+    "count": 8,
+    "class_df": 64815,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development",
+    "count": 8,
+    "class_df": 155746,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distributed",
+    "count": 6,
+    "class_df": 17881,
+    "in_term_vocab": true
+   },
+   {
+    "token": "field",
+    "count": 6,
+    "class_df": 313556,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer",
+    "count": 5,
+    "class_df": 889657,
+    "in_term_vocab": true
+   },
+   {
+    "token": "services",
+    "count": 5,
+    "class_df": 406831,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computing",
+    "count": 4,
+    "class_df": 41878,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distributed computing",
+    "count": 4,
+    "class_df": 1474,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computing platforms",
+    "count": 4,
+    "class_df": 1257,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchains",
+    "count": 4,
+    "class_df": 1060,
+    "in_term_vocab": true
+   },
+   {
+    "token": "digital",
+    "count": 4,
+    "class_df": 264337,
+    "in_term_vocab": true
+   },
+   {
+    "token": "applications",
+    "count": 3,
+    "class_df": 184801,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchain",
+    "count": 3,
+    "class_df": 11843,
+    "in_term_vocab": true
+   },
+   {
+    "token": "technology",
+    "count": 3,
+    "class_df": 90531,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software platforms",
+    "count": 3,
+    "class_df": 41624,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchain technology",
+    "count": 3,
+    "class_df": 8505,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer software",
+    "count": 3,
+    "class_df": 488744,
+    "in_term_vocab": true
+   },
+   {
+    "token": "incorporating",
+    "count": 2,
+    "class_df": 18346,
+    "in_term_vocab": true
+   },
+   {
+    "token": "cryptographic",
+    "count": 2,
+    "class_df": 4965,
+    "in_term_vocab": true
+   },
+   {
+    "token": "developing",
+    "count": 2,
+    "class_df": 35133,
+    "in_term_vocab": true
+   },
+   {
+    "token": "currency",
+    "count": 2,
+    "class_df": 12789,
+    "in_term_vocab": true
+   },
+   {
+    "token": "token",
+    "count": 2,
+    "class_df": 4494,
+    "in_term_vocab": true
+   },
+   {
+    "token": "digital currency",
+    "count": 2,
+    "class_df": 4050,
+    "in_term_vocab": true
+   },
+   {
+    "token": "currency digital",
+    "count": 2,
+    "class_df": 855,
+    "in_term_vocab": true
+   },
+   {
+    "token": "digital token",
+    "count": 2,
+    "class_df": 1025,
+    "in_term_vocab": true
+   },
+   {
+    "token": "arranging",
+    "count": 2,
+    "class_df": 45229,
+    "in_term_vocab": true
+   },
+   {
+    "token": "conducting",
+    "count": 2,
+    "class_df": 87908,
+    "in_term_vocab": true
+   },
+   {
+    "token": "educational",
+    "count": 2,
+    "class_df": 110823,
+    "in_term_vocab": true
+   },
+   {
+    "token": "conferences",
+    "count": 2,
+    "class_df": 28339,
+    "in_term_vocab": true
+   },
+   {
+    "token": "field blockchain",
+    "count": 2,
+    "class_df": 1264,
+    "in_term_vocab": true
+   },
+   {
+    "token": "design",
+    "count": 2,
+    "class_df": 126663,
+    "in_term_vocab": true
+   },
+   {
+    "token": "implementation",
+    "count": 2,
+    "class_df": 22431,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development implementation",
+    "count": 2,
+    "class_df": 3779,
+    "in_term_vocab": true
+   },
+   {
+    "token": "implementation software",
+    "count": 2,
+    "class_df": 4574,
+    "in_term_vocab": true
+   },
+   {
+    "token": "field blockchains",
+    "count": 2,
+    "class_df": 213,
+    "in_term_vocab": true
+   },
+   {
+    "token": "product",
+    "count": 2,
+    "class_df": 40503,
+    "in_term_vocab": true
+   },
+   {
+    "token": "consulting",
+    "count": 2,
+    "class_df": 72262,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software development",
+    "count": 2,
+    "class_df": 43026,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development product",
+    "count": 2,
+    "class_df": 976,
+    "in_term_vocab": true
+   },
+   {
+    "token": "product development",
+    "count": 2,
+    "class_df": 6935,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development consulting",
+    "count": 2,
+    "class_df": 1747,
+    "in_term_vocab": true
+   },
+   {
+    "token": "consulting field",
+    "count": 2,
+    "class_df": 11923,
+    "in_term_vocab": true
+   },
+   {
+    "token": "application",
+    "count": 1,
+    "class_df": 210196,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchain-based",
+    "count": 1,
+    "class_df": 5262,
+    "in_term_vocab": true
+   },
+   {
+    "token": "application software",
+    "count": 1,
+    "class_df": 109420,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software blockchain-based",
+    "count": 1,
+    "class_df": 1319,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchain-based platforms",
+    "count": 1,
+    "class_df": 766,
+    "in_term_vocab": true
+   },
+   {
+    "token": "consensus",
+    "count": 1,
+    "class_df": 560,
+    "in_term_vocab": true
+   },
+   {
+    "token": "engine",
+    "count": 1,
+    "class_df": 24416,
+    "in_term_vocab": true
+   },
+   {
+    "token": "securing",
+    "count": 1,
+    "class_df": 9246,
+    "in_term_vocab": true
+   },
+   {
+    "token": "data",
+    "count": 1,
+    "class_df": 362974,
+    "in_term_vocab": true
+   },
+   {
+    "token": "information",
+    "count": 1,
+    "class_df": 314055,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platforms distributed",
+    "count": 1,
+    "class_df": 427,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distributed applications",
+    "count": 1,
+    "class_df": 887,
+    "in_term_vocab": true
+   },
+   {
+    "token": "applications software",
+    "count": 1,
+    "class_df": 4660,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software consensus",
+    "count": 1,
+    "class_df": 312,
+    "in_term_vocab": true
+   },
+   {
+    "token": "consensus engine",
+    "count": 1,
+    "class_df": 350,
+    "in_term_vocab": true
+   },
+   {
+    "token": "engine incorporating",
+    "count": 1,
+    "class_df": 321,
+    "in_term_vocab": true
+   },
+   {
+    "token": "incorporating blockchain",
+    "count": 1,
+    "class_df": 346,
+    "in_term_vocab": true
+   },
+   {
+    "token": "technology securing",
+    "count": 1,
+    "class_df": 355,
+    "in_term_vocab": true
+   },
+   {
+    "token": "securing data",
+    "count": 1,
+    "class_df": 829,
+    "in_term_vocab": true
+   },
+   {
+    "token": "data cryptographic",
+    "count": 1,
+    "class_df": 389,
+    "in_term_vocab": true
+   },
+   {
+    "token": "cryptographic information",
+    "count": 1,
+    "class_df": 384,
+    "in_term_vocab": true
+   },
+   {
+    "token": "building",
+    "count": 1,
+    "class_df": 37908,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platforms developing",
+    "count": 1,
+    "class_df": 931,
+    "in_term_vocab": true
+   },
+   {
+    "token": "developing building",
+    "count": 1,
+    "class_df": 280,
+    "in_term_vocab": true
+   },
+   {
+    "token": "building distributed",
+    "count": 1,
+    "class_df": 228,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distributed software",
+    "count": 1,
+    "class_df": 364,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software applications",
+    "count": 1,
+    "class_df": 58792,
+    "in_term_vocab": true
+   },
+   {
+    "token": "applications distributed",
+    "count": 1,
+    "class_df": 372,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platforms blockchains",
+    "count": 1,
+    "class_df": 176,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchains services",
+    "count": 1,
+    "class_df": null,
+    "in_term_vocab": false
+   },
+   {
+    "token": "members",
+    "count": 1,
+    "class_df": 11467,
+    "in_term_vocab": true
+   },
+   {
+    "token": "on-line",
+    "count": 1,
+    "class_df": 129366,
+    "in_term_vocab": true
+   },
+   {
+    "token": "community",
+    "count": 1,
+    "class_df": 24705,
+    "in_term_vocab": true
+   },
+   {
+    "token": "global",
+    "count": 1,
+    "class_df": 153170,
+    "in_term_vocab": true
+   },
+   {
+    "token": "network",
+    "count": 1,
+    "class_df": 200826,
+    "in_term_vocab": true
+   },
+   {
+    "token": "token members",
+    "count": 1,
+    "class_df": 194,
+    "in_term_vocab": true
+   },
+   {
+    "token": "members on-line",
+    "count": 1,
+    "class_df": 1574,
+    "in_term_vocab": true
+   },
+   {
+    "token": "on-line community",
+    "count": 1,
+    "class_df": 5688,
+    "in_term_vocab": true
+   },
+   {
+    "token": "community global",
+    "count": 1,
+    "class_df": 1837,
+    "in_term_vocab": true
+   },
+   {
+    "token": "global computer",
+    "count": 1,
+    "class_df": 111296,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer network",
+    "count": 1,
+    "class_df": 128251,
+    "in_term_vocab": true
+   },
+   {
+    "token": "cryptocurrency",
+    "count": 1,
+    "class_df": 10020,
+    "in_term_vocab": true
+   },
+   {
+    "token": "cryptocurrency services",
+    "count": 1,
+    "class_df": 413,
+    "in_term_vocab": true
+   },
+   {
+    "token": "protocols",
+    "count": 1,
+    "class_df": 8277,
+    "in_term_vocab": true
+   },
+   {
+    "token": "incorporating cryptographic",
+    "count": 1,
+    "class_df": 317,
+    "in_term_vocab": true
+   },
+   {
+    "token": "cryptographic protocols",
+    "count": 1,
+    "class_df": 401,
+    "in_term_vocab": true
+   },
+   {
+    "token": "operate",
+    "count": 1,
+    "class_df": 7080,
+    "in_term_vocab": true
+   },
+   {
+    "token": "build",
+    "count": 1,
+    "class_df": 2835,
+    "in_term_vocab": true
+   },
+   {
+    "token": "decentralized",
+    "count": 1,
+    "class_df": 2898,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platform",
+    "count": 1,
+    "class_df": 55030,
+    "in_term_vocab": true
+   },
+   {
+    "token": "method",
+    "count": 1,
+    "class_df": 1568,
+    "in_term_vocab": true
+   },
+   {
+    "token": "payment",
+    "count": 1,
+    "class_df": 30848,
+    "in_term_vocab": true
+   },
+   {
+    "token": "goods",
+    "count": 1,
+    "class_df": 113904,
+    "in_term_vocab": true
+   },
+   {
+    "token": "operate build",
+    "count": 1,
+    "class_df": 220,
+    "in_term_vocab": true
+   },
+   {
+    "token": "build applications",
+    "count": 1,
+    "class_df": 262,
+    "in_term_vocab": true
+   },
+   {
+    "token": "applications blockchains",
+    "count": 1,
+    "class_df": 256,
+    "in_term_vocab": true
+   },
+   {
+    "token": "blockchains decentralized",
+    "count": 1,
+    "class_df": 226,
+    "in_term_vocab": true
+   },
+   {
+    "token": "decentralized computer",
+    "count": 1,
+    "class_df": 428,
+    "in_term_vocab": true
+   },
+   {
+    "token": "computer platform",
+    "count": 1,
+    "class_df": 1386,
+    "in_term_vocab": true
+   },
+   {
+    "token": "platform method",
+    "count": 1,
+    "class_df": 201,
+    "in_term_vocab": true
+   },
+   {
+    "token": "method payment",
+    "count": 1,
+    "class_df": 275,
+    "in_term_vocab": true
+   },
+   {
+    "token": "payment goods",
+    "count": 1,
+    "class_df": 1007,
+    "in_term_vocab": true
+   },
+   {
+    "token": "goods services",
+    "count": 1,
+    "class_df": 36437,
+    "in_term_vocab": true
+   },
+   {
+    "token": "conducting educational",
+    "count": 1,
+    "class_df": 7757,
+    "in_term_vocab": true
+   },
+   {
+    "token": "educational conferences",
+    "count": 1,
+    "class_df": 5458,
+    "in_term_vocab": true
+   },
+   {
+    "token": "conferences field",
+    "count": 1,
+    "class_df": 4357,
+    "in_term_vocab": true
+   },
+   {
+    "token": "educational services",
+    "count": 1,
+    "class_df": 41943,
+    "in_term_vocab": true
+   },
+   {
+    "token": "arranging conducting",
+    "count": 1,
+    "class_df": 24357,
+    "in_term_vocab": true
+   },
+   {
+    "token": "seminars",
+    "count": 1,
+    "class_df": 47276,
+    "in_term_vocab": true
+   },
+   {
+    "token": "workshops",
+    "count": 1,
+    "class_df": 39535,
+    "in_term_vocab": true
+   },
+   {
+    "token": "retreats",
+    "count": 1,
+    "class_df": 2080,
+    "in_term_vocab": true
+   },
+   {
+    "token": "camps",
+    "count": 1,
+    "class_df": 2380,
+    "in_term_vocab": true
+   },
+   {
+    "token": "trips",
+    "count": 1,
+    "class_df": 2417,
+    "in_term_vocab": true
+   },
+   {
+    "token": "camps field",
+    "count": 1,
+    "class_df": 655,
+    "in_term_vocab": true
+   },
+   {
+    "token": "field trips",
+    "count": 1,
+    "class_df": 976,
+    "in_term_vocab": true
+   },
+   {
+    "token": "trips field",
+    "count": 1,
+    "class_df": 739,
+    "in_term_vocab": true
+   },
+   {
+    "token": "technology distributed",
+    "count": 1,
+    "class_df": 168,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distribution",
+    "count": 1,
+    "class_df": 71679,
+    "in_term_vocab": true
+   },
+   {
+    "token": "training",
+    "count": 1,
+    "class_df": 87033,
+    "in_term_vocab": true
+   },
+   {
+    "token": "material",
+    "count": 1,
+    "class_df": 52670,
+    "in_term_vocab": true
+   },
+   {
+    "token": "connection",
+    "count": 1,
+    "class_df": 70161,
+    "in_term_vocab": true
+   },
+   {
+    "token": "distribution training",
+    "count": 1,
+    "class_df": 2258,
+    "in_term_vocab": true
+   },
+   {
+    "token": "training material",
+    "count": 1,
+    "class_df": 1448,
+    "in_term_vocab": true
+   },
+   {
+    "token": "material connection",
+    "count": 1,
+    "class_df": 2919,
+    "in_term_vocab": true
+   },
+   {
+    "token": "connection development",
+    "count": 1,
+    "class_df": 191,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development services",
+    "count": 1,
+    "class_df": 13691,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software distributed",
+    "count": 1,
+    "class_df": 1233,
+    "in_term_vocab": true
+   },
+   {
+    "token": "software field",
+    "count": 1,
+    "class_df": 25541,
+    "in_term_vocab": true
+   },
+   {
+    "token": "research",
+    "count": 1,
+    "class_df": 90083,
+    "in_term_vocab": true
+   },
+   {
+    "token": "research development",
+    "count": 1,
+    "class_df": 21090,
+    "in_term_vocab": true
+   },
+   {
+    "token": "development computer",
+    "count": 1,
+    "class_df": 39613,
+    "in_term_vocab": true
+   },
+   {
+    "token": "field distributed",
+    "count": 1,
+    "class_df": 415,
+    "in_term_vocab": true
+   }
+  ],
+  "topics": {}
+ }
+]

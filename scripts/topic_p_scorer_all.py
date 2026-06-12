@@ -96,6 +96,11 @@ def main() -> int:
     gc.collect()
     print(f"[lda ] fit done ({time.time()-t0:.0f}s)", file=sys.stderr, flush=True)
 
+    import joblib
+    joblib.dump({"vectorizer": vec, "lda": lda},
+                PROC / f"topic_model{SUFFIX}.joblib", compress=3)
+    print(f"[save] topic_model{SUFFIX}.joblib", file=sys.stderr, flush=True)
+
     feature_names = vec.get_feature_names_out()
     top_words = {int(k): [feature_names[i] for i in comp.argsort()[-8:][::-1]]
                  for k, comp in enumerate(lda.components_)}
@@ -116,13 +121,13 @@ def main() -> int:
         thetas = []
         for i in range(0, n, CHUNK):
             Xc = vec.transform(d["goods_services"][i:i + CHUNK].to_list())
-            thetas.append(lda.transform(Xc).astype(np.float64))
+            thetas.append(lda.transform(Xc).astype(np.float32))
             del Xc
             gc.collect()
         theta = np.vstack(thetas)
         del thetas
         gc.collect()
-        theta = np.clip(theta, 1e-12, None)
+        theta = np.clip(theta, 1e-12, None)  # float32-safe; min normal ~1e-38
         theta /= theta.sum(axis=1, keepdims=True)
 
         years = d["year"].to_numpy()
