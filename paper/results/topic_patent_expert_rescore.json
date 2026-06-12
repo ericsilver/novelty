@@ -1,0 +1,111 @@
+{
+ "patents": {
+  "token": {
+   "sigma_dkl": 0.22336146231123652,
+   "matched_firm_years": 162995,
+   "fe_contemp": {
+    "logpat": {
+     "coef": -0.03768647408422069,
+     "se": 0.006065200926734628,
+     "t": -6.213557397266683
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   }
+  },
+  "t50": {
+   "sigma_dkl": 0.11230364183861209,
+   "matched_firm_years": 162995,
+   "fe_contemp": {
+    "logpat": {
+     "coef": -0.013661023514689008,
+     "se": 0.006072588307681248,
+     "t": -2.249621219572733
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   }
+  },
+  "t200": {
+   "sigma_dkl": 0.12553171352695908,
+   "matched_firm_years": 162995,
+   "fe_contemp": {
+    "logpat": {
+     "coef": -0.009503804706559546,
+     "se": 0.00627765874532901,
+     "t": -1.5139091008460759
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   }
+  }
+ },
+ "experts": {
+  "token": {
+   "n_firms": 5464,
+   "pop_mean": -0.012387219494954315,
+   "pop_sd": 0.18101042870043635,
+   "lists": {
+    "BCG Most Innovative (2021-23 union)": {
+     "n_matched": 29,
+     "diff_in_pop_sd": -0.008710839903442468,
+     "mannwhitney_p": 0.7863005612414435
+    },
+    "MIT TR 50 Smartest Companies (2015)": {
+     "n_matched": 17,
+     "diff_in_pop_sd": 0.347644641814669,
+     "mannwhitney_p": 0.013882188491561141
+    },
+    "POOLED": {
+     "n_matched": 41,
+     "diff_in_pop_sd": 0.0897805549698988,
+     "mannwhitney_p": 0.21610950135066487
+    }
+   }
+  },
+  "t50": {
+   "n_firms": 5618,
+   "pop_mean": -0.009107562182482685,
+   "pop_sd": 0.08770515535763487,
+   "lists": {
+    "BCG Most Innovative (2021-23 union)": {
+     "n_matched": 29,
+     "diff_in_pop_sd": 0.12326245240669134,
+     "mannwhitney_p": 0.14036128143845197
+    },
+    "MIT TR 50 Smartest Companies (2015)": {
+     "n_matched": 17,
+     "diff_in_pop_sd": 0.14920465530730972,
+     "mannwhitney_p": 0.20440907283799326
+    },
+    "POOLED": {
+     "n_matched": 41,
+     "diff_in_pop_sd": 0.13521539958502593,
+     "mannwhitney_p": 0.06629796566898936
+    }
+   }
+  },
+  "t200": {
+   "n_firms": 5618,
+   "pop_mean": -0.006179296164514587,
+   "pop_sd": 0.10292231671886841,
+   "lists": {
+    "BCG Most Innovative (2021-23 union)": {
+     "n_matched": 29,
+     "diff_in_pop_sd": 0.08972380404808071,
+     "mannwhitney_p": 0.30604257342910557
+    },
+    "MIT TR 50 Smartest Companies (2015)": {
+     "n_matched": 17,
+     "diff_in_pop_sd": 0.05524464752437774,
+     "mannwhitney_p": 0.4206613470617764
+    },
+    "POOLED": {
+     "n_matched": 41,
+     "diff_in_pop_sd": 0.08084351510091298,
+     "mannwhitney_p": 0.20323202558650666
+    }
+   }
+  }
+ }
+}

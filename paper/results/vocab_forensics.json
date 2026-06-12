@@ -1,0 +1,268 @@
+{
+ "probes": {
+  "blockchain": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": true
+  },
+  "cryptocurrency": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": true
+  },
+  "nft": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "non-fungible": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "nfts": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "cannabidiol": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "cbd": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "saas": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "metaverse": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "chatbot": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "machine learning": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": true
+  },
+  "artificial intelligence": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "generative": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "crypto": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "hard seltzer": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": false,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "vape": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "e-liquid": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": true
+  },
+  "typesetting": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "dial-up": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "smartwatch": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "fintech": {
+   "in_topic_vocab": false,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  },
+  "telehealth": {
+   "in_topic_vocab": true,
+   "in_term_vocab_009": true,
+   "in_T50_topwords": false,
+   "in_T200_topwords": false
+  }
+ },
+ "overlap": {
+  "term_vocab_009": 151193,
+  "topic_vocab": 62168,
+  "invisible_009_terms": 96433,
+  "invisible_009_share_of_terms": 0.6378139199566117,
+  "invisible_unigram_examples": [
+   "a-shirts",
+   "aa",
+   "aac",
+   "ab",
+   "abacus",
+   "abdomen",
+   "aberrations",
+   "abnormality",
+   "aboard",
+   "above-listed",
+   "above-named",
+   "above-referenced",
+   "aboveground",
+   "abpd",
+   "abs",
+   "absolute",
+   "absorbance",
+   "absorbed",
+   "abstract",
+   "abstracting",
+   "abstraction",
+   "abstracts",
+   "abundance",
+   "ac",
+   "ac-dc",
+   "acaas",
+   "academia",
+   "accelerate",
+   "accelerated",
+   "accelerates",
+   "accelerations",
+   "acceptable",
+   "accepted",
+   "acceptors",
+   "accesories",
+   "access-control",
+   "accesses",
+   "accessories-namely",
+   "accommodating",
+   "accompanied"
+  ]
+ },
+ "tests": {
+  "corr_invshare_dkl": -0.0026903993255065436,
+  "corr_invshare_year": -0.15053486656684137,
+  "gate_low_inv": {
+   "q1": 0.45690105527113156,
+   "q1_n": 9571,
+   "q2": 0.4431438127090301,
+   "q2_n": 9568,
+   "q3": 0.4365137422928206,
+   "q3_n": 9569,
+   "q4": 0.41958407357090605,
+   "q4_n": 9569,
+   "q5": 0.387710314557425,
+   "q5_n": 9569,
+   "lift_q5_q1": -0.06919074071370657
+  },
+  "gate_high_inv": {
+   "q1": 0.49619221280703635,
+   "q1_n": 9323,
+   "q2": 0.48664306404892177,
+   "q2_n": 9321,
+   "q3": 0.4739834781675786,
+   "q3_n": 9321,
+   "q4": 0.457041724766706,
+   "q4_n": 9323,
+   "q5": 0.41272395665701106,
+   "q5_n": 9321,
+   "lift_q5_q1": -0.08346825615002529
+  },
+  "edgar_low_inv": {
+   "q1": 0.034931119079071524,
+   "q1_n": 52990,
+   "q2": 0.028050967437470504,
+   "q2_n": 52975,
+   "q3": 0.029406213430976557,
+   "q3_n": 52982,
+   "q4": 0.03153901324978294,
+   "q4_n": 52982,
+   "q5": 0.02980257445925031,
+   "q5_n": 52982,
+   "lift_q5_q1": -0.005128544619821214
+  },
+  "edgar_high_inv": {
+   "q1": 0.0608682218445852,
+   "q1_n": 51784,
+   "q2": 0.04787192955353005,
+   "q2_n": 51784,
+   "q3": 0.04725397806272208,
+   "q3_n": 51784,
+   "q4": 0.0475445609562984,
+   "q4_n": 51783,
+   "q5": 0.04986096091456821,
+   "q5_n": 51784,
+   "lift_q5_q1": -0.011007260930016992
+  },
+  "edgar_by_invshare": {
+   "q1": 0.028622369688128677,
+   "q1_n": 104883,
+   "q2": 0.028499116565589035,
+   "q2_n": 104705,
+   "q3": 0.041393714990980726,
+   "q3_n": 105330,
+   "q4": 0.050143319807914234,
+   "q4_n": 107452,
+   "q5": 0.054533806426177805,
+   "q5_n": 101460,
+   "lift_q5_q1": 0.025911436738049128
+  },
+  "gate_by_invshare": {
+   "q1": 0.4178752273732855,
+   "q1_n": 20341,
+   "q2": 0.43515651874785,
+   "q2_n": 17442,
+   "q3": 0.44730194017784963,
+   "q3_n": 19792,
+   "q4": 0.46100394685641227,
+   "q4_n": 17989,
+   "q5": 0.4746704780053994,
+   "q5_n": 18891,
+   "lift_q5_q1": 0.056795250632113936
+  }
+ },
+ "gate_median_invshare": 0.07142857142857142,
+ "edgar_median_invshare": 0.08333333333333333
+}
