@@ -35,11 +35,12 @@ patent, and empirically distinct from patent-track invention.
 rather than its raw token counts, following the source papers' own
 operationalization; this gives every filing a dense representation
 regardless of length, which matters because goods/services descriptions
-typically run 10--30 words. All analyses condition on completed
-registration: completing registration mostly reflects whether the filer
-followed through to actual commercial use (nine in ten failed
-applications die by abandonment, not by refusal), so the conditioning
-separates businesses that launched from filings that remained intentions.
+typically run 10--30 words. The maintenance and firm-level analyses
+condition on completed registration: completing registration mostly
+reflects whether the filer followed through to actual commercial use
+(nine in ten failed applications die by abandonment, not by refusal), so
+the conditioning separates businesses that launched from filings that
+remained intentions.
 
 \noindent Three results anchor the paper. First, \dkl{} marks commercial
 risk at the mark level, robustly across scoring choices and cohorts.
@@ -191,11 +192,13 @@ and retail (035), totalling 2.32 million granted filings 1990--2024. The
 firm-level panels link trademark owners to SEC EDGAR financial filers and
 to PatentsView patent assignees.
 
-Two conditioning rules apply throughout. The corpus is restricted to
-\emph{granted} filings (registration date populated), screening out
-speculative or defensive applications that did not survive examination.
-And the lifecycle outcomes in Section~\ref{sec:outcomes} keep the
-examination step and the maintenance step separate: registering and
+Two conditioning rules structure the analyses. The diffusion and theme
+analyses restrict to \emph{granted} filings (registration date
+populated), screening out speculative or defensive applications that did
+not survive examination; the lifecycle analyses necessarily score all
+applications, since registration completion is itself one of their
+outcomes. And the lifecycle outcomes in Section~\ref{sec:outcomes} keep
+the examination step and the maintenance step separate: registering and
 maintaining are different commercial acts with different drivers, and
 pooling them conflates examiner behavior with the use requirement.
 
@@ -256,7 +259,8 @@ $\sim$80{,}000 filings per year.
 The burn-in cut is set empirically rather than by the window arithmetic
 alone. Thin past references inflate prospective surprise, so contamination
 appears as a positive bias in the per-year mean of signed \dkl{} relative
-to the class's long-run level. Profiling that bias across all 44 classes
+to the class's long-run level (profiled under term scoring, where the
+thin-reference artifact is sharpest). Profiling that bias across all 44 classes
 with sufficient volume: the median absolute bias is $\sim$2.0 nats in 1990,
 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993 onward, below any effect
 size this paper interprets. The deviations that reappear in 1995--1997
@@ -346,14 +350,18 @@ as a property of firms.
 
 \subsection{Mark-level selection: registration and the first maintenance gate}
 
-\paragraph{Outcome definitions.} Outcomes derive from the USPTO status-code
-dictionary. A filing reached registration if its registration date is
-populated. A registered mark faces the Section~8 use-declaration gate in
-years five to six; \emph{Cancelled--Section~8} (status 710) marks failure,
-and \emph{Section~8 accepted} (701/702, partial variants 703--705) or
-subsequent renewal (800) mark survival. Because older registrations face
-repeated gates, the gate analysis uses the 2016--2018 registration cohort,
-for which exactly one Section~8 gate has elapsed by the 2025 data snapshot.
+\paragraph{Outcome definitions.} A filing reached registration if its
+registration date is populated. A registered mark faces the Section~8
+use-declaration gate in years five to six after registration. The primary
+gate measure is event-dated: a mark failed the first gate if its
+prosecution history records a Section~8 cancellation at registration-age
+four to eight and a half years, which makes every elapsed registration
+cohort (2002--2018) usable and separates the first gate from the year-ten
+renewal. The snapshot cross-check reads terminal status instead
+(\emph{Cancelled--Section~8}, status 710, against \emph{Section~8
+accepted}, 701--705, or renewed, 800) and is restricted to the 2016--2018
+cohort, for which exactly one gate has elapsed and the two are therefore
+not confounded.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
@@ -551,13 +559,6 @@ retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
 \label{fig:windows}
 \end{figure}
 
-\begin{figure}[h]\centering
-\includegraphics[width=0.72\textwidth]{results/s8_corrected_forest.png}
-\caption{First-gate Section~8 survival lift (\dkl{} top minus bottom
-quintile) by industry, registrations 2016--2018, with 95\% intervals.}
-\label{fig:forest}
-\end{figure}
-
 \subsection{Firm-level associations are scoring-dependent}\label{sec:firmlevel}
 
 Under term-level scoring, forward-leaning filings appear to belong to
@@ -675,11 +676,11 @@ suffixes and punctuation, lowercase) and joins on exact normalized-name
 equality. One provenance note: the published panel was constructed under
 an earlier exponential-decay kernel variant of the construct; its
 firm-year mean \dkl{} correlates at $r = 0.87$ with the current
-flat-window scoring on 68{,}013 matched owner-years, so the results below
-are expected to be kernel-stable, and re-estimation on the current
-scoring is owed with the next panel release. I fit a two-way (firm +
-year) fixed-effects regression of standardized firm-year mean \dkl{} on
-$\log(1 + \mathrm{patents})$ with firm-clustered standard errors.
+flat-window scoring on 68{,}013 matched owner-years, and the
+re-estimation on current scorings follows the table. I fit a two-way
+(firm + year) fixed-effects regression of standardized firm-year mean
+\dkl{} on $\log(1 + \mathrm{patents})$ with firm-clustered standard
+errors.
 
 \begin{table}[h]\centering\small
 \caption{Within-firm \dkl{} versus patenting. Coefficients in standard
@@ -734,7 +735,8 @@ $+0.010$).
 
 Because \dkl{} is computed from open text, the same corpus supports
 measuring where business vocabulary is born and how it travels. This
-section demonstrates the construct's reach beyond firm-level validation.
+section demonstrates the construct's reach beyond the lifecycle
+validation.
 
 \subsection{Phrase-level transit}
 
@@ -773,9 +775,11 @@ but cannot exclude a corpus-construction alternative.
 \subsection{Theme-level structure}
 
 A theme-level analysis with unsupervised topic extraction corroborates the
-phrase-level pattern without depending on which phrases were picked. I fit
-LDA with $T = 50$ on a stratified 200{,}000-filing sample (vocabulary
-$V = 69{,}361$) and transform across the full 2.32M-filing pool. The
+phrase-level pattern without depending on which phrases were picked. This
+uses its own topic model, fit for theme detection on the four-class
+granted pool rather than for scoring: LDA with $T = 50$ on a stratified
+200{,}000-filing sample (vocabulary $V = 69{,}361$), transformed across
+the full 2.32M-filing pool. The
 resulting topics are recognizable business-model components
 (health/wellness; autonomous loading and material handling; retail store
 services; electronic transmission and computer networks; vehicles and
@@ -836,10 +840,10 @@ vocabulary are not necessarily the firms moving the patents.
 The corpus supports a direct comparison of the AI era to the one episode
 of genuine vocabulary rupture in the record. Aligning the two eras at
 their starts (internet 1994, AI 2015) and tracking era-term prevalence in
-the software and tech-services classes: through year four the two track
-each other almost exactly (internet 7.5\% of filings, AI 4.6\%), and then
-they diverge. Internet vocabulary tripled between years four and six,
-reaching 23\% of filings in 2000; AI vocabulary has compounded steadily
+the software and tech-services classes: through year three the two track
+each other closely (internet 5.1\% of filings, AI 4.0\%), and then they
+diverge. Internet vocabulary tripled between years four and six, reaching
+23\% of filings in 2000; AI vocabulary has compounded steadily
 to 12.9\% at year nine, roughly where the internet stood at year five
 (Figure~\ref{fig:era}). The release of consumer chatbots is visible as an
 acceleration (6.8\% in 2022 to 10.2\% in 2023), not a discontinuity.
@@ -955,7 +959,7 @@ discriminant ($+0.34\sigma$ on BCG/MIT lists) is withdrawn: it does not
 replicate on the current pipeline under any scoring ($+0.08$ to
 $+0.14\sigma$, all $p > 0.05$, $n = 41$ matched firms).
 
-Questions owed to follow-up work: the four agenda items of
+Questions owed to follow-up work: the agenda items of
 Section~\ref{sec:agenda}; whether the mark-level gate penalty reflects
 vocabulary position itself or selection on owner covariates; the
 cohort-emergence question above; length-controlled re-estimation of the
@@ -978,7 +982,8 @@ Analysis scripts and their outputs are indexed in the repository
 \section{The outcome analysis without registration conditioning}\label{app:uncond}
 
 Figure~\ref{fig:uncond} repeats the lifecycle outcome analysis without the
-registration conditioning, on filings 2013--2015 pooled across all classes
+registration conditioning (term-scored, where the composite shape was
+originally encountered), on filings 2013--2015 pooled across all classes
 (a window whose registrations land by $\sim$2017 and face at least one
 Section~8 gate by the 2025 snapshot; the earliest registrations in the
 window also face their year-ten renewal, so panel B mixes one and two
