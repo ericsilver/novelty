@@ -532,10 +532,33 @@ chief among them, exactly the channel topic scoring neutralizes. The
 mark-level results of Section~3.1 are unaffected: they hold under both
 scorings at both resolutions.
 
+The strongest objection to the artifact reading is vocabulary blindness:
+the topic model's vocabulary is built from a corpus sample, so rare and
+emergent terms are invisible to it, and if the firm-level signal lives in
+exactly those terms, topic scoring would erase a real signal rather than
+an artifact. The objection is testable, and testing it identifies what
+the term-level signal actually was. The marquee emergent unigrams
+(blockchain, cryptocurrency, machine learning) are in the topic
+vocabulary, and at $T = 200$ they anchor their own topics; the invisible
+tier is the rare tail (63.8\% of class-009 term \emph{types}, but only
+$\sim$9\% of token \emph{mass}, with nft, cbd, fintech, and smartwatch
+among them). Computing each filing's invisible-vocabulary share gives the
+discriminating split. The share itself is a strong firm marker:
+P(owner ever in SEC EDGAR) rises from 2.9\% to 5.5\% across its
+quintiles, and gate survival rises $+5.7$pp. But \emph{within}
+invisible-share strata, the signed \dkl{} gradient on the firm outcome is
+flat to negative, while the gate penalty holds in both strata
+($-6.9$ and $-8.3$pp). The term-level firm signal, in other words, is
+\emph{unsigned specificity}: serious firms describe specific products
+with specific, therefore rare, words, and rare-term mass inflates
+term-\dkl{} mechanically. What dissolves under topic scoring is the
+specificity channel; the directional resonance claim about firms is what
+remains, and it is empty.
+
 This is a finding about measurement with reach beyond this corpus:
 term-resolved text-novelty measures can manufacture firm-performance
-correlations from drafting style, and a distribution-based rescoring is a
-cheap, decisive diagnostic. What does \emph{not} explain the firm-level
+correlations from drafting style and lexical specificity, and a
+distribution-based rescoring is a cheap, decisive diagnostic. What does \emph{not} explain the firm-level
 divergence is the registration filter. Among applications that fail to
 register, only 4.3\% are removed adversarially (appeal, opposition, or
 inter partes proceedings); 42.6\% never file the statement of use and
@@ -604,18 +627,27 @@ vocabulary regresses toward class-typical. A reading consistent with the
 data is temporal substitution between patent prosecution and market-facing
 brand work; either way, the two measures are not interchangeable.
 
-The contrast with expert judgment completes the discriminant picture.
-Across the 7{,}431-firm public panel, firms appearing on the BCG Most
-Innovative lists (2021--23) sit $+0.28\sigma$ above the panel mean in
-\dkl{} ($n = 31$ matched, $p = 0.012$), firms on the MIT Technology Review
-50 Smartest Companies list (2015) sit $+0.50\sigma$ above
-($n = 17$, $p = 0.0006$), and the pooled union sits $+0.34\sigma$ above
-($n = 43$, $p = 0.0003$). Patent counts are uncorrelated with \dkl{} on the
-same panel (Pearson $+0.010$). The expert lists reward something patents do
-not capture, and term-scored \dkl{} tracks it. The matched samples are
-small, the panel is term-scored and so inherits the firm-level scoring
-caveat of Section~\ref{sec:firmlevel}, and the result is a discriminant
-check, not a headline.
+Re-scoring the same matched sample under the method sharpens the
+distinctness claim rather than weakening it. On 89{,}987 firm-years
+rebuilt symmetrically from current per-class scores (1995--2019), the
+contemporaneous two-way-FE coefficient is $-0.038\sigma$ ($t = -6.2$)
+under term scoring, $-0.014$ ($t = -2.3$) under topic scoring, and
+$-0.010$ ($t = -1.5$) at $T = 200$: under distribution scoring, \dkl{}
+is even closer to exactly orthogonal to patenting, which is the property
+the construct needs.
+
+An earlier version of this analysis reported that firms on BCG/MIT
+``most innovative'' lists sit $+0.34\sigma$ above the panel mean in
+\dkl{} ($n = 43$ matched, $p < 0.001$). That result does not replicate on
+the current pipeline and is withdrawn: rebuilding the firm-level panel
+symmetrically from current per-class scores gives $+0.09\sigma$
+($p = 0.22$) under term scoring, $+0.14\sigma$ ($p = 0.07$) under topic
+scoring, and $+0.08\sigma$ ($p = 0.20$) at $T = 200$. The original figure
+was computed on a panel built under the earlier decay-kernel variant, and
+the matched samples are small ($n = 41$ here); whatever alignment exists
+between \dkl{} and expert innovation judgment is at most suggestive.
+Patent counts remain uncorrelated with \dkl{} on the same panel (Pearson
+$+0.010$).
 
 \section{Application: cross-industry diffusion, measured directly}\label{sec:diffusion}
 
@@ -829,9 +861,10 @@ gate window, are not separable from the \dkl{} gradient; replication on
 the 2019--2021 cohort as its gate completes is the direct check. The
 theme-level diffusion analysis is a four-class build; per-class \dkl{}
 scores now exist for all 45 classes, but the theme panel and flow graph
-have not been re-estimated on the full set. The expert-list discriminant
-(term-scored, $+0.34\sigma$, 43 matched firms) inherits the firm-level
-scoring caveat and is read as suggestive only.
+have not been re-estimated on the full set. The legacy expert-list
+discriminant ($+0.34\sigma$ on BCG/MIT lists) is withdrawn: it does not
+replicate on the current pipeline under any scoring ($+0.08$ to
+$+0.14\sigma$, all $p > 0.05$, $n = 41$ matched firms).
 
 Questions owed to follow-up work: the four agenda items of
 Section~\ref{sec:agenda}; whether the mark-level gate penalty reflects
