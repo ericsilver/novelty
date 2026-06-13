@@ -1035,9 +1035,16 @@ representation handles them.
 \textsc{Amazon.com} (1997, advertising/retail) is \emph{combinatorial}
 novelty: every word is ordinary, but the bigrams assemble an invention
 (``computerized line,'' ``line search,'' ``search ordering''; class
-document frequencies 379, 134, 355). Term scoring sees these; under topic
-scoring at every resolution all of them are out of vocabulary and the
-filing reads as a media retailer that uses computers.
+document frequencies 379, 134, 355). The filing's text reads ``on line''
+as two words, the standard spelling in 1997, before \emph{online}
+lexicalized into a single token; the analyzer drops the stopword ``on''
+and the surviving bigram ``line search'' is the act of forming the
+compound caught in progress. This is itself the combinatorial-to-lexical
+transition the three examples span: the novelty was necessarily
+combinatorial because the word for it did not yet exist. Term scoring
+sees these bigrams; under topic scoring at every resolution all of them
+are out of vocabulary and the filing reads as a media retailer that uses
+computers.
 
 \textsc{Kombucha} (1997, beer/soft drinks) is \emph{lexical} novelty: the
 new thing arrives as new words (\emph{kombucha} df 567, \emph{saccharose}
