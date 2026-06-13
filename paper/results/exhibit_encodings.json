@@ -450,6 +450,91 @@
       ]
      }
     ]
+   },
+   "T=500": {
+    "oov_tokens": [
+     "computerized line",
+     "line search",
+     "search ordering",
+     "featuring wholesale",
+     "retail distribution",
+     "distribution books",
+     "software printed",
+     "audiocassettes",
+     "direct digital"
+    ],
+    "top_topics": [
+     {
+      "topic": 9,
+      "weight": 0.22158617636015376,
+      "top_words": [
+       "computer",
+       "software",
+       "data",
+       "electronic",
+       "computer software",
+       "transmission",
+       "networks",
+       "network"
+      ]
+     },
+     {
+      "topic": 208,
+      "weight": 0.17627359077828136,
+      "top_words": [
+       "services",
+       "store",
+       "retail",
+       "store services",
+       "featuring",
+       "services featuring",
+       "retail store",
+       "wholesale"
+      ]
+     },
+     {
+      "topic": 438,
+      "weight": 0.16701978081961297,
+      "top_words": [
+       "entertainment",
+       "video",
+       "music",
+       "services",
+       "games",
+       "television",
+       "featuring",
+       "audio"
+      ]
+     },
+     {
+      "topic": 338,
+      "weight": 0.15370477670106314,
+      "top_words": [
+       "cards",
+       "video",
+       "magnetic",
+       "digital",
+       "encoded",
+       "radio",
+       "blank",
+       "receivers"
+      ]
+     },
+     {
+      "topic": 284,
+      "weight": 0.10185313097211351,
+      "top_words": [
+       "printed",
+       "books",
+       "magazines",
+       "publications",
+       "materials",
+       "matter",
+       "brochures",
+       "newsletters"
+      ]
+     }
+    ]
    }
   }
  },
@@ -921,6 +1006,95 @@
        "devices",
        "apparatus instruments",
        "blood"
+      ]
+     }
+    ]
+   },
+   "T=500": {
+    "oov_tokens": [
+     "based kombucha",
+     "saccharose",
+     "yeast lactic",
+     "juices drinks",
+     "micro-organism",
+     "micro-organism cultures",
+     "cultures kombucha",
+     "supplements kombucha",
+     "dietary beverage",
+     "beverages kombucha",
+     "supplements stimulating",
+     "stimulating metabolism",
+     "metabolism kombucha"
+    ],
+    "top_topics": [
+     {
+      "topic": 380,
+      "weight": 0.6115208755321675,
+      "top_words": [
+       "beverages",
+       "drinks",
+       "fruit",
+       "milk",
+       "non-alcoholic",
+       "juices",
+       "making",
+       "alcoholic"
+      ]
+     },
+     {
+      "topic": 402,
+      "weight": 0.14317982577785413,
+      "top_words": [
+       "medical",
+       "veterinary",
+       "purposes",
+       "preparations",
+       "medical veterinary",
+       "substances",
+       "veterinary purposes",
+       "biological"
+      ]
+     },
+     {
+      "topic": 171,
+      "weight": 0.11952917929914314,
+      "top_words": [
+       "supplements",
+       "nutritional",
+       "dietary",
+       "nutritional supplements",
+       "dietary supplements",
+       "supplement",
+       "food supplements",
+       "vitamins"
+      ]
+     },
+     {
+      "topic": 358,
+      "weight": 0.03782027660143768,
+      "top_words": [
+       "fixed",
+       "glucose",
+       "organize",
+       "transmission audio",
+       "checks",
+       "social network",
+       "virtual community",
+       "graphics data"
+      ]
+     },
+     {
+      "topic": 114,
+      "weight": 0.03743054973064757,
+      "top_words": [
+       "acid",
+       "acids",
+       "eating",
+       "derivatives",
+       "amino",
+       "fatty",
+       "higher",
+       "fatty acids"
       ]
      }
     ]
@@ -1967,6 +2141,117 @@
        "networks",
        "network",
        "global"
+      ]
+     }
+    ]
+   },
+   "T=500": {
+    "oov_tokens": [
+     "blockchain-based platforms",
+     "consensus",
+     "platforms distributed",
+     "distributed applications",
+     "software consensus",
+     "consensus engine",
+     "engine incorporating",
+     "incorporating blockchain",
+     "technology securing",
+     "securing data",
+     "data cryptographic",
+     "cryptographic information",
+     "platforms developing",
+     "developing building",
+     "building distributed",
+     "distributed software",
+     "applications distributed",
+     "platforms blockchains",
+     "blockchains services",
+     "token members",
+     "cryptocurrency services",
+     "incorporating cryptographic",
+     "cryptographic protocols",
+     "operate build",
+     "build applications",
+     "applications blockchains",
+     "blockchains decentralized",
+     "decentralized computer",
+     "platform method",
+     "method payment",
+     "technology distributed",
+     "connection development",
+     "software distributed",
+     "field blockchains",
+     "field distributed"
+    ],
+    "top_topics": [
+     {
+      "topic": 337,
+      "weight": 0.4918133125619133,
+      "top_words": [
+       "software",
+       "online",
+       "computer",
+       "downloadable",
+       "non-downloadable",
+       "featuring",
+       "virtual",
+       "digital"
+      ]
+     },
+     {
+      "topic": 84,
+      "weight": 0.18867504571764487,
+      "top_words": [
+       "field",
+       "training",
+       "educational",
+       "education",
+       "conducting",
+       "seminars",
+       "services",
+       "workshops"
+      ]
+     },
+     {
+      "topic": 353,
+      "weight": 0.10395188682745811,
+      "top_words": [
+       "design",
+       "development",
+       "product",
+       "design services",
+       "new",
+       "research",
+       "testing",
+       "development services"
+      ]
+     },
+     {
+      "topic": 433,
+      "weight": 0.06889222584979732,
+      "top_words": [
+       "services",
+       "management",
+       "business",
+       "information",
+       "field",
+       "relating",
+       "consulting",
+       "consultancy"
+      ]
+     },
+     {
+      "topic": 5,
+      "weight": 0.0288457790181633,
+      "top_words": [
+       "platforms",
+       "parking",
+       "loading",
+       "hearing",
+       "unloading",
+       "decks",
+       "warehouse",
+       "loading unloading"
       ]
      }
     ]

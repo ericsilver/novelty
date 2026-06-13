@@ -233,8 +233,10 @@ did not face: goods/services descriptions typically run 10--30 words, and
 on documents that short, token-level KL inflates mechanically (mean
 $|\Delta\mathrm{KL}|$ varies 2.5-fold across document-size bands), while
 every filing's topic distribution is dense regardless of length and the
-artifact largely disappears. A $T = 200$ refit confirms the headline
-results are not sensitive to topic resolution.
+artifact largely disappears. Refits at $T = 200$ and $T = 500$ confirm the
+headline results are not sensitive to topic resolution across an order of
+magnitude in topic count (Section~\ref{sec:firmlevel},
+Appendix~\ref{app:exhibit}).
 
 A term-level variant is retained alongside: token distributions
 (unigram + bigram, within-class document frequency $\geq 50$) against the
@@ -581,12 +583,13 @@ distribution-based scoring, and the paper therefore does not anchor on
 them. Under topic scoring on identical samples, the debut listing
 gradient in signed \dkl{} is flat to declining
 (Figure~\ref{fig:outcomes}B), and the margin coefficient reverses:
-$-1.3$pp per $\sigma$ ($t = -1.8$) at $T = 50$ and $-2.2$pp ($t = -3.1$)
-at $T = 200$, with the prospective/retrospective decomposition flipping
-sign. Quadrupling the topic count moves the estimates further from the
-term-level result, not toward it; this resolution test holds the topic
-vocabulary fixed, so it speaks to granularity but not to vocabulary
-coverage, which is tested separately below. Meanwhile the term-level
+$-1.3$pp per $\sigma$ ($t = -1.8$) at $T = 50$, $-2.2$pp ($t = -3.1$) at
+$T = 200$, and $-0.8$pp ($t = -1.1$) at $T = 500$, against the term-level
+$+2.3$pp ($t = 2.7$); the prospective/retrospective decomposition flips
+sign and stays flipped. Across an order of magnitude in topic count the
+estimate never approaches the term-level result. This resolution sweep
+holds the topic vocabulary fixed, so it speaks to granularity but not to
+vocabulary coverage, which is tested separately below. Meanwhile the term-level
 listing gradient dissolves under document-length controls: within
 document-size bands it is U-shaped rather than rising, with the apparent
 monotone rise contributed by composition across lengths (listed firms'
@@ -601,10 +604,20 @@ exactly those terms, topic scoring would erase a real signal rather than
 an artifact. The objection is testable, and testing it identifies what
 the term-level signal actually was. The marquee emergent unigrams
 (blockchain, cryptocurrency, machine learning) are in the topic
-vocabulary, and at $T = 200$ they anchor their own topics; the invisible
-tier is the rare tail (63.8\% of class-009 term \emph{types}, but only
-$\sim$9\% of token \emph{mass}, with nft, cbd, fintech, and smartwatch
-among them). Computing each filing's invisible-vocabulary share gives the
+vocabulary; the invisible tier is the rare tail (63.8\% of class-009 term
+\emph{types}, but only $\sim$9\% of token \emph{mass}, with nft, cbd,
+fintech, and smartwatch among them). Whether an emergent category gets a
+topic of its own is, notably, not a matter of resolution: a
+cryptocurrency/blockchain topic exists at $T = 200$ but not at $T = 50$ or
+$T = 500$, because raising the topic count re-partitions the fixed
+vocabulary along whatever axes dominate the sample (at $T = 500$, dozens
+of fine machinery and manufacturing topics) and the crypto vocabulary is
+reabsorbed into a generic software topic rather than concentrating. Topic
+count is a partition-granularity dial, not a coverage dial; this is why
+the firm-level estimates are stable across resolutions even as the topic
+inventory churns, and it is the structural reason topic scoring should be
+read as a robustness instrument rather than as the richer representation.
+Computing each filing's invisible-vocabulary share gives the
 discriminating split. The share itself is a strong firm marker:
 P(owner ever in SEC EDGAR) rises from 2.9\% to 5.5\% across its
 quintiles, and gate survival rises $+5.7$pp. But \emph{within}
@@ -1011,6 +1024,60 @@ filings. \emph{B:} P(passed $\mid$ registered and gated) on the same
 filings.}
 \label{fig:uncond}
 \end{figure}
+
+\section{How three filings encode}\label{app:exhibit}
+
+To make the representation choice concrete, Table~\ref{tab:exhibit} traces
+three filings through term scoring and topic scoring at $T \in \{50, 200,
+500\}$. They illustrate three distinct kinds of novelty and how each
+representation handles them.
+
+\textsc{Amazon.com} (1997, advertising/retail) is \emph{combinatorial}
+novelty: every word is ordinary, but the bigrams assemble an invention
+(``computerized line,'' ``line search,'' ``search ordering''; class
+document frequencies 379, 134, 355). Term scoring sees these; under topic
+scoring at every resolution all of them are out of vocabulary and the
+filing reads as a media retailer that uses computers.
+
+\textsc{Kombucha} (1997, beer/soft drinks) is \emph{lexical} novelty: the
+new thing arrives as new words (\emph{kombucha} df 567, \emph{saccharose}
+out of vocabulary even at the class level). The word \emph{kombucha} is in
+the topic vocabulary but, with no kombucha-like topic, its mass dissolves
+into a generic beverages topic ($\geq 0.60$ weight at every $T$).
+
+\textsc{Ethereum} (2018, software) is \emph{wave} novelty: emergent
+vocabulary already diffusing (\emph{blockchains}, \emph{distributed
+computing}). It loads on generic software and services topics at every
+resolution, including $T = 200$, which does contain a
+cryptocurrency/blockchain topic --- the eleven occurrences of
+\emph{software} outvote the blockchain terms.
+
+\begin{table}[h]\centering\small
+\caption{Top topic loading for three filings, by representation. Term
+scoring resolves the novel content of all three; topic scoring resolves
+none of it at any tested resolution.}
+\label{tab:exhibit}
+\begin{tabular}{lp{3.1cm}p{3.1cm}p{3.1cm}}
+\toprule
+& \textsc{Amazon.com} & \textsc{Kombucha} & \textsc{Ethereum} \\
+& (1997) & (1997) & (2018) \\
+\midrule
+novel content (term) & line search, search ordering & kombucha, saccharose & blockchains, distributed computing \\
+$T=50$ & video, computer, music (0.40) & beverages, fruit, drinks (0.64) & software, online, downloadable (0.33) \\
+$T=200$ & entertainment, video, games (0.29) & beverages, drinks, coffee (0.60) & field, services, development (0.37) \\
+$T=500$ & computer, software, data (0.22) & beverages, drinks, fruit (0.61) & software, online, computer (0.49) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The pattern across the row is the paper's central methodological point in
+miniature: topic scoring systematically cannot represent combinatorial
+novelty (Amazon), dilutes lexical novelty (Kombucha), and majority-votes
+away wave novelty (Ethereum) even when a fitting topic exists. That the
+mark-level outcome results are nearly identical under both scorings
+despite this blindness is what licenses topic scoring as a robustness
+instrument; that the firm-level results diverge is what exposes them as
+artifacts of the lexical specificity term scoring additionally captures.
 
 \begin{thebibliography}{99}
 
