@@ -1,4 +1,4 @@
-# Vocabulary resonance in US trademark filings
+# Vocabulary position and trademark lifecycles
 
 Code, public data panels, and the working paper for an empirical application of the DeDeo prospective/retrospective Kullback–Leibler resonance framework (Murdock, Allen & DeDeo 2017; Barron, Huang, Spang & DeDeo 2018) to US trademark goods/services text.
 
@@ -137,7 +137,7 @@ The raw USPTO backfile (~12 GB), per-class records/vocab/surprise/outcome parque
 
 Working-paper citation (the SSRN ID will be added when posted):
 
-> Silver, E. (2026). *Vocabulary resonance in US trademark filings: A measurement construct for commercial novelty, with validation and applications*. SSRN Working Paper.
+> Silver, E. (2026). *Vocabulary position and trademark lifecycles: An event-dated corpus and a lead/lag text measure for the commercial economy*. SSRN Working Paper.
 
 ## Author / contact
 
