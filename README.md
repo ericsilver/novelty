@@ -135,9 +135,9 @@ The raw USPTO backfile (~12 GB), per-class records/vocab/surprise/outcome parque
 
 ## Citing this work
 
-Working-paper citation (the SSRN ID will be added when posted):
+Working-paper citation:
 
-> Silver, E. (2026). *Vocabulary position and trademark lifecycles: An event-dated corpus and a lead/lag text measure for the commercial economy*. SSRN Working Paper.
+> Silver, E. (2026). *Vocabulary position and trademark lifecycles: An event-dated corpus and a lead/lag text measure for the commercial economy*. SSRN Working Paper. https://ssrn.com/abstract=6954598 (DOI: 10.2139/ssrn.6954598)
 
 ## Author / contact
 

@@ -33,6 +33,12 @@ paper/results/debut_harvest_fit.csv
 logs/
 *.committed-baseline
 
+# Private outreach drafts (recipient emails; not for public distribution)
+outreach/
+
+# PDF-viewer duplicate copies
+* - Copy.pdf
+
 # OS / editor noise
 Thumbs.db
 .idea/
