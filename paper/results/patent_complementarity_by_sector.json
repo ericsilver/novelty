@@ -1,0 +1,1993 @@
+{
+ "spec_note": "Firm + year FE, firm-clustered SE, firms with >=3 years; dkl standardized once on the pooled matched panel so coefficients are in the same sigma units as the pooled result. Sector is assigned at the firm level (dominant NICE class over the whole window), so the estimating equation is unchanged inside every subsample.",
+ "min_firms": 50,
+ "min_obs": 300,
+ "complement_classes": [
+  "001",
+  "002",
+  "004",
+  "005",
+  "007",
+  "009",
+  "010",
+  "011",
+  "012",
+  "017",
+  "042"
+ ],
+ "substitute_classes": [
+  "014",
+  "018",
+  "023",
+  "024",
+  "025",
+  "028",
+  "029",
+  "030",
+  "031",
+  "032",
+  "033",
+  "035",
+  "036",
+  "037",
+  "039",
+  "041",
+  "043",
+  "045"
+ ],
+ "scorings": {
+  "token": {
+   "pooled": {
+    "logpat": {
+     "coef": -0.037686474084220455,
+     "se": 0.006065200926734667,
+     "t": -6.213557397266604,
+     "p": 5.179829915023018e-10
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "pooled_ctrl_nscored": {
+    "logpat": {
+     "coef": -0.039246105696164234,
+     "se": 0.006062552006462589,
+     "t": -6.473528912301037,
+     "p": 9.574008384082732e-11
+    },
+    "log_nscored": {
+     "coef": 0.04519629194494889,
+     "se": 0.0053049925978418625,
+     "t": 8.519576815872526,
+     "p": 1.6013736814016626e-17
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "by_nice_class": {
+    "001": {
+     "logpat": {
+      "coef": -0.08610592558565312,
+      "se": 0.030373641242971462,
+      "t": -2.8348897946365996,
+      "p": 0.004584149631260762
+     },
+     "n_obs": 4210,
+     "n_firms": 685,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "002": {
+     "logpat": {
+      "coef": -0.07166493518348045,
+      "se": 0.08354576413831084,
+      "t": -0.857792563424741,
+      "p": 0.39100701684677397
+     },
+     "n_obs": 531,
+     "n_firms": 93,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "003": {
+     "logpat": {
+      "coef": 0.024640790715988424,
+      "se": 0.032423226528110596,
+      "t": 0.7599734312260724,
+      "p": 0.44727046638230283
+     },
+     "n_obs": 2216,
+     "n_firms": 330,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "004": {
+     "skipped": "cell too small",
+     "n_obs": 215,
+     "n_firms": 40,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "005": {
+     "logpat": {
+      "coef": 0.03218574465994015,
+      "se": 0.027871476104042153,
+      "t": 1.1547915345349187,
+      "p": 0.24817580459218314
+     },
+     "n_obs": 7417,
+     "n_firms": 1209,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "006": {
+     "logpat": {
+      "coef": 0.022603268602656965,
+      "se": 0.04432840096899072,
+      "t": 0.5099048941212373,
+      "p": 0.6101180930447399
+     },
+     "n_obs": 1815,
+     "n_firms": 346,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "007": {
+     "logpat": {
+      "coef": -0.07274695689441724,
+      "se": 0.02553090119191132,
+      "t": -2.849368941095776,
+      "p": 0.004380604955550946
+     },
+     "n_obs": 5531,
+     "n_firms": 960,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "008": {
+     "logpat": {
+      "coef": -0.023645438322238595,
+      "se": 0.08142844923618495,
+      "t": -0.290383011638285,
+      "p": 0.7715232388171375
+     },
+     "n_obs": 760,
+     "n_firms": 132,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "009": {
+     "logpat": {
+      "coef": -0.02282668826448827,
+      "se": 0.010364353161590305,
+      "t": -2.202422853466887,
+      "p": 0.02763545303704347
+     },
+     "n_obs": 25282,
+     "n_firms": 4231,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "010": {
+     "logpat": {
+      "coef": -0.06239784564704335,
+      "se": 0.021762673429500258,
+      "t": -2.867195790497887,
+      "p": 0.004141267253338107
+     },
+     "n_obs": 6895,
+     "n_firms": 1154,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "011": {
+     "logpat": {
+      "coef": -0.03761299189963176,
+      "se": 0.031058004239204857,
+      "t": -1.2110563064497388,
+      "p": 0.225873825645167
+     },
+     "n_obs": 3835,
+     "n_firms": 680,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "012": {
+     "logpat": {
+      "coef": -0.024481389414275495,
+      "se": 0.02261020292909106,
+      "t": -1.0827585002687836,
+      "p": 0.27891563022583676
+     },
+     "n_obs": 3360,
+     "n_firms": 516,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "013": {
+     "logpat": {
+      "coef": 0.0004088015730548903,
+      "se": 0.10788207540902242,
+      "t": 0.003789337306544821,
+      "p": 0.9969765535030856
+     },
+     "n_obs": 319,
+     "n_firms": 52,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "014": {
+     "logpat": {
+      "coef": -0.01686412604610526,
+      "se": 0.08087718137506926,
+      "t": -0.2085152543570676,
+      "p": 0.8348266731408903
+     },
+     "n_obs": 399,
+     "n_firms": 69,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "015": {
+     "skipped": "cell too small",
+     "n_obs": 110,
+     "n_firms": 18,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "016": {
+     "logpat": {
+      "coef": 0.04096633256315121,
+      "se": 0.037973558640853125,
+      "t": 1.0788120478937249,
+      "p": 0.280671522936363
+     },
+     "n_obs": 1755,
+     "n_firms": 313,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "017": {
+     "logpat": {
+      "coef": -0.042166776199269174,
+      "se": 0.05939088754788161,
+      "t": -0.7099873051278083,
+      "p": 0.47771200856682694
+     },
+     "n_obs": 1017,
+     "n_firms": 171,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "018": {
+     "logpat": {
+      "coef": -0.04296554800736875,
+      "se": 0.09258351484449928,
+      "t": -0.4640734160885175,
+      "p": 0.6425951471780422
+     },
+     "n_obs": 383,
+     "n_firms": 76,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "019": {
+     "logpat": {
+      "coef": -0.05675039823137361,
+      "se": 0.05414893486788296,
+      "t": -1.0480427430352584,
+      "p": 0.29461891432933407
+     },
+     "n_obs": 1251,
+     "n_firms": 227,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "020": {
+     "logpat": {
+      "coef": -0.0017200894879664487,
+      "se": 0.04121157769977725,
+      "t": -0.04173801596476482,
+      "p": 0.9667075479961538
+     },
+     "n_obs": 1925,
+     "n_firms": 334,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "021": {
+     "logpat": {
+      "coef": -0.011141287731154775,
+      "se": 0.037406224246121965,
+      "t": -0.29784582527892617,
+      "p": 0.765820837392491
+     },
+     "n_obs": 1835,
+     "n_firms": 302,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "022": {
+     "skipped": "cell too small",
+     "n_obs": 87,
+     "n_firms": 20,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "023": {
+     "skipped": "cell too small",
+     "n_obs": 6,
+     "n_firms": 2,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "024": {
+     "logpat": {
+      "coef": -0.03079491195820636,
+      "se": 0.12119866796367974,
+      "t": -0.2540862245073092,
+      "p": 0.7994289454734003
+     },
+     "n_obs": 398,
+     "n_firms": 73,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "025": {
+     "logpat": {
+      "coef": -0.0643818713963424,
+      "se": 0.04128656101637627,
+      "t": -1.559390508955333,
+      "p": 0.1189039813018402
+     },
+     "n_obs": 1620,
+     "n_firms": 273,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "026": {
+     "skipped": "cell too small",
+     "n_obs": 129,
+     "n_firms": 20,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "027": {
+     "skipped": "cell too small",
+     "n_obs": 135,
+     "n_firms": 25,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "028": {
+     "logpat": {
+      "coef": -0.027560589065038825,
+      "se": 0.043672961764641846,
+      "t": -0.6310675519000913,
+      "p": 0.5279963563272039
+     },
+     "n_obs": 2983,
+     "n_firms": 486,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "029": {
+     "logpat": {
+      "coef": 0.04242003676731391,
+      "se": 0.09275208109409733,
+      "t": 0.4573486251405898,
+      "p": 0.6474204846752717
+     },
+     "n_obs": 476,
+     "n_firms": 83,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "030": {
+     "logpat": {
+      "coef": 0.13040040414573412,
+      "se": 0.054248764202858984,
+      "t": 2.4037488422429694,
+      "p": 0.016227918205990337
+     },
+     "n_obs": 920,
+     "n_firms": 136,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "031": {
+     "logpat": {
+      "coef": -0.05879680080274841,
+      "se": 0.07313185927412937,
+      "t": -0.8039833991140982,
+      "p": 0.42140656254057285
+     },
+     "n_obs": 657,
+     "n_firms": 102,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "032": {
+     "skipped": "cell too small",
+     "n_obs": 365,
+     "n_firms": 49,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "033": {
+     "skipped": "cell too small",
+     "n_obs": 115,
+     "n_firms": 20,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "034": {
+     "skipped": "cell too small",
+     "n_obs": 181,
+     "n_firms": 32,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "035": {
+     "logpat": {
+      "coef": -0.06461374453197155,
+      "se": 0.03651940652867646,
+      "t": -1.7692988652823347,
+      "p": 0.07684401270970768
+     },
+     "n_obs": 1752,
+     "n_firms": 329,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "036": {
+     "logpat": {
+      "coef": -0.003997858157637416,
+      "se": 0.030147325103700107,
+      "t": -0.13261070903921562,
+      "p": 0.8945012626391925
+     },
+     "n_obs": 1159,
+     "n_firms": 185,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "037": {
+     "logpat": {
+      "coef": -0.11442359234681583,
+      "se": 0.09263728114236493,
+      "t": -1.2351786552432353,
+      "p": 0.21676402130702443
+     },
+     "n_obs": 405,
+     "n_firms": 78,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "038": {
+     "logpat": {
+      "coef": 0.004091962571313427,
+      "se": 0.06088823115126103,
+      "t": 0.06720449081774123,
+      "p": 0.9464189100539889
+     },
+     "n_obs": 701,
+     "n_firms": 131,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "039": {
+     "logpat": {
+      "coef": 0.230569131823276,
+      "se": 0.10075269176931514,
+      "t": 2.2884662213411677,
+      "p": 0.02211038504997662
+     },
+     "n_obs": 410,
+     "n_firms": 68,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "040": {
+     "skipped": "cell too small",
+     "n_obs": 263,
+     "n_firms": 55,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "041": {
+     "logpat": {
+      "coef": -0.059944542524681184,
+      "se": 0.03043189710621797,
+      "t": -1.9697931520816383,
+      "p": 0.048862081729889206
+     },
+     "n_obs": 2784,
+     "n_firms": 374,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "042": {
+     "logpat": {
+      "coef": -0.015189264008864136,
+      "se": 0.0299237117363813,
+      "t": -0.5075995966903064,
+      "p": 0.6117341735315239
+     },
+     "n_obs": 2721,
+     "n_firms": 530,
+     "group": "complement",
+     "goods_services": "services"
+    },
+    "043": {
+     "skipped": "cell too small",
+     "n_obs": 36,
+     "n_firms": 9,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "044": {
+     "logpat": {
+      "coef": -0.007699072249114841,
+      "se": 0.05297625992409559,
+      "t": -0.14533061148797735,
+      "p": 0.884449846814851
+     },
+     "n_obs": 552,
+     "n_firms": 90,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "045": {
+     "skipped": "cell too small",
+     "n_obs": 71,
+     "n_firms": 13,
+     "group": "substitute",
+     "goods_services": "services"
+    }
+   },
+   "by_goods_services": {
+    "goods": {
+     "logpat": {
+      "coef": -0.03745215665042336,
+      "se": 0.006620222501025996,
+      "t": -5.657235333800195,
+      "p": 1.5383077166807476e-08
+     },
+     "n_obs": 79133,
+     "n_firms": 13259
+    },
+    "services": {
+     "logpat": {
+      "coef": -0.03634476051637978,
+      "se": 0.014980305772831012,
+      "t": -2.4261694699380802,
+      "p": 0.015259142921173289
+     },
+     "n_obs": 10854,
+     "n_firms": 1862
+    }
+   },
+   "by_ipr_group": {
+    "complement": {
+     "logpat": {
+      "coef": -0.03454735814971365,
+      "se": 0.007353153960967777,
+      "t": -4.698304745568898,
+      "p": 2.6232981140733925e-06
+     },
+     "n_obs": 61014,
+     "n_firms": 10269
+    },
+    "neutral": {
+     "logpat": {
+      "coef": -0.0094349697815082,
+      "se": 0.015418529219601938,
+      "t": -0.6119241107325141,
+      "p": 0.5405879686138311
+     },
+     "n_obs": 14034,
+     "n_firms": 2427
+    },
+    "substitute": {
+     "logpat": {
+      "coef": -0.04174044004741208,
+      "se": 0.014599307903320473,
+      "t": -2.859069780829721,
+      "p": 0.004248853093512567
+     },
+     "n_obs": 14939,
+     "n_firms": 2425
+    }
+   },
+   "interaction_complement": {
+    "logpat": {
+     "coef": -0.005809478835472021,
+     "se": 0.010379192648419687,
+     "t": -0.5597235769929138,
+     "p": 0.5756679980944519
+    },
+    "logpat_x_comp": {
+     "coef": -0.04516383019291747,
+     "se": 0.012457071609282302,
+     "t": -3.6255575635660593,
+     "p": 0.0002883386567214888
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "cell_sizes": {
+    "firm_years_total": 89987,
+    "firms_total": 15121,
+    "by_nice_class": {
+     "001": {
+      "firm_years": 4210,
+      "firms": 685
+     },
+     "002": {
+      "firm_years": 531,
+      "firms": 93
+     },
+     "003": {
+      "firm_years": 2216,
+      "firms": 330
+     },
+     "004": {
+      "firm_years": 215,
+      "firms": 40
+     },
+     "005": {
+      "firm_years": 7417,
+      "firms": 1209
+     },
+     "006": {
+      "firm_years": 1815,
+      "firms": 346
+     },
+     "007": {
+      "firm_years": 5531,
+      "firms": 960
+     },
+     "008": {
+      "firm_years": 760,
+      "firms": 132
+     },
+     "009": {
+      "firm_years": 25282,
+      "firms": 4231
+     },
+     "010": {
+      "firm_years": 6895,
+      "firms": 1154
+     },
+     "011": {
+      "firm_years": 3835,
+      "firms": 680
+     },
+     "012": {
+      "firm_years": 3360,
+      "firms": 516
+     },
+     "013": {
+      "firm_years": 319,
+      "firms": 52
+     },
+     "014": {
+      "firm_years": 399,
+      "firms": 69
+     },
+     "015": {
+      "firm_years": 110,
+      "firms": 18
+     },
+     "016": {
+      "firm_years": 1755,
+      "firms": 313
+     },
+     "017": {
+      "firm_years": 1017,
+      "firms": 171
+     },
+     "018": {
+      "firm_years": 383,
+      "firms": 76
+     },
+     "019": {
+      "firm_years": 1251,
+      "firms": 227
+     },
+     "020": {
+      "firm_years": 1925,
+      "firms": 334
+     },
+     "021": {
+      "firm_years": 1835,
+      "firms": 302
+     },
+     "022": {
+      "firm_years": 87,
+      "firms": 20
+     },
+     "023": {
+      "firm_years": 6,
+      "firms": 2
+     },
+     "024": {
+      "firm_years": 398,
+      "firms": 73
+     },
+     "025": {
+      "firm_years": 1620,
+      "firms": 273
+     },
+     "026": {
+      "firm_years": 129,
+      "firms": 20
+     },
+     "027": {
+      "firm_years": 135,
+      "firms": 25
+     },
+     "028": {
+      "firm_years": 2983,
+      "firms": 486
+     },
+     "029": {
+      "firm_years": 476,
+      "firms": 83
+     },
+     "030": {
+      "firm_years": 920,
+      "firms": 136
+     },
+     "031": {
+      "firm_years": 657,
+      "firms": 102
+     },
+     "032": {
+      "firm_years": 365,
+      "firms": 49
+     },
+     "033": {
+      "firm_years": 115,
+      "firms": 20
+     },
+     "034": {
+      "firm_years": 181,
+      "firms": 32
+     },
+     "035": {
+      "firm_years": 1752,
+      "firms": 329
+     },
+     "036": {
+      "firm_years": 1159,
+      "firms": 185
+     },
+     "037": {
+      "firm_years": 405,
+      "firms": 78
+     },
+     "038": {
+      "firm_years": 701,
+      "firms": 131
+     },
+     "039": {
+      "firm_years": 410,
+      "firms": 68
+     },
+     "040": {
+      "firm_years": 263,
+      "firms": 55
+     },
+     "041": {
+      "firm_years": 2784,
+      "firms": 374
+     },
+     "042": {
+      "firm_years": 2721,
+      "firms": 530
+     },
+     "043": {
+      "firm_years": 36,
+      "firms": 9
+     },
+     "044": {
+      "firm_years": 552,
+      "firms": 90
+     },
+     "045": {
+      "firm_years": 71,
+      "firms": 13
+     }
+    },
+    "by_ipr_group": {
+     "complement": {
+      "firm_years": 61014,
+      "firms": 10269
+     },
+     "neutral": {
+      "firm_years": 14034,
+      "firms": 2427
+     },
+     "substitute": {
+      "firm_years": 14939,
+      "firms": 2425
+     }
+    }
+   },
+   "sigma_dkl": 0.2233614623112365,
+   "matched_firm_years": 162995,
+   "by_sic": {
+    "n_firm_years": 8930,
+    "n_firms": 1114,
+    "pooled": {
+     "logpat": {
+      "coef": -0.0074769438152272995,
+      "se": 0.017147848301674408,
+      "t": -0.43602810589928126,
+      "p": 0.6628163377471248
+     },
+     "n_obs": 8930,
+     "n_firms": 1114
+    },
+    "by_sic_group": {
+     "Agriculture, forestry, fishing": {
+      "skipped": "cell too small",
+      "n_obs": 13,
+      "n_firms": 3
+     },
+     "Business services incl. software (SIC 73)": {
+      "logpat": {
+       "coef": -0.028570561272193075,
+       "se": 0.030142416651397896,
+       "t": -0.9478523770212723,
+       "p": 0.34320461187253737
+      },
+      "n_obs": 1296,
+      "n_firms": 172
+     },
+     "Chemicals and pharmaceuticals (SIC 28)": {
+      "logpat": {
+       "coef": -0.028875579618422968,
+       "se": 0.04340674618352461,
+       "t": -0.6652325308222005,
+       "p": 0.5059017766050112
+      },
+      "n_obs": 1422,
+      "n_firms": 194
+     },
+     "Construction": {
+      "skipped": "cell too small",
+      "n_obs": 39,
+      "n_firms": 6
+     },
+     "Electronics and electrical equipment (SIC 36)": {
+      "logpat": {
+       "coef": -0.06237099753660587,
+       "se": 0.05021316905527693,
+       "t": -1.2421243014545655,
+       "p": 0.21419070361348602
+      },
+      "n_obs": 1337,
+      "n_firms": 157
+     },
+     "Finance, insurance, real estate": {
+      "skipped": "cell too small",
+      "n_obs": 185,
+      "n_firms": 29
+     },
+     "Industrial and computer machinery (SIC 35)": {
+      "logpat": {
+       "coef": 0.019736209402255952,
+       "se": 0.05119913868378596,
+       "t": 0.3854793246454775,
+       "p": 0.6998823217358283
+      },
+      "n_obs": 902,
+      "n_firms": 90
+     },
+     "Instruments and medical devices (SIC 38)": {
+      "logpat": {
+       "coef": 0.003455814931905388,
+       "se": 0.04841564905290651,
+       "t": 0.07137805646535945,
+       "p": 0.943096873460671
+      },
+      "n_obs": 1363,
+      "n_firms": 160
+     },
+     "Manufacturing": {
+      "logpat": {
+       "coef": -0.08017793092917132,
+       "se": 0.05347203298044018,
+       "t": -1.4994367421657604,
+       "p": 0.1337603677842296
+      },
+      "n_obs": 1133,
+      "n_firms": 124
+     },
+     "Mining": {
+      "skipped": "cell too small",
+      "n_obs": 80,
+      "n_firms": 12
+     },
+     "Public administration": {
+      "skipped": "cell too small",
+      "n_obs": 3,
+      "n_firms": 1
+     },
+     "Retail trade": {
+      "skipped": "cell too small",
+      "n_obs": 153,
+      "n_firms": 21
+     },
+     "Services": {
+      "skipped": "cell too small",
+      "n_obs": 264,
+      "n_firms": 46
+     },
+     "Transportation and utilities": {
+      "skipped": "cell too small",
+      "n_obs": 285,
+      "n_firms": 44
+     },
+     "Transportation equipment (SIC 37)": {
+      "skipped": "cell too small",
+      "n_obs": 348,
+      "n_firms": 39
+     },
+     "Wholesale trade": {
+      "skipped": "cell too small",
+      "n_obs": 107,
+      "n_firms": 16
+     }
+    },
+    "cell_sizes": {
+     "Agriculture, forestry, fishing": {
+      "firm_years": 13,
+      "firms": 3
+     },
+     "Business services incl. software (SIC 73)": {
+      "firm_years": 1296,
+      "firms": 172
+     },
+     "Chemicals and pharmaceuticals (SIC 28)": {
+      "firm_years": 1422,
+      "firms": 194
+     },
+     "Construction": {
+      "firm_years": 39,
+      "firms": 6
+     },
+     "Electronics and electrical equipment (SIC 36)": {
+      "firm_years": 1337,
+      "firms": 157
+     },
+     "Finance, insurance, real estate": {
+      "firm_years": 185,
+      "firms": 29
+     },
+     "Industrial and computer machinery (SIC 35)": {
+      "firm_years": 902,
+      "firms": 90
+     },
+     "Instruments and medical devices (SIC 38)": {
+      "firm_years": 1363,
+      "firms": 160
+     },
+     "Manufacturing": {
+      "firm_years": 1133,
+      "firms": 124
+     },
+     "Mining": {
+      "firm_years": 80,
+      "firms": 12
+     },
+     "Public administration": {
+      "firm_years": 3,
+      "firms": 1
+     },
+     "Retail trade": {
+      "firm_years": 153,
+      "firms": 21
+     },
+     "Services": {
+      "firm_years": 264,
+      "firms": 46
+     },
+     "Transportation and utilities": {
+      "firm_years": 285,
+      "firms": 44
+     },
+     "Transportation equipment (SIC 37)": {
+      "firm_years": 348,
+      "firms": 39
+     },
+     "Wholesale trade": {
+      "firm_years": 107,
+      "firms": 16
+     }
+    }
+   }
+  },
+  "t200": {
+   "pooled": {
+    "logpat": {
+     "coef": -0.00950380470655966,
+     "se": 0.006277658745329005,
+     "t": -1.5139091008460952,
+     "p": 0.13004889558504873
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "pooled_ctrl_nscored": {
+    "logpat": {
+     "coef": -0.008479688245017861,
+     "se": 0.006270378460053617,
+     "t": -1.3523407397239229,
+     "p": 0.17626633737235942
+    },
+    "log_nscored": {
+     "coef": -0.027235611708678366,
+     "se": 0.005293462184443954,
+     "t": -5.145141451792444,
+     "p": 2.673193083951761e-07
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "by_nice_class": {
+    "001": {
+     "logpat": {
+      "coef": -0.04859090671848738,
+      "se": 0.03084732428320456,
+      "t": -1.5752065324169353,
+      "p": 0.11520877986178218
+     },
+     "n_obs": 4052,
+     "n_firms": 659,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "002": {
+     "logpat": {
+      "coef": 0.03515742982340721,
+      "se": 0.08353582347783739,
+      "t": 0.4208665020550699,
+      "p": 0.6738525672332129
+     },
+     "n_obs": 498,
+     "n_firms": 90,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "003": {
+     "logpat": {
+      "coef": 0.07587617935517547,
+      "se": 0.029471276414876093,
+      "t": 2.5745806963717315,
+      "p": 0.01003616719773272
+     },
+     "n_obs": 2174,
+     "n_firms": 321,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "004": {
+     "skipped": "cell too small",
+     "n_obs": 252,
+     "n_firms": 47,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "005": {
+     "logpat": {
+      "coef": 0.014204376307797141,
+      "se": 0.02231737921954175,
+      "t": 0.6364715215019232,
+      "p": 0.5244691371166817
+     },
+     "n_obs": 7398,
+     "n_firms": 1219,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "006": {
+     "logpat": {
+      "coef": -0.03293034169630907,
+      "se": 0.04805173366374303,
+      "t": -0.6853101685518651,
+      "p": 0.49314821649276896
+     },
+     "n_obs": 1789,
+     "n_firms": 339,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "007": {
+     "logpat": {
+      "coef": -0.06815303789010298,
+      "se": 0.031515498001827597,
+      "t": -2.1625245422474606,
+      "p": 0.030577767472556264
+     },
+     "n_obs": 5582,
+     "n_firms": 968,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "008": {
+     "logpat": {
+      "coef": -0.02543033009270049,
+      "se": 0.07014785064868151,
+      "t": -0.3625247225330129,
+      "p": 0.7169599522674857
+     },
+     "n_obs": 742,
+     "n_firms": 129,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "009": {
+     "logpat": {
+      "coef": 0.0023071558797648126,
+      "se": 0.010991293963120728,
+      "t": 0.20990757662437665,
+      "p": 0.8337398086783168
+     },
+     "n_obs": 25133,
+     "n_firms": 4202,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "010": {
+     "logpat": {
+      "coef": -0.04178615287789404,
+      "se": 0.020806129516561505,
+      "t": -2.008357818047447,
+      "p": 0.04460528194601049
+     },
+     "n_obs": 6865,
+     "n_firms": 1151,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "011": {
+     "logpat": {
+      "coef": 0.02249349335083972,
+      "se": 0.03303737048111875,
+      "t": 0.6808499896713941,
+      "p": 0.49596641507709116
+     },
+     "n_obs": 3934,
+     "n_firms": 689,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "012": {
+     "logpat": {
+      "coef": 0.02577178139929504,
+      "se": 0.031050196799937136,
+      "t": 0.830003802080482,
+      "p": 0.4065366340051836
+     },
+     "n_obs": 3477,
+     "n_firms": 533,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "013": {
+     "logpat": {
+      "coef": -0.04908367036788708,
+      "se": 0.12227887996810353,
+      "t": -0.4014075887895813,
+      "p": 0.6881200630870983
+     },
+     "n_obs": 348,
+     "n_firms": 59,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "014": {
+     "logpat": {
+      "coef": -0.043581715757888814,
+      "se": 0.05074102482977142,
+      "t": -0.8589049177484881,
+      "p": 0.3903929760230598
+     },
+     "n_obs": 498,
+     "n_firms": 83,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "015": {
+     "skipped": "cell too small",
+     "n_obs": 144,
+     "n_firms": 22,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "016": {
+     "logpat": {
+      "coef": -0.013083180298793108,
+      "se": 0.04947601164967443,
+      "t": -0.26443482129140455,
+      "p": 0.7914448826327181
+     },
+     "n_obs": 1839,
+     "n_firms": 323,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "017": {
+     "logpat": {
+      "coef": -0.021471033287051848,
+      "se": 0.05985426906887499,
+      "t": -0.35872183590354906,
+      "p": 0.7198031914687998
+     },
+     "n_obs": 1039,
+     "n_firms": 172,
+     "group": "complement",
+     "goods_services": "goods"
+    },
+    "018": {
+     "logpat": {
+      "coef": -0.12296385007814307,
+      "se": 0.11776267747689391,
+      "t": -1.0441665620439862,
+      "p": 0.2964083344683587
+     },
+     "n_obs": 349,
+     "n_firms": 70,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "019": {
+     "logpat": {
+      "coef": -0.09781026085058322,
+      "se": 0.05623331942376606,
+      "t": -1.73936487927201,
+      "p": 0.08197060180353673
+     },
+     "n_obs": 1196,
+     "n_firms": 221,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "020": {
+     "logpat": {
+      "coef": 0.0003596211556170146,
+      "se": 0.045840537452474926,
+      "t": 0.007845046668352243,
+      "p": 0.9937406225899201
+     },
+     "n_obs": 2027,
+     "n_firms": 351,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "021": {
+     "logpat": {
+      "coef": -0.17542507029979948,
+      "se": 0.039164331436144284,
+      "t": -4.4792050283258975,
+      "p": 7.4921544391427535e-06
+     },
+     "n_obs": 1848,
+     "n_firms": 301,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "022": {
+     "skipped": "cell too small",
+     "n_obs": 85,
+     "n_firms": 19,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "023": {
+     "skipped": "cell too small",
+     "n_obs": 10,
+     "n_firms": 3,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "024": {
+     "logpat": {
+      "coef": -0.021088763109144926,
+      "se": 0.1333240101972463,
+      "t": -0.1581767835961815,
+      "p": 0.8743174974395436
+     },
+     "n_obs": 364,
+     "n_firms": 71,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "025": {
+     "logpat": {
+      "coef": -0.02345948380211089,
+      "se": 0.03179167246654913,
+      "t": -0.7379128552231631,
+      "p": 0.46056740662668805
+     },
+     "n_obs": 1838,
+     "n_firms": 305,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "026": {
+     "skipped": "cell too small",
+     "n_obs": 141,
+     "n_firms": 21,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "027": {
+     "skipped": "cell too small",
+     "n_obs": 183,
+     "n_firms": 34,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "028": {
+     "logpat": {
+      "coef": -0.010040570266382248,
+      "se": 0.04257130020590885,
+      "t": -0.23585303286058967,
+      "p": 0.8135467144787445
+     },
+     "n_obs": 2992,
+     "n_firms": 486,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "029": {
+     "logpat": {
+      "coef": 0.15812822988457115,
+      "se": 0.13046393060210815,
+      "t": 1.2120455757755315,
+      "p": 0.22549493507100926
+     },
+     "n_obs": 478,
+     "n_firms": 80,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "030": {
+     "logpat": {
+      "coef": 0.006749245267762637,
+      "se": 0.04525107321754692,
+      "t": 0.14915105406042603,
+      "p": 0.8814344410790376
+     },
+     "n_obs": 986,
+     "n_firms": 150,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "031": {
+     "logpat": {
+      "coef": -0.025216785386827725,
+      "se": 0.044381933282027754,
+      "t": -0.5681768125463597,
+      "p": 0.5699149145502699
+     },
+     "n_obs": 707,
+     "n_firms": 111,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "032": {
+     "logpat": {
+      "coef": -0.1166420173709221,
+      "se": 0.101419026633162,
+      "t": -1.1500999491231805,
+      "p": 0.25010270734115714
+     },
+     "n_obs": 404,
+     "n_firms": 56,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "033": {
+     "skipped": "cell too small",
+     "n_obs": 118,
+     "n_firms": 21,
+     "group": "substitute",
+     "goods_services": "goods"
+    },
+    "034": {
+     "skipped": "cell too small",
+     "n_obs": 194,
+     "n_firms": 35,
+     "group": "neutral",
+     "goods_services": "goods"
+    },
+    "035": {
+     "logpat": {
+      "coef": -0.036188525521975094,
+      "se": 0.028017758868126245,
+      "t": -1.2916281310117252,
+      "p": 0.19648595717013295
+     },
+     "n_obs": 1517,
+     "n_firms": 289,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "036": {
+     "logpat": {
+      "coef": -0.026397242827870905,
+      "se": 0.02505603408596891,
+      "t": -1.053528373137593,
+      "p": 0.29209889745442785
+     },
+     "n_obs": 1195,
+     "n_firms": 187,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "037": {
+     "logpat": {
+      "coef": -0.06132522447829308,
+      "se": 0.1221628127081397,
+      "t": -0.5019958456981974,
+      "p": 0.6156704432237916
+     },
+     "n_obs": 348,
+     "n_firms": 73,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "038": {
+     "logpat": {
+      "coef": 0.07495046528284302,
+      "se": 0.06882720714107453,
+      "t": 1.088965663378113,
+      "p": 0.27616902779026675
+     },
+     "n_obs": 704,
+     "n_firms": 131,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "039": {
+     "logpat": {
+      "coef": 0.17504816148162824,
+      "se": 0.07523657162280876,
+      "t": 2.326636603794431,
+      "p": 0.019984614634956113
+     },
+     "n_obs": 426,
+     "n_firms": 72,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "040": {
+     "skipped": "cell too small",
+     "n_obs": 232,
+     "n_firms": 50,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "041": {
+     "logpat": {
+      "coef": -0.011864241218271643,
+      "se": 0.02953579593420558,
+      "t": -0.40169024883231924,
+      "p": 0.687912001778197
+     },
+     "n_obs": 2605,
+     "n_firms": 356,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "042": {
+     "logpat": {
+      "coef": 0.014045404492313004,
+      "se": 0.029270114202118343,
+      "t": 0.4798547896098235,
+      "p": 0.6313306506649896
+     },
+     "n_obs": 2551,
+     "n_firms": 500,
+     "group": "complement",
+     "goods_services": "services"
+    },
+    "043": {
+     "skipped": "cell too small",
+     "n_obs": 53,
+     "n_firms": 13,
+     "group": "substitute",
+     "goods_services": "services"
+    },
+    "044": {
+     "logpat": {
+      "coef": -0.029406058098159667,
+      "se": 0.05882951691651586,
+      "t": -0.49985210893180354,
+      "p": 0.6171792159363348
+     },
+     "n_obs": 601,
+     "n_firms": 96,
+     "group": "neutral",
+     "goods_services": "services"
+    },
+    "045": {
+     "skipped": "cell too small",
+     "n_obs": 71,
+     "n_firms": 13,
+     "group": "substitute",
+     "goods_services": "services"
+    }
+   },
+   "by_goods_services": {
+    "goods": {
+     "logpat": {
+      "coef": -0.009845216720801395,
+      "se": 0.006884341248835243,
+      "t": -1.4300884231250304,
+      "p": 0.15269164243629071
+     },
+     "n_obs": 79684,
+     "n_firms": 13341
+    },
+    "services": {
+     "logpat": {
+      "coef": -0.0014869793291971316,
+      "se": 0.01431478754007865,
+      "t": -0.1038771497679498,
+      "p": 0.9172668408342786
+     },
+     "n_obs": 10303,
+     "n_firms": 1780
+    }
+   },
+   "by_ipr_group": {
+    "complement": {
+     "logpat": {
+      "coef": 0.0017485914138160154,
+      "se": 0.007797248559349523,
+      "t": 0.22425749294849845,
+      "p": 0.8225569495684085
+     },
+     "n_obs": 60781,
+     "n_firms": 10230
+    },
+    "neutral": {
+     "logpat": {
+      "coef": -0.02664185740718235,
+      "se": 0.016575881812700324,
+      "t": -1.6072663709975021,
+      "p": 0.10799594799783445
+     },
+     "n_obs": 14247,
+     "n_firms": 2452
+    },
+    "substitute": {
+     "logpat": {
+      "coef": -0.031156759554986545,
+      "se": 0.012594948073269578,
+      "t": -2.4737505366227706,
+      "p": 0.013370302071475248
+     },
+     "n_obs": 14959,
+     "n_firms": 2439
+    }
+   },
+   "interaction_complement": {
+    "logpat": {
+     "coef": -0.009485541514694733,
+     "se": 0.010054398820064757,
+     "t": -0.9434220468522891,
+     "p": 0.3454650706782961
+    },
+    "logpat_x_comp": {
+     "coef": -2.6022624867160323e-05,
+     "se": 0.012428528338807884,
+     "t": -0.002093781673724401,
+     "p": 0.9983294051494696
+    },
+    "n_obs": 89987,
+    "n_firms": 15121
+   },
+   "cell_sizes": {
+    "firm_years_total": 89987,
+    "firms_total": 15121,
+    "by_nice_class": {
+     "001": {
+      "firm_years": 4052,
+      "firms": 659
+     },
+     "002": {
+      "firm_years": 498,
+      "firms": 90
+     },
+     "003": {
+      "firm_years": 2174,
+      "firms": 321
+     },
+     "004": {
+      "firm_years": 252,
+      "firms": 47
+     },
+     "005": {
+      "firm_years": 7398,
+      "firms": 1219
+     },
+     "006": {
+      "firm_years": 1789,
+      "firms": 339
+     },
+     "007": {
+      "firm_years": 5582,
+      "firms": 968
+     },
+     "008": {
+      "firm_years": 742,
+      "firms": 129
+     },
+     "009": {
+      "firm_years": 25133,
+      "firms": 4202
+     },
+     "010": {
+      "firm_years": 6865,
+      "firms": 1151
+     },
+     "011": {
+      "firm_years": 3934,
+      "firms": 689
+     },
+     "012": {
+      "firm_years": 3477,
+      "firms": 533
+     },
+     "013": {
+      "firm_years": 348,
+      "firms": 59
+     },
+     "014": {
+      "firm_years": 498,
+      "firms": 83
+     },
+     "015": {
+      "firm_years": 144,
+      "firms": 22
+     },
+     "016": {
+      "firm_years": 1839,
+      "firms": 323
+     },
+     "017": {
+      "firm_years": 1039,
+      "firms": 172
+     },
+     "018": {
+      "firm_years": 349,
+      "firms": 70
+     },
+     "019": {
+      "firm_years": 1196,
+      "firms": 221
+     },
+     "020": {
+      "firm_years": 2027,
+      "firms": 351
+     },
+     "021": {
+      "firm_years": 1848,
+      "firms": 301
+     },
+     "022": {
+      "firm_years": 85,
+      "firms": 19
+     },
+     "023": {
+      "firm_years": 10,
+      "firms": 3
+     },
+     "024": {
+      "firm_years": 364,
+      "firms": 71
+     },
+     "025": {
+      "firm_years": 1838,
+      "firms": 305
+     },
+     "026": {
+      "firm_years": 141,
+      "firms": 21
+     },
+     "027": {
+      "firm_years": 183,
+      "firms": 34
+     },
+     "028": {
+      "firm_years": 2992,
+      "firms": 486
+     },
+     "029": {
+      "firm_years": 478,
+      "firms": 80
+     },
+     "030": {
+      "firm_years": 986,
+      "firms": 150
+     },
+     "031": {
+      "firm_years": 707,
+      "firms": 111
+     },
+     "032": {
+      "firm_years": 404,
+      "firms": 56
+     },
+     "033": {
+      "firm_years": 118,
+      "firms": 21
+     },
+     "034": {
+      "firm_years": 194,
+      "firms": 35
+     },
+     "035": {
+      "firm_years": 1517,
+      "firms": 289
+     },
+     "036": {
+      "firm_years": 1195,
+      "firms": 187
+     },
+     "037": {
+      "firm_years": 348,
+      "firms": 73
+     },
+     "038": {
+      "firm_years": 704,
+      "firms": 131
+     },
+     "039": {
+      "firm_years": 426,
+      "firms": 72
+     },
+     "040": {
+      "firm_years": 232,
+      "firms": 50
+     },
+     "041": {
+      "firm_years": 2605,
+      "firms": 356
+     },
+     "042": {
+      "firm_years": 2551,
+      "firms": 500
+     },
+     "043": {
+      "firm_years": 53,
+      "firms": 13
+     },
+     "044": {
+      "firm_years": 601,
+      "firms": 96
+     },
+     "045": {
+      "firm_years": 71,
+      "firms": 13
+     }
+    },
+    "by_ipr_group": {
+     "complement": {
+      "firm_years": 60781,
+      "firms": 10230
+     },
+     "neutral": {
+      "firm_years": 14247,
+      "firms": 2452
+     },
+     "substitute": {
+      "firm_years": 14959,
+      "firms": 2439
+     }
+    }
+   },
+   "sigma_dkl": 0.12553171352695908,
+   "matched_firm_years": 162995,
+   "by_sic": {
+    "n_firm_years": 8930,
+    "n_firms": 1114,
+    "pooled": {
+     "logpat": {
+      "coef": 0.02525906132870273,
+      "se": 0.016861325946708323,
+      "t": 1.4980471529069646,
+      "p": 0.13412099995456997
+     },
+     "n_obs": 8930,
+     "n_firms": 1114
+    },
+    "by_sic_group": {
+     "Agriculture, forestry, fishing": {
+      "skipped": "cell too small",
+      "n_obs": 13,
+      "n_firms": 3
+     },
+     "Business services incl. software (SIC 73)": {
+      "logpat": {
+       "coef": -0.008293759623211081,
+       "se": 0.022817007216773218,
+       "t": -0.36349024849824213,
+       "p": 0.7162386960841223
+      },
+      "n_obs": 1296,
+      "n_firms": 172
+     },
+     "Chemicals and pharmaceuticals (SIC 28)": {
+      "logpat": {
+       "coef": -0.011450782443616296,
+       "se": 0.05513887010479008,
+       "t": -0.2076716918909358,
+       "p": 0.8354853223779471
+      },
+      "n_obs": 1422,
+      "n_firms": 194
+     },
+     "Construction": {
+      "skipped": "cell too small",
+      "n_obs": 39,
+      "n_firms": 6
+     },
+     "Electronics and electrical equipment (SIC 36)": {
+      "logpat": {
+       "coef": -0.033247973411743445,
+       "se": 0.04681265042437032,
+       "t": -0.7102348000025821,
+       "p": 0.47755854400597975
+      },
+      "n_obs": 1337,
+      "n_firms": 157
+     },
+     "Finance, insurance, real estate": {
+      "skipped": "cell too small",
+      "n_obs": 185,
+      "n_firms": 29
+     },
+     "Industrial and computer machinery (SIC 35)": {
+      "logpat": {
+       "coef": 0.028098108763579488,
+       "se": 0.06616435380249357,
+       "t": 0.42467140006316423,
+       "p": 0.6710762354742663
+      },
+      "n_obs": 902,
+      "n_firms": 90
+     },
+     "Instruments and medical devices (SIC 38)": {
+      "logpat": {
+       "coef": -0.018813327065747176,
+       "se": 0.05108046360293292,
+       "t": -0.3683076804468736,
+       "p": 0.7126438262642762
+      },
+      "n_obs": 1363,
+      "n_firms": 160
+     },
+     "Manufacturing": {
+      "logpat": {
+       "coef": -0.006870563567166623,
+       "se": 0.04345476051245766,
+       "t": -0.15810842094497246,
+       "p": 0.8743713651237053
+      },
+      "n_obs": 1133,
+      "n_firms": 124
+     },
+     "Mining": {
+      "skipped": "cell too small",
+      "n_obs": 80,
+      "n_firms": 12
+     },
+     "Public administration": {
+      "skipped": "cell too small",
+      "n_obs": 3,
+      "n_firms": 1
+     },
+     "Retail trade": {
+      "skipped": "cell too small",
+      "n_obs": 153,
+      "n_firms": 21
+     },
+     "Services": {
+      "skipped": "cell too small",
+      "n_obs": 264,
+      "n_firms": 46
+     },
+     "Transportation and utilities": {
+      "skipped": "cell too small",
+      "n_obs": 285,
+      "n_firms": 44
+     },
+     "Transportation equipment (SIC 37)": {
+      "skipped": "cell too small",
+      "n_obs": 348,
+      "n_firms": 39
+     },
+     "Wholesale trade": {
+      "skipped": "cell too small",
+      "n_obs": 107,
+      "n_firms": 16
+     }
+    },
+    "cell_sizes": {
+     "Agriculture, forestry, fishing": {
+      "firm_years": 13,
+      "firms": 3
+     },
+     "Business services incl. software (SIC 73)": {
+      "firm_years": 1296,
+      "firms": 172
+     },
+     "Chemicals and pharmaceuticals (SIC 28)": {
+      "firm_years": 1422,
+      "firms": 194
+     },
+     "Construction": {
+      "firm_years": 39,
+      "firms": 6
+     },
+     "Electronics and electrical equipment (SIC 36)": {
+      "firm_years": 1337,
+      "firms": 157
+     },
+     "Finance, insurance, real estate": {
+      "firm_years": 185,
+      "firms": 29
+     },
+     "Industrial and computer machinery (SIC 35)": {
+      "firm_years": 902,
+      "firms": 90
+     },
+     "Instruments and medical devices (SIC 38)": {
+      "firm_years": 1363,
+      "firms": 160
+     },
+     "Manufacturing": {
+      "firm_years": 1133,
+      "firms": 124
+     },
+     "Mining": {
+      "firm_years": 80,
+      "firms": 12
+     },
+     "Public administration": {
+      "firm_years": 3,
+      "firms": 1
+     },
+     "Retail trade": {
+      "firm_years": 153,
+      "firms": 21
+     },
+     "Services": {
+      "firm_years": 264,
+      "firms": 46
+     },
+     "Transportation and utilities": {
+      "firm_years": 285,
+      "firms": 44
+     },
+     "Transportation equipment (SIC 37)": {
+      "firm_years": 348,
+      "firms": 39
+     },
+     "Wholesale trade": {
+      "firm_years": 107,
+      "firms": 16
+     }
+    }
+   }
+  }
+ }
+}

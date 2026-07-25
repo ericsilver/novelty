@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}\usepackage{booktabs}\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}\usepackage{longtable}
+\newcommand{\dkl}{\Delta\mathrm{KL}}
+\title{\vspace{-2.5em}\bfseries Patent timing and industry ordering:\\ does patenting lead trademark vocabulary?}
+\author{Eric Silver}\date{\today}\begin{document}\maketitle\vspace{-1.5em}
+\noindent A patent is applied for before an invention is in public use; a trademark is filed when the firm is ready to sell. If $\dkl$ and patenting tracked one underlying event, patents should therefore \emph{lead} trademark language. Table~\ref{tab:timing} enters patents at four timings in the paper's within-firm specification. Table~\ref{tab:classes} orders the NICE classes by the lead coefficient.
+\begin{table}[h]\centering\small
+\caption{Within-firm coefficient of $\dkl$ on $\log(1+\text{patents})$ at four patent timings. Firm and year fixed effects, standard errors clustered on owner, owners with at least three years. $\dkl$ is standardized once on the contemporaneous panel, so all coefficients are in the same units as the published $-0.010$. Topic scoring, $T=200$.}
+\label{tab:timing}
+\begin{tabular}{lrrrrr}\toprule
+Patent timing & Coef. ($\sigma$) & SE & $t$ & Owner-years & Owners \\\midrule
+Patents at $t-2$ & $-0.0149$\textsuperscript{} & 0.0093 & $-1.61$ & 40,211 & 6,244 \\
+Patents at $t-1$ (patents lead) & $-0.0092$\textsuperscript{} & 0.0085 & $-1.08$ & 47,224 & 7,423 \\
+Patents at $t$ (contemporaneous) & $-0.0095$\textsuperscript{} & 0.0063 & $-1.51$ & 89,987 & 15,121 \\
+Patents at $t+1$ (reverse-timing placebo) & $+0.0026$\textsuperscript{} & 0.0079 & $+0.33$ & 53,520 & 8,355 \\
+\bottomrule\end{tabular}\end{table}
+\vspace{-0.8em}
+\begin{table}[h]\centering\small
+\caption{The same lead specification ($t-1$) inside the a-priori IPR groups, and the pooled interaction. The firm fixed effect absorbs the level of the firm-constant complement dummy, so the interaction is identified off the slope difference alone.}
+\label{tab:groups}
+\begin{tabular}{lrrrrr}\toprule
+Stratum & Coef. ($\sigma$) & SE & $t$ & Owner-years & Owners \\\midrule
+Complement sectors & $-0.0003$\textsuperscript{} & 0.0107 & $-0.03$ & 30,468 & 4,767 \\
+Neutral sectors & $-0.0176$\textsuperscript{} & 0.0209 & $-0.85$ & 7,791 & 1,258 \\
+Substitute sectors & $-0.0260$\textsuperscript{} & 0.0180 & $-1.45$ & 8,965 & 1,398 \\
+\midrule
+$\log(1+\text{pat})\times$complement & $-0.0083$\textsuperscript{} & 0.0171 & $-0.49$ & 47,224 & 7,423 \\
+\bottomrule\end{tabular}\end{table}
+\begin{longtable}{llrrrr}
+\caption{NICE classes ordered by the lead ($t-1$) coefficient. \textsc{c}~=~a-priori complement, \textsc{s}~=~substitute, \textsc{n}~=~neutral. Classes with fewer than 50 owners are omitted.}\label{tab:classes}\\\toprule
+Class & Group & Coef. ($\sigma$) & $t$ & Owner-years & Owners \\\midrule
+\endfirsthead\toprule Class & Group & Coef. ($\sigma$) & $t$ & Owner-years & Owners \\\midrule\endhead
+029 Meat/Foods & \textsc{s} & $+0.1966$\textsuperscript{} & $+1.50$ & 305 & 51 \\
+008 Hand tools & \textsc{n} & $+0.0915$\textsuperscript{} & $+0.86$ & 411 & 72 \\
+003 Cosmetics & \textsc{n} & $+0.0433$\textsuperscript{} & $+1.49$ & 1,490 & 202 \\
+006 Metals & \textsc{n} & $+0.0329$\textsuperscript{} & $+0.40$ & 740 & 135 \\
+019 Building & \textsc{n} & $+0.0324$\textsuperscript{} & $+0.48$ & 592 & 107 \\
+017 Rubber/Plastics & \textsc{c} & $+0.0163$\textsuperscript{} & $+0.18$ & 515 & 92 \\
+030 Coffee/Staples & \textsc{s} & $+0.0110$\textsuperscript{} & $+0.20$ & 664 & 97 \\
+005 Pharma & \textsc{c} & $+0.0105$\textsuperscript{} & $+0.36$ & 4,090 & 624 \\
+035 Advertising/Retail & \textsc{s} & $+0.0096$\textsuperscript{} & $+0.25$ & 778 & 138 \\
+020 Furniture & \textsc{n} & $+0.0053$\textsuperscript{} & $+0.09$ & 1,108 & 182 \\
+012 Vehicles & \textsc{c} & $+0.0047$\textsuperscript{} & $+0.11$ & 1,953 & 281 \\
+009 Software/Electronics & \textsc{c} & $+0.0033$\textsuperscript{} & $+0.21$ & 12,467 & 1,953 \\
+036 Insurance/Finance & \textsc{s} & $-0.0002$\textsuperscript{} & $-0.01$ & 743 & 102 \\
+010 Medical devices & \textsc{c} & $-0.0019$\textsuperscript{} & $-0.07$ & 3,479 & 527 \\
+011 Lighting/HVAC & \textsc{c} & $-0.0066$\textsuperscript{} & $-0.16$ & 1,949 & 313 \\
+014 Jewelry & \textsc{s} & $-0.0112$\textsuperscript{} & $-0.17$ & 336 & 53 \\
+025 Clothing & \textsc{s} & $-0.0113$\textsuperscript{} & $-0.24$ & 1,151 & 193 \\
+041 Education/Entertainment & \textsc{s} & $-0.0129$\textsuperscript{} & $-0.34$ & 1,511 & 215 \\
+044 Medical services & \textsc{n} & $-0.0330$\textsuperscript{} & $-0.48$ & 337 & 54 \\
+028 Toys/Games & \textsc{s} & $-0.0354$\textsuperscript{} & $-0.54$ & 1,879 & 290 \\
+042 Scientific/Tech services & \textsc{c} & $-0.0514$\textsuperscript{} & $-1.23$ & 1,102 & 202 \\
+001 Chemicals & \textsc{c} & $-0.0700$\textsuperscript{*} & $-1.84$ & 2,065 & 323 \\
+038 Telecom & \textsc{n} & $-0.0760$\textsuperscript{} & $-0.83$ & 358 & 65 \\
+007 Machines & \textsc{c} & $-0.0897$\textsuperscript{*} & $-1.79$ & 2,459 & 388 \\
+031 Agriculture & \textsc{s} & $-0.1146$\textsuperscript{*} & $-1.83$ & 453 & 67 \\
+016 Paper & \textsc{n} & $-0.1380$\textsuperscript{***} & $-2.77$ & 1,018 & 168 \\
+021 Housewares & \textsc{n} & $-0.1415$\textsuperscript{**} & $-2.51$ & 1,034 & 151 \\
+\bottomrule\end{longtable}
+\vspace{-1em}\noindent\footnotesize\textsuperscript{***}$p<0.01$, \textsuperscript{**}$p<0.05$, \textsuperscript{*}$p<0.10$. Every owner in the panel is matched to a PatentsView assignee and so patents at least once; the substitute cells are patenting firms in low-patenting sectors rather than typical firms in those sectors, which makes the two groups more alike and biases the interaction toward zero.
+\vspace{1.2em}\noindent\rule{\linewidth}{0.4pt}\\[0.4em]
+\noindent\footnotesize\textbf{Provenance.} This note was produced with AI assistance. The author specified the research question, the timing logic, the estimating specification, and the a-priori sector grouping, and is responsible for its contents. Claude (Anthropic), model Claude Fable 5, wrote \texttt{scripts/patent\_timing\_by\_industry.py}, ran the estimations, and drafted this note. Nothing here rests on that tooling: the script, the panel build, and the underlying corpus are public at \url{https://github.com/ericsilver/novelty}, so every coefficient in these tables can be reproduced independently.
+\end{document}

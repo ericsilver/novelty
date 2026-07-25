@@ -36,6 +36,17 @@ logs/
 # Private outreach drafts (recipient emails; not for public distribution)
 outreach/
 
+# Private correspondence and anything quoting a third party's email verbatim.
+# notes/ is otherwise a PUBLIC directory - check before adding a file here.
+notes/_private/
+notes/castaldi_feedback_*.md
+notes/revision_plan_castaldi.md
+
+# LaTeX intermediates for notes built into paper/results/
+paper/results/*.aux
+paper/results/*.log
+paper/results/*.out
+
 # PDF-viewer duplicate copies
 * - Copy.pdf
 

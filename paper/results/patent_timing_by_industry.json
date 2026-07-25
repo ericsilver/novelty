@@ -1,0 +1,546 @@
+{
+ "scoring": "t200",
+ "sigma_dkl": 0.12553171352695908,
+ "timing": {
+  "2": {
+   "logpat": {
+    "coef": -0.014930212392251478,
+    "se": 0.009271333798468038,
+    "t": -1.6103629441880836,
+    "p": 0.10731864526755687
+   },
+   "n_obs": 40211,
+   "n_firms": 6244
+  },
+  "1": {
+   "logpat": {
+    "coef": -0.009204951262218902,
+    "se": 0.008502693224723324,
+    "t": -1.0825924232399236,
+    "p": 0.27898937183980244
+   },
+   "n_obs": 47224,
+   "n_firms": 7423
+  },
+  "0": {
+   "logpat": {
+    "coef": -0.009503804706559468,
+    "se": 0.0062776587453290565,
+    "t": -1.5139091008460521,
+    "p": 0.13004889558505958
+   },
+   "n_obs": 89987,
+   "n_firms": 15121
+  },
+  "-1": {
+   "logpat": {
+    "coef": 0.0025848980721449996,
+    "se": 0.007945672784780995,
+    "t": 0.32532148531161126,
+    "p": 0.7449377715729961
+   },
+   "n_obs": 53520,
+   "n_firms": 8355
+  }
+ },
+ "groups": {
+  "complement": {
+   "logpat": {
+    "coef": -0.00029717875794968906,
+    "se": 0.010748844673592238,
+    "t": -0.02764750696228757,
+    "p": 0.9779432910541511
+   },
+   "n_obs": 30468,
+   "n_firms": 4767
+  },
+  "neutral": {
+   "logpat": {
+    "coef": -0.01763299801027177,
+    "se": 0.020866857137390893,
+    "t": -0.8450241401555179,
+    "p": 0.3980973609909966
+   },
+   "n_obs": 7791,
+   "n_firms": 1258
+  },
+  "substitute": {
+   "logpat": {
+    "coef": -0.02598294952058163,
+    "se": 0.017975942894724026,
+    "t": -1.4454290199268311,
+    "p": 0.14833741698979275
+   },
+   "n_obs": 8965,
+   "n_firms": 1398
+  }
+ },
+ "interaction": {
+  "logpat": {
+   "coef": -0.003534080363912999,
+   "se": 0.013704976838617832,
+   "t": -0.2578683937615043,
+   "p": 0.7965084782228833
+  },
+  "logpat_x_comp": {
+   "coef": -0.008329793515908108,
+   "se": 0.01710976194818819,
+   "t": -0.48684450088390496,
+   "p": 0.6263685315157719
+  },
+  "n_obs": 47224,
+  "n_firms": 7423
+ },
+ "by_class": {
+  "001": {
+   "logpat": {
+    "coef": -0.06999938688294552,
+    "se": 0.03813308667064057,
+    "t": -1.8356601312539291,
+    "p": 0.06640793789758524
+   },
+   "n_obs": 2065,
+   "n_firms": 323,
+   "group": "complement",
+   "label": "Chemicals"
+  },
+  "002": {
+   "skipped": "cell too small",
+   "n_obs": 256,
+   "n_firms": 39,
+   "group": "complement",
+   "label": "Paints"
+  },
+  "003": {
+   "logpat": {
+    "coef": 0.04328835607086285,
+    "se": 0.029114716488328918,
+    "t": 1.48682045687155,
+    "p": 0.13706223706468249
+   },
+   "n_obs": 1490,
+   "n_firms": 202,
+   "group": "neutral",
+   "label": "Cosmetics"
+  },
+  "004": {
+   "skipped": "cell too small",
+   "n_obs": 133,
+   "n_firms": 25,
+   "group": "complement",
+   "label": "Lubricants"
+  },
+  "005": {
+   "logpat": {
+    "coef": 0.010546902510111316,
+    "se": 0.029231835127310965,
+    "t": 0.3608019292725645,
+    "p": 0.7182475204654255
+   },
+   "n_obs": 4090,
+   "n_firms": 624,
+   "group": "complement",
+   "label": "Pharma"
+  },
+  "006": {
+   "logpat": {
+    "coef": 0.03290340640759863,
+    "se": 0.08208965749399176,
+    "t": 0.40082280048502905,
+    "p": 0.6885505908642962
+   },
+   "n_obs": 740,
+   "n_firms": 135,
+   "group": "neutral",
+   "label": "Metals"
+  },
+  "007": {
+   "logpat": {
+    "coef": -0.0897004509956842,
+    "se": 0.05014224684593167,
+    "t": -1.7889196563388965,
+    "p": 0.07362775568342834
+   },
+   "n_obs": 2459,
+   "n_firms": 388,
+   "group": "complement",
+   "label": "Machines"
+  },
+  "008": {
+   "logpat": {
+    "coef": 0.09149252794967244,
+    "se": 0.10657058094876044,
+    "t": 0.8585158036593834,
+    "p": 0.3906077077554514
+   },
+   "n_obs": 411,
+   "n_firms": 72,
+   "group": "neutral",
+   "label": "Hand tools"
+  },
+  "009": {
+   "logpat": {
+    "coef": 0.003314910869992314,
+    "se": 0.015720667526237585,
+    "t": 0.21086323875622787,
+    "p": 0.8329939903572348
+   },
+   "n_obs": 12467,
+   "n_firms": 1953,
+   "group": "complement",
+   "label": "Software/Electronics"
+  },
+  "010": {
+   "logpat": {
+    "coef": -0.0019407698718996397,
+    "se": 0.027554483874135192,
+    "t": -0.07043390399779541,
+    "p": 0.9438483067586455
+   },
+   "n_obs": 3479,
+   "n_firms": 527,
+   "group": "complement",
+   "label": "Medical devices"
+  },
+  "011": {
+   "logpat": {
+    "coef": -0.00661526994257201,
+    "se": 0.04177641761590444,
+    "t": -0.15834938274012159,
+    "p": 0.8741814971706022
+   },
+   "n_obs": 1949,
+   "n_firms": 313,
+   "group": "complement",
+   "label": "Lighting/HVAC"
+  },
+  "012": {
+   "logpat": {
+    "coef": 0.004691947235959604,
+    "se": 0.043051375901112264,
+    "t": 0.10898483817885096,
+    "p": 0.9132145160772988
+   },
+   "n_obs": 1953,
+   "n_firms": 281,
+   "group": "complement",
+   "label": "Vehicles"
+  },
+  "013": {
+   "skipped": "cell too small",
+   "n_obs": 206,
+   "n_firms": 35,
+   "group": "neutral",
+   "label": "Firearms"
+  },
+  "014": {
+   "logpat": {
+    "coef": -0.011186580117016676,
+    "se": 0.0647577075957265,
+    "t": -0.1727451531615814,
+    "p": 0.8628517501915034
+   },
+   "n_obs": 336,
+   "n_firms": 53,
+   "group": "substitute",
+   "label": "Jewelry"
+  },
+  "015": {
+   "skipped": "cell too small",
+   "n_obs": 95,
+   "n_firms": 14,
+   "group": "neutral",
+   "label": "Music"
+  },
+  "016": {
+   "logpat": {
+    "coef": -0.13803910079294468,
+    "se": 0.049911786685706935,
+    "t": -2.7656613789879505,
+    "p": 0.005680748928339004
+   },
+   "n_obs": 1018,
+   "n_firms": 168,
+   "group": "neutral",
+   "label": "Paper"
+  },
+  "017": {
+   "logpat": {
+    "coef": 0.016298037520491467,
+    "se": 0.09119114238242186,
+    "t": 0.17872390996203927,
+    "p": 0.8581544940215579
+   },
+   "n_obs": 515,
+   "n_firms": 92,
+   "group": "complement",
+   "label": "Rubber/Plastics"
+  },
+  "018": {
+   "skipped": "cell too small",
+   "n_obs": 164,
+   "n_firms": 30,
+   "group": "substitute",
+   "label": "Leather"
+  },
+  "019": {
+   "logpat": {
+    "coef": 0.032355992528086346,
+    "se": 0.06746706412803316,
+    "t": 0.4795820441613398,
+    "p": 0.6315246166293617
+   },
+   "n_obs": 592,
+   "n_firms": 107,
+   "group": "neutral",
+   "label": "Building"
+  },
+  "020": {
+   "logpat": {
+    "coef": 0.005251127501223314,
+    "se": 0.05568927766246925,
+    "t": 0.09429333116960527,
+    "p": 0.9248761472691642
+   },
+   "n_obs": 1108,
+   "n_firms": 182,
+   "group": "neutral",
+   "label": "Furniture"
+  },
+  "021": {
+   "logpat": {
+    "coef": -0.14154929855980425,
+    "se": 0.05633409807202047,
+    "t": -2.512675331711891,
+    "p": 0.011981954862176576
+   },
+   "n_obs": 1034,
+   "n_firms": 151,
+   "group": "neutral",
+   "label": "Housewares"
+  },
+  "022": {
+   "skipped": "cell too small",
+   "n_obs": 25,
+   "n_firms": 6,
+   "group": "neutral",
+   "label": "Cordage"
+  },
+  "023": {
+   "skipped": "cell too small",
+   "n_obs": 3,
+   "n_firms": 1,
+   "group": "substitute",
+   "label": "Yarns"
+  },
+  "024": {
+   "skipped": "cell too small",
+   "n_obs": 164,
+   "n_firms": 28,
+   "group": "substitute",
+   "label": "Textiles"
+  },
+  "025": {
+   "logpat": {
+    "coef": -0.011319422960936857,
+    "se": 0.046208112327973234,
+    "t": -0.24496614102291214,
+    "p": 0.8064826482647217
+   },
+   "n_obs": 1151,
+   "n_firms": 193,
+   "group": "substitute",
+   "label": "Clothing"
+  },
+  "026": {
+   "skipped": "cell too small",
+   "n_obs": 71,
+   "n_firms": 10,
+   "group": "neutral",
+   "label": "Lace"
+  },
+  "027": {
+   "skipped": "cell too small",
+   "n_obs": 108,
+   "n_firms": 19,
+   "group": "neutral",
+   "label": "Carpets"
+  },
+  "028": {
+   "logpat": {
+    "coef": -0.03536303930187678,
+    "se": 0.06602093543821057,
+    "t": -0.5356337208365259,
+    "p": 0.5922117187711129
+   },
+   "n_obs": 1879,
+   "n_firms": 290,
+   "group": "substitute",
+   "label": "Toys/Games"
+  },
+  "029": {
+   "logpat": {
+    "coef": 0.19656418724442812,
+    "se": 0.1311131502154073,
+    "t": 1.4991950610712241,
+    "p": 0.1338230359521407
+   },
+   "n_obs": 305,
+   "n_firms": 51,
+   "group": "substitute",
+   "label": "Meat/Foods"
+  },
+  "030": {
+   "logpat": {
+    "coef": 0.010978677320752084,
+    "se": 0.053939287474508324,
+    "t": 0.20353767791131094,
+    "p": 0.8387147992500629
+   },
+   "n_obs": 664,
+   "n_firms": 97,
+   "group": "substitute",
+   "label": "Coffee/Staples"
+  },
+  "031": {
+   "logpat": {
+    "coef": -0.11464091589649783,
+    "se": 0.06272996525893736,
+    "t": -1.827530358470341,
+    "p": 0.06762006595109132
+   },
+   "n_obs": 453,
+   "n_firms": 67,
+   "group": "substitute",
+   "label": "Agriculture"
+  },
+  "032": {
+   "skipped": "cell too small",
+   "n_obs": 298,
+   "n_firms": 42,
+   "group": "substitute",
+   "label": "Beverages"
+  },
+  "033": {
+   "skipped": "cell too small",
+   "n_obs": 94,
+   "n_firms": 17,
+   "group": "substitute",
+   "label": "Wine/Spirits"
+  },
+  "034": {
+   "skipped": "cell too small",
+   "n_obs": 116,
+   "n_firms": 22,
+   "group": "neutral",
+   "label": "Tobacco"
+  },
+  "035": {
+   "logpat": {
+    "coef": 0.009626607271163597,
+    "se": 0.03875408772224335,
+    "t": 0.24840237087140352,
+    "p": 0.8038230993690136
+   },
+   "n_obs": 778,
+   "n_firms": 138,
+   "group": "substitute",
+   "label": "Advertising/Retail"
+  },
+  "036": {
+   "logpat": {
+    "coef": -0.00023313413343793287,
+    "se": 0.03718750683320165,
+    "t": -0.006269152016122433,
+    "p": 0.994997973162197
+   },
+   "n_obs": 743,
+   "n_firms": 102,
+   "group": "substitute",
+   "label": "Insurance/Finance"
+  },
+  "037": {
+   "skipped": "cell too small",
+   "n_obs": 116,
+   "n_firms": 23,
+   "group": "substitute",
+   "label": "Construction"
+  },
+  "038": {
+   "logpat": {
+    "coef": -0.0760278324501099,
+    "se": 0.09195684479729532,
+    "t": -0.8267773064387053,
+    "p": 0.40836329492042256
+   },
+   "n_obs": 358,
+   "n_firms": 65,
+   "group": "neutral",
+   "label": "Telecom"
+  },
+  "039": {
+   "skipped": "cell too small",
+   "n_obs": 237,
+   "n_firms": 34,
+   "group": "substitute",
+   "label": "Transport"
+  },
+  "040": {
+   "skipped": "cell too small",
+   "n_obs": 82,
+   "n_firms": 16,
+   "group": "neutral",
+   "label": "Materials treatment"
+  },
+  "041": {
+   "logpat": {
+    "coef": -0.01292697330857491,
+    "se": 0.037763041125540214,
+    "t": -0.3423181217211882,
+    "p": 0.7321114993161828
+   },
+   "n_obs": 1511,
+   "n_firms": 215,
+   "group": "substitute",
+   "label": "Education/Entertainment"
+  },
+  "042": {
+   "logpat": {
+    "coef": -0.05139784782741533,
+    "se": 0.041933325255727426,
+    "t": -1.2257040793681202,
+    "p": 0.22031005453466368
+   },
+   "n_obs": 1102,
+   "n_firms": 202,
+   "group": "complement",
+   "label": "Scientific/Tech services"
+  },
+  "043": {
+   "skipped": "cell too small",
+   "n_obs": 27,
+   "n_firms": 7,
+   "group": "substitute",
+   "label": "Food services"
+  },
+  "044": {
+   "logpat": {
+    "coef": -0.0329600225216045,
+    "se": 0.06930946142303256,
+    "t": -0.4755486746669683,
+    "p": 0.634395948295408
+   },
+   "n_obs": 337,
+   "n_firms": 54,
+   "group": "neutral",
+   "label": "Medical services"
+  },
+  "045": {
+   "skipped": "cell too small",
+   "n_obs": 42,
+   "n_firms": 10,
+   "group": "substitute",
+   "label": "Legal/Personal services"
+  }
+ }
+}
