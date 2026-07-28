@@ -280,9 +280,18 @@ counsel and basis directly.
 
 \section{Two axes: how atypical a filing's language is, and which way it leans}\label{sec:construct}
 
-For a time-ordered sequence of documents, with each document at year $t$
-producing a distribution $P_t$, the framework defines two quantities
-against a window $W$ of past and future documents
+Kullback--Leibler divergence is a distance-like quantity between two
+distributions: it is large when a filing puts weight where its industry's
+filings put little, and near zero when the two look alike. Measured
+against what the industry filed \emph{before}, it says how unusual the
+filing was at the time. Measured against what the industry filed
+\emph{after}, it says how unusual the filing looks in hindsight. Positive
+\dkl{} marks a filing whose vocabulary was unusual against its recent
+past and ordinary against its near future: the field moved toward it.
+
+Formally, for a time-ordered sequence of documents, with each document at
+year $t$ producing a distribution $P_t$, the framework defines two
+quantities against a window $W$ of past and future documents
 \citep{Murdock2017, Barron2018}:
 \begin{itemize}[noitemsep]
   \item \textit{Prospective surprise}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}})$, where $Q_{\mathrm{past}}$ aggregates documents in years $t-W$ to $t-1$;
@@ -292,8 +301,6 @@ The signed difference is
 \[
 \Delta\mathrm{KL}_t \;=\; \mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}}) - \mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}}).
 \]
-Positive \dkl{} marks a filing whose vocabulary is unusual against its
-recent past and close to its near future: the field moved toward it.
 Negative \dkl{} marks language that looked normal at filing and
 played-out in hindsight. The KL \emph{levels} measure \emph{atypicality} ---
 how far the filing sits from its class-year reference, in either
@@ -301,21 +308,17 @@ direction --- and the results below
 use both the signed position and the unsigned level, because they turn
 out to carry different information.
 
-Scoring runs on topic distributions rather than raw tokens.
-Goods/services descriptions typically run 10--30 words, and on documents
-that short token-level KL inflates mechanically (mean $|\Delta\mathrm{KL}|$
-varies 2.5-fold across document-length bands); a latent Dirichlet
-allocation model ($T = 50$, fit on a stratified 448{,}437-filing sample
-across all 45 NICE classes) gives every filing a dense representation
-whose length gradient falls to $\sim$1.4-fold. Prospective and
-retrospective KL are computed against class-year topic references at
-$W = 5$, scoring 1995--2019; refits at $T = 200$ and $T = 500$ and a
-term-level variant confirm the headline results across an order of
-magnitude in topic resolution and across representations
-(Appendix~\ref{app:comp}). The burn-in cut at 1995 and the interpretable
-range are set empirically; per-filing reliability, window robustness
-($W \in \{3,5,7\}$, 6.9--10.4\% of filings flip sign), and the remaining
-fragilities are documented in Appendix~\ref{app:comp}.
+Scoring runs on topic distributions rather than raw tokens, for one
+reason. Goods/services descriptions typically run 10--30 words, and on
+documents that short, token-level KL inflates mechanically: mean
+$|\Delta\mathrm{KL}|$ varies 2.5-fold across document-length bands.
+Scoring each filing's topic distribution instead gives every filing a
+dense representation regardless of length, and cuts that length gradient
+to about 1.4-fold. Fitting details, the resolution sweeps at $T = 200$
+and $T = 500$, the term-level variant, the 1995 burn-in cut, per-filing
+reliability, and window robustness are all in
+Appendix~\ref{app:comp}; the headline results hold across an order of
+magnitude in topic resolution and across representations.
 
 The choice of distributions over terms is not aesthetic. Term-level
 scoring additionally captures lexical specificity --- rare words used by
@@ -350,7 +353,7 @@ Rockstar, and Red Bull lean innovator; Smartwater (1997) and Celsius
 
 \section{Two axes, two payoffs}\label{sec:results}
 
-\subsection{Forward-leaning marks fail the use-proof gate}\label{sec:gate}
+\subsection{Both vocabulary tails follow through to registration less often}
 
 Registration completion selects against both vocabulary tails, mildly.
 Across 3.59 million debut filings (57.6\% base rate), completion is an
@@ -375,7 +378,17 @@ decomposed in Section~\ref{sec:bluesea}.}
 \label{fig:outcomes}
 \end{figure}
 
-The first Section~8 gate is where forward-leaning marks pay. Raw pooled
+\subsection{Forward-leaning marks fail the use-proof gate}\label{sec:gate}
+
+Marks written in language their industry subsequently moved toward fail
+their first Section~8 use-proof gate more often than marks written in
+language it was moving away from. Within class$\times$cohort cells, with
+owner-clustered errors and drafting and filer controls, the failure rate
+rises $+2.3$pp per \dkl{} quintile against a 49\% base rate
+($t = 7.5$). This is the paper's central result, and the rest of this
+section is the design that produces it.
+
+Raw pooled
 quintiles convey the direction: among 4.12 million registration
 class-records 2002--2018, dated first-gate cancellation rises from 43.7\%
 at the bottom topic-\dkl{} quintile to 47.7\% at the top, positive in 31
@@ -444,21 +457,24 @@ penalty.}
 \label{fig:forest}
 \end{figure}
 
-The penalty is modern, and the timing is informative. In raw pooled
-quintiles by registration cohort, the failure lift is indistinguishable
-from zero for 2002--2007 cohorts, switches on over 2008--2010, and runs
-$+4$ to $+9$pp for every cohort since (Figure~\ref{fig:cohort}); an
-out-of-sample check on the 2019 cohort, the first whose gate window falls
-entirely after the pandemic, reproduces the recent-cohort magnitude
-($+9.1$pp raw among fully-elapsed registrations, $n = 313{,}725$;
-2020--2021 gates have not yet elapsed at the data edge). Because the
-filer population changed over exactly this period, the cohort thirds of
-Table~\ref{tab:gate_lpm} matter: \emph{within} counsel-represented
-US-domiciled owners, with the full control set, the gradient still rises
-from $+0.9$pp (2002--07) to $+3.7$pp (2008--12) and $+3.1$pp (2013--18).
-The forward-leaning gate risk is a feature of the post-2008 filing
-economy itself, not of the post-2015 surge in self-filed and foreign
-applications, and it predates the pandemic by a decade.
+The penalty is modern. It is indistinguishable from zero for the
+2002--2007 cohorts, switches on over 2008--2010, and runs $+4$ to $+9$pp
+for every cohort since (Figure~\ref{fig:cohort}).
+
+That timing invites an out-of-sample check, and the 2019 cohort supplies
+one: it is the first whose gate window falls entirely after the pandemic,
+and it reproduces the recent-cohort magnitude at $+9.1$pp raw among
+fully-elapsed registrations ($n = 313{,}725$). The 2020--2021 gates have
+not yet elapsed at the data edge.
+
+The filer population also changed over exactly this period, which is why
+the cohort thirds of Table~\ref{tab:gate_lpm} matter. \emph{Within}
+counsel-represented US-domiciled owners, and with the full control set,
+the gradient still rises from $+0.9$pp (2002--07) to $+3.7$pp (2008--12)
+and $+3.1$pp (2013--18). The forward-leaning gate risk is therefore a
+feature of the post-2008 filing economy itself, not of the post-2015
+surge in self-filed and foreign applications, and it predates the
+pandemic by a decade.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.8\textwidth]{results/event_gate_cohort_curve_extended.png}
@@ -496,17 +512,14 @@ slowest), and the \dkl{} penalty survives within both fast and slow
 halves ($-7.2$ and $-8.0$pp), so the risk attaches to the product bet
 itself rather than to dying firms detected late.
 
-What kind of novelty carries the risk is identifiable from the reference
-windows. Re-scoring the corpus with mixed windows, the penalty loads on
-\emph{breaking with the established past} ($-7.3$pp for the past-rupture
-configuration) rather than on \emph{resembling the future} ($-3.2$pp for
-the foresight configuration); in software the decomposition is complete
-($-12.7$pp against $-0.3$pp). A months-scale variant built entirely from
-pre-filing text --- computable on the filing date with no look-ahead ---
-reproduces the pattern with the penalty concentrated on the months-late
-rather than the months-early. Appendix~\ref{app:comp} reports the full
-decomposition; a snapshot-based cross-check on the single one-gate-elapsed
-cohort agrees with the event-dated estimates under every scoring tried.
+Mixing the past and future reference windows identifies which kind of
+novelty the gate punishes. The penalty loads on breaking with the
+established past ($-7.3$pp) rather than on resembling the future
+($-3.2$pp), and in software the separation is complete ($-12.7$pp against
+$-0.3$pp). Appendix~\ref{app:comp} reports the full decomposition, plus a
+look-ahead-free months-scale variant that reproduces the pattern and a
+snapshot cross-check that agrees with the event-dated estimates under
+every scoring tried.
 
 \subsection{Atypical language marks listing-bound firms; forward-leaning language does not}\label{sec:bluesea}
 
@@ -580,6 +593,10 @@ in the mark's life.
 
 If \dkl{} and patent counts were noisy measures of the same underlying
 construct, they should correlate within firms over time. They do not.
+The panel used for this comparison scores \dkl{} under an
+exponential-decay reference kernel rather than the flat window used
+elsewhere; the two correlate at $r = 0.87$ on 68{,}013 matched
+owner-years, so the contrast is not an artifact of the kernel.
 On a panel of 174{,}569 firm-years of trademark owners name-matched to
 PatentsView patent assignees \citep{PatentsView} (94{,}106 firm-years
 across 14{,}470 firms with within-firm variation), a two-way
@@ -635,10 +652,7 @@ is not there in any cell.
 
 \begin{table}[h]\centering\small
 \caption{Within-firm \dkl{} versus patenting. Coefficients in standard
-deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$. The published
-panel scores \dkl{} under an exponential-decay reference kernel that
-correlates at $r = 0.87$ with the paper's flat-window scoring on
-68{,}013 matched owner-years.}
+deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$.}
 \label{tab:patent_within_firm}
 \begin{tabular}{lrrr}
 \toprule
@@ -656,13 +670,9 @@ Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ & $-5.8$ \\
 \end{tabular}
 \end{table}
 
-Alignment with expert innovation judgment is at most suggestive: firms
-on BCG/MIT ``most innovative'' lists sit $+0.09\sigma$ above the panel
-mean under term scoring ($p = 0.22$), $+0.14\sigma$ under topic scoring
-($p = 0.07$), and $+0.08\sigma$ at $T = 200$ ($p = 0.20$), on a small
-matched sample ($n = 41$) --- too imprecise to carry any weight. Patent
-counts remain uncorrelated with \dkl{} on the same panel (Pearson
-$+0.010$).
+Firms on BCG/MIT ``most innovative'' lists sit above the panel mean under
+every scoring, but on 41 matched firms the differences are too imprecise
+to carry weight (Appendix~\ref{app:comp}).
 
 \section{Business vocabulary flows out of software, and incumbents carry it}\label{sec:diffusion}
 
@@ -879,6 +889,14 @@ patterns diagnostic force (Appendix~\ref{app:hazard}). Across
 $W \in \{3, 5, 7\}$, 6.9--10.4\% of filings flip sign. Per-filing noise
 attenuates at every aggregation used: firm-year means, token pools,
 theme prevalence trajectories.
+
+Alignment with expert innovation judgment is at most suggestive. Firms on
+BCG/MIT ``most innovative'' lists sit $+0.09\sigma$ above the panel mean
+under term scoring ($p = 0.22$), $+0.14\sigma$ under topic scoring
+($p = 0.07$), and $+0.08\sigma$ at $T = 200$ ($p = 0.20$). The matched
+sample is 41 firms, which is too small to carry weight in either
+direction, and the paper draws no inference from it. Patent counts remain
+uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
 
 \subsection{Scoring robustness of the mark-level results}
 
