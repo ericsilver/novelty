@@ -184,7 +184,7 @@ The central empirical finding is that two orthogonal axes of vocabulary
 position carry two different commercial payoffs.
 \emph{Atypicality}\footnote{\emph{Atypicality} is used here in a purely
 textual sense --- the divergence between a filing's goods/services
-description and the vocabulary of its NICE class in that year --- and not
+description and the vocabulary of its Nice class in that year --- and not
 in the sense of trademark law's distinctiveness doctrine, which governs a
 mark's registrability along the generic-to-fanciful spectrum and under
 \S2(f). The two constructs attach to different objects: legal
@@ -370,7 +370,7 @@ scoring-robust and near-universal (positive middle-versus-tails depth in
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
 \caption{Outcomes for debut filings (owner's first-ever filing) across all
-45 NICE classes under topic scoring, filing years 1995--2018, in quantile
+45 Nice classes under topic scoring, filing years 1995--2018, in quantile
 bins with 95\% intervals. $n = 3{,}589{,}421$; registered subset
 $n = 2{,}066{,}855$. \emph{A:} P(reached registration). \emph{B:} P(owner
 ever in SEC EDGAR $\mid$ registration); the structure in panel B is
@@ -612,16 +612,18 @@ vocabulary regresses toward class-typical, consistent with temporal
 substitution between patent prosecution and market-facing brand work.
 
 Two objections to reading that null as orthogonality are worth taking
-seriously, and both fail. The first is timing. A patent must be applied
-for before its invention is in public use, while a trademark is filed
-when the firm is ready to sell, so if the two measures tracked one
-underlying innovation event the patents ought to \emph{lead} rather than
-move contemporaneously. Entering patents at $t-2$, $t-1$, $t$, and $t+1$
-(the last a reverse-timing placebo) leaves nothing at any timing: the
-lead year gives $-0.009$ ($t = -1.08$), two years out $-0.015$
-($t = -1.61$), contemporaneous $-0.010$ ($t = -1.51$), and the placebo
-$+0.003$. The lead specification is where a co-movement should have
-surfaced, and it is the flattest of the four.
+seriously, and both fail. The first is timing. Under a linear model of
+the innovation process a patent is applied for before its invention is in
+public use, while a trademark is filed when the firm is ready to sell, so
+patents would lead. Firms do not proceed that linearly, however, and in
+some industries the trademark application comes first
+\citep{Seip2018}, so the ordering is an empirical question rather than an
+assumption to build on. Entering patents at $t-2$, $t-1$, $t$, and $t+1$
+--- the last allowing the trademark to precede the patent --- leaves
+nothing at any timing: $-0.015$ at two years out ($t = -1.61$), $-0.009$
+at the lead year ($t = -1.08$), $-0.010$ contemporaneous ($t = -1.51$),
+and $+0.003$ with the trademark first. No ordering recovers a
+co-movement.
 
 The second objection is heterogeneity: a pooled near-zero is consistent
 with genuine orthogonality everywhere, but equally with a positive slope
@@ -632,7 +634,7 @@ complement/neutral/substitute grouping fixed in advance, and re-estimating
 the identical specification inside each cell, gives $-0.000$
 ($t = -0.03$) among complements, $-0.026$ ($t = -1.45$) among
 substitutes, and an interaction of $-0.008$ ($t = -0.49$). Ordering all
-27 NICE classes that clear a 50-owner floor by coefficient, the
+27 Nice classes that clear a 50-owner floor by coefficient, the
 complement classes run from sixth place to twenty-fourth and do not agree
 in sign with one another: pharmaceuticals $+0.011$, software and
 electronics $+0.003$, medical devices $-0.002$, chemicals $-0.070$,
@@ -680,7 +682,7 @@ The spatial version of this question is answered: \citet{vonGraevenitz2022}
 show that novel description tokens reach distant US locations more slowly
 than near ones, in the \emph{Regional Studies} programme surveyed by
 \citet{CastaldiMendonca2022}. The cross-industry version is open, and the
-NICE class system supplies the partition.
+Nice class system supplies the partition.
 
 Cross-industry idea diffusion is directly measurable on this corpus.
 For 14 curated business-model phrases, Table~\ref{tab:transit} records
@@ -832,7 +834,7 @@ Analysis scripts and their outputs are indexed in the repository
 The USPTO Trademark Annual Applications backfile (product TRTYRAP)
 provides a complete record of US trademark filings from 1884 onward. The
 deepest diagnostic work uses the complete software/electronics class
-(NICE 009; 1.81M filings); the diffusion application uses four classes
+(Nice 009; 1.81M filings); the diffusion application uses four classes
 totalling 2.32 million granted filings 1990--2024; the gate analyses use
 all 45 classes. The firm-level panels link trademark owners to SEC EDGAR
 financial filers and to PatentsView patent assignees by normalized-name
@@ -1196,6 +1198,11 @@ Office. \texttt{https://patentsview.org}.
 \bibitem[Schumpeter(1942)]{Schumpeter1942}
 Schumpeter, J.~A. (1942). \emph{Capitalism, Socialism and Democracy}.
 Harper \& Brothers.
+
+\bibitem[Seip et al.(2018)]{Seip2018}
+Seip, M., Castaldi, C., Flikkema, M., \& de~Man, A.-P. (2018). The timing
+of trademark application in innovation processes. \emph{Technovation},
+72--73, 34--45.
 
 \bibitem[Semadeni(2006)]{Semadeni2006}
 Semadeni, M. (2006). Minding your distance: How management consulting
