@@ -107,8 +107,8 @@ def draw_zoom_panel(ax, p_edges, r_edges, H, *, cmap, title,
             linewidth=0.9, linestyle="--", alpha=0.85)
     ax.set_xlim(p_e[0], p_e[-1])
     ax.set_ylim(r_e[0], r_e[-1])
-    ax.set_xlabel(r"Mean prospective KL  (firm)")
-    ax.set_ylabel(r"Mean retrospective KL  (firm)")
+    ax.set_xlabel(r"Mean prospective KL, vs. past  (firm)")
+    ax.set_ylabel(r"Mean retrospective KL, vs. future  (firm)")
     ax.set_title(title, fontsize=10)
     return im
 
@@ -136,7 +136,7 @@ def draw_contour_panel(ax, p_edges, r_edges, H, *, cmap, title,
             linewidth=0.8, linestyle="--", alpha=0.85)
     ax.set_xlim(p_edges[0], p_edges[-1])
     ax.set_ylim(r_edges[0], r_edges[-1])
-    ax.set_xlabel(r"Mean prospective KL  (firm)")
-    ax.set_ylabel(r"Mean retrospective KL  (firm)")
+    ax.set_xlabel(r"Mean prospective KL, vs. past  (firm)")
+    ax.set_ylabel(r"Mean retrospective KL, vs. future  (firm)")
     ax.set_title(title, fontsize=10)
     return cs_fill

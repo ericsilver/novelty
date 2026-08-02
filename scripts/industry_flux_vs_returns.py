@@ -64,17 +64,17 @@ def main() -> int:
             continue
         s = pl.read_parquet(
             sp,
-            columns=["serial_number","owner_name","year","prospective_kl",
-                     "retrospective_kl","n_ref_prospective","n_ref_retrospective","n_terms"],
+            columns=["serial_number","owner_name","year","kl_vs_past",
+                     "kl_vs_future","n_ref_past","n_ref_future","n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1990, 2021)
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
         )
         if s.height < 5_000:
             continue
@@ -82,7 +82,7 @@ def main() -> int:
             "cls": cls,
             "name": industry_name(cls),
             "n_filings": s.height,
-            "mean_pros_kl": float(s["prospective_kl"].mean()),
+            "mean_pros_kl": float(s["kl_vs_past"].mean()),
             "mean_dkl": float(s["dkl"].mean()),
             "std_dkl": float(s["dkl"].std()),
             "mean_abs_dkl": float(s["dkl"].abs().mean()),

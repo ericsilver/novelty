@@ -34,11 +34,11 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 
@@ -53,7 +53,7 @@ def load_filings(classes: list[str], year_min: int, year_max: int) -> pl.DataFra
             CLEAN & (pl.col("year") >= year_min) & (pl.col("year") <= year_max)
         ).with_columns(
             (pl.col("reached_registration") & pl.col("currently_live")).alias("passed_5y"),
-        ).select("prospective_kl", "retrospective_kl",
+        ).select("kl_vs_past", "kl_vs_future",
                  "reached_registration", "passed_5y", "n_terms")
         parts.append(df)
     return pl.concat(parts)
@@ -104,8 +104,8 @@ def main() -> int:
         f = load_filings(cls_list, args.year_min, args.year_max)
         print(f"  {f.height:,} filings", flush=True)
 
-        x_pros = f["prospective_kl"].to_numpy()
-        x_retr = f["retrospective_kl"].to_numpy()
+        x_pros = f["kl_vs_past"].to_numpy()
+        x_retr = f["kl_vs_future"].to_numpy()
         y_reg = f["reached_registration"].to_numpy().astype(float)
         y_5y = f["passed_5y"].to_numpy().astype(float)
 

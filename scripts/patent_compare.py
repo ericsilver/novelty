@@ -93,8 +93,8 @@ def main() -> int:
         if not cls.isdigit():
             continue
         parts.append(pl.read_parquet(path).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
             & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
             & pl.col("owner_name").is_not_null()
@@ -102,8 +102,8 @@ def main() -> int:
     tm = pl.concat(parts)
     tm_fy = tm.group_by(["owner_name", "year"]).agg(
         pl.col("dkl").mean().alias("mean_dkl"),
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.len().alias("n_filings"),
     ).with_columns(
         pl.col("owner_name").map_elements(normalize, return_dtype=pl.Utf8).alias("norm")

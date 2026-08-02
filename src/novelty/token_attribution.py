@@ -129,9 +129,9 @@ def attribute(
                 year=year,
                 goods_services=rec_row.get("goods_services") or "",
                 n_terms=int(e - s),
-                pros_kl=float(sup_row.get("prospective_kl", float("nan"))),
-                retr_kl=float(sup_row.get("retrospective_kl", float("nan"))),
-                dkl=float(sup_row.get("prospective_kl", 0)) - float(sup_row.get("retrospective_kl", 0)),
+                pros_kl=float(sup_row.get("kl_vs_past", float("nan"))),
+                retr_kl=float(sup_row.get("kl_vs_future", float("nan"))),
+                dkl=float(sup_row.get("kl_vs_past", 0)) - float(sup_row.get("kl_vs_future", 0)),
                 top_pros_terms=topk(log_q_pros),
                 top_retr_terms=topk(log_q_retr),
             )

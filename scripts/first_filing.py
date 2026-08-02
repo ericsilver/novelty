@@ -44,8 +44,8 @@ def main() -> int:
     print(f"       {universe.height:,} owner-filings across all classes", flush=True)
 
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990)
         & (pl.col("year") <= 2020)
@@ -63,14 +63,14 @@ def main() -> int:
         d = first.filter(pl.col("year") <= cap).select(
             pl.col(outcome).cast(pl.Int8),
             pl.col("dkl"),
-            pl.col("prospective_kl"),
-            pl.col("retrospective_kl"),
+            pl.col("kl_vs_past"),
+            pl.col("kl_vs_future"),
             pl.col("n_terms").log().alias("log_n_terms"),
             pl.col("year"),
         ).drop_nulls().to_pandas()
         if len(d) < 1000:
             continue
-        for col in ("dkl", "prospective_kl", "retrospective_kl"):
+        for col in ("dkl", "kl_vs_past", "kl_vs_future"):
             d[f"{col}_z"] = (d[col] - d[col].mean()) / d[col].std()
         d["year_c"] = d["year"] - d["year"].mean()
         d["year_c2"] = d["year_c"] ** 2
@@ -79,7 +79,7 @@ def main() -> int:
         X1 = sm.add_constant(d[["dkl_z", "log_n_terms", "year_c", "year_c2"]])
         m1 = sm.GLM(d[outcome], X1, family=sm.families.Binomial()).fit(disp=False, maxiter=200)
         # Model 2: pros + retro jointly
-        X2 = sm.add_constant(d[["prospective_kl_z", "retrospective_kl_z", "log_n_terms", "year_c", "year_c2"]])
+        X2 = sm.add_constant(d[["kl_vs_past_z", "kl_vs_future_z", "log_n_terms", "year_c", "year_c2"]])
         m2 = sm.GLM(d[outcome], X2, family=sm.families.Binomial()).fit(disp=False, maxiter=200)
         rows.append(
             {
@@ -88,10 +88,10 @@ def main() -> int:
                 "rate": float(d[outcome].mean()),
                 "coef_dkl_z": float(m1.params["dkl_z"]),
                 "se_dkl_z": float(m1.bse["dkl_z"]),
-                "coef_pros_z": float(m2.params["prospective_kl_z"]),
-                "se_pros_z": float(m2.bse["prospective_kl_z"]),
-                "coef_retr_z": float(m2.params["retrospective_kl_z"]),
-                "se_retr_z": float(m2.bse["retrospective_kl_z"]),
+                "coef_pros_z": float(m2.params["kl_vs_past_z"]),
+                "se_pros_z": float(m2.bse["kl_vs_past_z"]),
+                "coef_retr_z": float(m2.params["kl_vs_future_z"]),
+                "se_retr_z": float(m2.bse["kl_vs_future_z"]),
             }
         )
 
@@ -119,29 +119,29 @@ def main() -> int:
     print(f"       {panel.height:,} firms in firm-debut financial panel")
 
     pdf = panel.select(
-        pl.col("cik"), pl.col("dkl"), pl.col("prospective_kl"), pl.col("retrospective_kl"),
+        pl.col("cik"), pl.col("dkl"), pl.col("kl_vs_past"), pl.col("kl_vs_future"),
         pl.col("year"), pl.col("mean_gross_margin"), pl.col("std_gross_margin"),
         pl.col("mean_log_revenue"), pl.col("n_firm_years"),
     ).drop_nulls(["dkl", "mean_gross_margin", "mean_log_revenue"]).to_pandas()
     if len(pdf) >= 100:
-        for col in ("dkl", "prospective_kl", "retrospective_kl"):
+        for col in ("dkl", "kl_vs_past", "kl_vs_future"):
             pdf[f"{col}_z"] = (pdf[col] - pdf[col].mean()) / pdf[col].std()
         pdf["year_c"] = pdf["year"] - pdf["year"].mean()
 
         # OLS: mean future gross margin ~ debut dKL + controls
         X1 = sm.add_constant(pdf[["dkl_z", "mean_log_revenue", "year_c"]])
         f1 = sm.OLS(pdf["mean_gross_margin"], X1).fit(cov_type="HC1")
-        X2 = sm.add_constant(pdf[["prospective_kl_z", "retrospective_kl_z", "mean_log_revenue", "year_c"]])
+        X2 = sm.add_constant(pdf[["kl_vs_past_z", "kl_vs_future_z", "mean_log_revenue", "year_c"]])
         f2 = sm.OLS(pdf["mean_gross_margin"], X2).fit(cov_type="HC1")
         debut_fin = {
             "n_firms": int(len(pdf)),
             "outcome": "mean_gross_margin",
             "coef_dkl_z": float(f1.params["dkl_z"]),
             "se_dkl_z": float(f1.bse["dkl_z"]),
-            "coef_pros_z": float(f2.params["prospective_kl_z"]),
-            "se_pros_z": float(f2.bse["prospective_kl_z"]),
-            "coef_retr_z": float(f2.params["retrospective_kl_z"]),
-            "se_retr_z": float(f2.bse["retrospective_kl_z"]),
+            "coef_pros_z": float(f2.params["kl_vs_past_z"]),
+            "se_pros_z": float(f2.bse["kl_vs_past_z"]),
+            "coef_retr_z": float(f2.params["kl_vs_future_z"]),
+            "se_retr_z": float(f2.bse["kl_vs_future_z"]),
         }
 
         # Variance: std of margin ~ debut dKL

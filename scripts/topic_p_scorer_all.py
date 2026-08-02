@@ -161,10 +161,10 @@ def main() -> int:
         pl.DataFrame({
             "serial_number": d["serial_number"],
             "year": d["year"],
-            "topic_pros": pros,
-            "topic_retr": retr,
+            "topic_kl_vs_past": pros,
+            "topic_kl_vs_future": retr,
         }).with_columns(
-            (pl.col("topic_pros") - pl.col("topic_retr")).alias("topic_dkl")
+            (pl.col("topic_kl_vs_past") - pl.col("topic_kl_vs_future")).alias("topic_dkl")
         ).write_parquet(out_path)
         n_scored = int(np.isfinite(pros).sum())
         print(f"[{ci}/{len(classes)}] class {cls}: {n:,} filings, "

@@ -34,11 +34,11 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 
@@ -53,10 +53,10 @@ def load_filings(classes: list[str], year_min: int, year_max: int) -> pl.DataFra
             CLEAN & (pl.col("year") >= year_min) & (pl.col("year") <= year_max)
         ).with_columns(
             (pl.col("reached_registration") & pl.col("currently_live")).alias("passed_5y"),
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
             pl.lit(cls).alias("nice_class"),
-        ).select("owner_name", "nice_class", "year", "prospective_kl",
-                 "retrospective_kl", "dkl", "reached_registration",
+        ).select("owner_name", "nice_class", "year", "kl_vs_past",
+                 "kl_vs_future", "dkl", "reached_registration",
                  "passed_5y", "n_terms")
         parts.append(df)
     return pl.concat(parts)
@@ -64,8 +64,8 @@ def load_filings(classes: list[str], year_min: int, year_max: int) -> pl.DataFra
 
 def firm_panel(filings: pl.DataFrame, min_filings: int = 3) -> pl.DataFrame:
     return (filings.group_by("owner_name")
-            .agg(pl.col("prospective_kl").mean().alias("mean_pros"),
-                 pl.col("retrospective_kl").mean().alias("mean_retr"),
+            .agg(pl.col("kl_vs_past").mean().alias("mean_pros"),
+                 pl.col("kl_vs_future").mean().alias("mean_retr"),
                  pl.col("dkl").mean().alias("mean_dkl"),
                  pl.col("passed_5y").mean().alias("firm_passed5"),
                  pl.col("reached_registration").mean().alias("firm_reach"),

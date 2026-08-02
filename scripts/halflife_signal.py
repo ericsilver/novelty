@@ -5,8 +5,8 @@ flat-window baseline surprise_class009.parquet, compute several
 ``signal'' metrics on the (filing -> outcome) relationship:
 
   S1 = corr(ΔKL, passed_5y)              -- main downstream signal
-  S2 = corr(prospective_kl, reached_reg) -- examination signal
-  S3 = corr(retrospective_kl, currently_live)
+  S2 = corr(kl_vs_past, reached_reg) -- examination signal
+  S3 = corr(kl_vs_future, currently_live)
   S4 = std(ΔKL)                          -- spread / discrimination
   S5 = pseudo-R² of logit passed_5y ~ z(ΔKL) + log(n_terms)
   S6 = same logit's |coef on z(dkl)| -- effect size after length control
@@ -53,14 +53,14 @@ def load_outcomes() -> pl.DataFrame:
 def load_baseline() -> pl.DataFrame:
     """Flat 5y window baseline."""
     return pl.read_parquet(PROC / "surprise_class009.parquet").select(
-        "serial_number", "prospective_kl", "retrospective_kl",
-        "n_ref_prospective", "n_ref_retrospective", "n_terms"
+        "serial_number", "kl_vs_past", "kl_vs_future",
+        "n_ref_past", "n_ref_future", "n_terms"
     )
 
 
 def load_decay(path: Path) -> pl.DataFrame:
     return pl.read_parquet(path).select(
-        "serial_number", "prospective_kl", "retrospective_kl",
+        "serial_number", "kl_vs_past", "kl_vs_future",
         "n_eff_prospective", "n_eff_retrospective", "n_terms"
     )
 
@@ -68,19 +68,19 @@ def load_decay(path: Path) -> pl.DataFrame:
 def signal_metrics(label: str, df: pl.DataFrame) -> dict:
     # Apply CLEAN-equivalent restriction
     has_ref = (
-        ("n_ref_prospective" in df.columns and (df["n_ref_prospective"] >= 1000).all())
+        ("n_ref_past" in df.columns and (df["n_ref_past"] >= 1000).all())
         or ("n_eff_prospective" in df.columns)
     )
-    df = df.with_columns((pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+    df = df.with_columns((pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
     # base filter: finite KLs, year window, n_terms >= 3
-    if "n_ref_prospective" in df.columns:
-        df = df.filter((pl.col("n_ref_prospective") >= 1000) & (pl.col("n_ref_retrospective") >= 1000))
+    if "n_ref_past" in df.columns:
+        df = df.filter((pl.col("n_ref_past") >= 1000) & (pl.col("n_ref_future") >= 1000))
     elif "n_eff_prospective" in df.columns:
         df = df.filter((pl.col("n_eff_prospective") >= 1000) & (pl.col("n_eff_retrospective") >= 1000))
     df = df.filter(
         (pl.col("n_terms") >= 3)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
         & pl.col("dkl").is_finite()
     )
     n = df.height
@@ -89,8 +89,8 @@ def signal_metrics(label: str, df: pl.DataFrame) -> dict:
     pdf = df.to_pandas()
 
     s1 = float(np.corrcoef(pdf["dkl"], pdf["passed_5y"])[0, 1])
-    s2 = float(np.corrcoef(pdf["prospective_kl"], pdf["reached_registration"])[0, 1])
-    s3 = float(np.corrcoef(pdf["retrospective_kl"], pdf["currently_live"])[0, 1])
+    s2 = float(np.corrcoef(pdf["kl_vs_past"], pdf["reached_registration"])[0, 1])
+    s3 = float(np.corrcoef(pdf["kl_vs_future"], pdf["currently_live"])[0, 1])
     s4 = float(pdf["dkl"].std())
 
     # Logit pseudo-R² and z-scored coef
@@ -147,13 +147,13 @@ def main() -> int:
         f.write("Halflife sweep on Class 9 — signal metrics on the same outcome panel.\n")
         f.write(f"{'='*100}\n\n")
         f.write(f"{'model':<14s}{'n':>10s}{'corr(ΔKL, pass5)':>20s}"
-                f"{'corr(pros, reg)':>17s}{'corr(retr, live)':>18s}"
+                f"{'corr(vs-past, reg)':>19s}{'corr(vs-future, live)':>23s}"
                 f"{'std(ΔKL)':>11s}{'pseudoR²':>11s}{'|z(dkl) β|':>13s}\n")
         for r in rows:
             f.write(f"{r['model']:<14s}{r.get('n',0):>10,}"
                     f"{r.get('S1_corr_dkl_pass5',float('nan')):>+20.4f}"
-                    f"{r.get('S2_corr_pros_reg',float('nan')):>+17.4f}"
-                    f"{r.get('S3_corr_retr_live',float('nan')):>+18.4f}"
+                    f"{r.get('S2_corr_pros_reg',float('nan')):>+19.4f}"
+                    f"{r.get('S3_corr_retr_live',float('nan')):>+23.4f}"
                     f"{r.get('S4_std_dkl',float('nan')):>11.4f}"
                     f"{r.get('S5_pseudoR2',float('nan')):>11.4f}"
                     f"{r.get('S6_z_dkl_coef',float('nan')):>13.4f}\n")

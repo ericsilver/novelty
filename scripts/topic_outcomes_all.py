@@ -83,15 +83,15 @@ def load_class(cls: str) -> pl.DataFrame | None:
         return None
     topic = pl.read_parquet(tp).filter(pl.col("topic_dkl").is_finite())
     tok = pl.read_parquet(
-        sp, columns=["serial_number", "n_terms", "prospective_kl",
-                     "retrospective_kl", "n_ref_prospective", "n_ref_retrospective"],
+        sp, columns=["serial_number", "n_terms", "kl_vs_past",
+                     "kl_vs_future", "n_ref_past", "n_ref_future"],
     ).filter(
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("token_dkl"))
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("token_dkl"))
     tm = pl.read_parquet(
         mp, columns=["serial_number", "owner_name", "filing_date",
                      "registration_date", "status_code"],

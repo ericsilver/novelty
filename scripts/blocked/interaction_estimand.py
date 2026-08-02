@@ -21,7 +21,7 @@ constructs two kernel-independent churn measures from the raw tokens:
       prior W years -- set membership only, never touches KL or smoothing.
 
 INPUTS REQUIRED (none currently on disk -- run `make tm crosswalk` to build):
-  data/processed/surprise_class<NNN>.parquet   (serial_number, year, prospective_kl, retrospective_kl)
+  data/processed/surprise_class<NNN>.parquet   (serial_number, year, kl_vs_past, kl_vs_future)
   data/processed/tm_class<NNN>.parquet         (serial_number, year, owner_name, goods_services)
   data_publish/firm_year_patents_and_dkl.csv   (already present: owner-year patents)
 
@@ -64,9 +64,9 @@ def main() -> int:
     for p in sur_paths:
         cls = p.stem.replace("surprise_class", "")
         s = pl.read_parquet(p).select("serial_number", "year",
-                                       "prospective_kl", "retrospective_kl")
+                                       "kl_vs_past", "kl_vs_future")
         s = s.with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
             pl.lit(cls).alias("nice"))
         frames.append(s)
     dkl = pl.concat(frames).drop_nulls("dkl")

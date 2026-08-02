@@ -58,8 +58,8 @@ NICE_NAMES = {
 }
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
 )
 
@@ -89,10 +89,10 @@ def load_class(cls: str, year_lo: int, year_hi: int) -> pl.DataFrame | None:
     if not (sp.exists() and tp.exists()):
         return None
     s = pl.read_parquet(
-        sp, columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
-    ).filter(CLEAN & pl.col("prospective_kl").is_finite()
-             & pl.col("retrospective_kl").is_finite()
+        sp, columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
+    ).filter(CLEAN & pl.col("kl_vs_past").is_finite()
+             & pl.col("kl_vs_future").is_finite()
              & pl.col("year").is_between(year_lo, year_hi))
     t = pl.read_parquet(
         tp, columns=["serial_number", "registration_date", "status_code"],
@@ -103,7 +103,7 @@ def load_class(cls: str, year_lo: int, year_hi: int) -> pl.DataFrame | None:
         pl.col("status_code").is_in(list(FAIL)).alias("st_fail"),
     )
     return s.join(t, on="serial_number", how="inner").with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
 
 
 def main() -> int:
@@ -162,7 +162,7 @@ def main() -> int:
         df = load_class(cls, 2013, 2015)
         if df is None or df.height == 0:
             continue
-        parts.append(df.select("dkl", "prospective_kl", "retrospective_kl",
+        parts.append(df.select("dkl", "kl_vs_past", "kl_vs_future",
                                "registered", "st_pass", "st_fail"))
         del df
         gc.collect()

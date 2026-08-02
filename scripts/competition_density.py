@@ -59,17 +59,17 @@ def main() -> int:
     print(f"[load] Class {CLASS_ID} surprise + outcomes + g/s …", flush=True)
     sp_df = pl.read_parquet(
         PROC / f"surprise_class{CLASS_ID}.parquet",
-        columns=["serial_number","year","prospective_kl","retrospective_kl",
-                 "n_ref_prospective","n_ref_retrospective","n_terms"],
+        columns=["serial_number","year","kl_vs_past","kl_vs_future",
+                 "n_ref_past","n_ref_future","n_terms"],
     ).filter(
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
         & pl.col("year").is_between(1990, 2019)   # need 5y post-window observable
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
     )
     op = pl.read_parquet(
         PROC / f"outcomes_class{CLASS_ID}.parquet",

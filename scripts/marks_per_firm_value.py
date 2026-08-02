@@ -53,14 +53,14 @@ def owner_filing_counts() -> pl.DataFrame:
             continue
         s = pl.read_parquet(
             sp,
-            columns=["serial_number","n_ref_prospective","n_ref_retrospective","n_terms",
-                     "prospective_kl","retrospective_kl"],
+            columns=["serial_number","n_ref_past","n_ref_future","n_terms",
+                     "kl_vs_past","kl_vs_future"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
         ).select("serial_number")
         t = pl.read_parquet(tm, columns=["serial_number","owner_name"]).filter(
             pl.col("owner_name").is_not_null()

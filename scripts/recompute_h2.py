@@ -42,15 +42,15 @@ def run(args: list[str]) -> int:
 
 def convert_decay_to_surprise(decay_path: Path, out_path: Path) -> None:
     df = pl.read_parquet(decay_path)
-    df = df.rename({"n_eff_prospective": "n_ref_prospective",
-                    "n_eff_retrospective": "n_ref_retrospective"})
+    df = df.rename({"n_eff_prospective": "n_ref_past",
+                    "n_eff_retrospective": "n_ref_future"})
     df = df.with_columns(
-        pl.col("n_ref_prospective").fill_null(0).cast(pl.Int32, strict=False).fill_null(0),
-        pl.col("n_ref_retrospective").fill_null(0).cast(pl.Int32, strict=False).fill_null(0),
+        pl.col("n_ref_past").fill_null(0).cast(pl.Int32, strict=False).fill_null(0),
+        pl.col("n_ref_future").fill_null(0).cast(pl.Int32, strict=False).fill_null(0),
     ).drop(["halflife_pros", "halflife_retr"]).select(
         "serial_number", "filing_date", "year", "mark_identification",
-        "owner_name", "n_terms", "prospective_kl", "n_ref_prospective",
-        "retrospective_kl", "n_ref_retrospective",
+        "owner_name", "n_terms", "kl_vs_past", "n_ref_past",
+        "kl_vs_future", "n_ref_future",
     )
     df.write_parquet(out_path)
     print(f"    converted -> {out_path.name}  ({df.height:,} rows)", file=sys.stderr)

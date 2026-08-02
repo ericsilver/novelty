@@ -10,7 +10,7 @@ For each era (pre-2000, 2000-2009, 2010-2021), report:
 Filters:
   - CLEAN H=2y cut (n_ref >=1000, n_terms>=3, finite KLs)
   - n_terms >= 10 for the example filings (avoid single-word boilerplate)
-  - prospective_kl in (3.5, 7) so we're not just pulling extreme-distinctive outliers
+  - kl_vs_past in (3.5, 7) so we're not just pulling extreme-distinctive outliers
 
 Outputs:
   paper/results/vanishing_trend_examples.txt
@@ -45,19 +45,19 @@ def collect() -> pl.DataFrame:
         if not (sp.exists() and tm.exists()): continue
         s = pl.read_parquet(
             sp,
-            columns=["serial_number","year","prospective_kl","retrospective_kl",
-                     "n_ref_prospective","n_ref_retrospective","n_terms",
+            columns=["serial_number","year","kl_vs_past","kl_vs_future",
+                     "n_ref_past","n_ref_future","n_terms",
                      "owner_name","mark_identification"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 10)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
-            & pl.col("prospective_kl").is_between(3.5, 7.0)
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
+            & pl.col("kl_vs_past").is_between(3.5, 7.0)
             & pl.col("year").is_between(1985, 2021)
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
         )
         t = pl.read_parquet(tm, columns=["serial_number","goods_services"])
         j = s.join(t, on="serial_number", how="inner").with_columns(
@@ -89,7 +89,7 @@ def main() -> int:
         for r in top.iter_rows(named=True):
             gs = (r["goods_services"] or "").replace("\n"," ")[:200]
             lines.append(
-                f"  ΔKL={r['dkl']:+.2f}  pros={r['prospective_kl']:.2f} retr={r['retrospective_kl']:.2f}  "
+                f"  ΔKL={r['dkl']:+.2f}  pros={r['kl_vs_past']:.2f} retr={r['kl_vs_future']:.2f}  "
                 f"{r['year']}  cls{r['cls']}\n"
                 f"    owner: {(r['owner_name'] or '')[:70]}\n"
                 f"    mark:  {(r['mark_identification'] or '')[:60]}\n"

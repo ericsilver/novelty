@@ -29,8 +29,8 @@ RESULTS = REPO_ROOT / "paper" / "results"
 # 2026 (typical filing → registration lag ~1–2y; Section 8 due 5y after
 # that ⇒ ~filing_year + 7).
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2018)
 )
@@ -44,18 +44,18 @@ def main() -> int:
         if not cls.isdigit(): continue
         parts.append(pl.read_parquet(path).filter(
             CLEAN & pl.col("owner_name").is_not_null()
-        ).select("owner_name", "prospective_kl", "retrospective_kl",
+        ).select("owner_name", "kl_vs_past", "kl_vs_future",
                  "reached_registration", "currently_live")
         .with_columns(
             (pl.col("reached_registration") & pl.col("currently_live")).alias("passed_5y")
-        ).select("owner_name", "prospective_kl", "retrospective_kl",
+        ).select("owner_name", "kl_vs_past", "kl_vs_future",
                  "reached_registration", "passed_5y"))
     universe = pl.concat(parts)
     print(f"  {universe.height:,} clean filings, all classes", flush=True)
 
     firm = universe.group_by("owner_name").agg(
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.col("reached_registration").mean().alias("mean_reach"),
         pl.col("passed_5y").mean().alias("mean_passed5"),
         pl.len().alias("n_filings"),

@@ -56,6 +56,31 @@ Design documents:
 
 The raw 12 GB USPTO TRTYRAP backfile is not committed and is regenerable from the USPTO API.
 
+### KL columns and which window each is measured against
+
+Every KL column in the panels is named for its **reference window**, not for the direction a reader might assume from the word. The paper follows the Murdock/Barron vocabulary, in which *prospective* surprise is scored against the **past** and *retrospective* surprise against the **future**; the column names spell that out so the panels can be reused without re-deriving the convention.
+
+| Column | Reference window | Definition | Paper's term |
+|---|---|---|---|
+| `kl_vs_past` | years `[t−W, t−1]` | KL(P_t ‖ Q_past) | prospective surprise |
+| `kl_vs_future` | years `[t+1, t+W]` | KL(P_t ‖ Q_future) | retrospective surprise |
+| `n_ref_past` | — | filings pooled into Q_past (the `>= 1000` clean filter) | — |
+| `n_ref_future` | — | filings pooled into Q_future | — |
+| `topic_kl_vs_past` | years `[t−W, t−1]` | same, on the LDA topic distribution | prospective surprise (topic) |
+| `topic_kl_vs_future` | years `[t+1, t+W]` | same, on the LDA topic distribution | retrospective surprise (topic) |
+| `topic_dkl` | — | `topic_kl_vs_past − topic_kl_vs_future` | ΔKL |
+
+`W` = 5 years throughout except in the reference-window decomposition (`window_choice_all.py`), which also builds W=3 and W=7 variants.
+
+**ΔKL is always `kl_vs_past − kl_vs_future`** (`topic_dkl` on the topic side; scripts build the token-side `dkl` in place). **A positive ΔKL means the field moved toward the filing**: its vocabulary was unusual relative to the recent past and ordinary relative to the near future. Negative ΔKL is the reverse — ordinary when filed, unusual in hindsight, i.e. the field moved away.
+
+Two consequences worth keeping straight:
+
+- **Levels are atypicality, the difference is lean.** `kl_vs_past` and `kl_vs_future` (and their mean) measure *unsigned* distance from the class-year norm — how little the filing sounds like its class. Only the signed difference carries the lead/lag reading. Analyses of "atypicality" take the levels; analyses of "forward lean" take ΔKL.
+- **The decay-weighted scorer keeps two legacy names.** `src/novelty/surprise_decay.py` emits `kl_vs_past` / `kl_vs_future` alongside Kish effective sizes still called `n_eff_prospective` / `n_eff_retrospective`; `n_eff_prospective` pairs with `kl_vs_past`. `scripts/recompute_h2.py` maps them to `n_ref_past` / `n_ref_future`.
+
+`scripts/migrate_kl_column_names.py` rewrites older panels (`prospective_kl`, `retrospective_kl`, `n_ref_prospective`, `n_ref_retrospective`, `topic_pros`, `topic_retr`) into these names. It is idempotent and does not touch `topic_dkl`.
+
 ## Reproducing the analysis
 
 Requires Python 3.11, a TeX install (TeX Live or MiKTeX), and a free USPTO Open Data Portal API key from <https://data.uspto.gov> (My ODP → My API Key).

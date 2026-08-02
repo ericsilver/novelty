@@ -157,9 +157,9 @@ def main() -> int:
         "serial_number": rec["serial_number"],
         "nice": rec["nice"],
         "year": rec["year"],
-        "topic_pros": pros,
-        "topic_retr": retr,
-    }).with_columns((pl.col("topic_pros") - pl.col("topic_retr")).alias("topic_dkl"))
+        "topic_kl_vs_past": pros,
+        "topic_kl_vs_future": retr,
+    }).with_columns((pl.col("topic_kl_vs_past") - pl.col("topic_kl_vs_future")).alias("topic_dkl"))
     out.write_parquet(OUT_PARQUET)
     scored = out.filter(pl.col("topic_dkl").is_not_null() & pl.col("topic_dkl").is_finite())
     print(f"[save] {scored.height:,} scored filings -> {OUT_PARQUET}", file=sys.stderr, flush=True)
@@ -172,23 +172,23 @@ def main() -> int:
     for c in CLASSES:
         tok_parts.append(pl.read_parquet(
             DATA / f"surprise_class{c}.parquet",
-            columns=["serial_number", "n_terms", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective"]))
+            columns=["serial_number", "n_terms", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future"]))
     tok = pl.concat(tok_parts).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("token_dkl"))
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("token_dkl"))
     j = scored.join(tok, on="serial_number", how="inner").filter(
         pl.col("token_dkl").is_finite()
-        & (pl.col("n_ref_prospective") >= 1000) & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_ref_past") >= 1000) & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3))
     results["n_joined"] = j.height
-    jd = j.select("token_dkl", "topic_dkl", "topic_pros", "topic_retr",
-                  "prospective_kl", "retrospective_kl", "n_terms").to_pandas()
+    jd = j.select("token_dkl", "topic_dkl", "topic_kl_vs_past", "topic_kl_vs_future",
+                  "kl_vs_past", "kl_vs_future", "n_terms").to_pandas()
     results["corr_token_topic_dkl_pearson"] = float(jd["token_dkl"].corr(jd["topic_dkl"]))
     results["corr_token_topic_dkl_spearman"] = float(
         jd["token_dkl"].corr(jd["topic_dkl"], method="spearman"))
-    results["corr_topic_pros_retr"] = float(jd["topic_pros"].corr(jd["topic_retr"]))
+    results["corr_topic_past_future"] = float(jd["topic_kl_vs_past"].corr(jd["topic_kl_vs_future"]))
     results["corr_token_pros_retr"] = float(
-        jd["prospective_kl"].corr(jd["retrospective_kl"]))
+        jd["kl_vs_past"].corr(jd["kl_vs_future"]))
 
     # length artifact: mean |dkl| by n_terms band, token vs topic
     bands = [(3, 4), (5, 9), (10, 19), (20, 39), (40, 10_000)]

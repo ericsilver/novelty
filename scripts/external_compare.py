@@ -48,14 +48,14 @@ def main() -> int:
         if not cls.isdigit():
             continue
         parts.append(pl.read_parquet(path).filter(
-            (pl.col("n_ref_prospective") >= 1000) & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000) & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3) & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
             & pl.col("owner_name").is_not_null()
         ))
     tm = pl.concat(parts).join(cw, on="owner_name", how="inner")
     firm_dkl = tm.group_by("cik").agg(
         pl.col("dkl").mean().alias("firm_mean_dkl"),
-        pl.col("prospective_kl").mean().alias("firm_mean_pros"),
+        pl.col("kl_vs_past").mean().alias("firm_mean_pros"),
         pl.len().alias("firm_n_filings"),
         pl.col("sec_name").first(),
     )

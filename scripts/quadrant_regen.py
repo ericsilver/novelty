@@ -38,8 +38,8 @@ PANELS = [
 ]
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
 )
 
@@ -49,10 +49,10 @@ def main() -> int:
     rows = []
     for ax, (cls, label, examples) in zip(axes, PANELS):
         sp = pl.read_parquet(PROC / f"surprise_class{cls}.parquet").with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
         ).filter(CLEAN)
         sample = sp.sample(min(15000, sp.height), seed=7)
-        ax.scatter(sample["prospective_kl"], sample["retrospective_kl"],
+        ax.scatter(sample["kl_vs_past"], sample["kl_vs_future"],
                    s=3, alpha=0.08, color="#888")
         lo, hi = 2.0, 10.0
         ax.plot([lo, hi], [lo, hi], color="black", linewidth=0.6, linestyle="--")
@@ -70,7 +70,7 @@ def main() -> int:
                 print(f"  miss [{cls}]: {mark_q} ({year_q})", file=sys.stderr)
                 continue
             r = hits.row(0, named=True)
-            x, y = float(r["prospective_kl"]), float(r["retrospective_kl"])
+            x, y = float(r["kl_vs_past"]), float(r["kl_vs_future"])
             if not (lo <= x <= hi and lo <= y <= hi):
                 print(f"  oob  [{cls}]: {mark_q} ({year_q}) ({x:.2f},{y:.2f})",
                       file=sys.stderr)
@@ -82,7 +82,7 @@ def main() -> int:
                 x, y, f"{mark_q} ({year_q})", fontsize=8, zorder=5,
                 bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="none", alpha=0.85)))
             rows.append({"cls": cls, "mark": mark_q, "year": year_q,
-                         "prospective_kl": x, "retrospective_kl": y, "dkl": x - y})
+                         "kl_vs_past": x, "kl_vs_future": y, "dkl": x - y})
             print(f"  hit  [{cls}]: {mark_q} ({year_q}) dkl={x-y:+.2f}",
                   file=sys.stderr)
         if text_objs:

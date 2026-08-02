@@ -1,5 +1,5 @@
 {
- "median_topic_pros": 1.1745466974959635,
+ "median_topic_kl_vs_past": 1.1745466974959635,
  "cells": {
   "mompop_lowdist": {
    "n_filings": 1243361,

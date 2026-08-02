@@ -41,8 +41,8 @@ def industry_summary(classes: list[str]) -> pl.DataFrame:
 
     rows: list[dict] = []
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
     )
     for cls in classes:
@@ -81,8 +81,8 @@ def write_summary_tex(summary: pl.DataFrame) -> None:
     from novelty.industries import name as industry_name  # noqa
 
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
     )
 
@@ -153,8 +153,8 @@ def fig_industry_ranks(summary: pl.DataFrame) -> None:
 def per_class_survival_beta(classes: list[str]) -> pl.DataFrame:
     rows: list[dict] = []
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
     )
     for cls in classes:
@@ -237,14 +237,14 @@ def write_face_validity(classes: list[str]) -> None:
     from novelty.industries import name as industry_name
 
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 5)
     )
     rows = []
     for cls in classes:
         sp = pl.read_parquet(REPO_ROOT / f"data/processed/surprise_class{cls}.parquet").with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
         ).filter(CLEAN & (pl.col("year") >= 2010) & (pl.col("year") <= 2020))
         if sp.is_empty():
             continue

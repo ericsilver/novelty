@@ -34,8 +34,8 @@ RESULTS = REPO_ROOT / "paper" / "results"
 # filing_year cap of 2018 so the 5y Section-8 window has been adjudicated
 # for nearly every registration (~filing_year + 7 ≤ 2026).
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2018)
 )

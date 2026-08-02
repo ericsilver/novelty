@@ -86,12 +86,12 @@ def derive(records: pl.DataFrame, surprise: pl.DataFrame, *, today_year: int) ->
     surprise_slim = surprise.select(
         "serial_number",
         "n_terms",
-        "prospective_kl",
-        "n_ref_prospective",
-        "retrospective_kl",
-        "n_ref_retrospective",
+        "kl_vs_past",
+        "n_ref_past",
+        "kl_vs_future",
+        "n_ref_future",
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
     )
 
     return base.join(surprise_slim, on="serial_number", how="left")

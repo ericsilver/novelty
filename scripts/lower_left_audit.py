@@ -59,12 +59,12 @@ def clean_filter(year_min: int, year_max: int) -> pl.Expr:
     the same axis it always was.
     """
     return (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= year_min) & (pl.col("year") <= year_max)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
     )
 
 N_BINS = 36
@@ -86,7 +86,7 @@ def load_filings(classes: list[str], year_min: int, year_max: int) -> pl.DataFra
                   pl.col("n_terms").log().alias("log_n_terms"),
                   pl.lit(cls).alias("nice_class"),
               )
-              .select("owner_name", "nice_class", "prospective_kl", "retrospective_kl",
+              .select("owner_name", "nice_class", "kl_vs_past", "kl_vs_future",
                       "n_terms", "log_n_terms", "reached_registration", "passed_5y"))
         parts.append(df)
     return pl.concat(parts)
@@ -103,7 +103,7 @@ def residualize_kls(df: pl.DataFrame, within_class: bool = False) -> tuple[pl.Da
     diag = {}
     if not within_class:
         x = df["log_n_terms"].to_numpy().astype(np.float64)
-        for col in ("prospective_kl", "retrospective_kl"):
+        for col in ("kl_vs_past", "kl_vs_future"):
             y = df[col].to_numpy().astype(np.float64)
             b, a = np.polyfit(x, y, 1)
             resid = y - (a + b * x)
@@ -116,8 +116,8 @@ def residualize_kls(df: pl.DataFrame, within_class: bool = False) -> tuple[pl.Da
 
     # Within-class residualization
     classes = sorted(df["nice_class"].unique().to_list())
-    pros = df["prospective_kl"].to_numpy().astype(np.float64).copy()
-    retr = df["retrospective_kl"].to_numpy().astype(np.float64).copy()
+    pros = df["kl_vs_past"].to_numpy().astype(np.float64).copy()
+    retr = df["kl_vs_future"].to_numpy().astype(np.float64).copy()
     cls_arr = df["nice_class"].to_numpy()
     x_all = df["log_n_terms"].to_numpy().astype(np.float64)
     pros_resid = np.empty_like(pros)
@@ -129,22 +129,22 @@ def residualize_kls(df: pl.DataFrame, within_class: bool = False) -> tuple[pl.Da
             retr_resid[mask] = retr[mask] - retr[mask].mean()
             continue
         xx = x_all[mask]
-        for col_name, y, out in [("prospective_kl", pros, pros_resid),
-                                  ("retrospective_kl", retr, retr_resid)]:
+        for col_name, y, out in [("kl_vs_past", pros, pros_resid),
+                                  ("kl_vs_future", retr, retr_resid)]:
             yy = y[mask]
             b, a = np.polyfit(xx, yy, 1)
             out[mask] = yy - (a + b * xx)
     # diagnostics: pooled R²
-    for col, y, r in [("prospective_kl", pros, pros_resid),
-                      ("retrospective_kl", retr, retr_resid)]:
+    for col, y, r in [("kl_vs_past", pros, pros_resid),
+                      ("kl_vs_future", retr, retr_resid)]:
         ss_res = float(np.sum(r ** 2))
         ss_tot = float(np.sum((y - y.mean()) ** 2))
         diag[col] = {"slope": float("nan"), "intercept": float("nan"),
                      "R2": 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0,
                      "note": "within-class OLS; R² is pooled"}
     df = df.with_columns(
-        pl.Series("prospective_kl_resid", pros_resid),
-        pl.Series("retrospective_kl_resid", retr_resid),
+        pl.Series("kl_vs_past_resid", pros_resid),
+        pl.Series("kl_vs_future_resid", retr_resid),
     )
     return df, diag
 
@@ -190,8 +190,8 @@ def topomap_panel(ax, panel: pd.DataFrame, title: str, n_bins: int = N_BINS):
     diag_hi = min(p_hi, r_hi)
     ax.plot([diag_lo, diag_hi], [diag_lo, diag_hi], "k--", linewidth=0.7, alpha=0.7)
     ax.set_title(title, fontsize=10)
-    ax.set_xlabel(r"Mean prospective KL  (firm)")
-    ax.set_ylabel(r"Mean retrospective KL  (firm)")
+    ax.set_xlabel(r"Mean prospective KL, vs. past  (firm)")
+    ax.set_ylabel(r"Mean retrospective KL, vs. future  (firm)")
     ax.set_xlim(p_lo, p_hi)
     ax.set_ylim(r_lo, r_hi)
     ax.text(0.02, 0.02, "commonplace", transform=ax.transAxes,
@@ -259,7 +259,7 @@ def main() -> int:
 
     # Sanity: per-filing correlation between log(n_terms) and KL
     x = raw["log_n_terms"].to_numpy()
-    for col in ("prospective_kl", "retrospective_kl"):
+    for col in ("kl_vs_past", "kl_vs_future"):
         y = raw[col].to_numpy()
         rho = float(np.corrcoef(x, y)[0, 1])
         print(f"  corr(log_n_terms, {col}) = {rho:+.3f}", flush=True)
@@ -277,13 +277,13 @@ def main() -> int:
 
     # Four firm-level panels
     print("\n[panel] building firm panels…", flush=True)
-    panel_A = make_firm_panel(raw, "prospective_kl", "retrospective_kl",
+    panel_A = make_firm_panel(raw, "kl_vs_past", "kl_vs_future",
                               MIN_FIRMS_BASELINE)
-    panel_B = make_firm_panel(res, "prospective_kl_resid", "retrospective_kl_resid",
+    panel_B = make_firm_panel(res, "kl_vs_past_resid", "kl_vs_future_resid",
                               MIN_FIRMS_BASELINE)
-    panel_C = make_firm_panel(raw, "prospective_kl", "retrospective_kl",
+    panel_C = make_firm_panel(raw, "kl_vs_past", "kl_vs_future",
                               MIN_FIRMS_SOPHISTICATED)
-    panel_D = make_firm_panel(res, "prospective_kl_resid", "retrospective_kl_resid",
+    panel_D = make_firm_panel(res, "kl_vs_past_resid", "kl_vs_future_resid",
                               MIN_FIRMS_SOPHISTICATED)
 
     rows = []
@@ -337,7 +337,7 @@ def main() -> int:
         f.write(f"{'=' * 60}\n\n")
         f.write(f"N clean filings: {raw.height:,}\n\n")
         f.write("Per-filing correlations with log(n_terms):\n")
-        for col in ("prospective_kl", "retrospective_kl"):
+        for col in ("kl_vs_past", "kl_vs_future"):
             rho = float(np.corrcoef(raw['log_n_terms'].to_numpy(),
                                     raw[col].to_numpy())[0, 1])
             f.write(f"  corr(log_n_terms, {col}) = {rho:+.3f}\n")

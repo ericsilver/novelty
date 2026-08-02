@@ -46,8 +46,8 @@ def load_filings_with_dkl() -> pl.DataFrame:
         parts.append(pl.read_parquet(path))
     return pl.concat(parts).filter(
         pl.col("owner_name").is_not_null()
-        & (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
     )

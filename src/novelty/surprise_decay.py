@@ -27,6 +27,13 @@ report Kish effective sample size
 which collapses to the raw filing count when all weights are 1 and
 shrinks as the weighted mass concentrates on a few records.
 
+Columns written: kl_vs_past (= the prospective/backward-looking reference,
+t_j < t_i) and kl_vs_future (= the retrospective/forward-looking reference,
+t_j > t_i), with the Kish sizes kept under their original names
+n_eff_prospective / n_eff_retrospective (n_eff_prospective belongs to
+kl_vs_past, n_eff_retrospective to kl_vs_future).  scripts/recompute_h2.py
+maps those to n_ref_past / n_ref_future when converting to surprise schema.
+
 Usage:
 
     python -m novelty.surprise_decay \\
@@ -243,8 +250,8 @@ def main() -> int:
     print(f"       ({time.time()-t0:.1f}s)", file=sys.stderr)
 
     out = df.with_columns(
-        pl.Series("prospective_kl", pros_kl),
-        pl.Series("retrospective_kl", retr_kl),
+        pl.Series("kl_vs_past", pros_kl),
+        pl.Series("kl_vs_future", retr_kl),
         pl.Series("n_eff_prospective", n_pros),
         pl.Series("n_eff_retrospective", n_retr),
         pl.Series("n_terms", n_terms),
@@ -258,9 +265,9 @@ def main() -> int:
         "mark_identification",
         "owner_name",
         "n_terms",
-        "prospective_kl",
+        "kl_vs_past",
         "n_eff_prospective",
-        "retrospective_kl",
+        "kl_vs_future",
         "n_eff_retrospective",
         "halflife_pros",
         "halflife_retr",
@@ -268,8 +275,8 @@ def main() -> int:
     out.write_parquet(args.out)
     print(
         f"[done] {out.height:,} rows -> {args.out}  "
-        f"(pros non-null: {out['prospective_kl'].is_not_null().sum():,}, "
-        f"retr: {out['retrospective_kl'].is_not_null().sum():,})  "
+        f"(pros non-null: {out['kl_vs_past'].is_not_null().sum():,}, "
+        f"retr: {out['kl_vs_future'].is_not_null().sum():,})  "
         f"halflife_pros={args.halflife_pros} halflife_retr={args.halflife_retr}  "
         f"({time.time()-t0:.1f}s)",
         file=sys.stderr,

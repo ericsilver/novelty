@@ -38,21 +38,21 @@ EXAMPLES = [
 ]
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
 )
 
 
 def main() -> int:
     sp = pl.read_parquet(PROC / "surprise_class032.parquet").with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
     ).filter(CLEAN)
     print(f"class 032 clean filings: {sp.height:,}", file=sys.stderr)
 
     fig, ax = plt.subplots(figsize=(9.5, 9.0))
     sample = sp.sample(min(20000, sp.height), seed=7)
-    ax.scatter(sample["prospective_kl"], sample["retrospective_kl"],
+    ax.scatter(sample["kl_vs_past"], sample["kl_vs_future"],
                s=4, alpha=0.10, color="#888")
 
     lo, hi = 2.0, 10.0
@@ -73,7 +73,7 @@ def main() -> int:
             print(f"  miss: {mark_q} ({year_q})", file=sys.stderr)
             continue
         r = hits.row(0, named=True)
-        x, y = float(r["prospective_kl"]), float(r["retrospective_kl"])
+        x, y = float(r["kl_vs_past"]), float(r["kl_vs_future"])
         if not (lo <= x <= hi and lo <= y <= hi):
             print(f"  out of frame: {mark_q} ({year_q}) at ({x:.2f},{y:.2f})",
                   file=sys.stderr)
@@ -85,7 +85,7 @@ def main() -> int:
             x, y, f"{mark_q} ({year_q})", fontsize=10.5, zorder=5,
             bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.88)))
         rows.append({"mark": mark_q, "year": year_q,
-                     "prospective_kl": x, "retrospective_kl": y,
+                     "kl_vs_past": x, "kl_vs_future": y,
                      "dkl": x - y,
                      "serial_number": r["serial_number"]})
         print(f"  hit : {mark_q} ({year_q}) pros={x:.2f} retr={y:.2f} dkl={x-y:+.2f}",

@@ -4,11 +4,11 @@ filings.  Independent of whether they used category-defining vocabulary.
 
 For each firm we report:
   - n_filings        (post-founding-year, across all classes)
-  - mean_pros        firm-mean prospective_kl
-  - mean_retr        firm-mean retrospective_kl
+  - mean_pros        firm-mean kl_vs_past
+  - mean_retr        firm-mean kl_vs_future
   - mean_dkl         firm-mean (pros - retr)
-  - first_real_pros  prospective_kl on their first post-founding filing
-  - first_real_retr  retrospective_kl on their first post-founding filing
+  - first_real_pros  kl_vs_past on their first post-founding filing
+  - first_real_retr  kl_vs_future on their first post-founding filing
   - first_real_gs    first 140 chars of their first post-founding g/s
 
 Baseline reference values printed at top: median pros and retr across
@@ -83,17 +83,17 @@ def baseline_kls() -> tuple[float, float]:
     for cls in ["009", "025", "035", "041", "042", "036"]:
         sp = PROC / f"surprise_class{cls}.parquet"
         if not sp.exists(): continue
-        d = pl.read_parquet(sp, columns=["prospective_kl","retrospective_kl",
-                                          "n_ref_prospective","n_ref_retrospective","n_terms"]).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+        d = pl.read_parquet(sp, columns=["kl_vs_past","kl_vs_future",
+                                          "n_ref_past","n_ref_future","n_terms"]).filter(
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
-        ).select("prospective_kl", "retrospective_kl")
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
+        ).select("kl_vs_past", "kl_vs_future")
         parts.append(d)
     df = pl.concat(parts)
-    return float(df["prospective_kl"].median()), float(df["retrospective_kl"].median())
+    return float(df["kl_vs_past"].median()), float(df["kl_vs_future"].median())
 
 
 def collect_firm_kls(regex: str, founded: int) -> pl.DataFrame | None:
@@ -119,14 +119,14 @@ def collect_firm_kls(regex: str, founded: int) -> pl.DataFrame | None:
             continue
         kl = pl.read_parquet(
             sp,
-            columns=["serial_number", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+            columns=["serial_number", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
         )
         j = tm.join(kl, on="serial_number", how="inner")
         if j.height:
@@ -154,13 +154,13 @@ def main() -> int:
             rows.append({"brand": brand, "founded": founded, "n_clean_filings": 0})
             continue
         first = df.row(0, named=True)
-        mp = float(df["prospective_kl"].mean())
-        mr = float(df["retrospective_kl"].mean())
+        mp = float(df["kl_vs_past"].mean())
+        mr = float(df["kl_vs_future"].mean())
         md = mp - mr
         print(f"  n_clean_filings: {df.height:,}",  flush=True)
         print(f"  firm-mean  pros={mp:.3f}  retr={mr:.3f}  ΔKL={md:+.3f}", flush=True)
         print(f"  first-real {first['filing_date']} cls{first['cls']}  "
-              f"pros={first['prospective_kl']:.3f}  retr={first['retrospective_kl']:.3f}", flush=True)
+              f"pros={first['kl_vs_past']:.3f}  retr={first['kl_vs_future']:.3f}", flush=True)
         gs = (first["goods_services"] or "")[:140]
         print(f"    g/s: {gs!r}\n", flush=True)
         rows.append({
@@ -169,8 +169,8 @@ def main() -> int:
             "mean_pros": mp, "mean_retr": mr, "mean_dkl": md,
             "first_real_date": first["filing_date"],
             "first_real_class": first["cls"],
-            "first_real_pros": float(first["prospective_kl"]),
-            "first_real_retr": float(first["retrospective_kl"]),
+            "first_real_pros": float(first["kl_vs_past"]),
+            "first_real_retr": float(first["kl_vs_future"]),
             "first_real_owner": first["owner_name"],
             "first_real_gs": gs,
         })

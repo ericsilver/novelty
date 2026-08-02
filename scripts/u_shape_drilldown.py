@@ -9,9 +9,9 @@
   2. The U-shape might be driven by the most-extreme filings on
      each KL axis. We test by re-fitting the pooled quadratic
      after dropping:
-        (a) the bottom 5th percentile of prospective_KL (= most
+        (a) the bottom 5th percentile of kl_vs_past (= most
             similar to past, "templated copies of last decade"),
-        (b) the bottom 5th percentile of retrospective_KL
+        (b) the bottom 5th percentile of kl_vs_future
             (= most similar to future, "happened to land on
             what later became canonical"),
         (c) both,
@@ -40,8 +40,8 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
 )
@@ -142,17 +142,17 @@ def main() -> int:
 
     # ---- (2) Drop-extremes test on pooled data ----
     print("\n[drop-extremes test]", flush=True)
-    base = universe.select("dkl", "prospective_kl", "retrospective_kl", "survived_5y", "year").drop_nulls().to_pandas()
+    base = universe.select("dkl", "kl_vs_past", "kl_vs_future", "survived_5y", "year").drop_nulls().to_pandas()
     base["survived_5y"] = base["survived_5y"].astype(int)
-    p5_pros = base["prospective_kl"].quantile(0.05)
-    p5_retr = base["retrospective_kl"].quantile(0.05)
+    p5_pros = base["kl_vs_past"].quantile(0.05)
+    p5_retr = base["kl_vs_future"].quantile(0.05)
     print(f"  baseline KL distributions:  prospective p5 = {p5_pros:.3f},  retrospective p5 = {p5_retr:.3f}")
 
     drop_specs = [
         ("Full sample (none dropped)", base),
-        (f"Drop bottom 5\\% of prospective KL (< {p5_pros:.2f})", base[base["prospective_kl"] >= p5_pros]),
-        (f"Drop bottom 5\\% of retrospective KL (< {p5_retr:.2f})", base[base["retrospective_kl"] >= p5_retr]),
-        (f"Drop bottom 5\\% of both axes", base[(base["prospective_kl"] >= p5_pros) & (base["retrospective_kl"] >= p5_retr)]),
+        (f"Drop bottom 5\\% of prospective KL, vs. past (< {p5_pros:.2f})", base[base["kl_vs_past"] >= p5_pros]),
+        (f"Drop bottom 5\\% of retrospective KL, vs. future (< {p5_retr:.2f})", base[base["kl_vs_future"] >= p5_retr]),
+        (f"Drop bottom 5\\% of both axes", base[(base["kl_vs_past"] >= p5_pros) & (base["kl_vs_future"] >= p5_retr)]),
         ("Drop bottom + top 10\\% of $\\Delta KL$ (test extreme tails)",
          base[(base["dkl"] >= base["dkl"].quantile(0.10)) & (base["dkl"] <= base["dkl"].quantile(0.90))]),
     ]

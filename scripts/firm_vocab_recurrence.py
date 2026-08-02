@@ -56,11 +56,11 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from novelty.dictionary import STOPWORDS, _make_analyzer
 
 CLEAN_BASE = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 
@@ -75,9 +75,9 @@ def load_class(cls: str, year_min: int, year_max: int) -> pl.DataFrame:
     out = pl.read_parquet(PROC / f"outcomes_class{cls}.parquet")
     out = out.filter(CLEAN_BASE & (pl.col("year") >= year_min) & (pl.col("year") <= year_max))
     out = out.with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
-    ).select("serial_number", "owner_name", "year", "prospective_kl",
-             "retrospective_kl", "dkl")
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
+    ).select("serial_number", "owner_name", "year", "kl_vs_past",
+             "kl_vs_future", "dkl")
     df = tm.join(out, on="serial_number", how="inner").filter(
         pl.col("goods_services").is_not_null()
     )
@@ -181,8 +181,8 @@ def main() -> int:
     ).reset_index()
     firm_dkl = df_pd.groupby("owner_name").agg(
         firm_mean_dkl=("dkl", "mean"),
-        firm_mean_pros=("prospective_kl", "mean"),
-        firm_mean_retr=("retrospective_kl", "mean"),
+        firm_mean_pros=("kl_vs_past", "mean"),
+        firm_mean_retr=("kl_vs_future", "mean"),
         n_firm_filings=("dkl", "size"),
     ).reset_index()
     firm = firm.merge(firm_dkl, on="owner_name", how="inner")

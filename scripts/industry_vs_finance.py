@@ -25,8 +25,8 @@ def main() -> int:
     from novelty.industries import name as industry_name
 
     CLEAN = (
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
     )
@@ -46,8 +46,8 @@ def main() -> int:
         df = pl.read_parquet(path).filter(CLEAN)
         if df.is_empty():
             continue
-        ind_pros = float(df["prospective_kl"].mean())
-        ind_retr = float(df["retrospective_kl"].mean())
+        ind_pros = float(df["kl_vs_past"].mean())
+        ind_retr = float(df["kl_vs_future"].mean())
         ind_dkl = float(df["dkl"].mean())
 
         # firms in this industry that match SEC
@@ -73,8 +73,8 @@ def main() -> int:
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharey=True)
     panels = [
-        ("pros", "Prospective KL\n(industry mean — surprise at filing time)"),
-        ("retr", "Retrospective KL\n(industry mean — unusual in hindsight = unimitated)"),
+        ("pros", "Prospective KL, vs. past\n(industry mean — surprise at filing time)"),
+        ("retr", "Retrospective KL, vs. future\n(industry mean — unusual in hindsight = unimitated)"),
         ("dkl",  r"$\Delta KL$" + " (industry mean — innovator score)"),
     ]
     for ax, (col, xlabel) in zip(axes, panels):

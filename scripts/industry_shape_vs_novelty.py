@@ -38,11 +38,11 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 
@@ -73,8 +73,8 @@ def load_class(cls: str, year_min=1990, year_max=2023) -> pl.DataFrame:
         CLEAN & (pl.col("year") >= year_min) & (pl.col("year") <= year_max)
     ).with_columns(
         (pl.col("reached_registration") & pl.col("currently_live")).alias("passed_5y"),
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-    ).select("owner_name", "prospective_kl", "retrospective_kl", "dkl",
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+    ).select("owner_name", "kl_vs_past", "kl_vs_future", "dkl",
              "passed_5y", "reached_registration")
     return df
 
@@ -144,8 +144,8 @@ def main() -> int:
         df = load_class(cls, args.year_min, args.year_max)
         if df.is_empty(): continue
         firm = df.group_by("owner_name").agg(
-            pl.col("prospective_kl").mean().alias("mean_pros"),
-            pl.col("retrospective_kl").mean().alias("mean_retr"),
+            pl.col("kl_vs_past").mean().alias("mean_pros"),
+            pl.col("kl_vs_future").mean().alias("mean_retr"),
             pl.col("dkl").mean().alias("mean_dkl"),
             pl.col("passed_5y").mean().alias("firm_passed5"),
             pl.len().alias("n_filings"),
@@ -160,8 +160,8 @@ def main() -> int:
         m_surv_pros = shape_metrics(firm_pd, "mean_pros", "firm_passed5")
         m_pub_pros = shape_metrics(elig_pd, "mean_pros", "ever_public", min_n=20)
 
-        cls_mean_pros = float(df["prospective_kl"].mean())
-        cls_mean_retr = float(df["retrospective_kl"].mean())
+        cls_mean_pros = float(df["kl_vs_past"].mean())
+        cls_mean_retr = float(df["kl_vs_future"].mean())
         cls_mean_dkl = float(df["dkl"].mean())
 
         rec = {
@@ -216,7 +216,7 @@ def main() -> int:
             ax.annotate(r["label"][:14], (r["class_mean_pros"], r["surv_quad_a"]),
                         fontsize=7, alpha=0.7, xytext=(3, 2), textcoords="offset points")
     ax.axhline(0, color="black", linestyle="--", alpha=0.4, lw=0.7)
-    ax.set_xlabel(r"Class-mean prospective KL (novelty intensity)")
+    ax.set_xlabel(r"Class-mean prospective KL, vs. past (novelty intensity)")
     ax.set_ylabel(r"Quadratic curvature of P(survival) vs mean_pros\n(<0 = inverted-U; >0 = U)")
     ax.set_title("(a) Does class novelty predict survival-curve shape?")
     ax.grid(True, alpha=0.3)
@@ -229,7 +229,7 @@ def main() -> int:
         if r["n_firms"] > 1000:
             ax.annotate(r["label"][:14], (r["class_mean_pros"], r["surv_argmax_pos"]),
                         fontsize=7, alpha=0.7, xytext=(3, 2), textcoords="offset points")
-    ax.set_xlabel(r"Class-mean prospective KL")
+    ax.set_xlabel(r"Class-mean prospective KL (vs. past)")
     ax.set_ylabel(r"Position of survival peak (0=left, 1=right of bin range)")
     ax.set_title("(b) Where does the survival curve peak?")
     ax.grid(True, alpha=0.3)
@@ -244,7 +244,7 @@ def main() -> int:
             ax.annotate(r["label"][:14], (r["class_mean_pros"], r["pub_quad_a"]),
                         fontsize=7, alpha=0.7, xytext=(3, 2), textcoords="offset points")
     ax.axhline(0, color="black", linestyle="--", alpha=0.4, lw=0.7)
-    ax.set_xlabel(r"Class-mean prospective KL")
+    ax.set_xlabel(r"Class-mean prospective KL (vs. past)")
     ax.set_ylabel(r"Quadratic curvature of P(public) vs mean_pros\n(<0 = inverted-U)")
     ax.set_title("(c) Going-public curve shape")
     ax.grid(True, alpha=0.3)
@@ -258,7 +258,7 @@ def main() -> int:
             ax.annotate(r["label"][:14], (r["class_mean_pros"], r["pub_overall_slope"]),
                         fontsize=7, alpha=0.7, xytext=(3, 2), textcoords="offset points")
     ax.axhline(0, color="black", linestyle="--", alpha=0.4, lw=0.7)
-    ax.set_xlabel(r"Class-mean prospective KL")
+    ax.set_xlabel(r"Class-mean prospective KL (vs. past)")
     ax.set_ylabel(r"Overall slope of P(public) vs mean_pros")
     ax.set_title("(d) Going-public slope direction")
     ax.grid(True, alpha=0.3)

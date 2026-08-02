@@ -25,8 +25,8 @@ RESULTS = REPO_ROOT / "paper" / "results"
 
 # ⚠ n_terms >= 3 intentionally OMITTED here.
 CLEAN_NO_NTERMS = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2018)
 )
 

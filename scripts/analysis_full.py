@@ -23,8 +23,8 @@ plt.rcParams.update({"font.size": 10, "axes.titlesize": 11, "axes.labelsize": 10
 
 CLASSES = ["009", "032"]
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
 )
 
@@ -35,7 +35,7 @@ def _load_outcomes(cls: str) -> pl.DataFrame:
 
 def _load_surprise(cls: str) -> pl.DataFrame:
     return pl.read_parquet(REPO_ROOT / f"data/processed/surprise_class{cls}.parquet").with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
     )
 
 
@@ -47,13 +47,13 @@ def fig_industry_time_series():
             sp.group_by("year")
             .agg(
                 pl.len().alias("n"),
-                pl.col("prospective_kl").median().alias("pros_med"),
-                pl.col("retrospective_kl").median().alias("retr_med"),
+                pl.col("kl_vs_past").median().alias("pros_med"),
+                pl.col("kl_vs_future").median().alias("retr_med"),
                 pl.col("dkl").median().alias("dkl_med"),
-                pl.col("prospective_kl").quantile(0.25).alias("pros_q1"),
-                pl.col("prospective_kl").quantile(0.75).alias("pros_q3"),
-                pl.col("retrospective_kl").quantile(0.25).alias("retr_q1"),
-                pl.col("retrospective_kl").quantile(0.75).alias("retr_q3"),
+                pl.col("kl_vs_past").quantile(0.25).alias("pros_q1"),
+                pl.col("kl_vs_past").quantile(0.75).alias("pros_q3"),
+                pl.col("kl_vs_future").quantile(0.25).alias("retr_q1"),
+                pl.col("kl_vs_future").quantile(0.75).alias("retr_q3"),
                 pl.col("dkl").quantile(0.25).alias("dkl_q1"),
                 pl.col("dkl").quantile(0.75).alias("dkl_q3"),
             )
@@ -170,7 +170,7 @@ def fig_quadrant():
     for ax, cls in zip(axes, CLASSES):
         sp = _load_surprise(cls).filter(CLEAN)
         sample = sp.sample(min(15000, sp.height), seed=7)
-        ax.scatter(sample["prospective_kl"], sample["retrospective_kl"],
+        ax.scatter(sample["kl_vs_past"], sample["kl_vs_future"],
                    s=3, alpha=0.08, color="#888")
 
         lo, hi = 2.0, 10.0
@@ -199,7 +199,7 @@ def fig_quadrant():
             if hits.is_empty():
                 continue
             r = hits.row(0, named=True)
-            x, y = float(r["prospective_kl"]), float(r["retrospective_kl"])
+            x, y = float(r["kl_vs_past"]), float(r["kl_vs_future"])
             if not (lo <= x <= hi and lo <= y <= hi):
                 continue
             ax.scatter([x], [y], s=46, color="#d62728",
@@ -230,11 +230,11 @@ def fig_quadrant():
         ax.set_xlim(lo, hi)
         ax.set_ylim(lo, hi)
         ax.set_xlabel(
-            r"Prospective KL --- novelty at filing time"
+            r"Prospective KL (vs. past) --- novelty at filing time"
             "\n(higher $\\rightarrow$ less like the previous 5 years' filings in this category)"
         )
         ax.set_ylabel(
-            r"Retrospective KL --- novelty in hindsight"
+            r"Retrospective KL (vs. future) --- novelty in hindsight"
             "\n(higher $\\rightarrow$ less like the next 5 years' filings in this category)"
         )
         ax.set_title(INDUSTRY_NAME[cls])
@@ -286,8 +286,8 @@ def fig_outcome_curves():
         df = _load_outcomes(cls).filter(CLEAN)
         fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=True)
         panel_specs = [
-            ("prospective_kl", "Prospective KL  (novel vs. past)", kl_edges, kl_centers),
-            ("retrospective_kl", "Retrospective KL  (novel vs. future)", kl_edges, kl_centers),
+            ("kl_vs_past", "Prospective KL  (novel vs. past)", kl_edges, kl_centers),
+            ("kl_vs_future", "Retrospective KL  (novel vs. future)", kl_edges, kl_centers),
             ("dkl", r"$\Delta KL$ (pros $-$ retr)  (innovator $\rightarrow$ right)", d_edges, d_centers),
         ]
         for ax, (xcol, xlabel, edges, centers) in zip(axes, panel_specs):
@@ -349,8 +349,8 @@ def regressions():
                 .select(
                     pl.col(outcome).cast(pl.Int8),
                     pl.col("dkl"),
-                    pl.col("prospective_kl"),
-                    pl.col("retrospective_kl"),
+                    pl.col("kl_vs_past"),
+                    pl.col("kl_vs_future"),
                     pl.col("n_terms").log().alias("log_n_terms"),
                     pl.col("year"),
                 )
@@ -359,10 +359,10 @@ def regressions():
             )
             if len(pdf) < 1000:
                 continue
-            for col in ("dkl", "prospective_kl", "retrospective_kl"):
+            for col in ("dkl", "kl_vs_past", "kl_vs_future"):
                 pdf[f"{col}_z"] = (pdf[col] - pdf[col].mean()) / pdf[col].std()
             m_dkl = fit(pdf, ["dkl_z", "log_n_terms"], outcome)
-            m_pr = fit(pdf, ["prospective_kl_z", "retrospective_kl_z", "log_n_terms"], outcome)
+            m_pr = fit(pdf, ["kl_vs_past_z", "kl_vs_future_z", "log_n_terms"], outcome)
             rows.append(
                 {
                     "cls": cls,
@@ -372,10 +372,10 @@ def regressions():
                     "rate": float(pdf[outcome].mean()),
                     "coef_dkl_z": float(m_dkl.params["dkl_z"]),
                     "se_dkl_z": float(m_dkl.bse["dkl_z"]),
-                    "coef_pros_z": float(m_pr.params["prospective_kl_z"]),
-                    "se_pros_z": float(m_pr.bse["prospective_kl_z"]),
-                    "coef_retr_z": float(m_pr.params["retrospective_kl_z"]),
-                    "se_retr_z": float(m_pr.bse["retrospective_kl_z"]),
+                    "coef_pros_z": float(m_pr.params["kl_vs_past_z"]),
+                    "se_pros_z": float(m_pr.bse["kl_vs_past_z"]),
+                    "coef_retr_z": float(m_pr.params["kl_vs_future_z"]),
+                    "se_retr_z": float(m_pr.bse["kl_vs_future_z"]),
                     "coef_log_n_terms": float(m_dkl.params["log_n_terms"]),
                     "se_log_n_terms": float(m_dkl.bse["log_n_terms"]),
                 }
@@ -524,8 +524,8 @@ def write_token_attribution_table():
         + f"{L}p{{3.4cm}}{L}p{{3.8cm}}rrr {L}p{{6.0cm}} {L}p{{6.0cm}}"
         + "}\n\\toprule\n"
         "Mark / Year & Owner at filing & $KL_{\\text{pros}}$ & $KL_{\\text{retr}}$ & "
-        "$\\Delta KL$ & Top tokens driving prospective surprise & "
-        "Top tokens driving retrospective surprise \\\\\n\\midrule\n"
+        "$\\Delta KL$ & Top tokens driving prospective surprise (vs. past) & "
+        "Top tokens driving retrospective surprise (vs. future) \\\\\n\\midrule\n"
     )
     body = ""
     text_dump = []

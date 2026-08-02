@@ -37,8 +37,8 @@ def load_filings_with_dkl() -> pl.DataFrame:
         parts.append(df)
     return pl.concat(parts).filter(
         pl.col("owner_name").is_not_null()
-        & (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990)
         & (pl.col("year") <= 2020)
@@ -88,8 +88,8 @@ def main() -> int:
     # ---- (A) Firm-year mean dKL ----
     fy = matched.group_by(["cik", "year"]).agg(
         pl.col("dkl").mean().alias("mean_dkl"),
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.len().alias("n_filings_yr"),
     ).rename({"year": "base_year"})
 
@@ -108,8 +108,8 @@ def main() -> int:
     debut = matched.sort("filing_date").unique(subset=["owner_name"], keep="first")
     debut_firm = debut.group_by("cik").agg(
         pl.col("dkl").mean().alias("mean_dkl"),
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.col("year").min().alias("base_year"),
     )
     panel_b = debut_firm.join(rets, on=["cik", "base_year"], how="inner")

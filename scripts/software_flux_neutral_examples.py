@@ -32,17 +32,17 @@ def main() -> int:
     s = pl.read_parquet(
         PROC / f"surprise_class{cls}.parquet",
         columns=["serial_number", "year", "owner_name", "mark_identification",
-                 "prospective_kl", "retrospective_kl",
-                 "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+                 "kl_vs_past", "kl_vs_future",
+                 "n_ref_past", "n_ref_future", "n_terms"],
     ).filter(
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms").is_between(8, 50))   # normal-size filings
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
         & pl.col("year").is_between(1995, 2019)
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
     )
     o = pl.read_parquet(PROC / f"outcomes_class{cls}.parquet",
                          columns=["serial_number", "survived_5y", "reached_registration"])
@@ -51,7 +51,7 @@ def main() -> int:
     j = s.join(o, on="serial_number", how="inner").join(t, on="serial_number", how="inner")
     print(f"[panel] Class 9 clean, 1995-2019, n_terms>=8: n={j.height:,}", flush=True)
 
-    pros = j["prospective_kl"].to_numpy()
+    pros = j["kl_vs_past"].to_numpy()
     import numpy as np
     p10 = float(np.quantile(pros, 0.10))
     p90 = float(np.quantile(pros, 0.90))
@@ -64,17 +64,17 @@ def main() -> int:
     print(f"        flux-neutral failed: n={failed.height:,}", flush=True)
 
     # (a) high-pros stratum (top 10%)
-    high = failed.filter(pl.col("prospective_kl") >= p90).sort("prospective_kl", descending=True).head(12)
+    high = failed.filter(pl.col("kl_vs_past") >= p90).sort("kl_vs_past", descending=True).head(12)
     # (b) low-pros stratum (bottom 10%)
-    low  = failed.filter(pl.col("prospective_kl") <= p10).sort("prospective_kl").head(12)
+    low  = failed.filter(pl.col("kl_vs_past") <= p10).sort("kl_vs_past").head(12)
 
     def render(rows: pl.DataFrame, label: str) -> list[str]:
         out = [f"\n=== {label} ===\n"]
         for r in rows.iter_rows(named=True):
             gs = (r["goods_services"] or "").replace("\n", " ").strip()
             out.append(
-                f"  year {r['year']}  pros={r['prospective_kl']:.2f}  "
-                f"retr={r['retrospective_kl']:.2f}  ΔKL={r['dkl']:+.3f}  "
+                f"  year {r['year']}  pros={r['kl_vs_past']:.2f}  "
+                f"retr={r['kl_vs_future']:.2f}  ΔKL={r['dkl']:+.3f}  "
                 f"n_terms={r['n_terms']}"
             )
             out.append(f"    owner: {(r['owner_name'] or '')[:80]}")

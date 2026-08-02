@@ -33,8 +33,8 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
 )
@@ -49,13 +49,13 @@ def main() -> int:
         cls = path.stem.replace("outcomes_class", "")
         if not cls.isdigit(): continue
         parts.append(pl.read_parquet(path).filter(CLEAN & pl.col("owner_name").is_not_null())
-                     .select("owner_name", "prospective_kl", "retrospective_kl"))
+                     .select("owner_name", "kl_vs_past", "kl_vs_future"))
     universe = pl.concat(parts).join(cw, on="owner_name", how="inner")
 
     # Per-firm mean prospective and retrospective KL
     firm_kl = universe.group_by("cik").agg(
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.len().alias("n_filings"),
     ).filter(pl.col("n_filings") >= 3)
     print(f"  firm-level KL means: {firm_kl.height:,} firms with >=3 filings")

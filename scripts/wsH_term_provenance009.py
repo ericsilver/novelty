@@ -66,8 +66,8 @@ def main() -> int:
     prov = pl.DataFrame({"serial_number": rec["serial_number"], "year": years,
                          "n_tok": n_tok, "novel_share": novel_share})
     sur = pl.read_parquet(DATA / "surprise_class009.parquet").with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl")
-    ).filter(pl.col("prospective_kl").is_finite() & pl.col("retrospective_kl").is_finite())
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
+    ).filter(pl.col("kl_vs_past").is_finite() & pl.col("kl_vs_future").is_finite())
     df = prov.join(sur.select("serial_number", "dkl"), on="serial_number", how="inner").filter(
         (pl.col("year") >= BURN_IN) & (pl.col("year") <= EDGE) & (pl.col("n_tok") >= 10))
     print(f"[join] {df.height:,} filings in {BURN_IN}-{EDGE} with >=10 tokens")

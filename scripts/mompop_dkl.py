@@ -67,17 +67,17 @@ def main() -> int:
             continue
         topic = pl.read_parquet(tp).filter(pl.col("topic_dkl").is_finite())
         tok = pl.read_parquet(
-            sp, columns=["serial_number", "n_terms", "prospective_kl",
-                         "retrospective_kl", "n_ref_prospective",
-                         "n_ref_retrospective"],
+            sp, columns=["serial_number", "n_terms", "kl_vs_past",
+                         "kl_vs_future", "n_ref_past",
+                         "n_ref_future"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("token_dkl"))
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("token_dkl"))
         tm = pl.read_parquet(
             PROC / f"tm_class{cls}.parquet",
             columns=["serial_number", "owner_name", "registration_date",
@@ -97,7 +97,7 @@ def main() -> int:
             sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
             pl.col("lifetime_filings").fill_null(1),
-        ).select("year", "topic_pros", "topic_dkl", "token_dkl",
+        ).select("year", "topic_kl_vs_past", "topic_dkl", "token_dkl",
                  "registered", "reg_year", "st_pass", "st_fail",
                  "lifetime_filings", "in_sec")
         parts.append(j)
@@ -108,9 +108,9 @@ def main() -> int:
     gc.collect()
     print(f"[pool] {df.height:,} filings", file=sys.stderr, flush=True)
 
-    med_pros = float(df["topic_pros"].median())
+    med_pros = float(df["topic_kl_vs_past"].median())
     df = df.with_columns(
-        (pl.col("topic_pros") > med_pros).alias("high_distinct"),
+        (pl.col("topic_kl_vs_past") > med_pros).alias("high_distinct"),
         (pl.col("lifetime_filings") <= 2).alias("small_owner"),
         (pl.col("lifetime_filings") >= 5).alias("large_owner"),
     )
@@ -136,7 +136,7 @@ def main() -> int:
         "large_lowdist": (pl.col("large_owner") & ~pl.col("high_distinct")),
         "large_highdist": (pl.col("large_owner") & pl.col("high_distinct")),
     }
-    out = {"median_topic_pros": med_pros, "cells": {}}
+    out = {"median_topic_kl_vs_past": med_pros, "cells": {}}
     for name, cond in cells.items():
         sub = df.filter(cond)
         gate = sub.filter(pl.col("reg_year").is_between(2016, 2018)

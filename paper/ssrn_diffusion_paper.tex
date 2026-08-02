@@ -28,50 +28,37 @@ description states in plain commercial language what the firm intends to
 sell. This paper builds two research assets from that record, and reports
 one measurement warning.
 
-\noindent The corpus is all 13.99 million USPTO trademark case files,
-re-parsed into event-dated prosecution histories: every office action,
-maintenance filing, and cancellation carries its own date, joined to
-counsel of record, filing basis, and owner domicile. The measure places
-each filing on two axes of vocabulary position. \emph{Atypicality} is how
-far a filing's language sits from the norm for its class and year, in
-either temporal direction. \emph{Forward lean}, written \dkl{}, is the
-signed difference: whether the filing is written in language the class
-subsequently moved toward. Both are computed for the millions of firms
-that never patent, and within firms the measure is essentially
-uncorrelated with patenting. The construction adapts the
-prospective/retrospective Kullback--Leibler framework of
-\citet{Murdock2017}, scored on topic distributions rather than raw terms.
+\noindent All 13.99 million USPTO trademark case files are re-parsed into
+event-dated prosecution histories, and each filing is placed on two axes
+of vocabulary position. \emph{Atypicality} is how far a filing's language
+sits from the norm for its class and year, in either temporal direction.
+\emph{Forward lean}, written \dkl{}, is whether the filing is written in
+language the class subsequently moved toward. Both are computed for the
+millions of firms that never patent, and within firms the measure is
+essentially uncorrelated with patenting.
 
 \noindent The two axes carry opposite commercial payoffs. Atypicality
-marks firms bound for public markets. Within class and filing year, and
-holding description length fixed, debut owners in the top atypicality
-quintile reach the SEC-listed universe about a quarter more often than
-those in the bottom, against a 0.19\% base rate ($t = 3.8$). Forward lean
-marks risk instead. Forward-leaning marks fail their first Section~8
-use-proof gate 2.3 percentage points more often per within-class-cohort
-quintile, on 3.10 million registrations from 2002 to 2018 against a
-49\% base failure rate ($t = 7.5$). That estimate holds with
-class$\times$cohort fixed effects, owner-clustered standard errors, and
-drafting and filer controls, and rises to 2.6 points among
-counsel-represented, US-domiciled owners. At equal atypicality,
-forward-leaning debuts also reach listing \emph{less} often
-($t = -5.0$). Being early is costly even where being different pays. The
-gate penalty appears with the 2008--2010 registration cohorts and
-reproduces out of sample in the 2019 cohort.
+marks firms bound for public markets: within class and filing year, and
+holding description length fixed, debut owners in the top quintile reach
+the SEC-listed universe about a quarter more often than those in the
+bottom, against a 0.19\% base rate ($t = 3.8$). Forward lean marks risk
+instead. Forward-leaning marks fail their first Section~8 use-proof gate
+2.3 percentage points more often per within-class-cohort quintile, on
+3.10 million registrations against a 49\% base failure rate, with
+class$\times$cohort fixed effects, owner-clustered errors, and drafting
+and filer controls ($t = 7.8$). At equal atypicality, forward-leaning
+debuts also reach listing \emph{less} often ($t = -5.0$). Being early is
+costly even where being different pays. The gate penalty appears with the
+2008--2010 cohorts and reproduces out of sample in 2019.
 
-\noindent A measurement warning accompanies the corpus. Scored at the
-level of individual terms rather than topic distributions, forward-leaning
-filings appear to belong to better firms. Those firm-level associations
-dissolve or reverse under distribution scoring at every resolution tried,
-and the listing gradient dissolves under document-length controls. What
-term-level scoring picks up is lexical specificity: serious firms describe
-specific products with rare words. Term-level text measures can therefore
+\noindent A measurement warning accompanies the corpus. Scored on
+individual terms rather than topic distributions, forward-leaning filings
+appear to belong to better firms; those associations dissolve or reverse
+under distribution scoring, because term-level scoring picks up lexical
+specificity rather than position. Text measures of this kind can
 manufacture firm-performance correlations out of drafting style. A
-diffusion application closes the paper --- business vocabulary transits
-across industries with multi-year lags, follows Bass-fittable adoption
-curves, and flows out of software far more than into it. Code, panels, and
-the corpus build are public at
-\url{https://github.com/ericsilver/novelty}.
+diffusion application closes the paper. Code, panels, and the corpus build
+are public at \url{https://github.com/ericsilver/novelty}.
 \end{abstract}
 
 \section{Introduction}
@@ -385,7 +372,7 @@ their first Section~8 use-proof gate more often than marks written in
 language it was moving away from. Within class$\times$cohort cells, with
 owner-clustered errors and drafting and filer controls, the failure rate
 rises $+2.3$pp per \dkl{} quintile against a 49\% base rate
-($t = 7.5$). This is the paper's central result, and the rest of this
+($t = 7.8$). This is the paper's central result, and the rest of this
 section is the design that produces it.
 
 Raw pooled
@@ -417,15 +404,15 @@ log owner filing count, owner domicile (US, CN), and foreign basis
 \toprule
 Sample & Specification & Q5$-$Q1 (pp) & $t$ & $n$ \\
 \midrule
-All & FE only & $+2.22$ & $9.3$ & 3{,}104{,}951 \\
-All & FE + controls & $+2.28$ & $7.5$ & 3{,}104{,}951 \\
-Counsel-represented & FE + controls & $+2.13$ & $5.8$ & 2{,}414{,}653 \\
-Counsel + US-domiciled & FE + controls & $+2.60$ & $5.9$ & 1{,}888{,}655 \\
-Self-filed & FE + controls & $+2.45$ & $10.1$ & 690{,}298 \\
+All & FE only & $+2.23$ & $9.6$ & 3{,}104{,}951 \\
+All & FE + controls & $+2.29$ & $7.8$ & 3{,}104{,}951 \\
+Counsel-represented & FE + controls & $+2.13$ & $6.1$ & 2{,}414{,}653 \\
+Counsel + US-domiciled & FE + controls & $+2.63$ & $6.3$ & 1{,}888{,}655 \\
+Self-filed & FE + controls & $+2.53$ & $10.4$ & 690{,}298 \\
 \midrule
-Counsel + US, 2002--07 & FE + controls & $+0.92$ & $2.4$ & 552{,}286 \\
-Counsel + US, 2008--12 & FE + controls & $+3.70$ & $5.0$ & 551{,}930 \\
-Counsel + US, 2013--18 & FE + controls & $+3.09$ & $7.0$ & 784{,}439 \\
+Counsel + US, 2002--07 & FE + controls & $+1.04$ & $3.1$ & 552{,}286 \\
+Counsel + US, 2008--12 & FE + controls & $+3.73$ & $5.0$ & 551{,}930 \\
+Counsel + US, 2013--18 & FE + controls & $+3.06$ & $7.0$ & 784{,}439 \\
 \midrule
 All & continuous, pp per $\sigma$ & $+0.87$ & $9.8$ & 3{,}104{,}951 \\
 Counsel + US & continuous, pp per $\sigma$ & $+0.94$ & $7.3$ & 1{,}888{,}655 \\
@@ -434,7 +421,7 @@ Counsel + US & continuous, pp per $\sigma$ & $+0.94$ & $7.3$ & 1{,}888{,}655 \\
 \end{table}
 
 Three properties of Table~\ref{tab:gate_lpm} matter. The gradient is
-monotone within cells ($+0.44$, $+0.90$, $+1.33$, $+2.28$pp across
+monotone within cells ($+0.44$, $+0.90$, $+1.31$, $+2.29$pp across
 quintiles two through five) and essentially unmoved by the full control
 set, so it is not absorbed by who files or how they draft. It is, if
 anything, \emph{largest} in the cleanest stratum --- counsel-represented,
@@ -470,7 +457,7 @@ not yet elapsed at the data edge.
 The filer population also changed over exactly this period, which is why
 the cohort thirds of Table~\ref{tab:gate_lpm} matter. \emph{Within}
 counsel-represented US-domiciled owners, and with the full control set,
-the gradient still rises from $+0.9$pp (2002--07) to $+3.7$pp (2008--12)
+the gradient still rises from $+1.0$pp (2002--07) to $+3.7$pp (2008--12)
 and $+3.1$pp (2013--18). The forward-leaning gate risk is therefore a
 feature of the post-2008 filing economy itself, not of the post-2015
 surge in self-filed and foreign applications, and it predates the
@@ -675,6 +662,80 @@ Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ & $-5.8$ \\
 Firms on BCG/MIT ``most innovative'' lists sit above the panel mean under
 every scoring, but on 41 matched firms the differences are too imprecise
 to carry weight (Appendix~\ref{app:comp}).
+
+\subsection{Each axis bites at a different stage}\label{sec:staged}
+
+The outcomes above are estimated in separate places on separate samples,
+which obscures the pattern that matters most: the two axes do their work
+at different points in a mark's life, and where each one bites is
+informative. Table~\ref{tab:staged} re-estimates every outcome on one
+harmonized sample --- one row per debut owner, scored on that owner's
+first filing --- under a single specification, so the coefficients can be
+read down a column. Because it harmonizes the sample, its magnitudes
+differ from the section-specific tables above, which each use their own;
+the signs and the ordering are what the table is for.
+
+\input{results/staged_outcomes_table.tex}
+
+Two reversals stand out. \emph{Atypicality} costs at registration and pays
+afterwards: atypical debut filings complete registration less often
+($-0.91$pp per standard deviation), then survive the first use-proof gate
+more often ($+1.22$pp) and reach public markets more often ($+0.03$pp on a
+0.23\% base). Whatever atypical language signals, the examination process
+penalizes it and the market does not. \emph{Forward lean} runs the other
+way: forward-leaning applications complete registration \emph{more} often
+($+1.19$pp) and then fail the use-proof gate ($-1.35$pp). Forward-leaning
+filers follow through on the paperwork; what does not follow through is
+the product.
+
+The registration row needs one caution. A linear coefficient cannot
+represent the inverse-U documented in Section~\ref{sec:gate}, where both
+vocabulary tails complete less often than the middle. The positive linear
+term reflects the asymmetry of that shape --- the forward tail completes
+more often than the backward tail --- and not a monotone gain from leaning
+forward.
+
+The financing rows are the ones worth dwelling on, because atypicality
+changes sign between them. Owners whose debut filing is atypical are
+\emph{less} likely to raise a Regulation~D round: $-0.06$pp per standard
+deviation among owners who completed registration ($t = -2.8$), against a
+2.61\% base. Among owners who did raise one, atypicality then predicts
+\emph{reaching} the public market: $+0.45$pp on a 3.49\% base, about 13\%
+relative ($t = 3.6$). Investors do not appear to price atypical language
+at entry, yet it separates the firms they funded that go on to list from
+those that do not. Selection running one way and realized outcomes the
+other is what a screen leaving something on the table looks like, and the
+text carrying the signal is free and public at the moment of filing.
+
+That last row requires one construction that is easy to get wrong. An
+exchange-registration marker on its own does not mean a firm listed
+\emph{after} raising: 56\% of matched owners carrying one registered
+before their first Regulation~D notice, because established public
+companies also place securities privately. Read naively, the row would be
+measuring public companies doing private placements rather than funded
+firms going public. It is therefore restricted to owners whose exchange
+registration postdates their first notice, which cuts the positive
+coefficient roughly in half from its uncorrected value and leaves it
+significant.
+
+Three further limits bound how hard the reading can be pushed.
+Regulation~D notices are electronically filed only from 2009, so the
+financing rows rest on 2009--2018 debut cohorts rather than the full
+panel. Owners are matched to filers by normalized name, which succeeds for
+a small and unrepresentative minority and favours formally constituted
+entities, so every financing estimate is conditional on matchability. And
+the final row conditions on funding, which is realized after the filing
+being scored; the coefficient is a contrast among survivors, not a
+treatment effect. What it establishes is that information distinguishing
+eventual listers from other funded firms was already present in the
+goods/services text years earlier --- not that atypical language caused
+the outcome.
+
+Forward lean, by contrast, does not reverse anywhere after registration.
+It is negative at the use-proof gate, negative at financing whether or not
+registration is imposed, and negative at listing among the funded. Being
+early is penalized at every stage where the market, rather than the
+examiner, is doing the selecting.
 
 \section{Business vocabulary flows out of software, and incumbents carry it}\label{sec:diffusion}
 

@@ -208,8 +208,8 @@ def main() -> int:
         if not p.exists():
             print(f"[skip ahead-behind for {c}: no surprise file yet]", file=sys.stderr)
             continue
-        s = pl.read_parquet(p, columns=["serial_number", "prospective_kl", "retrospective_kl"])
-        s = s.with_columns((pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+        s = pl.read_parquet(p, columns=["serial_number", "kl_vs_past", "kl_vs_future"])
+        s = s.with_columns((pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
         sur_dkl[c] = s.filter(pl.col("dkl").is_finite()).select("serial_number", "dkl")
 
     apb_rows = []

@@ -32,10 +32,10 @@ def load(window_tag: str = "") -> pl.DataFrame | None:
     if not p.exists():
         return None
     return pl.read_parquet(p).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).abs().alias("dkl_abs"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).abs().alias("dkl_abs"),
     ).filter(
-        pl.col("prospective_kl").is_finite() & pl.col("retrospective_kl").is_finite()
+        pl.col("kl_vs_past").is_finite() & pl.col("kl_vs_future").is_finite()
         & pl.col("dkl").is_finite()
     )
 
@@ -61,7 +61,7 @@ def main() -> int:
                          "p90": float(s.quantile(.9)),
                          "share_positive": float((s > 0).mean())}
     res["dkl_abs"] = {"mean": float(a.mean()), "median": float(a.median())}
-    res["corr_pros_retr"] = float(np.corrcoef(df["prospective_kl"], df["retrospective_kl"])[0, 1])
+    res["corr_pros_retr"] = float(np.corrcoef(df["kl_vs_past"], df["kl_vs_future"])[0, 1])
     print(f"signed dKL: mean={s.mean():+.4f} sd={s.std():.4f} "
           f"share>0={(s>0).mean():.1%}  | abs dKL mean={a.mean():.4f}")
     print(f"corr(pros,retr)={res['corr_pros_retr']:+.3f}  "

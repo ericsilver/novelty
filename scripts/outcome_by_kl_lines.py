@@ -52,14 +52,14 @@ def pool_panel() -> pl.DataFrame:
         if not (sp.exists() and op.exists()): continue
         s = pl.read_parquet(
             sp,
-            columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+            columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1985, 2021)
         )
         o = pl.read_parquet(
@@ -71,8 +71,8 @@ def pool_panel() -> pl.DataFrame:
         j = j.join(sec_owners, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False)
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-        ).select("year", "prospective_kl", "retrospective_kl", "dkl",
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+        ).select("year", "kl_vs_past", "kl_vs_future", "dkl",
                  "reached_registration", "survived_5y", "abandoned_at_exam",
                  "in_sec")
         if j.height:
@@ -111,8 +111,8 @@ def main() -> int:
     print(f"       abandoned_at_exam    rate: {df['abandoned_at_exam'].cast(pl.Float64).mean():.3f}", flush=True)
 
     axes_vars = [("dkl", "ΔKL", "#2b6cb0"),
-                 ("prospective_kl", "Prospective KL", "#cc4444"),
-                 ("retrospective_kl", "Retrospective KL", "#229922")]
+                 ("kl_vs_past", "Prospective KL (vs. past)", "#cc4444"),
+                 ("kl_vs_future", "Retrospective KL (vs. future)", "#229922")]
     outcomes = [("reached_registration", "A. P(reached registration)"),
                 ("survived_5y",           "B. P(survived 5y)"),
                 ("in_sec",                "C. P(owner ever in SEC EDGAR)")]

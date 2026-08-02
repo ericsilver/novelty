@@ -3,11 +3,22 @@
 For each filing at filing-year t with term-frequency distribution P over the
 (filtered) dictionary:
 
-    Q_pros(y)  = aggregate TF of all filings in years [t - W, t)
-    Q_retr(y)  = aggregate TF of all filings in years (t, t + W]
+    Q_pros(y)  = aggregate TF of all filings in years [t - W, t)      PAST
+    Q_retr(y)  = aggregate TF of all filings in years (t, t + W]      FUTURE
     KL(P || Q) = sum_{i: P_i > 0} P_i * (log P_i - log Q_i)
 
 Q is Laplace-smoothed (+alpha per cell) so unseen terms contribute finite mass.
+
+Columns written, named for the reference window each is measured against:
+
+    kl_vs_past    = KL(P || Q_pros)   the paper's "prospective surprise"
+    n_ref_past    filings pooled into Q_pros
+    kl_vs_future  = KL(P || Q_retr)   the paper's "retrospective surprise"
+    n_ref_future  filings pooled into Q_retr
+
+Downstream, dKL = kl_vs_past - kl_vs_future.  Positive dKL means the filing was
+unusual against its recent past and ordinary against its near future: the field
+moved toward it.
 
 Usage:
     python -m novelty.surprise \\
@@ -139,10 +150,10 @@ def main() -> int:
             n_retr[i] = n_retr_y[y]
 
     out = df.with_columns(
-        pl.Series("prospective_kl", pros_kl),
-        pl.Series("retrospective_kl", retr_kl),
-        pl.Series("n_ref_prospective", n_pros),
-        pl.Series("n_ref_retrospective", n_retr),
+        pl.Series("kl_vs_past", pros_kl),
+        pl.Series("kl_vs_future", retr_kl),
+        pl.Series("n_ref_past", n_pros),
+        pl.Series("n_ref_future", n_retr),
         pl.Series("n_terms", n_terms),
     ).select(
         "serial_number",
@@ -151,16 +162,16 @@ def main() -> int:
         "mark_identification",
         "owner_name",
         "n_terms",
-        "prospective_kl",
-        "n_ref_prospective",
-        "retrospective_kl",
-        "n_ref_retrospective",
+        "kl_vs_past",
+        "n_ref_past",
+        "kl_vs_future",
+        "n_ref_future",
     )
     out.write_parquet(args.out)
     print(
         f"[done] {out.height:,} rows -> {args.out}  "
-        f"(prospective non-null: {out['prospective_kl'].is_not_null().sum():,}, "
-        f"retrospective: {out['retrospective_kl'].is_not_null().sum():,})  "
+        f"(prospective non-null: {out['kl_vs_past'].is_not_null().sum():,}, "
+        f"retrospective: {out['kl_vs_future'].is_not_null().sum():,})  "
         f"({time.time()-t0:.1f}s)",
         file=sys.stderr,
     )

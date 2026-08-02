@@ -21,8 +21,8 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
     & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
 )
@@ -46,11 +46,11 @@ def build_debut_quintiles() -> pl.DataFrame:
         cls = path.stem.replace("outcomes_class", "")
         if not cls.isdigit(): continue
         parts.append(pl.read_parquet(path).filter(CLEAN & pl.col("owner_name").is_not_null())
-                     .select("owner_name", "filing_date", "prospective_kl", "retrospective_kl"))
+                     .select("owner_name", "filing_date", "kl_vs_past", "kl_vs_future"))
     universe = pl.concat(parts).sort("filing_date")
     debut = universe.unique(subset=["owner_name"], keep="first").select(
-        "owner_name", "prospective_kl", "retrospective_kl"
-    ).rename({"prospective_kl": "debut_pros_kl", "retrospective_kl": "debut_retr_kl"})
+        "owner_name", "kl_vs_past", "kl_vs_future"
+    ).rename({"kl_vs_past": "debut_pros_kl", "kl_vs_future": "debut_retr_kl"})
     pdf = debut.to_pandas()
     pdf["debut_quintile"] = pd.qcut(pdf["debut_pros_kl"], 5, labels=[1, 2, 3, 4, 5]).astype(int)
     pdf["debut_retro_quintile"] = pd.qcut(pdf["debut_retr_kl"], 5, labels=[1, 2, 3, 4, 5]).astype(int)
@@ -82,7 +82,7 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages,
                                        "debut_retro_quintile"),
                        on="owner_name", how="left").select(
         "owner_name", "debut_quintile", "debut_retro_quintile",
-        "prospective_kl", "retrospective_kl", "dkl",
+        "kl_vs_past", "kl_vs_future", "dkl",
         "reached_registration", "survived_5y",
     ).to_pandas()
 
@@ -97,10 +97,10 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages,
     ax = axes[0]
     PROS_COLOR, RETRO_COLOR = "#d62728", "#1f77b4"
     series = [
-        ("prospective_kl",  "survived_5y",           PROS_COLOR,  "-",  2.0, 1, 2, "5y survival vs. prospective KL"),
-        ("prospective_kl",  "reached_registration",  PROS_COLOR,  ":",  2.0, 1, 2, "Registration vs. prospective KL"),
-        ("retrospective_kl","survived_5y",           RETRO_COLOR, "-",  2.0, 1, 2, "5y survival vs. retrospective KL"),
-        ("retrospective_kl","reached_registration",  RETRO_COLOR, ":",  2.0, 1, 2, "Registration vs. retrospective KL"),
+        ("kl_vs_past",  "survived_5y",           PROS_COLOR,  "-",  2.0, 1, 2, "5y survival vs. prospective KL (vs. past)"),
+        ("kl_vs_past",  "reached_registration",  PROS_COLOR,  ":",  2.0, 1, 2, "Registration vs. prospective KL (vs. past)"),
+        ("kl_vs_future","survived_5y",           RETRO_COLOR, "-",  2.0, 1, 2, "5y survival vs. retrospective KL (vs. future)"),
+        ("kl_vs_future","reached_registration",  RETRO_COLOR, ":",  2.0, 1, 2, "Registration vs. retrospective KL (vs. future)"),
     ]
     bands_to_draw = []
     for xcol, col, color, ls, lw, _z_band, _z_line, lbl in series:
@@ -126,11 +126,11 @@ def render_industry(cls: str, industry_label: str, n_clean: int, pdf: PdfPages,
     for xs, _, _, color, ls, lw, lbl, ys in bands_to_draw:
         ax.plot(xs, ys, marker="o", linestyle=ls, color=color,
                 linewidth=lw, markersize=4, label=lbl, zorder=3)
-    ax.set_xlabel("KL value (prospective shown in red, retrospective in blue)")
+    ax.set_xlabel("KL value (prospective/vs.-past in red, retrospective/vs.-future in blue)")
     ax.set_ylabel("Outcome rate")
     ax.grid(alpha=0.3, zorder=0)
     ax.legend(loc="upper left", bbox_to_anchor=(0.02, 1.0), fontsize=7, frameon=False)
-    ax.set_title("Outcomes by prospective and retrospective KL")
+    ax.set_title("Outcomes by prospective (vs. past) and retrospective (vs. future) KL")
 
     # ----- Panel B: 5y survival by dKL, split by debut PROSPECTIVE KL quintile -----
     quintile_colors = ["#7a1111", "#bf6b3a", "#9a9a9a", "#3a8bbf", "#117a3a"]

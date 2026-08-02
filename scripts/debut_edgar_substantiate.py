@@ -86,15 +86,15 @@ def build() -> pl.DataFrame:
         ).join(
             pl.read_parquet(tp).filter(
                 pl.col("topic_dkl").is_finite()
-                & pl.col("topic_pros").is_finite()
-                & pl.col("topic_retr").is_finite()).select(
-                "serial_number", "topic_dkl", "topic_pros", "topic_retr"),
+                & pl.col("topic_kl_vs_past").is_finite()
+                & pl.col("topic_kl_vs_future").is_finite()).select(
+                "serial_number", "topic_dkl", "topic_kl_vs_past", "topic_kl_vs_future"),
             on="serial_number", how="inner",
         ).join(sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
             pl.lit(cls).alias("cls"),
         ).select("serial_number", "owner_name", "cls", "fy", "registered",
-                 "gs_len", "topic_dkl", "topic_pros", "topic_retr", "in_sec")
+                 "gs_len", "topic_dkl", "topic_kl_vs_past", "topic_kl_vs_future", "in_sec")
         rows.append(j)
         del tm, j
         gc.collect()
@@ -148,8 +148,13 @@ def main() -> int:
         (pl.col("gs_len").cast(pl.Float64) + 1).log().alias("log_len"),
     ).filter(pl.len().over("cell") >= 100)
 
-    # within-cell quintiles and z-scores
-    for col, tag in (("topic_pros", "p"), ("topic_retr", "r"), ("topic_dkl", "d")):
+    # Within-cell quintiles and z-scores. rank("ordinal") resolves ties by frame
+    # row order, which is not stable across runs, and roughly 27% of scored
+    # filings are tied (boilerplate goods/services text produces identical topic
+    # distributions). Sort on the score then a unique key so the cut points are
+    # reproducible.
+    for col, tag in (("topic_kl_vs_past", "p"), ("topic_kl_vs_future", "r"), ("topic_dkl", "d")):
+        reg = reg.sort(["cell", col, "owner_name"])
         reg = reg.with_columns(
             ((pl.col(col).rank("ordinal").over("cell") - 1) * 5
              // pl.len().over("cell")).cast(pl.Int8).alias(f"q_{tag}"),

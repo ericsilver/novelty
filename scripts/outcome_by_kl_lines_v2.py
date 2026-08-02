@@ -38,22 +38,22 @@ def pool_panel() -> pl.DataFrame:
         sp = PROC / f"surprise_class{cls}.parquet"
         op = PROC / f"outcomes_class{cls}.parquet"
         if not (sp.exists() and op.exists()): continue
-        s = pl.read_parquet(sp, columns=["serial_number","year","prospective_kl","retrospective_kl",
-                                          "n_ref_prospective","n_ref_retrospective","n_terms"]).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+        s = pl.read_parquet(sp, columns=["serial_number","year","kl_vs_past","kl_vs_future",
+                                          "n_ref_past","n_ref_future","n_terms"]).filter(
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1990, 2021)
         )
         o = pl.read_parquet(op, columns=["serial_number","owner_name","reached_registration","currently_live","survived_5y"])
         j = s.join(o, on="serial_number", how="inner")
         j = j.join(sec, on="owner_name", how="left").with_columns(pl.col("in_sec").fill_null(False))
-        j = j.with_columns((pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+        j = j.with_columns((pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
         # survived_5y_cond = currently_live, restricted to reached_registration=True
         # We'll compute this in the binning logic
-        if j.height: parts.append(j.select("dkl","prospective_kl","retrospective_kl",
+        if j.height: parts.append(j.select("dkl","kl_vs_past","kl_vs_future",
                                             "reached_registration","currently_live","survived_5y","in_sec"))
         del s, o, j
         gc.collect()
@@ -94,8 +94,8 @@ def main() -> int:
     print(f"       n = {df.height:,}", flush=True)
 
     axes_vars = [("dkl", r"$\Delta KL$", "#2b6cb0"),
-                 ("prospective_kl", r"$KL_{\mathrm{pros}}$", "#cc4444"),
-                 ("retrospective_kl", r"$KL_{\mathrm{retr}}$", "#229922")]
+                 ("kl_vs_past", r"$KL_{\mathrm{pros}}$", "#cc4444"),
+                 ("kl_vs_future", r"$KL_{\mathrm{retr}}$", "#229922")]
     outcomes = [
         ("reached_registration", None, "A. P(reached registration)"),
         ("currently_live", "reached_registration",

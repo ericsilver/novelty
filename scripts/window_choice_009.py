@@ -42,15 +42,15 @@ def load_windows() -> pl.DataFrame:
     def one(suffix: str, tag: str) -> pl.DataFrame:
         return pl.read_parquet(
             PROC / f"surprise_class009{suffix}.parquet",
-            columns=["serial_number", "year", "n_terms", "prospective_kl",
-                     "retrospective_kl", "n_ref_prospective", "n_ref_retrospective"],
+            columns=["serial_number", "year", "n_terms", "kl_vs_past",
+                     "kl_vs_future", "n_ref_past", "n_ref_future"],
         ).filter(
-            pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
-            & (pl.col("n_ref_prospective") >= 600)
-            & (pl.col("n_ref_retrospective") >= 600)
+            pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
+            & (pl.col("n_ref_past") >= 600)
+            & (pl.col("n_ref_future") >= 600)
         ).rename({
-            "prospective_kl": f"pros{tag}", "retrospective_kl": f"retr{tag}",
+            "kl_vs_past": f"pros{tag}", "kl_vs_future": f"retr{tag}",
         }).select("serial_number",
                   *( ["year", "n_terms"] if tag == "5" else [] ),
                   f"pros{tag}", f"retr{tag}")

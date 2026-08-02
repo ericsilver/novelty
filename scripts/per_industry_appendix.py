@@ -60,17 +60,17 @@ def render_one(cls: str, sec_owners: set[str]) -> str | None:
     s = pl.read_parquet(
         sp,
         columns=["serial_number", "year", "owner_name",
-                 "prospective_kl", "retrospective_kl",
-                 "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+                 "kl_vs_past", "kl_vs_future",
+                 "n_ref_past", "n_ref_future", "n_terms"],
     ).filter(
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
         & pl.col("year").is_between(1990, 2021)
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
     )
     if s.height < 5_000:
         return None
@@ -85,8 +85,8 @@ def render_one(cls: str, sec_owners: set[str]) -> str | None:
     n_filings  = j.height
     n_owners   = j["owner_name"].n_unique()
     y_lo, y_hi = j["year"].min(), j["year"].max()
-    mean_pros  = float(j["prospective_kl"].mean())
-    mean_retr  = float(j["retrospective_kl"].mean())
+    mean_pros  = float(j["kl_vs_past"].mean())
+    mean_retr  = float(j["kl_vs_future"].mean())
     mean_dkl   = float(j["dkl"].mean())
     med_dkl    = float(j["dkl"].median())
     surv_rate  = float(j["survived_5y"].cast(pl.Float64).mean())

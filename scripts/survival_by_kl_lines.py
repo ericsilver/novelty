@@ -43,14 +43,14 @@ def pool_panel() -> pl.DataFrame:
             continue
         s = pl.read_parquet(
             sp,
-            columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+            columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1985, 2021)
         )
         o = pl.read_parquet(
@@ -58,8 +58,8 @@ def pool_panel() -> pl.DataFrame:
         )
         j = s.join(o, on="serial_number", how="inner").with_columns(
             (pl.col("reached_registration") & pl.col("currently_live")).alias("passed_5y"),
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-        ).select("year", "prospective_kl", "retrospective_kl", "dkl",
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+        ).select("year", "kl_vs_past", "kl_vs_future", "dkl",
                  "n_terms", "passed_5y")
         if j.height:
             parts.append(j)
@@ -103,8 +103,8 @@ def main() -> int:
     print(f"       {df.height:,} clean H=2y filings, 1985-2021", flush=True)
 
     curves = {}
-    for var, label in [("dkl", "ΔKL"), ("prospective_kl", "Prospective KL"),
-                       ("retrospective_kl", "Retrospective KL")]:
+    for var, label in [("dkl", "ΔKL"), ("kl_vs_past", "Prospective KL (vs. past)"),
+                       ("kl_vs_future", "Retrospective KL (vs. future)")]:
         curves[label] = quantile_curve(df, var, n_bins=20)
         print(f"  {label}: 20 quantile bins", flush=True)
 

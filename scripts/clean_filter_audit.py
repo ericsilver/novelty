@@ -21,7 +21,7 @@ RESULTS = REPO_ROOT / "paper" / "results"
 
 
 def main() -> int:
-    cols = ["n_ref_prospective", "n_ref_retrospective", "n_terms", "year"]
+    cols = ["n_ref_past", "n_ref_future", "n_terms", "year"]
     parts = []
     for path in sorted(PROC.glob("outcomes_class*.parquet")):
         cls = path.stem.replace("outcomes_class", "")
@@ -35,8 +35,8 @@ def main() -> int:
     clauses = [
         ("year >= 1990",                 pl.col("year") >= 1990),
         ("year <= 2018",                 pl.col("year") <= 2018),
-        ("n_ref_prospective >= 1000",    pl.col("n_ref_prospective") >= 1000),
-        ("n_ref_retrospective >= 1000",  pl.col("n_ref_retrospective") >= 1000),
+        ("n_ref_past >= 1000",    pl.col("n_ref_past") >= 1000),
+        ("n_ref_future >= 1000",  pl.col("n_ref_future") >= 1000),
         ("n_terms >= 3",                 pl.col("n_terms") >= 3),
     ]
 

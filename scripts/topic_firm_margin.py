@@ -39,8 +39,8 @@ def firm_year_topic() -> pl.DataFrame:
     return j.group_by(["owner_name", "year"]).agg(
         pl.len().alias("n_filings"),
         pl.col("topic_dkl").mean().alias("mean_dkl"),
-        pl.col("topic_pros").mean().alias("mean_pros_kl"),
-        pl.col("topic_retr").mean().alias("mean_retr_kl"),
+        pl.col("topic_kl_vs_past").mean().alias("mean_pros_kl"),
+        pl.col("topic_kl_vs_future").mean().alias("mean_retr_kl"),
     )
 
 

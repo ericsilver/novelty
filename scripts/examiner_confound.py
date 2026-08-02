@@ -89,15 +89,15 @@ def main() -> int:
         if not sp.exists():
             continue
         s = pl.read_parquet(
-            sp, columns=["serial_number", "year", "prospective_kl",
-                         "retrospective_kl", "n_ref_prospective",
-                         "n_ref_retrospective", "n_terms"],
+            sp, columns=["serial_number", "year", "kl_vs_past",
+                         "kl_vs_future", "n_ref_past",
+                         "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1995, 2018))
         t = pl.read_parquet(
             PROC / f"tm_class{cls}.parquet",
@@ -110,7 +110,7 @@ def main() -> int:
         j = s.join(t, on="serial_number", how="inner").join(
             sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
         ).select("dkl", "registered", "in_sec")
         if j.height:
             parts.append(j)

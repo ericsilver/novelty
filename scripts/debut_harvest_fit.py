@@ -64,13 +64,13 @@ def main() -> int:
         sp = PROC / f"surprise_class{cls}.parquet"
         op = PROC / f"outcomes_class{cls}.parquet"
         if not (sp.exists() and op.exists()): continue
-        s = pl.read_parquet(sp, columns=["serial_number","year","prospective_kl","retrospective_kl",
-                                          "n_ref_prospective","n_ref_retrospective","n_terms"]).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+        s = pl.read_parquet(sp, columns=["serial_number","year","kl_vs_past","kl_vs_future",
+                                          "n_ref_past","n_ref_future","n_terms"]).filter(
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1990, 2021)
         )
         o = pl.read_parquet(op, columns=["serial_number","owner_name","filing_date",
@@ -78,7 +78,7 @@ def main() -> int:
             debut, on="owner_name", how="left"
         ).filter(pl.col("filing_date") == pl.col("debut_date"))
         j = s.join(o, on="serial_number", how="inner").with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
         if j.height:
             parts.append(j.select("dkl","survived_5y","reached_registration","n_terms","year"))
         del s, o, j

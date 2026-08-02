@@ -71,14 +71,14 @@ def pool_debut_panel(debut: pl.DataFrame) -> pl.DataFrame:
     for cls in surprise_class_list():
         s = pl.read_parquet(
             PROC / f"surprise_class{cls}.parquet",
-            columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+            columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(FILE_LO, FILE_HI)
         )
         t = pl.read_parquet(
@@ -92,8 +92,8 @@ def pool_debut_panel(debut: pl.DataFrame) -> pl.DataFrame:
         j = s.join(t, on="serial_number", how="inner")
         j = j.join(sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-        ).select("prospective_kl", "retrospective_kl", "dkl",
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+        ).select("kl_vs_past", "kl_vs_future", "dkl",
                  "reached_registration", "in_sec")
         if j.height:
             parts.append(j)
@@ -146,9 +146,9 @@ def main() -> int:
         "p_registered": float(df["reached_registration"].cast(pl.Float64).mean()),
         "p_sec_given_reg": float(reg["in_sec"].cast(pl.Float64).mean()),
         "registration": {v: quintile_stats(df, v, "reached_registration")
-                         for v in ("dkl", "prospective_kl", "retrospective_kl")},
+                         for v in ("dkl", "kl_vs_past", "kl_vs_future")},
         "sec_given_reg": {v: quintile_stats(reg, v, "in_sec")
-                          for v in ("dkl", "prospective_kl", "retrospective_kl")},
+                          for v in ("dkl", "kl_vs_past", "kl_vs_future")},
     }
     (OUT / "debut_outcome_metrics.json").write_text(
         json.dumps(metrics, indent=1, default=float))
@@ -159,8 +159,8 @@ def main() -> int:
     print("sec by dkl:", metrics["sec_given_reg"]["dkl"], file=sys.stderr, flush=True)
 
     axes_vars = [("dkl", "$\\Delta$KL", "#2b6cb0"),
-                 ("prospective_kl", "Prospective KL", "#cc4444"),
-                 ("retrospective_kl", "Retrospective KL", "#229922")]
+                 ("kl_vs_past", "Prospective KL (vs. past)", "#cc4444"),
+                 ("kl_vs_future", "Retrospective KL (vs. future)", "#229922")]
     panels = [
         (df,  "reached_registration", "A. P(reached registration)"),
         (reg, "in_sec",               "B. P(owner ever in SEC EDGAR | registration)"),

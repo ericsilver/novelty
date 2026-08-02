@@ -89,14 +89,14 @@ def main() -> int:
     for cls in classes:
         s = pl.read_parquet(
             PROC / f"surprise_class{cls}.parquet",
-            columns=["serial_number", "year", "prospective_kl", "retrospective_kl",
-                     "n_ref_prospective", "n_ref_retrospective", "n_terms"],
+            columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                     "n_ref_past", "n_ref_future", "n_terms"],
         ).filter(
-            (pl.col("n_ref_prospective") >= 1000)
-            & (pl.col("n_ref_retrospective") >= 1000)
+            (pl.col("n_ref_past") >= 1000)
+            & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
         )
         t = pl.read_parquet(
             PROC / f"tm_class{cls}.parquet",
@@ -106,7 +106,7 @@ def main() -> int:
               .cast(pl.Int32, strict=False).alias("reg_year"),
         ).filter(pl.col("reg_year").is_between(REG_LO, REG_HI))
         j = s.join(t, on="serial_number", how="inner").with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
             pl.col("status_code").is_in(list(PASS)).alias("passed"),
             pl.col("status_code").is_in(list(FAIL)).alias("failed"),
         )
@@ -127,7 +127,7 @@ def main() -> int:
         rows.append(row)
         print(f"  [ok] {cls} {label}: gated={gated.height:,} pass={row['p_pass']:.3f} "
               f"lift={st['lift_q5_q1']:+.4f}", file=sys.stderr, flush=True)
-        pooled_parts.append(gated.select("dkl", "prospective_kl", "retrospective_kl",
+        pooled_parts.append(gated.select("dkl", "kl_vs_past", "kl_vs_future",
                                          "passed").with_columns(pl.lit(cls).alias("cls")))
         del s, t, j, gated
         gc.collect()
@@ -162,8 +162,8 @@ def main() -> int:
             "n_gated": pooled.height,
             "p_pass": float(pooled["passed"].cast(pl.Float64).mean()),
             "by_dkl": quintile_stats(pooled, "dkl", "passed"),
-            "by_pros": quintile_stats(pooled, "prospective_kl", "passed"),
-            "by_retr": quintile_stats(pooled, "retrospective_kl", "passed"),
+            "by_pros": quintile_stats(pooled, "kl_vs_past", "passed"),
+            "by_retr": quintile_stats(pooled, "kl_vs_future", "passed"),
         }
         # pooled binned curve figure
         fig, ax = plt.subplots(figsize=(7, 5))

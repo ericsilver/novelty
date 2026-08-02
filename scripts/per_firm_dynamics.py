@@ -46,8 +46,8 @@ def main() -> int:
     print("[load] all-class outcomes…", flush=True)
     universe = load_universe().filter(
         pl.col("owner_name").is_not_null()
-        & (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
     )
@@ -62,17 +62,17 @@ def main() -> int:
     # Per-firm AR(1) and trend
     pdf = multi.select(
         "owner_name", "filing_date", "year",
-        "prospective_kl", "retrospective_kl", "dkl",
+        "kl_vs_past", "kl_vs_future", "dkl",
         "n_filings_total",
     ).sort(["owner_name", "filing_date"]).to_pandas()
-    pdf["pros_lag"] = pdf.groupby("owner_name")["prospective_kl"].shift(1)
+    pdf["pros_lag"] = pdf.groupby("owner_name")["kl_vs_past"].shift(1)
     pdf["dkl_lag"] = pdf.groupby("owner_name")["dkl"].shift(1)
     pdf["filing_idx"] = pdf.groupby("owner_name").cumcount()  # 0,1,2,... per firm
     pdf["year_centered"] = pdf["year"] - pdf.groupby("owner_name")["year"].transform("mean")
 
     # Pearson AR(1) (across all consecutive filing pairs in all firms)
     valid = pdf.dropna(subset=["pros_lag", "dkl_lag"])
-    rho_pros = float(np.corrcoef(valid["pros_lag"], valid["prospective_kl"])[0, 1])
+    rho_pros = float(np.corrcoef(valid["pros_lag"], valid["kl_vs_past"])[0, 1])
     rho_dkl = float(np.corrcoef(valid["dkl_lag"], valid["dkl"])[0, 1])
     n_pairs = len(valid)
     print(f"\n[AR(1)] across {n_pairs:,} consecutive filing pairs:")
@@ -116,7 +116,7 @@ def main() -> int:
         sub_seq = sub[sub["filing_idx"] >= 1]
         # AR(1) within quartile
         v_q = sub.dropna(subset=["pros_lag", "dkl_lag"])
-        rho_p = float(np.corrcoef(v_q["pros_lag"], v_q["prospective_kl"])[0, 1]) if len(v_q) >= 50 else np.nan
+        rho_p = float(np.corrcoef(v_q["pros_lag"], v_q["kl_vs_past"])[0, 1]) if len(v_q) >= 50 else np.nan
         rho_d = float(np.corrcoef(v_q["dkl_lag"], v_q["dkl"])[0, 1]) if len(v_q) >= 50 else np.nan
         # Mean dKL of subsequent filings
         mean_dkl_sub = float(sub_seq["dkl"].mean()) if len(sub_seq) > 0 else np.nan

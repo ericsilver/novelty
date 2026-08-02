@@ -73,15 +73,15 @@ def main() -> int:
             continue
         # deliberately NO n_ref floor: the burn-in is about thin references
         df = pl.read_parquet(
-            sp, columns=["year", "prospective_kl", "retrospective_kl",
-                         "n_ref_prospective", "n_terms"],
+            sp, columns=["year", "kl_vs_past", "kl_vs_future",
+                         "n_ref_past", "n_terms"],
         ).filter(
             (pl.col("n_terms") >= 3)
-            & pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
+            & pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
             & pl.col("year").is_between(1985, 2019)
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"))
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
         if df.height < 5000:
             rows.append({"cls": cls, "label": NICE_NAMES[cls], "skipped": True,
                          "n": df.height})
@@ -89,8 +89,8 @@ def main() -> int:
         g = df.group_by("year").agg(
             pl.len().alias("n"),
             pl.col("dkl").mean().alias("mean_dkl"),
-            pl.col("prospective_kl").mean().alias("mean_pros"),
-            pl.col("n_ref_prospective").mean().alias("mean_nref"),
+            pl.col("kl_vs_past").mean().alias("mean_pros"),
+            pl.col("n_ref_past").mean().alias("mean_nref"),
         ).sort("year").filter(pl.col("n") >= 200)
         years = g["year"].to_list()
         means = dict(zip(years, g["mean_dkl"].to_list()))

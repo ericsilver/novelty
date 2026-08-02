@@ -3,7 +3,7 @@
   A. P(reached registration)            debut filings 1995-2018
   B. P(owner ever in SEC EDGAR | reg.)
 
-Axes: topic_dkl / topic_pros / topic_retr.
+Axes: topic_dkl / topic_kl_vs_past / topic_kl_vs_future.
 
 Outputs:
   paper/results/debut_outcome_topic.png
@@ -81,7 +81,7 @@ def main() -> int:
             t, on="serial_number", how="inner").join(
             sec, on="owner_name", how="left").with_columns(
             pl.col("in_sec").fill_null(False),
-        ).select("topic_pros", "topic_retr", "topic_dkl",
+        ).select("topic_kl_vs_past", "topic_kl_vs_future", "topic_dkl",
                  "reached_registration", "in_sec")
         if j.height:
             parts.append(j)
@@ -109,9 +109,9 @@ def main() -> int:
         "p_registered": float(df["reached_registration"].cast(pl.Float64).mean()),
         "p_sec_given_reg": float(reg["in_sec"].cast(pl.Float64).mean()),
         "registration": {v: quintiles(df, v, "reached_registration")
-                         for v in ("topic_dkl", "topic_pros", "topic_retr")},
+                         for v in ("topic_dkl", "topic_kl_vs_past", "topic_kl_vs_future")},
         "sec_given_reg": {v: quintiles(reg, v, "in_sec")
-                          for v in ("topic_dkl", "topic_pros", "topic_retr")},
+                          for v in ("topic_dkl", "topic_kl_vs_past", "topic_kl_vs_future")},
     }
     (OUT / f"debut_outcome_topic{SUFFIX}.json").write_text(
         json.dumps(metrics, indent=1, default=float))
@@ -136,8 +136,8 @@ def main() -> int:
         ax.plot(g["mid"], g["rate"], "-o", color=color, lw=2, ms=4, label=label)
 
     axes_vars = [("topic_dkl", "$\\Delta$KL (topic)", "#2b6cb0"),
-                 ("topic_pros", "Prospective (topic)", "#cc4444"),
-                 ("topic_retr", "Retrospective (topic)", "#229922")]
+                 ("topic_kl_vs_past", "Prospective, topic (vs. past)", "#cc4444"),
+                 ("topic_kl_vs_future", "Retrospective, topic (vs. future)", "#229922")]
     fig, axs = plt.subplots(1, 2, figsize=(13, 6))
     for ax, (frame, outcome, title) in zip(axs, [
         (df, "reached_registration", "A. P(reached registration)"),

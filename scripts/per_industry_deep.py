@@ -76,16 +76,16 @@ def render_one(cls: str, sec_owners: set[str], cik_max_rev: dict, owner_to_cik: 
         return None, None
 
     s = pl.read_parquet(sp,
-        columns=["serial_number","owner_name","year","prospective_kl","retrospective_kl",
-                 "n_ref_prospective","n_ref_retrospective","n_terms"]).filter(
-        (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        columns=["serial_number","owner_name","year","kl_vs_past","kl_vs_future",
+                 "n_ref_past","n_ref_future","n_terms"]).filter(
+        (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
-        & pl.col("prospective_kl").is_finite()
-        & pl.col("retrospective_kl").is_finite()
+        & pl.col("kl_vs_past").is_finite()
+        & pl.col("kl_vs_future").is_finite()
         & pl.col("year").is_between(1990, 2021)
     ).with_columns(
-        (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
     )
     if s.height < 5_000:
         return None, None
@@ -95,8 +95,8 @@ def render_one(cls: str, sec_owners: set[str], cik_max_rev: dict, owner_to_cik: 
     n = j.height
 
     # ---- 1. Summary stats ----
-    mean_pros = float(j["prospective_kl"].mean())
-    mean_retr = float(j["retrospective_kl"].mean())
+    mean_pros = float(j["kl_vs_past"].mean())
+    mean_retr = float(j["kl_vs_future"].mean())
     mean_dkl  = float(j["dkl"].mean())
     survival = float(j["survived_5y"].cast(pl.Float64).mean())
     sec_share = float(j["owner_name"].is_in(sec_owners).cast(pl.Float64).mean())
@@ -174,8 +174,8 @@ def render_one(cls: str, sec_owners: set[str], cik_max_rev: dict, owner_to_cik: 
                    .group_by("owner_name", maintain_order=True)
                    .agg([pl.col("year").min().alias("first_year"),
                          pl.col("serial_number").first().alias("first_serial"),
-                         pl.col("prospective_kl").first().alias("first_pros"),
-                         pl.col("retrospective_kl").first().alias("first_retr"),
+                         pl.col("kl_vs_past").first().alias("first_pros"),
+                         pl.col("kl_vs_future").first().alias("first_retr"),
                          pl.col("dkl").first().alias("first_dkl"),
                          pl.col("mark_identification").first().alias("first_mark"),
                          pl.col("goods_services").first().alias("first_gs"),
@@ -199,8 +199,8 @@ def render_one(cls: str, sec_owners: set[str], cik_max_rev: dict, owner_to_cik: 
         idx = np.random.default_rng(42).choice(j.height, sample_n, replace=False)
     else:
         idx = np.arange(j.height)
-    px = j["prospective_kl"].to_numpy()[idx]
-    py = j["retrospective_kl"].to_numpy()[idx]
+    px = j["kl_vs_past"].to_numpy()[idx]
+    py = j["kl_vs_future"].to_numpy()[idx]
     ps = surv_arr[idx]
     # Survived vs failed background
     ax.scatter(px[~ps], py[~ps], s=2, alpha=0.06, color="#cc4444", label="background failed")

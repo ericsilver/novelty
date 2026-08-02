@@ -40,18 +40,18 @@ def load_class(cls: str) -> pl.DataFrame | None:
         return None
 
     def one(tag: str) -> pl.DataFrame:
-        cols = ["serial_number", "prospective_kl", "retrospective_kl",
-                "n_ref_prospective", "n_ref_retrospective"]
+        cols = ["serial_number", "kl_vs_past", "kl_vs_future",
+                "n_ref_past", "n_ref_future"]
         if tag == "5":
             cols += ["year", "n_terms"]
         return pl.read_parquet(paths[tag], columns=cols).filter(
-            pl.col("prospective_kl").is_finite()
-            & pl.col("retrospective_kl").is_finite()
-            & (pl.col("n_ref_prospective") >= 600)
-            & (pl.col("n_ref_retrospective") >= 600)
-        ).rename({"prospective_kl": f"pros{tag}",
-                  "retrospective_kl": f"retr{tag}"}).drop(
-            "n_ref_prospective", "n_ref_retrospective")
+            pl.col("kl_vs_past").is_finite()
+            & pl.col("kl_vs_future").is_finite()
+            & (pl.col("n_ref_past") >= 600)
+            & (pl.col("n_ref_future") >= 600)
+        ).rename({"kl_vs_past": f"pros{tag}",
+                  "kl_vs_future": f"retr{tag}"}).drop(
+            "n_ref_past", "n_ref_future")
 
     j = one("5").join(one("3"), on="serial_number", how="inner").join(
         one("7"), on="serial_number", how="inner").filter(pl.col("n_terms") >= 3)

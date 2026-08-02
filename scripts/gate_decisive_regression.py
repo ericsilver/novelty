@@ -126,7 +126,14 @@ def build_frame() -> pl.DataFrame:
     )
     # owner filing count within frame
     df = df.with_columns(pl.len().over("owner_key").alias("owner_n"))
-    # quintiles within class x cohort
+    # Quintiles within class x cohort.
+    # rank("ordinal") breaks ties by the frame's row order, which polars does not
+    # guarantee across runs; and ties are not rare here -- roughly 27% of scored
+    # filings share a topic_dkl value with another filing, because boilerplate
+    # goods/services text yields identical topic distributions (the largest tie
+    # groups run to five figures). Sorting on the score and then on the serial
+    # number makes the tie-break deterministic and reproducible.
+    df = df.sort(["cell", "topic_dkl", "serial_number"])
     df = df.with_columns(
         ((pl.col("topic_dkl").rank("ordinal").over("cell") - 1) * 5
          // pl.len().over("cell")).cast(pl.Int8).alias("q"),

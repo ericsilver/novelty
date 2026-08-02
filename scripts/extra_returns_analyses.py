@@ -41,8 +41,8 @@ def load_filings_with_dkl() -> pl.DataFrame:
         parts.append(df)
     return pl.concat(parts).filter(
         pl.col("owner_name").is_not_null()
-        & (pl.col("n_ref_prospective") >= 1000)
-        & (pl.col("n_ref_retrospective") >= 1000)
+        & (pl.col("n_ref_past") >= 1000)
+        & (pl.col("n_ref_future") >= 1000)
         & (pl.col("n_terms") >= 3)
         & (pl.col("year") >= 1990) & (pl.col("year") <= 2020)
     )
@@ -58,7 +58,7 @@ def main() -> int:
     matched = fil.join(cw, on="owner_name", how="inner")
 
     debut_firm = matched.sort("filing_date").unique(subset=["owner_name"], keep="first").select(
-        "owner_name", "cik", "year", "dkl", "prospective_kl"
+        "owner_name", "cik", "year", "dkl", "kl_vs_past"
     ).rename({"year": "debut_year", "dkl": "debut_dkl"})
     debut_firm = debut_firm.group_by("cik").agg(
         pl.col("debut_year").min(),
@@ -112,7 +112,7 @@ def main() -> int:
     # ----- (2) Per-industry correlation -----
     fy_cls = matched.with_columns(pl.col("year").alias("base_year")).group_by(["cik", "nice_class"]).agg(
         pl.col("dkl").mean().alias("firm_mean_dkl"),
-        pl.col("prospective_kl").mean().alias("firm_mean_pros"),
+        pl.col("kl_vs_past").mean().alias("firm_mean_pros"),
         pl.len().alias("n_filings"),
     )
     # Firm cumulative return = mean of 1y excess return windows we have

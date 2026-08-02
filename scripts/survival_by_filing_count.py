@@ -24,11 +24,11 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN_BASE = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 

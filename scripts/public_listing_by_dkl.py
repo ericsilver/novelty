@@ -38,11 +38,11 @@ PROC = REPO_ROOT / "data" / "processed"
 RESULTS = REPO_ROOT / "paper" / "results"
 
 CLEAN_BASE = (
-    (pl.col("n_ref_prospective") >= 1000)
-    & (pl.col("n_ref_retrospective") >= 1000)
+    (pl.col("n_ref_past") >= 1000)
+    & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
-    & pl.col("prospective_kl").is_finite()
-    & pl.col("retrospective_kl").is_finite()
+    & pl.col("kl_vs_past").is_finite()
+    & pl.col("kl_vs_future").is_finite()
     & pl.col("owner_name").is_not_null()
 )
 
@@ -58,14 +58,14 @@ def load_firm_panel(year_min: int, year_max: int) -> pl.DataFrame:
             & (pl.col("year") >= year_min)
             & (pl.col("year") <= year_max)
         ).with_columns(
-            (pl.col("prospective_kl") - pl.col("retrospective_kl")).alias("dkl"),
-        ).select("owner_name", "prospective_kl", "retrospective_kl", "dkl")
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"),
+        ).select("owner_name", "kl_vs_past", "kl_vs_future", "dkl")
         parts.append(df)
     full = pl.concat(parts)
     firm = full.group_by("owner_name").agg(
         pl.len().alias("n_filings"),
-        pl.col("prospective_kl").mean().alias("mean_pros"),
-        pl.col("retrospective_kl").mean().alias("mean_retr"),
+        pl.col("kl_vs_past").mean().alias("mean_pros"),
+        pl.col("kl_vs_future").mean().alias("mean_retr"),
         pl.col("dkl").mean().alias("mean_dkl"),
         pl.col("dkl").max().alias("max_dkl"),
     )

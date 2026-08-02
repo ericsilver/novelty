@@ -39,13 +39,13 @@ AI_TERMS = ["artificial intelligence", "machine learning", "generative",
 def yearly_pros(cls: str) -> pl.DataFrame:
     return pl.read_parquet(
         PROC / f"surprise_class{cls}.parquet",
-        columns=["year", "prospective_kl", "n_ref_prospective", "n_terms"],
+        columns=["year", "kl_vs_past", "n_ref_past", "n_terms"],
     ).filter(
-        (pl.col("n_terms") >= 3) & (pl.col("n_ref_prospective") >= 1000)
-        & pl.col("prospective_kl").is_finite()
+        (pl.col("n_terms") >= 3) & (pl.col("n_ref_past") >= 1000)
+        & pl.col("kl_vs_past").is_finite()
         & pl.col("year").is_between(1995, 2024)
     ).group_by("year").agg(
-        pl.len().alias("n"), pl.col("prospective_kl").mean().alias("mean_pros")
+        pl.len().alias("n"), pl.col("kl_vs_past").mean().alias("mean_pros")
     ).sort("year")
 
 
