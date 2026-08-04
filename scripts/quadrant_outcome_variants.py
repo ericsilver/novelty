@@ -119,6 +119,14 @@ GRID = "#e1e0d9"
 PAPER = "#faf9f5"
 DIVERGING = LinearSegmentedColormap.from_list(
     "kl_div", [BLUE, "#9dc0ea", "#eeece5", "#f4b193", ORANGE])
+# Colour semantics are held constant across the surfaces: BLUE always means the
+# better commercial outcome and ORANGE the worse one. Variant A encodes the
+# FAILURE rate, so high values are bad and DIVERGING is used as-is. Variant C
+# encodes the LISTING rate, where high values are good, so it uses the reversed
+# ramp -- otherwise the same colour would mean "survived" on one figure and
+# "never listed" on the other.
+DIVERGING_R = LinearSegmentedColormap.from_list(
+    "kl_div_r", [ORANGE, "#f4b193", "#eeece5", "#9dc0ea", BLUE])
 
 # (mark, filing year, required owner substring).  The owner is part of the key
 # because mark text plus year is NOT unique -- see module docstring and
@@ -465,7 +473,8 @@ def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
     cax = fig.add_axes([0.925, 0.30, 0.014, 0.42])
     cb = fig.colorbar(hb, cax=cax)
     cb.set_label("first-gate failure rate in the cell,\n"
-                 "percentage points from that panel's own base rate",
+                 "percentage points from that panel's own base rate\n"
+                 "blue = more likely to survive the gate",
                  fontsize=8, color=INK2)
     cb.set_ticks([-16, -8, 0, 8, 16])
     cb.set_ticklabels(["$-$16 pp", "$-$8 pp", "base rate", "+8 pp", "+16 pp"])
@@ -602,7 +611,11 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
     hb = None
     for ax, (cls, label, examples) in zip(axes, PANELS):
         d = frames[cls]
-        s = d.filter(pl.col("year").is_between(SURF_LO, SURF_HI))
+        # Conditioned on grant, as the paper's headline results are: an
+        # ungranted application never reached the market, so including it
+        # mixes examination selection into a market outcome.
+        s = d.filter(pl.col("year").is_between(SURF_LO, SURF_HI)
+                     & pl.col("reg_d").is_not_null())
         x = s["kl_vs_past"].to_numpy()
         y = s["kl_vs_future"].to_numpy()
         f = s["is_pub"].to_numpy().astype(float)
@@ -613,6 +626,7 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
             "n_clean_in_box": d.height,
             "n_on_surface": s.height,
             "surface_year_cap": f"{SURF_LO}-{SURF_HI}",
+            "surface_conditioned_on": "granted (registration_date present)",
             "n_excluded_short_window": int((d["year"] > SURF_HI).sum()),
             "n_excluded_preburnin": int((d["year"] < SURF_LO).sum()),
             "n_listed_wide": int(f.sum()),
@@ -636,7 +650,7 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
             return np.log2(max(m, b / 64.0) / b)
 
         hb = ax.hexbin(x, y, C=f, gridsize=gs, extent=(LO, HI, LO, HI),
-                       reduce_C_function=lr, mincnt=mincnt, cmap=DIVERGING,
+                       reduce_C_function=lr, mincnt=mincnt, cmap=DIVERGING_R,
                        norm=Normalize(vmin=-LIST_L2, vmax=LIST_L2),
                        linewidths=0.0, zorder=1)
         drawn = int((cnt >= mincnt).sum())
@@ -743,7 +757,8 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
     cax = fig.add_axes([0.925, 0.30, 0.014, 0.42])
     cb = fig.colorbar(hb, cax=cax)
     cb.set_label("listing rate in the cell, as a multiple of\n"
-                 "that panel's own base rate (log scale)",
+                 "that panel's own base rate (log scale)\n"
+                 "blue = more likely to reach the listed universe",
                  fontsize=8, color=INK2)
     cb.set_ticks([-2.0, -1.0, 0.0, 1.0, 2.0])
     cb.set_ticklabels(["0.25$\\times$ or less", "0.5$\\times$", "base rate",
@@ -751,7 +766,7 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
     cb.ax.tick_params(labelsize=7.5, colors=INK2)
     cb.outline.set_edgecolor(GRID)
     fig.suptitle("Vocabulary position and the chance the owner reached the listed universe\n"
-                 "filings 1995-2020, the years with a complete five-year forward window;\n"
+                 "granted marks filed 1995-2020, the years with a complete five-year forward window;\n"
                  "listed = owner CIK in the SEC Financial Statement Data Sets or "
                  "carrying an EDGAR 8-A registration",
                  fontsize=12.5, color=INK, y=0.995)

@@ -1,5 +1,5 @@
 figure,cls,gridsize,mincnt,hex_cells_in_extent,cells_drawn,cells_blank,pct_points_in_drawn_cells,median_cell_n,base_rate,cell_sd,binomial_noise_sd,dispersion,cells_clipped_at_colour_limit
 quadrant_survival,009,45,85,693,282,411,97.9,549,0.4618,8.496,2.444,3.48,23
 quadrant_survival,032,24,40,188,68,120,95.9,192,0.4565,9.099,3.942,2.31,6
-quadrant_listing,009,45,400,816,243,573,96.5,2137,0.04839,0.35,0.172,2.04,0
-quadrant_listing,032,18,250,163,43,120,94.7,944,0.0251,1.07,0.316,3.39,2
+quadrant_listing,009,45,400,749,194,555,94.4,1810,0.05035,0.367,0.174,2.11,0
+quadrant_listing,032,18,250,144,33,111,90.4,829,0.02291,1.058,0.38,2.79,2
