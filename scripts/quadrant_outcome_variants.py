@@ -67,8 +67,12 @@ COMPLETENESS GUARD (corpus edge).  The retrospective axis needs a five-year
       - Variant C's surface WOULD be affected: filings after 2020 are 24% of the
         in-box sample in both panels.  Its surface is therefore capped to filing
         years 1995-2020 (post-burn-in, complete forward window).
-      - Exemplars are never dropped for this reason; short-window exemplars are
-        drawn with a distinct ring and a dagger on the label.
+      - Exemplars whose forward window is short are DROPPED, not marked.  A
+        plotted point asserts a measurement, and the retrospective coordinate
+        of a 2021+ filing is computed against a partial window, so it is not
+        on the same footing as the rest of the figure.  This removes CLAUDE
+        (2023), CHATGPT (2022), LIQUID DEATH (2023) and HARD MTN DEW (2021);
+        they can return once their five forward years have elapsed.
 
 EXEMPLARS.  Keyed on (mark text, filing year, required owner substring), exactly
     as in scripts/quadrant_regen.py.  Mark text plus year is NOT unique and
@@ -267,21 +271,34 @@ def panel_frame(cls: str, c8: pl.DataFrame, cov: dict[int, float]) -> pl.DataFra
 
 
 def find_exemplar(d: pl.DataFrame, mark: str, year: int, owner: str) -> dict | None:
-    """Match on mark text AND filing year AND owner substring -- all three."""
+    """Match on mark text AND filing year AND owner substring -- all three.
+
+    Filings whose five-year forward window has not elapsed are NOT returned.
+    Their retrospective coordinate is computed against however many forward
+    years happen to exist, so it is not on the same footing as the rest of the
+    figure and cannot be placed honestly: a short window draws on nearer, more
+    similar filings and pushes the point below the diagonal, flattering it
+    toward the early-and-copied side. Marking such points and asking the reader
+    to discount them was the earlier approach; dropping them is cleaner, since
+    a plotted point implies a measurement the data cannot yet support.
+    """
     cond = ((pl.col("year") == year)
             & pl.col("mark_identification").str.to_uppercase()
             .str.contains(f"^{mark}$|^{mark} "))
     if owner:
         cond = cond & pl.col("owner_name").str.to_uppercase().str.contains(owner)
-    hits = d.filter(cond).sort("dkl", descending=True).head(1)
+    hits = d.filter(cond & pl.col("full_window")).sort("dkl", descending=True).head(1)
     return None if hits.is_empty() else hits.row(0, named=True)
 
 
 # ---------------------------------------------------------------- drawing ---
 def style_axes(ax, title: str, subtitle: str = "") -> None:
     ax.plot([LO, HI], [LO, HI], color=INK2, linewidth=0.7, linestyle="--", zorder=2)
-    ax.text(HI - 0.12, HI - 0.12, "diagonal", fontsize=7.5, ha="right", va="top",
-            color=INK2, zorder=3)
+    ax.text(HI - 0.12, HI - 0.12,
+            "on this line the mark is\nequally unusual before\nand after: novelty flat",
+            fontsize=7.3, ha="right", va="top", color=INK2, zorder=3,
+            linespacing=1.3,
+            bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=GRID, alpha=0.85))
     ax.set_xlim(LO, HI)
     ax.set_ylim(LO, HI)
     ax.set_xlabel("KL against the PAST  (prospective; novelty at filing time)\n"
@@ -300,12 +317,17 @@ def style_axes(ax, title: str, subtitle: str = "") -> None:
     for s in ax.spines.values():
         s.set_color(GRID)
     ax.tick_params(colors=INK2, labelsize=8.5)
-    ax.text(0.985, 0.03, "below diagonal:\nthe field moved\ntoward this filing",
-            transform=ax.transAxes, ha="right", va="bottom", fontsize=8,
-            color=INK2, zorder=3,
+    ax.text(0.985, 0.03,
+            "below: the mark's novelty FALLS\nwith time. Unusual when filed,\n"
+            "ordinary after: it was early,\nand it was copied.",
+            transform=ax.transAxes, ha="right", va="bottom", fontsize=7.8,
+            color=INK2, zorder=3, linespacing=1.3,
             bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=GRID, alpha=0.85))
-    ax.text(0.015, 0.97, "above diagonal:\nthe field had\nalready moved here",
-            transform=ax.transAxes, va="top", fontsize=8, color=INK2, zorder=3,
+    ax.text(0.015, 0.97,
+            "above: the mark's novelty RISES\nwith time. Ordinary when filed,\n"
+            "unusual after: the field\nmoved away from it.",
+            transform=ax.transAxes, va="top", fontsize=7.8, color=INK2, zorder=3,
+            linespacing=1.3,
             bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=GRID, alpha=0.85))
 
 
@@ -351,9 +373,7 @@ def hdr_levels(dens: np.ndarray, masses=(0.9, 0.75, 0.5)) -> list[float]:
 
 def label_exemplar(ax, r, mark, year, xs, ys, texts) -> tuple[float, float, bool]:
     px, py = float(r["kl_vs_past"]), float(r["kl_vs_future"])
-    short = not bool(r["full_window"])
-    if short:
-        short_window_ring(ax, px, py)
+    short = not bool(r["full_window"])   # always False: see find_exemplar
     xs.append(px)
     ys.append(py)
     texts.append(ax.text(px, py, f"{mark} ({year})" + (" $\\dag$" if short else ""),
@@ -476,10 +496,6 @@ def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
         Line2D([], [], linestyle="none", marker="^", mfc="white", mec=MUTED,
                ms=7, mew=1.5,
                label="named mark: not classifiable (unregistered or gate not yet elapsed)"),
-        Line2D([], [], linestyle="none", marker="o", mfc="none", mec=INK2,
-               ms=12, mew=1.1,
-               label="$\\dag$ ringed: forward window shorter than 5 years, "
-                     "vertical position not comparable"),
     ]
     fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
@@ -590,8 +606,6 @@ def variant_b(frames: dict[str, pl.DataFrame], counts: list, exrows: list) -> No
                label="density of all scored filings in the class (context)"),
         Line2D([], [], linestyle="none", marker="o", mfc=ORANGE, mec="white", ms=8,
                mew=1.4, label="named mark whose owner qualifies"),
-        Line2D([], [], linestyle="none", marker="o", mfc="none", mec=INK2, ms=12,
-               mew=1.1, label="$\\dag$ ringed: forward window shorter than 5 years"),
     ]
     fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
@@ -764,10 +778,6 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                mew=1.4, label="named mark: owner in the listed universe"),
         Line2D([], [], linestyle="none", marker="D", mfc="none", mec=INK, ms=6.5,
                mew=1.4, label="named mark: owner not in the listed universe"),
-        Line2D([], [], linestyle="none", marker="o", mfc="none", mec=INK2, ms=12,
-               mew=1.1,
-               label="$\\dag$ ringed: filed after 2020, forward window shorter than "
-                     "5 years and excluded from the surface"),
     ]
     fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
