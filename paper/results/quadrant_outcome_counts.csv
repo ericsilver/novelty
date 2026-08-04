@@ -1,5 +1,7 @@
-variant,cls,panel,n_clean_in_box,n_registered,n_classifiable,n_failed_gate,n_survived_gate,pct_failed,n_excluded_unclassifiable,n_public_wide,n_public_firms_wide,n_public_8a_only,n_public_firms_8a_only,n_public_literal_formd,pct_of_panel
-A_survival,009,Software & Electronics,1511447,835881,362027,167174,194853,46.18,1149420,,,,,,
-A_survival,032,Beer & Soft Drinks,124473,54424,25869,11808,14061,45.65,98604,,,,,,
-B_public,009,Software & Electronics,1511447,,,,,,,65440,3963,18280,1375,18893,4.33
-B_public,032,Beer & Soft Drinks,124473,,,,,,,3141,284,428,90,575,2.523
+variant,cls,panel,n_clean_in_box,n_registered,n_classifiable,n_failed_gate,n_survived_gate,pct_failed,n_excluded_unclassifiable,n_short_forward_window,surface_year_cap,max_filing_year_on_surface,n_public_wide,n_public_firms_wide,n_public_8a_only,n_public_firms_8a_only,n_public_literal_formd,pct_of_panel,n_on_surface,n_excluded_short_window,n_excluded_preburnin,n_listed_wide,n_listed_firms_wide,base_rate_pct,n_listed_8a_only,base_rate_8a_only_pct,n_listed_literal_formd,q5q1_dkl,q5q1_kl_vs_past,q5q1_kl_vs_future,q5q1_dkl_within_year
+A_survival,009,Software & Electronics,1511447,835881,362027,167174,194853,46.18,1149420,0,none needed,2017,,,,,,,,,,,,,,,,,,,
+A_survival,032,Beer & Soft Drinks,124473,54424,25869,11808,14061,45.65,98604,0,none needed,2017,,,,,,,,,,,,,,,,,,,
+B_public,009,Software & Electronics,1511447,,,,,,,,,,65440,3963,18280,1375,18893,4.33,,,,,,,,,,,,,
+B_public,032,Beer & Soft Drinks,124473,,,,,,,,,,3141,284,428,90,575,2.523,,,,,,,,,,,,,
+C_listing,009,Software & Electronics,1511447,,,,,,,,1995-2020,,,,,,,,1052068,367954,91425,50913,3519,4.8393,14288,1.3581,14958,0.924,1.146,1.16,0.933
+C_listing,032,Beer & Soft Drinks,124473,,,,,,,,1995-2020,,,,,,,,87225,30162,7086,2189,244,2.5096,327,0.3749,466,0.505,0.435,0.594,0.817
