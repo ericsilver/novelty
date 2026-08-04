@@ -23,22 +23,31 @@ PANELS = [
     # Examples restricted to post-burn-in filings (>= 1995), consistent
     # with the paper's fragility note on pre-1995 contamination.
     ("009", "Software & Electronics", [
-        ("OPENAI", 2016), ("CLAUDE", 2023), ("INSTAGRAM", 2011),
-        ("ETHEREUM", 2018), ("KUBERNETES", 2014), ("CHATGPT", 2022),
-        # WINDOWS (1995) was dropped: the mark text and year resolve to a
-        # third-party registration owned by Softblox Incorporated, not to
-        # Microsoft. Exemplars are matched on mark text and year only, so a
-        # common-word mark can resolve to the wrong company; anything added
-        # here should be checked against its owner_name first.
-        ("UBER", 2014), ("PHOTOSHOP", 2003),
-        ("AIRPODS", 2015), ("KINDLE", 2010), ("IPOD", 2001),
+        # (mark, filing year, required owner substring). The owner is part of
+        # the key because mark text plus year is NOT unique: several of these
+        # names have same-year filings by unrelated parties, and matching on
+        # text alone silently plotted the wrong company. WINDOWS (1995)
+        # resolved to Softblox Incorporated rather than Microsoft and has been
+        # dropped entirely; CHATGPT (2022) resolved to Brand Central LLC and
+        # UBER (2014) to RYSC Corp, both now pinned to the real owner.
+        ("OPENAI", 2016, "OPENAI"), ("CLAUDE", 2023, "ANTHROPIC"),
+        ("INSTAGRAM", 2011, "INSTAGRAM"), ("ETHEREUM", 2018, "ETHEREUM"),
+        ("KUBERNETES", 2014, "LF PROJECTS"), ("CHATGPT", 2022, "OPENAI"),
+        ("UBER", 2010, "UBER TECHNOLOGIES"), ("PHOTOSHOP", 2003, "ADOBE"),
+        ("AIRPODS", 2015, "APPLE"), ("KINDLE", 2010, "AMAZON"),
+        ("IPOD", 2001, "APPLE"),
     ]),
     ("032", "Beer & Soft Drinks", [
-        ("LIQUID DEATH", 2023), ("WHITE CLAW SELTZER WORKS", 2016),
-        ("ROCKSTAR", 2002), ("HARD MTN DEW", 2021), ("FIJI", 2005),
-        ("SMARTWATER", 1997), ("KOMBUCHA", 1997), ("POWERADE", 1996),
-        ("GATORADE", 1996), ("RED BULL", 1995), ("MONSTER ENERGY", 2002),
-        ("CELSIUS", 2004),
+        # RED BULL (1995) resolved to an individual, Robert Horky, rather than
+        # Red Bull GmbH; SMARTWATER (1997) to Paul Swartz rather than Energy
+        # Brands, whose own filing is 2000. Both are now pinned by owner.
+        ("LIQUID DEATH", 2023, "SUPPLYING DEMAND"),
+        ("WHITE CLAW SELTZER WORKS", 2016, "MARK ANTHONY"),
+        ("ROCKSTAR", 2002, "ROCKSTAR"), ("HARD MTN DEW", 2021, "PEPSICO"),
+        ("FIJI", 2005, "FIJI WATER"), ("SMARTWATER", 2000, "ENERGY BRANDS"),
+        ("KOMBUCHA", 1997, ""), ("POWERADE", 1996, "COCA-COLA"),
+        ("GATORADE", 1996, "STOKELY"), ("RED BULL", 1995, "RED BULL GMBH"),
+        ("MONSTER ENERGY", 2002, "MONSTER"), ("CELSIUS", 2004, "ELITE FX"),
     ]),
 ]
 
@@ -65,12 +74,13 @@ def main() -> int:
                 ha="right", va="top", color="#444")
 
         xs_lab, ys_lab, text_objs = [], [], []
-        for mark_q, year_q in examples:
-            hits = (sp.filter(
-                (pl.col("year") == year_q)
-                & pl.col("mark_identification").str.to_uppercase().str.contains(
-                    f"^{mark_q}$|^{mark_q} ")
-            ).sort("dkl", descending=True).head(1))
+        for mark_q, year_q, owner_q in examples:
+            cond = ((pl.col("year") == year_q)
+                    & pl.col("mark_identification").str.to_uppercase().str.contains(
+                        f"^{mark_q}$|^{mark_q} "))
+            if owner_q:
+                cond = cond & pl.col("owner_name").str.to_uppercase().str.contains(owner_q)
+            hits = sp.filter(cond).sort("dkl", descending=True).head(1)
             if hits.is_empty():
                 print(f"  miss [{cls}]: {mark_q} ({year_q})", file=sys.stderr)
                 continue
