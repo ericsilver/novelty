@@ -19,6 +19,7 @@ from __future__ import annotations
 import gc
 import json
 import re
+import os
 import sys
 from pathlib import Path
 
@@ -134,8 +135,9 @@ def build_frame() -> pl.DataFrame:
     # groups run to five figures). Sorting on the score and then on the serial
     # number makes the tie-break deterministic and reproducible.
     df = df.sort(["cell", "topic_dkl", "serial_number"])
+    _rank = os.environ.get("TIE_RULE", "ordinal")   # "min" keeps ties together
     df = df.with_columns(
-        ((pl.col("topic_dkl").rank("ordinal").over("cell") - 1) * 5
+        ((pl.col("topic_dkl").rank(_rank).over("cell") - 1) * 5
          // pl.len().over("cell")).cast(pl.Int8).alias("q"),
         ((pl.col("topic_dkl") - pl.col("topic_dkl").mean().over("cell"))
          / pl.col("topic_dkl").std().over("cell")).alias("z"),

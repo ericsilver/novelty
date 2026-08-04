@@ -402,7 +402,17 @@ cut \emph{within} class$\times$cohort cells, class$\times$cohort fixed
 effects, controls for counsel of record, intent-to-use basis, log
 description length, log owner filing volume, owner domicile, and foreign
 filing basis, and standard errors clustered on 1.27 million normalized
-owners (Table~\ref{tab:gate_lpm}).
+owners (Table~\ref{tab:gate_lpm}).\footnote{Ties matter more here than
+they usually do. Roughly 27\% of scored filings share a \dkl{} value with
+another filing, because boilerplate goods/services text yields identical
+topic distributions, and the largest tie groups run to five figures.
+Quintile cut points are therefore fixed by sorting on the score and then
+on the serial number, so the assignment is reproducible. Splitting a tie
+group across a boundary remains arbitrary; re-estimating under a rank
+rule that keeps tied filings together, at the cost of unequal quintiles,
+moves the top-versus-bottom contrast by at most 0.03pp in the pooled and
+stratum specifications, and by up to 0.21pp in the thinner cohort
+thirds.}
 
 \begin{table}[h]\centering\small
 \caption{First-gate failure and \dkl{}: design-based estimates.
@@ -817,23 +827,28 @@ population-share questions on this corpus mislead unless the debut rate
 is netted out.
 
 The AI era, monitored this way, has so far compounded rather than
-erupted. Aligning era starts (internet 1994, AI 2015) and tracking
+erupted --- but the most recent data are testing that reading rather than
+confirming it. Aligning era starts (internet 1994, AI 2015) and tracking
 era-term prevalence in the software and tech-services classes: through
 year three the two track closely (5.1\% versus 4.0\% of filings), then
 diverge --- internet vocabulary tripled between years four and six,
-reaching 23\% of filings in 2000, while AI vocabulary has compounded
-steadily to 12.9\% at year nine, roughly where the internet stood at
-year five (Figure~\ref{fig:era}). The release of consumer chatbots is
-visible as an acceleration (6.8\% in 2022 to 10.2\% in 2023), not a
-discontinuity, and per-year corpus turbulence shows no AI-era deviation
-through 2024. Combined with the incumbent lean of the AI theme, the
-trademark record through 2024 reads as incumbent-led vocabulary adoption
-rather than an entrepreneurial explosion. The comparison is sensitive to
-the era-start alignment chosen, and it carries a falsifiable marker: if
-AI follows the internet's path with a lag, its prevalence should triple
-within roughly three years of the 2024 data edge, and the entrant share
-of its carriers should rise above the corpus baseline rather than sit
-below it.
+reaching 23\% of filings in 2000, while AI vocabulary reaches 12.9\% at
+year nine, roughly where the internet stood at year five
+(Figure~\ref{fig:era}). The growth is not uniform, and the last two
+observed years are the steepest in the series: prevalence rises about
+14\% a year from 2019 to 2021, then 50\% between 2022 and 2023 and a
+further 26\% into 2024, following the release of consumer chatbots. That
+is an acceleration rather than a discontinuity --- per-year corpus
+turbulence shows no AI-era deviation through 2024 --- but it runs in the
+direction the eruption reading predicts, and two more cohorts would
+distinguish the two paths. Combined with the incumbent lean of the AI
+theme, the record through 2024 still reads as incumbent-led vocabulary
+adoption rather than an entrepreneurial explosion. The comparison is
+sensitive to the era-start alignment chosen, and the falsifiable marker
+is now close to binding: if AI follows the internet's path with a lag,
+its prevalence should triple within roughly three years of the 2024 data
+edge, and the entrant share of its carriers should rise above the corpus
+baseline rather than sit below it.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/era_turbulence.png}
@@ -869,6 +884,23 @@ debut-specification figure fails a sample-size diagnostic. And the
 term-scored signed firm-level advantages of forward-leaning filings
 (margins, listing) are artifacts of drafting style and lexical
 specificity (Appendix~\ref{app:hazard}).
+
+One dependence in the data is worth stating because it bears on how any
+descriptive display of this corpus should be read. Filings are not
+independent draws: a fifth to a third of them share an exact position
+with another filing, and outcomes cluster within owner --- the
+within-owner correlation is 0.42 for gate survival and is mechanically
+1.0 for public listing, since listing is a property of the owner and a
+firm with hundreds of marks contributes hundreds of identical successes.
+The estimates above are unaffected, because the gate regressions cluster
+on normalized owner and the firm-level specifications carry one
+observation per owner. But binning filings without that correction
+overstates how much structure the corpus contains: on a
+positional grid, correcting cell errors for the design effect cuts
+apparent excess dispersion by roughly a quarter on the gate outcome and
+by half on listing. Displays of the vocabulary plane are descriptive
+here for that reason, and the two axes are not orthogonal within class,
+so per-cell contrasts should not be read as within-class effects.
 
 The main open questions are dated and specific. Why the gate penalty
 emerged with the 2008--2010 cohorts is unresolved: the within-stratum
