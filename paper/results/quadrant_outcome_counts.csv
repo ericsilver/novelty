@@ -1,0 +1,5 @@
+variant,cls,panel,n_clean_in_box,n_registered,n_classifiable,n_failed_gate,n_survived_gate,pct_failed,n_excluded_unclassifiable,n_public_wide,n_public_firms_wide,n_public_8a_only,n_public_firms_8a_only,n_public_literal_formd,pct_of_panel
+A_survival,009,Software & Electronics,1511447,835881,362027,167174,194853,46.18,1149420,,,,,,
+A_survival,032,Beer & Soft Drinks,124473,54424,25869,11808,14061,45.65,98604,,,,,,
+B_public,009,Software & Electronics,1511447,,,,,,,65440,3963,18280,1375,18893,4.33
+B_public,032,Beer & Soft Drinks,124473,,,,,,,3141,284,428,90,575,2.523

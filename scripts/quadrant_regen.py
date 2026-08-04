@@ -25,7 +25,12 @@ PANELS = [
     ("009", "Software & Electronics", [
         ("OPENAI", 2016), ("CLAUDE", 2023), ("INSTAGRAM", 2011),
         ("ETHEREUM", 2018), ("KUBERNETES", 2014), ("CHATGPT", 2022),
-        ("UBER", 2014), ("WINDOWS", 1995), ("PHOTOSHOP", 2003),
+        # WINDOWS (1995) was dropped: the mark text and year resolve to a
+        # third-party registration owned by Softblox Incorporated, not to
+        # Microsoft. Exemplars are matched on mark text and year only, so a
+        # common-word mark can resolve to the wrong company; anything added
+        # here should be checked against its owner_name first.
+        ("UBER", 2014), ("PHOTOSHOP", 2003),
         ("AIRPODS", 2015), ("KINDLE", 2010), ("IPOD", 2001),
     ]),
     ("032", "Beer & Soft Drinks", [
