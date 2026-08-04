@@ -366,7 +366,7 @@ def label_exemplar(ax, r, mark, year, xs, ys, texts) -> tuple[float, float, bool
 # ------------------------------------------------------------- variant A ----
 def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
               diag: list) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=(13.4, 6.4))
+    fig, axes = plt.subplots(1, 2, figsize=(15.6, 6.4))
     fig.patch.set_facecolor("white")
     hb = None
     for ax, (cls, label, examples) in zip(axes, PANELS):
@@ -401,6 +401,20 @@ def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                        mincnt=mincnt, cmap=DIVERGING,
                        norm=Normalize(vmin=-SURV_PP, vmax=SURV_PP),
                        linewidths=0.0, zorder=1)
+        # One colourbar per panel. Each panel's colour scale is anchored to its
+        # OWN base failure rate, so a single shared bar would make the reader
+        # hold two different zero points at once; a per-panel bar also puts each
+        # base rate where it is actually used.
+        cbp = fig.colorbar(hb, ax=ax, fraction=0.046, pad=0.02)
+        cbp.set_label(f"first-gate failure rate, percentage points\n"
+                      f"from this panel's base of {100*base:.1f}%\n"
+                      f"blue = more likely to survive",
+                      fontsize=7.5, color=INK2)
+        cbp.set_ticks([-16, -8, 0, 8, 16])
+        cbp.set_ticklabels(["$-$16", "$-$8", "base", "+8", "+16"])
+        cbp.ax.tick_params(labelsize=7, colors=INK2)
+        cbp.outline.set_edgecolor(GRID)
+
         drawn = int((cnt >= mincnt).sum())
         vals = np.asarray(hb.get_array())
         clipped = int((np.abs(vals) > SURV_PP).sum())
@@ -467,19 +481,9 @@ def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                label="$\\dag$ ringed: forward window shorter than 5 years, "
                      "vertical position not comparable"),
     ]
-    fig.subplots_adjust(bottom=0.21, top=0.80, right=0.90)
+    fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
                fontsize=8.5, bbox_to_anchor=(0.5, 0.005))
-    cax = fig.add_axes([0.925, 0.30, 0.014, 0.42])
-    cb = fig.colorbar(hb, cax=cax)
-    cb.set_label("first-gate failure rate in the cell,\n"
-                 "percentage points from that panel's own base rate\n"
-                 "blue = more likely to survive the gate",
-                 fontsize=8, color=INK2)
-    cb.set_ticks([-16, -8, 0, 8, 16])
-    cb.set_ticklabels(["$-$16 pp", "$-$8 pp", "base rate", "+8 pp", "+16 pp"])
-    cb.ax.tick_params(labelsize=7.5, colors=INK2)
-    cb.outline.set_edgecolor(GRID)
     fig.suptitle("Vocabulary position and survival at the first Section 8 use-proof gate\n"
                  "registrations 2002-2017, the cohorts whose first gate has fully "
                  "elapsed; sparse cells left blank",
@@ -492,7 +496,7 @@ def variant_a(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
 
 # ------------------------------------------------------------- variant B ----
 def variant_b(frames: dict[str, pl.DataFrame], counts: list, exrows: list) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=(13.4, 6.4))
+    fig, axes = plt.subplots(1, 2, figsize=(15.6, 6.4))
     fig.patch.set_facecolor("white")
     rng = np.random.default_rng(7)
     for ax, (cls, label, examples) in zip(axes, PANELS):
@@ -589,7 +593,7 @@ def variant_b(frames: dict[str, pl.DataFrame], counts: list, exrows: list) -> No
         Line2D([], [], linestyle="none", marker="o", mfc="none", mec=INK2, ms=12,
                mew=1.1, label="$\\dag$ ringed: forward window shorter than 5 years"),
     ]
-    fig.subplots_adjust(bottom=0.21, top=0.80)
+    fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
                fontsize=8.5, bbox_to_anchor=(0.5, 0.005))
     fig.suptitle("Vocabulary position of filings whose owner reached the public-company universe\n"
@@ -606,7 +610,7 @@ def variant_b(frames: dict[str, pl.DataFrame], counts: list, exrows: list) -> No
 def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
               diag: list) -> None:
     """SEC-listing rate surface, log2 of the ratio to each panel's base rate."""
-    fig, axes = plt.subplots(1, 2, figsize=(13.4, 6.4))
+    fig, axes = plt.subplots(1, 2, figsize=(15.6, 6.4))
     fig.patch.set_facecolor("white")
     hb = None
     for ax, (cls, label, examples) in zip(axes, PANELS):
@@ -653,6 +657,20 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                        reduce_C_function=lr, mincnt=mincnt, cmap=DIVERGING_R,
                        norm=Normalize(vmin=-LIST_L2, vmax=LIST_L2),
                        linewidths=0.0, zorder=1)
+        # One colourbar per panel, as in variant A: the scale is a multiple of
+        # THIS panel's base rate, and the two panels' bases differ by more than
+        # a factor of two, so a shared bar would be genuinely ambiguous.
+        cbp = fig.colorbar(hb, ax=ax, fraction=0.046, pad=0.02)
+        cbp.set_label(f"listing rate as a multiple of this\n"
+                      f"panel's base of {100*base:.2f}% (log scale)\n"
+                      f"blue = more likely to be listed",
+                      fontsize=7.5, color=INK2)
+        cbp.set_ticks([-2.0, -1.0, 0.0, 1.0, 2.0])
+        cbp.set_ticklabels(["0.25$\\times$", "0.5$\\times$", "base",
+                            "2$\\times$", "4$\\times$"])
+        cbp.ax.tick_params(labelsize=7, colors=INK2)
+        cbp.outline.set_edgecolor(GRID)
+
         drawn = int((cnt >= mincnt).sum())
         vals = np.asarray(hb.get_array())
         clipped = int((np.abs(vals) > LIST_L2).sum())
@@ -751,20 +769,9 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                label="$\\dag$ ringed: filed after 2020, forward window shorter than "
                      "5 years and excluded from the surface"),
     ]
-    fig.subplots_adjust(bottom=0.21, top=0.80, right=0.90)
+    fig.subplots_adjust(bottom=0.21, top=0.80, wspace=0.42)
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
                fontsize=8.5, bbox_to_anchor=(0.5, 0.005))
-    cax = fig.add_axes([0.925, 0.30, 0.014, 0.42])
-    cb = fig.colorbar(hb, cax=cax)
-    cb.set_label("listing rate in the cell, as a multiple of\n"
-                 "that panel's own base rate (log scale)\n"
-                 "blue = more likely to reach the listed universe",
-                 fontsize=8, color=INK2)
-    cb.set_ticks([-2.0, -1.0, 0.0, 1.0, 2.0])
-    cb.set_ticklabels(["0.25$\\times$ or less", "0.5$\\times$", "base rate",
-                       "2$\\times$", "4$\\times$ or more"])
-    cb.ax.tick_params(labelsize=7.5, colors=INK2)
-    cb.outline.set_edgecolor(GRID)
     fig.suptitle("Vocabulary position and the chance the owner reached the listed universe\n"
                  "granted marks filed 1995-2020, the years with a complete five-year forward window;\n"
                  "listed = owner CIK in the SEC Financial Statement Data Sets or "
