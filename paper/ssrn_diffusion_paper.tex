@@ -23,45 +23,45 @@
 \begin{abstract}
 \noindent Text-based novelty measures built on patents observe invention
 by the small minority of firms that patent. Trademark filings time-stamp
-commercialization by everyone else, and each filing's goods/services
-description states in plain commercial language what the firm intends to
-sell. This paper builds two research assets from that record, and reports
-one measurement warning.
+commercialization by everyone else, in plain commercial language.
 
 \noindent All 13.99 million USPTO trademark case files are re-parsed into
-event-dated prosecution histories, and each filing is placed on two axes
-of vocabulary position. \emph{Atypicality} is how far a filing's language
-sits from the norm for its class and year, in either temporal direction.
-\emph{Forward lean}, written \dkl{}, is whether the filing is written in
-language the class subsequently moved toward. Both are computed for the
-millions of firms that never patent, and within firms the measure is
-essentially uncorrelated with patenting.
+event-dated prosecution histories, and each filing scored on one idea: how
+surprising its language is. \emph{Atypicality} asks how surprising the
+description would have been to a reader who knew only what the industry
+had filed before it. \emph{Forward lean}, written \dkl{}, asks the same
+question from the other side --- how surprising it looks to a reader who
+also knows what the industry filed afterwards. A filing that was
+surprising then and ordinary later was early, and was copied.
 
-\noindent The two axes carry opposite commercial payoffs. Atypicality
-marks firms bound for public markets: within class and filing year, and
-holding description length fixed, debut owners in the top quintile reach
-the SEC-listed universe about a quarter more often than those in the
-bottom, against a 0.19\% base rate ($t = 3.8$). Forward lean marks risk
-instead. Forward-leaning marks fail their first Section~8 use-proof gate
-2.3 percentage points more often per within-class-cohort quintile, on
-3.10 million registrations against a 49\% base failure rate, with
+\noindent Conditioning on marks the office granted, surprising language
+marks firms that reach public markets: within class and filing year, and
+holding description length fixed, debut owners in the top atypicality
+quintile reach the SEC-listed universe about a quarter more often than
+those in the bottom, on a 0.19\% base rate ($t = 3.8$). Among surprising
+filings, having been early is what distinguishes the failures.
+Forward-leaning marks fail their first Section~8 use-proof gate 2.3
+percentage points more often per within-class-cohort quintile, on 3.10
+million registrations against a 49\% base failure rate, with
 class$\times$cohort fixed effects, owner-clustered errors, and drafting
-and filer controls ($t = 7.8$). At equal atypicality, forward-leaning
-debuts also reach listing \emph{less} often ($t = -5.0$). Being early is
-costly even where being different pays. The gate penalty appears with the
-2008--2010 cohorts and reproduces out of sample in 2019. Followed across
-the whole funnel the signs move: atypicality is penalized at registration
-and again at venture financing, yet among financed firms it predicts which
-ones reach public markets.
+and filer controls ($t = 7.8$); the penalty emerges with the 2008--2010
+cohorts and reproduces out of sample in 2019. At equal atypicality,
+forward-leaning debuts reach listing \emph{less} often ($t = -5.0$), and
+less often still among firms that raise venture financing. Being
+surprising pays; having been copied does not. The measure exists for the
+millions of firms that never patent and is essentially uncorrelated with
+patenting within firm.
 
-\noindent A measurement warning accompanies the corpus. Scored on
-individual terms rather than topic distributions, forward-leaning filings
-appear to belong to better firms; those associations dissolve or reverse
-under distribution scoring, because term-level scoring picks up lexical
-specificity rather than position. Text measures of this kind can
-manufacture firm-performance correlations out of drafting style. A
-diffusion application closes the paper. Code, panels, and the corpus build
-are public at \url{https://github.com/ericsilver/novelty}.
+\noindent Two cautions bound how far this travels. Read without
+conditioning on grant, the same data support weaker and sometimes opposite
+conclusions, because registration is itself selected on language. And
+scored on individual terms rather than topic distributions, forward-leaning
+filings appear to belong to better firms --- an association that dissolves
+or reverses under distribution scoring, because term scoring picks up
+lexical specificity rather than position. Text measures of this kind can
+manufacture firm-performance correlations out of drafting style. Code,
+panels, and the corpus build are public at
+\url{https://github.com/ericsilver/novelty}.
 \end{abstract}
 
 \section{Introduction}
@@ -118,79 +118,79 @@ measure defined on that corpus. The third is a measurement hazard,
 documented at corpus scale, that applies to text-based novelty measures
 generally.
 
-The procedure is simple to state. Group every trademark filing by its
-industry class --- one of the 45 international goods and services
-categories --- and by its year. Then ask two questions of each filing's
-wording. First: how unusual was it against what firms in the same class
-had been filing over the previous five years? Second: how unusual was it
-against what those firms would go on to file over the following five? A
-filing whose language was unusual then and ordinary later was running
-ahead of its industry's vocabulary; one that read as ordinary then and
-dated later was running behind. The gap between the two answers measures
-that lead or lag, and is written \dkl{}. How unusual the filing is in
-either direction, separately from which direction, measures something
-else, and is called atypicality here. Both quantities are computable for
-every filing in the corpus, including the millions from firms that never
-patent. Each ``how unusual'' is a Kullback--Leibler divergence between
-the filing's mix of topics and its industry's --- large when the filing
-puts weight where its industry's filings put little.
+The procedure measures one thing: how surprising a filing's language is.
+Group every trademark filing by its industry class --- one of the 45
+international goods and services categories --- and by its year, then ask
+how surprising its wording would have been to a reader who knew only what
+that industry had filed over the previous five years. That is
+\emph{atypicality}. Ask the same question from the other side --- how
+surprising the wording looks to a reader who has \emph{also} seen what the
+industry filed over the following five years --- and the answer usually
+differs. The gap between the two is \emph{forward lean}, written \dkl{}.
+Each ``how surprising'' is a Kullback--Leibler divergence between the
+filing's mix of topics and its industry's, large when the filing puts
+weight where its industry's filings put little.
 
-The two quantities point in opposite directions. Atypical language marks
-firms that later reach public markets. Forward-leaning language marks
-product risk: those marks fail their first proof-of-use gate more often,
-and their owners reach public markets less often than equally atypical
-filings that were not leading. Being early is costly even where being
-different pays. Trademark law then supplies an unusual test of the second
-claim, because a registered mark must be re-proved in use five to six
-years on or be cancelled --- a dated, adversarial checkpoint on whether
-the product the mark named ever reached the market.
+What the gap captures is worth stating plainly. Language that was
+surprising when filed and unremarkable five years later was surprising
+only because it came first: the industry moved toward it, which is to say
+the filer was early and was copied. Language that read as ordinary when
+filed and unusual later was behind its industry rather than ahead of it.
+So atypicality asks whether a filing said something surprising, and
+forward lean asks whether the surprise was merely a head start. Both are
+computable for every filing in the corpus, including the millions from
+firms that never patent.
+
+Trademark law then supplies an unusually direct test, because a registered
+mark must be re-proved in use five to six years on or be cancelled --- a
+dated, adversarial checkpoint on whether the product the mark named ever
+reached the market.
 
 The construct adapts the prospective/retrospective Kullback--Leibler
 framework that \citet{Murdock2017} developed on Darwin's reading
 notebooks and \citet{Barron2018} extended to French Revolution
-parliamentary debates. Two departures from the source framework matter.
-There is no single authoring agent here: each filing is scored against
-the stream of \emph{other} firms' filings in its class, so the construct
-measures a filing's lead/lag position in its industry's vocabulary, not
-an agent's cognitive novelty. And legal
-drafting rewards caution about convention: what looks like novelty in
-boilerplate may be style, length, or counsel effects, which is why the
-validation design leans on fixed effects, drafting covariates, and owner
-clustering rather than raw gradients.
+parliamentary debates. Two departures matter. There is no single authoring
+agent here: each filing is scored against the stream of \emph{other}
+firms' filings in its class, so what is measured is a filing's position in
+its industry's vocabulary, not an author's cognitive novelty. And legal
+drafting rewards caution about convention, so what looks like surprise in
+boilerplate may be style, length, or counsel effects --- which is why the
+design leans on fixed effects, drafting covariates, and owner clustering
+rather than raw gradients.
 
-The nearest measurement precedent is \citet{vonGraevenitz2022}, who
-tokenize US goods/services descriptions, flag tokens that are both new
-and fast-spreading, and use the geography of those tokens to show that
-distance still retards the diffusion of innovations. Their unit is the
-token, their novelty flag is binary and assigned once a token's diffusion
-path is known, and their question is spatial. \dkl{} is a signed,
-continuous score for the \emph{filing}, positioned against the language
-its own class used in the windows before and after --- so every
-application carries a lead/lag position, not only those containing a
-flagged word, and that position can be crossed with the mark's own
-prosecution outcomes.
+The nearest measurement precedent is \citet{vonGraevenitz2022}, who flag
+goods/services tokens that are both new and fast-spreading and use their
+geography to show that distance still retards the diffusion of
+innovations. Their unit is the token and their novelty flag is binary,
+assigned once a token's diffusion path is known; \dkl{} is a continuous
+score for the \emph{filing}, so every application carries a position, not
+only those containing a flagged word, and that position can be crossed
+with the mark's own prosecution outcomes.
 
-The central empirical finding is that two orthogonal axes of vocabulary
-position carry two different commercial payoffs.
-\emph{Atypicality}\footnote{\emph{Atypicality} is used here in a purely
-textual sense --- the divergence between a filing's goods/services
-description and the vocabulary of its Nice class in that year --- and not
-in the sense of trademark law's distinctiveness doctrine, which governs a
-mark's registrability along the generic-to-fanciful spectrum and under
-\S2(f). The two constructs attach to different objects: legal
-distinctiveness is a property of the mark, while the quantity measured
-here is a property of the description of the goods and services the mark
-covers.}
---- how far a filing's language sits from the norm for its class and
-year, regardless of direction --- marks firm quality: atypical debut filings
-belong disproportionately to owners who later reach the SEC-listed
-universe. \emph{Forward lean} --- the signed position, language the
-industry subsequently moved toward --- marks product risk: forward-leaning
-marks fail the use-proof gates more often, and at equal atypicality
-their owners list less often, not more. One decomposition explains both
-outcomes, and the risk side survives a design built to kill it (fixed
-effects, drafting and filer controls, owner clustering, and estimation
-inside the counsel-represented US-domiciled stratum).
+The central results are stated on marks the office actually
+granted.\footnote{\emph{Atypicality} is used here in a purely textual
+sense --- the divergence between a filing's goods/services description and
+the vocabulary of its Nice class in that year --- and not in the sense of
+trademark law's distinctiveness doctrine, which governs a mark's
+registrability along the generic-to-fanciful spectrum and under \S2(f).
+The two constructs attach to different objects: legal distinctiveness is a
+property of the mark, while the quantity measured here is a property of
+the description of the goods and services the mark covers.} That
+conditioning is not incidental. Registration is itself selected on
+language, so a correlation computed over all filings mixes what the
+examination process does to a description with what the market does to the
+product. Appendix~\ref{app:uncond} reports the unconditional version and
+shows where it diverges.
+
+Among granted marks, surprising language marks firms that reach public
+markets: atypical debut filings belong disproportionately to owners who
+later appear in the SEC-listed universe. Conditional on being surprising,
+having been early is what separates the failures. Forward-leaning marks
+fail the use-proof gates more often, and at equal atypicality their owners
+list less often, not more. Being copied, in other words, is the part of
+surprise that does not pay. The risk side survives a design built to kill
+it --- fixed effects, drafting and filer controls, owner clustering, and
+estimation inside the counsel-represented US-domiciled stratum.
 
 Section~\ref{sec:life} walks through the life of a trademark and the
 sample the funnel defines. Section~\ref{sec:construct} defines the
@@ -275,12 +275,13 @@ counsel and basis directly.
 
 Kullback--Leibler divergence is a distance-like quantity between two
 distributions: it is large when a filing puts weight where its industry's
-filings put little, and near zero when the two look alike. Measured
-against what the industry filed \emph{before}, it says how unusual the
-filing was at the time. Measured against what the industry filed
-\emph{after}, it says how unusual the filing looks in hindsight. Positive
-\dkl{} marks a filing whose vocabulary was unusual against its recent
-past and ordinary against its near future: the field moved toward it.
+filings put little, and near zero when the two look alike. It therefore
+measures surprise, and the reference distribution decides whose surprise.
+Measured against what the industry filed \emph{before}, it says how
+surprising the filing was to a reader at the time. Measured against what
+the industry filed \emph{after}, it says how surprising the same wording
+looks to a reader who knows what came next. Positive \dkl{} --- surprising
+then, ordinary later --- marks a filing the field moved toward.
 
 Formally, for a time-ordered sequence of documents, with each document at
 year $t$ producing a distribution $P_t$, the framework defines two
@@ -295,11 +296,11 @@ The signed difference is
 \Delta\mathrm{KL}_t \;=\; \mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}}) - \mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}}).
 \]
 Negative \dkl{} marks language that looked normal at filing and
-played-out in hindsight. The KL \emph{levels} measure \emph{atypicality} ---
-how far the filing sits from its class-year reference, in either
-direction --- and the results below
-use both the signed position and the unsigned level, because they turn
-out to carry different information.
+played-out in hindsight. The KL \emph{level} against the past is
+\emph{atypicality}: how surprising the filing was when written. The signed
+difference is \emph{forward lean}: how much of that surprise was a head
+start rather than a difference the industry never adopted. The results
+below use both, because they turn out to carry different information.
 
 Scoring runs on topic distributions rather than raw tokens, for one
 reason. Goods/services descriptions typically run 10--30 words, and on
@@ -344,21 +345,27 @@ Rockstar, and Red Bull lean innovator; Smartwater (1997) and Celsius
 \label{fig:quadrant}
 \end{figure}
 
-\section{Two axes, two payoffs}\label{sec:results}
+\section{Among granted marks, surprise pays and being early does not}\label{sec:results}
 
-\subsection{Both vocabulary tails follow through to registration less often}
+\subsection{Why these results condition on grant}
 
-Registration completion selects against both vocabulary tails, mildly.
-Across 3.59 million debut filings (57.6\% base rate), completion is an
-inverse-U in \dkl{}: the middle quintiles complete best
-($\sim$58.6--58.9\%) and both tails complete less (54.5\% at the bottom,
-56.8\% at the top; Figure~\ref{fig:outcomes}A). On the launch-indicator
-reading of Section~\ref{sec:life}, applicants filing category-typical
-language most reliably follow through to commercial use, while both
-kinds of vocabulary bet fail to launch more often. The shape is
-scoring-robust and near-universal (positive middle-versus-tails depth in
-37 of 44 classes under term scoring, statistically distinguishable in
-33).
+Registration is not a neutral filter on language. Across 3.59 million
+debut filings (57.6\% base rate), completion is an inverse-U in \dkl{}:
+the middle quintiles complete best ($\sim$58.6--58.9\%) and both tails
+complete less (54.5\% at the bottom, 56.8\% at the top;
+Figure~\ref{fig:outcomes}A). The shape is scoring-robust and near-universal
+(positive middle-versus-tails depth in 37 of 44 classes under term
+scoring, statistically distinguishable in 33). Applicants filing
+category-typical language follow through to commercial use most reliably;
+both kinds of vocabulary bet fail to launch more often.
+
+That is a result about the examination funnel, not about the market, and
+it is why everything below is estimated on marks the office granted.
+Pooling granted and abandoned filings mixes the two selections, and the
+resulting gradients are attenuated and in places reversed relative to the
+conditional ones. Appendix~\ref{app:uncond} reports that comparison in
+full; it belongs with the measurement cautions rather than with the
+findings.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
@@ -514,7 +521,7 @@ look-ahead-free months-scale variant that reproduces the pattern and a
 snapshot cross-check that agrees with the event-dated estimates under
 every scoring tried.
 
-\subsection{Atypical language marks listing-bound firms; forward-leaning language does not}\label{sec:bluesea}
+\subsection{Surprising language marks firms that reach public markets; having been early does not}\label{sec:bluesea}
 
 Panel B of Figure~\ref{fig:outcomes} contains two patterns, and they pull
 in different directions. Listing probability --- P(owner ever in the SEC
@@ -683,16 +690,16 @@ the signs and the ordering are what the table is for.
 
 \input{results/staged_outcomes_table.tex}
 
-Two reversals stand out. \emph{Atypicality} costs at registration and pays
-afterwards: atypical debut filings complete registration less often
+Two reversals stand out, and both turn on the difference between the
+examiner and the market. Surprising language costs at registration and
+pays afterwards: atypical debut filings complete registration less often
 ($-0.91$pp per standard deviation), then survive the first use-proof gate
 more often ($+1.22$pp) and reach public markets more often ($+0.03$pp on a
-0.23\% base). Whatever atypical language signals, the examination process
-penalizes it and the market does not. \emph{Forward lean} runs the other
-way: forward-leaning applications complete registration \emph{more} often
-($+1.19$pp) and then fail the use-proof gate ($-1.35$pp). Forward-leaning
-filers follow through on the paperwork; what does not follow through is
-the product.
+0.23\% base). The examination process penalizes surprise; the market does
+not. Having been early runs the other way: forward-leaning applications
+complete registration \emph{more} often ($+1.19$pp) and then fail the
+use-proof gate ($-1.35$pp). Those filers follow through on the paperwork;
+what does not follow through is the product.
 
 The registration row needs one caution. A linear coefficient cannot
 represent the inverse-U documented in Section~\ref{sec:gate}, where both
