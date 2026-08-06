@@ -27,12 +27,15 @@ commercialization by everyone else, in plain commercial language.
 
 \noindent All 13.99 million USPTO trademark case files are re-parsed into
 event-dated prosecution histories, and each filing scored on one idea: how
-surprising its language is. \emph{Atypicality} asks how surprising the
-description would have been to a reader who knew only what the industry
-had filed before it. \emph{Forward lean}, written \dkl{}, asks the same
-question from the other side --- how surprising it looks to a reader who
-also knows what the industry filed afterwards. A filing that was
-surprising then and ordinary later was early, and was copied.
+surprising its language is. The question is put to two readers with
+disjoint knowledge --- one who has seen only what the industry filed
+before that filing, one who has seen only what it filed after.
+\emph{Atypicality} is how surprising the wording is to them on average.
+\emph{Lead}, written \dkl{}, is the gap between them: positive when the
+wording surprised the first reader and not the second, which is what it
+looks like to have come first. Such filings are \emph{leading}; those
+whose language the industry was already leaving behind are
+\emph{lagging}.
 
 \noindent Conditioning on marks the office granted, surprising language
 marks firms that reach public markets: within class and filing year, and
@@ -40,22 +43,22 @@ holding description length fixed, debut owners in the top atypicality
 quintile reach the SEC-listed universe about a quarter more often than
 those in the bottom, on a 0.19\% base rate ($t = 3.8$). Among surprising
 filings, having been early is what distinguishes the failures.
-Forward-leaning marks fail their first Section~8 use-proof gate 2.3
+Leading marks fail their first Section~8 use-proof gate 2.3
 percentage points more often per within-class-cohort quintile, on 3.10
 million registrations against a 49\% base failure rate, with
 class$\times$cohort fixed effects, owner-clustered errors, and drafting
 and filer controls ($t = 7.8$); the penalty emerges with the 2008--2010
 cohorts and reproduces out of sample in 2019. At equal atypicality,
-forward-leaning debuts reach listing \emph{less} often ($t = -5.0$), and
+leading debuts reach listing \emph{less} often ($t = -5.0$), and
 less often still among firms that raise venture financing. Being
-surprising pays; having been copied does not. The measure exists for the
+surprising pays; having been early does not. The measure exists for the
 millions of firms that never patent and is essentially uncorrelated with
 patenting within firm.
 
 \noindent Two cautions bound how far this travels. Read without
 conditioning on grant, the same data support weaker and sometimes opposite
 conclusions, because registration is itself selected on language. And
-scored on individual terms rather than topic distributions, forward-leaning
+scored on individual terms rather than topic distributions, leading
 filings appear to belong to better firms --- an association that dissolves
 or reverses under distribution scoring, because term scoring picks up
 lexical specificity rather than position. Text measures of this kind can
@@ -126,7 +129,7 @@ that industry had filed over the previous five years. That is
 \emph{atypicality}. Ask the same question from the other side --- how
 surprising the wording looks to a reader who has \emph{also} seen what the
 industry filed over the following five years --- and the answer usually
-differs. The gap between the two is \emph{forward lean}, written \dkl{}.
+differs. The gap between the two is \emph{lead}, written \dkl{}.
 Each ``how surprising'' is a Kullback--Leibler divergence between the
 filing's mix of topics and its industry's, large when the filing puts
 weight where its industry's filings put little.
@@ -134,10 +137,10 @@ weight where its industry's filings put little.
 What the gap captures is worth stating plainly. Language that was
 surprising when filed and unremarkable five years later was surprising
 only because it came first: the industry moved toward it, which is to say
-the filer was early and was copied. Language that read as ordinary when
+the filer was early. Language that read as ordinary when
 filed and unusual later was behind its industry rather than ahead of it.
 So atypicality asks whether a filing said something surprising, and
-forward lean asks whether the surprise was merely a head start. Both are
+lead asks whether the surprise was merely a head start. Both are
 computable for every filing in the corpus, including the millions from
 firms that never patent.
 
@@ -185,7 +188,7 @@ shows where it diverges.
 Among granted marks, surprising language marks firms that reach public
 markets: atypical debut filings belong disproportionately to owners who
 later appear in the SEC-listed universe. Conditional on being surprising,
-having been early is what separates the failures. Forward-leaning marks
+having been early is what separates the failures. Leading marks
 fail the use-proof gates more often, and at equal atypicality their owners
 list less often, not more. Being copied, in other words, is the part of
 surprise that does not pay. The risk side survives a design built to kill
@@ -271,79 +274,9 @@ and, for the primary results, from the event-dated prosecution history,
 which attributes each cancellation to a specific gate and observes
 counsel and basis directly.
 
-\section{Two axes: how atypical a filing's language is, and which way it leans}\label{sec:construct}
-
-Kullback--Leibler divergence is a distance-like quantity between two
-distributions: it is large when a filing puts weight where its industry's
-filings put little, and near zero when the two look alike. It therefore
-measures surprise, and the reference distribution decides whose surprise.
-Measured against what the industry filed \emph{before}, it says how
-surprising the filing was to a reader at the time. Measured against what
-the industry filed \emph{after}, it says how surprising the same wording
-looks to a reader who knows what came next. Positive \dkl{} --- surprising
-then, ordinary later --- marks a filing the field moved toward.
-
-Formally, for a time-ordered sequence of documents, with each document at
-year $t$ producing a distribution $P_t$, the framework defines two
-quantities against a window $W$ of past and future documents
-\citep{Murdock2017, Barron2018}:
-\begin{itemize}[noitemsep]
-  \item \textit{Prospective surprise}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}})$, where $Q_{\mathrm{past}}$ aggregates documents in years $t-W$ to $t-1$;
-  \item \textit{Retrospective surprise}: $\mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}})$, where $Q_{\mathrm{future}}$ aggregates years $t+1$ to $t+W$.
-\end{itemize}
-The signed difference is
-\[
-\Delta\mathrm{KL}_t \;=\; \mathrm{KL}(P_t \,\|\, Q_{\mathrm{past}}) - \mathrm{KL}(P_t \,\|\, Q_{\mathrm{future}}).
-\]
-Negative \dkl{} marks language that looked normal at filing and
-played-out in hindsight. The KL \emph{level} against the past is
-\emph{atypicality}: how surprising the filing was when written. The signed
-difference is \emph{forward lean}: how much of that surprise was a head
-start rather than a difference the industry never adopted. The results
-below use both, because they turn out to carry different information.
-
-Scoring runs on topic distributions rather than raw tokens, for one
-reason. Goods/services descriptions typically run 10--30 words, and on
-documents that short, token-level KL inflates mechanically: mean
-$|\Delta\mathrm{KL}|$ varies 2.5-fold across document-length bands.
-Scoring each filing's topic distribution instead gives every filing a
-dense representation regardless of length, and cuts that length gradient
-to about 1.4-fold. Fitting details, the resolution sweeps at $T = 200$
-and $T = 500$, the term-level variant, the 1995 burn-in cut, per-filing
-reliability, and window robustness are all in
-Appendix~\ref{app:comp}; the headline results hold across an order of
-magnitude in topic resolution and across representations.
-
-The choice of distributions over terms is not aesthetic. Term-level
-scoring additionally captures lexical specificity --- rare words used by
-serious firms describing specific products --- and that channel
-manufactures signed firm-performance correlations that distribution
-scoring exposes as artifacts. Appendix~\ref{app:hazard} documents the
-hazard in full; it is the reason every headline number in this paper is
-reported under distribution scoring with term scoring as the
-cross-check, and it is a caution portable to any text-based novelty
-measure estimated at the term level.
-
-Figure~\ref{fig:quadrant} grounds the construct in recognizable
-examples. The two axes are prospective and retrospective surprise, with
-\dkl{} the diagonal residual: below the diagonal, language that looked
-unusual at filing and became standard (OpenAI, Instagram, White Claw);
-above it, language the field moved away from (Smartwater 1997, Celsius
-2004).
-
-\begin{figure}[h]\centering
-\includegraphics[width=\textwidth]{results/quadrant.png}
-\caption{Prospective KL versus retrospective KL with \dkl{} as the
-above-diagonal/below-diagonal residual. Labeled examples are recognizable
-post-burn-in brand introductions, positioned by their goods/services text.
-\emph{Left:} software/electronics. OpenAI ($+2.09$), Claude ($+2.06$),
-Instagram, ChatGPT, iPod, Ethereum, and Uber sit on the innovator side;
-Photoshop (2003) and AirPods sit essentially on the diagonal.
-\emph{Right:} a beer/soft-drinks diagnostic class. White Claw ($+1.78$),
-Rockstar, and Red Bull lean innovator; Smartwater (1997) and Celsius
-(2004) lean tired.}
-\label{fig:quadrant}
-\end{figure}
+% The construct section lives in its own file so it can be revised
+% independently; see paper/section_construct.tex.
+\input{section_construct}
 
 \section{Among granted marks, surprise pays and being early does not}\label{sec:results}
 
@@ -378,7 +311,7 @@ decomposed in Section~\ref{sec:bluesea}.}
 \label{fig:outcomes}
 \end{figure}
 
-\subsection{Forward-leaning marks fail the use-proof gate}\label{sec:gate}
+\subsection{Leading marks fail the use-proof gate}\label{sec:gate}
 
 Marks written in language their industry subsequently moved toward fail
 their first Section~8 use-proof gate more often than marks written in
@@ -462,7 +395,7 @@ design-based magnitude is $+2.2$--$2.6$pp, not the raw $+3.9$pp.
 \includegraphics[width=0.72\textwidth]{results/event_gate_forest.png}
 \caption{Event-dated first-gate failure lift (topic \dkl{} top minus
 bottom quintile) by industry, registrations 2002--2018, raw quintile
-contrasts with 95\% intervals. Positive bars indicate the forward-leaning
+contrasts with 95\% intervals. Positive bars indicate the leading
 penalty.}
 \label{fig:forest}
 \end{figure}
@@ -481,14 +414,14 @@ The filer population also changed over exactly this period, which is why
 the cohort thirds of Table~\ref{tab:gate_lpm} matter. \emph{Within}
 counsel-represented US-domiciled owners, and with the full control set,
 the gradient still rises from $+1.0$pp (2002--07) to $+3.7$pp (2008--12)
-and $+3.1$pp (2013--18). The forward-leaning gate risk is therefore a
+and $+3.1$pp (2013--18). The leading gate risk is therefore a
 feature of the post-2008 filing economy itself, not of the post-2015
 surge in self-filed and foreign applications, and it predates the
 pandemic by a decade.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.8\textwidth]{results/event_gate_cohort_curve_extended.png}
-\caption{The forward-leaning gate penalty by registration cohort,
+\caption{The leading gate penalty by registration cohort,
 event-dated, all classes pooled, raw quintile contrasts. The penalty
 emerges with the 2008--2010 cohorts and persists through every cohort
 since; the 2019 point is the out-of-sample replication on fully-elapsed
@@ -577,7 +510,7 @@ raises listing probability by $+0.043$pp on a 0.189\% base ---
 about a quarter more likely ($t = 3.8$). Most of the raw 2.5-fold
 gradient is composition (listing-bound firms cluster in particular
 classes, years, and multi-class filings), which is why the honest
-magnitude is a quarter rather than a multiple. Forward lean costs, at
+magnitude is a quarter rather than a multiple. Lead costs, at
 equal atypicality: the signed component enters negatively
 ($-0.019$pp per $\sigma$, $t = -5.0$) while the unsigned component enters
 positively ($+0.024$pp per $\sigma$, $t = 3.8$). The U-shape in raw bins
@@ -591,7 +524,7 @@ panel).
 The two axes now tell one coherent story across both outcomes.
 Atypicality --- writing about a product in language unusual for its
 category --- is the differentiation signal: it marks real, specific,
-differentiated offerings and the firms that list. Forward lean ---
+differentiated offerings and the firms that list. Lead ---
 writing in language the category subsequently adopted --- is the timing
 bet: it costs at the use-proof gate (Section~\ref{sec:gate}) and it
 costs in listing at equal atypicality. Being early is expensive even
@@ -706,7 +639,7 @@ pays afterwards: atypical debut filings complete registration less often
 ($-0.91$pp per standard deviation), then survive the first use-proof gate
 more often ($+1.22$pp) and reach public markets more often ($+0.03$pp on a
 0.23\% base). The examination process penalizes surprise; the market does
-not. Having been early runs the other way: forward-leaning applications
+not. Having been early runs the other way: leading applications
 complete registration \emph{more} often ($+1.19$pp) and then fail the
 use-proof gate ($-1.35$pp). Those filers follow through on the paperwork;
 what does not follow through is the product.
@@ -754,7 +687,7 @@ eventual listers from other funded firms was already present in the
 goods/services text years earlier --- not that atypical language caused
 the outcome.
 
-Forward lean, by contrast, does not reverse anywhere after registration.
+Lead, by contrast, does not reverse anywhere after registration.
 It is negative at the use-proof gate, negative at financing whether or not
 registration is imposed, and negative at listing among the funded. Being
 early is penalized at every stage where the market, rather than the
@@ -881,7 +814,7 @@ commercial text, and Appendix~\ref{app:exhibit} shows concretely which
 kinds of novelty the primary scoring cannot see. \dkl{} does not
 identify an exploitable extreme-tail return premium; the large
 debut-specification figure fails a sample-size diagnostic. And the
-term-scored signed firm-level advantages of forward-leaning filings
+term-scored signed firm-level advantages of leading filings
 (margins, listing) are artifacts of drafting style and lexical
 specificity (Appendix~\ref{app:hazard}).
 
@@ -903,7 +836,7 @@ other firms' filings, so the same number says only that the description
 sits far from what its industry was writing.
 
 \emph{Resonance} is their signed difference, and is arithmetically what
-this paper calls forward lean. The word is avoided because it names a
+this paper calls lead. The word is avoided because it names a
 mechanism --- the field resonating with an author's contribution --- that
 this design cannot observe. A filing can sit where its class was heading
 because it was imitated, because it and the class responded to the same
@@ -1040,10 +973,28 @@ incomplete.}
 
 Prospective and retrospective KL are highly correlated however scored
 (term: $r = +0.971$ on the complete class-009 corpus; topic: 0.950), so
-signed \dkl{} is a small residual of two large, stable quantities. Under
-term scoring the residual inflates mechanically for short filings (mean
-$|\Delta\mathrm{KL}|$ 2.5-fold across length bands); under topic scoring
-the gradient falls to $\sim$1.4-fold. The two scorings agree only
+the lead $L$ is a small residual of two large, stable quantities. That
+makes it sensitive to anything that inflates the levels, and under term
+scoring the dominant such thing is document length. Term-scored
+atypicality correlates with log filing length at $-0.729$ in class 009 and
+$-0.688$ in class 035: the shorter the description, the spikier its term
+distribution and the further it sits from any smoothed reference, so
+``unusual'' and ``short'' are very nearly the same measurement. Topic
+scoring breaks that identity, taking the same correlations to $-0.251$ and
+$-0.125$. The consequence for the lead is direct: the standard deviation
+of $L$ rises threefold across deciles of $A$ under term scoring and by a
+quarter to a half under topic scoring, so a unit of lead means roughly the
+same thing everywhere only in the topic representation.
+Appendix~\ref{app:representation} shows this as a length surface over the
+two axes. Two qualifications belong with those numbers. Topic scoring
+returns a finite value for about 65\% of filings, so the two columns are
+not the same sample; re-estimating the term-scored correlations on exactly
+the topic-scored subset still gives $-0.722$ and $-0.692$, which makes the
+contrast a property of the representation rather than of the sample, but
+the like-for-like spread comparison is closer to twofold against
+1.3--1.6-fold than to the headline threefold. And ``flat'' means no
+monotone length gradient rather than constant: class 035 under topic
+scoring is mildly U-shaped in $A$. The two scorings agree only
 moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M jointly
 scored observations), which gives their agreement on the mark-level
 patterns evidential force and their disagreement on the firm-level
@@ -1070,7 +1021,7 @@ scoring on the identical sample, $-5.5$pp at $T = 200$
 (Figure~\ref{fig:s8pooled}). Under term scoring, gate survival
 \emph{rises} in the raw KL level ($+6.5$pp prospective, $+7.6$pp
 retrospective): atypical text survives the use requirement better
-while forward-leaning text survives it worse --- the same two-axis
+while leading text survives it worse --- the same two-axis
 separation as Section~\ref{sec:bluesea}, at the mark level.
 
 \begin{figure}[h]\centering
@@ -1085,7 +1036,7 @@ scoring-robust.}
 
 \subsection{Which novelty: the reference-window decomposition}
 
-``Forward-leaning'' is relative to a reference, and mixing windows
+``Leading'' is relative to a reference, and mixing windows
 across the two sides identifies which novelty the gate punishes. Scoring
 the corpus at $W \in \{3, 5, 7\}$ symmetric plus a foresight
 configuration (prospective against the recent 3-year past, retrospective
@@ -1127,7 +1078,7 @@ retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
 
 \section{The measurement hazard: term scoring manufactures firm-level signal}\label{app:hazard}
 
-Under term-level scoring, forward-leaning filings appear to belong to
+Under term-level scoring, leading filings appear to belong to
 better firms. Among registered debut filings, the probability that the
 owner ever appears in SEC EDGAR rises in term-\dkl{} from 0.29\% at the
 bottom quintile to 0.42\% at the top; on an SEC-matched firm-year panel,
@@ -1220,6 +1171,48 @@ filings. \emph{B:} P(passed $\mid$ registered and gated) on the same
 filings.}
 \label{fig:uncond}
 \end{figure}
+
+\section{What each representation measures}\label{app:representation}
+
+Figure~\ref{fig:representation} puts the two representations side by side
+over the same axes, with each hexagon coloured by the mean length of the
+filings in it. Under term scoring the colour runs from dark near the
+origin --- a median of about 200 terms --- to near-white at the far end,
+where the median is eight. That gradient is the measurement problem: a
+filing scores as atypical largely because it is short. Under topic scoring
+the same surface is a narrow band of roughly uniform tone.
+
+Two filings are marked in both columns, so the same document can be
+watched moving between representations. Apple's \textsc{iPod} (2001) has a
+lead of $+0.972$ under term scoring and $+0.065$ under topic scoring;
+\textsc{Amazon.com} (1997) goes from $+0.763$ to $-0.011$. Both read as
+pronounced leaders on terms and as unremarkable on topics, which is the
+firm-level hazard of Appendix~\ref{app:hazard} in miniature.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/representation_appendix.png}
+\caption{Mean filing length across the two axes, by representation and
+class. Hexagons holding fewer than 25 filings are blank; the retained
+hexagons cover over 99.4\% of filings in every panel. The colour scale is
+shared across panels; the axis ranges are not, since term-scored and
+topic-scored KL do not share a scale, so the comparison invited across
+columns is of shape and colour gradient rather than of magnitude. Topic
+scoring returns a finite value for roughly 65\% of filings, so the columns
+are not the same sample; the correlations quoted in
+Appendix~\ref{app:comp} are re-estimated on the common subset and are
+substantially unchanged.}
+\label{fig:representation}
+\end{figure}
+
+This appendix and the next argue in opposite directions, and the tension
+is the point rather than an oversight. Scoring on topics buys
+independence from document length, at the cost of the sensitivity to novel
+word \emph{combinations} that Appendix~\ref{app:exhibit} documents ---
+where the same Amazon filing is the exhibit for what topic scoring cannot
+see. Neither representation dominates. The paper reports topic scoring
+throughout because the length confound contaminates every firm-level
+comparison, and retains term scoring as a cross-check because it resolves
+a kind of novelty the topic vocabulary cannot express.
 
 \section{How three filings encode}\label{app:exhibit}
 

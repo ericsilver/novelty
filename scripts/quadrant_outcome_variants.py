@@ -319,13 +319,13 @@ def style_axes(ax, title: str, subtitle: str = "") -> None:
     ax.tick_params(colors=INK2, labelsize=8.5)
     ax.text(0.985, 0.03,
             "below: the mark's novelty FALLS\nwith time. Unusual when filed,\n"
-            "ordinary after: it was early,\nand it was copied.",
+            "ordinary after: a LEADING mark.",
             transform=ax.transAxes, ha="right", va="bottom", fontsize=7.8,
             color=INK2, zorder=3, linespacing=1.3,
             bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=GRID, alpha=0.85))
     ax.text(0.015, 0.97,
             "above: the mark's novelty RISES\nwith time. Ordinary when filed,\n"
-            "unusual after: the field\nmoved away from it.",
+            "unusual after: a LAGGING mark.",
             transform=ax.transAxes, va="top", fontsize=7.8, color=INK2, zorder=3,
             linespacing=1.3,
             bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=GRID, alpha=0.85))
