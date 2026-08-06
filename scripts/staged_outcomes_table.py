@@ -14,8 +14,8 @@ Specification, identical at every stage:
     outcome ~ z_level + z_lean + log_len,  class x debut-year fixed effects,
     heteroskedasticity-robust standard errors
 where
-    z_level = standardized KL against the PAST  (the paper's "atypicality")
-    z_lean  = standardized dKL = KL(vs past) - KL(vs future)  ("forward lean")
+    z_level = standardized A = (KL vs past + KL vs future)/2  ("atypicality")
+    z_lean  = standardized dKL = KL(vs past) - KL(vs future)  ("lead")
 Coefficients are in percentage points of the outcome.
 
 Stages:
@@ -201,7 +201,12 @@ def main() -> int:
                      "registration_date").to_pandas()
     base["cell"] = base.nice_class + "_" + base.fyear.astype(str)
     base["log_len"] = np.log1p(base.gs_len.fillna(0))
-    base["z_level"] = zscore(base.topic_kl_vs_past.to_numpy())
+    # Atypicality is the AVERAGE of the two KL levels, not the past level alone.
+    # dkl = past - future, so the average is past - dkl/2 and no extra column is
+    # needed. (The past level alone was used through 2026-08-05; it correlates
+    # with the average at 0.979, so this changes magnitudes only marginally.)
+    base["atyp"] = base.topic_kl_vs_past.to_numpy() - 0.5 * base.topic_dkl.to_numpy()
+    base["z_level"] = zscore(base.atyp.to_numpy())
     base["z_lean"] = zscore(base.topic_dkl.to_numpy())
     base["registered"] = base.registration_date.fillna("").str.len().ge(8).astype(int)
     base["listed"] = base.owner_name.isin(set(xw["owner_name"].to_list())).astype(int)
@@ -216,7 +221,7 @@ def main() -> int:
     base = base.merge(gate, on="owner_name", how="left")
 
     # Two unsigned operationalizations are reported at every stage, because the
-    # paper uses both: the KL LEVEL against the past (what it calls atypicality)
+    # paper uses both: atypicality A (the average of the two KL levels)
     # and |dKL| (the magnitude of the signed deviation, used in its published
     # decomposition). They are related but not identical, and reporting both
     # keeps this table comparable to Table~\ref{tab:edgar}.
@@ -256,8 +261,8 @@ def main() -> int:
 
     out = {"spec": ("outcome ~ z_level + z_lean + log_len; class x debut-year FE; "
                     "HC1 robust SE; coefficients in percentage points"),
-           "z_level": "standardized KL against the past (atypicality)",
-           "z_lean": "standardized dKL = KL(vs past) - KL(vs future) (forward lean)",
+           "z_level": "standardized (KL vs past + KL vs future)/2 (atypicality)",
+           "z_lean": "standardized dKL = KL(vs past) - KL(vs future) (lead)",
            "n_debut_owners": int(df.height),
            "stages": stages}
     (RES / "staged_outcomes.json").write_text(json.dumps(out, indent=1))
@@ -269,7 +274,7 @@ def main() -> int:
          r"first filing. Each row is a linear probability model with class$\times$"
          r"debut-year fixed effects and heteroskedasticity-robust errors; "
          r"coefficients are percentage points per standard deviation. "
-         r"\emph{Atypicality} is the KL level against the past; \emph{forward lean} "
+         r"\emph{Atypicality} is the average of the two KL levels; \emph{lead} "
          r"is the signed difference. Cohort windows differ because the Section~8 "
          r"gate needs elapsed time and Form~D is electronic only from 2009, so the "
          r"rows are not a nested decomposition.}",
@@ -277,7 +282,7 @@ def main() -> int:
          r"\begin{tabular}{llrrrrr}", r"\toprule",
          r" & & & & \multicolumn{2}{c}{Unsigned} & Signed \\",
          r"\cmidrule(lr){5-6}\cmidrule(lr){7-7}",
-         r"Outcome & Given & $n$ & Base & KL level & $|\Delta$KL$|$ & Forward lean \\",
+         r"Outcome & Given & $n$ & Base & Atypicality & $|\Delta$KL$|$ & Lead \\",
          r"\midrule"]
     for r in rows:
         a = r.get("spec_absdkl", {})

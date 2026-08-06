@@ -153,7 +153,15 @@ def main() -> int:
     # filings are tied (boilerplate goods/services text produces identical topic
     # distributions). Sort on the score then a unique key so the cut points are
     # reproducible.
-    for col, tag in (("topic_kl_vs_past", "p"), ("topic_kl_vs_future", "r"), ("topic_dkl", "d")):
+    # Atypicality is the AVERAGE of the two levels, not the past level alone.
+    # The paper's headline is estimated on this column; the past-level spec is
+    # retained below as the robustness comparison (the two correlate at 0.979).
+    reg = reg.with_columns(
+        (0.5 * (pl.col("topic_kl_vs_past") + pl.col("topic_kl_vs_future")))
+        .alias("topic_atyp"))
+
+    for col, tag in (("topic_kl_vs_past", "p"), ("topic_kl_vs_future", "r"),
+                     ("topic_dkl", "d"), ("topic_atyp", "a")):
         reg = reg.sort(["cell", col, "owner_name"])
         reg = reg.with_columns(
             ((pl.col(col).rank("ordinal").over("cell") - 1) * 5
@@ -161,7 +169,7 @@ def main() -> int:
             ((pl.col(col) - pl.col(col).mean().over("cell"))
              / pl.col(col).std().over("cell")).alias(f"z_{tag}"),
         )
-    for tag in ("p", "d"):
+    for tag in ("p", "d", "a"):
         for qq in range(1, 5):
             reg = reg.with_columns(
                 (pl.col(f"q_{tag}") == qq).cast(pl.Float64).alias(f"{tag}q{qq+1}"))
@@ -176,6 +184,9 @@ def main() -> int:
     res = {"n_registered_debuts": reg.height, "specs": []}
     pq = ["pq2", "pq3", "pq4", "pq5"]
     dq = ["dq2", "dq3", "dq4", "dq5"]
+    aq = ["aq2", "aq3", "aq4", "aq5"]
+    res["specs"].append(lpm_fe(reg, aq, "A1_atyp_quintiles_FE"))
+    res["specs"].append(lpm_fe(reg, aq + ["log_len"], "A2_atyp_len"))
     res["specs"].append(lpm_fe(reg, pq, "A1_prosKL_quintiles_FE"))
     res["specs"].append(lpm_fe(reg, pq + ["log_len"], "A2_prosKL_len"))
     res["specs"].append(lpm_fe(reg, dq, "B1_dKL_quintiles_FE"))

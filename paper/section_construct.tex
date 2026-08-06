@@ -62,9 +62,10 @@ words, and on documents that short a term-level divergence inflates
 mechanically --- the shorter the text, the spikier its distribution and the
 further it sits from any smoothed reference. Scoring on topics gives every
 filing a dense representation whatever its length. The gain is measurable: the
-spread of $L$ varies more than threefold across levels of $A$ under term
-scoring, and by a quarter under topic scoring, because term-level atypicality
-and document length are very nearly the same variable. Term scoring is retained
+spread of $L$ varies roughly two- to threefold across levels of $A$ under term
+scoring, against 1.3- to 1.6-fold under topic scoring, because term-level
+atypicality and document length are very nearly the same variable
+(Appendix~\ref{app:comp} gives the like-for-like comparison). Term scoring is retained
 throughout as a cross-check, and Appendix~\ref{app:exhibit} shows the kinds of
 novelty each representation can and cannot see.
 
@@ -79,20 +80,12 @@ says something about a mind. Here each filing is scored against the stream of
 scope of protection. The same number can only say that a description sits far
 from what its industry was writing.
 
-Second, \emph{resonance} names a mechanism this design cannot observe. A filing
-can sit where its class was heading because it was imitated, because it and the
-class responded to the same external development, or by coincidence, and
-nothing here separates those. The vocabulary used below is therefore positional
+Second, \emph{resonance} names a mechanism this design cannot observe, for
+reasons Section~\ref{sec:limits} sets out. The vocabulary used below is
+therefore positional
 rather than causal: a leading filing was ahead of its industry's language,
 which implies the existence of a trajectory without asserting that the filing
 caused it.
-
-The nearest measurement precedent on this corpus is \citet{vonGraevenitz2022},
-who flag goods/services tokens that are both new and fast-spreading and use
-their geography to study diffusion. Their unit is the token and their novelty
-flag is binary, assigned once a token's path is known; the measure here is
-continuous and attaches to the filing, so every application carries a position
-and that position can be crossed with the mark's own prosecution outcomes.
 
 \subsection{Definitions}
 
@@ -101,7 +94,7 @@ $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ aggregate same-class filings over
 windows of $W$ years before and after it, $t-W$ to $t-1$ and $t+1$ to $t+W$.
 The two windows are disjoint and neither contains the filing itself. $W = 5$
 throughout unless stated; the window is a parameter of the measure rather than
-a property of it, and Section~\ref{sec:results} reports what changes when the
+a property of it, and Appendix~\ref{app:comp} reports what changes when the
 two windows are set to different lengths. Write
 \[
   K^{-} \;=\; \mathrm{KL}\!\left(P_t \,\|\, Q_{\mathrm{past}}\right),
@@ -110,7 +103,11 @@ two windows are set to different lengths. Write
 \]
 Kullback--Leibler divergence is large when the filing puts weight where its
 industry's filings put little, so $K^{-}$ is surprise measured against the
-past and $K^{+}$ surprise measured against the future. The two axes used
+past and $K^{+}$ surprise measured against the future. The source literature
+and the appendices below call $K^{-}$ \emph{prospective} and $K^{+}$
+\emph{retrospective} KL; those names describe the reader's vantage rather than
+the direction of the window, so prospective surprise is surprise measured
+against what came before. The two axes used
 throughout are
 \[
   \underbrace{A \;=\; \tfrac{1}{2}\left(K^{-} + K^{+}\right)}_{\text{atypicality}},
@@ -144,10 +141,6 @@ other. Nothing empirical rides on the choice --- given the $0.979$ correlation,
 $A$ and $K^{-}$ are nearly the same variable --- but the interpretation is
 cleaner and the coefficients are closer to independent.
 
-Finally, the pair is exhaustive in the sense that matters: $(A, L)$ recovers
-$(K^{-}, K^{+})$ exactly, so nothing is discarded by working in the rotated
-frame.
-
 \begin{table}[h]\centering\small
 \caption{The quantities, their sources, and the terms used here. \emph{Lagging}
 and \emph{leading} describe the two signs of $L$; \emph{atypicality} is
@@ -157,8 +150,8 @@ unsigned and says nothing about direction.}
 \toprule
 Quantity & Definition & \citeauthor{Murdock2017} & Term used here \\
 \midrule
-Surprise against the past   & $K^{-}$                        & novelty    & atypicality at filing \\
-Surprise against the future & $K^{+}$                        & transience & atypicality in hindsight \\
+Surprise against the past   & $K^{-}$                        & novelty    & past-facing surprise \\
+Surprise against the future & $K^{+}$                        & transience & future-facing surprise \\
 Their average               & $A = \tfrac{1}{2}(K^{-}+K^{+})$ & ---        & \textbf{atypicality} \\
 Their signed difference     & $L = K^{-}-K^{+}$              & resonance  & \textbf{lead} (leading / lagging) \\
 Its magnitude               & $|L|$                          & ---        & lead magnitude \\
@@ -173,8 +166,7 @@ distinctiveness doctrine, which governs registrability along the
 generic-to-fanciful spectrum; the two attach to different objects, one to the
 mark and one to the description of the goods it covers.
 Section~\ref{sec:limits} separates the construct from its other near
-neighbours --- novelty, transience, resonance, innovation and radicalness ---
-and states in each case what adopting that term would claim.
+neighbours and states in each case what adopting that term would claim.
 
 \emph{Leading} and \emph{lagging} were chosen over the alternatives for the
 same reason the causal reading was declined above. To say a filing led its
