@@ -358,8 +358,15 @@ def write_index(rows: list[dict], allrows: list[dict]) -> None:
         "Per-class estimates are noisier than the pooled figure by construction, and",
         "small classes are noisy enough that individual signs should not be read as",
         "findings. The cross-industry exhibits below are the honest summary:",
-        f"**{pos} of {len(allrows)} classes show a positive gate lift**, which is the",
-        "claim the paper makes; the spread around it is what this appendix shows.",
+        f"**{pos} of {len(allrows)} classes show a positive raw gate lift**, and "
+        f"**{sum(1 for r in rows if (r.get('gate_q5_fe_pp') or 0) > 0)} of "
+        f"{sum(1 for r in rows if r.get('gate_q5_fe_pp') is not None)}** do so under",
+        "the cohort-fixed-effects specification, which is the claim the paper makes.",
+        "The spread around it is what this appendix shows, and it is wide: the",
+        "fixed-effects contrast runs from about -6pp to +19pp across classes.",
+        "",
+        "NICE 023 (yarns) falls below the volume floor the pooled analysis uses and has",
+        "no raw entry; its figure is still generated.",
         "",
         "## Cross-industry comparisons",
         "",

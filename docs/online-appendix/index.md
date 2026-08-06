@@ -21,8 +21,13 @@ cross-industry distribution. Shaded bands and whiskers are 95% intervals.
 Per-class estimates are noisier than the pooled figure by construction, and
 small classes are noisy enough that individual signs should not be read as
 findings. The cross-industry exhibits below are the honest summary:
-**33 of 44 classes show a positive gate lift**, which is the
-claim the paper makes; the spread around it is what this appendix shows.
+**33 of 44 classes show a positive raw gate lift**, and **32 of 44** do so under
+the cohort-fixed-effects specification, which is the claim the paper makes.
+The spread around it is what this appendix shows, and it is wide: the
+fixed-effects contrast runs from about -6pp to +19pp across classes.
+
+NICE 023 (yarns) falls below the volume floor the pooled analysis uses and has
+no raw entry; its figure is still generated.
 
 ## Cross-industry comparisons
 
