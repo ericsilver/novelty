@@ -1,17 +1,38 @@
 """Event-dated gate analysis, all classes, all elapsed cohorts.
 
+The RAW descriptive counterpart to gate_decisive_regression.py: it produces the
+pooled quintile rates, the per-class forest, the cohort curve, and the filer
+strata that the paper quotes as raw contrasts, plus the class-level lifts the
+online appendix reproduces. Quintiles here are cut on the POOLED distribution,
+not within class x cohort, so these numbers deliberately still contain the
+composition the design-based table removes; the gap between the two (+2.5pp raw
+against +1.4pp design-based) is itself reported.
+
 Per registration (reg years 2002-2018, first gate fully elapsed):
   failed1 = C8.. or C71T cancellation event at registration-age 4-8.5y
-           (Section 8 for domestic registrations, Section 71 for Madrid 66(a))
+           (Section 8 for domestic registrations, Section 71 for Madrid 66(a);
+           reading only C8.. records every 66(a) registration as a survivor)
   gate2 (cohorts 2002-2013, both gates elapsed): among gate-1 passers
-  with terminal status in {800, 710, 900}: failed2 = status 710 or 900
+  with terminal status in {800, 710, 900}: failed2 = status 710 or 900.
+  A year-six death and a year-ten death share a terminal status, so the second
+  gate is identified this way rather than by a second dated window.
 Covariates: topic_dkl (method), token_dkl, attorney presence (case_extras),
 intent-to-use basis.
 
+Reads   data/processed/case_events.parquet    C8../C71T cancellations
+        data/processed/case_extras.parquet    counsel, intent-to-use flag
+        data/processed/tm_class{CLS}.parquet
+        data/processed/{SRC}_surprise_class{CLS}.parquet   topic scores
+        data/processed/surprise_class{CLS}.parquet         term scores
 Outputs:
+  data/processed/event_gates_all.parquet     the pooled frame, for reuse
   paper/results/event_gates_all.json
   paper/results/event_gate_cohort_curve.png  (gate-1 lift by cohort year)
   paper/results/event_gate_forest.png        (per-class gate-1 lift)
+
+SURPRISE_SRC selects "rolling" (per-filing windows, the paper) or "topic" (the
+retired per-calendar-year buckets). The term-scored side has no rolling
+equivalent and always comes from surprise_class*.parquet.
 """
 from __future__ import annotations
 
@@ -30,10 +51,10 @@ import matplotlib.pyplot as plt
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 
 NICE_NAMES = {
@@ -55,11 +76,25 @@ NICE_NAMES = {
     "042": "Scientific & Tech Services", "043": "Hotels & Restaurants",
     "044": "Medical & Beauty Services", "045": "Legal & Personal Services",
 }
+# 2018 is the last cohort whose 8.5-year first-gate window has essentially
+# elapsed against an April 2026 cancellation record; 2013 is the same bound for
+# the year-ten renewal. event_gates_2019_2021.py extends past REG_HI with an
+# explicit censoring diagnostic.
 REG_LO, REG_HI = 2002, 2018
 G2_HI = 2013
 
 
 def quint(frame: pl.DataFrame, col: str, outc: str) -> dict:
+    """Raw outcome rate by quintile of `col`, cut on the frame passed in.
+
+    np.quantile cut points mean tie groups land wholly on one side of a
+    boundary, so quintiles are not exactly equal in size when the score is
+    heavily tied -- which it is, since boilerplate goods/services text yields
+    identical topic distributions. The reported n per quintile makes that
+    visible. lift_se is the two-sample binomial SE of the Q5-Q1 difference and
+    ignores clustering within owner, which is why the paper's inferential
+    claims come from gate_decisive_regression.py instead.
+    """
     arr = frame[col].to_numpy()
     cuts = np.quantile(arr, [0.2, 0.4, 0.6, 0.8])
     qi = np.searchsorted(cuts, arr)
@@ -115,6 +150,10 @@ def main() -> int:
             columns=["serial_number", "kl_vs_past", "kl_vs_future",
                      "n_terms", "n_ref_past", "n_ref_future"],
         ).filter(
+            # The term-side "clean filter": both reference windows must pool at
+            # least 1,000 filings, and a description must contribute at least
+            # three in-vocabulary terms. Term-level KL on a one- or two-token
+            # description is dominated by smoothing rather than by the text.
             (pl.col("n_ref_past") >= 1000)
             & (pl.col("n_ref_future") >= 1000)
             & (pl.col("n_terms") >= 3)
@@ -154,7 +193,10 @@ def main() -> int:
     dtok = df.drop_nulls("token_dkl")
     out["fail1_by_token_dkl"] = quint(dtok, "token_dkl", "failed1")
 
-    # cohort curve
+    # Cohort curve. Volume floors here and below are set so a quintile contrast
+    # is not being read off a handful of registrations: 20,000 per cohort year,
+    # 5,000 per class. A class below the class floor simply gets no row, which
+    # is why the online appendix has classes with no raw lift.
     cohort = {}
     for y in range(REG_LO, REG_HI + 1):
         sub = df.filter(pl.col("reg_year") == y)

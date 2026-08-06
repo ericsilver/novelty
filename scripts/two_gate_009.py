@@ -10,8 +10,21 @@ scoring. Class 009, registrations 2010-2013 (both gates elapsed).
           800) or died (710 / 900) -- the two gates share a terminal status and
           are separable only this way
 
+The cohort is narrow by necessity: both gates must have elapsed, so it starts
+after the year-ten window opens for 2010 registrations and ends where the
+first-gate window closes. Class 009 is the diagnostic class throughout the
+paper because it is the largest and the deepest work was done there; the
+attenuation reported here is a single-class result, not a corpus estimate.
+
+Contrasts are raw quintiles cut on the whole class with no fixed effects and
+no owner clustering -- this is a shape diagnostic, not an estimate. The paper's
+gate estimate comes from gate_decisive_regression.py.
+
 Honours SURPRISE_SRC=rolling like the other gate scripts.
 
+Reads   data/processed/tm_class009.parquet
+        data/processed/case_events.parquet
+        data/processed/{SRC}_surprise_class009.parquet
 Output: paper/results/two_gate_009.json
 """
 from __future__ import annotations
@@ -27,7 +40,10 @@ REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 RES = REPO / "paper" / "results"
 
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 CLS = "009"
 LO, HI = 2010, 2013
 GATE_LO, GATE_HI = 4.0, 8.5
@@ -35,6 +51,10 @@ GATE_LO, GATE_HI = 4.0, 8.5
 
 def quint(df: pl.DataFrame, score: str, outcome: str) -> dict:
     d = df.drop_nulls([score, outcome]).filter(pl.col(score).is_finite())
+    # Sort on the score then the serial number before ranking: rank("ordinal")
+    # otherwise breaks ties by frame row order, which polars does not guarantee
+    # across runs, and roughly a quarter of scored filings are tied because
+    # boilerplate text yields identical topic distributions.
     d = d.sort([score, "serial_number"]).with_columns(
         ((pl.col(score).rank("ordinal") - 1) * 5 // pl.len()).cast(pl.Int8).alias("q"))
     g = d.group_by("q").agg(pl.col(outcome).mean().alias("p")).sort("q")
@@ -69,6 +89,10 @@ def main() -> int:
                          columns=["serial_number", "topic_dkl"])
     d = tm.join(sc, on="serial_number", how="inner")
 
+    # Gate 2 is conditional on having cleared gate 1, and is only identified
+    # for registrations whose terminal status has resolved: 800 renewed, 710
+    # cancelled, 900 expired. Anything else is still mid-life and is dropped
+    # rather than coded as a survivor.
     g2 = d.filter((pl.col("failed1") == 0.0)
                   & pl.col("status_code").is_in(["800", "710", "900"])).with_columns(
         pl.col("status_code").is_in(["710", "900"]).cast(pl.Float64).alias("failed2"))

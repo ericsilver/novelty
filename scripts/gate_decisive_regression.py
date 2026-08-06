@@ -1,18 +1,41 @@
-"""The composition-vs-construct decider (adversarial-panel Tier 1, item 1).
+"""First-gate failure on lead: the paper's central design-based estimate.
 
-Gate failure ~ topic-dKL, estimated properly for the first time:
-  - unique serials (multi-class registrations deduped to one row)
-  - dKL quintiles cut WITHIN class x cohort cells (kills pooled-composition mixing)
+Produces the numbers in the paper's gate table and the shape drawn in panel A
+of the quintile-profile figure. The question is whether the raw pooled contrast
+between the top and bottom lead quintiles is the construct or is composition:
+industries and cohorts differ both in how often they file unusual language and
+in how often their marks fail, and a pooled contrast mixes the two. So:
+
+  - unique serials (a multi-class registration is one mark, not k observations)
+  - dKL quintiles cut WITHIN class x cohort cells, not pooled
   - LPM with class x cohort FE (absorbed by demeaning), covariates:
       counsel, ITU basis, log goods/services length, log owner filing count,
       owner domicile (US / CN / other-unknown), foreign basis (44e / 66a)
-  - SEs clustered on normalized owner name
+  - SEs clustered on normalized owner name, because an owner files many marks,
+    drafts them in a house style, and abandons them together
+
 Specs: (1) FE only; (2) FE + controls; (3) counsel-represented only;
        (4) counsel + US-domiciled only; (5) self-filed only;
-       (6) cohort thirds within counsel+US (does the "modern" penalty survive
-           in the clean stratum?)
+       (6) cohort thirds within counsel+US -- whether the modern-only timing of
+           the penalty survives inside the cleanest filer stratum, which is
+           what separates it from the post-2015 self-filed/foreign surge;
+       (7,8) continuous within-cell z-score in place of quintile dummies;
+       (9) Madrid 66(a) dropped rather than controlled.
 
-Output: paper/results/gate_decisive_regression.json
+Reads   data/processed/case_events.parquet    C8../C71T cancellation events
+        data/processed/case_extras.parquet    counsel, filing basis flags
+        data/processed/tm_class{CLS}.parquet  registration date, owner, text
+        data/processed/{SRC}_surprise_class{CLS}.parquet   the scores
+        _archive_mac_syndication_2026-05-30/data-extras/owner_address.parquet
+Output  paper/results/gate_decisive_regression.json
+
+Environment:
+  SURPRISE_SRC  "rolling" (per-filing windows, the paper) or "topic" (the
+                retired per-calendar-year buckets, kept for the appendix
+                comparison). Only the input path changes; column names match.
+  TIE_RULE      "ordinal" (default, equal-sized quintiles, ties split at the
+                boundary) or "min" (tied filings kept together, unequal
+                quintiles). Ties are not rare -- see the sort comment below.
 """
 from __future__ import annotations
 
@@ -29,13 +52,17 @@ import polars as pl
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 OWNER_ADDR = REPO / "_archive_mac_syndication_2026-05-30" / "data-extras" / "owner_address.parquet"
 
+# Registration cohorts. The upper bound is institutional: the cancellation
+# record runs to April 2026 and the failure window closes at registration age
+# 8.5 years, so 2018 is the last cohort whose window has essentially elapsed.
+# The lower bound is conventional and nothing turns on it.
 REG_LO, REG_HI = 2002, 2018
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
 
@@ -131,6 +158,13 @@ def build_frame() -> pl.DataFrame:
         norm_owner(pl.col("owner_name")).alias("owner_key"),
         pl.col("owner_country").fill_null("").str.strip_chars().alias("ctry"),
     ).with_columns(
+        # First-gate failure is a cancellation DATED inside the maintenance
+        # window, not a terminal status: the declaration is due in years five
+        # to six with a six-month grace period, and cancellation processing
+        # trails that, so 4.0-8.5 years brackets the gate while excluding the
+        # year-ten renewal. A registration with no cancellation event in that
+        # window passed (fill_null(False)) -- which is why the cohort bounds
+        # above matter, since an unelapsed window would pass mechanically.
         ((pl.col("c8_age") >= 4.0) & (pl.col("c8_age") < 8.5))
         .fill_null(False).alias("failed1"),
         (pl.col("ctry") == "US").alias("dom_us"),
@@ -155,6 +189,8 @@ def build_frame() -> pl.DataFrame:
          / pl.col("topic_dkl").std().over("cell")).alias("z"),
         (pl.col("gs_len").cast(pl.Float64) + 1).log().alias("log_len"),
         (pl.col("owner_n").cast(pl.Float64)).log1p().alias("log_owner_n"),
+        # Cells thinner than 100 cannot support five quintiles and contribute
+        # only noise once the FE absorb their mean, so they are dropped.
     ).filter(pl.len().over("cell") >= 100)
     return df
 

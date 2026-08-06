@@ -496,9 +496,13 @@ $+2.5$pp, a reduction of about forty-four percent.
 \includegraphics[width=0.72\textwidth]{results/event_gate_forest.png}
 \caption{Event-dated first-gate failure lift (topic \dkl{} top minus
 bottom quintile) by industry, registrations 2002--2018, raw quintile
-contrasts with 95\% intervals. Positive bars indicate the leading
-penalty. The online appendix gives a three-panel breakout for each class
-and the cross-industry comparisons behind this figure.}
+contrasts. Positive bars indicate the leading penalty. Whiskers are
+two-sample binomial intervals and do \emph{not} correct for the within-owner
+correlation of gate outcomes ($0.42$), so they are narrower than clustered
+intervals would be; the design-based estimates in Table~\ref{tab:gate_lpm}
+are the ones to read for precision. The online appendix gives a three-panel
+breakout for each class and the cross-industry comparisons behind this
+figure.}
 \label{fig:forest}
 \end{figure}
 
@@ -648,6 +652,32 @@ quintiles show neither. Once the levels are controlled,
 the apparent recovery of the far-leading tail is much reduced: the
 quintile profile falls through Q4 and flattens rather than recovering
 (Table~\ref{tab:edgar} middle panel).
+
+The listing outcome carries a construction problem that bounds how far
+any of this can be pushed, and it is larger than the usual name-matching
+caveat. Owners are linked to SEC registrants through a crosswalk whose
+candidate universe is assembled from firm-year tables that exist for only
+five Nice classes (009, 032, 035, 039, 042). A debut owner in any other
+class can be coded as listed only if the same normalized name also filed in
+one of those five. On the registered debut panel, \emph{57\% of owners are
+therefore coded as non-listed by construction}, whatever became of them.
+Worse, eligibility is not orthogonal to the regressor: within class and
+year, owners in the top atypicality quintile appear in the eligible
+universe 47.3\% of the time against 40.3\% in the bottom, a 17\% relative
+gradient. Atypical filers are more matchable, which is exactly what would
+manufacture a listing result.
+
+Restricting to owners who could be matched at all, the gradient survives
+and roughly halves: the top-versus-bottom relative difference falls from
+28\% to 13\%, and the profile within that subset is not monotone
+($0.57$, $0.57$, $0.52$, $0.48$, $0.65$ percent across quintiles), with the
+association concentrated in the top quintile rather than accumulating
+across the range. That conditioning is itself on a variable the regressor
+predicts, so it bounds rather than identifies. The honest reading is that
+something under half of the raw atypicality--listing association is
+matchability, the remainder is not obviously so, and the measured magnitude
+should be treated as an upper bound until the crosswalk is rebuilt over all
+45 classes. The gate results do not depend on this linkage.
 
 The two axes now tell one coherent story across both outcomes.
 Atypicality --- writing about a product in language unusual for its
@@ -975,7 +1005,7 @@ commercially-incentivised legal text. Vocabulary position carries two
 separable signals: atypicality marks listing-bound firms
 (about a quarter more often, within class-year with length fixed), and lead
 marks product risk ($+1.4$pp top-versus-bottom quintile at the first
-use-proof gate with fixed effects, controls, and owner clustering; $-0.019$pp per
+use-proof gate with fixed effects, controls, and owner clustering; $-0.014$pp per
 $\sigma$ in listing at equal atypicality). The construct is
 empirically distinct from patent-track invention within firm. And the
 corpus supports direct measurement of cross-industry vocabulary

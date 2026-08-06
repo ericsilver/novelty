@@ -32,10 +32,10 @@ import matplotlib.pyplot as plt
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 
 NICE_NAMES = {

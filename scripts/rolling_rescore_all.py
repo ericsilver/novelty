@@ -1,16 +1,47 @@
-"""Re-score every class with per-filing reference windows.
+"""Re-score all 45 Nice classes with per-filing reference windows.
+
+This is the production scorer for every estimate in the paper. For each filing
+it computes past-facing surprise K- = KL(P_i || Q_past) and future-facing
+surprise K+ = KL(P_i || Q_future), where P_i is the filing's LDA topic
+distribution and Q_past / Q_future pool the same class's filings over the 1,826
+days (five years) strictly before and strictly after that filing's own date.
+The signed difference K- minus K+ is the lead, written topic_dkl; atypicality
+is their average and is formed downstream from the two levels.
 
 Same measure as topic_p_scorer_all.py, but the reference is computed at each
-filing's own date rather than once per calendar year. See Appendix "Annual
-reference buckets inflate the signed axis" for why this matters: annual
-bucketing imprints a spurious within-year gradient on the signed axis and
-inflates the gate penalty by roughly a third in the software class.
+filing's own date rather than once per calendar year. See Appendix "What annual
+reference buckets cost" for why this matters: annual bucketing imprints a
+spurious within-year gradient on the signed axis (mean lead rises almost
+monotonically with filing month) and inflates the gate penalty by roughly a
+third.
 
-Output columns deliberately carry the SAME names as the production topic files
+Reads   data/processed/tm_class{CLS}.parquet        serial, filing date, text
+        data/processed/topic_model{SUFFIX}.joblib   fitted LDA + vocabulary
+Writes  data/processed/rolling_surprise_class{CLS}{SUFFIX}.parquet
+
+SUFFIX is "" at T=50 and "_T{T}" otherwise, matching the production topic
+files. Output columns deliberately carry the SAME names as those files
 (topic_kl_vs_past / topic_kl_vs_future / topic_dkl) so that every downstream
-script can consume them by switching one path.
+script can consume them by switching one path -- which is what the
+SURPRISE_SRC=rolling environment variable does. The `year` column those
+scripts also select on is NOT written here; rolling_add_year.py backfills it.
 
-    data/processed/rolling_surprise_class{CLS}{SUFFIX}.parquet
+Choices a reader would otherwise have to reverse-engineer:
+  - Windows are half-open on both sides and exclude the filing's own date, so a
+    filing is scored against neither itself nor its exact contemporaries.
+  - MIN_REF requires 500 filings in EACH window; thinner references inflate
+    surprise mechanically, so those rows are nulled rather than reported.
+  - The two `days +/- WDAYS` bounds null the corpus edges, where a five-year
+    window cannot be filled at all (the burn-in zones).
+  - YEAR_LO/YEAR_HI cut to 1995-2019: 1990 is the earliest year with a full
+    past reference and 2020 the latest with a full forward one, and 1995 is the
+    paper's conservative burn-in cut.
+  - Scoring is class-by-class because atypicality is only comparable within a
+    class; a class where the USPTO ID Manual supplies dense standard language
+    has a compressed distribution for reasons unrelated to innovation.
+
+Runtime is roughly half an hour per resolution on the full corpus (33 min at
+T=50, 58 min at T=200 on the reference build), so this is not a cheap rerun.
 
 Usage:  python scripts/rolling_rescore_all.py [T ...]      (default: 50 200)
 """
@@ -91,6 +122,10 @@ def score_class(cls: str, T: int, vec: CountVectorizer, lda, suffix: str) -> boo
     np.clip(theta, EPS, None, out=theta)
     theta /= theta.sum(axis=1, keepdims=True)
 
+    # Window bounds as index ranges into the date-sorted frame. "left" on the
+    # filing's own date ends the past window before its same-day cohort;
+    # "right" starts the future window after it. So same-day filings enter
+    # neither window and no filing is scored against itself.
     days = df["fd"].to_numpy().astype("datetime64[D]").astype(np.int64)
     lo_p = np.searchsorted(days, days - WDAYS, side="left")
     hi_p = np.searchsorted(days, days, side="left")
@@ -104,6 +139,11 @@ def score_class(cls: str, T: int, vec: CountVectorizer, lda, suffix: str) -> boo
     k_fut = kl_rows(theta, q_f)
     del q_f; gc.collect()
 
+    # Three separate reasons to withhold a score, all applied as one mask: a
+    # too-thin reference on either side, a window that runs off the end of the
+    # class's own date range (burn-in), and a filing year outside the
+    # interpretable range. Scores are nulled rather than dropped so the output
+    # stays row-aligned with the class file.
     years = df["fd"].dt.year().to_numpy()
     ok = ((n_p >= MIN_REF) & (n_f >= MIN_REF)
           & (days - WDAYS >= days[0]) & (days + WDAYS <= days[-1])

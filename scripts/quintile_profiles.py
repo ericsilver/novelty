@@ -14,9 +14,20 @@ because the registration profile is reported that way in the source table.
 No parametric curve is fitted through five points. The claim is that the
 profile is not a line, not that it is any particular other function.
 
-Inputs : paper/results/gate_decisive_regression.json
-         paper/results/debut_edgar_substantiate.json
-         paper/results/debut_outcome_topic.json
+Panels A and B are coefficients relative to the omitted bottom quintile, so
+they are not on a common vertical scale with panel C, which is a raw rate. The
+three panels also come from three different samples and cell definitions --
+registrations within class x cohort, registered debut owners within class x
+year, and all debut filings -- which is why the figure is three panels rather
+than one.
+
+Because everything is read from JSON, the figure inherits whatever scoring
+those JSONs were produced under. Regenerate them with the same SURPRISE_SRC
+before regenerating this, or the panels will disagree with each other.
+
+Inputs : paper/results/gate_decisive_regression.json   (spec 2_FE_controls)
+         paper/results/debut_edgar_substantiate.json   (specs A2, B3)
+         paper/results/debut_outcome_topic.json        (raw registration rates)
 Output : paper/results/quintile_profiles.{png,pdf}
 """
 from __future__ import annotations
@@ -118,6 +129,11 @@ def main() -> int:
     # ---- C: registration, raw ----------------------------------------------
     ax = axes[2]
     reg = debut["registration"]
+    # Panel C plots the past level rather than atypicality, because
+    # debut_outcome_topic.json bins on the two raw levels and the signed axis
+    # and never forms their average. The two correlate at 0.979, so the shape
+    # is the same one. "topic_pros" is the pre-rename column name, kept so the
+    # figure still builds from an older JSON.
     lvl = "topic_kl_vs_past" if "topic_kl_vs_past" in reg else "topic_pros"
     for key, color, lab, mk in ((lvl, C_ATYP, "on past-facing surprise $K^-$", "s"),
                                 ("topic_dkl", C_LEAD, "on lead $L$", "o")):

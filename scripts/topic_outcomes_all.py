@@ -26,8 +26,10 @@ import matplotlib.pyplot as plt
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source; see scripts/rolling_rescore_all.py.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 
 PASS = {"701", "702", "703", "704", "705", "800"}

@@ -1,11 +1,24 @@
 """Backfill the `year` column onto the rolling surprise files.
 
-The production topic files carry serial_number, year, and the three scores;
-the rolling rescorer wrote everything except `year`, which topic_debut.py and
-topic_outcomes_all.py select on. Rather than re-run a 40-minute rescore, take
-the filing year from the class file and join it on.
+Run this after rolling_rescore_all.py and before anything with
+SURPRISE_SRC=rolling. The whole point of the rolling files is that they are
+drop-in replacements for the production topic files under one changed path, and
+this closes the last schema gap: the production files carry serial_number,
+year, and the three scores, while the rescorer writes everything except `year`,
+which topic_debut.py and topic_outcomes_all.py filter on. Without this, those
+two scripts raise on a missing column under rolling scoring.
 
+`year` is the filing year taken from the class file, not the registration year,
+matching the production topic files. The class file is deduplicated on serial
+first because a filing declaring several classes appears in each of their
+parquets. Files are rewritten in place with `year` moved to the second
+position, again to match the production schema.
+
+Rather than re-run a rescore that costs roughly half an hour per resolution.
 Idempotent: files that already carry `year` are left alone.
+
+Reads/writes  data/processed/rolling_surprise_class*.parquet
+Reads         data/processed/tm_class{CLS}.parquet
 """
 from __future__ import annotations
 
@@ -28,6 +41,8 @@ def main() -> int:
         if "year" in d.columns:
             skipped += 1
             continue
+        # Take the first three characters only: the stem is "001" or
+        # "001_T200", and both resolutions score the same class file.
         cls = f.stem.replace("rolling_surprise_class", "")[:3]
         tm = pl.read_parquet(PROC / f"tm_class{cls}.parquet",
                              columns=["serial_number", "filing_date"]).with_columns(

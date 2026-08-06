@@ -1,13 +1,40 @@
-"""Debut-filing outcomes under topic scoring (the method-grade figure).
+"""Debut-filing outcomes under topic scoring: the paper's debut-outcome figure.
 
   A. P(reached registration)            debut filings 1995-2018
   B. P(owner ever in SEC EDGAR | reg.)
 
-Axes: topic_dkl / topic_kl_vs_past / topic_kl_vs_future.
+Axes: topic_dkl (lead) / topic_kl_vs_past / topic_kl_vs_future.
 
+The unit is the DEBUT filing -- the owner's first-ever filing anywhere in the
+corpus, found by taking the minimum filing date per owner across all 45 classes
+before any window or scoring restriction is applied. Debuts are used because
+they are the one filing per owner that carries no house-style or portfolio
+history, and because the listing outcome is a property of the owner, so a
+firm with hundreds of marks would otherwise contribute hundreds of identical
+successes.
+
+These are RAW binned rates with no fixed effects. They are the descriptive
+patterns; whether they survive class x year FE and a length control is settled
+by debut_edgar_substantiate.py, and the two should be read together. The
+inverse-U depth reported per axis is q3 minus the mean of q1 and q5.
+
+Reads   data/processed/tm_class{CLS}.parquet
+        data/processed/{SRC}_surprise_class{CLS}{SUFFIX}.parquet
+        data/processed/surprise_class{CLS}.parquet   (for n_terms only)
+        data/processed/uspto_sec_crosswalk.parquet
 Outputs:
-  paper/results/debut_outcome_topic.png
-  paper/results/debut_outcome_topic.json
+  paper/results/debut_outcome_topic{SUFFIX}.png
+  paper/results/debut_outcome_topic{SUFFIX}.json
+
+Environment:
+  SURPRISE_SRC   "rolling" (per-filing windows, the paper) or "topic" (the
+                 retired per-calendar-year buckets). The rolling files must
+                 have been through rolling_add_year.py first, since this
+                 script filters on the `year` column that the rescorer does
+                 not write.
+  TOPIC_SUFFIX   "" for T=50, "_T200" or "_T500" for the resolution sweep.
+                 The suffix is carried straight through to the output names,
+                 so the three resolutions do not overwrite each other.
 """
 from __future__ import annotations
 
@@ -27,10 +54,10 @@ import matplotlib.pyplot as plt
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 OUT = REPO / "paper" / "results"
 
 FILE_LO, FILE_HI = 1995, 2018
@@ -71,6 +98,11 @@ def main() -> int:
         topic = pl.read_parquet(tp).filter(
             pl.col("topic_dkl").is_finite()
             & pl.col("year").is_between(FILE_LO, FILE_HI))
+        # Joined only to inherit the term side's n_terms >= 3 floor, so this
+        # figure and the term-scored comparison figures run on the same
+        # filings. It is a real sample restriction, not a lookup: filings whose
+        # description contributes fewer than three in-vocabulary terms are
+        # dropped here even though the topic scorer scored them.
         tok = pl.read_parquet(
             PROC / f"surprise_class{cls}.parquet",
             columns=["serial_number", "n_terms"]).filter(pl.col("n_terms") >= 3)
@@ -98,6 +130,10 @@ def main() -> int:
           file=sys.stderr, flush=True)
 
     def quintiles(frame, var, outcome):
+        # Cut on the POOLED distribution across all classes and years, so these
+        # rates carry class and cohort composition. That is intended -- this is
+        # the descriptive figure -- but it is why the raw gradients here are
+        # larger than the within-cell estimates the paper reports.
         arr = frame[var].to_numpy()
         cuts = np.quantile(arr, [0.2, 0.4, 0.6, 0.8])
         qi = np.searchsorted(cuts, arr)

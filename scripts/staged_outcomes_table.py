@@ -20,25 +20,36 @@ Coefficients are in percentage points of the outcome.
 
 Stages:
     1. registered    | filed            -- did the debut filing complete registration
-    2. passed_gate   | registered       -- did it survive the first Section 8 use proof
+    2. passed_gate   | registered       -- did it survive the first use-proof gate
     3. funded        | filed            -- did the owner ever file a Reg D notice
     4. funded        | registered       -- same, among owners who registered
     5. listed        | funded           -- did a funded owner reach the listed universe
     6. listed        | registered       -- the paper's published unconditional comparison
 
-Stage windows differ and are reported per row: the Section 8 gate needs elapsed
+The gate is the first maintenance filing, which is Section 8 for domestic
+registrations and Section 71 for Madrid Section 66(a) extensions of protection;
+both cancellation codes are read (see gate_outcome).
+
+Stage windows differ and are reported per row: the gate needs elapsed
 time, and Form D is only electronic from 2009, so no single cohort supports
 every stage. That is a property of the institutions, not a defect of the design,
 but it means rows are not a strict nested decomposition and the table says so.
 
+This table alone is estimated at T = 200 topics rather than the T = 50 used
+elsewhere in the paper; the sign and ordering of every row are unchanged at
+T = 50.
+
 Inputs : data/processed/tm_class{cls}.parquet
-         data/processed/topic_surprise_class{cls}_T200.parquet
+         data/processed/{SRC}_surprise_class{cls}_T200.parquet
+             SRC = SURPRISE_SRC, "rolling" for the per-filing windows the paper
+             uses, "topic" for the retired per-calendar-year buckets
          data/processed/case_events.parquet
          data/processed/uspto_sec_crosswalk.parquet
-         paper/results/atypicality_and_funding.json  (for the Form D owner set)
-         data/processed/funding_owner_match.parquet  (written by the funding script)
+         data/processed/funding_owner_match.parquet  (written by the funding
+             script; if absent the three financing rows are skipped rather
+             than the run failing)
 Output : paper/results/staged_outcomes.json
-         paper/results/staged_outcomes_table.tex
+         paper/results/staged_outcomes_table.tex   (input directly by the paper)
 """
 from __future__ import annotations
 
@@ -56,10 +67,10 @@ import statsmodels.api as sm
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
@@ -106,7 +117,11 @@ def debut_panel() -> pl.DataFrame:
     del parts
     gc.collect()
 
-    # the owner's earliest scored filing is the debut
+    # The debut is the owner's earliest SCORED filing, not their earliest
+    # filing: anything outside the interpretable range, or with too thin a
+    # reference window, carries no score and cannot be the unit. Sorting on the
+    # serial number after the year makes the pick deterministic when an owner
+    # filed in several classes on the same day.
     df = df.sort(["owner_name", "fyear", "serial_number"]).unique(
         subset="owner_name", keep="first")
     log(f"[panel] {df.height:,} debut owners scored")
@@ -245,6 +260,11 @@ def main() -> int:
     base["z_level"] = zscore(base.atyp.to_numpy())
     base["z_lean"] = zscore(base.topic_dkl.to_numpy())
     base["registered"] = base.registration_date.fillna("").str.len().ge(8).astype(int)
+    # Listing is a property of the OWNER, matched on the exact USPTO
+    # owner_name string in the SEC crosswalk. The crosswalk is
+    # normalized-exact-match only, so this is a lower bound on true listing and
+    # the base rate is correspondingly small; the estimand is a within-cell
+    # contrast, which a uniform match rate leaves unbiased.
     base["listed"] = base.owner_name.isin(set(xw["owner_name"].to_list())).astype(int)
     base["listed_after_funding"] = base.owner_name.isin(listed_after).astype(int)
     if funded_owners is not None:

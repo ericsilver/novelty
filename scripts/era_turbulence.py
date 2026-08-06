@@ -1,14 +1,33 @@
 """Is the present as 'interesting' as the dot-com era?
 
-Prospective KL needs only past references, so per-year mean prospective
-surprise runs to the corpus edge. Two measures:
+Produces the paper's era figure and the two claims it carries: that per-year
+corpus turbulence shows no AI-era deviation through 2024, and that AI-era
+vocabulary at year nine sits roughly where internet vocabulary stood at year
+five.
 
-1. Per-year mean prospective KL (clean filter), per class for software
-   (009), tech services (042), advertising/retail (035), and
-   telecommunications (038), plus all-45 pooled, 1995-2024.
-2. Era phrase prevalence in classes 009+042: internet-era terms vs
-   AI-era terms, aligned years.
+Both panels deliberately sit OUTSIDE the paper's main measure, for the same
+reason: they have to reach 2024, and the two-sided score does not. The lead and
+atypicality used everywhere else need a full five-year FORWARD reference, which
+does not exist after 2020. Past-facing surprise needs only past references, so
+it runs to the corpus edge, and phrase prevalence needs no reference at all.
 
+1. Per-year mean past-facing KL, per class for software (009), tech services
+   (042), advertising/retail (035), and telecommunications (038), plus all-45
+   pooled, 1995-2024. This is TERM-scored: it reads surprise_class*.parquet,
+   the class-year token scoring, because there is no topic-side series that
+   runs past 2019. Under the clean filter (>= 1,000 filings in the reference,
+   >= 3 in-vocabulary terms in the description). The pooled series is weighted
+   by each class's filings in that year, so large classes dominate, as they do
+   in the corpus.
+2. Era phrase prevalence in classes 009+042: internet-era terms vs AI-era
+   terms, on aligned year axes. This is a case-insensitive substring match
+   against hand-curated term lists, not a model output -- so the comparison is
+   sensitive to the lists and to the era-start alignment chosen, and the
+   figure's shaded spans are illustrative rather than estimated. A filing
+   counts once if it contains any term in the list.
+
+Reads   data/processed/surprise_class{CLS}.parquet   (all 45, for the pooled)
+        data/processed/tm_class{009,042}.parquet
 Outputs:
   paper/results/era_turbulence.{png,json}
 """
@@ -32,6 +51,10 @@ RES = REPO / "paper" / "results"
 FOCUS = {"009": "Software & Electronics", "042": "Sci & Tech Services",
          "035": "Advertising & Retail", "038": "Telecommunications"}
 
+# Hand-curated era vocabularies. Neither list contains a bare acronym ("ai",
+# "ml", "web"): substring matching would fire on ordinary words and on other
+# marks' text. "generative" is the one loose entry and is kept because
+# "generative ai" and "generative model" both appear, in different phrasings.
 INTERNET_TERMS = ["internet", "website", "web site", "online", "world wide web"]
 AI_TERMS = ["artificial intelligence", "machine learning", "generative",
             "ai-powered", "large language", "chatbot", "neural network"]
@@ -65,6 +88,9 @@ def main() -> int:
         cls = p.stem.replace("surprise_class", "")
         g = yearly_pros(cls).with_columns(pl.lit(cls).alias("cls"))
         pooled_parts.append(g)
+    # Filing-weighted across classes, not a mean of class means: an unweighted
+    # mean would let a small class's noise move the pooled series as much as
+    # software's, and the question is whether the CORPUS got more turbulent.
     allg = pl.concat(pooled_parts).group_by("year").agg(
         ((pl.col("mean_pros") * pl.col("n")).sum() / pl.col("n").sum()).alias("mean_pros")
     ).sort("year")

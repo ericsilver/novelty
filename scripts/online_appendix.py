@@ -10,20 +10,32 @@ For each of the 45 NICE classes this emits one three-panel figure:
   B. registration completion by atypicality and by lead
   C. the class in cross-industry context, its gate lift against all others
 
-Plus four cross-industry exhibits:
+Plus the cross-industry exhibits:
   - gate lift ranked across classes (the forest, rebuilt at appendix size)
-  - gate lift against class size and against base failure rate
-  - the atypicality/lead correlation structure by class
-  - a sortable summary table
+  - gate lift against class size and against base failure rate, which are the
+    two obvious mechanical explanations for the cross-class spread
+  - a machine-readable per-class table
 
-Everything is computed from the rolling (per-filing window) scoring, matching
-the paper. Nothing here is re-fit from scratch: the per-class regressions use
-the same LPM-with-cohort-FE specification as Table 3, restricted to one class.
+Panel A and the panel-C histogram come from different estimators and are not
+the same number. Panel A is re-fit here: an LPM on within-class lead quintiles
+with registration-cohort FE and log length held, estimated inside that one
+class -- the paper's specification minus the class FE, which are meaningless
+in a single class. Panel C and the forest reuse the RAW pooled-quintile lifts
+already computed by event_gates_all.py, read out of its JSON rather than
+recomputed, so the appendix and the paper's forest figure cannot drift apart.
+
+Scoring defaults to "rolling" here (unlike the gate scripts, which default to
+"topic" for backward compatibility), because everything published under
+docs/online-appendix/ must match the paper's per-filing reference windows.
 
 Usage:  python scripts/online_appendix.py
+Reads   data/processed/case_events.parquet
+        data/processed/tm_class{NNN}.parquet
+        data/processed/{SRC}_surprise_class{NNN}.parquet
+        paper/results/event_gates_all.json   (the raw per-class lifts)
 Output: docs/online-appendix/index.md
-        docs/online-appendix/figures/class_{NNN}.png   (45 files)
-        docs/online-appendix/figures/cross_*.png
+        docs/online-appendix/figures/class_{NNN}.png   (one per class built)
+        docs/online-appendix/figures/cross_{forest,scatter}.png
         docs/online-appendix/per_class_estimates.csv
 """
 from __future__ import annotations
@@ -131,7 +143,17 @@ def quintile_within(d: pl.DataFrame, score: str, cell: str) -> pl.DataFrame:
 
 
 def lpm_quintiles(d: pl.DataFrame, y: str, cell: str) -> tuple[list, list, float, int] | None:
-    """Cohort-FE LPM on quintile dummies (Q1 omitted) + log length. Robust SE."""
+    """Cohort-FE LPM on quintile dummies (Q1 omitted) + log length. Robust SE.
+
+    Returns None rather than an unstable estimate when the class is too thin
+    (fewer than 2,000 registrations in cells of at least MIN_CELL, or fewer
+    than five populated quintiles) or when the demeaned design is
+    near-singular; those classes are drawn with a "too few" placeholder panel.
+    Errors are robust rather than owner-clustered: within a single class an
+    owner contributes far fewer marks than across the corpus, and the appendix
+    is descriptive, so the paper's inferential claim stays with
+    gate_decisive_regression.py.
+    """
     d = d.filter(pl.len().over(cell) >= MIN_CELL)
     if d.height < 2000 or d["q"].n_unique() < 5:
         return None
@@ -160,6 +182,12 @@ def lpm_quintiles(d: pl.DataFrame, y: str, cell: str) -> tuple[list, list, float
 
 
 def raw_profile(d: pl.DataFrame, score: str, y: str) -> list[float]:
+    """Raw rates by quintile, cut within FILING year (panel B is on filings).
+
+    Panel A cuts within REGISTRATION cohort instead, because the gate outcome
+    is dated from registration. The two panels therefore do not share a cell
+    definition and their quintiles are not the same filings.
+    """
     dd = quintile_within(d, score, "fyear")
     g = dd.group_by("q").agg(pl.col(y).mean().alias("p")).sort("q")
     return [float(r["p"]) * 100 for r in g.to_dicts()]

@@ -1,12 +1,32 @@
 """Does the gate result survive a per-filing reference window?
 
 Re-runs the first-gate contrast on class 009 under both scorings on an
-identical sample: the production per-calendar-year reference, and the
-per-filing rolling reference built by rolling_window_rescore.py. Same
-registrations, same cohort fixed effects, same owner clustering, same quintile
-construction -- only the reference window differs.
+IDENTICAL sample: the per-calendar-year reference, and the per-filing rolling
+reference. Same registrations (inner-joined to both score files, so a filing
+missing from either is in neither arm), same cohort fixed effects, same owner
+clustering, same quintile construction -- only the reference window differs.
+That is what licenses reading the difference between the two arms as the cost
+of the annual approximation rather than as a sample difference.
 
+This is the source of the appendix claim that the gate penalty was overstated
+by about a third in the software class (+7.40pp under annual buckets against
++5.25pp under per-filing windows), and that the attenuation is of magnitude
+only: standard errors fall enough that the t-statistic rises.
+
+Fixed effects are on registration cohort alone, not class x cohort, because the
+sample is a single class.
+
+Reads   data/processed/tm_class009.parquet
+        data/processed/case_events.parquet
+        data/processed/topic_surprise_class009_T200.parquet   (annual arm)
+        data/processed/rolling_surprise_class009_T200.parquet (per-filing arm)
 Output: paper/results/rolling_window_gate_test.json
+
+The per-filing arm reads the production score file written by
+rolling_rescore_all.py and renames topic_dkl -> roll_dkl locally, so the two
+arms can be held side by side. (An earlier version read a roll_* schema from
+this path; that schema now lives in rolling_diag_class{CLS}_T{T}.parquet, which
+the single-class diagnostic writes.)
 """
 from __future__ import annotations
 
@@ -87,8 +107,11 @@ def main() -> int:
 
     yr = pl.read_parquet(PROC / f"topic_surprise_class{CLS}_T200.parquet",
                          columns=["serial_number", "topic_dkl"])
+    # The per-filing arm is the production score file, whose columns carry the
+    # same names as the annual one; rename on read so both arms coexist.
     ro = pl.read_parquet(PROC / f"rolling_surprise_class{CLS}_T200.parquet",
-                         columns=["serial_number", "roll_dkl"])
+                         columns=["serial_number", "topic_dkl"]).rename(
+        {"topic_dkl": "roll_dkl"})
     d = tm.join(yr, on="serial_number", how="inner").join(
         ro, on="serial_number", how="inner").filter(
         pl.col("topic_dkl").is_finite() & pl.col("roll_dkl").is_finite())

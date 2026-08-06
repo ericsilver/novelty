@@ -1,26 +1,40 @@
-"""Substantiating the Figure-3 panel-B patterns (blue-ocean + U-shape).
+"""Debut listing on vocabulary position: the paper's design-based listing table.
 
-Two raw facts from debut_outcome_topic*.json, robust at T=50/200/500:
+Produces the coefficients in the paper's listing table and panel B of the
+quintile-profile figure. It exists to test whether two raw patterns in the
+debut-outcome figure survive design: those raw patterns, from
+debut_outcome_topic*.json and robust at T=50/200/500, are
+
   (1) P(EDGAR | registration) RISES monotonically in KL level
-      (prospective and retrospective alike): ~0.20% -> ~0.50%, ~2.5x.
-  (2) P(EDGAR | registration) is U-SHAPED in dKL: both tails beat the
-      flux-neutral middle (~0.41/0.27/0.34% at T=50).
+      (past-facing and future-facing alike): ~0.20% -> ~0.50%, ~2.5x.
+  (2) P(EDGAR | registration) is U-SHAPED in lead: both tails beat the
+      middle (~0.41/0.27/0.34% at T=50).
 
-This script tests whether they survive: class x filing-year FE, log
-description length, and each other (is the U just |level| in disguise?).
+The tests are class x filing-year FE, log description length, and each other
+-- is the U just the unsigned level in disguise? It is: spec C resolves the U
+into a positive unsigned component and a negative signed one, which is the
+paper's decomposition.
 
 Sample: debut filings (owner's first-ever filing) 1995-2018 that reached
 registration; outcome = owner ever in SEC EDGAR. One row per owner, so
-plain heteroskedasticity-robust (HC1) SEs.
+heteroskedasticity-robust (HC1) SEs are enough -- there is no within-owner
+clustering left to correct. The registration conditioning is deliberate:
+registration is itself selected on language, so an unconditional gradient
+mixes what the examiner does to a description with what the market does to
+the product.
 
 Specs (LPM, class x year FE absorbed by demeaning):
-  A1 pros-KL quintile dummies (within class x year)          [raw-in-FE]
+  A1 atypicality quintile dummies (within class x year)      [raw-in-FE]
   A2 A1 + log_len                                            [length]
-  B1 dKL quintile dummies                                    [raw-in-FE]
+  A1/A2 repeated on the past level alone, the robustness comparison
+  B1 lead quintile dummies                                   [raw-in-FE]
   B2 B1 + log_len
-  B3 B2 + pros-KL and retr-KL z-levels  <- does the U survive levels?
-  C  decomposition: |dKL z| and sign(dKL) x |z| + log_len
+  B3 B2 + past and future KL z-levels   <- does the U survive levels?
+  C  decomposition: |lead z| and signed lead z + log_len
 
+Reads   data/processed/tm_class{CLS}.parquet
+        data/processed/{SRC}_surprise_class{CLS}.parquet   SRC = SURPRISE_SRC
+        data/processed/uspto_sec_crosswalk.parquet
 Output: paper/results/debut_edgar_substantiate.json
 """
 from __future__ import annotations
@@ -37,10 +51,10 @@ import polars as pl
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
 
-# Reference-window source. "topic" is the production per-calendar-year scorer;
-# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
-# output carries identical column names, so only the path changes.
-SRC = os.environ.get("SURPRISE_SRC", "topic")
+# Default is "rolling": the per-filing reference windows every estimate in
+# the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
+# per-calendar-year scoring, which the comparison appendix reports.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 OUT = REPO / "paper" / "results"
 FILE_LO, FILE_HI = 1995, 2018
 
@@ -152,6 +166,8 @@ def main() -> int:
     reg = df.filter(pl.col("registered")).with_columns(
         pl.format("{}_{}", pl.col("cls"), pl.col("fy")).alias("cell"),
         (pl.col("gs_len").cast(pl.Float64) + 1).log().alias("log_len"),
+        # Class x year cells thinner than 100 cannot support five quintiles and
+        # are absorbed to nothing by the FE, so they are dropped.
     ).filter(pl.len().over("cell") >= 100)
 
     # Within-cell quintiles and z-scores. rank("ordinal") resolves ties by frame

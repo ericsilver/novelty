@@ -13,13 +13,31 @@ the past window is the 1,826 days strictly before it, the future window the
 reference contains the eleven months of within-year language that the yearly
 scorer discards, and same-day filings are excluded from both sides.
 
+This is the SINGLE-CLASS DIAGNOSTIC, not the production scorer. Its job is to
+quantify what the annual approximation cost, by scoring one class both ways and
+comparing: it is the source of the correlation, spread, and month-gradient
+numbers in the appendix on annual reference buckets. The corpus-wide production
+rescore is rolling_rescore_all.py, which applies the same measure to all 45
+classes.
+
+The by_month block is the diagnostic that matters. Under annual buckets mean
+lead rises almost monotonically with filing month -- a December filing sits
+eleven months further from its past reference and eleven months nearer its
+future one -- and per-filing windows should flatten it. That gradient is a pure
+artifact of the calendar, so its disappearance is the evidence that the
+approximation, not the corpus, produced it.
+
 Implementation is a two-pointer sliding sum over date-sorted filings, so cost is
 O(n*T) with O(T) memory rather than a full prefix-sum matrix.
 
 Usage:  python scripts/rolling_window_rescore.py [CLASS] [T]
         (defaults: 009, 200)
 
+Reads:  data/processed/tm_class{CLS}.parquet
+        data/processed/topic_model{SUFFIX}.joblib
+        data/processed/topic_surprise_class{CLS}_T{T}.parquet  (the comparison)
 Output: data/processed/rolling_diag_class{CLS}_T{T}.parquet
+        with roll_* column names
         (deliberately NOT rolling_surprise_*, which rolling_rescore_all.py
          owns under a different column schema -- writing there would clobber
          the production scores that staged_outcomes_table.py consumes)
