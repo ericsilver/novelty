@@ -25,6 +25,9 @@ import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Reference-window source; see scripts/rolling_rescore_all.py.
+SRC = os.environ.get("SURPRISE_SRC", "topic")
 RES = REPO / "paper" / "results"
 
 PASS = {"701", "702", "703", "704", "705", "800"}
@@ -71,12 +74,12 @@ def quintile_rates(df: pl.DataFrame, var: str, outcome: str) -> dict:
 
 
 def all_classes() -> list[str]:
-    return sorted(p.stem.replace("topic_surprise_class", "")
-                  for p in PROC.glob("topic_surprise_class???.parquet"))
+    return sorted(p.stem.replace(f"{SRC}_surprise_class", "")
+                  for p in PROC.glob(f"{SRC}_surprise_class???.parquet"))
 
 
 def load_class(cls: str) -> pl.DataFrame | None:
-    tp = PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet"
+    tp = PROC / f"{SRC}_surprise_class{cls}{SUFFIX}.parquet"
     sp = PROC / f"surprise_class{cls}.parquet"
     mp = PROC / f"tm_class{cls}.parquet"
     if not (tp.exists() and sp.exists() and mp.exists()):

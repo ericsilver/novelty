@@ -17,9 +17,9 @@
 \subsection{Two questions asked of every filing}
 
 The two readers of the introduction can now be made precise. Take a filing's
-goods/services description, and group every filing by its Nice class --- one of
-the 45 international goods and services categories --- and by its year. Each
-reader has seen only half of that class's stream:
+goods/services description and group every filing by its Nice class --- one of
+the 45 international goods and services categories. Each reader has seen only
+half of that class's stream, split at the filing's own date:
 
 \begin{enumerate}[noitemsep]
   \item A reader who has seen only what the industry filed \emph{before} it.
@@ -53,7 +53,7 @@ apparent curvature at registration.
 
 The two answers are usually close, and the gap between them is what carries the
 information. On the software class they correlate at $0.979$, and the
-difference between them has about a fifth of the spread of either level.
+difference between them has about a sixth of the spread of either level.
 Wording that surprised the first reader and not the second was surprising
 because it came first: the industry moved toward it. Wording that read as
 ordinary to the first and unusual to the second was behind its industry rather
@@ -138,13 +138,14 @@ caused it.
 
 \subsection{Definitions}
 
-Let $P_t$ be the topic distribution of a filing made in year $t$, and let
+Let $P_i$ be the topic distribution of filing $i$, made on date $d_i$, and let
 $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ aggregate same-class filings over
-windows of $W$ years before and after it, $t-W$ to $t-1$ and $t+1$ to $t+W$.
-The two windows are disjoint and neither contains the filing itself. $W = 5$
-throughout unless stated; the window is a parameter of the measure rather than
-a property of it, and Appendix~\ref{app:comp} reports what changes when the
-two windows are set to different lengths. Write
+the $W$ days strictly before and strictly after that date, $[d_i - W,\, d_i)$
+and $(d_i,\, d_i + W]$. The two windows are disjoint, neither contains the
+filing itself, and filings sharing its date fall in neither. $W = 1{,}826$ days
+(five years) throughout unless stated; the window is a parameter of the measure
+rather than a property of it, and Appendix~\ref{app:comp} reports what changes
+when the two windows are set to different lengths. Write
 \[
   K^{-} \;=\; \mathrm{KL}\!\left(P_t \,\|\, Q_{\mathrm{past}}\right),
   \qquad
