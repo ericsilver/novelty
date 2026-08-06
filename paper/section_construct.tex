@@ -29,22 +29,27 @@ reader has seen only half of that class's stream:
 \end{enumerate}
 
 \noindent Neither reader knows the other's half; the two references are
-disjoint. Each reader has seen a fixed number of years, and within that span
-every year counts the same: the reference is a flat pooled aggregate, not a
-decayed one, so a term the class adopted five years ago and one it adopted last
-year are equally familiar to the first reader. The measure therefore asks
-whether the wording is unusual against a period, not whether it is ahead of a
-trend within that period; it has no momentum channel, and
-Section~\ref{sec:limits} returns to what that forecloses.
+disjoint. Each window is anchored on the filing's own date --- the 1,826 days
+before it and the 1,826 days after it --- so no two filings made on different
+days are scored against the same reference, and filings made on the same day
+are excluded from each other's windows. Within a window every day counts the
+same: the reference is a flat pooled aggregate, not a decayed one, so a term
+the class adopted five years ago and one it adopted last year are equally
+familiar to the first reader. The measure therefore asks whether the wording is
+unusual against a period, not whether it is ahead of a trend within that
+period; it has no momentum channel, and Section~\ref{sec:limits} returns to
+what that forecloses.
 
-The reference is also built once per calendar year rather than once per filing,
-so two filings made in the same year are scored against the same reference
-however many months apart they were made, and neither is scored against
-anything filed during its own year. The resolution of ``came first'' is
-therefore a year, not a day. Appendix~\ref{app:rolling} rebuilds the measure at
-daily resolution for one class and reports what that costs: the annual version
-imprints a spurious within-year gradient on the signed axis and overstates the
-gate penalty by roughly a third, without changing its sign or significance.
+Anchoring on the filing date rather than on the calendar year is not a detail.
+An earlier version of this corpus built one reference per class-year, so that a
+filing made in January and one made in December of the same year were scored
+against the same object and neither saw any of the language filed during its
+own year. That imprints a spurious gradient: under annual buckets mean lead
+rises almost monotonically with filing month, purely because a December filing
+sits eleven months further from its past reference and eleven months nearer its
+future one. Appendix~\ref{app:rolling} reports what the coarser version cost,
+which was roughly a third of the measured gate penalty and the whole of an
+apparent curvature at registration.
 
 The two answers are usually close, and the gap between them is what carries the
 information. On the software class they correlate at $0.979$, and the

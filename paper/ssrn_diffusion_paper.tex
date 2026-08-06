@@ -43,14 +43,14 @@ holding description length fixed, debut owners in the top atypicality
 quintile reach the SEC-listed universe about a quarter more often than
 those in the bottom, on a 0.19\% base rate ($t = 4.1$). Among surprising
 filings, having been early is what distinguishes the failures.
-Leading marks fail their first use-proof gate 2.1
+Leading marks fail their first use-proof gate 1.4
 percentage points more often in the top within-class-cohort quintile than in
-the bottom --- about 53.5\% against 51.4\%, on a 51\% base failure rate ---
+the bottom --- about 53.3\% against 51.9\%, on a 52\% base failure rate ---
 on 3.10 million registrations, with
 class$\times$cohort fixed effects, owner-clustered errors, and drafting
-and filer controls ($t = 7.2$); the penalty is near zero in the earliest
-cohorts, appears over 2004--2007, and is present in every cohort from 2008
-to 2018, reproducing out of sample in 2019. At equal atypicality,
+and filer controls ($t = 8.3$); it is indistinguishable from zero in the
+2002--2007 cohorts, present in every cohort from 2008 to 2018, and
+reproduces out of sample in 2019. At equal atypicality,
 leading debuts reach listing \emph{less} often ($t = -5.0$), and
 less often still among firms that raise venture financing. Being
 surprising pays; having been early does not. The measure exists for the
@@ -289,14 +289,23 @@ counsel and basis directly.
 \subsection{Why these results condition on grant}
 
 Registration is not a neutral filter on language. Across 3.59 million
-debut filings (57.6\% base rate), completion is an inverse-U in \dkl{}:
-the middle quintiles complete best ($\sim$58.6--58.9\%) and both tails
-complete less (54.5\% at the bottom, 56.8\% at the top;
-Figure~\ref{fig:outcomes}A). The shape is scoring-robust and near-universal
-(positive middle-versus-tails depth in 37 of 44 classes under term
-scoring, statistically distinguishable in 33). Applicants filing
+debut filings (57.6\% base rate), completion is an inverse-U in
+\emph{atypicality}: the middle quintiles complete best
+($\sim$58.4--59.1\%) and both tails complete less, 54.0\% at the bottom
+and 57.7\% at the top (Figure~\ref{fig:outcomes}A). Applicants filing
 category-typical language follow through to commercial use most reliably;
-both kinds of vocabulary bet fail to launch more often.
+so do the least typical, but less so.
+
+That curvature belongs to the unsigned axis alone. Along \dkl{} the
+profile is irregular and has no interior peak at all --- 56.9\%, 58.2\%,
+56.6\%, 58.2\%, 58.0\% across quintiles, a 1.6-point band with the top
+quintile among the highest rather than depressed. An earlier version of this corpus, built
+on annual rather than per-filing reference windows, showed an inverse-U on
+both axes; the one on the signed axis was inherited from the window
+artifact documented in Appendix~\ref{app:rolling} and does not survive.
+Whether a filing was early or late does not predict whether it completes.
+What predicts completion is how far its language sits from its category in
+either direction.
 
 That is a result about the examination funnel, not about the market.
 Pooling granted and abandoned filings mixes the two selections, and the
@@ -351,19 +360,21 @@ Marks written in language their industry subsequently moved toward fail
 their first use-proof gate more often than marks written in language it was
 moving away from. Within class$\times$cohort cells, with owner-clustered
 errors and drafting and filer controls, marks in the top \dkl{} quintile
-fail $+2.1$pp more often than those in the bottom ($t = 7.2$): percentage
-points on a 51\% base rate, not percent of it, so roughly 51.4\% against
-53.5\%, or about 4.2\% more failure in relative terms. This is the paper's
+fail $+1.4$pp more often than those in the bottom ($t = 8.3$): percentage
+points on a 52\% base rate, not percent of it, so roughly 51.9\% against
+53.3\%, or about 2.7\% more failure in relative terms. This is the paper's
 central result.
 
-The gradient accelerates rather than stepping evenly. Against the bottom
-quintile, the second through fifth run $+0.44$, $+0.82$, $+1.17$ and
-$+2.15$pp, so the step from the fourth quintile to the fifth is two and a
-half times the average of the three below it (Figure~\ref{fig:profiles},
-panel A). A coefficient reported per quintile would spread that
-concentration evenly across the range and misdescribe it; the estimates
-below are therefore top-versus-bottom contrasts throughout, and the
-profile is shown rather than summarized.
+Almost all of it sits in the top quintile. Against the bottom quintile, the
+second through fifth run $+0.16$, $+0.26$, $+0.42$ and $+1.39$pp: the step
+from the fourth quintile to the fifth is seven times the average of the
+three below it (Figure~\ref{fig:profiles}, panel A). This is not a gradient
+in which each step of vocabulary position costs a little more, but a
+threshold in which the most strongly leading fifth of filings carries
+essentially the whole penalty. A coefficient reported per quintile would
+spread that concentration evenly across the range and misdescribe it; the
+estimates below are therefore top-versus-bottom contrasts throughout, and
+the profile is shown rather than summarized.
 
 Two conventions govern this subsection. Estimates are on gate
 \emph{failure} unless the text says survival; the window decomposition
@@ -381,11 +392,9 @@ fail this gate more often than domestic ones.
 
 Raw pooled
 quintiles convey the direction: among 4.12 million registration
-class-records 2002--2018, dated first-gate cancellation rises from 49.4\%
-at the bottom topic-\dkl{} quintile to 52.5\% at the top, positive in 36
-of 44 classes with sufficient volume (Figure~\ref{fig:forest}). It peaks in
-the fourth quintile at 52.7\% rather than the fifth, which is the same
-non-monotonicity the design-based profile shows. But a raw
+class-records 2002--2018, dated first-gate cancellation rises from 50.0\%
+at the bottom topic-\dkl{} quintile to 52.4\% at the top, positive in 33
+of 44 classes with sufficient volume (Figure~\ref{fig:forest}). But a raw
 pooled contrast mixes the within-industry gradient with class and cohort
 composition, treats multi-class registrations as independent
 observations, and ignores that gate outcomes correlate within owner. In
@@ -426,19 +435,19 @@ log owner filing count, owner domicile (US, CN), and foreign basis
 \toprule
 Sample & Specification & Q5$-$Q1 (pp) & SE & $n$ \\
 \midrule
-All & FE only & $+3.13$ & $0.22$ & 3{,}104{,}951 \\
-All & FE + controls & $+2.15$ & $0.30$ & 3{,}104{,}951 \\
-Counsel-represented & FE + controls & $+1.95$ & $0.35$ & 2{,}414{,}653 \\
-Counsel + US-domiciled & FE + controls & $+2.61$ & $0.42$ & 1{,}888{,}655 \\
-Self-filed & FE + controls & $+2.60$ & $0.29$ & 690{,}298 \\
-Excluding Madrid \S66(a) & FE + controls & $+2.89$ & $0.33$ & 2{,}924{,}844 \\
+All & FE only & $+2.29$ & $0.16$ & 3{,}104{,}534 \\
+All & FE + controls & $+1.39$ & $0.17$ & 3{,}104{,}534 \\
+Counsel-represented & FE + controls & $+1.15$ & $0.20$ & 2{,}414{,}318 \\
+Counsel + US-domiciled & FE + controls & $+1.60$ & $0.22$ & 1{,}888{,}352 \\
+Self-filed & FE + controls & $+1.80$ & $0.26$ & 690{,}216 \\
+Excluding Madrid \S66(a) & FE + controls & $+1.82$ & $0.18$ & 2{,}924{,}427 \\
 \midrule
-Counsel + US, 2002--07 & FE + controls & $+1.04$ & $0.33$ & 552{,}286 \\
-Counsel + US, 2008--12 & FE + controls & $+3.71$ & $0.74$ & 551{,}930 \\
-Counsel + US, 2013--18 & FE + controls & $+3.02$ & $0.44$ & 784{,}439 \\
+Counsel + US, 2002--07 & FE + controls & $-0.25$ & $0.33$ & 551{,}989 \\
+Counsel + US, 2008--12 & FE + controls & $+2.00$ & $0.42$ & 551{,}924 \\
+Counsel + US, 2013--18 & FE + controls & $+2.65$ & $0.25$ & 784{,}439 \\
 \midrule
-All & continuous, pp per $\sigma$ & $+0.81$ & $0.09$ & 3{,}104{,}951 \\
-Counsel + US & continuous, pp per $\sigma$ & $+0.94$ & $0.13$ & 1{,}888{,}655 \\
+All & continuous, pp per $\sigma$ & $+0.58$ & $0.05$ & 3{,}104{,}534 \\
+Counsel + US & continuous, pp per $\sigma$ & $+0.63$ & $0.06$ & 1{,}888{,}352 \\
 \bottomrule
 \end{tabular}
 \\[0.3em]\footnotesize Standard errors are reported in place of significance
@@ -499,21 +508,24 @@ not yet elapsed at the data edge.
 The filer population also changed over exactly this period, which is why
 the cohort thirds of Table~\ref{tab:gate_lpm} matter. \emph{Within}
 counsel-represented US-domiciled owners, and with the full control set,
-the gradient still rises from $+1.0$pp (2002--07) to $+3.7$pp (2008--12)
-and $+3.1$pp (2013--18). The leading gate risk is therefore a
+the earliest third is indistinguishable from zero and in fact slightly
+negative ($-0.25$pp, SE $0.33$), while the two later thirds are clearly
+positive ($+2.00$pp and $+2.65$pp). The leading gate risk is therefore a
 feature of the post-2008 filing economy itself, not of the post-2015
 surge in self-filed and foreign applications, and it predates the
-pandemic by a decade.
+pandemic by a decade. That the effect is absent rather than merely smaller
+before 2008 is a stronger statement than the annual-bucket version of this
+table supported, where the same third read $+1.04$pp.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.8\textwidth]{results/event_gate_cohort_curve_extended.png}
 \caption{The leading gate penalty by registration cohort,
 event-dated, all classes pooled, raw quintile contrasts. The penalty is
-near zero for the 2002--2003 cohorts ($+0.6$ and $-0.3$pp), rises across
-2004--2007, and is present in every cohort from 2008 to 2018, ranging
-$+3.2$ to $+5.4$pp with no downward trend. The 2019 point is the
-out-of-sample replication on fully-elapsed registrations; the 2020--2021
-gates have not yet elapsed.}
+absent or negative for the 2002--2005 cohorts, turns positive in 2006, and
+is present in every cohort from 2008 to 2018, ranging $+1.8$ to $+5.4$pp
+with no downward trend. The 2019 point is the out-of-sample replication on
+fully-elapsed registrations ($+5.4$pp); the 2020--2021 gates have not yet
+elapsed.}
 \label{fig:cohort}
 \end{figure}
 
@@ -936,7 +948,7 @@ trademark filings, produces interpretable structure on
 commercially-incentivised legal text. Vocabulary position carries two
 separable signals: atypicality marks listing-bound firms
 (about a quarter more often, within class-year with length fixed), and lead
-marks product risk ($+2.1$pp top-versus-bottom quintile at the first
+marks product risk ($+1.4$pp top-versus-bottom quintile at the first
 use-proof gate with fixed effects, controls, and owner clustering; $-0.019$pp per
 $\sigma$ in listing at equal atypicality). The construct is
 empirically distinct from patent-track invention within firm. And the
@@ -1183,43 +1195,59 @@ scoring-robust.}
 \label{fig:s8pooled}
 \end{figure}
 
-\subsection{Annual reference buckets inflate the signed axis}\label{app:rolling}
+\subsection{What annual reference buckets cost}\label{app:rolling}
 
-The reference is built once per calendar year: the class's topic
-distributions are averaged over the five preceding calendar years, and every
-filing made in year $t$ is scored against that single object. A filing made
-on 1 January and one made on 31 December of the same year therefore receive
-identical references, and neither sees any of the language filed during its
-own year. That is a coarse instrument for a quantity whose standard
-deviation is a fifth of the levels it is built from, and it leaves a
-signature. Under annual bucketing, mean lead in the software class rises
-almost monotonically with filing month, from $-0.006$ in January to
-$+0.013$ in December --- a swing of an eighth of a standard deviation
+Every estimate in this paper uses a reference anchored on the filing's own
+date. An earlier version of the corpus built one reference per class-year
+instead: the class's topic distributions were averaged over the five
+preceding calendar years, and every filing made in year $t$ was scored
+against that single object, so a filing made on 1 January and one made on
+31 December received identical references and neither saw any of the
+language filed during its own year. Because the whole corpus has been
+scored both ways, the cost of that approximation can be stated rather than
+speculated about.
+
+It leaves a signature in the data. Under annual bucketing, mean lead in the
+software class rises almost monotonically with filing month, from $-0.006$
+in January to $+0.013$ in December --- an eighth of a standard deviation
 produced by nothing but position within the calendar year, since a December
 filing sits eleven months further from its past reference and eleven months
-nearer its future one.
+nearer its future one. Per-filing windows remove it: the month-to-month
+spread falls from $0.020$ to $0.005$ and loses its monotone shape. The two
+scorings agree only moderately. On 1,107,807 software filings scored both
+ways the signed axis correlates at $r = 0.67$ and the levels at $0.77$, and
+the per-filing version is the tighter, with a standard deviation of $0.125$
+against $0.160$.
 
-Re-scoring the software class with a reference computed at each filing's own
-date --- the 1,826 days strictly before it and the 1,826 days strictly after,
-excluding same-day filings from both --- removes that signature: the
-month-to-month spread falls from $0.020$ to $0.005$ and loses its monotone
-shape. The two scorings agree only moderately. On 1,107,807 filings scored
-both ways, the signed axis correlates at $r = 0.67$ and the levels at
-$0.77$; the rolling version is the tighter of the two, with a standard
-deviation of $0.125$ against $0.160$.
+Three consequences for the results, in decreasing order of importance.
 
-The gate result survives this and shrinks. On the 452{,}911 class-009
-registrations scored both ways, with cohort fixed effects, length control
-and owner-clustered errors, the top-versus-bottom contrast is $+7.40$pp
-(SE $0.43$) under annual buckets and $+5.25$pp (SE $0.42$) under
-per-filing windows; per standard deviation, $+2.63$pp against $+1.88$pp.
-Roughly \emph{29\% of the measured penalty in this class is an artifact of
-annual bucketing}, and the remaining 71\% is not: the rolling estimate
-stands at $t = 12.6$. The headline estimates in this paper are computed on
-annual buckets and should be read as upper bounds on the magnitude, though
-not on the sign or the significance. Re-scoring the full corpus this way
-costs about twenty minutes of compute and is the first thing a revision
-should do.
+First, the gate penalty was overstated by about a third. On the same 3.10
+million registrations, the top-versus-bottom contrast is $+2.15$pp
+(SE $0.30$) under annual buckets and $+1.39$pp (SE $0.17$) under per-filing
+windows. The attenuation is remarkably uniform across specifications ---
+the ratio runs $0.59$ to $0.73$ for every sample split in
+Table~\ref{tab:gate_lpm} --- and it is an attenuation of magnitude only:
+standard errors fall by roughly half, so the $t$-statistic \emph{rises},
+from $7.2$ to $8.3$. The same holds in the software class alone, where the
+contrast moves from $+7.40$pp to $+5.25$pp.
+
+Second, the shape of the gate penalty changes. Under annual buckets the
+quintile profile looked like a gradient with a steeper final step; under
+per-filing windows it is close to a threshold, with the top quintile
+carrying seven-eighths of the total and the interior quintiles nearly flat.
+The coarser measure spread a top-quintile effect across the whole range.
+
+Third, one published shape does not survive. Registration completion showed
+an inverse-U on both the unsigned and the signed axis. Only the unsigned one
+is real; on \dkl{} the curvature disappears entirely under per-filing
+windows, and the earlier interior peak is attributable to the month
+gradient above. The listing results are the least affected: top-quintile
+atypicality moves from $+0.046$pp to $+0.043$pp and the signed decomposition
+keeps both its signs and its significance.
+
+Nothing here changes a sign or a conclusion. It changes magnitudes, one
+functional form, and the confidence with which the magnitudes can be
+quoted.
 
 \subsection{Which novelty: the reference-window decomposition}
 

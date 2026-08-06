@@ -118,8 +118,9 @@ def main() -> int:
     # ---- C: registration, raw ----------------------------------------------
     ax = axes[2]
     reg = debut["registration"]
-    for key, color, lab, mk in (("topic_dkl", C_LEAD, "on lead $L$", "o"),
-                                ("topic_pros", C_ATYP, "on past-facing surprise $K^-$", "s")):
+    lvl = "topic_kl_vs_past" if "topic_kl_vs_past" in reg else "topic_pros"
+    for key, color, lab, mk in ((lvl, C_ATYP, "on past-facing surprise $K^-$", "s"),
+                                ("topic_dkl", C_LEAD, "on lead $L$", "o")):
         v = [reg[key][f"q{q}"] * 100 for q in QX]
         ax.plot(QX, v, mk + "-", color=color, lw=2.0, ms=5.5, label=lab)
     ax.axhline(debut["p_registered"] * 100, color=INK2, lw=1.0, ls=(0, (4, 3)))
@@ -134,8 +135,8 @@ def main() -> int:
         s.set_color(GRID)
     ax.tick_params(colors=INK2, labelsize=8.5)
     ax.legend(fontsize=7.8, loc="lower center", framealpha=0.9)
-    ax.annotate("inverse-U: both tails\ncomplete less than the middle",
-                xy=(3, reg["topic_dkl"]["q3"] * 100), xytext=(1.35, 55.0),
+    ax.annotate("inverse-U on the LEVEL;\nflat on lead",
+                xy=(3, reg[lvl]["q3"] * 100), xytext=(1.30, 55.2),
                 fontsize=7.6, color=INK2, ha="left",
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=0.9,
                                 connectionstyle="arc3,rad=0.2"))
