@@ -242,11 +242,12 @@ def main() -> int:
             f"6_counselUS_{lo}_{hi}"))
 
     # 9: drop Madrid 66(a) outright rather than absorbing it in a dummy.
-    # 66(a) registrations file Section 71 declarations, not Section 8, so they
-    # cannot generate the C8.. event this outcome is built from and enter the
-    # sample as mechanical non-failures. The C71T cancellations ARE in
-    # case_events (118,838 of them) but no analysis reads them; until they do,
-    # the honest robustness check is to estimate without these records.
+    # 66(a) registrations maintain under Section 71 rather than Section 8. The
+    # C71T cancellations are now read alongside C8.. (see build_frame), so these
+    # records are scored correctly rather than defaulting to survivors. This
+    # spec drops them anyway: they maintain under a different statute, and a
+    # reader is entitled to the estimate that does not rely on the two gates
+    # being equivalent.
     no66 = df.filter(pl.col("basis_66a") == 0.0)
     results["specs"].append(lpm_fe_cluster(
         no66, qcols + ["itu", "log_len", "log_owner_n", "dom_us", "dom_cn",

@@ -65,6 +65,7 @@ RES = REPO / "paper" / "results"
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
 MIN_OBS = 500
 GATE_LO, GATE_HI = 4.0, 8.5   # first maintenance window, registration-age years
+GATE1_COHORTS = (2002, 2018)  # cohorts whose year-six window has elapsed
 GATE2_COHORTS = (2002, 2013)  # cohorts whose year-ten window has elapsed
 
 
@@ -113,14 +114,16 @@ def debut_panel() -> pl.DataFrame:
 
 
 def gate_outcome(serials: pl.Series) -> pl.DataFrame:
-    """Event-dated maintenance cancellations for the given registered serials.
+    """Every dated maintenance cancellation for the given registered serials.
 
-    Returns the earliest cancellation in each of the two maintenance windows.
-    The gates are separable only by date: a mark cancelled at year six and one
-    cancelled at year ten both end in the same terminal status, so the first
-    gate is a cancellation at registration age 4.0-8.5 years and the second one
-    at 8.5-11.5. Codes are Section 8 for domestic registrations and Section 71
-    for Madrid Section 66(a) extensions.
+    Returns one row per event, unaggregated; main() computes registration age
+    and applies the first-gate window (4.0-8.5 years). The SECOND gate is not a
+    dated window at all -- a mark that dies at year six and one that dies at
+    year ten share a terminal status, so gate two is identified among first-gate
+    survivors by whether the registration was renewed (800) or died (710/900).
+    Codes are Section 8 for domestic registrations and Section 71 for Madrid
+    Section 66(a) extensions; reading only C8.. would score every 66(a)
+    registration as a survivor whatever became of it.
     """
     c8 = pl.scan_parquet(PROC / "case_events.parquet").filter(
         (pl.col("code").is_in(["C8..", "C71T"])) & (pl.col("date") > 19000000)
@@ -282,8 +285,12 @@ def main() -> int:
                 f"(t={r['z_lean']['t']:+.1f}){extra}")
 
     add("Reached registration", "filed", base, "registered")
-    add("Passed first gate (yr 6)", "registered", base[base.registered == 1],
-        "passed_gate")
+    # Restricted to elapsed cohorts. Without this, registrations whose
+    # 4.0-8.5 year window has not opened carry no cancellation event and are
+    # coded as survivors -- 35% of registrations, and 2.0M whose window has
+    # not started at all, which passes them mechanically.
+    g1 = base[(base.registered == 1) & base.reg_year.between(*GATE1_COHORTS)]
+    add("Passed first gate (yr 6)", "registered", g1, "passed_gate")
     g2 = base[(base.registered == 1) & (base.passed_gate == 1)
               & base.reg_year.between(*GATE2_COHORTS)]
     add("Passed second gate (yr 10)", "passed first", g2, "passed_gate2")
@@ -296,7 +303,9 @@ def main() -> int:
     add("Reached listed universe", "registered",
         base[base.registered == 1], "listed")
 
-    out = {"spec": ("outcome ~ z_level + z_lean + log_len; class x debut-year FE; "
+    out = {"scoring": SRC,
+           "gate1_cohorts": list(GATE1_COHORTS), "gate2_cohorts": list(GATE2_COHORTS),
+           "spec": ("outcome ~ z_level + z_lean + log_len; class x debut-year FE; "
                     "HC1 robust SE; coefficients in percentage points"),
            "z_level": "standardized (KL vs past + KL vs future)/2 (atypicality)",
            "z_lean": "standardized dKL = KL(vs past) - KL(vs future) (lead)",
@@ -318,7 +327,9 @@ def main() -> int:
          r"cancellation for non-use; the second is whether a registration that "
          r"cleared the first was renewed rather than cancelled or expired, "
          r"restricted to 2002--2013 cohorts, since a year-six and a year-ten death "
-         r"share a terminal status and are separable only this way.}",
+         r"share a terminal status and are separable only this way. This table "
+         r"alone is estimated at $T = 200$ topics rather than the $T = 50$ used "
+         r"elsewhere; the sign and ordering of every row are unchanged at $T = 50$.}",
          r"\label{tab:staged}",
          r"\begin{tabular}{llrrrrr}", r"\toprule",
          r" & & & & \multicolumn{2}{c}{Unsigned} & Signed \\",

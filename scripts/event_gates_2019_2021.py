@@ -1,6 +1,6 @@
 """Gate-cohort replication: registrations 2019-2021.
 
-Identical pipeline to event_gates_all.py (failed1 = C8.. cancellation at
+Identical pipeline to event_gates_all.py (failed1 = C8../C71T cancellation at
 registration-age 4.0-8.5y), re-run on the post-2018 cohorts to test whether the
 forward-leaning first-gate penalty persists beyond the 2016-2018 window that
 anchors the paper.

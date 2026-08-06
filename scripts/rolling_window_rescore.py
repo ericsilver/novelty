@@ -19,7 +19,10 @@ O(n*T) with O(T) memory rather than a full prefix-sum matrix.
 Usage:  python scripts/rolling_window_rescore.py [CLASS] [T]
         (defaults: 009, 200)
 
-Output: data/processed/rolling_surprise_class{CLS}_T{T}.parquet
+Output: data/processed/rolling_diag_class{CLS}_T{T}.parquet
+        (deliberately NOT rolling_surprise_*, which rolling_rescore_all.py
+         owns under a different column schema -- writing there would clobber
+         the production scores that staged_outcomes_table.py consumes)
         paper/results/rolling_window_comparison.json
 """
 from __future__ import annotations
@@ -142,7 +145,7 @@ def main() -> int:
         pl.Series("roll_n_past", n_p),
         pl.Series("roll_n_future", n_f),
     )
-    dest = PROC / f"rolling_surprise_class{CLS}_T{T}.parquet"
+    dest = PROC / f"rolling_diag_class{CLS}_T{T}.parquet"
     out.write_parquet(dest)
     log(f"[write] {dest.name}")
 

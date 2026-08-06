@@ -7,7 +7,8 @@ panels, each adding one outcome dimension.
 
 VARIANT A -- survival at the first Section 8 use-proof gate.
     paper/results/quadrant_survival.{png,pdf}
-    A registration FAILS the first gate if case_events.parquet carries a `C8..`
+    A registration FAILS the first gate if case_events.parquet carries a
+    `C8..` or `C71T`
     event at registration age 4.0-8.5 years, which is the construction used by
     scripts/event_gates_all.py and scripts/staged_outcomes_table.py::gate_outcome.
     Only registrations whose gate window has fully elapsed can be classified.

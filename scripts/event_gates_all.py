@@ -1,7 +1,8 @@
 """Event-dated gate analysis, all classes, all elapsed cohorts.
 
 Per registration (reg years 2002-2018, first gate fully elapsed):
-  failed1 = C8.. cancellation event at registration-age 4-8.5y
+  failed1 = C8.. or C71T cancellation event at registration-age 4-8.5y
+           (Section 8 for domestic registrations, Section 71 for Madrid 66(a))
   gate2 (cohorts 2002-2013, both gates elapsed): among gate-1 passers
   with terminal status in {800, 710, 900}: failed2 = status 710 or 900
 Covariates: topic_dkl (method), token_dkl, attorney presence (case_extras),
