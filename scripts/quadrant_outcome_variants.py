@@ -172,7 +172,7 @@ SURF_LO, SURF_HI = 1995, 2020    # variant C surface: post burn-in, full window
 HEX_SURV = {"009": (45, 85), "032": (24, 40)}
 HEX_LIST = {"009": (45, 400), "032": (18, 250)}
 SURV_PP = 16.0                   # colour range, pp either side of panel base
-LIST_L2 = 2.0                    # colour range, log2 units either side of 1x
+LIST_L2_MIN = 0.35               # floor on the per-panel colour range (log2)
 Z_MARK = 8                       # exemplar markers sit ABOVE their own labels
 
 
@@ -667,9 +667,23 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
             m = float(np.mean(v))
             return np.log2(max(m, b / 64.0) / b)
 
+        # A fixed +/-2 log2 range left both panels a grey smudge: nearly every
+        # cell sits within a factor of two of its own base, so the whole surface
+        # occupied the dead middle of the ramp. The range is now set PER PANEL
+        # from that panel's own spread -- the 97.5th percentile of |value|, so a
+        # couple of extreme cells cannot flatten everything else -- with a floor
+        # at LIST_L2_MIN so a genuinely flat panel is not amplified into false
+        # structure. Each panel already carries its own colourbar, so a
+        # panel-specific range is legible rather than misleading.
+        probe = ax.hexbin(x, y, C=f, gridsize=gs, extent=(LO, HI, LO, HI),
+                          reduce_C_function=lr, mincnt=mincnt, visible=False)
+        pv = np.asarray(probe.get_array())
+        span = max(float(np.percentile(np.abs(pv), 97.5)) if len(pv) else 0.0,
+                   LIST_L2_MIN)
+
         hb = ax.hexbin(x, y, C=f, gridsize=gs, extent=(LO, HI, LO, HI),
                        reduce_C_function=lr, mincnt=mincnt, cmap=DIVERGING_R,
-                       norm=Normalize(vmin=-LIST_L2, vmax=LIST_L2),
+                       norm=Normalize(vmin=-span, vmax=span),
                        linewidths=0.0, zorder=1)
         # One colourbar per panel, as in variant A: the scale is a multiple of
         # THIS panel's base rate, and the two panels' bases differ by more than
@@ -679,15 +693,16 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
                       f"panel's base of {100*base:.2f}% (log scale)\n"
                       f"blue = more likely to be listed",
                       fontsize=7.5, color=INK2)
-        cbp.set_ticks([-2.0, -1.0, 0.0, 1.0, 2.0])
-        cbp.set_ticklabels(["0.25$\\times$", "0.5$\\times$", "base",
-                            "2$\\times$", "4$\\times$"])
+        ticks = [-span, -span / 2, 0.0, span / 2, span]
+        cbp.set_ticks(ticks)
+        cbp.set_ticklabels([("base" if t == 0 else f"{2 ** t:.2f}$\\times$")
+                            for t in ticks])
         cbp.ax.tick_params(labelsize=7, colors=INK2)
         cbp.outline.set_edgecolor(GRID)
 
         drawn = int((cnt >= mincnt).sum())
         vals = np.asarray(hb.get_array())
-        clipped = int((np.abs(vals) > LIST_L2).sum())
+        clipped = int((np.abs(vals) > span).sum())
         # spread expected from binomial noise alone, in the same log2 units
         exp_sd = float(np.sqrt(np.mean(
             (base * (1 - base) / cnt[cnt >= mincnt]) / base ** 2))) / np.log(2)
@@ -709,7 +724,7 @@ def variant_c(frames: dict[str, pl.DataFrame], counts: list, exrows: list,
             f"{len(cnt)-drawn} blank of {len(cnt)}; median cell n="
             f"{np.median(cnt[cnt>=mincnt]):.0f}; log2 spread sd {vals.std():.3f} vs "
             f"{exp_sd:.3f} from binomial noise (dispersion {disp:.2f}); "
-            f"{clipped} cells clipped at +/-{LIST_L2}")
+            f"{clipped} cells clipped at +/-{span:.2f} log2")
 
         # marginal gradients, printed so the "is it flat?" question is answerable
         # from numbers as well as from the picture
