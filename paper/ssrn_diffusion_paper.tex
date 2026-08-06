@@ -1183,6 +1183,44 @@ scoring-robust.}
 \label{fig:s8pooled}
 \end{figure}
 
+\subsection{Annual reference buckets inflate the signed axis}\label{app:rolling}
+
+The reference is built once per calendar year: the class's topic
+distributions are averaged over the five preceding calendar years, and every
+filing made in year $t$ is scored against that single object. A filing made
+on 1 January and one made on 31 December of the same year therefore receive
+identical references, and neither sees any of the language filed during its
+own year. That is a coarse instrument for a quantity whose standard
+deviation is a fifth of the levels it is built from, and it leaves a
+signature. Under annual bucketing, mean lead in the software class rises
+almost monotonically with filing month, from $-0.006$ in January to
+$+0.013$ in December --- a swing of an eighth of a standard deviation
+produced by nothing but position within the calendar year, since a December
+filing sits eleven months further from its past reference and eleven months
+nearer its future one.
+
+Re-scoring the software class with a reference computed at each filing's own
+date --- the 1,826 days strictly before it and the 1,826 days strictly after,
+excluding same-day filings from both --- removes that signature: the
+month-to-month spread falls from $0.020$ to $0.005$ and loses its monotone
+shape. The two scorings agree only moderately. On 1,107,807 filings scored
+both ways, the signed axis correlates at $r = 0.67$ and the levels at
+$0.77$; the rolling version is the tighter of the two, with a standard
+deviation of $0.125$ against $0.160$.
+
+The gate result survives this and shrinks. On the 452{,}911 class-009
+registrations scored both ways, with cohort fixed effects, length control
+and owner-clustered errors, the top-versus-bottom contrast is $+7.40$pp
+(SE $0.43$) under annual buckets and $+5.25$pp (SE $0.42$) under
+per-filing windows; per standard deviation, $+2.63$pp against $+1.88$pp.
+Roughly \emph{29\% of the measured penalty in this class is an artifact of
+annual bucketing}, and the remaining 71\% is not: the rolling estimate
+stands at $t = 12.6$. The headline estimates in this paper are computed on
+annual buckets and should be read as upper bounds on the magnitude, though
+not on the sign or the significance. Re-scoring the full corpus this way
+costs about twenty minutes of compute and is the first thing a revision
+should do.
+
 \subsection{Which novelty: the reference-window decomposition}
 
 ``Leading'' is relative to a reference, and mixing windows
