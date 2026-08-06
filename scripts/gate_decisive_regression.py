@@ -229,6 +229,17 @@ def main() -> int:
             sub, qcols + ["itu", "log_len", "log_owner_n"],
             f"6_counselUS_{lo}_{hi}"))
 
+    # 9: drop Madrid 66(a) outright rather than absorbing it in a dummy.
+    # 66(a) registrations file Section 71 declarations, not Section 8, so they
+    # cannot generate the C8.. event this outcome is built from and enter the
+    # sample as mechanical non-failures. The C71T cancellations ARE in
+    # case_events (118,838 of them) but no analysis reads them; until they do,
+    # the honest robustness check is to estimate without these records.
+    no66 = df.filter(pl.col("basis_66a") == 0.0)
+    results["specs"].append(lpm_fe_cluster(
+        no66, qcols + ["itu", "log_len", "log_owner_n", "dom_us", "dom_cn",
+                       "basis_44e"], "9_excl_madrid_66a"))
+
     # continuous-z variants of specs 2 and 4
     results["specs"].append(lpm_fe_cluster(df, ["z"] + controls, "7_z_FE_controls"))
     results["specs"].append(lpm_fe_cluster(

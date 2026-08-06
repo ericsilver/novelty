@@ -14,7 +14,7 @@
 
 \title{\bfseries Vocabulary position and trademark lifecycles:\\
 \large An event-dated corpus and a lead/lag text measure for the commercial economy}
-\author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone.}}
+\author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone. I thank Simon DeDeo for the topic-scoring suggestion recorded in Section~\ref{sec:construct}, and Carolina Castaldi for comments on an earlier draft and for orienting me in the trademark-indicator literature. Neither has seen or endorsed the present version, and all errors and judgements are mine.}}
 \date{July 2026 working paper}
 
 \begin{document}
@@ -109,11 +109,24 @@ for patent text. That analogue does not yet exist at corpus scale, and
 the two strands above --- description text and prosecution events --- have
 run on separate data.
 
-This paper builds both on one corpus. The first contribution is that
-corpus: all 13.99 million USPTO
-trademark case files re-parsed into event-dated prosecution histories ---
-every office action, response, maintenance filing, and cancellation with
-its date, joined to counsel of record, filing basis, and owner domicile.
+This paper builds both on one corpus, so that what a filing says and what
+subsequently happened to it are observed on the same record. The first
+contribution is that corpus. The USPTO distributes its trademark backfile
+as bulk XML --- 83 archives covering 1884 to 2025 --- from which the
+published research files retain a filing's current status but not the dated
+sequence of events that produced it. Re-parsing the backfile yields 242
+million prosecution events across 13.99 million case files, each event
+carrying a code and a date: every office action, response, maintenance
+filing, and cancellation. Three further passes make those events usable.
+The event codes are resolved into a 760-code dictionary. A header pass
+extracts counsel of record, the statutory filing basis, and the
+postregistration declarations. A third pass recovers owner domicile, which
+the class-level files omit. Owner names are then normalized to a clustering
+key and resolved to two external universes: SEC registrants, through the
+agency's own company-name and ticker files, and Regulation~D issuers,
+through the Form~D quarterly data sets --- the latter filtered to operating
+companies, with ambiguous names dropped rather than guessed. That link is
+what lets a mark's language be followed to financing and to public listing.
 Where the patent record dates invention once (at grant), the trademark
 prosecution record dates a commercial claim's entire life, including the
 Section~8 use-proof gates at which marks attached to products that never
@@ -310,7 +323,11 @@ at the bottom topic-\dkl{} quintile to 47.7\% at the top, positive in 31
 of 44 classes with sufficient volume (Figure~\ref{fig:forest}). But a raw
 pooled contrast mixes the within-industry gradient with class and cohort
 composition, treats multi-class registrations as independent
-observations, and ignores that gate outcomes correlate within owner. The
+observations, and ignores that gate outcomes correlate within owner. In
+other words, part of that raw gap is simply that industries and years
+differ in how often they file unusual language and in how often their marks
+fail, which is not the same thing as what unusual language does to a mark
+inside its own industry. The
 primary estimates therefore come from a linear probability model on 3.10
 million unique registrations, one row per serial, with \dkl{} quintiles cut
 \emph{within} class$\times$cohort cells. The specification adds
@@ -435,7 +452,10 @@ software diagnostic class, where the event-dated first-gate lift on the
 gate falls to $+7.0$pp; pooled across classes the second-gate pattern is
 a shallow U (40.4\% at the bottom quintile, 37.2\% in the middle, 42.2\%
 at the top), so by year ten the lagging tail has closed the gap in
-cumulative failure. Most of the difference resolves at first proof of use.
+cumulative failure --- marks whose language their industry was drifting
+away from end up abandoned at much the same cumulative rate as the marks
+it moved toward, having simply taken longer to get there. Most of the
+difference resolves at first proof of use.
 Response timing in the prosecution record sharpens the picture: among represented software
 filings, response speed to office actions predicts the gate
 (fastest-quintile responders pass at 57.4\% against 49.4\% for the
@@ -530,23 +550,32 @@ when being different is valuable.
 
 If \dkl{} and patent counts were noisy measures of the same underlying
 construct, they should correlate within firms over time. They do not.
-The panel used for this comparison scores \dkl{} under an
-exponential-decay reference kernel rather than the flat window used
-elsewhere; the two correlate at $r = 0.87$ on 68{,}013 matched
-owner-years, so the contrast is not an artifact of the kernel.
-On a panel of 174{,}569 firm-years of trademark owners name-matched to
-PatentsView patent assignees \citep{PatentsView} (94{,}106 firm-years
-across 14{,}470 firms with within-firm variation), a two-way
-fixed-effects regression of standardized firm-year mean \dkl{} on
-$\log(1 + \mathrm{patents})$ gives $-0.048\sigma$ ($t = -7.9$),
-strengthening under filing-count control (Table~\ref{tab:patent_within_firm}).
-Re-scored under the paper's method the distinctness sharpens:
-$-0.014\sigma$ ($t = -2.3$) under topic scoring and $-0.010$ ($t = -1.5$)
-at $T = 200$ --- essentially uncorrelated within firm, which is the
-property the construct needs. The strongest negative coefficient sits on
-patents$_{t-1}$: in years after a firm patents heavily, its trademark
-vocabulary regresses toward class-typical, consistent with temporal
-substitution between patent prosecution and market-facing brand work.
+On a panel of trademark owners name-matched to PatentsView patent
+assignees \citep{PatentsView}, a two-way fixed-effects regression of
+standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ gives
+$-0.014\sigma$ ($t = -2.3$) at $T = 50$ and $-0.010$ ($t = -1.5$) at
+$T = 200$ --- essentially uncorrelated within firm, which is the property
+the construct needs.
+
+Table~\ref{tab:patent_within_firm} reports an earlier version of the same
+panel, retained because it is the specification in which this comparison
+was first run and because it is the more hostile one: it scores \dkl{}
+under an exponential-decay reference kernel on terms rather than the flat
+window on topics used everywhere else in this paper, and it returns a
+larger negative coefficient, $-0.048\sigma$ ($t = -7.9$), on 174{,}569
+firm-years (94{,}106 with within-firm variation across 14{,}470 firms).
+Its strongest negative sits on patents$_{t-1}$ ($-0.054$, SE $0.009$),
+which would say that in years after a firm patents heavily its trademark
+vocabulary regresses toward class-typical --- temporal substitution
+between patent prosecution and market-facing brand work. That reading
+should be held loosely. The lags are entered jointly and
+$\log(1+\mathrm{patents})$ is strongly autocorrelated within firm, so the
+split between the contemporaneous and lagged coefficients is partly
+arithmetic; and under the paper's own scoring, with each timing entered
+separately, the lag is not distinguishable from zero ($-0.009$,
+$t = -1.08$; the full set is reported below). The orthogonality claim
+rests on the topic-scored estimates, which are the ones the current
+pipeline reproduces.
 
 Two objections to reading that null as orthogonality are worth taking
 seriously, and both fail. The first is timing. Under a linear model of
@@ -577,19 +606,27 @@ in sign with one another: pharmaceuticals $+0.011$, software and
 electronics $+0.003$, medical devices $-0.002$, chemicals $-0.070$,
 machinery $-0.090$. The classes that do reach significance run against
 the complementarity story rather than merely failing to support it --- the
-only significant positives are transport and cosmetics, neither a
-complement class, while the significant negatives include medical devices
-and machinery, both of which are. One caveat cuts in the construct's
-favour: the panel is conditional on a successful assignee match, so every
-owner in it patents at least once, which makes the cells more alike than
-they are in the population and biases the interaction toward zero. The
-cell-level nulls, not the interaction test, carry the weight --- and this
-is the sample in which a patent--vocabulary relationship should be easiest
-to see.
+only significant positives are transport and cosmetics, neither of which
+is a complement class, while the significant negatives include medical
+devices and machinery, both of which are complement classes.
+
+This sample makes the test harder rather than easier. It is conditional on
+a successful assignee match, so every owner in it patents at least once;
+the complement and substitute cells therefore both contain patenting firms
+and resemble each other more than the industries they stand for do. That
+pushes any interaction toward zero. The weight consequently rests on the
+cell-level nulls rather than on the interaction test --- and these are the
+firms among whom a patent--vocabulary relationship should be easiest to
+find, since all of them patent.
 
 \begin{table}[h]\centering\small
 \caption{Within-firm \dkl{} versus patenting. Coefficients in standard
-deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$.}
+deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$. \emph{This
+table alone scores \dkl{} on terms under an exponential-decay reference
+kernel}, not on topics under the flat window used throughout the rest of
+the paper; the topic-scored estimates quoted in the text are smaller and
+are the ones the claim rests on. Lead/lag coefficients are from a single
+joint regression, so they are not independent of one another.}
 \label{tab:patent_within_firm}
 \begin{tabular}{lrr}
 \toprule
@@ -970,11 +1007,18 @@ incomplete.}
 
 \subsection{Reliability and fragilities}
 
-Prospective and retrospective KL are highly correlated however scored
-(term: $r = +0.971$ on the complete class-009 corpus; topic: 0.950), so
-the lead $L$ is a small residual of two large, stable quantities. That
-makes it sensitive to anything that inflates the levels, and under term
-scoring the dominant such thing is document length. Term-scored
+Past-facing and future-facing KL are highly correlated however scored: on
+the complete class-009 corpus $r = +0.971$ under term scoring and
+$+0.979$ under topic scoring at $T = 200$ ($n = 1{,}107{,}807$), the
+latter stable across resolutions ($0.980$ at $T = 50$, $0.977$ at
+$T = 500$). The lead $L$ is therefore a small residual of two large,
+stable quantities: both levels have a standard deviation near $0.78$
+nats about a mean of $1.88$, while $L$ has a standard deviation of
+$0.16$ --- about a fifth of either level's spread, and under a tenth of
+the mean level. Only about $2\%$ of the two levels' combined variance
+survives into their difference. That is what makes $L$ sensitive to
+anything that inflates the levels, and under term scoring the dominant
+such thing is document length. Term-scored
 atypicality correlates with log filing length at $-0.729$ in class 009 and
 $-0.688$ in class 035: the shorter the description, the spikier its term
 distribution and the further it sits from any smoothed reference, so
