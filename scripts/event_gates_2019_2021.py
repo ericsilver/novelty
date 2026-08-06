@@ -73,7 +73,7 @@ def quint(frame: pl.DataFrame, col: str, outc: str) -> dict:
 def main() -> int:
     print("[load] C8 events + extras", file=sys.stderr, flush=True)
     c8raw = pl.scan_parquet(PROC / "case_events.parquet").filter(
-        (pl.col("code") == "C8..") & (pl.col("date") > 19000000)).select(
+        (pl.col("code").is_in(["C8..", "C71T"])) & (pl.col("date") > 19000000)).select(
         "serial_number", "date").collect()
     cut_int = int(c8raw["date"].max())
     cut = pl.Series([str(cut_int)]).str.strptime(pl.Date, "%Y%m%d")[0]

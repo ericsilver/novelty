@@ -47,9 +47,16 @@ def norm_owner(col: pl.Expr) -> pl.Expr:
 
 
 def build_frame() -> pl.DataFrame:
-    print("[load] C8 events", file=sys.stderr, flush=True)
+    # The first maintenance gate is Section 8 for domestic registrations and
+    # Section 71 for Madrid Protocol Section 66(a) extensions of protection.
+    # Both fall due between the fifth and sixth anniversary of registration, so
+    # they are the same gate under two statutes. Reading only C8.. scores every
+    # 66(a) registration as a non-failure whatever became of it, which is what
+    # produced the -46pp basis_66a coefficient; C71T is the corresponding
+    # cancellation code and is already in case_events.
+    print("[load] gate cancellation events (C8.. and C71T)", file=sys.stderr, flush=True)
     c8 = pl.scan_parquet(PROC / "case_events.parquet").filter(
-        (pl.col("code") == "C8..") & (pl.col("date") > 19000000)).select(
+        (pl.col("code").is_in(["C8..", "C71T"])) & (pl.col("date") > 19000000)).select(
         "serial_number", "date").collect().with_columns(
         pl.col("date").cast(pl.Utf8).str.strptime(pl.Date, "%Y%m%d", strict=False)
         .alias("c8_d")).drop_nulls("c8_d").group_by("serial_number").agg(

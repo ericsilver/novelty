@@ -108,7 +108,7 @@ def debut_panel() -> pl.DataFrame:
 def gate_outcome(serials: pl.Series) -> pl.DataFrame:
     """Event-dated first Section 8 outcome for the given registered serials."""
     c8 = pl.scan_parquet(PROC / "case_events.parquet").filter(
-        (pl.col("code") == "C8..") & (pl.col("date") > 19000000)
+        (pl.col("code").is_in(["C8..", "C71T"])) & (pl.col("date") > 19000000)
     ).select("serial_number", "date").collect().with_columns(
         pl.col("date").cast(pl.Utf8).str.strptime(pl.Date, "%Y%m%d", strict=False)
         .alias("c8_d")
