@@ -18,8 +18,8 @@ from __future__ import annotations
 
 import gc
 import json
-import re
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -28,6 +28,11 @@ import polars as pl
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Reference-window source. "topic" is the production per-calendar-year scorer;
+# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
+# output carries identical column names, so only the path changes.
+SRC = os.environ.get("SURPRISE_SRC", "topic")
 RES = REPO / "paper" / "results"
 OWNER_ADDR = REPO / "_archive_mac_syndication_2026-05-30" / "data-extras" / "owner_address.parquet"
 
@@ -80,7 +85,7 @@ def build_frame() -> pl.DataFrame:
 
     parts = []
     for cls in CLASSES:
-        tp = PROC / f"topic_surprise_class{cls}.parquet"
+        tp = PROC / f"{SRC}_surprise_class{cls}.parquet"
         if not tp.exists():
             continue
         tm = pl.read_parquet(

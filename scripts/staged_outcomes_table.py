@@ -44,6 +44,7 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -54,6 +55,11 @@ import statsmodels.api as sm
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Reference-window source. "topic" is the production per-calendar-year scorer;
+# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
+# output carries identical column names, so only the path changes.
+SRC = os.environ.get("SURPRISE_SRC", "topic")
 RES = REPO / "paper" / "results"
 
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
@@ -70,7 +76,7 @@ def debut_panel() -> pl.DataFrame:
     """One row per owner: their first-ever filing, its scores, class and year."""
     parts = []
     for cls in CLASSES:
-        tp = PROC / f"topic_surprise_class{cls}_T200.parquet"
+        tp = PROC / f"{SRC}_surprise_class{cls}_T200.parquet"
         tm = PROC / f"tm_class{cls}.parquet"
         if not (tp.exists() and tm.exists()):
             continue

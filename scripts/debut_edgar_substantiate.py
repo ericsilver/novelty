@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -35,6 +36,11 @@ import polars as pl
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Reference-window source. "topic" is the production per-calendar-year scorer;
+# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
+# output carries identical column names, so only the path changes.
+SRC = os.environ.get("SURPRISE_SRC", "topic")
 OUT = REPO / "paper" / "results"
 FILE_LO, FILE_HI = 1995, 2018
 
@@ -65,7 +71,7 @@ def build() -> pl.DataFrame:
 
     rows = []
     for cls in all_classes():
-        tp = PROC / f"topic_surprise_class{cls}.parquet"
+        tp = PROC / f"{SRC}_surprise_class{cls}.parquet"
         if not tp.exists():
             continue
         tm = pl.read_parquet(

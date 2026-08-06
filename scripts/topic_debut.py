@@ -26,6 +26,11 @@ import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Reference-window source. "topic" is the production per-calendar-year scorer;
+# "rolling" is the per-filing scorer (scripts/rolling_rescore_all.py), whose
+# output carries identical column names, so only the path changes.
+SRC = os.environ.get("SURPRISE_SRC", "topic")
 OUT = REPO / "paper" / "results"
 
 FILE_LO, FILE_HI = 1995, 2018
@@ -60,7 +65,7 @@ def main() -> int:
 
     parts = []
     for cls in all_classes():
-        tp = PROC / f"topic_surprise_class{cls}{SUFFIX}.parquet"
+        tp = PROC / f"{SRC}_surprise_class{cls}{SUFFIX}.parquet"
         if not tp.exists():
             continue
         topic = pl.read_parquet(tp).filter(
