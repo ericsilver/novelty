@@ -245,7 +245,7 @@ def latex(res: dict) -> str:
       r"Claude Fable 5, wrote \texttt{scripts/patent\_timing\_by\_industry.py}, "
       r"ran the estimations, and drafted this note. Nothing here rests on that "
       r"tooling: the script, the panel build, and the underlying corpus are "
-      r"public at \url{https://github.com/ericsilver/novelty}, so every "
+      r"public at \url{https://github.com/ericsilver/tm-vocabulary}, so every "
       r"coefficient in these tables can be reproduced independently.")
     A(r"\end{document}")
     return "\n".join(L)

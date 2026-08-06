@@ -23,6 +23,7 @@ import polars as pl
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter, MultipleLocator
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
@@ -103,6 +104,11 @@ def main() -> int:
     (RES / "era_turbulence.json").write_text(json.dumps(out, indent=1, default=float))
 
     # ---- figure ----
+    def year_ticks(axis, step: int) -> None:
+        """Calendar-year axis: integer ticks only, no decimal years."""
+        axis.xaxis.set_major_locator(MultipleLocator(step))
+        axis.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{int(round(v)):d}"))
+
     fig, axes = plt.subplots(1, 2, figsize=(13.5, 5))
     ax = axes[0]
     for label, (ys, ms) in series.items():
@@ -115,6 +121,7 @@ def main() -> int:
     ax.set_title("Corpus turbulence by year\n(dot-com span and AI span shaded)")
     ax.legend(fontsize=8)
     ax.grid(alpha=0.3)
+    year_ticks(ax, 5)
 
     ax = axes[1]
     yrs_n = sorted(y for y in prev_net if 1990 <= y <= 2010)
@@ -132,6 +139,10 @@ def main() -> int:
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax.legend(lines1 + lines2, labels1 + labels2, loc="upper left", fontsize=8)
     ax.grid(alpha=0.3)
+    # Both axes are calendar years; the default locator lands on half-years
+    # (1992.5, 2002.5) which read as nonsense on a year axis.
+    year_ticks(ax, 5)
+    year_ticks(ax2, 5)
     fig.tight_layout()
     fig.savefig(RES / "era_turbulence.png", dpi=140, bbox_inches="tight")
     print("[done]", file=sys.stderr, flush=True)
