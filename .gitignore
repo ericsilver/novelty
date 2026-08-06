@@ -54,3 +54,6 @@ paper/results/*.out
 Thumbs.db
 .idea/
 .vscode/
+
+# Standalone preview wrapper for the construct section (build artefact)
+paper/section_construct_preview.*

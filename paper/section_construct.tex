@@ -1,0 +1,159 @@
+% ---------------------------------------------------------------------------
+% Standalone construct section, meant to be \input{section_construct} from
+% ssrn_diffusion_paper.tex so it can be revised independently of the rest.
+%
+% Depends on the host preamble for: \dkl{} (defined as $\Delta$KL), natbib,
+% booktabs, amsmath. Citation keys used here all exist in the host
+% bibliography: Murdock2017, Barron2018, vonGraevenitz2022.
+%
+% Naming decided 2026-08-06 after consultation. The signed axis is LEAD, and
+% filings are LEADING or LAGGING; "currency" was rejected because readers
+% import monetary logic into what is a claim about lexical surprise, and
+% "resonance" because it names a mechanism this design cannot observe.
+% ---------------------------------------------------------------------------
+
+\section{The construct: how surprising a description is, and when}\label{sec:construct}
+
+\subsection{Two questions asked of every filing}
+
+The measure asks one thing twice. Take a filing's goods/services description,
+and group every filing by its Nice class --- one of the 45 international goods
+and services categories --- and by its year. Then ask:
+
+\begin{enumerate}[noitemsep]
+  \item How surprising would this wording have been to a reader who knew only
+        what that industry had filed over the previous five years?
+  \item How surprising does the same wording look to a reader who also knows
+        what the industry filed over the following five years?
+\end{enumerate}
+
+\noindent The two answers are rarely the same, and the gap between them is
+informative. Wording that was surprising when filed and unremarkable five
+years later was surprising because it came first: the industry moved toward
+it. Wording that read as ordinary when filed and unusual afterwards was behind
+its industry rather than ahead of it, and was left behind as the field moved
+on. Filings of the first kind are \emph{leading}; of the second,
+\emph{lagging}.
+
+Both quantities are computable for every filing in the corpus, including the
+millions from firms that never patent, and neither requires knowing anything
+about the firm.
+
+\subsection{Antecedents, and what does not carry over}
+
+The apparatus is that of \citet{Murdock2017}, developed on Darwin's reading
+notebooks, and \citet{Barron2018}, who extended it to French Revolution
+parliamentary debates. They score each document against the distribution of
+documents before it and again against the distribution after it, and call the
+two quantities \emph{novelty} and \emph{transience} and their signed difference
+\emph{resonance}.
+
+The arithmetic transfers exactly. The interpretation does not, in two ways that
+shape everything downstream.
+
+First, there is no single authoring agent. In a reading notebook the author of
+the document is the person whose novelty is being measured, and the reference
+stream is that author's own intellectual environment; a high value therefore
+says something about a mind. Here each filing is scored against the stream of
+\emph{other} firms' filings, and the author is typically counsel drafting for
+scope of protection. The same number can only say that a description sits far
+from what its industry was writing.
+
+Second, \emph{resonance} names a mechanism this design cannot observe. A filing
+can sit where its class was heading because it was imitated, because it and the
+class responded to the same external development, or by coincidence, and
+nothing here separates those. The vocabulary used below is therefore positional
+rather than causal: a leading filing was ahead of its industry's language,
+which implies the existence of a trajectory without asserting that the filing
+caused it.
+
+The nearest measurement precedent on this corpus is \citet{vonGraevenitz2022},
+who flag goods/services tokens that are both new and fast-spreading and use
+their geography to study diffusion. Their unit is the token and their novelty
+flag is binary, assigned once a token's path is known; the measure here is
+continuous and attaches to the filing, so every application carries a position
+and that position can be crossed with the mark's own prosecution outcomes.
+
+\subsection{Definitions}
+
+Let $P_t$ be the topic distribution of a filing made in year $t$, and let
+$Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ aggregate same-class filings over
+the $W = 5$ years before and after it. Write
+\[
+  K^{-} \;=\; \mathrm{KL}\!\left(P_t \,\|\, Q_{\mathrm{past}}\right),
+  \qquad
+  K^{+} \;=\; \mathrm{KL}\!\left(P_t \,\|\, Q_{\mathrm{future}}\right).
+\]
+Kullback--Leibler divergence is large when the filing puts weight where its
+industry's filings put little, so $K^{-}$ is surprise measured against the
+past and $K^{+}$ surprise measured against the future. The two axes used
+throughout are
+\[
+  \underbrace{A \;=\; \tfrac{1}{2}\left(K^{-} + K^{+}\right)}_{\text{atypicality}},
+  \qquad
+  \underbrace{L \;=\; K^{-} - K^{+}}_{\text{lead}} .
+\]
+$A$ is how unusual the wording is overall, in both temporal directions at once.
+$L$ is signed: positive for a leading filing, negative for a lagging one. The
+symbol \dkl{} is used interchangeably with $L$ where it aids comparison with
+the source literature.
+
+\subsection{Why these two, and not the raw pair}
+
+$A$ and $L$ are a rotation of $(K^{-}, K^{+})$ through 45 degrees. Plotted with
+$K^{-}$ on one axis and $K^{+}$ on the other, $A$ is position \emph{along} the
+diagonal and $L$ is signed distance \emph{from} it: magnitude and direction of
+the same displacement. Three things follow.
+
+The rotation is the natural coordinate system because the raw pair is almost
+collinear. $K^{-}$ and $K^{+}$ correlate at $0.979$ on the complete
+software-class corpus, so entering both is close to entering one variable
+twice; the informative content is the long axis and the small residual, which
+is exactly what $A$ and $L$ isolate.
+
+The rotation also very nearly decorrelates the two regressors, which matters
+because the paper enters both and interprets them separately. Against $L$, the
+correlation of $A$ is $+0.038$; of $K^{-}$ alone, $+0.140$; of $|L|$, $+0.250$
+($n = 1{,}107{,}807$). Using either level alone, or the unsigned magnitude, as
+the ``how unusual'' axis leaves the two coefficients trading against each
+other. Nothing empirical rides on the choice --- given the $0.979$ correlation,
+$A$ and $K^{-}$ are nearly the same variable --- but the interpretation is
+cleaner and the coefficients are closer to independent.
+
+Finally, the pair is exhaustive in the sense that matters: $(A, L)$ recovers
+$(K^{-}, K^{+})$ exactly, so nothing is discarded by working in the rotated
+frame.
+
+\begin{table}[h]\centering\small
+\caption{The quantities, their sources, and the terms used here. \emph{Lagging}
+and \emph{leading} describe the two signs of $L$; \emph{atypicality} is
+unsigned and says nothing about direction.}
+\label{tab:constructs}
+\begin{tabular}{llll}
+\toprule
+Quantity & Definition & \citeauthor{Murdock2017} & Term used here \\
+\midrule
+Surprise against the past   & $K^{-}$                        & novelty    & atypicality at filing \\
+Surprise against the future & $K^{+}$                        & transience & atypicality in hindsight \\
+Their average               & $A = \tfrac{1}{2}(K^{-}+K^{+})$ & ---        & \textbf{atypicality} \\
+Their signed difference     & $L = K^{-}-K^{+}$              & resonance  & \textbf{lead} (leading / lagging) \\
+Its magnitude               & $|L|$                          & ---        & lead magnitude \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A note on the words}
+
+\emph{Atypicality} is used in a purely textual sense and is not trademark law's
+distinctiveness doctrine, which governs registrability along the
+generic-to-fanciful spectrum; the two attach to different objects, one to the
+mark and one to the description of the goods it covers.
+Section~\ref{sec:limits} separates the construct from its other near
+neighbours --- novelty, transience, resonance, innovation and radicalness ---
+and states in each case what adopting that term would claim.
+
+\emph{Leading} and \emph{lagging} were chosen over the alternatives for the
+same reason the causal reading was declined above. To say a filing led its
+industry's vocabulary is to place it relative to a trajectory without saying it
+produced one, in the way that being ahead of a curve implies the curve without
+implying you drew it.
