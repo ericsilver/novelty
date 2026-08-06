@@ -58,7 +58,8 @@ RES = REPO / "paper" / "results"
 
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
 MIN_OBS = 500
-GATE_LO, GATE_HI = 4.0, 8.5   # first Section 8 window, registration-age years
+GATE_LO, GATE_HI = 4.0, 8.5   # first maintenance window, registration-age years
+GATE2_COHORTS = (2002, 2013)  # cohorts whose year-ten window has elapsed
 
 
 def log(msg: str) -> None:
@@ -75,7 +76,7 @@ def debut_panel() -> pl.DataFrame:
             continue
         m = pl.read_parquet(
             tm, columns=["serial_number", "filing_date", "registration_date",
-                         "owner_name", "goods_services"],
+                         "owner_name", "goods_services", "status_code"],
         ).filter(
             pl.col("owner_name").is_not_null()
             & (pl.col("filing_date").fill_null("").str.len_chars() >= 8)
@@ -106,13 +107,21 @@ def debut_panel() -> pl.DataFrame:
 
 
 def gate_outcome(serials: pl.Series) -> pl.DataFrame:
-    """Event-dated first Section 8 outcome for the given registered serials."""
+    """Event-dated maintenance cancellations for the given registered serials.
+
+    Returns the earliest cancellation in each of the two maintenance windows.
+    The gates are separable only by date: a mark cancelled at year six and one
+    cancelled at year ten both end in the same terminal status, so the first
+    gate is a cancellation at registration age 4.0-8.5 years and the second one
+    at 8.5-11.5. Codes are Section 8 for domestic registrations and Section 71
+    for Madrid Section 66(a) extensions.
+    """
     c8 = pl.scan_parquet(PROC / "case_events.parquet").filter(
         (pl.col("code").is_in(["C8..", "C71T"])) & (pl.col("date") > 19000000)
     ).select("serial_number", "date").collect().with_columns(
         pl.col("date").cast(pl.Utf8).str.strptime(pl.Date, "%Y%m%d", strict=False)
         .alias("c8_d")
-    ).drop_nulls("c8_d").group_by("serial_number").agg(pl.col("c8_d").min())
+    ).drop_nulls("c8_d")
     return c8.filter(pl.col("serial_number").is_in(serials.implode()))
 
 
@@ -151,11 +160,29 @@ def main() -> int:
     reg = reg.with_columns(
         pl.col("registration_date").str.strptime(pl.Date, "%Y%m%d", strict=False)
         .alias("reg_d")
-    ).join(c8, on="serial_number", how="left").with_columns(
-        ((pl.col("c8_d") - pl.col("reg_d")).dt.total_days() / 365.25).alias("c8_age")
+    )
+    # Flag each maintenance window separately, then collapse to one row per
+    # serial. A mark can appear once per cancellation event, so aggregate with
+    # max() rather than joining the earliest date and testing it twice: the
+    # earliest cancellation is the first-gate one, which would mask a
+    # second-gate failure entirely.
+    ages = reg.select("serial_number", "reg_d").join(
+        c8, on="serial_number", how="inner").with_columns(
+        ((pl.col("c8_d") - pl.col("reg_d")).dt.total_days() / 365.25).alias("age")
     ).with_columns(
-        (~((pl.col("c8_age") >= GATE_LO) & (pl.col("c8_age") < GATE_HI)).fill_null(False))
-        .cast(pl.Int8).alias("passed_gate")
+        ((pl.col("age") >= GATE_LO) & (pl.col("age") < GATE_HI)).alias("f1"),
+    ).group_by("serial_number").agg(pl.col("f1").max().alias("failed1"))
+
+    reg = reg.join(ages, on="serial_number", how="left").with_columns(
+        (~pl.col("failed1").fill_null(False)).cast(pl.Int8).alias("passed_gate"),
+        pl.col("reg_d").dt.year().alias("reg_year"),
+    ).with_columns(
+        # Renewed (800) versus cancelled/expired (710/900). Only registrations
+        # carrying one of those terminal statuses are informative; anything
+        # else is still mid-life and is dropped by the null.
+        pl.when(pl.col("status_code") == "800").then(1)
+        .when(pl.col("status_code").is_in(["710", "900"])).then(0)
+        .otherwise(None).cast(pl.Int8).alias("passed_gate2"),
     )
 
     fund_path = PROC / "funding_owner_match.parquet"
@@ -217,7 +244,7 @@ def main() -> int:
     else:
         base["funded"] = np.nan
 
-    gate = reg.select("owner_name", "passed_gate").to_pandas()
+    gate = reg.select("owner_name", "passed_gate", "passed_gate2", "reg_year").to_pandas()
     base = base.merge(gate, on="owner_name", how="left")
 
     # Two unsigned operationalizations are reported at every stage, because the
@@ -249,7 +276,11 @@ def main() -> int:
                 f"(t={r['z_lean']['t']:+.1f}){extra}")
 
     add("Reached registration", "filed", base, "registered")
-    add("Passed first S8 gate", "registered", base[base.registered == 1], "passed_gate")
+    add("Passed first gate (yr 6)", "registered", base[base.registered == 1],
+        "passed_gate")
+    g2 = base[(base.registered == 1) & (base.passed_gate == 1)
+              & base.reg_year.between(*GATE2_COHORTS)]
+    add("Passed second gate (yr 10)", "passed first", g2, "passed_gate2")
     if funded_owners is not None:
         add("Raised a Reg D round", "filed", base, "funded", years=(2009, 2018))
         add("Raised a Reg D round", "registered",
@@ -275,9 +306,13 @@ def main() -> int:
          r"debut-year fixed effects and heteroskedasticity-robust errors; "
          r"coefficients are percentage points per standard deviation. "
          r"\emph{Atypicality} is the average of the two KL levels; \emph{lead} "
-         r"is the signed difference. Cohort windows differ because the Section~8 "
+         r"is the signed difference. Cohort windows differ because each maintenance "
          r"gate needs elapsed time and Form~D is electronic only from 2009, so the "
-         r"rows are not a nested decomposition.}",
+         r"rows are not a nested decomposition. The first gate is a dated "
+         r"cancellation for non-use; the second is whether a registration that "
+         r"cleared the first was renewed rather than cancelled or expired, "
+         r"restricted to 2002--2013 cohorts, since a year-six and a year-ten death "
+         r"share a terminal status and are separable only this way.}",
          r"\label{tab:staged}",
          r"\begin{tabular}{llrrrrr}", r"\toprule",
          r" & & & & \multicolumn{2}{c}{Unsigned} & Signed \\",

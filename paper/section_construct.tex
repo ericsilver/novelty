@@ -79,22 +79,30 @@ two quantities \emph{novelty} and \emph{transience} and their signed difference
 
 One methodological choice is inherited rather than invented. Both source papers
 score documents on their distribution over latent topics rather than on raw
-terms, and this paper does the same.\footnote{I am grateful to Simon DeDeo for
-pointing out that the topic operationalization, rather than term-level scoring,
-is the one his co-authors used, and for suggesting it be applied here. The
-consequences were larger than a robustness check: Appendix~\ref{app:hazard}
-reports a set of firm-level correlations that survive term scoring and dissolve
-or reverse under distributions.} Goods/services descriptions run to a few dozen
-words, and on documents that short a term-level divergence inflates
-mechanically --- the shorter the text, the spikier its distribution and the
-further it sits from any smoothed reference. Scoring on topics gives every
-filing a dense representation whatever its length. The gain is measurable: the
-spread of $L$ varies roughly two- to threefold across levels of $A$ under term
-scoring, against 1.3- to 1.6-fold under topic scoring, because term-level
-atypicality and document length are very nearly the same variable
-(Appendix~\ref{app:comp} gives the like-for-like comparison). Term scoring is retained
-throughout as a cross-check, and Appendix~\ref{app:exhibit} shows the kinds of
-novelty each representation can and cannot see.
+terms, and this paper reports topic scoring throughout, with term scoring
+retained as a cross-check.\footnote{I am grateful to Simon DeDeo for pointing
+out that the topic operationalization, rather than term-level scoring, is the
+one his co-authors used, and for suggesting it be applied here. The consequences
+were larger than a robustness check: Appendix~\ref{app:hazard} reports a set of
+firm-level correlations that survive term scoring and dissolve or reverse under
+distributions.}
+
+The two representations measure different things, and neither dominates. Under
+term scoring, atypicality correlates with log filing length at $-0.729$ in class
+009 and $-0.688$ in class 035; under topic scoring, at $-0.251$ and $-0.125$.
+Descriptions run to a few dozen words, and on documents that short a term-level
+divergence rises as the text gets shorter, so ``unusual'' and ``brief'' are
+close to the same measurement. Correspondingly, the spread of $L$ across levels
+of $A$ varies roughly two- to threefold under term scoring against 1.3- to
+1.6-fold under topic scoring (Appendix~\ref{app:comp}). In the other direction,
+Appendix~\ref{app:exhibit} takes three filings whose novelty is known
+independently --- a combinatorial one, a lexical one, and one riding a wave ---
+and finds that term scoring resolves all three while topic scoring resolves none
+at any resolution tested, because a topic basis fitted on the corpus has no
+coordinate for language the corpus has not yet seen. Every worked example in
+this paper is accordingly term-scored, and every estimate is topic-scored. A
+reader who wants the headline results under term scoring will find them in
+Appendix~\ref{app:comp}.
 
 The arithmetic transfers exactly. The interpretation does not, in two ways that
 shape everything downstream.

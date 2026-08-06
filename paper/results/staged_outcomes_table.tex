@@ -1,5 +1,5 @@
 \begin{table}[h]\centering\small
-\caption{Every outcome in the funnel, conditioned on its prerequisite, under one specification. Unit is the debut owner, scored on that owner's first filing. Each row is a linear probability model with class$\times$debut-year fixed effects and heteroskedasticity-robust errors; coefficients are percentage points per standard deviation. \emph{Atypicality} is the average of the two KL levels; \emph{lead} is the signed difference. Cohort windows differ because the Section~8 gate needs elapsed time and Form~D is electronic only from 2009, so the rows are not a nested decomposition.}
+\caption{Every outcome in the funnel, conditioned on its prerequisite, under one specification. Unit is the debut owner, scored on that owner's first filing. Each row is a linear probability model with class$\times$debut-year fixed effects and heteroskedasticity-robust errors; coefficients are percentage points per standard deviation. \emph{Atypicality} is the average of the two KL levels; \emph{lead} is the signed difference. Cohort windows differ because each maintenance gate needs elapsed time and Form~D is electronic only from 2009, so the rows are not a nested decomposition. The first gate is a dated cancellation for non-use; the second is whether a registration that cleared the first was renewed rather than cancelled or expired, restricted to 2002--2013 cohorts, since a year-six and a year-ten death share a terminal status and are separable only this way.}
 \label{tab:staged}
 \begin{tabular}{llrrrrr}
 \toprule
@@ -8,7 +8,8 @@
 Outcome & Given & $n$ & Base & Atypicality & $|\Delta$KL$|$ & Lead \\
 \midrule
 Reached registration & filed & 3,161,403 & 56.12\% & $-0.903$ (0.032) & $-0.344$ (0.047) & $+1.095$ (0.029) \\
-Passed first S8 gate & registered & 1,774,111 & 47.94\% & $+0.858$ (0.043) & $-0.449$ (0.062) & $-0.955$ (0.038) \\
+Passed first gate (yr 6) & registered & 1,774,111 & 47.94\% & $+0.858$ (0.043) & $-0.449$ (0.062) & $-0.955$ (0.038) \\
+Passed second gate (yr 10) & passed first & 298,002 & 55.92\% & $+0.705$ (0.102) & $-0.294$ (0.171) & $-0.861$ (0.104) \\
 Raised a Reg D round & filed & 1,534,824 & 2.53\% & $-0.023$ (0.015) & $+0.034$ (0.030) & $-0.272$ (0.018) \\
 Raised a Reg D round & registered & 916,442 & 2.61\% & $-0.056$ (0.020) & $-0.015$ (0.040) & $-0.235$ (0.023) \\
 Listed after the round & funded & 38,886 & 3.49\% & $+0.445$ (0.123) & $+0.618$ (0.208) & $-0.641$ (0.128) \\
