@@ -340,22 +340,27 @@ log owner filing count, owner domicile (US, CN), and foreign basis
 \label{tab:gate_lpm}
 \begin{tabular}{llrrr}
 \toprule
-Sample & Specification & Q5$-$Q1 (pp) & $t$ & $n$ \\
+Sample & Specification & Q5$-$Q1 (pp) & SE & $n$ \\
 \midrule
-All & FE only & $+2.23$ & $9.6$ & 3{,}104{,}951 \\
-All & FE + controls & $+2.29$ & $7.8$ & 3{,}104{,}951 \\
-Counsel-represented & FE + controls & $+2.13$ & $6.1$ & 2{,}414{,}653 \\
-Counsel + US-domiciled & FE + controls & $+2.63$ & $6.3$ & 1{,}888{,}655 \\
-Self-filed & FE + controls & $+2.53$ & $10.4$ & 690{,}298 \\
+All & FE only & $+2.23$ & $0.23$ & 3{,}104{,}951 \\
+All & FE + controls & $+2.29$ & $0.29$ & 3{,}104{,}951 \\
+Counsel-represented & FE + controls & $+2.13$ & $0.35$ & 2{,}414{,}653 \\
+Counsel + US-domiciled & FE + controls & $+2.63$ & $0.42$ & 1{,}888{,}655 \\
+Self-filed & FE + controls & $+2.53$ & $0.24$ & 690{,}298 \\
 \midrule
-Counsel + US, 2002--07 & FE + controls & $+1.04$ & $3.1$ & 552{,}286 \\
-Counsel + US, 2008--12 & FE + controls & $+3.73$ & $5.0$ & 551{,}930 \\
-Counsel + US, 2013--18 & FE + controls & $+3.06$ & $7.0$ & 784{,}439 \\
+Counsel + US, 2002--07 & FE + controls & $+1.04$ & $0.33$ & 552{,}286 \\
+Counsel + US, 2008--12 & FE + controls & $+3.73$ & $0.74$ & 551{,}930 \\
+Counsel + US, 2013--18 & FE + controls & $+3.06$ & $0.44$ & 784{,}439 \\
 \midrule
-All & continuous, pp per $\sigma$ & $+0.87$ & $9.8$ & 3{,}104{,}951 \\
-Counsel + US & continuous, pp per $\sigma$ & $+0.94$ & $7.3$ & 1{,}888{,}655 \\
+All & continuous, pp per $\sigma$ & $+0.87$ & $0.09$ & 3{,}104{,}951 \\
+Counsel + US & continuous, pp per $\sigma$ & $+0.94$ & $0.13$ & 1{,}888{,}655 \\
 \bottomrule
 \end{tabular}
+\\[0.3em]\footnotesize Standard errors, clustered on normalized owner, are
+reported in place of significance stars. With $n$ in the millions every
+coefficient in this table has $p < 0.01$, so conventional thresholds would
+mark each row identically and convey nothing; the standard error lets the
+reader form an interval and weigh the magnitude against the 49\% base rate.
 \end{table}
 
 Three properties of Table~\ref{tab:gate_lpm} matter. The gradient is
@@ -469,24 +474,26 @@ class$\times$year. Base rate 0.189\%.}
 \label{tab:edgar}
 \begin{tabular}{lrr}
 \toprule
- & Coefficient (pp) & $t$ \\
+ & Coefficient (pp) & SE \\
 \midrule
 \multicolumn{3}{l}{\emph{Atypicality quintiles, $A = \tfrac{1}{2}(K^{-}+K^{+})$ (Q1 omitted)}} \\
-\quad Q5, FE only & $+0.057$ & $5.1$ \\
-\quad Q5, FE + log length & $+0.046$ & $4.1$ \\
-\quad Q5, FE + log length, on $K^{-}$ alone & $+0.041$ & $3.6$ \\
+\quad Q5, FE only & $+0.057$ & $0.011$ \\
+\quad Q5, FE + log length & $+0.046$ & $0.011$ \\
+\quad Q5, FE + log length, on $K^{-}$ alone & $+0.041$ & $0.011$ \\
 \midrule
 \multicolumn{3}{l}{\emph{Signed \dkl{} quintiles, FE + log length + KL levels}} \\
-\quad Q3 & $-0.038$ & $-2.8$ \\
-\quad Q4 & $-0.064$ & $-4.3$ \\
-\quad Q5 & $-0.068$ & $-4.1$ \\
+\quad Q3 & $-0.043$ & $0.014$ \\
+\quad Q4 & $-0.069$ & $0.015$ \\
+\quad Q5 & $-0.074$ & $0.017$ \\
 \midrule
 \multicolumn{3}{l}{\emph{Decomposition, FE + log length}} \\
-\quad $|\Delta\mathrm{KL}|$ (per $\sigma$) & $+0.024$ & $3.8$ \\
-\quad signed \dkl{} (per $\sigma$) & $-0.019$ & $-5.0$ \\
-\quad log description length & $+0.044$ & $14.6$ \\
+\quad $|\Delta\mathrm{KL}|$ (per $\sigma$) & $+0.024$ & $0.006$ \\
+\quad signed \dkl{} (per $\sigma$) & $-0.019$ & $0.004$ \\
+\quad log description length & $+0.044$ & $0.003$ \\
 \bottomrule
 \end{tabular}
+\\[0.3em]\footnotesize Standard errors in place of significance stars; see the
+note to Table~\ref{tab:gate_lpm}.
 \end{table}
 
 The design-based estimates (Table~\ref{tab:edgar}) resolve both patterns
@@ -584,20 +591,22 @@ to see.
 \caption{Within-firm \dkl{} versus patenting. Coefficients in standard
 deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$.}
 \label{tab:patent_within_firm}
-\begin{tabular}{lrrr}
+\begin{tabular}{lrr}
 \toprule
-Specification & coef ($\sigma$) & SE & $t$ \\
+Specification & coef ($\sigma$) & SE \\
 \midrule
-Between-firm correlation (firm means) & $-0.020$ & --- & --- \\
-Within-firm correlation (firm+year demeaned) & $-0.015$ & --- & --- \\
-Two-way FE, contemporaneous & $-0.048$ & $0.006$ & $-7.9$ \\
-\quad robustness: patents = max over matched assignees & $-0.048$ & $0.006$ & $-8.0$ \\
-\quad controlling $\log(\mathrm{n\_filings})$ & $-0.051$ & $0.006$ & $-8.4$ \\
-Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ & $-5.8$ \\
-\quad\quad\quad\ \ patents$_{t}$ & $-0.019$ & $0.010$ & $-1.9$ \\
-\quad\quad\quad\ \ patents$_{t+1}$ & $+0.010$ & $0.010$ & $+1.0$ \\
+Between-firm correlation (firm means) & $-0.020$ & --- \\
+Within-firm correlation (firm+year demeaned) & $-0.015$ & --- \\
+Two-way FE, contemporaneous & $-0.048$ & $0.006$ \\
+\quad robustness: patents = max over matched assignees & $-0.048$ & $0.006$ \\
+\quad controlling $\log(\mathrm{n\_filings})$ & $-0.051$ & $0.006$ \\
+Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ \\
+\quad\quad\quad\ \ patents$_{t}$ & $-0.019$ & $0.010$ \\
+\quad\quad\quad\ \ patents$_{t+1}$ & $+0.010$ & $0.010$ \\
 \bottomrule
 \end{tabular}
+\\[0.3em]\footnotesize Standard errors in place of significance stars; see the
+note to Table~\ref{tab:gate_lpm}.
 \end{table}
 
 \subsection{Each axis bites at a different stage}\label{sec:staged}

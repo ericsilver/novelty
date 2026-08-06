@@ -286,15 +286,16 @@ def main() -> int:
          r"\midrule"]
     for r in rows:
         a = r.get("spec_absdkl", {})
-        acell = (f"${a['abs_lean']['b_pp']:+.3f}$ ({a['abs_lean']['t']:+.1f})"
+        acell = (f"${a['abs_lean']['b_pp']:+.3f}$ ({a['abs_lean']['se_pp']:.3f})"
                  if "abs_lean" in a else "---")
         L.append(f"{r['stage']} & {r['conditioned_on']} & {r['n']:,} & "
                  f"{r['base_rate_pct']:.2f}\\% & "
-                 f"${r['z_level']['b_pp']:+.3f}$ ({r['z_level']['t']:+.1f}) & "
+                 f"${r['z_level']['b_pp']:+.3f}$ ({r['z_level']['se_pp']:.3f}) & "
                  f"{acell} & "
-                 f"${r['z_lean']['b_pp']:+.3f}$ ({r['z_lean']['t']:+.1f}) \\\\")
+                 f"${r['z_lean']['b_pp']:+.3f}$ ({r['z_lean']['se_pp']:.3f}) \\\\")
     L += [r"\bottomrule", r"\end{tabular}",
-          r"\\[0.3em]\footnotesize $t$-statistics in parentheses.",
+          r"\\[0.3em]\footnotesize Standard errors in parentheses, in place of "
+          r"significance stars; see the note to Table~\ref{tab:gate_lpm}.",
           r"\end{table}"]
     (RES / "staged_outcomes_table.tex").write_text("\n".join(L), encoding="utf-8")
     log(f"[done] -> {RES/'staged_outcomes.json'} and staged_outcomes_table.tex")
