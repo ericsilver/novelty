@@ -16,24 +16,26 @@
 
 \subsection{Two questions asked of every filing}
 
-The measure asks one thing twice. Take a filing's goods/services description,
-and group every filing by its Nice class --- one of the 45 international goods
-and services categories --- and by its year. Then ask:
+The measure asks one thing twice, of two different readers. Take a filing's
+goods/services description, and group every filing by its Nice class --- one of
+the 45 international goods and services categories --- and by its year. Then
+imagine two readers of that filing, each of whom has seen only half of its
+industry's stream:
 
 \begin{enumerate}[noitemsep]
-  \item How surprising would this wording have been to a reader who knew only
-        what that industry had filed over the previous five years?
-  \item How surprising does the same wording look to a reader who also knows
-        what the industry filed over the following five years?
+  \item A reader who has seen only what the industry filed \emph{before} it.
+        How surprising is the wording to them?
+  \item A reader who has seen only what the industry filed \emph{after} it.
+        How surprising is the wording to them?
 \end{enumerate}
 
-\noindent The two answers are rarely the same, and the gap between them is
-informative. Wording that was surprising when filed and unremarkable five
-years later was surprising because it came first: the industry moved toward
-it. Wording that read as ordinary when filed and unusual afterwards was behind
-its industry rather than ahead of it, and was left behind as the field moved
-on. Filings of the first kind are \emph{leading}; of the second,
-\emph{lagging}.
+\noindent Neither reader knows the other's half; the two references are
+disjoint. The answers are rarely the same, and the gap between them is
+informative. Wording that surprised the first reader and not the second was
+surprising because it came first: the industry moved toward it. Wording that
+read as ordinary to the first and unusual to the second was behind its industry
+rather than ahead of it, and was left behind as the field moved on. Filings of
+the first kind are \emph{leading}; of the second, \emph{lagging}.
 
 Both quantities are computable for every filing in the corpus, including the
 millions from firms that never patent, and neither requires knowing anything
@@ -47,6 +49,24 @@ parliamentary debates. They score each document against the distribution of
 documents before it and again against the distribution after it, and call the
 two quantities \emph{novelty} and \emph{transience} and their signed difference
 \emph{resonance}.
+
+One methodological choice is inherited rather than invented. Both source papers
+score documents on their distribution over latent topics rather than on raw
+terms, and this paper does the same.\footnote{I am grateful to Simon DeDeo for
+pointing out that the topic operationalization, rather than term-level scoring,
+is the one his co-authors used, and for suggesting it be applied here. The
+consequences were larger than a robustness check: Appendix~\ref{app:hazard}
+reports a set of firm-level correlations that survive term scoring and dissolve
+or reverse under distributions.} Goods/services descriptions run to a few dozen
+words, and on documents that short a term-level divergence inflates
+mechanically --- the shorter the text, the spikier its distribution and the
+further it sits from any smoothed reference. Scoring on topics gives every
+filing a dense representation whatever its length. The gain is measurable: the
+spread of $L$ varies more than threefold across levels of $A$ under term
+scoring, and by a quarter under topic scoring, because term-level atypicality
+and document length are very nearly the same variable. Term scoring is retained
+throughout as a cross-check, and Appendix~\ref{app:exhibit} shows the kinds of
+novelty each representation can and cannot see.
 
 The arithmetic transfers exactly. The interpretation does not, in two ways that
 shape everything downstream.
@@ -78,7 +98,11 @@ and that position can be crossed with the mark's own prosecution outcomes.
 
 Let $P_t$ be the topic distribution of a filing made in year $t$, and let
 $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ aggregate same-class filings over
-the $W = 5$ years before and after it. Write
+windows of $W$ years before and after it, $t-W$ to $t-1$ and $t+1$ to $t+W$.
+The two windows are disjoint and neither contains the filing itself. $W = 5$
+throughout unless stated; the window is a parameter of the measure rather than
+a property of it, and Section~\ref{sec:results} reports what changes when the
+two windows are set to different lengths. Write
 \[
   K^{-} \;=\; \mathrm{KL}\!\left(P_t \,\|\, Q_{\mathrm{past}}\right),
   \qquad

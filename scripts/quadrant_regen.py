@@ -6,9 +6,11 @@ Output: paper/results/quadrant.png
 """
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
+import numpy as np
 import polars as pl
 import matplotlib
 matplotlib.use("Agg")
@@ -58,17 +60,48 @@ CLEAN = (
 )
 
 
+def load_panel(cls: str, scoring: str) -> pl.DataFrame:
+    """Metadata and the clean filter always come from the token file, which is
+    the only one carrying n_terms / n_ref_* / mark_identification / owner_name.
+    Under topic scoring the coordinates are replaced by the T=200 topic scores,
+    which is what every headline result in the paper is estimated on."""
+    sp = pl.read_parquet(PROC / f"surprise_class{cls}.parquet").filter(CLEAN)
+    if scoring == "token":
+        return sp.with_columns(
+            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
+    tp = pl.read_parquet(
+        PROC / f"topic_surprise_class{cls}_T200.parquet",
+        columns=["serial_number", "topic_kl_vs_past", "topic_kl_vs_future"],
+    ).filter(pl.col("topic_kl_vs_past").is_finite()
+             & pl.col("topic_kl_vs_future").is_finite())
+    return sp.drop("kl_vs_past", "kl_vs_future").join(
+        tp, on="serial_number", how="inner"
+    ).rename({"topic_kl_vs_past": "kl_vs_past",
+              "topic_kl_vs_future": "kl_vs_future"}).with_columns(
+        (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl"))
+
+
 def main() -> int:
+    scoring = os.environ.get("QUADRANT_SCORING", "token")
+    assert scoring in ("token", "topic"), scoring
     fig, axes = plt.subplots(1, 2, figsize=(13, 6.0))
     rows = []
     for ax, (cls, label, examples) in zip(axes, PANELS):
-        sp = pl.read_parquet(PROC / f"surprise_class{cls}.parquet").with_columns(
-            (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("dkl")
-        ).filter(CLEAN)
+        sp = load_panel(cls, scoring)
+        # Token KL sits on a common 2-10 scale across classes, so one box is
+        # fine. Topic KL does not -- class 009 runs about 0.5-4.3 and class 032
+        # about 0.1-3.7 -- so the box is taken from each panel's own 0.5th and
+        # 99.5th percentiles, which keeps the labelled exemplars inside it.
+        if scoring == "token":
+            lo, hi = 2.0, 10.0
+        else:
+            both = np.concatenate([sp["kl_vs_past"].to_numpy(),
+                                   sp["kl_vs_future"].to_numpy()])
+            lo = float(np.floor(np.percentile(both, 0.5) * 10) / 10)
+            hi = float(np.ceil(np.percentile(both, 99.5) * 10) / 10)
         sample = sp.sample(min(15000, sp.height), seed=7)
         ax.scatter(sample["kl_vs_past"], sample["kl_vs_future"],
                    s=3, alpha=0.08, color="#888")
-        lo, hi = 2.0, 10.0
         ax.plot([lo, hi], [lo, hi], color="black", linewidth=0.6, linestyle="--")
         ax.text(hi - 0.1, hi - 0.1, "diagonal", fontsize=8,
                 ha="right", va="top", color="#444")
@@ -122,9 +155,10 @@ def main() -> int:
                 bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#7a1111", alpha=0.7))
         ax.grid(alpha=0.25)
     fig.tight_layout()
-    fig.savefig(RES / "quadrant.png", dpi=150, bbox_inches="tight")
+    stem = "quadrant" if scoring == "token" else "quadrant_topic"
+    fig.savefig(RES / f"{stem}.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
-    pl.from_dicts(rows).write_csv(RES / "quadrant_labeled_points.csv")
+    pl.from_dicts(rows).write_csv(RES / f"{stem}_labeled_points.csv")
     print("[done]", file=sys.stderr)
     return 0
 
