@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -31,6 +32,12 @@ import matplotlib.pyplot as plt
 
 REPO = Path(__file__).resolve().parents[1]
 PROC = REPO / "data" / "processed"
+
+# Scoring source. Default 'rolling' reads the per-filing topic scores used
+# by every other estimate; 'term' reads the legacy token scores this figure
+# was originally built on. Column names differ between the two, so the
+# loader maps them onto one internal pair.
+SRC = os.environ.get("SURPRISE_SRC", "rolling")
 RES = REPO / "paper" / "results"
 
 PASS = {"701", "702", "703", "704", "705", "800"}
@@ -84,16 +91,30 @@ def quintile_rates(df: pl.DataFrame, var: str, outcome: str) -> dict:
 
 
 def load_class(cls: str, year_lo: int, year_hi: int) -> pl.DataFrame | None:
-    sp = PROC / f"surprise_class{cls}.parquet"
+    if SRC == "term":
+        sp = PROC / f"surprise_class{cls}.parquet"
+    else:
+        sp = PROC / f"{SRC}_surprise_class{cls}.parquet"
     tp = PROC / f"tm_class{cls}.parquet"
     if not (sp.exists() and tp.exists()):
         return None
-    s = pl.read_parquet(
-        sp, columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
-                     "n_ref_past", "n_ref_future", "n_terms"],
-    ).filter(CLEAN & pl.col("kl_vs_past").is_finite()
-             & pl.col("kl_vs_future").is_finite()
-             & pl.col("year").is_between(year_lo, year_hi))
+    if SRC == "term":
+        s = pl.read_parquet(
+            sp, columns=["serial_number", "year", "kl_vs_past", "kl_vs_future",
+                         "n_ref_past", "n_ref_future", "n_terms"],
+        ).filter(CLEAN & pl.col("kl_vs_past").is_finite()
+                 & pl.col("kl_vs_future").is_finite()
+                 & pl.col("year").is_between(year_lo, year_hi))
+    else:
+        # Topic files carry the same quantities under topic_* names and have no
+        # n_terms column; the reference-count floor is already applied upstream.
+        s = pl.read_parquet(
+            sp, columns=["serial_number", "year", "topic_kl_vs_past",
+                         "topic_kl_vs_future", "n_ref_past", "n_ref_future"],
+        ).rename({"topic_kl_vs_past": "kl_vs_past",
+                  "topic_kl_vs_future": "kl_vs_future"}).filter(
+            pl.col("kl_vs_past").is_finite() & pl.col("kl_vs_future").is_finite()
+            & pl.col("year").is_between(year_lo, year_hi))
     t = pl.read_parquet(
         tp, columns=["serial_number", "registration_date", "status_code"],
     ).with_columns(
