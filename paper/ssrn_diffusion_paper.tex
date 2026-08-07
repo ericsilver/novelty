@@ -51,9 +51,9 @@ rather than accumulating across the range. Leading debut owners also reach
 the SEC-listed universe less often, $-0.047$pp per standard deviation
 ($t = -7.8$). Atypicality --- how unusual the wording is, without regard to
 direction --- does none of this work: its association with listing is
-indistinguishable from zero once the owner-to-registrant linkage is built
-over all 45 classes rather than five, and an earlier version of this paper
-reported a positive gradient that was an artifact of that linkage. The
+indistinguishable from zero once the owner-to-registrant linkage spans the
+whole corpus, and it is sensitive to how that linkage is drawn in a way the
+signed axis is not. The
 measure exists for the millions of firms that never patent and is
 essentially uncorrelated with patenting within firm.
 
@@ -296,13 +296,18 @@ and 57.7\% at the top (Figure~\ref{fig:outcomes}A). Applicants filing
 category-typical language follow through to commercial use most reliably;
 so do the least typical, but less so.
 
-That curvature belongs to the unsigned axis alone. Along \dkl{} the
-profile is irregular and has no interior peak at all --- 56.9\%, 58.2\%,
-56.6\%, 58.2\%, 58.0\% across quintiles, a 1.6-point band with the top
-quintile among the highest rather than depressed. An earlier version of this corpus, built
-on annual rather than per-filing reference windows, showed an inverse-U on
-both axes; the one on the signed axis was inherited from the window
-artifact documented in Appendix~\ref{app:rolling} and does not survive.
+The signed axis behaves differently, and a five-bin summary of it
+misleads. At twenty bins, completion on \dkl{} falls to a trough of
+51.9\% just above the median and then rises steadily to 58.0\% at the
+leading end (Figure~\ref{fig:profiles}, panel C). That trough is
+composition rather than an effect of timing: $|L|$ correlates with
+atypicality at $+0.31$, so filings near zero lead are disproportionately
+low-atypicality filings, which complete poorly for the reason above. Split
+by atypicality, the trough disappears in the upper three fifths and
+survives only in the least atypical fifth. Reference windows built by calendar year rather than by filing date put an
+inverse-U on this axis too, but that one is an artifact of the annual
+bucketing documented in Appendix~\ref{app:rolling} and does not survive at
+daily resolution.
 The signed axis still enters a linear specification strongly
 (Table~\ref{tab:staged}), but it does so monotonically rather than through
 an interior peak: what curvature there is at registration belongs to how
@@ -351,10 +356,10 @@ class$\times$cohort with controls, relative to the omitted bottom quintile ---
 convex, with the penalty concentrated in the top quintile. \emph{B:} reaching
 the listed universe, within class$\times$year with length held --- rising in
 atypicality, and falling in lead through the fourth quintile once the levels
-are controlled. \emph{C:} raw
-registration rates for debut filings --- an inverse-U on the unsigned axis
-and no interior peak on the signed one, with the dashed line at the pooled
-rate. No parametric curve is fitted through five
+are controlled. \emph{C:} raw registration rates for debut filings in
+twenty bins --- an inverse-U on atypicality, and on lead a trough just above
+the median that is compositional, absent once atypicality is held in its
+middle fifth (dashed). Horizontal line at the pooled rate. No parametric curve is fitted through five
 points: the claim is that these profiles are not lines, not that they are any
 particular other function.}
 \label{fig:profiles}
@@ -415,9 +420,11 @@ class$\times$cohort fixed effects; controls for counsel of record,
 intent-to-use basis, log description length, log owner filing volume, owner
 domicile, and foreign filing basis; and standard errors clustered on 1.27
 million normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties matter more here than
-they usually do. Roughly 27\% of scored filings share a \dkl{} value with
-another filing, because boilerplate goods/services text yields identical
-topic distributions, and the largest tie groups run to five figures.
+they usually do. About 2.7\% of scored filings share a \dkl{} value with another
+filing, and the largest tie group runs to fourteen. Ties were far commoner
+under class-year reference windows, where boilerplate text scored against a
+shared reference produced identical values by the thousand; anchoring the
+window on the filing date all but removes them.
 Quintile cut points are therefore fixed by sorting on the score and then
 on the serial number, so the assignment is reproducible. Splitting a tie
 group across a boundary remains arbitrary; re-estimating under a rank
@@ -570,18 +577,18 @@ slowest), and the penalty survives within both fast and slow
 halves ($-7.2$ and $-8.0$pp), so the gradient is not an artifact of
 already-failing firms being detected late: it is present in both
 response-speed halves. This particular split is computed on \emph{term}
-scoring under the retired annual reference buckets --- it is the second of
-the two exceptions noted in Appendix~\ref{app:rolling}, and no topic-scored
-version of it exists --- so it should be read as corroborating the direction
+scoring under annual reference buckets rather than the per-filing windows
+used elsewhere --- one of two such exceptions, both noted in
+Appendix~\ref{app:rolling}, and no topic-scored version of it exists --- so it should be read as corroborating the direction
 of the result and not as one of its magnitudes.
 
 Mixing the past and future reference windows identifies which kind of
 novelty the gate punishes. The penalty loads on breaking with the
 established past ($-7.3$pp) rather than on resembling the future
 ($-3.2$pp), and in software the separation is complete ($-12.7$pp against
-$-0.3$pp). This decomposition is one of two analyses in the paper still
-computed on the retired annual reference buckets --- the other is the
-response-latency split above --- because it requires a separate scoring at
+$-0.3$pp). This decomposition is one of two analyses computed on annual reference
+buckets rather than per-filing ones --- the other is the response-latency
+split above --- because it requires a separate scoring at
 each of $W \in \{3,5,7\}$ on both sides; by the
 evidence of Appendix~\ref{app:rolling} its magnitudes are likely inflated
 by something like a third, and only the contrast between the two
@@ -653,37 +660,28 @@ the apparent recovery of the far-leading tail is much reduced: the
 quintile profile falls through Q4 and flattens rather than recovering
 (Table~\ref{tab:edgar} middle panel).
 
-The atypicality result reported in earlier drafts of this paper was an
-artifact of the linkage, and the correction is worth stating in full because
-it is the kind of error a reader cannot audit from the outside. Owners are
-matched to SEC registrants by normalized exact name. That crosswalk was
-built from a candidate universe assembled by globbing per-class firm-year
-tables, of which only five existed (009, 032, 035, 039, 042), so 57\% of the
-debut panel could not be matched whatever became of it --- and eligibility
-was itself predicted by the regressor, with the top atypicality quintile
-47.3\% eligible against 40.3\% in the bottom. Two further defects compounded
-it: matches were collapsed one-per-normalized-key, silently discarding
-944{,}309 owner strings, and the fuzzy-matching stage had never run because
-its library was not installed.
+How owners are linked to public-market records governs what this result can
+mean, so the construction is worth stating. Owners are matched to SEC
+registrants by normalized exact name, over a candidate universe of all
+5.67 million owners in the corpus; names resolving to more than one
+registrant are dropped rather than assigned, and one match is kept per owner
+string. That yields 19{,}889 matched owners covering 7{,}588 registrants, and
+a base rate of 0.481\% among registered debut filers. Validation on 22
+companies that indisputably went public --- across software,
+pharmaceuticals, food, apparel, aerospace and autos --- matches all 22, and a
+random sample of 25 matches was correct in 25 cases.
 
-Rebuilt over all 45 classes, with one row per owner string and names
-resolving to multiple registrants dropped, the crosswalk carries 19{,}889
-matched owners against 7{,}233 before, and the base rate rises from 0.189\%
-to 0.481\%. Validation on 22 companies that indisputably went public ---
-across software, pharmaceuticals, food, apparel, aerospace and autos ---
-matches 22 of 22, and a random sample of 25 matches was correct in 25 cases.
-On that linkage the atypicality gradient disappears. What survives, and
-strengthens, is the signed axis: leading debut owners reach the listed
-universe less often, $-0.047$pp per standard deviation against $-0.014$pp
-under the old crosswalk.
-
-Two cautions remain and neither is repaired here. The outcome is still name
-matchability, and firms with distinctive names are easier to match than firms
-with generic ones; that is plausibly correlated with writing distinctive
-goods/services text, and nothing in this design separates the two. And the
-financing rows of Table~\ref{tab:staged} rest on a Form~D match built against
-the superseded crosswalk, because the raw Form~D extracts are no longer in
-the tree; those rows should be read as provisional.
+The linkage is nonetheless a name match, and that bounds the atypicality
+reading in particular. Firms with distinctive names are easier to match than
+firms with generic ones, and distinctiveness of a name plausibly travels with
+distinctiveness of the goods/services text; nothing in this design separates
+the two. Restricting the candidate universe --- to a subset of classes, say
+--- makes matchability itself a function of the regressor, and the
+atypicality gradient is sensitive to exactly that. Its absence here is
+therefore the more credible reading of the two, and the signed axis, which
+does not move when the linkage is varied, carries the weight. The financing
+rows of Table~\ref{tab:staged} rest on a Form~D match whose raw extracts are
+not in the current tree and should be read as provisional.
 
 The two axes now tell one coherent story across both outcomes.
 Atypicality --- writing about a product in language unusual for its
@@ -719,9 +717,8 @@ $-0.014\sigma$ ($t = -2.3$) at $T = 50$ and $-0.010$ ($t = -1.5$) at
 $T = 200$ --- essentially uncorrelated within firm, which is the property
 the construct needs.
 
-Table~\ref{tab:patent_within_firm} reports an earlier version of the same
-panel, retained because it is the specification in which this comparison
-was first run and because it is the more hostile one: it scores \dkl{}
+Table~\ref{tab:patent_within_firm} reports the more hostile version of the
+same comparison: it scores \dkl{}
 under an exponential-decay reference kernel on terms rather than the flat
 window on topics used everywhere else in this paper, and it returns a
 larger negative coefficient, $-0.048\sigma$ ($t = -7.9$), on 174{,}569
@@ -864,7 +861,7 @@ read the text would look like --- the text being free and public at the
 moment of filing. The comparison is among survivors, so it cannot separate
 that reading from selection on unobservables; and the null at entry is a
 null, not evidence of indifference.\footnote{This pair is sensitive to the
-reference window. Under the retired annual buckets the entry row was
+reference window. Under annual reference buckets the entry row was
 $-0.06$pp ($t = -2.8$), which read as active negative selection. Per-filing
 windows move it to zero and leave the listing row intact, so the negative
 selection was an artifact and the informativeness among the funded was
@@ -1273,8 +1270,7 @@ reports only the unsigned version.}
 \subsection{What annual reference buckets cost}\label{app:rolling}
 
 Every estimate in this paper uses a reference anchored on the filing's own
-date. An earlier version of the corpus built one reference per class-year
-instead: the class's topic distributions were averaged over the five
+date. The alternative is one reference per class-year: the class's topic distributions were averaged over the five
 preceding calendar years, and every filing made in year $t$ was scored
 against that single object, so a filing made on 1 January and one made on
 31 December received identical references and neither saw any of the

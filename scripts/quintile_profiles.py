@@ -126,36 +126,37 @@ def main() -> int:
     ax.set_xlabel("quintile of the axis shown", fontsize=9, color=INK2)
     ax.legend(fontsize=7.8, loc="lower left", framealpha=0.9)
 
-    # ---- C: registration, raw ----------------------------------------------
+    # ---- C: registration, twenty bins -------------------------------------
+    # Five bins turn a non-monotone profile into a sawtooth. Twenty show the
+    # real shape: an inverse-U on atypicality, and on lead a trough just above
+    # the median that is compositional -- |lead| correlates with atypicality at
+    # +0.31, so the middle of the lead distribution is disproportionately
+    # low-atypicality filings, which register poorly.
     ax = axes[2]
-    reg = debut["registration"]
-    # Panel C plots the past level rather than atypicality, because
-    # debut_outcome_topic.json bins on the two raw levels and the signed axis
-    # and never forms their average. The two correlate at 0.979, so the shape
-    # is the same one. "topic_pros" is the pre-rename column name, kept so the
-    # figure still builds from an older JSON.
-    lvl = "topic_kl_vs_past" if "topic_kl_vs_past" in reg else "topic_pros"
-    for key, color, lab, mk in ((lvl, C_ATYP, "on past-facing surprise $K^-$", "s"),
-                                ("topic_dkl", C_LEAD, "on lead $L$", "o")):
-        v = [reg[key][f"q{q}"] * 100 for q in QX]
-        ax.plot(QX, v, mk + "-", color=color, lw=2.0, ms=5.5, label=lab)
+    shape = load("registration_shape.json")
+    xs = [(i + 0.5) / 20 * 100 for i in range(20)]
+    ax.plot(xs, shape["bins"]["atyp"], "-", color=C_ATYP, lw=2.0,
+            label="on atypicality $A$")
+    ax.plot(xs, shape["bins"]["lead"], "-", color=C_LEAD, lw=2.0, label="on lead $L$")
+    mid = shape["lead_within_atyp_quintile"][2]
+    ax.plot(xs, mid, "--", color=C_LEAD, lw=1.4, alpha=0.75,
+            label="on lead, middle $A$ quintile")
     ax.axhline(debut["p_registered"] * 100, color=INK2, lw=1.0, ls=(0, (4, 3)))
-    ax.set_xticks(QX)
-    ax.set_xticklabels(["Q1\nlow", "Q2", "Q3", "Q4", "Q5\nhigh"], fontsize=8.5)
-    ax.set_title("C. Completing registration\n(raw rates, debut filings)", fontsize=10,
+    ax.set_title("C. Completing registration\n(raw rates, twenty bins)", fontsize=10,
                  color=INK, pad=8)
     ax.set_ylabel("% reaching registration", fontsize=9, color=INK2)
-    ax.set_xlabel("quintile of the axis shown", fontsize=9, color=INK2)
+    ax.set_xlabel("percentile of the axis shown", fontsize=9, color=INK2)
     ax.grid(alpha=0.28, color=GRID)
-    for s in ax.spines.values():
-        s.set_color(GRID)
+    for sp_ in ax.spines.values():
+        sp_.set_color(GRID)
     ax.tick_params(colors=INK2, labelsize=8.5)
-    ax.legend(fontsize=7.8, loc="lower center", framealpha=0.9)
-    ax.annotate("inverse-U on the LEVEL;\nflat on lead",
-                xy=(3, reg[lvl]["q3"] * 100), xytext=(1.30, 55.2),
-                fontsize=7.6, color=INK2, ha="left",
+    ax.legend(fontsize=7.4, loc="lower right", framealpha=0.9)
+    tr = min(range(20), key=lambda i: shape["bins"]["lead"][i])
+    ax.annotate("trough is composition:\nlow-$|L|$ filings are\nlow-$A$ filings",
+                xy=(xs[tr], shape["bins"]["lead"][tr]), xytext=(6, 46.5),
+                fontsize=7.4, color=INK2, ha="left",
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=0.9,
-                                connectionstyle="arc3,rad=0.2"))
+                                connectionstyle="arc3,rad=-0.25"))
 
     fig.tight_layout()
     for ext in ("png", "pdf"):
