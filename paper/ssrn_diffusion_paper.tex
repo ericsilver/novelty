@@ -40,16 +40,19 @@ whose language the industry was already leaving behind are
 \noindent Among marks the office granted, it is \emph{timing} rather than
 unusualness that predicts what happens next. Leading marks --- those whose
 language their industry subsequently moved toward --- fail their first
-use-proof gate 1.4 percentage points more often in the top
+use-proof gate --- the declaration, due between the fifth and sixth
+year, that the mark is still in commercial use --- 1.4 percentage points
+more often in the top
 within-class-cohort quintile than in the bottom, about 53.3\% against
 51.9\% on a 52\% base failure rate, on 3.10 million registrations with
 class$\times$cohort fixed effects, owner-clustered errors, and drafting and
 filer controls ($t = 8.3$). The penalty is indistinguishable from zero in
-the 2002--2007 cohorts, present in every cohort from 2008 to 2018, and
+the earliest cohorts, present in every cohort from 2008 to 2018, and
 reproduces out of sample in 2019; almost all of it sits in the top quintile
-rather than accumulating across the range. Leading debut owners also reach
-the SEC-listed universe less often, $-0.047$pp per standard deviation
-($t = -7.8$). Atypicality --- how unusual the wording is, without regard to
+rather than accumulating across the range. Leading debut owners also become SEC-reporting
+companies less often, $-0.047$pp per standard deviation ($t = -7.8$); about
+half of those firms are exchange-listed and the rest report for other
+reasons, so this is a coarser marker than an IPO. Atypicality --- how unusual the wording is, without regard to
 direction --- does none of this work: its association with listing is
 indistinguishable from zero once the owner-to-registrant linkage spans the
 whole corpus, and it is sensitive to how that linkage is drawn in a way the
@@ -62,8 +65,8 @@ conditioning on grant, the same data support weaker and sometimes opposite
 conclusions, because registration is itself selected on language. And
 scored on individual terms rather than topic distributions, leading
 filings appear to belong to better firms --- an association that dissolves
-or reverses under distribution scoring, because term scoring picks up
-lexical specificity rather than position. Text measures of this kind can
+or reverses under topic scoring, because term scoring picks up lexical
+specificity rather than position. Text measures of this kind can
 manufacture firm-performance correlations out of drafting style. Code,
 panels, and the corpus build are public at
 \url{https://github.com/ericsilver/tm-vocabulary}.
@@ -116,7 +119,8 @@ contribution is that corpus. The USPTO distributes its trademark backfile
 as bulk XML --- 83 archives covering 1884 to 2025 --- from which the
 published research files retain a filing's current status but not the dated
 sequence of events that produced it. Re-parsing the backfile yields 242
-million prosecution events across 13.99 million case files, each event
+million prosecution events --- every step in the examination of an
+application --- across 13.99 million case files, each event
 carrying a code and a date: every office action, response, maintenance
 filing, and cancellation. Three further passes make those events usable.
 The event codes are resolved into a 760-code dictionary. A header pass
@@ -138,13 +142,16 @@ generally.
 
 The procedure measures one thing: how surprising a filing's language is.
 Group every trademark filing by its industry class --- one of the 45
-international goods and services categories --- and by its year, then put
+international goods and services categories --- and place it by its filing
+date, then put
 the filing to two readers who have seen disjoint halves of that industry's
 stream: one who knows only what the class filed before it, one who knows
 only what it filed after. Each reader's ``how surprising'' is a
-Kullback--Leibler divergence between the filing's mix of topics and the
-industry's, large when the filing puts weight where its industry's filings
-put little. \emph{Atypicality} is the average of their two answers.
+Kullback--Leibler divergence, the standard measure of how unexpected one
+distribution looks from another, between the filing's mix of topics --- its
+weights over word-clusters fitted to the corpus --- and the industry's. It
+is large when the filing puts weight where its industry's filings put
+little. \emph{Atypicality} is the average of their two answers.
 \emph{Lead}, written \dkl{}, is the gap between them.
 
 What the gap captures is worth stating plainly. Language that surprised the
@@ -185,9 +192,10 @@ examination process does to a description with what the market does to the
 product. Appendix~\ref{app:uncond} reports the unconditional version and
 shows where it diverges.
 
-Among granted marks, surprising language marks firms that reach public
-markets: atypical debut filings belong disproportionately to owners who
-later appear in the SEC-listed universe. Conditional on being surprising,
+Among granted marks, the signed axis --- not the unsigned one ---
+predicts what happens next. Debut filings whose language their industry
+subsequently adopted belong disproportionately to owners who never appear
+in SEC financial-reporting records. Conditional on being surprising,
 having been early is what separates the failures. Leading marks
 fail the use-proof gates more often, and at equal atypicality their owners
 list less often, not more. Having been early, in other words, is the
@@ -393,7 +401,9 @@ below and the appendix report survival, where the same penalty carries a
 negative sign. And the gate is the first maintenance filing, which is
 Section~8 for domestic registrations and Section~71 for Madrid
 Protocol Section~66(a) extensions of protection --- the same gate under two
-statutes, both due between the fifth and sixth anniversary. Both
+statutes --- \S66(a) registrations are US extensions of an international
+registration filed through the Madrid Protocol --- both due between the
+fifth and sixth anniversary. Both
 cancellation codes are read. Scoring only the Section~8 code, as earlier
 versions of this analysis did, records every Section~66(a) registration as
 a survivor whatever became of it, which is not a small distortion: those
@@ -415,10 +425,19 @@ fail, which is not the same thing as what unusual language does to a mark
 inside its own industry. The
 primary estimates therefore come from a linear probability model on 3.10
 million unique registrations, one row per serial, with \dkl{} quintiles cut
-\emph{within} class$\times$cohort cells. The specification adds
+\emph{within} class$\times$cohort cells, a cohort here being a year of
+registration. The specification adds
 class$\times$cohort fixed effects; controls for counsel of record,
 intent-to-use basis, log description length, log owner filing volume, owner
-domicile, and foreign filing basis; and standard errors clustered on 1.27
+domicile, and foreign filing basis;\footnote{A US application is filed
+either on \emph{use} --- the mark is already in commerce --- or on
+\emph{intent to use}, which defers proof until after allowance. Foreign
+applicants may instead file on a home registration (\S44(e)) or extend an
+international registration into the US under the Madrid Protocol
+(\S66(a)); the latter maintain under \S71 rather than \S8. These are
+statutory routes to the same registration, and they differ sharply in who
+files and how often the mark is abandoned, which is why each enters as a
+control.} and standard errors clustered on 1.27
 million normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties matter more here than
 they usually do. About 2.7\% of scored filings share a \dkl{} value with another
 filing, and the largest tie group runs to fourteen. Ties were far commoner
@@ -486,8 +505,8 @@ without them.
 
 Three properties of Table~\ref{tab:gate_lpm} matter. The gradient is
 monotone within cells ($+0.26$, $+0.52$, $+0.98$, $+2.29$pp across
-quintiles two through five before controls) and, though the magnitude falls
-by about a third once the full control set is added, not absorbed by it, so it is not absorbed by who files or how they draft. It is, if
+quintiles two through five before controls). The full control set cuts the
+magnitude by about a third but does not absorb it, so it is not absorbed by who files or how they draft. It is, if
 anything, \emph{largest} in the cleanest stratum --- counsel-represented,
 US-domiciled owners --- so it is not carried by the self-filed or foreign
 mass-filing segments whose gate failure rates are high for their own
@@ -542,7 +561,7 @@ event-dated, all classes pooled, raw quintile contrasts. The penalty is
 absent or negative for the 2002--2005 cohorts, turns positive in 2006, and
 is present in every cohort from 2008 to 2018, ranging $+1.8$ to $+5.4$pp
 with no downward trend. The 2019 point is the out-of-sample replication on
-fully-elapsed registrations ($+5.4$pp); the 2020--2021 gates have not yet
+fully-elapsed registrations ($+5.5$pp); the 2020--2021 gates have not yet
 elapsed.}
 \label{fig:cohort}
 \end{figure}
@@ -597,11 +616,15 @@ full decomposition, plus a look-ahead-free months-scale variant that
 reproduces the pattern and a snapshot cross-check that agrees with the
 event-dated estimates under every scoring tried.
 
-\subsection{Surprising language marks firms that reach public markets; having been early does not}\label{sec:bluesea}
+\subsection{Being early costs at the public-reporting margin; being unusual does not pay there}\label{sec:bluesea}
 
 Panel B of Figure~\ref{fig:outcomes} contains two patterns, and they pull
-in different directions. Listing probability --- P(owner ever in the SEC
-EDGAR universe of SEC registrants), conditional on registration --- rises
+in different directions. The outcome throughout this subsection is whether
+an owner ever appears in the Securities and Exchange Commission's financial
+reporting records --- its EDGAR filing system and its published company
+list. That marks a firm as SEC-reporting, which is a broader and coarser
+category than exchange-listed: roughly half the matched firms carry an
+exchange ticker and the remainder report for other reasons. It rises
 monotonically in
 the KL \emph{levels} on both axes (from 0.19\% at the bottom past-facing
 quintile to 0.52\% at the top in raw bins). And in signed \dkl{} it is
@@ -640,17 +663,16 @@ note to Table~\ref{tab:gate_lpm}.
 \end{table}
 
 The design-based estimates (Table~\ref{tab:edgar}) resolve both patterns
-into one decomposition. Atypicality pays, modestly: within class and
-filing year and holding description length fixed, top-quintile
-atypicality does not raise listing probability at all: $+0.000$pp on a
-0.481\% base ($t = 0.0$), and $-0.003$pp on the past level alone. The
-quintile profile is not monotone --- the three middle quintiles sit
-\emph{below} the bottom one and the top merely returns to it --- so there
-is no atypicality gradient in listing to report. Most of the raw 2.7-fold
-gradient is composition (listing-bound firms cluster in particular
-classes, years, and multi-class filings), which is why the honest
-magnitude is a quarter rather than a multiple. Lead costs, at
-equal atypicality: the signed component enters negatively
+into one decomposition, and it is the raw atypicality gradient that does
+not survive it. Within class and filing year, holding description length
+fixed, top-quintile atypicality raises the probability of SEC reporting by
+$+0.000$pp on a 0.481\% base ($t = 0.0$), and by $-0.003$pp on the past
+level alone. The quintile profile is not even monotone: the three middle
+quintiles sit \emph{below} the bottom one and the top merely returns to it.
+The 2.7-fold gradient in the raw bins is composition --- firms that go on to
+report cluster in particular classes, years, and multi-class filings --- and
+class$\times$year fixed effects absorb it. Lead costs, at equal
+atypicality: the signed component enters negatively
 ($-0.047$pp per $\sigma$, $t = -7.8$) while the unsigned component enters
 positively ($+0.067$pp per $\sigma$, $t = 7.7$). The U-shape in raw bins
 is exactly this pair: lagging filings show the atypicality premium with no
@@ -683,14 +705,16 @@ does not move when the linkage is varied, carries the weight. The financing
 rows of Table~\ref{tab:staged} rest on a Form~D match whose raw extracts are
 not in the current tree and should be read as provisional.
 
-The two axes now tell one coherent story across both outcomes.
-Atypicality --- writing about a product in language unusual for its
-category --- is the differentiation signal: it marks real, specific,
-differentiated offerings and the firms that list. Lead ---
-writing in language the category subsequently adopted --- is the timing
-bet: it costs at the use-proof gate (Section~\ref{sec:gate}) and it
-costs in listing at equal atypicality. Being early is expensive even
-when being different is valuable.
+The two axes do different work, and only one of them survives at the firm
+level. Atypicality --- writing about a product in language unusual for its
+category --- predicts survival at the use-proof gate
+(Section~\ref{sec:gate}), where marks written in category-typical language
+are abandoned more often. It does not predict which owners become
+SEC-reporting companies once composition is absorbed. Lead --- writing in
+language the category subsequently adopted --- is the timing bet, and it
+costs at both margins: at the gate, and at SEC reporting even holding
+atypicality fixed. Being early is expensive; being unusual is not
+rewarded here.
 
 The two are not independent in the obvious economic sense, which is worth
 stating because it is the natural reading of the pair. What makes a filing
@@ -1007,11 +1031,14 @@ Four claims are defended. \dkl{}, adapted from
 \citet{Murdock2017, Barron2018} onto topic distributions of USPTO
 trademark filings, produces interpretable structure on
 commercially-incentivised legal text. Vocabulary position carries two
-separable signals: atypicality marks listing-bound firms
-(about a quarter more often, within class-year with length fixed), and lead
-marks product risk ($+1.4$pp top-versus-bottom quintile at the first
-use-proof gate with fixed effects, controls, and owner clustering; $-0.014$pp per
-$\sigma$ in listing at equal atypicality). The construct is
+separable signals: atypicality marks marks that survive
+their use-proof gate ($+1.3$pp per standard deviation), and lead marks
+product risk ($+1.4$pp top-versus-bottom quintile at that gate with fixed
+effects, controls, and owner clustering; $-0.047$pp per $\sigma$ in SEC
+reporting at equal atypicality). Atypicality does \emph{not} predict SEC
+reporting once class and year are absorbed, and an earlier reading of these
+data that said otherwise rested on a narrower owner-to-registrant
+linkage. The construct is
 empirically distinct from patent-track invention within firm. And the
 corpus supports direct measurement of cross-industry vocabulary
 diffusion, with multi-year origin-to-arrival lags, Bass-fittable
@@ -1175,7 +1202,8 @@ future window after 2020, and both zones are excluded
 (Figure~\ref{fig:burnin}). The burn-in cut is set empirically: thin past
 references inflate prospective surprise, and profiling that bias across
 all 44 sufficient-volume classes gives a median absolute bias of
-$\sim$2.0 nats in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
+$\sim$2.0 nats --- the natural-log unit in which these divergences are
+measured --- in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
 onward, below any interpreted effect size. The 1995--1997 deviations
 ($\sim$0.15--0.17) are not burn-in --- mechanical contamination cannot
 rebound --- but the dot-com era moving the corpus. Per-class burn-in
@@ -1325,7 +1353,9 @@ quoted.
 
 ``Leading'' is relative to a reference, and mixing windows
 across the two sides identifies which novelty the gate punishes. Scoring
-the corpus at $W \in \{3, 5, 7\}$ symmetric plus a foresight
+the corpus at symmetric windows of $W \in \{3, 5, 7\}$ \emph{years} --- this
+appendix measures the window in years, where the main text measures it in
+days --- plus a foresight
 configuration (prospective against the recent 3-year past, retrospective
 against the distant 7-year future) and a past-rupture configuration (the
 reverse): the top-versus-bottom gate lift runs $-3.2$pp for foresight,

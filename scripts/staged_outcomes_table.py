@@ -320,7 +320,7 @@ def main() -> int:
             base[base.registered == 1], "funded", years=(2009, 2018))
         add("Listed after the round", "funded",
             base[base.funded == 1], "listed_after_funding", years=(2009, 2018))
-    add("Reached listed universe", "registered",
+    add("Became SEC-reporting", "registered",
         base[base.registered == 1], "listed")
 
     out = {"scoring": SRC,
