@@ -37,25 +37,25 @@ looks like to have come first. Such filings are \emph{leading}; those
 whose language the industry was already leaving behind are
 \emph{lagging}.
 
-\noindent Among marks the office granted, surprising language identifies
-firms that later reach public markets: within class and filing year, and
-holding description length fixed, debut owners in the top atypicality
-quintile reach the SEC-listed universe about a quarter more often than
-those in the bottom, on a 0.19\% base rate ($t = 3.7$). Among surprising
-filings, having been early is what distinguishes the failures.
-Leading marks fail their first use-proof gate 1.4
-percentage points more often in the top within-class-cohort quintile than in
-the bottom --- about 53.3\% against 51.9\%, on a 52\% base failure rate ---
-on 3.10 million registrations, with
-class$\times$cohort fixed effects, owner-clustered errors, and drafting
-and filer controls ($t = 8.3$); it is indistinguishable from zero in the
-2002--2007 cohorts, present in every cohort from 2008 to 2018, and
-reproduces out of sample in 2019. At equal atypicality,
-leading debuts reach listing \emph{less} often ($t = -3.7$), and
-less often still among firms that raise venture financing. Being
-surprising pays; having been early does not. The measure exists for the
-millions of firms that never patent and is essentially uncorrelated with
-patenting within firm.
+\noindent Among marks the office granted, it is \emph{timing} rather than
+unusualness that predicts what happens next. Leading marks --- those whose
+language their industry subsequently moved toward --- fail their first
+use-proof gate 1.4 percentage points more often in the top
+within-class-cohort quintile than in the bottom, about 53.3\% against
+51.9\% on a 52\% base failure rate, on 3.10 million registrations with
+class$\times$cohort fixed effects, owner-clustered errors, and drafting and
+filer controls ($t = 8.3$). The penalty is indistinguishable from zero in
+the 2002--2007 cohorts, present in every cohort from 2008 to 2018, and
+reproduces out of sample in 2019; almost all of it sits in the top quintile
+rather than accumulating across the range. Leading debut owners also reach
+the SEC-listed universe less often, $-0.047$pp per standard deviation
+($t = -7.8$). Atypicality --- how unusual the wording is, without regard to
+direction --- does none of this work: its association with listing is
+indistinguishable from zero once the owner-to-registrant linkage is built
+over all 45 classes rather than five, and an earlier version of this paper
+reported a positive gradient that was an artifact of that linkage. The
+measure exists for the millions of firms that never patent and is
+essentially uncorrelated with patenting within firm.
 
 \noindent Two cautions bound how far this travels. Read without
 conditioning on grant, the same data support weaker and sometimes opposite
@@ -606,26 +606,26 @@ highest (0.44\% at Q1, 0.24\% at Q3, 0.39\% at Q5).
 LPM of P(owner ever in SEC EDGAR) on 1{,}556{,}968 registered debut
 filings 1995--2018, one observation per owner, class$\times$filing-year
 fixed effects, heteroskedasticity-robust SEs. Quintiles cut within
-class$\times$year. Base rate 0.189\%.}
+class$\times$year. Base rate 0.481\%.}
 \label{tab:edgar}
 \begin{tabular}{lrr}
 \toprule
  & Coefficient (pp) & SE \\
 \midrule
 \multicolumn{3}{l}{\emph{Atypicality quintiles, $A = \tfrac{1}{2}(K^{-}+K^{+})$ (Q1 omitted)}} \\
-\quad Q5, FE only & $+0.055$ & $0.012$ \\
-\quad Q5, FE + log length & $+0.043$ & $0.012$ \\
-\quad Q5, FE + log length, on $K^{-}$ alone & $+0.042$ & $0.012$ \\
+\quad Q5, FE only & $+0.017$ & $0.018$ \\
+\quad Q5, FE + log length & $+0.000$ & $0.018$ \\
+\quad Q5, FE + log length, on $K^{-}$ alone & $-0.003$ & $0.018$ \\
 \midrule
 \multicolumn{3}{l}{\emph{Signed \dkl{} quintiles, FE + log length + KL levels}} \\
-\quad Q3 & $-0.044$ & $0.013$ \\
-\quad Q4 & $-0.063$ & $0.014$ \\
-\quad Q5 & $-0.061$ & $0.016$ \\
+\quad Q3 & $-0.133$ & $0.020$ \\
+\quad Q4 & $-0.187$ & $0.021$ \\
+\quad Q5 & $-0.158$ & $0.024$ \\
 \midrule
 \multicolumn{3}{l}{\emph{Decomposition, FE + log length}} \\
-\quad $|\Delta\mathrm{KL}|$ (per $\sigma$) & $+0.030$ & $0.006$ \\
-\quad signed \dkl{} (per $\sigma$) & $-0.014$ & $0.004$ \\
-\quad log description length & $+0.042$ & $0.003$ \\
+\quad $|\Delta\mathrm{KL}|$ (per $\sigma$) & $+0.067$ & $0.009$ \\
+\quad signed \dkl{} (per $\sigma$) & $-0.047$ & $0.006$ \\
+\quad log description length & $+0.056$ & $0.004$ \\
 \bottomrule
 \end{tabular}
 \\[0.3em]\footnotesize Standard errors in place of significance stars; see the
@@ -634,18 +634,18 @@ note to Table~\ref{tab:gate_lpm}.
 
 The design-based estimates (Table~\ref{tab:edgar}) resolve both patterns
 into one decomposition. Atypicality pays, modestly: within class and
-filing year, holding description length fixed, top-quintile atypicality
-raises listing probability by $+0.043$pp on a 0.189\% base ---
-about a quarter more likely ($t = 3.7$). Estimating the same panel on the
-past level alone rather than on the average moves the coefficient to
-$+0.042$pp ($t = 3.6$), as it must, given that the two correlate at
-$0.979$. Most of the raw 2.7-fold
+filing year and holding description length fixed, top-quintile
+atypicality does not raise listing probability at all: $+0.000$pp on a
+0.481\% base ($t = 0.0$), and $-0.003$pp on the past level alone. The
+quintile profile is not monotone --- the three middle quintiles sit
+\emph{below} the bottom one and the top merely returns to it --- so there
+is no atypicality gradient in listing to report. Most of the raw 2.7-fold
 gradient is composition (listing-bound firms cluster in particular
 classes, years, and multi-class filings), which is why the honest
 magnitude is a quarter rather than a multiple. Lead costs, at
 equal atypicality: the signed component enters negatively
-($-0.014$pp per $\sigma$, $t = -3.7$) while the unsigned component enters
-positively ($+0.030$pp per $\sigma$, $t = 5.4$). The U-shape in raw bins
+($-0.047$pp per $\sigma$, $t = -7.8$) while the unsigned component enters
+positively ($+0.067$pp per $\sigma$, $t = 7.7$). The U-shape in raw bins
 is exactly this pair: lagging filings show the atypicality premium with no
 lead penalty, leading filings show it net of that penalty, and the middle
 quintiles show neither. Once the levels are controlled,
@@ -653,31 +653,37 @@ the apparent recovery of the far-leading tail is much reduced: the
 quintile profile falls through Q4 and flattens rather than recovering
 (Table~\ref{tab:edgar} middle panel).
 
-The listing outcome carries a construction problem that bounds how far
-any of this can be pushed, and it is larger than the usual name-matching
-caveat. Owners are linked to SEC registrants through a crosswalk whose
-candidate universe is assembled from firm-year tables that exist for only
-five Nice classes (009, 032, 035, 039, 042). A debut owner in any other
-class can be coded as listed only if the same normalized name also filed in
-one of those five. On the registered debut panel, \emph{57\% of owners are
-therefore coded as non-listed by construction}, whatever became of them.
-Worse, eligibility is not orthogonal to the regressor: within class and
-year, owners in the top atypicality quintile appear in the eligible
-universe 47.3\% of the time against 40.3\% in the bottom, a 17\% relative
-gradient. Atypical filers are more matchable, which is exactly what would
-manufacture a listing result.
+The atypicality result reported in earlier drafts of this paper was an
+artifact of the linkage, and the correction is worth stating in full because
+it is the kind of error a reader cannot audit from the outside. Owners are
+matched to SEC registrants by normalized exact name. That crosswalk was
+built from a candidate universe assembled by globbing per-class firm-year
+tables, of which only five existed (009, 032, 035, 039, 042), so 57\% of the
+debut panel could not be matched whatever became of it --- and eligibility
+was itself predicted by the regressor, with the top atypicality quintile
+47.3\% eligible against 40.3\% in the bottom. Two further defects compounded
+it: matches were collapsed one-per-normalized-key, silently discarding
+944{,}309 owner strings, and the fuzzy-matching stage had never run because
+its library was not installed.
 
-Restricting to owners who could be matched at all, the gradient survives
-and roughly halves: the top-versus-bottom relative difference falls from
-28\% to 13\%, and the profile within that subset is not monotone
-($0.57$, $0.57$, $0.52$, $0.48$, $0.65$ percent across quintiles), with the
-association concentrated in the top quintile rather than accumulating
-across the range. That conditioning is itself on a variable the regressor
-predicts, so it bounds rather than identifies. The honest reading is that
-something under half of the raw atypicality--listing association is
-matchability, the remainder is not obviously so, and the measured magnitude
-should be treated as an upper bound until the crosswalk is rebuilt over all
-45 classes. The gate results do not depend on this linkage.
+Rebuilt over all 45 classes, with one row per owner string and names
+resolving to multiple registrants dropped, the crosswalk carries 19{,}889
+matched owners against 7{,}233 before, and the base rate rises from 0.189\%
+to 0.481\%. Validation on 22 companies that indisputably went public ---
+across software, pharmaceuticals, food, apparel, aerospace and autos ---
+matches 22 of 22, and a random sample of 25 matches was correct in 25 cases.
+On that linkage the atypicality gradient disappears. What survives, and
+strengthens, is the signed axis: leading debut owners reach the listed
+universe less often, $-0.047$pp per standard deviation against $-0.014$pp
+under the old crosswalk.
+
+Two cautions remain and neither is repaired here. The outcome is still name
+matchability, and firms with distinctive names are easier to match than firms
+with generic ones; that is plausibly correlated with writing distinctive
+goods/services text, and nothing in this design separates the two. And the
+financing rows of Table~\ref{tab:staged} rest on a Form~D match built against
+the superseded crosswalk, because the raw Form~D extracts are no longer in
+the tree; those rows should be read as provisional.
 
 The two axes now tell one coherent story across both outcomes.
 Atypicality --- writing about a product in language unusual for its
@@ -825,7 +831,9 @@ examiner and the market. Surprising language costs at registration and
 pays afterwards: atypical debut filings complete registration less often
 ($-1.35$pp per standard deviation), then survive the first use-proof gate
 more often ($+1.35$pp) and reach public markets more often ($+0.04$pp on a
-0.23\% base). The examination process penalizes surprise; the market does
+0.56\% base --- the one specification in which a positive atypicality
+coefficient on listing survives, and it is a continuous term through a
+non-monotone profile, not the quintile contrast of Table~\ref{tab:edgar}). The examination process penalizes surprise; the market does
 not. Having been early runs the other way: leading applications complete
 registration \emph{more} often ($+0.87$pp) and then pass the use-proof gate
 \emph{less} often ($-0.49$pp on passing). Both survival rows point the same

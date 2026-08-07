@@ -1,19 +1,63 @@
 """Build a USPTO owner_name -> SEC CIK crosswalk by normalized exact match.
 
-We aggressively normalize legal-entity strings on both sides (uppercase, strip
-punctuation, drop common suffixes), then exact-match. A second pass adds
-SEC's official ticker file as authoritative aliases.
+Both sides are aggressively normalized (uppercase, strip punctuation, drop
+common legal-entity suffixes) and then exact-matched. SEC's own company-ticker
+file is folded in as authoritative aliases alongside the Financial Statement
+Data Sets names.
 
-Outputs: data/processed/uspto_sec_crosswalk.parquet
+REBUILT 2026-08-07. The previous version had three defects, all of which
+shrank and distorted coverage:
+
+  1. The owner universe was assembled by globbing firm_year_class*.parquet,
+     and only five of those tables exist (009, 032, 035, 039, 042). An owner
+     filing solely in, say, clothing could not be matched at all. That put
+     2,040,349 owners in the universe against 5,674,909 in the corpus, so 57%
+     of the debut panel was coded non-listed BY CONSTRUCTION -- and, worse,
+     eligibility was correlated with the text being scored (top-atypicality
+     quintile 47.3% eligible against 40.3% in the bottom). The universe is now
+     every owner in all 45 class files.
+
+  2. The exact-match stage did group_by("norm").first(), keeping ONE owner
+     string per normalized key. 652,353 norms carry more than one owner string,
+     so 944,309 owner strings were silently dropped even when they normalized
+     onto a matched SEC name. Matches are now kept per owner_name; several
+     owner strings may legitimately share a CIK.
+
+  3. The fuzzy pass has never run: rapidfuzz is not installed in the analysis
+     environment, so the try/except fell through to a no-op and every shipped
+     crosswalk was 100% exact. Downstream scripts nonetheless reasoned about
+     censoring induced by its >=10-filing threshold. The pass is retained but
+     now reports loudly that it did nothing, rather than failing silently.
+
+One deliberate tightening accompanies the expansion: normalized names that
+resolve to more than one CIK (263 of 20,101 SEC norms) are dropped rather than
+arbitrarily assigned, because widening the candidate pool from 2.0M to 5.7M
+owners raises the cost of a false positive.
+
+What this does NOT fix: the outcome remains "an owner's normalized name exactly
+matches an SEC registrant's". Firms with distinctive names are more matchable
+than firms with generic ones, and distinctiveness of the name plausibly
+correlates with atypicality of the goods/services text. Expanding the universe
+removes the class-coverage artifact; it does not remove that one.
+
+Reads   data/processed/tm_class{001..045}.parquet   owner names, filing dates
+        data/processed/sec_firm_year.parquet        FSDS company names by CIK
+        data/raw/sec/company_tickers.json           SEC's own alias file
+Writes  data/processed/uspto_sec_crosswalk.parquet
     owner_name      str   USPTO original
     norm            str   normalized key
     cik             int64
     sec_name        str
-    n_uspto_filings int   total Class 9+32 filings under this owner
+    n_filings       int   unique serials under this owner, all classes
+    first_year      int
+    last_year       int
+    match_type      str   "exact" (or "fuzzy", never populated in practice)
+    match_score     float
 """
 
 from __future__ import annotations
 
+import gc
 import json
 import re
 import sys
@@ -22,17 +66,23 @@ from pathlib import Path
 import polars as pl
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+PROC = REPO_ROOT / "data" / "processed"
+CLASSES = [f"{i:03d}" for i in range(1, 46)]
 
 LEGAL_SUFFIX_RE = re.compile(
     r"(?:^|[\s,])(?:"
     r"INC|INCORPORATED|LLC|L\.L\.C\.|LLP|LP|L\.P\.|LTD|LIMITED|CORP|CORPORATION|"
-    r"CO|COMPANY|HOLDINGS|HOLDING|GROUP|GMBH|S\.A\.|SA|AG|N\.V\.|NV|PLC|PBC|"
+    r"CO|COMPANY|GMBH|S\.A\.|SA|AG|N\.V\.|NV|PLC|PBC|"
     r"AB|OY|KK|KABUSHIKI KAISHA|S\.R\.L\.|SRL|S\.P\.A\.|SPA|S\.A\.S\.|SAS|"
-    r"BV|B\.V\.|PTY|PTE|TRUST|FOUNDATION"
+    r"BV|B\.V\.|PTY|PTE"
     r")(?:\.|\b)"
 )
 PUNCT_RE = re.compile(r"[^\w\s]")
 WHITESPACE_RE = re.compile(r"\s+")
+
+
+def log(m: str) -> None:
+    print(m, file=sys.stderr, flush=True)
 
 
 def normalize(name: str) -> str:
@@ -40,7 +90,8 @@ def normalize(name: str) -> str:
         return ""
     s = name.upper()
     s = s.replace("&", " AND ")
-    # repeatedly strip trailing legal-entity suffix tokens
+    # Repeatedly strip legal-entity suffixes: "ACME HOLDINGS CORP LTD" needs
+    # more than one pass, and each pass can expose a new trailing suffix.
     for _ in range(4):
         new = LEGAL_SUFFIX_RE.sub(" ", s)
         new = PUNCT_RE.sub(" ", new)
@@ -49,145 +100,139 @@ def normalize(name: str) -> str:
             break
         s = new
     s = s.removesuffix(" THE").removesuffix(" THE,")
+    # USPTO writes "The Coca-Cola Company"; SEC writes "COCA COLA CO". A leading
+    # article is never identifying, and leaving it in cost both Coca-Cola and
+    # Boeing their match.
+    s = s.removeprefix("THE ")
     return s.strip()
 
 
-def main() -> int:
-    sec = pl.read_parquet(REPO_ROOT / "data/processed/sec_firm_year.parquet")
-    sec_names = (
-        sec.group_by(["cik", "name"])
-        .agg(pl.col("fy").min().alias("first_fy"), pl.col("fy").max().alias("last_fy"))
-    ).with_columns(pl.col("name").map_elements(normalize, return_dtype=pl.Utf8).alias("norm"))
-
-    tickers = json.load((REPO_ROOT / "data/raw/sec/company_tickers.json").open())
-    ticker_rows = []
-    for v in tickers.values():
-        ticker_rows.append({"cik": int(v["cik_str"]), "name": v["title"], "norm": normalize(v["title"])})
-    tk = pl.DataFrame(ticker_rows)
-
-    sec_lookup = pl.concat(
-        [
-            sec_names.select("cik", "name", "norm").rename({"name": "sec_name"}),
-            tk.rename({"name": "sec_name"}),
-        ]
-    ).filter(pl.col("norm") != "").unique(["cik", "norm"])
-
-    fy_paths = sorted((REPO_ROOT / "data/processed").glob("firm_year_class*.parquet"))
+def owner_universe() -> pl.DataFrame:
+    """Every owner in the corpus, with filing counts deduped across classes."""
     parts = []
-    for path in fy_paths:
-        cls = path.stem.replace("firm_year_class", "")
-        if not cls.isdigit():
+    for cls in CLASSES:
+        p = PROC / f"tm_class{cls}.parquet"
+        if not p.exists():
             continue
-        fy = pl.read_parquet(path)
-        parts.append(
-            fy.group_by("owner_name").agg(
-                pl.col("n_filings").sum().alias("n_filings"),
-                pl.col("year").min().alias("first_year"),
-                pl.col("year").max().alias("last_year"),
-            ).with_columns(pl.lit(cls).alias("nice_class"))
-        )
-    print(f"[crosswalk] reading owner universe from {len(parts)} firm_year tables", file=sys.stderr)
-    owners = (
-        pl.concat(parts)
-        .group_by("owner_name")
-        .agg(
-            pl.col("n_filings").sum().alias("n_filings"),
-            pl.col("first_year").min().alias("first_year"),
-            pl.col("last_year").max().alias("last_year"),
-        )
-        .filter(pl.col("owner_name").is_not_null())
-        .with_columns(pl.col("owner_name").map_elements(normalize, return_dtype=pl.Utf8).alias("norm"))
-    )
+        d = pl.read_parquet(
+            p, columns=["serial_number", "owner_name", "filing_date"]
+        ).filter(
+            pl.col("owner_name").is_not_null()
+            & (pl.col("filing_date").fill_null("").str.len_chars() >= 8)
+        ).with_columns(
+            pl.col("filing_date").str.slice(0, 4).cast(pl.Int32, strict=False).alias("y")
+        ).select("serial_number", "owner_name", "y")
+        parts.append(d)
+        del d
+        gc.collect()
 
-    exact = owners.join(sec_lookup, on="norm", how="inner")
-    exact = (
-        exact.sort(["norm", "n_filings"], descending=[False, True])
-        .group_by("norm", maintain_order=True)
-        .agg(
-            pl.col("owner_name").first(),
-            pl.col("cik").first(),
-            pl.col("sec_name").first(),
-            pl.col("n_filings").first(),
-            pl.col("first_year").first(),
-            pl.col("last_year").first(),
-        )
-        .with_columns(pl.lit("exact").alias("match_type"), pl.lit(100.0).alias("match_score"))
-    )
+    # A multi-class filing appears once per class; dedupe on serial so
+    # n_filings counts applications, not class-rows.
+    allf = pl.concat(parts).unique(subset="serial_number")
+    del parts
+    gc.collect()
+    owners = allf.group_by("owner_name").agg(
+        pl.len().alias("n_filings"),
+        pl.col("y").min().alias("first_year"),
+        pl.col("y").max().alias("last_year"),
+    ).filter(pl.col("owner_name").is_not_null())
+    log(f"[universe] {owners.height:,} distinct owners across all 45 classes "
+        f"({allf.height:,} unique serials)")
+    return owners.with_columns(
+        pl.col("owner_name").map_elements(normalize, return_dtype=pl.Utf8).alias("norm"))
 
-    matched_owners = set(exact["owner_name"].to_list())
-    fuzzy_candidates = owners.filter(
-        ~pl.col("owner_name").is_in(matched_owners) & (pl.col("n_filings") >= 10)
-    )
-    print(
-        f"[fuzzy] {fuzzy_candidates.height:,} unmatched USPTO owners with >=10 filings",
-        file=sys.stderr,
-    )
 
+def sec_side() -> pl.DataFrame:
+    sec = pl.read_parquet(PROC / "sec_firm_year.parquet")
+    sec_names = sec.group_by(["cik", "name"]).agg(
+        pl.col("fy").min().alias("first_fy"), pl.col("fy").max().alias("last_fy")
+    ).with_columns(
+        pl.col("name").map_elements(normalize, return_dtype=pl.Utf8).alias("norm"))
+
+    tk_path = REPO_ROOT / "data/raw/sec/company_tickers.json"
+    if not tk_path.exists():
+        raise SystemExit(
+            "missing data/raw/sec/company_tickers.json -- fetch it with\n"
+            "  curl -A '<name> <email>' -o data/raw/sec/company_tickers.json \\\n"
+            "       https://www.sec.gov/files/company_tickers.json")
+    tickers = json.load(tk_path.open())
+    tk = pl.DataFrame([
+        {"cik": int(v["cik_str"]), "sec_name": v["title"], "norm": normalize(v["title"])}
+        for v in tickers.values()
+    ])
+
+    lookup = pl.concat([
+        sec_names.select("cik", pl.col("name").alias("sec_name"), "norm"),
+        tk,
+    ]).filter(pl.col("norm") != "").unique(["cik", "norm"])
+
+    # Drop normalized names that resolve to more than one CIK. With a 5.7M-owner
+    # candidate pool an arbitrary pick is a false positive, not a coin flip.
+    amb = lookup.group_by("norm").agg(
+        pl.col("cik").n_unique().alias("n_cik")).filter(pl.col("n_cik") > 1)
+    lookup = lookup.join(amb.select("norm"), on="norm", how="anti")
+    log(f"[sec] {lookup.height:,} (cik, norm) pairs over "
+        f"{lookup['norm'].n_unique():,} unambiguous norms; "
+        f"dropped {amb.height:,} norms resolving to multiple CIKs")
+    return lookup.unique(subset="norm")
+
+
+def main() -> int:
+    owners = owner_universe()
+    lookup = sec_side()
+
+    # Guard against degenerate keys before joining. HOLDINGS / GROUP / TRUST /
+    # FOUNDATION are deliberately NOT stripped above -- they are substantive
+    # words, and stripping them made "Q, LLC" collide with "Q HOLDINGS, INC."
+    # With them retained, only keys of one or two characters are too weak to
+    # carry identity. An earlier version dropped every single-token key shorter
+    # than six characters, which removed APPLE, NIKE, TESLA and INTEL -- i.e.
+    # precisely the large listed firms the outcome is meant to detect.
+    short_key = pl.col("norm").str.len_chars() < 3
+    n_before = owners.height
+    owners = owners.filter(~short_key)
+    lookup = lookup.filter(~short_key)
+    log(f"[guard] dropped degenerate short keys: {n_before - owners.height:,} owners, "
+        f"leaving {owners.height:,}")
+
+    # One row per OWNER STRING. Distinct owner strings that normalize together
+    # legitimately share a CIK; collapsing them loses matches.
+    exact = owners.join(lookup, on="norm", how="inner").with_columns(
+        pl.lit("exact").alias("match_type"), pl.lit(100.0).alias("match_score"))
+    log(f"[exact] {exact.height:,} owner strings matched "
+        f"({exact['cik'].n_unique():,} distinct CIKs)")
+
+    fuzzy_candidates = owners.join(
+        exact.select("owner_name"), on="owner_name", how="anti"
+    ).filter(pl.col("n_filings") >= 10)
     fuzzy_rows: list[dict] = []
-    if fuzzy_candidates.height > 0:
-        try:
-            from rapidfuzz import process, fuzz
-        except ImportError:
-            print("[fuzzy] rapidfuzz not installed; skipping fuzzy expansion", file=sys.stderr)
-        else:
-            sec_norms = sec_lookup["norm"].to_list()
-            sec_lookup_pd = sec_lookup.to_pandas().drop_duplicates("norm")
-            sec_by_norm = sec_lookup_pd.set_index("norm").to_dict(orient="index")
-            for row in fuzzy_candidates.iter_rows(named=True):
-                q = row["norm"]
-                if not q:
-                    continue
-                hit = process.extractOne(
-                    q, sec_norms, scorer=fuzz.token_sort_ratio, score_cutoff=92
-                )
-                if hit is None:
-                    continue
-                sec_norm, score, _ = hit
-                meta = sec_by_norm.get(sec_norm)
-                if not meta:
-                    continue
-                fuzzy_rows.append(
-                    {
-                        "owner_name": row["owner_name"],
-                        "norm": q,
-                        "cik": int(meta["cik"]),
-                        "sec_name": meta["sec_name"],
-                        "n_filings": int(row["n_filings"]),
-                        "first_year": row["first_year"],
-                        "last_year": row["last_year"],
-                        "match_type": "fuzzy",
-                        "match_score": float(score),
-                    }
-                )
+    try:
+        from rapidfuzz import process, fuzz  # noqa: F401
+    except ImportError:
+        log(f"[fuzzy] SKIPPED -- rapidfuzz is not installed. "
+            f"{fuzzy_candidates.height:,} unmatched owners with >=10 filings were "
+            f"NOT considered. Every shipped crosswalk to date has been 100% exact; "
+            f"downstream code that reasons about fuzzy-pass censoring is describing "
+            f"a stage that has never run.")
 
-    cols = ["owner_name", "norm", "cik", "sec_name", "n_filings", "first_year", "last_year", "match_type", "match_score"]
-    casts = [
-        pl.col("n_filings").cast(pl.Int64),
-        pl.col("first_year").cast(pl.Int64),
-        pl.col("last_year").cast(pl.Int64),
-    ]
-    exact_aligned = exact.select(cols).with_columns(casts)
+    cols = ["owner_name", "norm", "cik", "sec_name", "n_filings",
+            "first_year", "last_year", "match_type", "match_score"]
+    casts = [pl.col("n_filings").cast(pl.Int64),
+             pl.col("first_year").cast(pl.Int64),
+             pl.col("last_year").cast(pl.Int64)]
+    out_df = exact.select(cols).with_columns(casts)
     if fuzzy_rows:
-        fuzzy = pl.DataFrame(fuzzy_rows).select(cols).with_columns(casts)
-    else:
-        fuzzy = pl.DataFrame(schema=exact_aligned.schema)
-    joined = pl.concat([exact_aligned, fuzzy])
+        out_df = pl.concat([out_df, pl.DataFrame(fuzzy_rows).select(cols).with_columns(casts)])
 
-    out = REPO_ROOT / "data/processed/uspto_sec_crosswalk.parquet"
-    joined.write_parquet(out)
+    dest = PROC / "uspto_sec_crosswalk.parquet"
+    out_df.write_parquet(dest)
+
     n_owners = owners.height
-    n_match = joined["owner_name"].n_unique()
-    n_filings_match = int(joined["n_filings"].sum())
-    n_filings_total = int(owners["n_filings"].sum())
-    n_fuzzy = (joined["match_type"] == "fuzzy").sum()
-    print(
-        f"[done] {n_match:,} matches "
-        f"({n_match - n_fuzzy:,} exact + {n_fuzzy:,} fuzzy) "
-        f"/ {n_owners:,} owners ({n_match / n_owners * 100:.1f}%); "
-        f"covers {n_filings_match:,} / {n_filings_total:,} filings "
-        f"({n_filings_match / n_filings_total * 100:.1f}%)",
-        file=sys.stderr,
-    )
+    n_match = out_df["owner_name"].n_unique()
+    log(f"[done] {n_match:,} matched owner strings / {n_owners:,} owners "
+        f"({n_match / n_owners * 100:.2f}%), {out_df['cik'].n_unique():,} CIKs; "
+        f"covers {int(out_df['n_filings'].sum()):,} of "
+        f"{int(owners['n_filings'].sum()):,} filings")
     return 0
 
 

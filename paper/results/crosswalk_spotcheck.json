@@ -1,0 +1,974 @@
+{
+ "n_matched_owner_strings": 19889,
+ "n_ciks": 7588,
+ "known_firms_matched": 22,
+ "known_firms_tested": 22,
+ "known_firms_missing": [],
+ "known": [
+  {
+   "uspto": "HASBRO, INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 4575,
+   "desc": "[SPLASH 'N PLAY-DOH SOAP] bath soap"
+  },
+  {
+   "uspto": "Pfizer Inc.",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 3214,
+   "desc": "[ALBACAR CALCIUM CARBONATE] Carbonate Pigment for Paints and Plastics, as a Reinforcing Filler in Rubber Stocks, as an Opacifying Agent in Paper, Asbe"
+  },
+  {
+   "uspto": "Microsoft Corporation",
+   "sec": "MICROSOFT CORP",
+   "cik": 789019,
+   "n_filings": 2511,
+   "desc": "[VIVA PI\u00d1ATA] bubble bath; hair shampoo; hair conditioner; liquid bath soap; bath foam; toothpaste; and non-medicated mouthwash and rinse"
+  },
+  {
+   "uspto": "Apple Inc.",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 1201,
+   "desc": "[None] Keyrings of common metal; Metal rings and chains for keys; Metal key chains"
+  },
+  {
+   "uspto": "The Coca-Cola Company",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1140,
+   "desc": "[PLEMAT] chemical additive for use in the manufacture of polyethylene terephthalate bottles"
+  },
+  {
+   "uspto": "General Motors LLC",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 848,
+   "desc": "[DEXRON APPROVED] Transmission fluid, power steering fluid, hydraulic fluid, traction drive fluid"
+  },
+  {
+   "uspto": "GENERAL MOTORS LLC",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 827,
+   "desc": "[AC] SPEEDOMETERS, TACHOMETERS, [ FILM-SPEED INDICATORS, ] AMMETERS, [ PRESSURE-OPERATED GAUGES, ] TEMPERATURE INDICATORS, [ LIQUID-LEVEL INDICATORS, "
+  },
+  {
+   "uspto": "Hasbro, Inc.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 827,
+   "desc": "[JEM AND THE HOLOGRAMS] Make-up"
+  },
+  {
+   "uspto": "PFIZER INC.",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 785,
+   "desc": "[BARBASOL] TOILET POWDER"
+  },
+  {
+   "uspto": "Nike, Inc.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 748,
+   "desc": "[NIKEGEN] footwear gaseous chemical compound for use in the manufacture of footwear"
+  },
+  {
+   "uspto": "GENERAL MOTORS CORPORATION",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 704,
+   "desc": "[INLOCK] ADHESIVE CEMENT"
+  },
+  {
+   "uspto": "APPLE INC.",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 536,
+   "desc": "[None] KEYRINGS"
+  },
+  {
+   "uspto": "MICROSOFT CORPORATION",
+   "sec": "MICROSOFT CORP",
+   "cik": 789019,
+   "n_filings": 528,
+   "desc": "[GEARS OF WAR] Metal key chains"
+  },
+  {
+   "uspto": "Coca-Cola Company, The",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 515,
+   "desc": "[TAB] Bottled Flavored Dietary Soft Drink and Syrup for Making the Same"
+  },
+  {
+   "uspto": "Intel Corporation",
+   "sec": "INTEL CORP",
+   "cik": 50863,
+   "n_filings": 441,
+   "desc": "[INTEL] mugs and water bottles sold empty [ jigsaw puzzles, ] golf balls, golf tees and golf ball markers [ plastic key chain tags ] note paper, note "
+  },
+  {
+   "uspto": "COCA-COLA COMPANY, THE",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 366,
+   "desc": "[BEGINIT] Soy-based food beverage used as milk substitute Non-alcoholic beverages, namely, bottled water, fruit drinks, fruit juices, soft drinks, syr"
+  },
+  {
+   "uspto": "STARBUCKS CORPORATION",
+   "sec": "STARBUCKS CORP",
+   "cik": 829224,
+   "n_filings": 316,
+   "desc": "[VIVANNO] Nutritionally fortified beverages Milk-based beverages containing fruit juice; liquid and powdered beverage mixes used to make milk-based fo"
+  },
+  {
+   "uspto": "General Motors Corporation",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 316,
+   "desc": "[WHEN THE RIGHT WAY IS THE ONLY WAY.] Antifreeze; automobile tire inflator sealers; automobile cooling system rust inhibitors; automobile cooling syst"
+  },
+  {
+   "uspto": "NVIDIA Corporation",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 297,
+   "desc": "[NVIDIA JETRACER] Robots with artificial intelligence, namely, robots for assisting humans with household chores and tasks; humanoid robots with artif"
+  },
+  {
+   "uspto": "THE BOEING COMPANY",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 272,
+   "desc": "[RAINBOE] RAIN REPELLENT FOR AIRCRAFT WINDSHIELDS"
+  },
+  {
+   "uspto": "SALESFORCE, INC.",
+   "sec": "SALESFORCE, INC.",
+   "cik": 1108524,
+   "n_filings": 236,
+   "desc": "[TERRALIGN] Computer software and manuals sold as a unit to model, visualize, design, optimize, and evaluate territorial sales and service forces, and"
+  },
+  {
+   "uspto": "INTEL CORPORATION",
+   "sec": "INTEL CORP",
+   "cik": 50863,
+   "n_filings": 203,
+   "desc": "[INTEL] [ INTEGRATED CIRCUITS, ] REGISTERS, AND SEMICONDUCTOR MEMORIES"
+  },
+  {
+   "uspto": "Starbucks Corporation",
+   "sec": "STARBUCKS CORP",
+   "cik": 829224,
+   "n_filings": 174,
+   "desc": "[ETHOS] Vitamin enriched water; nutritionally fortified water"
+  },
+  {
+   "uspto": "NIKE, INC.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 168,
+   "desc": "[COOPER] Devices and Equipment for Athletics and Sports-Namely,[ Nose and Mouth Guards]; Throat Protectors; Helmets and Replacement Parts and Accessor"
+  },
+  {
+   "uspto": "THE COCA-COLA COMPANY",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 150,
+   "desc": "[COCA-COLA] Lip balm; Lip gloss"
+  },
+  {
+   "uspto": "Pfizer Inc",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 138,
+   "desc": "[UNILITE] bulking agent for use in foods"
+  },
+  {
+   "uspto": "Beyond Meat, Inc.",
+   "sec": "BEYOND MEAT, INC.",
+   "cik": 1655210,
+   "n_filings": 124,
+   "desc": "[BEYOND THE BAR] Protein supplements formed and packaged as bars; high-protein nutritional supplement bars for boosting energy; dietary supplements, n"
+  },
+  {
+   "uspto": "The Boeing Company",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 122,
+   "desc": "[None] Jet Airplane"
+  },
+  {
+   "uspto": "Uber Technologies, Inc.",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 117,
+   "desc": "[EVERYONE'S PRIVATE DRIVER] Telecommunications services, namely, routing calls, SMS messages, and push-notifications to local third-party motorized ve"
+  },
+  {
+   "uspto": "Tesla, Inc.",
+   "sec": "TESLA, INC.",
+   "cik": 1318605,
+   "n_filings": 115,
+   "desc": "[ANAPOZZ] Mineral additives for use in cement, concrete, supplementary cementitious materials, cement and fly ash replacement, soil stabilization, soi"
+  },
+  {
+   "uspto": "Amazon.com, Inc.",
+   "sec": "AMAZON COM INC",
+   "cik": 1018724,
+   "n_filings": 97,
+   "desc": "[AMAZON.COM] COMPUTER SERVICES, NAMELY, PROVIDING DIRECTORIES FOR TELEPHONE NUMBERS, BUSINESS ADDRESSES, ELECTRONIC MAIL ADDRESSES, NETWORK HOME PAGE "
+  },
+  {
+   "uspto": "Boeing Company, The",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 87,
+   "desc": "[BOEING] highway emergency kits, comprised of, emergency first aid kits"
+  },
+  {
+   "uspto": "Netflix, Inc.",
+   "sec": "NETFLIX INC",
+   "cik": 1065280,
+   "n_filings": 81,
+   "desc": "[NETFLIX] Massage oil; massage oil; deodorant for personal use; Eye liner; brow pencils; mascara; nail polish; blush; body powder; make-up powder; con"
+  },
+  {
+   "uspto": "BOEING COMPANY, THE",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 60,
+   "desc": "[TRIBOMASTIC] HIGH TEMPERATURE DRY FILM LUBRICANTS IN A CARRIER, FOR USE IN THE AIRCRAFT INDUSTRY"
+  },
+  {
+   "uspto": "HASBRO INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 55,
+   "desc": "[PARCHEESI] BOARD AND COUNTER GAMES"
+  },
+  {
+   "uspto": "NVIDIA CORPORATION",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 53,
+   "desc": "[NVIDIA] integrated circuits"
+  },
+  {
+   "uspto": "Salesforce, Inc.",
+   "sec": "SALESFORCE, INC.",
+   "cik": 1108524,
+   "n_filings": 50,
+   "desc": "[None] Software recorded on computer media, downloadable cloud-based software, downloadable software, and downloadable software applications for mobil"
+  },
+  {
+   "uspto": "TESLA, INC.",
+   "sec": "TESLA, INC.",
+   "cik": 1318605,
+   "n_filings": 48,
+   "desc": "[TESLA] Photovoltaic equipment for use in collecting solar energy and converting said solar energy into electricity, namely, solar powered electricity"
+  },
+  {
+   "uspto": "Airbnb, Inc.",
+   "sec": "AIRBNB, INC.",
+   "cik": 1559720,
+   "n_filings": 45,
+   "desc": "[AIRBNB] computer application messaging software for mobile phones, portable media players, handheld computers and related mobile devices, namely, sof"
+  },
+  {
+   "uspto": "AIRBNB, INC.",
+   "sec": "AIRBNB, INC.",
+   "cik": 1559720,
+   "n_filings": 40,
+   "desc": "[IMPULSE DEALS] Computer application software for mobile phones and mobile digital devices, namely, software feature that allows users to find, resear"
+  },
+  {
+   "uspto": "Peloton Interactive, Inc.",
+   "sec": "PELOTON INTERACTIVE, INC.",
+   "cik": 1639825,
+   "n_filings": 38,
+   "desc": "[PELOTON] Non-medicated skin care preparations, skin cleansers, haircare preparations, body lotion"
+  },
+  {
+   "uspto": "Snowflake Inc.",
+   "sec": "SNOWFLAKE INC.",
+   "cik": 1640147,
+   "n_filings": 38,
+   "desc": "[SNOWPARK] Software as a service (SAAS) services, namely, hosting software for use by others for use to facilitate the customization of cloud data pla"
+  },
+  {
+   "uspto": "PELOTON INTERACTIVE, INC.",
+   "sec": "PELOTON INTERACTIVE, INC.",
+   "cik": 1639825,
+   "n_filings": 38,
+   "desc": "[PRECOR] Integrated multi-media information and entertainment systems and control systems for fitness machines, namely, personal viewing screens, vide"
+  },
+  {
+   "uspto": "SNOWFLAKE INC.",
+   "sec": "SNOWFLAKE INC.",
+   "cik": 1640147,
+   "n_filings": 36,
+   "desc": "[YETI SNOWFLAKE] Computer software for advertising, marketing, and commercial transaction data management and analytics"
+  },
+  {
+   "uspto": "PFIZER INC",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 26,
+   "desc": "[VERI-LO] chemical bulking agent for use in the manufacture of foods"
+  },
+  {
+   "uspto": "BEYOND MEAT, INC.",
+   "sec": "BEYOND MEAT, INC.",
+   "cik": 1655210,
+   "n_filings": 24,
+   "desc": "[BEYOND MEAT] Meat substitutes; vegetarian meat products; plant-based meat substitutes"
+  },
+  {
+   "uspto": "HASBRO, INC",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 23,
+   "desc": "[AWESOME TRUCK ADVENTURES] pre-recorded video cassette tapes for children"
+  },
+  {
+   "uspto": "GENERAL MOTORS COMPANY",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 21,
+   "desc": "[None] Metal key rings"
+  },
+  {
+   "uspto": "UBER TECHNOLOGIES, INC.",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 19,
+   "desc": "[UBER CAB] Providing a website featuring information regarding transportation services and bookings for transportation services Providing temporary us"
+  },
+  {
+   "uspto": "PFIZER, INC.",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 18,
+   "desc": "[PANOCELL] BLOOD SPECIMENS CONSISTING OF A SET OF DIAGNOSTIC RE-AGENTS FOR BLOOD TYPING, CROSS-MATCHING, AND ANTIBODY STUDIES"
+  },
+  {
+   "uspto": "Pfizer, Inc.",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 13,
+   "desc": "[L'OR] Perfumes, [Toilet Waters and Brillianti ne]"
+  },
+  {
+   "uspto": "Zoom Video Communications, Inc.",
+   "sec": "ZOOM VIDEO COMMUNICATIONS, INC.",
+   "cik": 1585521,
+   "n_filings": 13,
+   "desc": "[ZOOM ROOMS] Downloadable software for use in the fields of audio teleconferencing, network conferencing services, instant messaging services, telepho"
+  },
+  {
+   "uspto": "NIKE, Inc.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 9,
+   "desc": "[PHYSICAL GAMING] Entertainment Services namely, providing interactive online computer and video games FOOTWEAR AND APPAREL, Namely T-shirts and caps "
+  },
+  {
+   "uspto": "Coca-Cola Company; The",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 8,
+   "desc": "[COCA-COLA] Containers Made of Metal/Tin"
+  },
+  {
+   "uspto": "NVIDIA GMBH",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 8,
+   "desc": "[MENTAL RAY] computer software for performing computer graphics operations and image rendering, together with instructional manuals and printed instru"
+  },
+  {
+   "uspto": "NETFLIX, INC.",
+   "sec": "NETFLIX INC",
+   "cik": 1065280,
+   "n_filings": 7,
+   "desc": "[NETFLICKS] Rental of pre-recorded music, pre-recorded videos, musical recordings, and computer games Retail store services and computerized on-line r"
+  },
+  {
+   "uspto": "Nike, Inc",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 5,
+   "desc": "[AIR JORDAN FLIGHT CLUB] Dog apparel; Dog bellybands; Dog boots; Dog clothing; Dog coats; Dog collars; Dog collars and leads; Dog leads; Dog leashes; "
+  },
+  {
+   "uspto": "HASBRO INC",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 5,
+   "desc": "[TEETHE 'N BIB] cloth bibs"
+  },
+  {
+   "uspto": "AMAZON.COM, INC.",
+   "sec": "AMAZON COM INC",
+   "cik": 1018724,
+   "n_filings": 4,
+   "desc": "[INSTANTLAN] Computer software for providing connections for the communication of information between consumer appliances such as televisions and elec"
+  },
+  {
+   "uspto": "Apple Inc",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 4,
+   "desc": "[IPOD SOCKS] Cases and bags specifically adapted for carrying computers and consumer electronics, namely, portable and handheld digital electronic dev"
+  },
+  {
+   "uspto": "HASBRO,INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 4,
+   "desc": "[PLAYSKOOL] [ CHILDREN'S FURNITURE ] EDUCATIONAL TOYS, WHEELED TOYS, VEHICULAR TOYS, TOY CONSTRUCTION AND BUILDING SETS, CHILDREN'S TOY FURNITURE, DOL"
+  },
+  {
+   "uspto": "Uber Technologies Inc.",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 3,
+   "desc": "[UBERCAR] Telecommunications services, namely, routing calls, SMS messages, and push-notifications to local third-party motorized vehicle dispatchers "
+  },
+  {
+   "uspto": "Snowflake, Inc.",
+   "sec": "SNOWFLAKE INC.",
+   "cik": 1640147,
+   "n_filings": 3,
+   "desc": "[SNOWFLAKE SUMMIT] Educational services, namely, conducting conferences, labs, seminars and workshops in the fields of data, analytics and cloud manag"
+  },
+  {
+   "uspto": "COCA-COLA COMPANY",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 3,
+   "desc": "[SANTIBA CLUB SODA WITH A HINT OF LEMON] CLUB SODA"
+  },
+  {
+   "uspto": "Peloton Interactive Inc.",
+   "sec": "PELOTON INTERACTIVE, INC.",
+   "cik": 1639825,
+   "n_filings": 3,
+   "desc": "[P] Decals Clothing, namely, tops, bottoms, [legwarmers, scarves, ] sweatbands, sports bras; headwear; footwear"
+  },
+  {
+   "uspto": "MICROSOFT",
+   "sec": "MICROSOFT CORP",
+   "cik": 789019,
+   "n_filings": 3,
+   "desc": "[FLIPGRID.] Computer software that enables online hosting and facilitation of discussion through the use of short text-based prompts, video response r"
+  },
+  {
+   "uspto": "Uber Technologies, LLC",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 2,
+   "desc": "[UBERTECH] Engineering design services; Engineering drawing services; Engineering services, namely, engineering for the vehicle tracking industry, nam"
+  },
+  {
+   "uspto": "Pfizer Inc,",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 2,
+   "desc": "[SOTERINIM] Pharmaceutical preparations for the treatment of cardiovascular, central nervous system, endocrine, gastrointestinal, genetic immunologica"
+  },
+  {
+   "uspto": "nVidia Corporation",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 2,
+   "desc": "[VANTA] Integrated circuit components for graphics and video systems, namely, multimedia accelerators, graphic accelerators and associated computer so"
+  },
+  {
+   "uspto": "NIKE INC",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 2,
+   "desc": "[AIR DESCHUTZ] footwear"
+  },
+  {
+   "uspto": "NIKE, Inc",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 2,
+   "desc": "[AIR JORDAN] leather and imitation leather bags; animal skins; trunks being luggage and suitcases; umbrellas, walking sticks; wallets, bags of leather"
+  },
+  {
+   "uspto": "Pfizer Inc.,",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 2,
+   "desc": "[ETRELAN] veterinary preparations for cats and dogs"
+  },
+  {
+   "uspto": "Amazon.com, Inc",
+   "sec": "AMAZON COM INC",
+   "cik": 1018724,
+   "n_filings": 2,
+   "desc": "[STW] Computerized searching, ordering and on-line retail and wholesale distributorship services featuring goods and services of others; providing acc"
+  },
+  {
+   "uspto": "Nvidia Corporation",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 2,
+   "desc": "[TESLA] Computer hardware; integrated circuits; semiconductors; computer chipsets; micro-processors; computer software for operation of integrated cir"
+  },
+  {
+   "uspto": "Pfizer Limited",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 2,
+   "desc": "[CREDIMA] Pharmaceutical preparations for the treatment of cancer"
+  },
+  {
+   "uspto": "Hasbro, Inc",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 2,
+   "desc": "[LITTLE DREAMER] Toys, games and playthings, namely, dolls; plush toys; stuffed toys"
+  },
+  {
+   "uspto": "NIKE, INC",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 2,
+   "desc": "[NIKE] pouches for carrying school materials [ binders, student planners, notebooks, portfolio covers ]"
+  },
+  {
+   "uspto": "NIke, Inc.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[POWERSONG] Retail store services and on-line retail store services featuring computer peripherals, computer hardware, electronic devices, namely, dat"
+  },
+  {
+   "uspto": "COCA COLA COMPANY, THE",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[PRIMA DONNA] FRESH CITRUS FRUIT"
+  },
+  {
+   "uspto": "APPLE, INC.",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 1,
+   "desc": "[APPLE] operation of residential and outpatient facilities providing substance abuse treatment and support services, medical care, counseling and educ"
+  },
+  {
+   "uspto": "MODERNA, INC.",
+   "sec": "MODERNA, INC.",
+   "cik": 1682852,
+   "n_filings": 1,
+   "desc": "[HILLSIDE COTTAGE FURNITURE CO.] Complete furniture line including but not limited to tables, chairs, bars, armoires, beds, dressers, home offices, de"
+  },
+  {
+   "uspto": "Coca-Cola Company, The,",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[OWN THE POWER] Non-alcoholic soft drinks, powders, syrups and concentrates used for making soft drink"
+  },
+  {
+   "uspto": "Coca-Cola Company The",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[COKE] salt/pepper shakers, [ sugar shakers, straw dispensers, ] toothpick dispensers [,  ] * and * napkin dispensers[,  and ice buckets ]"
+  },
+  {
+   "uspto": "Nike, Inc,",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[AIR ZOOM] Footwear"
+  },
+  {
+   "uspto": "Coca-Cola Company, the",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[CASH CAPS] PROMOTIONAL GAMES INVOLVING BOTTLE CAPS"
+  },
+  {
+   "uspto": "Apple, Inc.",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 1,
+   "desc": "[PRIMEPHONIC] Entertainment services in the nature of live musical performances; Cultural activities, namely, orchestra services and symphony orchestr"
+  },
+  {
+   "uspto": "UBER TECHNOLOGIES, INC,",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 1,
+   "desc": "[UBER MD] Medical services"
+  },
+  {
+   "uspto": "Hasbro, Inc.,",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 1,
+   "desc": "[GAMES.COM] CLOTHING, NAMELY, SHIRTS, OUTERWEAR, PANTS, UNDERGARMENTS, SKIRTS, DRESSES, BATHING SUITS, GYM SUITS, BELTS, VESTS, JACKETS, CAPES, SWEAT "
+  },
+  {
+   "uspto": "HASBRO. INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 1,
+   "desc": "[ADVANCED SQUAD LEADER] board games, parlor games"
+  },
+  {
+   "uspto": "ZOOM VIDEO COMMUNICATIONS, INC.",
+   "sec": "ZOOM VIDEO COMMUNICATIONS, INC.",
+   "cik": 1585521,
+   "n_filings": 1,
+   "desc": "[ZOOM] [ Provision of telecommunication connections to a global computer network ] Telecommunications and Computer Peripheral Products, namely, Wide A"
+  },
+  {
+   "uspto": "Nike. Inc.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[INNOVATE FOR A BETTER WORLD] Entertainment services, namely, arranging, organizing, operating and conducting an array of athletic and sports activiti"
+  },
+  {
+   "uspto": "HASBRO,  INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 1,
+   "desc": "[CLUE] interactive mystery storybooks"
+  },
+  {
+   "uspto": "PFIZER, INC",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 1,
+   "desc": "[None] antihypertensive preparation with no adverse effects on lipids and with beneficial effects in concomitant conditions"
+  },
+  {
+   "uspto": "Coca-Cola Company. The",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[EAT SOCCER, SLEEP SOCCER, DRINK COCA-COLA] Plastic squeeze bottles sold empty, and portable coolers Non-alcoholic beverages, namely soft drinks, powd"
+  },
+  {
+   "uspto": "HASBRO,. INC.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 1,
+   "desc": "[PLAY PYRAMID] Toys, games and playthings, namely, toy vehicles and accessories for use therewith; toy action figures and accessories for use therewit"
+  },
+  {
+   "uspto": "Apple Corporation",
+   "sec": "APPLE INC",
+   "cik": 320193,
+   "n_filings": 1,
+   "desc": "[S.W.A.T. SECURITY WATCH ALERT TEAM] patrolled security guard services"
+  },
+  {
+   "uspto": "GENERAL MOTORS CORPORATION,",
+   "sec": "GENERAL MOTORS CO",
+   "cik": 1467858,
+   "n_filings": 1,
+   "desc": "[NDUR-300] BALL AND ROLLER ANTI-FRICTION BEARINGS"
+  },
+  {
+   "uspto": "THE COCA COLA COMPANY",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[COCA-COLA] BEVERAGES AND SYRUPS FOR THE MANUFACTURE OF SUCH BEVERAGES"
+  },
+  {
+   "uspto": "Nike, inc.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[THE EYES LEAD THE BODY] Optical frames, eyeglasses, sunglasses, eyeglass lenses, sunglass lenses, contact lenses, protective eyewear, eyewear accesso"
+  },
+  {
+   "uspto": "TESLA COMPANY, THE",
+   "sec": "TESLA, INC.",
+   "cik": 1318605,
+   "n_filings": 1,
+   "desc": "[WHATS-IT] SPOON HOLDER"
+  },
+  {
+   "uspto": "Hasbro Inc.",
+   "sec": "HASBRO INC",
+   "cik": 46080,
+   "n_filings": 1,
+   "desc": "[G.I. JOE] Toy Military Kits"
+  },
+  {
+   "uspto": "salesforce, inc.",
+   "sec": "SALESFORCE, INC.",
+   "cik": 1108524,
+   "n_filings": 1,
+   "desc": "[BUGFORCE] application service provider (ASP), featuring computer software application development tools and computer software of others for tracking "
+  },
+  {
+   "uspto": "NIKE INC.",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[AIR BOHEMIAN] footwear"
+  },
+  {
+   "uspto": "NIKE , INC",
+   "sec": "NIKE, INC.",
+   "cik": 320187,
+   "n_filings": 1,
+   "desc": "[None] pouches for carrying school materials [ binders, student planners, notebooks, portfolio covers ]"
+  },
+  {
+   "uspto": "NVidia Corporation",
+   "sec": "NVIDIA CORP",
+   "cik": 1045810,
+   "n_filings": 1,
+   "desc": "[DRIVING MULTIMEDIA TO THE LIMITS OF HUMAN PERCEPTION] integrated circuits"
+  },
+  {
+   "uspto": "UBER TECHNOLOGIES INC.",
+   "sec": "UBER TECHNOLOGIES, INC",
+   "cik": 1543151,
+   "n_filings": 1,
+   "desc": "[UBER CUTS] Barbering services; Beauty care services; Hair coloring services; Hair cutting; Hair salon services; Hair styling"
+  },
+  {
+   "uspto": "Peloton Interactive LLC",
+   "sec": "PELOTON INTERACTIVE, INC.",
+   "cik": 1639825,
+   "n_filings": 1,
+   "desc": "[PELOTON I N T E R A C T I V E] Computers and downloadable software for monitoring and analyzing various parameters associated with the operation of a"
+  },
+  {
+   "uspto": "Boeing Corporation, The",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 1,
+   "desc": "[None] highway emergency kits, comprised of, emergency first aid kits"
+  },
+  {
+   "uspto": "COCA}COLA COMPANY, THE",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[BREAKFAST CLUB] COFFEE"
+  },
+  {
+   "uspto": "COCA COLA}COMPANY, THE",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[TEDDY SNOW CROP] FROZEN FRUIT JUICES"
+  },
+  {
+   "uspto": "Intel-Corporation",
+   "sec": "INTEL CORP",
+   "cik": 50863,
+   "n_filings": 1,
+   "desc": "[FINDANSWERS] technical assistance and consultation services in support of personal computers used in the home and small business environments"
+  },
+  {
+   "uspto": "Coca Cola Company, The",
+   "sec": "COCA COLA CO",
+   "cik": 21344,
+   "n_filings": 1,
+   "desc": "[COCA-COLA] [ NUTRIENT OR ] TONIC BEVERAGES"
+  },
+  {
+   "uspto": "BOEING COMPANY, INC.",
+   "sec": "BOEING CO",
+   "cik": 12927,
+   "n_filings": 1,
+   "desc": "[M757] [ TIRES AND TUBES ] * TRUCK AND BUS TIRES *"
+  },
+  {
+   "uspto": "TESLA, LLC",
+   "sec": "TESLA, INC.",
+   "cik": 1318605,
+   "n_filings": 1,
+   "desc": "[TESLA] Charging stations for electric vehicles; RFID readers; RFID tags worn by pets that activate pet care devices; Signs, luminous; Backlit signs; "
+  },
+  {
+   "uspto": "MICROSOFT  CORPORATION",
+   "sec": "MICROSOFT CORP",
+   "cik": 789019,
+   "n_filings": 1,
+   "desc": "[VIDEOFLASH] computer communications services; electronic on-line services providing a communications link to global interactive networks for the tran"
+  },
+  {
+   "uspto": "PFIZER INC.,",
+   "sec": "PFIZER INC",
+   "cik": 78003,
+   "n_filings": 1,
+   "desc": "[ENTERESE] ANTICHOLINERGIC PREPARATION"
+  }
+ ],
+ "us_state_available": 17682,
+ "random_sample": [
+  {
+   "uspto": "Mine Safety Appliances Company",
+   "sec": "MINE SAFETY APPLIANCES CO",
+   "n_filings": 159,
+   "desc": "((Air Purifying Compositions, )) Ammonia Inhalants, Preparations for Exterior Applications for Treatment of Bu"
+  },
+  {
+   "uspto": "Axsome Therapeutics, Inc.",
+   "sec": "AXSOME THERAPEUTICS, INC.",
+   "n_filings": 57,
+   "desc": "Bioavailability enhancing molecular complex as an intermediate product for use in the manufacture of pharmaceu"
+  },
+  {
+   "uspto": "Compuware Corporation",
+   "sec": "COMPUWARE CORP",
+   "n_filings": 56,
+   "desc": "Computer consulting services methodoloqy for managing the maintenance and enhancements to systems applications"
+  },
+  {
+   "uspto": "Tecumseh Products Company",
+   "sec": "TECUMSEH PRODUCTS CO",
+   "n_filings": 42,
+   "desc": "Industrial and general purpose lubricants"
+  },
+  {
+   "uspto": "Halliburton Company",
+   "sec": "HALLIBURTON CO",
+   "n_filings": 37,
+   "desc": "Well Fluid Additive for Use in Oil and Gas Well Drilling"
+  },
+  {
+   "uspto": "Alimera Sciences, Inc.",
+   "sec": "ALIMERA SCIENCES INC",
+   "n_filings": 27,
+   "desc": "Ophthalmic preparation"
+  },
+  {
+   "uspto": "McCormick & Company, Inc.",
+   "sec": "MCCORMICK & CO INC",
+   "n_filings": 27,
+   "desc": "jams and jellies"
+  },
+  {
+   "uspto": "FalconStor Software, Inc.",
+   "sec": "FALCONSTOR SOFTWARE INC",
+   "n_filings": 25,
+   "desc": "computer software for use in data storage and data management"
+  },
+  {
+   "uspto": "BIO-TECHNE CORPORATION",
+   "sec": "BIO-TECHNE CORP",
+   "n_filings": 24,
+   "desc": "HEMATOLOGY CONTROL REAGENTS FOR LABORATORY USE"
+  },
+  {
+   "uspto": "Outfront Media LLC",
+   "sec": "OUTFRONT MEDIA INC.",
+   "n_filings": 21,
+   "desc": "Advertising agencies; advertising; [ commercial information agencies; ] publicity consultation; [ publicity ag"
+  },
+  {
+   "uspto": "Factset Research Systems Inc.",
+   "sec": "FACTSET RESEARCH SYSTEMS INC",
+   "n_filings": 17,
+   "desc": "providing an online computer database that integrates and allows viewing of financial news providing an online"
+  },
+  {
+   "uspto": "TALEND",
+   "sec": "TALEND SA",
+   "n_filings": 14,
+   "desc": "Computer software for data processing, namely, data management, data integration, master data management, data"
+  },
+  {
+   "uspto": "Intellia Therapeutics, Inc.",
+   "sec": "INTELLIA THERAPEUTICS, INC.",
+   "n_filings": 13,
+   "desc": "Scientific and medical research, and bioinformatic algorithms and models in the fields of gene, genome and cel"
+  },
+  {
+   "uspto": "Loxo Oncology, Inc.",
+   "sec": "LOXO ONCOLOGY, INC.",
+   "n_filings": 12,
+   "desc": "pharmaceutical preparations for the treatment of cancer, autoimmune disease and immunologic-based disease; the"
+  },
+  {
+   "uspto": "CLECO CORPORATE HOLDINGS LLC",
+   "sec": "CLECO CORPORATE HOLDINGS LLC",
+   "n_filings": 12,
+   "desc": "PUBLIC UTILITY SERVICES IN THE NATURE OF ELECTRICITY DISTRIBUTION RETAIL STORE SERVICES FEATURING LIGHTING; PR"
+  },
+  {
+   "uspto": "THE TRADE DESK, INC.",
+   "sec": "TRADE DESK, INC.",
+   "n_filings": 10,
+   "desc": "Downloadable videos in the field of advertising providing an online platform for streaming videos in the field"
+  },
+  {
+   "uspto": "LIGHTSPEED COMMERCE INC.",
+   "sec": "Lightspeed Commerce Inc.",
+   "n_filings": 9,
+   "desc": "Point of sale software for retail store sales management, payment processing, customer relationship management"
+  },
+  {
+   "uspto": "AerSale, Inc.",
+   "sec": "AERSALE CORP",
+   "n_filings": 9,
+   "desc": "Aircraft parts, namely, enhanced positional awareness systems for automatic dependent surveillance broadcast c"
+  },
+  {
+   "uspto": "NextCure, Inc.",
+   "sec": "NEXTCURE, INC.",
+   "n_filings": 7,
+   "desc": "Research and development in the field of cancer and other diseases and conditions; research and development in"
+  },
+  {
+   "uspto": "Regis Corp.",
+   "sec": "REGIS CORP",
+   "n_filings": 6,
+   "desc": "Hair conditioners; Hair gels; Hair shampoo; Hair styling spray; Hair wax"
+  },
+  {
+   "uspto": "Redwood Trust, Inc.",
+   "sec": "REDWOOD TRUST INC",
+   "n_filings": 6,
+   "desc": "financial investment in the fields of real estate mortgage loans"
+  },
+  {
+   "uspto": "Tango Therapeutics, Inc.",
+   "sec": "TANGO THERAPEUTICS, INC.",
+   "n_filings": 3,
+   "desc": "pharmaceutical and therapeutic preparations for the treatment of cancer research and development of pharmaceut"
+  },
+  {
+   "uspto": "Walter Investment Management Corp.",
+   "sec": "WALTER INVESTMENT MANAGEMENT CORP",
+   "n_filings": 3,
+   "desc": "Real estate mortgage banking and lending services; mortgage banking services, namely, servicing, managing, pur"
+  },
+  {
+   "uspto": "PositiveID Corporation",
+   "sec": "POSITIVEID CORP",
+   "n_filings": 3,
+   "desc": "Molecular diagnostic apparatus for the detection of nucleic acids, pathogens and toxins for laboratory or rese"
+  },
+  {
+   "uspto": "Micros Systems, Inc.",
+   "sec": "MICROS SYSTEMS INC",
+   "n_filings": 3,
+   "desc": "Electronic Cash Registers"
+  }
+ ]
+}
