@@ -1,6 +1,6 @@
-# End-to-end build for the novelty trademark paper.
+# End-to-end build for the trademark vocabulary paper.
 #
-# A fresh checkout can produce paper/main.pdf with:
+# A fresh checkout can produce paper/ssrn_diffusion_paper.pdf with:
 #     make setup tm sec crosswalk analysis paper
 # or simply:
 #     make all
@@ -8,7 +8,7 @@
 # Each stage is incremental and idempotent: stages 1-3 are heavy data builds
 # (multi-hour) and write sentinel files in data/processed/; stage 4 (analysis)
 # rebuilds the figures, tables, and per-class summaries the paper consumes;
-# stage 5 (paper) compiles main.pdf from the .tex sources and the generated
+# stage 5 (paper) compiles ssrn_diffusion_paper.pdf from the .tex sources and
 # artifacts.
 
 PY      := .venv/bin/python
@@ -16,7 +16,7 @@ DATA    := data/processed
 RES     := paper/results
 PPYTHON := PYTHONPATH=src $(PY)
 
-.PHONY: all venv setup tm sec crosswalk analysis paper figures industry clean clean-results help
+.PHONY: all venv setup tm sec crosswalk analysis gates paper figures industry clean clean-results help
 
 help:
 	@echo "Targets:"
@@ -25,7 +25,8 @@ help:
 	@echo "  sec           download SEC FSDS, parse to firm-year financials"
 	@echo "  crosswalk     USPTO owner_name <-> SEC CIK match"
 	@echo "  analysis      regenerate every figure, table, and per-class summary"
-	@echo "  paper         compile paper/main.pdf"
+	@echo "  gates         regenerate the gate robustness checks"
+	@echo "  paper         compile paper/ssrn_diffusion_paper.pdf"
 	@echo "  industry      regenerate the per-industry appendix .tex fragments"
 	@echo "  all           setup + tm + sec + crosswalk + analysis + paper"
 	@echo "  clean         remove LaTeX intermediates"
@@ -138,7 +139,32 @@ FIGURES := \
   $(RES)/big_firm_kl_v2.tex \
   $(RES)/per_industry_appendix.tex
 
+# Gate robustness checks. Each reads the scored parquets directly and is
+# independent of the others, so they can be built in any order.
+GATE_CHECKS := \
+  $(RES)/gate_duration.json \
+  $(RES)/gate_censoring_check.json \
+  $(RES)/gate_prewindow_check.json \
+  $(RES)/gate_era_profile.png \
+  $(RES)/tie_rule_check.json \
+  $(RES)/window_sweep_rolling.json
+
+$(RES)/gate_duration.json: scripts/gate_duration.py
+	$(PPYTHON) $<
+$(RES)/gate_censoring_check.json: scripts/gate_censoring_check.py
+	$(PPYTHON) $<
+$(RES)/gate_prewindow_check.json: scripts/gate_prewindow_check.py
+	$(PPYTHON) $<
+$(RES)/gate_era_profile.png: scripts/gate_era_profile.py
+	$(PPYTHON) $<
+$(RES)/tie_rule_check.json: scripts/tie_rule_check.py
+	$(PPYTHON) $<
+$(RES)/window_sweep_rolling.json: scripts/window_sweep_rolling.py
+	$(PPYTHON) $<
+
 analysis: $(FIGURES)
+
+gates: $(GATE_CHECKS)
 
 figures: analysis
 
@@ -147,19 +173,15 @@ industry: $(RES)/per_industry_appendix.tex
 # ---------------------------------------------------------------------------
 # Stage 5: paper
 # ---------------------------------------------------------------------------
-paper: paper/main.pdf paper/short.pdf
-paper/main.pdf: paper/main.tex $(FIGURES)
-	cd paper && pdflatex -interaction=nonstopmode main.tex
-	cd paper && pdflatex -interaction=nonstopmode main.tex
-paper/short.pdf: paper/short.tex \
-                 $(RES)/outcome_by_kl_lines_v2.png \
-                 $(RES)/u_shape_industry_year_table.tex \
-                 $(RES)/competition_density.png
-	cd paper && pdflatex -interaction=nonstopmode short.tex
-	cd paper && pdflatex -interaction=nonstopmode short.tex
+paper: paper/ssrn_diffusion_paper.pdf
+paper/ssrn_diffusion_paper.pdf: paper/ssrn_diffusion_paper.tex \
+                                paper/section_construct.tex \
+                                $(FIGURES) $(GATE_CHECKS)
+	cd paper && pdflatex -interaction=nonstopmode ssrn_diffusion_paper.tex
+	cd paper && pdflatex -interaction=nonstopmode ssrn_diffusion_paper.tex
 
 # ---------------------------------------------------------------------------
-all: setup tm sec crosswalk analysis paper
+all: setup tm sec crosswalk analysis gates paper
 
 clean:
 	rm -f paper/main.aux paper/main.log paper/main.out paper/main.toc

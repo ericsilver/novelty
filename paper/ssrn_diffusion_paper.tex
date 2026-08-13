@@ -49,11 +49,14 @@ within-class-cohort quintile than in the bottom, about 53.3\% against 51.9\%
 on a 52.3\% base, over 3.10 million registrations with class$\times$cohort
 fixed effects, owner-clustered errors, and drafting and filer controls
 ($t = 8.3$). Almost all of it sits in the top quintile rather than
-accumulating across the range. The penalty is absent in the earliest
-cohorts, present in every cohort from 2008 through 2019, and cannot yet be
-evaluated after that: the cancellation record ends in April 2026 and gate
-outcomes post at about age six and a half, so no later cohort has reached
-its gate. At the firm level the ordering runs the same way and it is the
+accumulating across the range. It is present in every cohort from 2008
+through 2019 and cannot be evaluated after that, because the cancellation
+record ends in April 2026 and gate outcomes post at about age six and a
+half. It is also episodic rather than structural: carried back to the first
+scoreable cohorts the penalty is two to three times larger than anything
+since, vanishes for marks filed 2000--2004, and returns from 2008, with the
+whole swing concentrated in technology classes and a small steady penalty
+everywhere else. At the firm level the ordering runs the same way and it is the
 \emph{lagging} tail that stands out --- among registered debut owners,
 0.44\% of the most lagging fifth later appear in SEC financial-reporting
 records against 0.24\% in the middle and 0.39\% of the most leading fifth.
@@ -261,10 +264,13 @@ years more conservative than the measured burn-in requires
 cancellation record runs to April 2026 and the failure window closes at
 registration age 8.5 years, so 2018 is the last cohort whose window has
 essentially elapsed --- the top of that range is fractionally censored, and
-a separate 2019 replication is reported below. They begin in 2002 for a
-weaker reason: it is a conventional cut that predates any of the reported
-results, and the 2002--2007 third is in any case the one third in which the
-penalty is smallest. Nothing in the paper turns on the lower bound.
+a separate 2019 replication is reported below. They begin in 2002 because
+that is a conventional cut inherited from an earlier build, and that lower
+bound turns out to matter: carried back to the first scoreable cohorts the
+penalty is two to three times larger than it has ever been since, and
+Section~\ref{sec:eras} reports what the restricted window concealed. The
+estimates below are stated for 2002--2018 as constructed; the wider series
+changes their interpretation rather than their values.
 
 The funnel (Table~\ref{tab:funnel}) fixes the paper's reading of each
 step. Registration is a launch indicator rather than an examiner
@@ -444,19 +450,19 @@ international registration into the US under the Madrid Protocol
 statutory routes to the same registration, and they differ sharply in who
 files and how often the mark is abandoned, which is why each enters as a
 control.} and standard errors clustered on 1.27
-million normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties matter more here than
-they usually do. About 2.7\% of scored filings share a \dkl{} value with another
-filing, and the largest tie group runs to fourteen. Ties were far commoner
-under class-year reference windows, where boilerplate text scored against a
-shared reference produced identical values by the thousand; anchoring the
-window on the filing date all but removes them.
-Quintile cut points are therefore fixed by sorting on the score and then
-on the serial number, so the assignment is reproducible. Splitting a tie
-group across a boundary remains arbitrary; re-estimating under a rank
-rule that keeps tied filings together, at the cost of unequal quintiles,
-moves the top-versus-bottom contrast by at most 0.03pp in the pooled and
-stratum specifications, and by up to 0.21pp in the thinner cohort
-thirds.}
+million normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties are
+common. Within the class$\times$cohort cell the quintiles are cut in,
+$17.1$\% of scored registrations share a \dkl{} value with at least one
+other filing, and the largest tie group runs to 53. Anchoring the reference
+window on the filing date does not remove them, because filings that share a
+class, a filing date and a goods/services description --- an owner
+registering a family of marks at once, on Manual language --- have identical
+distributions scored against identical references. Cut points are fixed by
+sorting on the score and then on the serial number, which is reproducible
+but systematic: serials run in filing order. It makes no difference. Sorting
+the ties the opposite way moves the top-versus-bottom contrast by $0.001$pp,
+and five pseudorandom orderings move it by at most $0.002$pp, against a
+contrast of $2.287$pp --- a tenth of one percent of the estimate.}
 
 \begin{table}[h]\centering\small
 \caption{First-gate failure and \dkl{}: design-based estimates.
@@ -539,9 +545,11 @@ figure.}
 \label{fig:forest}
 \end{figure}
 
-The penalty is modern. It is indistinguishable from zero for the
-2002--2005 cohorts, turns positive in 2006, and runs $+1.8$ to $+5.4$pp
-for every cohort from 2008 onward (Figure~\ref{fig:cohort}).
+Within the 2002--2018 window the penalty looks modern: indistinguishable
+from zero for the 2002--2005 cohorts, turning positive in 2006, and running
+$+1.8$ to $+5.4$pp for every cohort from 2008 onward
+(Figure~\ref{fig:cohort}). That reading does not survive carrying the series
+back, and Section~\ref{sec:eras} replaces it.
 
 The series does not stop there because the effect stops; it stops because
 the record does. The gate is close to a fixed appointment rather than a
@@ -558,29 +566,31 @@ $+5.58$pp (2019) with no trend across the decade: a trough of $+2.24$ in
 intervals overlap. The 2019 reading, $+5.58$pp $\pm 1.10$, is the largest in
 the series but rests on the 78{,}408 registrations issued early enough in
 that year to have reached seven years inside the record, so it is a
-first-quarter subsample rather than a cohort.\footnote{Comparing cohorts on
-the narrow band rather than on the full 4.0--8.5 window drops 3.9\% of the
-failures and moves the estimates little: on identical samples the narrow
-band runs $+0.13$pp high on average and $+0.40$pp at most (2013, $+4.30$
-against $+3.90$; 2012, $+4.71$ against $+4.69$). That the gap is
-systematically positive is itself informative --- the late-posting failures
-carry a \emph{negative} lead contrast, so leading marks that fail tend to
-fail on schedule while lagging ones fail late. The fixed-window indicator
-therefore mixes failure rate with failure timing, and separating them would
-require a duration model rather than a linear probability model on a window
-dummy.}
+first-quarter subsample rather than a cohort.
+
+Because the outcome is an indicator on a window, the regressor could in
+principle be predicting when marks fail rather than whether they do, and a
+fixed window would record the first as though it were the second. It is not.
+On the 3.15 million registrations whose ninth anniversary is inside the
+record --- for which failure is settled and no window is needed --- the
+contrast is $+2.71$pp within class and cohort, against $+2.65$pp on the
+paper's 4.0--8.5 window and $+2.65$pp on the narrow band. The three agree to
+within $0.06$pp. Conditional on failing, the probability of failing late
+carries a contrast of $-0.01$pp ($t = -0.2$) once class and cohort are
+absorbed: there is no schedule effect to separate out. The pooled version of
+that timing contrast is $+0.27$pp and is composition.
 
 The filer population also changed over exactly this period, which is why
 the cohort thirds of Table~\ref{tab:gate_lpm} matter. \emph{Within}
 counsel-represented US-domiciled owners, and with the full control set,
 the earliest third is indistinguishable from zero and in fact slightly
 negative ($-0.25$pp, SE $0.33$), while the two later thirds are clearly
-positive ($+2.00$pp and $+2.65$pp). The leading gate risk is therefore a
-feature of the post-2008 filing economy itself, not of the post-2015
-surge in self-filed and foreign applications, and it predates the
-pandemic by a decade. That the effect is absent rather than merely smaller
-before 2008 is a stronger statement than the annual-bucket version of this
-table supported, where the same third read $+1.04$pp.
+positive ($+2.00$pp and $+2.65$pp). So the gradient inside this window is
+not an artefact of the post-2015 surge in self-filed and foreign
+applications: it is present among counsel-represented US owners and
+predates the pandemic by a decade. What it is not is a property of the
+post-2008 filing economy specifically, which is what the same passage
+claimed while the series began in 2002.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.8\textwidth]{results/event_gate_cohort_curve_extended.png}
@@ -593,6 +603,73 @@ cancellations post at about age six and a half and the record ends in April
 2026, so later cohorts have not reached their gate rather than having
 passed it.}
 \label{fig:cohort}
+\end{figure}
+
+\subsection{The penalty is not modern, and it is not general}\label{sec:eras}
+
+The 2002 start was inherited rather than chosen, and it turns out to have
+been concealing the largest instance of the effect. Scores exist from 1995
+on, which makes registration cohorts from 1996 evaluable, and their gate
+outcomes have been settled for two decades. Carried back, the contrast runs
+$+6.9$pp for the 1996 cohort and rises to $+10.1$pp for 1999 --- two to
+three times anything observed since --- then collapses. The 2002--2005
+cohorts the paper had been reading as a quiet baseline are a trough between
+two episodes, and one of them is the larger.
+
+Two things could produce a spurious early result, and neither does. Scores
+begin in 1995, so a registration in the 1996 cohort must have issued within
+a year of filing, which is unusually fast; early cohorts are therefore
+selected on prosecution speed, and speed plausibly travels with drafting in
+standard language. Holding pendency inside a common one-to-three-year band
+leaves the series essentially unchanged ($+7.1$, $+8.6$, $+9.5$, $+10.8$,
+$+10.0$ for 1996--2000). Indexing by filing year instead, so that a cohort
+contains its registrations at every prosecution speed, gives $+7.9$ to
+$+9.6$pp for filings 1995--1999 and then $-0.95$pp for filings made in 2000
+--- a ten-point swing in a single filing year.
+
+The effect is also not spread evenly across the economy. Splitting the four
+classes that carry most technology filings --- 009, 035, 038 and 042 ---
+against the other forty-one separates a large moving component from a small
+steady one (Figure~\ref{fig:eras}):
+
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+Filing years & Technology classes & All others \\
+\midrule
+1995--1999 & $+14.18$ (0.36) & $+4.48$ (0.27) \\
+2000--2004 & $-1.37$ (0.35) & $+1.21$ (0.24) \\
+2005--2007 & $+2.04$ (0.43) & $+1.99$ (0.28) \\
+2008--2014 & $+9.02$ (0.25) & $+1.32$ (0.17) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Outside technology the penalty is a flat $+1$ to $+4$pp in every
+era, including the one in which the pooled series reads as zero. Inside
+technology it swings by fifteen points: strongly positive for filings made
+into the late 1990s, negative for those made in the five years after, and
+positive again from 2008. The pooled null of 2002--2005 is a technology
+reversal partly offsetting a non-technology positive, not an absence.
+
+What this design cannot say is which cycle the swing belongs to. Marks filed
+1995--1999 reach their gate in 2001--2007 and marks filed 2000--2004 reach
+theirs in 2006--2013, so a story in which unusual language is punished
+because it was written during an investment boom and a story in which it is
+punished because the gate falls during a bust both fit these numbers. The
+finding is that the penalty is episodic and concentrated in technology
+classes, not that it is a stable property of unusual language.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.86\textwidth]{results/gate_era_profile.png}
+\caption{The leading gate penalty by registration cohort, technology classes
+against all others, raw quintile contrasts with 95\% intervals. Cohorts are
+restricted to registrations whose ninth anniversary is inside the record, so
+every outcome shown is settled. Outside technology the penalty is small and
+almost flat across two decades; inside technology it swings from $+16$pp for
+the 2000 cohort to $-3$pp for 2003 and back to $+12$pp for 2012. The dotted
+line marks where the paper's cohort series previously began.}
+\label{fig:eras}
 \end{figure}
 
 Levels and gradients separate cleanly across filer strata. Self-filers
