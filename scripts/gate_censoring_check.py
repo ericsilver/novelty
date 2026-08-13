@@ -1,7 +1,7 @@
 """How far forward can the gate result actually be carried, and is 2019 sound?
 
 Gate cancellations do not spread across the 4.0-8.5 year window the analysis
-uses: 89.5% post between age 6.5 and 7.0, and 95% before age 7.0. A cohort is
+uses: 96.1% post between age 6.5 and 7.0, and essentially none (17 of 1.35M) before 6.5. A cohort is
 therefore only near-complete once reg_date + 7.0y is inside the record, which
 ends 2026-04-02. That puts the last usable cohort at 2019, and it makes the
 "fully elapsed" test used elsewhere (reg + 6.5y <= cut) too lenient: for a
@@ -9,9 +9,9 @@ registration admitted right at that boundary, only the 5% of failures that post
 before age 6.5 are observable.
 
 This script re-estimates the cohort lift on a NARROW window that is fully
-observed for every cohort it reports -- failures at age 6.5-7.0, where 89.5% of them
-post -- so cohorts are compared on identical exposure. It misses the ~10% that
-post earlier or later, so its base rate is slightly below the true gate failure
+observed for every cohort it reports -- failures at age 6.5-7.0, where 96.1% of them
+post -- so cohorts are compared on identical exposure. It misses the 3.9% that
+post after age seven, so its base rate is slightly below the true gate failure
 rate, but it is unbiased across cohorts.
 
 Output: paper/results/gate_censoring_check.json
@@ -33,7 +33,7 @@ RES = REPO / "paper" / "results"
 SRC = os.environ.get("SURPRISE_SRC", "rolling")
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
 EDGE = "2026-04-02"
-NARROW_LO, NARROW_HI = 6.5, 7.0     # where 89.5% of gate cancellations post
+NARROW_LO, NARROW_HI = 6.5, 7.0     # where 96.1% of gate cancellations post
 WIDE_LO, WIDE_HI = 4.0, 8.5         # the paper's window
 
 
@@ -99,7 +99,7 @@ def main() -> int:
 
     out = {"scoring": SRC, "edge": EDGE,
            "narrow_window": [NARROW_LO, NARROW_HI], "wide_window": [WIDE_LO, WIDE_HI],
-           "note": "narrow window captures ~5% of eventual gate failures; "
+           "note": "narrow window captures 96.1% of gate failures; "
                    "only cross-cohort comparison of the lift is meaningful",
            "by_cohort": {}}
 
