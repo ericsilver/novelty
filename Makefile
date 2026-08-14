@@ -44,8 +44,9 @@ setup: .venv/bin/python
 
 # ---------------------------------------------------------------------------
 # Stage 2: TM corpus (download + per-class vocab/surprise/firm-year/outcomes)
-# H=2y exponential-decay reference is production default; flat-window
-# baseline kept under src/novelty/surprise.py for the half-life sweep only.
+# Production scoring is the flat per-filing reference window
+# (scripts/rolling_rescore_all.py, SURPRISE_SRC=rolling). The exponential-decay
+# and term-scored variants are robustness builds; see the `robustness` target.
 # ---------------------------------------------------------------------------
 tm: $(DATA)/.tm_done
 $(DATA)/.tm_done: $(PY)
