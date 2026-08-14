@@ -162,6 +162,22 @@ $(RES)/tie_rule_check.json: scripts/tie_rule_check.py
 	$(PPYTHON) $<
 $(RES)/window_sweep_rolling.json: scripts/window_sweep_rolling.py
 	$(PPYTHON) $<
+$(RES)/response_speed_split.json: scripts/response_speed_split.py
+	$(PPYTHON) $<
+
+# The scoring two-by-two. Both alternative scorers write parquets next to the
+# production ones; each is a multi-hour rebuild, hence the sentinel targets.
+$(DATA)/.decay_done: scripts/rolling_rescore_decay.py $(DATA)/.tm_done
+	$(PPYTHON) $< 2
+	touch $@
+$(DATA)/.termroll_done: scripts/term_rescore_rolling.py $(DATA)/.tm_done
+	$(PPYTHON) $< flat
+	$(PPYTHON) $< decay 2
+	touch $@
+$(RES)/scoring_robustness.json: scripts/scoring_robustness.py                                 $(DATA)/.decay_done $(DATA)/.termroll_done
+	$(PPYTHON) $<
+$(RES)/patent_within_firm_rescore.json: scripts/patent_within_firm_rescore.py                                         $(DATA)/.decay_done $(DATA)/.termroll_done
+	$(PPYTHON) $<
 
 analysis: $(FIGURES)
 

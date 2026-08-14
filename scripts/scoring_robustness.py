@@ -168,13 +168,13 @@ def main() -> int:
         elif ref is not None:
             j = d.select("serial_number", "topic_dkl", "atyp").join(
                 ref, on="serial_number", how="inner")
+            def _corr(a: str, b: str, method: str) -> float:
+                return float(j.select(pl.corr(a, b, method=method)).item())
             row["corr_with_rolling"] = {
                 "n": int(j.height),
-                "lead": float(pl.corr(j["topic_dkl"], j["ref_dkl"], method="pearson")[0]),
-                "lead_spearman": float(
-                    pl.corr(j["topic_dkl"], j["ref_dkl"], method="spearman")[0]),
-                "atypicality": float(pl.corr(j["atyp"], j["ref_atyp"],
-                                             method="pearson")[0]),
+                "lead": _corr("topic_dkl", "ref_dkl", "pearson"),
+                "lead_spearman": _corr("topic_dkl", "ref_dkl", "spearman"),
+                "atypicality": _corr("atyp", "ref_atyp", "pearson"),
             }
             del j
         out["results"][src] = row

@@ -38,7 +38,9 @@ whose language the industry was already leaving behind are
 \emph{lagging}.
 
 \noindent The measure exists for the millions of firms that never patent,
-and within firms it is essentially uncorrelated with patenting. Among marks
+and it is not a proxy for patenting: within firms the association is under
+$0.06\sigma$ under every scoring tested and flips sign between text
+representations. Among marks
 the office granted, it is \emph{timing} rather than unusualness that
 predicts what happens next. A leading mark is one whose language its
 industry subsequently moved toward; a lagging mark one the industry was
@@ -715,19 +717,28 @@ cumulative failure --- marks whose language their industry was drifting
 away from end up abandoned at much the same cumulative rate as the marks
 it moved toward, having simply taken longer to get there. Most of the
 difference resolves at first proof of use.
-Response timing in the prosecution record sharpens the picture: among represented software
-filings, response speed to office actions predicts the gate
-(fastest-quintile responders pass at 57.4\% against 49.4\% for the
-slowest), and the penalty survives within both fast and slow
-halves ($-7.2$ and $-8.0$pp), so the gradient is not an artifact of
-already-failing firms being detected late: it is present in both
-response-speed halves. This particular split is computed on \emph{term}
-scoring under annual reference buckets rather than the per-filing windows
-used elsewhere. Term scores exist only in the class-year construction, so
-every term-scored quantity in this paper is on annual references; among the
-topic-scored outcome analyses the exceptions are this split and the window
-decomposition below. No topic-scored version of this split exists, so it should be read as corroborating the direction
-of the result and not as one of its magnitudes.
+One reading of the penalty is that it is not about products at all: an owner
+who has lost interest both answers the examiner slowly and lets the
+registration lapse, so the gate would be picking up disengagement. The
+prosecution record tests this directly, through the gap between the first
+non-final office action and the applicant's response to it. Two things follow,
+and only one of them is what the objection predicts.
+
+Response speed does \emph{not} predict the gate. Across the 1.22 million
+scored registrations carrying a usable office-action/response pair, gate
+passage runs 46.1\%, 48.1\%, 47.5\%, 47.7\% and 47.7\% from the fastest
+response quintile (median seven days) to the slowest (median 183 days) --- flat,
+and if anything the quickest responders pass slightly \emph{less}. The same
+holds within software alone. Whatever disengagement the response clock
+measures, it is not what decides the gate.
+
+The lead penalty, meanwhile, is present in both halves: $-3.48$pp
+($\pm 0.40$) among faster-than-median responders and $-2.36$pp ($\pm 0.40$)
+among slower, against $-2.94$pp pooled. It is therefore not an artifact of
+already-failing owners being detected late. The restriction to filings with an
+answered office action drops 61\% of the sample, and those are
+disproportionately applications that never drew a refusal, so this is a
+statement about the prosecuted subset rather than about all registrations.
 
 Mixing the past and future reference windows identifies which kind of
 novelty the gate punishes. The penalty loads on breaking with the
@@ -876,30 +887,39 @@ were real.
 If \dkl{} and patent counts were noisy measures of the same underlying
 construct, they should correlate within firms over time. They do not.
 On a panel of trademark owners name-matched to PatentsView patent
-assignees \citep{PatentsView}, a two-way fixed-effects regression of
-standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$ gives
-$-0.014\sigma$ ($t = -2.3$) at $T = 50$ and $-0.010$ ($t = -1.5$) at
-$T = 200$ --- essentially uncorrelated within firm, which is the property
-the construct needs.
+assignees \citep{PatentsView}, a fixed-effects regression of standardized
+firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$, with firms absorbed
+and errors clustered on the firm, gives $-0.058\sigma$ (SE $0.006$,
+$t = -9.4$) on 134{,}075 matched firm-years across 17{,}506 firms.
 
-Table~\ref{tab:patent_within_firm} reports the more hostile version of the
-same comparison: it scores \dkl{}
-under an exponential-decay reference kernel on terms rather than the flat
-window on topics used everywhere else in this paper, and it returns a
-larger negative coefficient, $-0.048\sigma$ ($t = -7.9$), on 174{,}569
-firm-years (94{,}106 with within-firm variation across 14{,}470 firms).
-Its strongest negative sits on patents$_{t-1}$ ($-0.054$, SE $0.009$),
-which would say that in years after a firm patents heavily its trademark
-vocabulary regresses toward class-typical --- temporal substitution
-between patent prosecution and market-facing brand work. That reading
-should be held loosely. The lags are entered jointly and
-$\log(1+\mathrm{patents})$ is strongly autocorrelated within firm, so the
-split between the contemporaneous and lagged coefficients is partly
-arithmetic; and under the paper's own scoring, with each timing entered
-separately, the lag is not distinguishable from zero ($-0.009$,
-$t = -1.08$; the full set is reported below). The orthogonality claim
-rests on the topic-scored estimates, which are the ones the current
-pipeline reproduces.
+That is small but not zero, and the more informative fact is that it does
+not survive a change of representation. Re-estimated on the same panel and
+the same specification under each of the paper's four scorings:
+
+\begin{center}\small
+\begin{tabular}{llrr}
+\toprule
+Representation & Reference weighting & $\beta$ ($\sigma$) & $t$ \\
+\midrule
+Topics & flat window            & $-0.058$ & $-9.4$ \\
+Topics & two-year half-life     & $-0.057$ & $-9.3$ \\
+Terms  & flat window            & $+0.012$ & $+2.0$ \\
+Terms  & two-year half-life     & $+0.009$ & $+1.5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The weighting of the reference is irrelevant --- flat and decayed
+agree to a thousandth --- but the representation flips the sign. Every
+estimate is under $0.06\sigma$, so a firm moving from no patents to twenty
+shifts its mean lead by at most a fifth of a standard deviation, and the
+direction of even that depends on whether one scores topics or terms.
+
+The claim the construct needs is therefore not that lead is orthogonal to
+patenting, which would overstate what is here. It is that no stable
+relationship exists in either direction: the two are measuring different
+things, and a reader who wanted to use trademark lead as a proxy for
+patenting would find nothing consistent to lean on.
 
 Two objections to reading that null as orthogonality are worth taking
 seriously, and both fail. The first is timing. Under a linear model of
@@ -908,12 +928,16 @@ public use, while a trademark is filed when the firm is ready to sell, so
 patents would lead. Firms do not proceed that linearly, however, and in
 some industries the trademark application comes first
 \citep{Seip2018}, so the ordering is an empirical question rather than an
-assumption to build on. Entering patents at $t-2$, $t-1$, $t$, and $t+1$
---- the last allowing the trademark to precede the patent --- leaves
-nothing at any timing: $-0.015$ at two years out ($t = -1.61$), $-0.009$
-at the lead year ($t = -1.08$), $-0.010$ contemporaneous ($t = -1.51$),
-and $+0.003$ with the trademark first. No ordering recovers a
-co-movement.
+assumption to build on. Entering patents at $t-2$, $t-1$, $t$ and $t+1$ ---
+the last allowing the trademark to precede the patent --- one offset at a
+time, since the count is strongly autocorrelated within firm, gives
+$-0.054$, $-0.066$, $-0.058$ and $-0.089\sigma$ under topic scoring, all
+distinguishable from zero, and $+0.018$, $+0.024$, $+0.012$ and $+0.017$
+under term scoring. No ordering isolates a direction: the offsets are flat
+within each representation and opposite in sign between them, which is what
+would be expected if the timing decomposition were picking up a
+representation artifact rather than an innovation sequence. The largest
+coefficient anywhere is under a tenth of a standard deviation.
 
 The second objection is heterogeneity: a pooled near-zero is consistent
 with genuine orthogonality everywhere, but equally with a positive slope
@@ -946,33 +970,6 @@ pushes any interaction toward zero. The weight consequently rests on the
 cell-level nulls rather than on the interaction test --- and these are the
 firms among whom a patent--vocabulary relationship should be easiest to
 find, since all of them patent.
-
-\begin{table}[h]\centering\small
-\caption{Within-firm \dkl{} versus patenting. Coefficients in standard
-deviations of \dkl{} per unit $\log(1 + \mathrm{patents})$. \emph{This
-table alone scores \dkl{} on terms under an exponential-decay reference
-kernel}, not on topics under the flat window used throughout the rest of
-the paper; the topic-scored estimates quoted in the text are smaller and
-are the ones the claim rests on. Lead/lag coefficients are from a single
-joint regression, so they are not independent of one another.}
-\label{tab:patent_within_firm}
-\begin{tabular}{lrr}
-\toprule
-Specification & coef ($\sigma$) & SE \\
-\midrule
-Between-firm correlation (firm means) & $-0.020$ & --- \\
-Within-firm correlation (firm+year demeaned) & $-0.015$ & --- \\
-Two-way FE, contemporaneous & $-0.048$ & $0.006$ \\
-\quad robustness: patents = max over matched assignees & $-0.048$ & $0.006$ \\
-\quad controlling $\log(\mathrm{n\_filings})$ & $-0.051$ & $0.006$ \\
-Lead/lag: patents$_{t-1}$ & $-0.054$ & $0.009$ \\
-\quad\quad\quad\ \ patents$_{t}$ & $-0.019$ & $0.010$ \\
-\quad\quad\quad\ \ patents$_{t+1}$ & $+0.010$ & $0.010$ \\
-\bottomrule
-\end{tabular}
-\\[0.3em]\footnotesize Standard errors in place of significance stars; see the
-note to Table~\ref{tab:gate_lpm}.
-\end{table}
 
 \subsection{Each axis bites at a different stage}\label{sec:staged}
 
@@ -1188,7 +1185,9 @@ The remaining three are supporting. \dkl{}, adapted from
 \citet{Murdock2017, Barron2018} onto topic distributions of USPTO
 trademark filings, produces interpretable structure on
 commercially-incentivised legal text. The construct is
-empirically distinct from patent-track invention within firm. And the
+empirically distinct from patent-track invention within firm: no stable
+association survives a change of text representation, and none of the
+estimates reaches $0.06\sigma$. And the
 corpus supports direct measurement of cross-industry vocabulary
 diffusion, with multi-year origin-to-arrival lags, Bass-fittable
 adoption, and asymmetric flow out of software on the four classes built so
@@ -1334,11 +1333,17 @@ and bigrams); every filing 1990--2024 is transformed to a dense 50-topic
 distribution, and prospective and retrospective KL are computed against
 per-filing topic references spanning 1{,}826 days on each side of the
 filing date, scoring 1995--2019. A term-level variant is retained
-alongside: token distributions (unigram + bigram, within-class document
-frequency $\geq 50$) against class-year windows with Dirichlet smoothing ($\alpha = 1$), computed at
-$W \in \{3, 5, 7\}$. The term variant is used where vocabulary identity
-is the object (phrase transit, the window decomposition, the freshness
-measure) and as the comparison scoring throughout.
+alongside, on the same anchoring: token distributions (within-class
+document frequency $\geq 50$) against per-filing windows of the same
+1{,}826 days, Dirichlet-smoothed ($\alpha = 1$) over the class vocabulary.
+Because a goods/services description runs to a few dozen words, the
+divergence is needed only at the terms a filing actually uses, so the
+reference is carried as a running count vector and read sparsely. The term
+variant is used where vocabulary identity is the object (phrase transit,
+the window decomposition, the freshness measure) and as the comparison
+scoring throughout. Both representations are also computed under an
+exponentially decayed reference with a two-year half-life, truncated at the
+same window; Appendix~\ref{app:scoring} reports what changes.
 
 \subsection{Burn-in and interpretable range}
 
@@ -1419,7 +1424,47 @@ sample is 41 firms, which is too small to carry weight in either
 direction, and the paper draws no inference from it. Patent counts remain
 uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
 
-\subsection{Scoring robustness of the mark-level results}
+\subsection{Scoring robustness of the mark-level results}\label{app:scoring}
+
+Two choices in the measure could be carrying the results instead of the
+construct: the representation, topics against terms, and the weighting inside
+the window, flat against exponentially decayed. Anchoring is no longer one of
+them --- every scoring in the paper is anchored on the filing's own date. The
+full two-by-two, re-estimated on the central gate contrast and on the era
+split:
+
+\begin{center}\small
+\begin{tabular}{llrrrrr}
+\toprule
+& & \multicolumn{2}{c}{Gate contrast (pp)} & \multicolumn{3}{c}{Technology classes, by filing era} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}
+Representation & Weighting & lead & atypicality & 1995--99 & 2000--04 & 2008--14 \\
+\midrule
+Topics & flat        & $+2.29$ & $-4.39$ & $+14.18$ & $-1.36$ & $+8.89$ \\
+Topics & half-life 2y & $+1.95$ & $-4.43$ & $+14.57$ & $-2.48$ & $+8.48$ \\
+Terms  & flat        & $+3.56$ & $-3.63$ & $+11.02$ & $-3.67$ & $+6.57$ \\
+Terms  & half-life 2y & $+2.92$ & $-3.73$ & $+10.69$ & $-4.18$ & $+5.68$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Every sign holds in all four, and the gate contrasts carry $t$
+between $21.8$ and $37.6$. The episodic pattern in technology --- large
+positive for filings into the late 1990s, negative for 2000--2004, positive
+again from 2008 --- is present in each. Term scoring returns a \emph{larger}
+lead contrast than topic scoring, so the headline estimate is the conservative
+one of the two representations.
+
+The two variants are not equally informative as tests. Decayed and flat topic
+scoring correlate at $r = 0.982$ on lead, so the decay row is close to a
+restatement rather than an independent check; the weighting is nearly
+irrelevant to this measure. Term scoring correlates with the paper's lead at
+only $r = 0.469$, so it is a genuinely different measurement of the same
+filings, and the agreement there is what the robustness claim rests on.
+Atypicality, by contrast, is invariant to the weighting to three decimals
+($r = 1.000$) --- as the rotation in Section~\ref{sec:construct} implies, the
+long axis is a property of the filing and the weighting acts almost entirely
+on the small residual.
 
 The snapshot cross-check on the single one-gate-elapsed cohort
 (registrations 2016--2018, terminal status 710 versus 701--705/800)

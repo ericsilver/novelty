@@ -24,6 +24,12 @@ effects absorbed by within-firm demeaning and standard errors clustered on
 firm. Only firms with variation in both variables contribute, which is why the
 estimation sample is smaller than the panel.
 
+The timing decomposition is run the same way, one offset at a time rather than
+jointly: log(1+patents) is strongly autocorrelated within firm, so entering the
+offsets together splits one coefficient between them arithmetically. Offset
+t+1 puts the patent AFTER the trademark year, which is the ordering that would
+hold if the mark were filed first.
+
 Output: paper/results/patent_within_firm_rescore.json
 """
 from __future__ import annotations
@@ -148,13 +154,28 @@ def main() -> int:
              / pl.col("n_scored").sum()).alias("mean_dkl"),
             pl.col("n_patents").max().alias("n_patents"))
         r = within_firm_fe(j)
+        lags = {}
+        for off in (-2, -1, 0, 1):
+            # shift the patent count by `off` years onto the same firm-year
+            shifted = j.select(
+                "firm", (pl.col("year") + off).alias("year"),
+                pl.col("n_patents").alias("np_off"))
+            k = j.select("firm", "year", "mean_dkl").join(
+                shifted, on=["firm", "year"], how="inner").rename(
+                {"np_off": "n_patents"})
+            lags[f"t{off:+d}" if off else "t"] = within_firm_fe(k)
+            del shifted, k
         out["results"][src] = {"description": desc,
                                "matched_firm_years": int(j.height),
-                               "fe": r}
+                               "fe": r, "timing": lags}
         if r:
             log(f"[{src:14}] {desc:32}  matched {j.height:>7,}  "
                 f"beta {r['coef']:+.4f} sigma  (SE {r['se']:.4f}, "
                 f"t {r['t']:+.1f}, {r['n_firms']:,} firms)")
+            tl = " ".join(
+                f"{k}={v['coef']:+.3f}(t{v['t']:+.1f})"
+                for k, v in out["results"][src]["timing"].items() if v)
+            log(f"                 timing: {tl}")
         else:
             log(f"[{src:14}] matched {j.height:,} -- too few for FE")
         del fy, j
