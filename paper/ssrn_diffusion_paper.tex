@@ -857,6 +857,15 @@ relative to the most lagging fifth) and recovers slightly at the leading end
 lagging debut owners reach SEC reporting more often than leading ones, and
 the ordering is monotone over four of the five quintiles.
 
+Two qualifications belong with that sentence. The profile is a U rather than a
+slope, so a linear summary of it points downward through a curve whose tails
+are its high points; Appendix~\ref{app:choices} fits the shape and locates the
+vertex a standard deviation above mean lead. And ``SEC reporting'' is not
+``went public'': splitting matched owners on whether their CIK carries a
+ticker gives $10{,}556$ listed against $9{,}333$ reporting without one, and both
+halves show the same U. The result is not an artifact of counting
+non-operating registrants as successes, and it is not about listing as such.
+
 The two axes do different work, and only one of them survives at the firm
 level. Atypicality --- writing about a product in language unusual for its
 category --- predicts survival at the use-proof gate
@@ -1613,6 +1622,190 @@ deepens monotonically from the foresight configuration (pros $W$=3,
 retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
 \label{fig:windows}
 \end{figure}
+
+\section{What the scoring choices do, and what shape the gates have}\label{app:choices}
+
+Two things are easy to conflate and are separated here. The first is how a
+filing is scored --- which of six builds of this corpus one is reading. The
+second is what functional form the resulting relationship actually takes, since
+the paper summarises each outcome with a quintile contrast or a per-standard-deviation
+slope, and both of those are linear readings of profiles that are not always
+linear.
+
+\subsection{Representation, anchoring, weighting: which of the three matters}
+
+A scoring is fixed by two choices. The \emph{representation} is what the
+language is turned into: a distribution over 50 fitted topics, or a
+distribution over the class vocabulary's terms. The \emph{reference} is what
+that is compared against, and it hides two sub-choices --- the
+\emph{anchoring} (one reference per class-year, or one per filing built on its
+own date) and the \emph{weighting} inside the window (every day equal, or
+decaying by half every two years). Six builds exist:
+
+\begin{center}\small
+\begin{tabular}{lllrr}
+\toprule
+Representation & Anchoring & Weighting & sd(lead) & sd(atypicality) \\
+\midrule
+Topics & class-year & flat          & $0.132$ & $0.672$ \\
+Topics & per-filing & flat          & $0.102$ & $0.698$ \\
+Topics & per-filing & half-life 2y  & $0.082$ & $0.698$ \\
+Terms  & class-year & half-life 2y  & $0.299$ & $1.330$ \\
+Terms  & per-filing & flat          & $0.155$ & $1.101$ \\
+Terms  & per-filing & half-life 2y  & $0.130$ & $1.102$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent All six are compared on the 6.01 million filings every one of them
+scored. The second row is the production scoring. The fourth is the legacy
+build, and it is the one to handle carefully: it moves anchoring \emph{and}
+weighting at once, so a result computed on it cannot be attributed to either.
+That is why the two per-filing term builds were constructed.
+
+Changing one choice at a time settles the ordering. Correlations of lead
+between builds differing in exactly one respect:
+
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+Choice varied & $r$ (lead) & $r$ (atypicality) \\
+\midrule
+Weighting, flat vs half-life 2y (topics)  & $0.982$ & $1.000$ \\
+Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
+Anchoring, class-year vs per-filing (topics) & $0.738$ & $0.929$ \\
+Representation, topics vs terms           & $0.460$ & $0.396$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The weighting is close to irrelevant: whether recent language counts
+for more than distant language within the window barely moves the score, and it
+does not move atypicality at all to three decimals, which is what the
+$45$-degree rotation of Section~\ref{sec:construct} implies --- the long axis is
+a property of the filing and the weighting acts almost entirely on the small
+residual. Anchoring matters moderately. The representation matters most, and by
+a wide margin: topics and terms agree on less than a quarter of the variance in
+lead. A robustness check that varies only the weighting is therefore close to a
+restatement; one that varies the representation is a real test, which is why the
+term-scored replication in Appendix~\ref{app:scoring} is the one the claims
+lean on.
+
+Annual anchoring leaves a signature that per-filing anchoring does not. Mean
+lead by calendar month of filing, in units of the build's own standard
+deviation, has no reason to trend --- nothing about filing in December rather
+than January makes a description more forward-looking:
+
+\begin{center}\small
+\begin{tabular}{llr}
+\toprule
+Representation & Anchoring & December $-$ January (sd) \\
+\midrule
+Terms  & class-year & $+0.169$ \\
+Topics & class-year & $+0.041$ \\
+Topics & per-filing & $-0.008$ \\
+Terms  & per-filing & $+0.017$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent A December filing sits eleven months further from its past reference
+and eleven months nearer its future one, and under annual buckets that shows up
+as position in the calendar. Under per-filing references it is gone.
+
+The substantive claim does not depend on any of this. The first-gate contrast,
+computed on the common sample, runs $+2.73$, $+2.71$, $+2.39$, $+4.05$, $+3.97$
+and $+3.19$pp on lead across the six builds in the order tabulated above, and
+$-7.71$ to $-6.17$pp on atypicality. Every sign holds; term scoring returns the
+larger lead contrast, so the headline estimate is the conservative
+representation.
+
+\subsection{The gates are not all linear, and one of them is a U}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/curve_shapes.png}
+\caption{Binned profiles at the three gates, with the linear reading the
+paper's contrasts assume and the shape selected by AIC where that is not
+linear. Forty equal-count bins; the dotted line marks the fitted vertex. The
+bottom row is the case that matters: a linear fit through the
+public-reporting profile slopes downward while the data turn up at both tails.}
+\label{fig:shapes}
+\end{figure}
+
+Four shapes were fitted to each profile by weighted least squares on 40
+equal-count bins --- linear, quadratic, an exponential $a + b e^{cx}$, and a
+free-vertex symmetric exponential $a + b e^{c|x - x_0|}$ meant to catch a U
+directly. The exponential forms never win. Wherever the linear reading is
+inadequate the correction is an ordinary quadratic, which is worth stating
+because it means the curvature is not evidence of a threshold or a
+multiplicative process; it is just curvature.
+
+\begin{center}\small
+\begin{tabular}{lllrrr}
+\toprule
+Gate & Axis & Selected & $R^2$ linear & $R^2$ selected & vertex (sd) \\
+\midrule
+Registration & atypicality & quadratic & $0.38$ & $0.90$ & $+1.02$ (peak) \\
+Registration & lead        & quadratic & $0.08$ & $0.17$ & $+1.18$ (peak) \\
+Use-proof    & atypicality & linear    & $0.74$ & $0.74$ & --- \\
+Use-proof    & lead        & quadratic & $0.45$ & $0.51$ & $-2.96$ (trough) \\
+Listed       & lead        & quadratic & $0.20$ & $0.37$ & $+1.35$ (trough) \\
+Reporting    & lead        & quadratic & $0.07$ & $0.44$ & $+0.56$ (trough) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Three readings follow, and they differ in how much weight they can
+carry. The registration profile in atypicality is decisively curved: an
+inverted U peaking a standard deviation above mean atypicality, with the
+quadratic more than doubling the explained variance
+($\Delta\mathrm{AIC} = 69$). This is the middling-specificity pattern of
+Section~\ref{sec:results}, and a linear summary of it is close to meaningless.
+The use-proof gate in atypicality is the opposite case --- genuinely linear,
+with the quadratic buying nothing --- so the per-standard-deviation slope the
+paper quotes there is the right summary.
+
+The public-reporting profiles are the ones where the linear reading actively
+misleads. Both are U-shaped in lead, and the fitted linear slope runs
+\emph{downward} through a curve whose two tails are its high points. Quoting
+only that slope would report that leading owners reach public markets less
+often, which is true on average and false at the extreme the sentence would be
+read as describing. The vertex sits above the mean in both cases, so the
+lagging tail is the longer arm of the U --- the same asymmetry
+Section~\ref{sec:bluesea} reports from the quintiles.
+
+A caution on the model selection. AIC here is computed on 40 binned means, not
+on the millions of underlying filings, so it ranks shapes rather than testing
+them. $\Delta\mathrm{AIC} = 69$ at the registration gate is decisive and the
+$8$ to $18$ at the public-reporting gates is solid; the $1.9$ and $2.6$ on the
+two lead profiles at registration and use-proof are within noise, and those two
+rows should be read as ``no worse than linear'' rather than as curvature.
+
+\subsection{Going public and merely reporting behave the same way}
+
+``Appears in SEC records'' mixes two populations that a reader will not
+naturally separate: companies whose shares trade, and entities that file with
+the Commission without ever listing --- private issuers, funds, subsidiaries
+registering securities. Splitting the 19{,}889 matched owner strings on whether
+their CIK carries a ticker in the Commission's own company-ticker file gives
+10{,}556 listed against 9{,}333 that file financial statements without one, so
+the distinction is not a rounding correction: it is roughly half the sample
+either way.
+
+It does not change the finding. Among registered debut owners whose debut
+filing is scored, $0.310$\% later appear as listed companies and $0.285$\% as
+reporting non-listed ones, and both profiles are U-shaped in lead with vertices
+at $+1.35$ and $+0.56$ standard deviations. The listed profile is slightly
+flatter and noisier, which is what the smaller and more selected outcome
+predicts. Whatever the signed axis is picking up at this margin, it is not an
+artifact of counting non-operating registrants as commercial successes, and it
+is not specific to the act of listing either.\footnote{Two limits on the split.
+The ticker file is a current snapshot, so a company that listed in 2003 and was
+acquired in 2011 appears in the non-listed tier; the tiers are therefore
+``currently listed'' rather than ``ever listed,'' which will misclassify older
+successes downward. And the base rates here are computed on the appendix's own
+panel, which conditions on the debut filing carrying a score and so is smaller
+than the body's sample.}
 
 \section{The measurement hazard: term scoring manufactures firm-level signal}\label{app:hazard}
 

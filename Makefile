@@ -164,6 +164,10 @@ $(RES)/window_sweep_rolling.json: scripts/window_sweep_rolling.py
 	$(PPYTHON) $<
 $(RES)/response_speed_split.json: scripts/response_speed_split.py
 	$(PPYTHON) $<
+$(RES)/gate_curve_shapes.json: scripts/gate_curve_shapes.py
+	$(PPYTHON) $<
+$(RES)/curve_shapes.png: scripts/curve_shape_figure.py $(RES)/gate_curve_shapes.json
+	$(PPYTHON) $<
 
 # The scoring two-by-two. Both alternative scorers write parquets next to the
 # production ones; each is a multi-hour rebuild, hence the sentinel targets.
@@ -175,6 +179,10 @@ $(DATA)/.termroll_done: scripts/term_rescore_rolling.py $(DATA)/.tm_done
 	$(PPYTHON) $< decay 2
 	touch $@
 $(RES)/scoring_robustness.json: scripts/scoring_robustness.py                                 $(DATA)/.decay_done $(DATA)/.termroll_done
+	$(PPYTHON) $<
+# The taxonomy also reads the two superseded class-year builds, which are kept
+# in the tree precisely so the anchoring comparison can be made.
+$(RES)/scoring_taxonomy.json: scripts/scoring_taxonomy.py                               $(DATA)/.decay_done $(DATA)/.termroll_done
 	$(PPYTHON) $<
 $(RES)/patent_within_firm_rescore.json: scripts/patent_within_firm_rescore.py                                         $(DATA)/.decay_done $(DATA)/.termroll_done
 	$(PPYTHON) $<
