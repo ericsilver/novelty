@@ -16,10 +16,8 @@
 
 \subsection{Two questions asked of every filing}
 
-The two readers of the introduction can now be made precise. Take a filing's
-goods/services description and group every filing by its Nice class --- one of
-the 45 international goods and services categories. Each reader has seen only
-half of that class's stream, split at the filing's own date:
+Each of the two readers has seen only half of the class's stream, split at
+the filing's own date:
 
 \begin{enumerate}[noitemsep]
   \item A reader who has seen only what the industry filed \emph{before} it.
@@ -40,48 +38,36 @@ unusual against a period, not whether it is ahead of a trend within that
 period; it has no momentum channel, and Section~\ref{sec:limits} returns to
 what that forecloses.
 
-Anchoring on the filing date rather than on the calendar year is not a detail.
-The alternative --- one reference per class-year --- scores a filing made in
-January and one made in December of the same year against the same object, and
-lets neither see any of the language filed during its own year. That imprints a spurious gradient: under annual buckets mean lead
-rises almost monotonically with filing month, purely because a December filing
-sits eleven months further from its past reference and eleven months nearer its
-future one. Appendix~\ref{app:rolling} reports what the coarser version cost,
-which was roughly a third of the measured gate penalty and the whole of an
-apparent curvature at registration.
+Anchoring on the filing date rather than the calendar year matters. One
+reference per class-year scores a January and a December filing against the
+same object and lets neither see any of the language filed during its own
+year, which imprints a spurious gradient: mean lead then rises almost
+monotonically with filing month, purely because a December filing sits
+eleven months further from its past reference and nearer its future one.
+That cost roughly a third of the measured gate penalty and the whole of an
+apparent curvature at registration (Appendix~\ref{app:rolling}).
 
-The two answers are usually close, and the gap between them is what carries the
-information. On the software class they correlate at $0.979$, and the
-difference between them has about a sixth of the spread of either level.
-Wording that surprised the first reader and not the second was surprising
-because it came first: the industry moved toward it. Wording that read as
-ordinary to the first and unusual to the second was behind its industry rather
-than ahead of it, and was left behind as the field moved on. Filings of the
-first kind are \emph{leading}; of the second, \emph{lagging}. That the signal
-is a small residual of two large and highly co-moving quantities is a real
-fragility rather than an aside, and Appendix~\ref{app:comp} quantifies it.
+The two answers are usually close, and the gap between them carries the
+information: on the software class they correlate at $0.979$, and their
+difference has about a sixth of the spread of either level. That the signal
+is a small residual of two large, co-moving quantities is a real fragility,
+quantified in Appendix~\ref{app:comp}. Neither quantity requires knowing
+anything about the firm.
 
-Both quantities are computable for every filing in the corpus, including the
-millions from firms that never patent, and neither requires knowing anything
-about the firm.
-
-One property of the underlying text shapes how the resulting numbers should be
-read. Goods/services descriptions are drafted to secure scope of protection,
-not to describe a product distinctively, and counsel reuse language --- from
-the USPTO's own Acceptable Identification of Goods and Services Manual, from
-house precedent, and from competitors' successful filings. Identical wording
-across unrelated firms is therefore common rather than anomalous, and it
-carries through to the scores: 17\% of scored registrations share a value
-with another filing in the same class and cohort, which is why the rule for
-breaking those ties is stated and tested (Section~\ref{sec:gate}). Two
-consequences follow. Within a class, the measure is picking up departure from a
-shared drafting convention, which is what makes it meaningful. Across classes,
-it is not: a class where the Manual supplies dense standard language will show
-a compressed distribution of atypicality, and one where firms describe novel
-services in prose will show a wide one, for reasons that have nothing to do
-with how innovative either industry is. Every estimate in this paper is
-therefore taken within class and year, and the magnitudes should be compared
-across classes only as signs and orderings, never as levels.
+Goods/services descriptions are drafted to secure scope of protection, not to
+describe a product distinctively, and counsel reuse language --- from the
+USPTO's own Acceptable Identification of Goods and Services Manual, from house
+precedent, and from competitors' successful filings. Identical wording across
+unrelated firms is therefore common, and it carries through to the scores:
+17\% of scored registrations share a value with another filing in the same
+class and cohort, which is why the tie rule is stated and tested
+(Section~\ref{sec:gate}). Within a class, the measure picks up departure from
+a shared drafting convention, which is what makes it meaningful. Across
+classes it does not: a class where the Manual supplies dense standard language
+shows a compressed distribution of atypicality, and one where firms describe
+novel services in prose a wide one, for reasons unrelated to how innovative
+either industry is. Every estimate is therefore taken within class and year,
+and magnitudes compare across classes only as signs and orderings.
 
 \subsection{Antecedents, and what does not carry over}
 
@@ -92,17 +78,15 @@ documents before it and again against the distribution after it, and call the
 two quantities \emph{novelty} and \emph{transience} and their signed difference
 \emph{resonance}.
 
-One methodological choice is inherited rather than invented. Both source papers
-score documents on their distribution over latent topics rather than on raw
-terms, and this paper reports topic scoring throughout, with term scoring
-retained as a cross-check.\footnote{I am grateful to Simon DeDeo for pointing
-out that the topic operationalization, rather than term-level scoring, is the
-one his co-authors used, and for suggesting it be applied here. The consequences
-were larger than a robustness check: Appendix~\ref{app:hazard} reports a set of
-firm-level correlations that survive term scoring and dissolve or reverse under
-distributions.}
+Both source papers score documents on their distribution over latent topics
+rather than on raw terms, and this paper reports topic scoring throughout,
+with term scoring retained as a cross-check.\footnote{I am grateful to Simon
+DeDeo for pointing out that the topic operationalization is the one his
+co-authors used, and for suggesting it be applied here.
+Appendix~\ref{app:hazard} reports a set of firm-level correlations that
+survive term scoring and dissolve or reverse under distributions.}
 
-The two representations measure different things, and neither dominates. Under
+Neither representation dominates. Under
 term scoring, atypicality correlates with log filing length at $-0.729$ in class
 009 and $-0.688$ in class 035; under topic scoring, at $-0.251$ and $-0.125$.
 Descriptions run to a few dozen words, and on documents that short a term-level
@@ -121,23 +105,17 @@ this paper is accordingly term-scored, and every estimate is topic-scored. A
 reader who wants the headline results under term scoring will find them in
 Appendix~\ref{app:comp}.
 
-The arithmetic transfers exactly. The interpretation does not, in two ways that
-shape everything downstream.
-
-First, there is no single authoring agent. In a reading notebook the author of
-the document is the person whose novelty is being measured, and the reference
-stream is that author's own intellectual environment; a high value therefore
-says something about a mind. Here each filing is scored against the stream of
-\emph{other} firms' filings, and the author is typically counsel drafting for
-scope of protection. The same number can only say that a description sits far
-from what its industry was writing.
-
-Second, \emph{resonance} names a mechanism this design cannot observe, for
-reasons Section~\ref{sec:limits} sets out. The vocabulary used below is
-therefore positional
-rather than causal: a leading filing was ahead of its industry's language,
-which implies the existence of a trajectory without asserting that the filing
-caused it.
+The arithmetic transfers exactly; the interpretation does not. In a reading
+notebook the author of the document is the person whose novelty is being
+measured and the reference stream is that author's own intellectual
+environment, so a high value says something about a mind. Here each filing is
+scored against \emph{other} firms' filings, and the author is typically
+counsel drafting for scope of protection, so the same number can only say
+that a description sits far from what its industry was writing. The
+vocabulary below is accordingly positional rather than causal: a leading
+filing was ahead of its industry's language, which implies a trajectory
+without asserting the filing caused it. Section~\ref{sec:limits} adjudicates
+the terms.
 
 \subsection{Definitions}
 
@@ -176,27 +154,19 @@ the source literature.
 
 \subsection{Why these two, and not the raw pair}
 
-$A$ and $L$ are a rotation of $(K^{-}, K^{+})$ through 45 degrees. Plotted with
-$K^{-}$ on one axis and $K^{+}$ on the other, $A$ is position \emph{along} the
-diagonal and $L$ is signed distance \emph{from} it: magnitude and direction of
-the same displacement. Three things follow.
-
-The rotation is the natural coordinate system because the raw pair is almost
-collinear. $K^{-}$ and $K^{+}$ correlate at $0.979$ on the complete
-software-class corpus, so entering both is close to entering one variable
-twice; the informative content is the long axis and the small residual, which
-is exactly what $A$ and $L$ isolate.
-
-The rotation also very nearly decorrelates the two regressors, which matters
-because the paper enters both and interprets them separately. Against $L$, the
-correlation of $A$ is $+0.038$; of $K^{-}$ alone, $+0.140$; of $|L|$, $+0.250$
-($n = 1{,}107{,}807$). Using either level alone, or the unsigned magnitude, as
-the ``how unusual'' axis leaves the two coefficients trading against each
-other. Nothing empirical rides on the choice --- given the $0.979$ correlation,
-$A$ and $K^{-}$ are nearly the same variable --- but the interpretation is
-cleaner and the coefficients are closer to independent.
-Table~\ref{tab:constructs} sets the five quantities against their names in the
-source literature.
+$A$ and $L$ are a rotation of $(K^{-}, K^{+})$ through 45 degrees: plotted
+against each other, $A$ is position \emph{along} the diagonal and $L$ signed
+distance \emph{from} it. The rotation is the natural coordinate system
+because the raw pair is almost collinear --- $K^{-}$ and $K^{+}$ correlate at
+$0.979$ on the complete software-class corpus, so entering both is close to
+entering one variable twice, and the informative content is the long axis and
+the small residual. It also nearly decorrelates the two regressors, which
+matters because the paper enters both and interprets them separately: against
+$L$, the correlation of $A$ is $+0.038$, of $K^{-}$ alone $+0.140$, of $|L|$
+$+0.250$ ($n = 1{,}107{,}807$). Nothing empirical rides on the choice, since
+$A$ and $K^{-}$ are nearly the same variable, but the coefficients are closer
+to independent. Table~\ref{tab:constructs} sets the five quantities against
+their names in the source literature.
 
 \begin{table}[h]\centering\small
 \caption{The quantities, their sources, and the terms used here. \emph{Lagging}
@@ -216,17 +186,9 @@ Its magnitude               & $|L|$                          & ---        & lead
 \end{tabular}
 \end{table}
 
-\subsection{A note on the words}
-
-\emph{Atypicality} is used in a purely textual sense and is not trademark law's
-distinctiveness doctrine, which governs registrability along the
+\emph{Atypicality} is used in a purely textual sense and is not trademark
+law's distinctiveness doctrine, which governs registrability along the
 generic-to-fanciful spectrum; the two attach to different objects, one to the
 mark and one to the description of the goods it covers.
 Section~\ref{sec:limits} separates the construct from its other near
-neighbours and states in each case what adopting that term would claim.
-
-\emph{Leading} and \emph{lagging} were chosen over the alternatives for the
-same reason the causal reading was declined above. To say a filing led its
-industry's vocabulary is to place it relative to a trajectory without saying it
-produced one, in the way that being ahead of a curve implies the curve without
-implying you drew it.
+neighbours.
