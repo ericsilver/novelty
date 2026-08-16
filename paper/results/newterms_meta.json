@@ -1,29 +1,29 @@
 {
-  "src_parquet": "C:\\shared-secure\\_inbound\\tm-laptop\\data-extras\\processed\\_cct_year_class_token_counts.parquet",
-  "burn_years": [
-    1990,
-    1994
-  ],
-  "study_years": [
-    1995,
-    2021
-  ],
-  "min_study_count": 200,
-  "min_years_present": 5,
-  "origin_window_years": 2,
-  "n_candidate_new_terms": 3653,
-  "n_in_table": 100,
-  "top10": [
-    "websites",
-    "smartphones",
-    "e-commerce",
-    "blogs",
-    "mp",
-    "podcasts",
-    "hoodies",
-    "paas",
-    "cryptocurrency",
-    "asp"
-  ],
-  "elapsed_s": 2.6657016277313232
+ "src_parquet": "data/processed/_cct_year_class_token_counts.parquet",
+ "burn_years": [
+  1990,
+  1994
+ ],
+ "study_years": [
+  1995,
+  2021
+ ],
+ "min_study_count": 200,
+ "min_years_present": 5,
+ "origin_window_years": 2,
+ "n_candidate_new_terms": 3653,
+ "n_in_table": 100,
+ "top10": [
+  "websites",
+  "smartphones",
+  "e-commerce",
+  "blogs",
+  "mp",
+  "podcasts",
+  "hoodies",
+  "paas",
+  "cryptocurrency",
+  "asp"
+ ],
+ "elapsed_s": 2.6657016277313232
 }

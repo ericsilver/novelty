@@ -62,3 +62,22 @@ paper/section_construct_preview.*
 # paper/anonymize.py; do not commit it, so the two cannot drift.
 paper/ssrn_diffusion_paper_blind.tex
 paper/ssrn_diffusion_paper_blind.pdf
+
+# Internal working documents. These name third parties and describe private
+# context; they are kept locally and must never be published.
+PROJECT.md
+INBOX.md
+BLOCKED.md
+docs/README.md
+paper/OUTLINE_v2.md
+paper/_legacy/
+paper/ssrn_diffusion_paper-pre-re-org-*.pdf
+
+# Third-party data that cannot be redistributed under this repo's licence.
+# Crunchbase Open Data Map is CC-BY-NC; the NC clause is incompatible with the
+# code licence and the attribution requirement is not met by a mirror copy.
+data_publish/comparators/crunchbase_companies.csv
+
+# Orphaned scripts carrying pre-rename absolute paths; superseded and unrun.
+scripts/newterms_analysis.py
+scripts/newterms_build_pdf.py

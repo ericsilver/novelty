@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: >-
+  tm-vocabulary: an event-dated USPTO trademark corpus and a lead/lag text
+  measure for the commercial economy
+message: >-
+  If you use this software, the corpus build, or the published panels, please
+  cite the paper below. Derived panels containing patent counts additionally
+  require attribution to PatentsView (CC-BY-4.0); see DATA_SOURCES.md.
+type: software
+authors:
+  - family-names: Silver
+    given-names: Eric
+    email: epsilver@gmail.com
+repository-code: https://github.com/ericsilver/tm-vocabulary
+license: GPL-3.0-or-later
+abstract: >-
+  Re-parses all 13.99 million USPTO trademark case files into event-dated
+  prosecution histories and scores every filing on how surprising its
+  goods/services language is against what its industry filed in the five years
+  before and the five years after. Atypicality is the average of the two
+  divergences; lead is their signed difference.
+keywords:
+  - trademarks
+  - innovation measurement
+  - text as data
+  - Kullback-Leibler divergence
+  - USPTO
+preferred-citation:
+  type: article
+  title: >-
+    Vocabulary position and trademark lifecycles: an event-dated corpus and a
+    lead/lag text measure for the commercial economy
+  authors:
+    - family-names: Silver
+      given-names: Eric
+  year: 2026
