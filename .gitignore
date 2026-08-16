@@ -57,3 +57,8 @@ Thumbs.db
 
 # Standalone preview wrapper for the construct section (build artefact)
 paper/section_construct_preview.*
+
+# Double-blind build is generated from the identified source by
+# paper/anonymize.py; do not commit it, so the two cannot drift.
+paper/ssrn_diffusion_paper_blind.tex
+paper/ssrn_diffusion_paper_blind.pdf

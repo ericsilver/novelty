@@ -935,7 +935,7 @@ against AI era (top axis, from 2015).}
 \label{fig:era}
 \end{figure}
 
-\section{What the measure supports, and what it does not}\label{sec:limits}
+\section{Lead tracks commercial risk; atypicality does not}\label{sec:limits}
 
 Vocabulary position carries two separable signals, and it is the signed one that tracks
 what becomes of a product. Lead marks commercial risk: $+1.4$pp
@@ -970,7 +970,7 @@ term-scored signed firm-level advantages of leading filings
 (margins, listing) are artifacts of drafting style and lexical
 specificity (Appendix~\ref{app:hazard}).
 
-\subsection{What the measure is not: five neighbouring constructs}
+\subsection{Five neighbouring constructs this is not}
 
 \emph{Novelty} and \emph{transience}, in the sense of
 \citet{Murdock2017} and \citet{Barron2018}, are the two KL levels
@@ -1055,7 +1055,7 @@ table of per-class contrasts with standard errors.
 
 \section{Computation, corpus, and robustness}\label{app:comp}
 
-\subsection{Corpus and scoring detail}
+\subsection{Corpus and scoring}
 
 The USPTO Trademark Annual Applications backfile (product TRTYRAP)
 provides a complete record of US trademark filings from 1884 onward. The
@@ -1084,7 +1084,7 @@ scoring throughout. Both representations are also computed under an
 exponentially decayed reference with a two-year half-life, truncated at the
 same window; Appendix~\ref{app:scoring} reports what changes.
 
-\subsection{Burn-in and interpretable range}
+\subsection{Scores are interpretable from 1995}
 
 \emph{Burn-in} is the span at each end of the corpus where the reference
 windows cannot be filled, so scores there reflect a thin reference rather
@@ -1113,7 +1113,7 @@ incomplete.}
 \label{fig:burnin}
 \end{figure}
 
-\subsection{Reliability and fragilities}
+\subsection{Lead is a small residual, and term scoring tracks length}
 
 Past-facing and future-facing KL are highly correlated however scored: on
 the complete class-009 corpus $r = +0.971$ under term scoring and
@@ -1163,7 +1163,7 @@ sample is 41 firms, which is too small to carry weight in either
 direction, and the paper draws no inference from it. Patent counts remain
 uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
 
-\subsection{Scoring robustness of the mark-level results}\label{app:scoring}
+\subsection{The mark-level results hold under every scoring}\label{app:scoring}
 
 The snapshot cross-check on the single one-gate-elapsed cohort
 (registrations 2016--2018, terminal status 710 versus 701--705/800)
@@ -1189,7 +1189,7 @@ reports only the unsigned version.}
 \label{fig:s8pooled}
 \end{figure}
 
-\subsection{What annual reference buckets cost}\label{app:rolling}
+\subsection{Annual reference buckets overstate the penalty by a third}\label{app:rolling}
 
 Every estimate uses a reference anchored on the filing's own date. The
 alternative is one reference per class-year, under which a filing made on 1
@@ -1223,7 +1223,7 @@ though they are sensitive to the owner-to-registrant linkage instead
 (Section~\ref{sec:bluesea}): the signed decomposition keeps both its signs
 and its significance under either window.
 
-\subsection{Is five years the right window?}\label{app:wsweep}
+\subsection{Signal is flat between five and seven years}\label{app:wsweep}
 
 The window is a parameter of the measure, not a property of it, and the five
 years used throughout was inherited from the class-year construction rather
@@ -1245,7 +1245,7 @@ nominally the peak and five is within noise of it while retaining more of
 the corpus, so five is defensible rather than optimal. The sweep is on one class
 and one outcome.
 
-\subsection{Which novelty: the reference-window decomposition}
+\subsection{The gate punishes breaking with the past, not resembling the future}
 
 ``Leading'' is relative to a reference, and mixing windows
 across the two sides identifies which novelty the gate punishes. Scoring
@@ -1290,7 +1290,7 @@ retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
 \label{fig:windows}
 \end{figure}
 
-\section{What the scoring choices do, and what shape the gates have}\label{app:choices}
+\section{Representation drives the score; weighting does not}\label{app:choices}
 
 \subsection{Representation, anchoring, weighting: which of the three matters}
 
@@ -1380,7 +1380,7 @@ $-7.71$ to $-6.17$pp on atypicality. Every sign holds; term scoring returns the
 larger lead contrast, so the headline estimate is the conservative
 representation.
 
-\subsection{The gates are not all linear, and one of them is a U}
+\subsection{One gate is linear; the public-reporting profile is a U}
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/curve_shapes.png}
@@ -1439,7 +1439,7 @@ $8$ to $18$ at the public-reporting gates is solid; the $1.9$ and $2.6$ on the
 two lead profiles at registration and use-proof are within noise, and those two
 rows should be read as ``no worse than linear'' rather than as curvature.
 
-\subsection{Going public and merely reporting behave the same way}
+\subsection{Listing and merely reporting behave the same way}
 
 ``Appears in SEC records'' mixes two populations: companies whose shares trade, and entities that file with
 the Commission without ever listing --- private issuers, funds, subsidiaries
@@ -1518,7 +1518,7 @@ Term-resolved text-novelty measures can therefore manufacture
 firm-performance correlations from drafting style and lexical specificity,
 and a distribution-based rescoring is a cheap, decisive diagnostic.
 
-\section{What the examination funnel selects on}\label{app:registration}
+\section{Examination rewards a middling specificity}\label{app:registration}
 
 Across 3.59 million debut filings (57.6\% base rate), completion is an
 inverse-U in \emph{atypicality}: it climbs from 46.6\% at the least atypical
@@ -1588,7 +1588,7 @@ exposes the gradient.}
 \label{fig:uncond}
 \end{figure}
 
-\section{What each representation measures}\label{app:representation}
+\section{Term scoring measures length; theme scoring does not}\label{app:representation}
 
 Figure~\ref{fig:representation} puts the two representations side by side
 over the same axes, with each hexagon coloured by the mean length of the
