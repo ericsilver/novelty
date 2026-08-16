@@ -87,8 +87,8 @@ def f_sym(x, a, b, c, x0):
 SHAPES = [
     ("linear", f_lin, lambda x, y: [y.mean(), 0.0]),
     ("quadratic", f_quad, lambda x, y: [y.mean(), 0.0, 0.0]),
-    ("exponential", f_exp, lambda x, y: [y.min(), y.ptp() or 1e-6, 0.5]),
-    ("symmetric", f_sym, lambda x, y: [y.min(), y.ptp() or 1e-6, 0.5, 0.0]),
+    ("exponential", f_exp, lambda x, y: [y.min(), float(y.max() - y.min()) or 1e-6, 0.5]),
+    ("symmetric", f_sym, lambda x, y: [y.min(), float(y.max() - y.min()) or 1e-6, 0.5, 0.0]),
 ]
 
 

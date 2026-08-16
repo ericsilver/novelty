@@ -1,0 +1,15 @@
+{
+ "class": "009",
+ "scoring": "rolling (topics, per-filing, flat, T=50)",
+ "n": 1109643,
+ "corr_Kpast_Kfuture": 0.9878389605665517,
+ "corr_A_L": 0.03645026604309338,
+ "corr_Kpast_L": 0.11404481508537524,
+ "corr_absL_A": 0.0907686345545627,
+ "sd_L": 0.10886108536988541,
+ "sd_A": 0.6954449052718911,
+ "sd_Kpast": 0.6995468793622379,
+ "sd_Kfuture": 0.6955909459342957,
+ "mean_A": 1.461883476273516,
+ "var_share_surviving_difference": 0.012176924036873347
+}
