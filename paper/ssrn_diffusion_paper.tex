@@ -5,6 +5,10 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{caption}
+% Left-justify every caption; without singlelinecheck=false LaTeX
+% centres any caption short enough to fit one line, so short and long
+% captions in the same paper are set differently.
+\captionsetup{justification=raggedright,singlelinecheck=false}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 \usepackage{enumitem}
@@ -26,46 +30,43 @@ by the small minority of firms that patent. Trademark filings time-stamp
 commercialization by everyone else, in plain commercial language.
 
 \noindent All 13.99 million USPTO trademark case files are re-parsed into
-event-dated prosecution histories, and each filing scored on one idea: how
-surprising its language is. The question is put to two readers with
-disjoint knowledge --- one who has seen only what the industry filed
-before that filing, one who has seen only what it filed after.
-\emph{Atypicality} is how surprising the wording is to them on average.
-\emph{Lead}, written \dkl{}, is the gap between them: positive when the
-wording surprised the first reader and not the second, which is what it
-looks like to have come first. Such filings are \emph{leading}; those
-whose language the industry was already leaving behind are
-\emph{lagging}.
+event-dated prosecution histories, and every filing is scored on how
+surprising its language is against what its industry filed in the five years
+before it and in the five years after. Filings whose wording the industry
+subsequently moved toward are \emph{leading}; those written in language it
+was already leaving behind are \emph{lagging}.
 
-\noindent Among marks the office granted, it is timing rather than
-unusualness that predicts what happens next. Leading marks fail their first
-use-proof gate --- the declaration, due between the fifth and sixth year,
-that the mark is still in commercial use --- 1.4 percentage points more
-often in the top within-class-cohort quintile than in the bottom, on a
-52.3\% base, over 3.10 million registrations with class$\times$cohort fixed
-effects, owner-clustered errors, and drafting and filer controls
-($t = 8.3$). Almost all of it sits in the top quintile. The penalty is
-episodic: carried back to the first scoreable cohorts it is two to three
-times larger than anything since, vanishes for marks filed 2000--2004, and
-returns from 2008, with the whole swing in technology classes and a small
-steady penalty elsewhere. At the firm level the ordering runs the same way
-and the \emph{lagging} tail stands out --- 0.44\% of the most lagging fifth
-of registered debut owners later appear in SEC financial-reporting records,
-against 0.24\% in the middle and 0.39\% of the most leading fifth.
-Atypicality does none of this work: its association with SEC reporting is
+\noindent A product described in language its industry is moving toward is
+less likely to still be on the market five years later than one described in
+language the industry is leaving behind. Among 3.10 million registrations,
+the fifth of marks with the most leading language fail the first use-proof
+declaration --- the sworn statement, due between the fifth and sixth year,
+that the mark is still in commercial use --- 53.3\% of the time against
+51.9\% for the most lagging fifth, with class$\times$cohort fixed effects,
+owner-clustered errors, and drafting and filer controls ($t = 8.3$). The
+penalty is episodic rather than permanent: larger in the 1990s than it has
+ever been since, absent for marks filed 2000--2004, back from 2008, and
+concentrated almost entirely in technology classes.
+
+\noindent Financial success accrues disproportionately to firms whose
+language has grown less familiar to their industry, not more. Among
+registered first-time filers, 0.44\% of the most lagging fifth later appear
+in SEC financial-reporting records, against 0.24\% in the middle fifth and
+0.39\% of the most leading fifth. How unusual the wording is, without regard
+to direction, does none of this work: its association with SEC reporting is
 indistinguishable from zero once the owner-to-registrant linkage spans the
 whole corpus. Nor is the measure a proxy for patenting --- within firms the
 association is under $0.06\sigma$ and flips sign between text
 representations.
 
-\noindent Two cautions. Read without conditioning on grant, the same data
-support weaker and sometimes opposite conclusions, because registration is
-itself selected on language. And scored on individual terms rather than
-topic distributions, leading filings appear to belong to better firms ---
-an association that dissolves or reverses under topic scoring, because term
-scoring picks up lexical specificity rather than position. Text measures of
-this kind can manufacture firm-performance correlations out of drafting
-style. Code, panels, and the corpus build are public at
+\noindent Read without conditioning on grant, the same data support weaker
+and sometimes opposite conclusions, because registration is itself selected
+on language. And scored on individual terms rather than distributions over
+themes, leading filings appear to belong to better firms --- an association
+that dissolves or reverses under theme scoring, because term scoring picks
+up lexical specificity rather than position. Text measures of this kind can
+manufacture firm-performance correlations out of drafting style. Code,
+panels, and the corpus build are public at
 \url{https://github.com/ericsilver/tm-vocabulary}.
 \end{abstract}
 
@@ -119,9 +120,7 @@ way predicts a good deal. Marks whose wording the industry subsequently
 adopted are abandoned at the five-year use-proof gate more often than marks
 written in language the industry was already leaving behind, and their
 owners are no more likely --- by the raw rates, somewhat less likely --- to
-end up filing financial reports with the SEC. Being early is where the risk
-is, and it is priced in the direction opposite to the one a reader would
-guess.
+end up filing financial reports with the SEC.
 
 The USPTO distributes its trademark backfile
 as bulk XML --- 83 archives covering 1884 to 2025 --- from which the
@@ -130,8 +129,7 @@ sequence of events that produced it. Re-parsing the backfile yields 242
 million prosecution events --- every step in the examination of an
 application --- across 13.99 million case files, each event
 carrying a code and a date: every office action, response, maintenance
-filing, and cancellation. Three further passes make those events usable.
-The event codes are resolved into a 760-code dictionary. A header pass
+filing, and cancellation. The event codes are resolved into a 760-code dictionary. A header pass
 extracts counsel of record, the statutory filing basis, and the
 postregistration declarations. A third pass recovers owner domicile, which
 the class-level files omit. Owner names are then normalized to a clustering
@@ -143,9 +141,7 @@ what lets a mark's language be followed to financing and to public listing.
 Where the patent record dates invention once, at grant, the trademark
 prosecution record dates a commercial claim's entire life, including the
 use-proof gates at which marks attached to products that never materialized
-are culled. Trademark law thereby supplies an unusually direct test: a
-registered mark must be re-proved in use five to six years on or be
-cancelled.
+are culled.
 
 Every filing is grouped by its industry class --- one of the 45
 international goods and services categories --- and placed by its filing
@@ -175,8 +171,7 @@ selected on language, so a correlation over all filings mixes what
 examination does to a description with what the market does to the product;
 Appendix~\ref{app:uncond} reports the unconditional version. Two further
 products of the exercise are released with it: the corpus, and a
-measurement hazard that applies to text-based novelty measures generally and
-would have produced a more flattering paper had it gone unnoticed.
+measurement hazard that applies to text-based novelty measures generally.
 
 \section{Registration measures follow-through; the use-proof gate measures survival}\label{sec:life}
 
@@ -221,7 +216,6 @@ Passed first gate, cohorts 2002--2013, terminal status known & 1{,}129{,}724 & \
 \end{tabular}
 \end{table}
 
-Three windows bound the samples, each set by an institutional fact.
 Scoring runs 1995--2019, because a full
 five-year past reference does not exist before 1990 and a full forward
 reference does not exist after 2020; the analysis cut of 1995 is about two
@@ -234,16 +228,13 @@ a separate 2019 replication is reported below. They begin in 2002 because
 that is the conventional cut for this corpus, and that lower
 bound turns out to matter: carried back to the first scoreable cohorts the
 penalty is two to three times larger than it has ever been since, and
-Section~\ref{sec:eras} reports what the restricted window concealed. The
-estimates below are stated for 2002--2018 as constructed; the wider series
-changes their interpretation rather than their values.
+Section~\ref{sec:eras} reports what the restricted window concealed.
 
 Registration is a launch indicator rather than an examiner verdict: among
 applications that fail to register, roughly nine in ten die by the
 applicant's own inaction --- never filing the statement of use, or going
 silent during prosecution --- and only 4.3\% are removed adversarially
-(Table~\ref{tab:funnel}). Completing registration therefore mostly measures
-whether the filer followed through to commercial use. The Section~8 gate is
+(Table~\ref{tab:funnel}). The Section~8 gate is
 where the market's verdict reaches the record: half of registered marks do
 not survive it, and failing it means the product the mark named is no longer
 in commerce.
@@ -265,49 +256,33 @@ accepted; 710 cancelled for Section~8 failure; 800 renewed; 900 expired.}
 
 \subsection{Why these results condition on grant}
 
-Registration is not a neutral filter on language. Across 3.59 million
-debut filings (57.6\% base rate), completion is an inverse-U in
-\emph{atypicality}: at twenty bins it climbs from 46.6\% at the least
-atypical end to about 58\% in the middle and falls back to 53.4\% at the
-most atypical (Figure~\ref{fig:profiles}, panel C). The same shape appears
-on the past-facing level alone, more mildly --- 54.0\% at the bottom
-quintile, 58.4--59.1\% in the middle, 57.7\% at the top
-(Figure~\ref{fig:outcomes}A). Applicants whose language sits far from their
-category in either direction follow through to commercial use least often,
-and the penalty is larger for the conventional tail than the unusual one.
+Registration is not a neutral filter on language, so every estimate below
+conditions on it. Completion is an inverse-U in atypicality: applicants whose
+language sits far from their category in either direction follow through least
+often, and the penalty is larger for the conventional tail than the unusual
+one. Pooling granted and abandoned filings therefore mixes what examination
+does to a description with what the market does to the product, and the
+resulting gradients are attenuated and in places reversed
+(Appendix~\ref{app:uncond}).
 
-The signed axis behaves differently, and a five-bin summary of it
-misleads. At twenty bins, completion on \dkl{} falls to a trough of
-51.9\% just above the median and then rises steadily to 58.0\% at the
-leading end (Figure~\ref{fig:profiles}, panel C). That trough is
-composition rather than an effect of timing: $|L|$ correlates with
-atypicality at $+0.31$, so filings near zero lead are disproportionately
-low-atypicality filings, which complete poorly for the reason above. Split
-by atypicality, the trough is absent in the upper three fifths and
-survives in the lowest. Reference windows built by calendar year rather than by filing date put an
-inverse-U on this axis too, but that one is an artifact of the annual
-bucketing documented in Appendix~\ref{app:rolling} and does not survive at
-daily resolution.
-The signed axis still enters a linear specification strongly
-(Table~\ref{tab:staged}), but it does so monotonically rather than through
-an interior peak: what curvature there is at registration belongs to how
-far a filing's language sits from its category, not to which side of it the
-filing sat.
+Conditioning would be the wrong move if abandonment were usually a pause
+rather than an ending --- if firms reworked refused applications and refiled
+them, the same commercial intent would be counted once as a failure and again
+as a success. It is not. Among 2.28 million abandoned applications, only
+3.6\% are followed within six years by the same owner filing the same mark
+again in the same class, and only 1.5\% by one that then registers. Crediting
+every successful refiling as an eventual registration moves the inverse-U in
+atypicality from a depth of $+2.91$pp to $+2.85$pp. Abandonment is
+overwhelmingly terminal, and what the registration step selects on is
+therefore a property of the filing rather than an artifact of counting.
 
-This is about the examination funnel, not the market. Pooling granted and
-abandoned filings mixes the two selections, and the resulting gradients are
-attenuated and in places reversed (Appendix~\ref{app:uncond}).
-
-The obvious objection is that unfamiliar language is simply refused more
-often, so the measure recovers nothing beyond familiarity. Two features of
-the shape rule that out. Completion falls at \emph{both} ends, so the most
-category-typical filings also complete less than the middle, which
-familiarity cannot explain. And the curvature is specific to the unsigned
-axis: the signed axis, almost uncorrelated with it by construction, shows no
-interior peak (Figure~\ref{fig:profiles}, panel C). What examination rewards
-is neither novelty nor conventionality but a middling specificity ---
-concrete enough to survive a definiteness objection, conventional enough to
-avoid a likelihood-of-confusion refusal. The paper does not build on it.
+What examination rewards is a middling specificity --- concrete enough to
+survive a definiteness objection, conventional enough to avoid a
+likelihood-of-confusion refusal. That is a fact about examiners, and
+Appendix~\ref{app:registration} sets it out in full: the shape on each axis,
+the compositional trough on the signed axis, and why familiarity alone cannot
+produce it. The rest of this section is about what happens to marks after the
+office has granted them.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
@@ -359,8 +334,7 @@ survivor whatever became of it, which puts a spurious $-46$pp coefficient on
 them; reading both moves it to $+10$pp, since Madrid registrations in fact
 fail this gate more often than domestic ones.
 
-Raw pooled quintiles convey the direction: among 4.12 million registration
-class-records 2002--2018, dated first-gate cancellation rises from 50.0\%
+Among 4.12 million registration class-records 2002--2018, dated first-gate cancellation rises from 50.0\%
 at the bottom topic-\dkl{} quintile to 52.4\% at the top, positive in 33
 of 44 classes with sufficient volume (Figure~\ref{fig:forest}). But a raw
 pooled contrast mixes the within-industry gradient with class and cohort
@@ -466,8 +440,7 @@ $+1.8$ to $+5.4$pp for every cohort from 2008 onward
 (Figure~\ref{fig:cohort}). That reading does not survive carrying the series
 back, and Section~\ref{sec:eras} replaces it.
 
-The series stops because the record does. The gate is close to a fixed
-appointment rather than a hazard spread over years: of the 1.35 million
+The gate is close to a fixed appointment rather than a hazard spread over years: of the 1.35 million
 cancellations recorded for fully observed cohorts, 17 post before
 registration age 6.5, 96.1\% post between 6.5 and 7.0, and the rest after
 seven. Since the cancellation record ends on 2 April 2026, a cohort is
@@ -486,11 +459,9 @@ fixed window would record the first as though it were the second. It is not.
 On the 3.15 million registrations whose ninth anniversary is inside the
 record --- for which failure is settled and no window is needed --- the
 contrast is $+2.71$pp within class and cohort, against $+2.65$pp on the
-paper's 4.0--8.5 window and $+2.65$pp on the narrow band. The three agree to
-within $0.06$pp. Conditional on failing, the probability of failing late
+paper's 4.0--8.5 window and $+2.65$pp on the narrow band. Conditional on failing, the probability of failing late
 carries a contrast of $-0.01$pp ($t = -0.2$) once class and cohort are
-absorbed: there is no schedule effect to separate out. The pooled version of
-that timing contrast is $+0.27$pp and is composition.
+absorbed. The pooled version of that contrast is $+0.27$pp and is composition.
 
 The filer population changed over the same period. Within
 counsel-represented US-domiciled owners, and with the full control set, the
@@ -514,16 +485,13 @@ passed it.}
 
 \subsection{The penalty is not modern, and it is not general}\label{sec:eras}
 
-The 2002 start was inherited rather than chosen, and it turns out to have
-been concealing the largest instance of the effect. Scores exist from 1995
-on, which makes registration cohorts from 1996 evaluable, and their gate
+Scores exist from 1995 on, which makes registration cohorts from 1996 evaluable, and their gate
 outcomes have been settled for two decades. Carried back, the contrast runs
 $+6.9$pp for the 1996 cohort and rises to $+10.1$pp for 1999 --- two to
 three times anything observed since --- then collapses. The 2002--2005
 cohorts the paper had been reading as a quiet baseline are a trough between
 two episodes, and one of them is the larger.
 
-Two confounds could produce a spurious early result, and neither does.
 Scores begin in 1995, so a 1996-cohort registration must have issued within
 a year of filing; early cohorts are selected on prosecution speed, and speed
 plausibly travels with drafting in standard language. Holding pendency in a
@@ -532,8 +500,7 @@ filing year instead, so a cohort contains every prosecution speed, gives
 $+7.9$ to $+9.6$pp for filings 1995--1999 and $-0.95$pp for filings made in
 2000 --- a ten-point swing in a single filing year.
 
-The effect is also not spread evenly across the economy. Splitting the four
-classes that carry most technology filings --- 009, 035, 038 and 042 ---
+Splitting the four classes that carry most technology filings --- 009, 035, 038 and 042 ---
 against the other forty-one separates a large moving component from a small
 steady one (Figure~\ref{fig:eras}):
 
@@ -561,9 +528,7 @@ What this design cannot say is which cycle the swing belongs to. Marks filed
 1995--1999 reach their gate in 2001--2007 and marks filed 2000--2004 reach
 theirs in 2006--2013, so a story in which unusual language is punished
 because it was written during an investment boom and a story in which it is
-punished because the gate falls during a bust both fit these numbers. The
-finding is that the penalty is episodic and concentrated in technology
-classes, not that it is a stable property of unusual language.
+punished because the gate falls during a bust both fit these numbers.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.86\textwidth]{results/gate_era_profile.png}
@@ -583,9 +548,7 @@ fail the gate far more often than represented owners (69.6\% versus
 (53.1\% versus 50.2\%),
 but the \dkl{} gradient itself is similar across these strata once class,
 cohort, and drafting covariates are held fixed ($+1.8$pp self versus
-$+1.2$pp counseled in Table~\ref{tab:gate_lpm}): who files predicts the
-level of gate risk; what the filing says predicts the increment on top of
-that level. Per class, the largest penalties sit in tobacco ($+26$pp, the
+$+1.2$pp counseled in Table~\ref{tab:gate_lpm}). Per class, the largest penalties sit in tobacco ($+26$pp, the
 vaping era), hand tools ($+10$pp), processed foods ($+10$pp) and medical
 apparatus ($+9$pp), with negative lifts in beverages, transport and
 construction.
@@ -613,8 +576,7 @@ between 46.1\% and 48.1\% across response-speed quintiles, from a median of
 seven days to 183 --- flat, and if anything the quickest responders pass
 slightly \emph{less}. The lead penalty is present in both halves: $-3.48$pp
 ($\pm 0.40$) among faster-than-median responders and $-2.36$pp ($\pm 0.40$)
-among slower, against $-2.94$pp pooled. It is not an artifact of
-already-failing owners being detected late. The restriction drops 61\% of
+among slower, against $-2.94$pp pooled. The restriction drops 61\% of
 the sample, disproportionately applications that never drew a refusal, so
 this speaks to the prosecuted subset.
 
@@ -633,8 +595,7 @@ third, so only the contrast between configurations is relied on
 The outcome here is whether an owner ever appears in the Securities and
 Exchange Commission's financial reporting records. That is broader than
 exchange-listed: roughly half the matched firms carry a ticker and the rest
-report for other reasons. Panel B of Figure~\ref{fig:outcomes} holds two
-patterns that pull in different directions. The rate rises monotonically in
+report for other reasons. The rate rises monotonically in
 the KL \emph{levels} on both axes, from 0.19\% at the bottom past-facing
 quintile to 0.52\% at the top. In signed \dkl{} it is U-shaped.
 
@@ -669,9 +630,7 @@ class$\times$year. Base rate 0.481\%.}
 note to Table~\ref{tab:gate_lpm}.
 \end{table}
 
-The design-based estimates (Table~\ref{tab:edgar}) resolve both patterns
-into one decomposition, and it is the raw atypicality gradient that does
-not survive it. Within class and filing year, holding description length
+The raw atypicality gradient does not survive the design-based estimates (Table~\ref{tab:edgar}). Within class and filing year, holding description length
 fixed, top-quintile atypicality raises the probability of SEC reporting by
 $+0.000$pp on a 0.481\% base ($t = 0.0$), and by $-0.003$pp on the past
 level alone. The quintile profile is not even monotone: the three middle
@@ -689,8 +648,7 @@ the apparent recovery of the far-leading tail is much reduced: the
 quintile profile falls through Q4 and flattens rather than recovering
 (Table~\ref{tab:edgar} middle panel).
 
-How owners are linked to public-market records bounds what the result can
-mean. Owners are matched to SEC
+Owners are matched to SEC
 registrants by normalized exact name, over a candidate universe of all
 5.67 million owners in the corpus; names resolving to more than one
 registrant are dropped rather than assigned, and one match is kept per owner
@@ -713,7 +671,7 @@ does not move when the linkage is varied, carries the weight. The financing
 rows of Table~\ref{tab:staged} rest on a Form~D match whose raw extracts are
 not in the current tree and should be read as provisional.
 
-The lagging end is the more striking. In raw rates, 0.444\% of the most
+In raw rates, 0.444\% of the most
 lagging fifth of registered debut owners later appear in SEC reporting
 records, against 0.240\% in the middle fifth and 0.390\% of the most leading
 fifth: both tails beat the middle, and the lagging tail beats the leading
@@ -721,7 +679,7 @@ one. Under the design-based specification the profile declines from the
 lagging end through the fourth quintile and recovers slightly at the leading
 end, so the ordering is monotone over four of the five quintiles.
 
-Two qualifications. The profile is a U rather than a slope, so a linear
+The profile is a U rather than a slope, so a linear
 summary of it points downward through a curve whose tails are its high
 points; Appendix~\ref{app:choices} fits the shape. And ``SEC reporting'' is
 not ``went public'': splitting matched owners on whether their CIK carries a
@@ -729,10 +687,8 @@ ticker gives $10{,}556$ listed against $9{,}333$ reporting without one, and
 both halves show the same U, so the result is not an artifact of counting
 non-operating registrants as successes.
 
-So the two axes do different work. Atypicality predicts survival at the
-use-proof gate but not which owners become SEC-reporting once composition is
-absorbed. Lead is the timing bet, and it costs at both margins. Being early
-is expensive; being unusual is not rewarded here.
+Atypicality predicts survival at the use-proof gate but not which owners become SEC-reporting once composition is
+absorbed. Lead is the timing bet, and it costs at both margins.
 
 The two are not independent in the obvious economic sense. What makes a
 filing leading is precisely that its industry moved toward its language, and
@@ -748,17 +704,13 @@ mechanism were real.
 
 \subsection{The construct is not patenting}\label{sec:patent}
 
-If \dkl{} and patent counts were noisy measures of the same underlying
-construct, they should correlate within firms over time. They do not.
-On a panel of trademark owners name-matched to PatentsView patent
-assignees \citep{PatentsView}, a fixed-effects regression of standardized
-firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$, with firms absorbed
-and errors clustered on the firm, gives $-0.058\sigma$ (SE $0.006$,
-$t = -9.4$) on 134{,}075 matched firm-years across 17{,}506 firms.
-
-That is small but not zero, and the more informative fact is that it does
-not survive a change of representation. Re-estimated on the same panel and
-the same specification under each of the paper's four scorings:
+Within the firms that do both, trademark lead and patenting move
+independently. On a panel of trademark owners name-matched to PatentsView
+patent assignees \citep{PatentsView}, a fixed-effects regression of
+standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$, with
+firms absorbed and errors clustered on the firm, gives $-0.058\sigma$
+(SE $0.006$, $t = -9.4$) on 134{,}075 matched firm-years across 17{,}506
+firms --- and that estimate does not survive a change of representation:
 
 \begin{center}\small
 \begin{tabular}{llrr}
@@ -779,13 +731,9 @@ estimate is under $0.06\sigma$, so a firm moving from no patents to twenty
 shifts its mean lead by at most a fifth of a standard deviation, and the
 direction of even that depends on whether one scores topics or terms.
 
-So the claim is not orthogonality, which would overstate what is here, but
-that no stable relationship exists in either direction: a reader wanting to
-use trademark lead as a proxy for patenting would find nothing consistent to
-lean on.
+No stable relationship exists in either direction, in either representation.
 
-Two objections, and both fail. The first is timing: a patent is applied for
-before its invention is in public use and a trademark when the firm is ready
+One objection is timing: a patent is applied for before its invention is in public use and a trademark when the firm is ready
 to sell, so patents would lead. Firms do not proceed that linearly, and in
 some industries the trademark comes first \citep{Seip2018}. Entering patents
 at $t-2$, $t-1$, $t$ and $t+1$ --- the last allowing the trademark to
@@ -816,8 +764,7 @@ than merely failing to support it: the only significant positives are
 transport and cosmetics, neither a complement class, while the significant
 negatives include medical devices and machinery, both of which are.
 
-The sample makes the test harder, not easier. It is conditional on a
-successful assignee match, so every owner patents at least once and the
+The test is conditional on a successful assignee match, so every owner patents at least once and the
 complement and substitute cells resemble each other more than the industries
 they stand for do, pushing any interaction toward zero. The weight rests on
 the cell-level nulls --- among the firms where a patent--vocabulary
@@ -825,17 +772,13 @@ relationship should be easiest to find.
 
 \subsection{Each axis bites at a different stage}\label{sec:staged}
 
-The two axes bite at different points in a mark's life.
 Table~\ref{tab:staged} re-estimates every outcome on one harmonized sample
 --- one row per debut owner, scored on that owner's first filing --- under a
-single specification, so the coefficients can be read down a column. Its
-magnitudes differ from the section-specific tables above; the signs and the
-ordering are what it is for.
+single specification, so the coefficients can be read down a column. Magnitudes differ from the section-specific tables above.
 
 \input{results/staged_outcomes_table.tex}
 
-Two reversals stand out, and both turn on the difference between the
-examiner and the market. Surprising language costs at registration and
+Surprising language costs at registration and
 pays afterwards: atypical debut filings complete registration less often
 ($-1.35$pp per standard deviation), then survive the first use-proof gate
 more often ($+1.35$pp) and reach public markets more often ($+0.04$pp on a
@@ -851,8 +794,7 @@ already cleared the first gate. Whatever the first gate is selecting on,
 the second gate selects on it again rather than reversing it. Those filers follow through on the paperwork;
 what does not follow through is the product.
 
-The registration row needs one caution. A linear coefficient cannot
-represent the inverse-U documented in Section~\ref{sec:results}, where
+A linear coefficient cannot represent the inverse-U documented in Section~\ref{sec:results}, where
 both vocabulary tails complete registration less often than the middle. The
 positive linear term reflects the asymmetry of that shape --- the leading
 tail completes more often than the lagging tail --- and not a monotone gain
@@ -964,9 +906,7 @@ earliest carriers per theme are 73.7\% entrants on average --- but the
 corpus's year-matched debut baseline is 76.4\%, so the theme-carrier
 excess is $-2.7$pp and 28 of 50 themes sit \emph{below} baseline.
 The themes leaning incumbent include environmental/sustainability, natural
-gas and petroleum, artificial intelligence, and cloud computing. Entrants
-are no better represented among the earliest carriers of a new theme than
-among filers generally, so the arrival of new vocabulary is not an entrant
+gas and petroleum, artificial intelligence, and cloud computing. So the arrival of new vocabulary is not an entrant
 phenomenon in the way the Schumpeterian reading would predict
 \citep{Schumpeter1942}.
 
@@ -997,8 +937,7 @@ against AI era (top axis, from 2015).}
 
 \section{What the measure supports, and what it does not}\label{sec:limits}
 
-Four claims are defended. The first is the one the paper is for: vocabulary
-position carries two separable signals, and it is the signed one that tracks
+Vocabulary position carries two separable signals, and it is the signed one that tracks
 what becomes of a product. Lead marks commercial risk: $+1.4$pp
 top-versus-bottom quintile at the use-proof gate with fixed effects,
 controls, and owner clustering, and $-0.047$pp per $\sigma$ in SEC reporting
@@ -1007,10 +946,9 @@ adopt belong disproportionately to products that do not survive and to
 owners who do not reach public reporting. Atypicality runs the other way and
 on a different margin: it marks marks that survive their gate ($+1.3$pp per
 standard deviation) and does \emph{not} predict SEC reporting at all once
-class and year are absorbed. Whether the wording was strange is a weaker
-question than whether it was early.
+class and year are absorbed.
 
-The remaining three are supporting. \dkl{}, adapted from
+\dkl{}, adapted from
 \citet{Murdock2017, Barron2018} onto topic distributions of USPTO
 trademark filings, produces interpretable structure on
 commercially-incentivised legal text. The construct is
@@ -1022,7 +960,7 @@ diffusion, with multi-year origin-to-arrival lags, Bass-fittable
 adoption, and asymmetric flow out of software on the four classes built so
 far.
 
-Three readings are rejected. \dkl{} does not measure innovation in any
+\dkl{} does not measure innovation in any
 strong sense; the defended primitive is vocabulary position on
 commercial text, and Appendix~\ref{app:exhibit} shows concretely which
 kinds of novelty the primary scoring cannot see. \dkl{} does not
@@ -1040,13 +978,6 @@ themselves: novelty is divergence from the past, transience divergence
 from the future. Atypicality as used here is their average, and so is
 neither of them alone; \emph{novelty} in particular is declined because it
 names only the backward-looking half of a quantity that faces both ways.
-What does not carry over at all is the interpretation. In those corpora one
-author writes the document and the reference stream is that author's own
-intellectual environment, so a high value says something about the author's
-cognitive state. Here each filing is scored against other firms' filings,
-so the same number says only that the description sits far from what its
-industry was writing.
-
 \emph{Resonance} is their signed difference, and is arithmetically what
 this paper calls lead. The word is avoided because it names a
 mechanism --- the field resonating with an author's contribution --- that
@@ -1078,8 +1009,7 @@ What \emph{atypicality} says is narrower than any of them: this description
 is unusual for its class and year. Whether the thing described was new,
 radical, or good is not measured.
 
-Filings are not independent draws, which bears on how any descriptive
-display of this corpus should be read. Some of them share an exact position
+Filings are not independent draws. Some of them share an exact position
 with another filing, and outcomes cluster within owner --- the
 within-owner correlation is 0.42 for gate survival and is mechanically
 1.0 for public listing, since listing is a property of the owner and a
@@ -1107,6 +1037,7 @@ variant is already look-ahead-free and reproduces the risk pattern.
 
 \section{Reproducibility}\label{sec:repro}
 
+\begin{sloppypar}
 Code, firm-year panels, and analysis outputs are at
 \url{https://github.com/ericsilver/tm-vocabulary}, indexed in the repository
 \texttt{README.md}. The pipeline rebuilds from a USPTO Open Data Portal API
@@ -1117,6 +1048,8 @@ key with a single \texttt{make tm} command (the TRTYRAP backfile is about
 \texttt{docs/online-appendix} carries a three-panel breakout for each of the
 45 Nice classes, the cross-industry comparisons, and a machine-readable
 table of per-class contrasts with standard errors.
+\end{sloppypar}
+
 
 \appendix
 
@@ -1205,7 +1138,7 @@ of $L$ rises threefold across deciles of $A$ under term scoring and by a
 quarter to a half under topic scoring, so a unit of lead means roughly the
 same thing everywhere only in the topic representation.
 Appendix~\ref{app:representation} shows this as a length surface over the
-two axes. Two qualifications. Topic scoring
+two axes. Topic scoring
 returns a finite value for about 65\% of filings, so the two columns are
 not the same sample; re-estimating the term-scored correlations on exactly
 the topic-scored subset still gives $-0.722$ and $-0.692$, which makes the
@@ -1231,10 +1164,6 @@ direction, and the paper draws no inference from it. Patent counts remain
 uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
 
 \subsection{Scoring robustness of the mark-level results}\label{app:scoring}
-
-Appendix~\ref{app:choices} reports the gate contrast under all six builds of
-the corpus; every sign holds in each, and term scoring returns the larger
-lead contrast, so the headline estimate is the conservative representation.
 
 The snapshot cross-check on the single one-gate-elapsed cohort
 (registrations 2016--2018, terminal status 710 versus 701--705/800)
@@ -1266,9 +1195,7 @@ Every estimate uses a reference anchored on the filing's own date. The
 alternative is one reference per class-year, under which a filing made on 1
 January and one made on 31 December receive identical references and neither
 sees any of the language filed during its own year.
-Appendix~\ref{app:choices} reports the calendar signature that leaves and
-how far the two scorings agree; three consequences for the results follow,
-in decreasing order of importance.
+Appendix~\ref{app:choices} reports the calendar signature that leaves.
 
 First, the gate penalty was overstated by about a third. On the same 3.10
 million registrations, the top-versus-bottom contrast is $+2.15$pp
@@ -1296,9 +1223,6 @@ though they are sensitive to the owner-to-registrant linkage instead
 (Section~\ref{sec:bluesea}): the signed decomposition keeps both its signs
 and its significance under either window.
 
-Nothing here changes a sign or a conclusion --- only magnitudes, one
-functional form, and the confidence with which magnitudes can be quoted.
-
 \subsection{Is five years the right window?}\label{app:wsweep}
 
 The window is a parameter of the measure, not a property of it, and the five
@@ -1318,10 +1242,8 @@ also the years whose contrasts differ most. The apparent decline at ten
 cannot be separated from that change in composition and is not evidence
 about window width. On the range where the sample is fixed, seven years is
 nominally the peak and five is within noise of it while retaining more of
-the corpus, so five is
-defensible; it is not uniquely optimal, and a reader should treat the choice
-as a shallow optimum rather than a tuned one. The sweep is on one class and
-one outcome, which is the obvious limitation.
+the corpus, so five is defensible rather than optimal. The sweep is on one class
+and one outcome.
 
 \subsection{Which novelty: the reference-window decomposition}
 
@@ -1492,8 +1414,7 @@ Reporting    & lead        & quadratic & $0.07$ & $0.44$ & $+0.56$ (trough) \\
 \end{tabular}
 \end{center}
 
-\noindent Three readings follow, and they differ in how much weight they can
-carry. The registration profile in atypicality is decisively curved: an
+\noindent The registration profile in atypicality is decisively curved: an
 inverted U peaking a standard deviation above mean atypicality, with the
 quadratic more than doubling the explained variance
 ($\Delta\mathrm{AIC} = 69$). This is the middling-specificity pattern of
@@ -1511,7 +1432,7 @@ read as describing. The vertex sits above the mean in both cases, so the
 lagging tail is the longer arm of the U --- the same asymmetry
 Section~\ref{sec:bluesea} reports from the quintiles.
 
-A caution on the model selection. AIC here is computed on 40 binned means, not
+AIC here is computed on 40 binned means, not
 on the millions of underlying filings, so it ranks shapes rather than testing
 them. $\Delta\mathrm{AIC} = 69$ at the registration gate is decisive and the
 $8$ to $18$ at the public-reporting gates is solid; the $1.9$ and $2.6$ on the
@@ -1520,14 +1441,11 @@ rows should be read as ``no worse than linear'' rather than as curvature.
 
 \subsection{Going public and merely reporting behave the same way}
 
-``Appears in SEC records'' mixes two populations that a reader will not
-naturally separate: companies whose shares trade, and entities that file with
+``Appears in SEC records'' mixes two populations: companies whose shares trade, and entities that file with
 the Commission without ever listing --- private issuers, funds, subsidiaries
 registering securities. Splitting the 19{,}889 matched owner strings on whether
 their CIK carries a ticker in the Commission's own company-ticker file gives
-10{,}556 listed against 9{,}333 that file financial statements without one, so
-the distinction is not a rounding correction: it is roughly half the sample
-either way.
+10{,}556 listed against 9{,}333 that file financial statements without one.
 
 It does not change the finding. Among registered debut owners whose debut
 filing is scored, $0.310$\% later appear as listed companies and $0.285$\% as
@@ -1600,6 +1518,42 @@ Term-resolved text-novelty measures can therefore manufacture
 firm-performance correlations from drafting style and lexical specificity,
 and a distribution-based rescoring is a cheap, decisive diagnostic.
 
+\section{What the examination funnel selects on}\label{app:registration}
+
+Across 3.59 million debut filings (57.6\% base rate), completion is an
+inverse-U in \emph{atypicality}: it climbs from 46.6\% at the least atypical
+end to about 58\% in the middle and falls back to 53.4\% at the most atypical
+(Figure~\ref{fig:profiles}, panel C). The same shape appears on the
+past-facing level alone, more mildly, running 54.0\% at the bottom quintile to
+58.4--59.1\% in the middle and 57.7\% at the top (Figure~\ref{fig:outcomes}A).
+
+The signed axis behaves differently. Completion on \dkl{} falls to a trough of
+51.9\% just above the median and then rises steadily to 58.0\% at the leading
+end. That trough is composition rather than timing: $|L|$ correlates with
+atypicality at $+0.31$, so filings near zero lead are disproportionately
+low-atypicality filings, which complete poorly for the reason above. Split by
+atypicality, the trough is absent in the upper three fifths and survives in
+the lowest. Reference windows built by calendar year put an inverse-U on this
+axis too, but that one is an artifact of annual bucketing
+(Appendix~\ref{app:rolling}) and does not survive at daily resolution. The
+signed axis still enters a linear specification strongly
+(Table~\ref{tab:staged}), but monotonically rather than through an interior
+peak: what curvature exists at registration belongs to how far a filing's
+language sits from its category, not to which side of it the filing sat.
+
+The obvious objection is that unfamiliar language is simply refused more
+often, so the measure recovers nothing beyond familiarity. Completion falls at
+\emph{both} ends, so the most category-typical filings also complete less than
+the middle, which familiarity cannot explain; and the curvature is specific to
+the unsigned axis, the signed axis showing no interior peak at all.
+
+Refiling after abandonment is itself mildly related to vocabulary position,
+though not on the axis that matters here. Refiling rates are flat in
+atypicality (a middle-minus-tails difference of $-0.06$pp on a 3.6\% base) but
+rise with lead, from 2.6\% among the most lagging abandoned applications to
+3.4\% among the most leading. Firms whose language ran ahead of their industry
+are slightly likelier to try the same mark again.
+
 \section{The outcome analysis without registration conditioning}\label{app:uncond}
 
 Figure~\ref{fig:uncond} repeats the lifecycle outcome analysis without the
@@ -1666,8 +1620,7 @@ substantially unchanged.}
 \label{fig:representation}
 \end{figure}
 
-The two representations fail in opposite directions. Topic scoring is
-independent of document length, which term scoring is not; term scoring
+Topic scoring is independent of document length, which term scoring is not; term scoring
 resolves novel word \emph{combinations}, which topic scoring does not. Hence
 topic scoring for every estimate, since the length confound contaminates
 firm-level comparisons, and term scoring for every worked example, since the

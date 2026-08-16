@@ -1,19 +1,19 @@
-\begin{table}[h]\centering\small
+\begin{table}[h]\centering\footnotesize
 \caption{Every outcome in the funnel, conditioned on its prerequisite, under one specification. Unit is the debut owner, scored on that owner's first filing. Each row is a linear probability model with class$\times$debut-year fixed effects and heteroskedasticity-robust errors; coefficients are percentage points per standard deviation. \emph{Atypicality} is the average of the two KL levels; \emph{lead} is the signed difference. Cohort windows differ because each maintenance gate needs elapsed time and Form~D is electronic only from 2009, so the rows are not a nested decomposition. The first gate is a dated cancellation for non-use; the second is whether a registration that cleared the first was renewed rather than cancelled or expired, restricted to 2002--2013 cohorts, since a year-six and a year-ten death share a terminal status and are separable only this way. This table alone is estimated at $T = 200$ topics rather than the $T = 50$ used elsewhere; the sign and ordering of every row are unchanged at $T = 50$.}
 \label{tab:staged}
-\begin{tabular}{llrrrrr}
+\begin{tabular}{lrrrrr}
 \toprule
- & & & & \multicolumn{2}{c}{Unsigned} & Signed \\
-\cmidrule(lr){5-6}\cmidrule(lr){7-7}
-Outcome & Given & $n$ & Base & Atypicality & $|\Delta$KL$|$ & Lead \\
+ & & & \multicolumn{2}{c}{Unsigned} & Signed \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-6}
+Outcome \emph{(population)} & $n$ & Base & Atyp. & $|\Delta$KL$|$ & Lead \\
 \midrule
-Reached registration & filed & 3,161,552 & 56.11\% & $-1.352$ (0.033) & $-0.307$ (0.044) & $+0.872$ (0.028) \\
-Passed first gate (yr 6) & registered & 1,260,392 & 41.82\% & $+1.349$ (0.054) & $-1.150$ (0.082) & $-0.487$ (0.052) \\
-Passed second gate (yr 10) & passed first & 297,944 & 55.92\% & $+1.296$ (0.108) & $-0.297$ (0.162) & $-0.629$ (0.105) \\
-Raised a Reg D round & filed & 1,535,004 & 2.53\% & $+0.003$ (0.015) & $+0.148$ (0.027) & $-0.149$ (0.016) \\
-Raised a Reg D round & registered & 916,448 & 2.61\% & $-0.017$ (0.020) & $+0.115$ (0.035) & $-0.114$ (0.021) \\
-Listed after the round & funded & 38,886 & 3.49\% & $+0.493$ (0.129) & $+0.608$ (0.170) & $-0.513$ (0.104) \\
-Became SEC-reporting & registered & 1,773,938 & 0.56\% & $+0.042$ (0.007) & $+0.040$ (0.011) & $-0.004$ (0.007) \\
+Reached registration \emph{(filed)} & 3,161,552 & 56.11\% & $-1.352$ (0.033) & $-0.307$ (0.044) & $+0.872$ (0.028) \\
+Passed gate 1, yr 6 \emph{(registered)} & 1,260,392 & 41.82\% & $+1.349$ (0.054) & $-1.150$ (0.082) & $-0.487$ (0.052) \\
+Passed gate 2, yr 10 \emph{(gate 1)} & 297,944 & 55.92\% & $+1.296$ (0.108) & $-0.297$ (0.162) & $-0.629$ (0.105) \\
+Raised Reg D round \emph{(filed)} & 1,535,004 & 2.53\% & $+0.003$ (0.015) & $+0.148$ (0.027) & $-0.149$ (0.016) \\
+Raised Reg D round \emph{(registered)} & 916,448 & 2.61\% & $-0.017$ (0.020) & $+0.115$ (0.035) & $-0.114$ (0.021) \\
+Listed after round \emph{(funded)} & 38,886 & 3.49\% & $+0.493$ (0.129) & $+0.608$ (0.170) & $-0.513$ (0.104) \\
+Became SEC-reporting \emph{(registered)} & 1,773,938 & 0.56\% & $+0.042$ (0.007) & $+0.040$ (0.011) & $-0.004$ (0.007) \\
 \bottomrule
 \end{tabular}
 \\[0.3em]\footnotesize Standard errors in parentheses, in place of significance stars; see the note to Table~\ref{tab:gate_lpm}.

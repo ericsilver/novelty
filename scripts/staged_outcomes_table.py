@@ -334,7 +334,7 @@ def main() -> int:
     (RES / "staged_outcomes.json").write_text(json.dumps(out, indent=1))
 
     rows = [s for s in stages if "skipped" not in s]
-    L = [r"\begin{table}[h]\centering\small",
+    L = [r"\begin{table}[h]\centering\footnotesize",
          r"\caption{Every outcome in the funnel, conditioned on its prerequisite, "
          r"under one specification. Unit is the debut owner, scored on that owner's "
          r"first filing. Each row is a linear probability model with class$\times$"
@@ -351,16 +351,16 @@ def main() -> int:
          r"alone is estimated at $T = 200$ topics rather than the $T = 50$ used "
          r"elsewhere; the sign and ordering of every row are unchanged at $T = 50$.}",
          r"\label{tab:staged}",
-         r"\begin{tabular}{llrrrrr}", r"\toprule",
-         r" & & & & \multicolumn{2}{c}{Unsigned} & Signed \\",
-         r"\cmidrule(lr){5-6}\cmidrule(lr){7-7}",
-         r"Outcome & Given & $n$ & Base & Atypicality & $|\Delta$KL$|$ & Lead \\",
+         r"\begin{tabular}{lrrrrr}", r"\toprule",
+         r" & & & \multicolumn{2}{c}{Unsigned} & Signed \\",
+         r"\cmidrule(lr){4-5}\cmidrule(lr){6-6}",
+         r"Outcome \emph{(population)} & $n$ & Base & Atyp. & $|\Delta$KL$|$ & Lead \\",
          r"\midrule"]
     for r in rows:
         a = r.get("spec_absdkl", {})
         acell = (f"${a['abs_lean']['b_pp']:+.3f}$ ({a['abs_lean']['se_pp']:.3f})"
                  if "abs_lean" in a else "---")
-        L.append(f"{r['stage']} & {r['conditioned_on']} & {r['n']:,} & "
+        L.append(f"{r['stage']} \\emph{{({r['conditioned_on']})}} & {r['n']:,} & "
                  f"{r['base_rate_pct']:.2f}\\% & "
                  f"${r['z_level']['b_pp']:+.3f}$ ({r['z_level']['se_pp']:.3f}) & "
                  f"{acell} & "
