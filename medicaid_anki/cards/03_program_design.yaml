@@ -1,4 +1,6 @@
-deck: "Medicaid::2. Program Design & Alternatives"
+deck: "Medicaid::3. Program Design & Alternatives"
+deck_id: 2059400113
+default_priority: 2
 tags: [medicaid, design]
 
 # ---------------------------------------------------------------------------
@@ -12,6 +14,7 @@ cards:
   # --- The financing design space -----------------------------------------
 
   - id: D001
+    priority: 1
     tags: [financing, framework]
     front: |-
       What are the four main structural alternatives to open-ended Medicaid matching?
@@ -24,6 +27,7 @@ cards:
       The organising question for all four: <i>who bears the risk of costs exceeding projections</i> — the federal government (status quo), or the states. Everything else is detail about how quickly and in what circumstances the risk transfers.
 
   - id: D002
+    priority: 1
     tags: [financing, per-capita-cap]
     front: |-
       How does a per capita cap differ from a block grant, and why does the difference matter?
@@ -33,6 +37,7 @@ cards:
       A per capita cap therefore preserves countercyclicality (more enrollees in a recession still means more federal money) while a block grant does not. What a per capita cap does not preserve is protection against cost growth per person — epidemics, a new expensive therapy, or an aging caseload all fall on the state.
 
   - id: D003
+    priority: 1
     tags: [financing, per-capita-cap]
     front: |-
       What are the key design parameters of a per capita cap?
@@ -46,6 +51,7 @@ cards:
       The growth trend does nearly all the fiscal work. A trend even one point below actual per capita cost growth compounds into very large state shortfalls over ten years, which is why CBO scores of capped proposals grow steeply in the out-years.
 
   - id: D004
+    priority: 3
     tags: [financing, per-capita-cap]
     front: |-
       Why does eligibility-group granularity matter in a per capita cap?
@@ -55,6 +61,7 @@ cards:
       Group-specific caps fix that but introduce classification incentives: the state gains by recording enrollees in whichever category carries the more generous cap, so the design has to police category assignment.
 
   - id: D005
+    priority: 3
     tags: [financing, history]
     front: |-
       Trace the history of Medicaid block grant and cap proposals.
@@ -68,6 +75,7 @@ cards:
       The pattern is consistent: capped financing is proposed roughly once a decade, generally fails, and each attempt refines the technical design. Healthy Adult Opportunity is notable for attempting by waiver what Congress had declined to legislate; no state adopted it and it was rescinded.
 
   - id: D006
+    priority: 1
     tags: [financing, tradeoffs]
     front: |-
       State the honest case <i>for</i> capped federal Medicaid financing.
@@ -80,6 +88,7 @@ cards:
       The match-rate distortion argument is the strongest one and is standard public finance: an open-ended matching grant is a price subsidy on state spending. Learn to state it before critiquing it.
 
   - id: D007
+    priority: 1
     tags: [financing, tradeoffs]
     front: |-
       State the case <i>against</i> capped federal Medicaid financing.
@@ -113,6 +122,7 @@ cards:
   # --- Expansion design alternatives ---------------------------------------
 
   - id: D010
+    priority: 3
     tags: [expansion, premium-assistance]
     front: |-
       What was the Arkansas "private option"?
@@ -122,6 +132,7 @@ cards:
       The political function was to let a conservative state expand coverage while describing the result as private insurance. The trade: marketplace plans pay commercial-level rates, so provider access improves but per-enrollee cost is higher. Later renamed Arkansas Works, and the model was adopted in modified form by New Hampshire.
 
   - id: D011
+    priority: 3
     tags: [expansion, premium-assistance]
     front: |-
       What federal tests must a premium assistance arrangement satisfy?
@@ -131,6 +142,7 @@ cards:
       The wraparound obligation is what makes premium assistance administratively difficult: the enrollee holds a commercial card, but the state remains liable for the gap. Several 1115s have waived or narrowed the wraparound for expansion adults, which is where the real policy fight has been.
 
   - id: D012
+    priority: 3
     tags: [expansion, indiana]
     front: |-
       What was distinctive about Indiana's Healthy Indiana Plan (HIP 2.0)?
@@ -165,6 +177,7 @@ cards:
   # --- Work requirements as a design problem -------------------------------
 
   - id: D015
+    priority: 1
     tags: [work-requirements, design]
     front: |-
       What are the main design parameters of a Medicaid work requirement?
@@ -179,6 +192,7 @@ cards:
       The evidence points at reporting and verification, not the hours threshold, as the binding parameter. Most affected enrollees already meet the hours; coverage loss comes from failing to document compliance. A design that verifies through payroll and other state data rather than enrollee submission changes the outcome far more than adjusting the hours would.
 
   - id: D016
+    priority: 1
     tags: [work-requirements, theory]
     front: |-
       What is the "ordeal" framing of administrative burden, and how does it apply here?
@@ -201,6 +215,7 @@ cards:
   # --- Cost sharing and incentives -----------------------------------------
 
   - id: D018
+    priority: 1
     tags: [cost-sharing, design]
     front: |-
       What does the evidence suggest about premiums and cost sharing in Medicaid?
@@ -221,6 +236,7 @@ cards:
   # --- Managed care design -------------------------------------------------
 
   - id: D020
+    priority: 1
     tags: [managed-care, theory]
     front: |-
       What is the theoretical case for Medicaid managed care, and what is the corresponding risk?
@@ -266,6 +282,7 @@ cards:
   # --- Delivery and payment reform ----------------------------------------
 
   - id: D024
+    priority: 1
     tags: [delivery-reform, oregon]
     front: |-
       What are Oregon's Coordinated Care Organizations (CCOs)?
@@ -297,6 +314,7 @@ cards:
       Their political function was often to convert expiring supplemental payment pools into something reform-shaped. Evaluations were mixed to disappointing: process milestones were widely met, but effects on cost and outcomes were hard to detect, and much of the money followed pre-existing payment flows. Most were not renewed. The cautionary lesson is that paying for "transformation" activity is not the same as paying for results.
 
   - id: D027
+    priority: 1
     tags: [delivery-reform, hrsn]
     front: |-
       What are health-related social needs (HRSN) initiatives in Medicaid?
@@ -315,6 +333,7 @@ cards:
       It is the largest single test of the HRSN approach, and also folded in justice-involved reentry services, population health management, and a statewide managed care procurement. Its scale makes it the case study most likely to generate usable evidence about whether social-needs services pay for themselves.
 
   - id: D029
+    priority: 3
     tags: [delivery-reform, global-budget]
     front: |-
       What is a hospital global budget, and where has Medicaid participated in one?
@@ -360,6 +379,7 @@ cards:
       The binding constraint is that a state cannot simply exclude a covered manufacturer's drug, so all management is friction rather than exclusion. That makes prior authorization the central instrument and its administrative burden the central complaint.
 
   - id: D033
+    priority: 3
     tags: [drugs, subscription]
     front: |-
       What is the "subscription" or Netflix model for Medicaid drug purchasing?
@@ -369,6 +389,7 @@ cards:
       Louisiana and Washington both used it for hepatitis C antivirals, where the clinical case for treating everyone was strong and per-unit prices made that fiscally impossible. It is the cleanest example of a payment model redesigned around a specific clinical and budgetary geometry — and it does not generalize to drugs without those properties.
 
   - id: D034
+    priority: 3
     tags: [drugs, gene-therapy]
     front: |-
       What is the Cell and Gene Therapy Access Model?
@@ -380,6 +401,7 @@ cards:
   # --- Coverage continuity and eligibility design --------------------------
 
   - id: D035
+    priority: 1
     tags: [eligibility-design, continuity]
     front: |-
       What are the main design tools for reducing churn?
@@ -402,6 +424,7 @@ cards:
       Oregon's 1115 provides continuous eligibility from birth to age 6, with other states following in modified form. The counterargument is fiscal — the state pays for months in which some children would have been ineligible — and the empirical question is how large that share actually is.
 
   - id: D037
+    priority: 3
     tags: [eligibility-design, marketplace]
     front: |-
       What is the Basic Health Program?
@@ -422,6 +445,7 @@ cards:
   # --- LTSS design ---------------------------------------------------------
 
   - id: D039
+    priority: 1
     tags: [ltss, design]
     front: |-
       What is "rebalancing," and what tools drive it?
@@ -440,6 +464,7 @@ cards:
       The empirical picture is mixed and depends on the time horizon: HCBS expansions do increase the number served, but studies with longer follow-up generally find institutional use and total LTSS spending growth moderating. It is also worth noting the normative asymmetry — "woodwork" describes people with genuine unmet need finally receiving services.
 
   - id: D041
+    priority: 3
     tags: [ltss, workforce]
     front: |-
       Why is direct care workforce policy a Medicaid design problem?
@@ -449,6 +474,7 @@ cards:
       Policy responses: wage pass-through requirements, the 2024 Access Rule's 80/20 provision, rate add-ons tied to compensation, training and career ladders, and self-direction (which lets family members be paid). The 80/20 rule is notable as direct regulation of an input price rather than an output price.
 
   - id: D042
+    priority: 3
     tags: [ltss, insurance]
     front: |-
       Why is there so little private long-term care insurance, and what does Medicaid have to do with it?
@@ -458,6 +484,7 @@ cards:
       This is Brown and Finkelstein's crowd-out result (deck 3). The design implication is that "encourage private LTC insurance" strategies — including the Partnership programs that shield assets equal to insurance benefits paid — face a structural headwind. Washington State's payroll-tax-funded WA Cares is the main U.S. attempt at a public alternative.
 
   - id: D043
+    priority: 1
     tags: [duals, design]
     front: |-
       Why is dual eligible integration so difficult, and what is the misaligned-incentive problem?
@@ -467,6 +494,7 @@ cards:
       This is the canonical cost-shifting problem in U.S. health policy. Every integration model — PACE, FIDE SNPs, the Financial Alignment Initiative, integrated appeals and exclusively aligned enrollment — is an attempt to put both revenue streams under one entity so the savings and the spending land in the same place.
 
   - id: D044
+    priority: 3
     tags: [duals, design]
     front: |-
       What was the Financial Alignment Initiative, and what happened to it?
@@ -487,6 +515,7 @@ cards:
       The unwinding made this visible: states with comparable eligibility rules but different systems had procedural termination rates differing by a factor of several. Federal 90/10 match for system development and 75/25 for operations is the main lever, and it is one of the highest-leverage uses of federal dollars in the program.
 
   - id: D046
+    priority: 3
     tags: [administration, design]
     front: |-
       What is the trade-off between state and county administration of Medicaid?
@@ -496,6 +525,7 @@ cards:
       Several large states (California, New York, North Carolina, Wisconsin, Ohio, Colorado, Minnesota) are county-administered or county-supervised. Within-state variation there is often larger than between-state variation, a useful and underexploited source of identifying variation for research.
 
   - id: D047
+    priority: 1
     tags: [design, framework]
     front: |-
       What is the standard "iron triangle" framing, and how does it apply to Medicaid design?
@@ -505,6 +535,7 @@ cards:
       This makes the trade-offs legible. Raising rates to fix access costs money that must come from coverage or elsewhere. A per capita cap holds cost while nominally holding coverage — so the pressure lands on rates and benefits. Ask of any proposal: which corner is it giving up, and does it say so?
 
   - id: D048
+    priority: 1
     tags: [design, framework]
     front: |-
       What questions should you ask of any Medicaid reform proposal?
@@ -519,6 +550,7 @@ cards:
       The fifth question is the most diagnostic. Most large Medicaid savings estimates come from reduced enrollment or reduced provider payment, not from efficiency. That is a legitimate policy choice, but it is a different one from what proposals usually claim.
 
   - id: D049
+    priority: 1
     tags: [design, framework]
     front: |-
       Distinguish "cost saving" from "cost shifting" in Medicaid proposals.
@@ -528,6 +560,7 @@ cards:
       Federal Medicaid cuts almost always show up as some combination of state general fund pressure, provider revenue loss, and uninsurance. The uncompensated care channel is quantified — see Garthwaite, Gross, and Notowidigdo, and Finkelstein-Hendren-Luttmer's finding that a large share of Medicaid's value accrues to external parties.
 
   - id: D050
+    priority: 1
     tags: [design, waivers]
     front: |-
       What are the recurring criticisms of governing Medicaid through 1115 waivers?
@@ -558,6 +591,7 @@ cards:
       Multiple state-level analyses found net state budget effects near zero or positive in early expansion years. The claim weakens if the enhanced match falls, which is exactly why the 90 percent rate is the pivotal parameter in expansion politics and why trigger laws exist.
 
   - id: D053
+    priority: 3
     tags: [design, trigger-laws]
     front: |-
       What is an expansion "trigger law"?
@@ -577,6 +611,7 @@ cards:
       The empirical test worth applying: when states have received flexibility, what did they actually do with it? The historical record is mostly narrowing — which does not settle the argument, but it should inform the prior.
 
   - id: D055
+    priority: 3
     tags: [design, corrections]
     front: |-
       What is the design logic of Medicaid reentry waivers?
@@ -586,6 +621,7 @@ cards:
       Reentry 1115s let Medicaid pay for a package (case management, medication-assisted treatment, a 30-day medication supply, care coordination) in the 30-90 days pre-release. California's January 2023 approval was the first; many states followed. It is a clean example of the general principle that coverage timing, not just coverage, determines outcomes.
 
   - id: D056
+    priority: 1
     tags: [design, framework]
     front: |-
       What is the "two Medicaids" observation, and why does it matter for design?
@@ -608,6 +644,7 @@ cards:
       Each trades off cost per enrollee, provider access, continuity, and administrative complexity. The recurring finding is that alternatives which pay commercial rates buy better access at meaningfully higher cost per person — a real trade, not a free lunch in either direction.
 
   - id: D058
+    priority: 1
     tags: [design, framework]
     front: |-
       Why do Medicaid savings proposals so often target the <i>financing</i> side rather than benefits or eligibility?
@@ -635,6 +672,7 @@ cards:
       Sommers and Rosenbaum estimated that a large share of low-income adults would experience such a transition within a year. Insurers participating in both markets ("bridge plans") let a person keep the same carrier and network across the line, which addresses the continuity problem without unifying the programs.
 
   - id: D061
+    priority: 3
     tags: [design, behavioral-health]
     front: |-
       What are the main design options for behavioral health in Medicaid?
@@ -656,6 +694,7 @@ cards:
       The consequence is that pay-for-performance in Medicaid often runs on measures that are noisy, weakly related to the outcomes anyone cares about, and not comparable across states. Mandatory Core Set reporting and improved T-MSIS data are the main structural fixes underway.
 
   - id: D063
+    priority: 3
     tags: [design, tribal]
     front: |-
       What special Medicaid rules apply to American Indians and Alaska Natives?
@@ -665,6 +704,7 @@ cards:
       The 100 percent match creates a strong state incentive to route care through IHS and tribal facilities, and CMS has broadened what counts as "received through" an IHS/tribal facility to include care under care coordination agreements — a quiet but substantial policy expansion.
 
   - id: D064
+    priority: 3
     tags: [design, comparison]
     front: |-
       How do other wealthy countries handle the function Medicaid performs?
@@ -683,6 +723,7 @@ cards:
       The counter-observation is that Medicaid has proven remarkably durable and expandable: it has grown to cover a quarter of the country, survived repeated block grant attempts, and outperforms private coverage on cost per enrollee and on financial protection. Both accounts are partly right, which is why the reform literature keeps returning to whether Medicaid should be improved or absorbed.
 
   - id: D066
+    priority: 1
     tags: [design, cost-growth]
     front: |-
       Does Medicaid control costs well relative to other payers?
@@ -692,6 +733,7 @@ cards:
       Important framing point: aggregate Medicaid spending growth is dominated by <i>enrollment</i> growth, not per-enrollee cost growth. Confusing the two is the most common error in cost-control debates, and it matters because per capita caps target the component that is already comparatively well controlled.
 
   - id: D067
+    priority: 3
     tags: [design, prevention]
     front: |-
       Why is Medicaid structurally bad at investing in prevention?
@@ -701,6 +743,7 @@ cards:
       This "wrong pockets" problem justifies federal rather than state financing of preventive investment, longer continuous eligibility so a payer holds the person long enough to benefit, and dual integration so Medicare savings can be captured. It is also the strongest structural argument for the HRSN and social-needs agenda being financed federally.
 
   - id: D068
+    priority: 1
     tags: [design, framework]
     front: |-
       What is the difference between "coverage" and "access," and why does the distinction discipline policy design?

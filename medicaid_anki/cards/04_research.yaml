@@ -1,4 +1,6 @@
-deck: "Medicaid::3. Research: Efficacy & Reform"
+deck: "Medicaid::4. Research: Efficacy & Reform"
+deck_id: 2059400114
+default_priority: 2
 tags: [medicaid, research]
 
 # ---------------------------------------------------------------------------
@@ -13,6 +15,7 @@ cards:
   # --- Methods -------------------------------------------------------------
 
   - id: R001
+    priority: 1
     tags: [methods]
     front: |-
       Why is the naive comparison of Medicaid enrollees to the uninsured useless?
@@ -22,6 +25,7 @@ cards:
       Every credible study in this deck exists to break that selection. Whenever you see a claim that "Medicaid enrollees have worse outcomes than the uninsured," the first question is what generated the variation in coverage.
 
   - id: R002
+    priority: 1
     tags: [methods]
     front: |-
       What are the main identification strategies used in the Medicaid literature?
@@ -36,6 +40,7 @@ cards:
       Knowing which strategy produced a result tells you what population it applies to. The lottery identifies effects for low-income adults who actively sought coverage; expansion DiD identifies effects for the whole newly eligible population, most of whom did not.
 
   - id: R003
+    priority: 3
     tags: [methods]
     front: |-
       What is a "simulated eligibility instrument," and why was it a breakthrough?
@@ -54,6 +59,7 @@ cards:
       Reported Oregon effects are usually LATE. This matters when comparing to expansion studies, which often report ITT-style effects on whole populations, and it matters for the power discussion — the ITT is small because most of the treatment group was untreated.
 
   - id: R005
+    priority: 1
     tags: [methods, power]
     front: |-
       What is the statistical power critique of the Oregon two-year health results?
@@ -81,6 +87,7 @@ cards:
       Goodman-Bacon (2021) decomposed the problem; Callaway–Sant'Anna, Sun–Abraham, and de Chaisemartin–D'Haultfœuille supply robust estimators. Directly relevant here because states expanded in 2014, 2015, 2016, 2019, 2021, and 2023. Older papers using plain TWFE across staggered adopters deserve a second look.
 
   - id: R008
+    priority: 1
     tags: [methods, mvpf]
     front: |-
       What is the Marginal Value of Public Funds (MVPF)?
@@ -110,6 +117,7 @@ cards:
   # --- The Oregon Health Insurance Experiment ------------------------------
 
   - id: R011
+    priority: 1
     tags: [oregon, rct]
     front: |-
       What was the Oregon Health Insurance Experiment, and why is it unique?
@@ -119,6 +127,7 @@ cards:
       About 30,000 were selected. Selection raised the probability of Medicaid coverage roughly 25 percentage points, giving a strong first stage. Researchers used administrative hospital, credit, and mortality data for everyone plus mail surveys, and in-person exams for the Portland-area subsample.
 
   - id: R012
+    priority: 1
     tags: [oregon, rct, utilization]
     front: |-
       What did the Oregon experiment find in its first year (Finkelstein et al. 2012, QJE)?
@@ -128,6 +137,7 @@ cards:
       Finkelstein, Taubman, Wright, Bernstein, Gruber, Newhouse, Allen, Baicker, and the Oregon Health Study Group, <i>QJE</i> 127(3). The clean summary: coverage caused people to use more care, not less — no offsetting reduction from better primary care in year one.
 
   - id: R013
+    priority: 1
     tags: [oregon, rct, health]
     front: |-
       What did the Oregon two-year results find (Baicker et al. 2013, NEJM)?
@@ -141,6 +151,7 @@ cards:
       <i>NEJM</i> 368:1713. The most contested result in the field. The biomarker nulls were imprecise (see R005), and few participants had poorly controlled values at baseline, so the sample had limited room to improve. The depression and financial protection results were large and precise, and are the findings that survive scrutiny best.
 
   - id: R014
+    priority: 1
     tags: [oregon, rct, emergency]
     front: |-
       What did Taubman et al. (2014, Science) find about emergency department use?
@@ -159,6 +170,7 @@ cards:
       The best available experimental evidence against a large labor-supply disincentive from Medicaid coverage. Caveat on external validity: these were people who had actively signed up for a waiting list, and OHP Standard covered a group already largely detached from steady employment.
 
   - id: R016
+    priority: 1
     tags: [oregon, welfare]
     front: |-
       What did Finkelstein, Hendren, and Luttmer (2019, JPE) conclude about the value of Medicaid?
@@ -192,6 +204,7 @@ cards:
       <i>NEJM</i> 367:1025. The most-cited pre-ACA mortality estimate. Caveats: results were driven substantially by New York; the design is DiD with a small number of treated states; and Kaestner and others argued the estimates were sensitive to control-group choice.
 
   - id: R019
+    priority: 1
     tags: [mortality, expansion]
     front: |-
       What did Miller, Johnson, and Wherry (2021, QJE) find, and why is it the strongest expansion-mortality evidence?
@@ -210,6 +223,7 @@ cards:
       "Health Insurance and Mortality: Experimental Evidence from Taxpayer Outreach," <i>QJE</i> 136(1). It is one of very few <i>randomized</i> estimates of insurance's mortality effect, at a scale mortality actually requires. Note it concerns coverage generally (largely marketplace), not Medicaid specifically, and identifies the effect for people induced to enroll by a letter.
 
   - id: R021
+    priority: 3
     tags: [mortality, children, history]
     front: |-
       What did Goodman-Bacon (2018, AER) find about Medicaid's original introduction?
@@ -219,6 +233,7 @@ cards:
       "Public Insurance and Mortality: Evidence from Medicaid's Implementation," <i>AER</i>. Strong design (large pre-existing variation in AFDC caseloads generating sharp differences in eligibility) and a clean falsification test — treatable causes move, non-treatable causes do not.
 
   - id: R022
+    priority: 3
     tags: [mortality, children, history]
     front: |-
       What did Goodman-Bacon (2021, AER) find about the long-run effects of childhood Medicaid?
@@ -230,6 +245,7 @@ cards:
   # --- Children and long-run effects ---------------------------------------
 
   - id: R023
+    priority: 1
     tags: [children, currie-gruber]
     front: |-
       What did Currie and Gruber (1996, JPE) find about Medicaid eligibility for pregnant women?
@@ -248,6 +264,7 @@ cards:
       "Health Insurance Eligibility, Utilization of Medical Care, and Child Health," <i>QJE</i> 111(2). The low take-up finding is as important as the mortality finding: it means eligibility and coverage are very different treatments, and it launched a literature on enrollment barriers and outreach.
 
   - id: R025
+    priority: 1
     tags: [children, long-run]
     front: |-
       What did Brown, Kowalski, and Lurie (2020, ReStud) find using tax data?
@@ -257,6 +274,7 @@ cards:
       "Long-Term Impacts of Childhood Medicaid Expansions on Outcomes in Adulthood," <i>Review of Economic Studies</i> 87(2), using IRS administrative data on millions of children. This is the empirical backbone of the claim that childhood Medicaid has a very high — sometimes effectively infinite — MVPF.
 
   - id: R026
+    priority: 3
     tags: [children, long-run, rd]
     front: |-
       What did Wherry and Meyer (2016, JHR) find, and what was the design?
@@ -266,6 +284,7 @@ cards:
       "Saving Teens: Using a Policy Discontinuity to Estimate the Effects of Medicaid Eligibility," <i>Journal of Human Resources</i> 51(3). The birthdate discontinuity is the cleanest natural experiment in the children's Medicaid literature and has been reused repeatedly.
 
   - id: R027
+    priority: 3
     tags: [children, long-run]
     front: |-
       What did Wherry, Miller, Kaestner, and Meyer (2018) find about adult health care use?
@@ -275,6 +294,7 @@ cards:
       <i>Review of Economics and Statistics</i> 100(2). Along with Miller and Wherry's work on in utero exposure, this is the evidence that childhood coverage produces adult health capital, not just contemporaneous care.
 
   - id: R028
+    priority: 3
     tags: [children, long-run]
     front: |-
       What did Miller and Wherry (2019, JHR) find about in utero Medicaid exposure?
@@ -284,6 +304,7 @@ cards:
       "The Long-Term Effects of Early Life Medicaid Coverage," <i>JHR</i> 54(3). Fits the fetal origins literature: the prenatal period is a high-leverage window, and Medicaid's pregnancy expansions are one of the largest policy experiments touching it.
 
   - id: R029
+    priority: 3
     tags: [children, long-run, multigenerational]
     front: |-
       What did East, Miller, Page, and Wherry (2023, AER) find?
@@ -293,6 +314,7 @@ cards:
       "Multigenerational Impacts of Childhood Access to the Safety Net: Early Life Exposure to Medicaid and the Next Generation's Health," <i>AER</i> 113(1). It implies conventional cost-benefit analyses truncated at one generation understate the return, and it is among the most striking results in the safety net literature.
 
   - id: R030
+    priority: 3
     tags: [children, education]
     front: |-
       What did Cohodes, Grossman, Kleiner, and Lovenheim (2016, JHR) find?
@@ -304,6 +326,7 @@ cards:
   # --- Financial effects ---------------------------------------------------
 
   - id: R031
+    priority: 1
     tags: [financial, expansion]
     front: |-
       What did Hu, Kaestner, Mazumder, Miller, and Wong (2018, JPubE) find?
@@ -313,6 +336,7 @@ cards:
       "The Effect of the Affordable Care Act Medicaid Expansions on Financial Wellbeing," <i>Journal of Public Economics</i> 163. Credit bureau data are the workhorse here: universal, administrative, high frequency, and unaffected by survey response bias.
 
   - id: R032
+    priority: 3
     tags: [financial, expansion]
     front: |-
       What did Brevoort, Grodzicki, and Hackmann (2020, JHE) find about medical debt?
@@ -322,6 +346,7 @@ cards:
       "The Credit Consequences of Unpaid Medical Bills," <i>Journal of Health Economics</i> 72. Note the mechanism it exposes: uninsurance imposes costs beyond health care, through the credit market, on housing, employment, and borrowing.
 
   - id: R033
+    priority: 3
     tags: [financial, uninsured]
     front: |-
       What did Dobkin, Finkelstein, Kluender, and Notowidigdo (2018, AER) establish?
@@ -331,6 +356,7 @@ cards:
       "The Economic Consequences of Hospital Admissions," <i>AER</i> 108(2). Important companion result: they also found "medical bankruptcy" claims in the literature had been substantially overstated by studies without a comparison group. Both findings come from the same careful design.
 
   - id: R034
+    priority: 1
     tags: [financial, uncompensated-care]
     front: |-
       What did Garthwaite, Gross, and Notowidigdo (2018, QJE) find about hospitals?
@@ -340,6 +366,7 @@ cards:
       "Hospitals as Insurers of Last Resort," <i>QJE</i>/<i>AEJ: Applied</i> line of work using the 2005 TennCare disenrollment and expansion variation. This quantifies the "implicit insurance" that explains why recipients' willingness to pay for Medicaid is well below its cost (see R016).
 
   - id: R035
+    priority: 3
     tags: [financial, bankruptcy]
     front: |-
       What is Mahoney's (2015, AER) "bankruptcy as implicit health insurance" argument?
@@ -369,6 +396,7 @@ cards:
       Reconciling this with Garthwaite et al.: losing coverage abruptly is not the mirror image of gaining it. The Tennessee result operates through employer-sponsored insurance as the only alternative; ACA expansion arrived alongside marketplace subsidies, so the coverage-employment link was weaker.
 
   - id: R038
+    priority: 3
     tags: [labor]
     front: |-
       What did Dague, DeLeire, and Leininger (2017, AEJ: Economic Policy) find?
@@ -378,6 +406,7 @@ cards:
       "The Effect of Public Insurance Coverage for Childless Adults on Labour Supply," <i>AEJ: EP</i> 9(2). The design identifies the effect for people at an enrollment margin created by a cap, which may be a more employment-attached group. Cite it as the strongest counterweight to the "no labor supply effect" consensus rather than pretending the consensus is unanimous.
 
   - id: R039
+    priority: 1
     tags: [labor, work-requirements]
     front: |-
       What did Sommers et al. (2019, NEJM) find about Arkansas's work requirement?
@@ -436,6 +465,7 @@ cards:
       "Has Contracting Out Improved the Efficiency of U.S. Medicaid?" <i>JPAM</i> 32(3). This is the key conditional result. It explains why national debates about whether "managed care saves money" are unresolvable in the abstract — the answer is a function of the counterfactual price level.
 
   - id: R045
+    priority: 3
     tags: [managed-care, research, disparities]
     front: |-
       What did Kuziemko, Meckel, and Rossin-Slater (2018) find about managed care and infant health?
@@ -445,6 +475,7 @@ cards:
       "Does Managed Care Widen Infant Health Disparities? Evidence from Texas Medicaid," <i>AEJ: Economic Policy</i> 10(3). A concrete demonstration that risk adjustment is not a technical detail: when payment does not track expected cost, selection incentives fall hardest on the highest-risk groups.
 
   - id: R046
+    priority: 3
     tags: [managed-care, research]
     front: |-
       What does the random plan assignment literature show about Medicaid MCOs?
@@ -492,6 +523,7 @@ cards:
       Dranove, Garthwaite, and Ody (2016) on uncompensated care; Blavin (2016, JAMA) on margins; Lindrooth et al. (2018, Health Affairs) on closures. This is why hospital associations are consistently among the strongest advocates of expansion and among the loudest opponents of provider tax and directed payment restrictions.
 
   - id: R051
+    priority: 3
     tags: [drugs, research]
     front: |-
       What did Duggan and Scott Morton (2006, QJE) find about Medicaid drug purchasing?
@@ -512,6 +544,7 @@ cards:
       <i>JAMA</i> 314(4). The Kentucky/Arkansas contrast also allowed a comparison of Medicaid versus premium assistance: broadly similar access outcomes through both routes, an important null for the "private coverage works better" claim.
 
   - id: R053
+    priority: 3
     tags: [expansion, prevention]
     front: |-
       What is the evidence on expansion and preventive care and cancer?
@@ -521,6 +554,7 @@ cards:
       Simon, Soni, and Cawley (2017, JPAM) on preventive care; Soni and colleagues on stage at diagnosis. Stage shift is a valuable intermediate outcome because mortality effects from cancer screening take years to appear and are hard to detect directly.
 
   - id: R054
+    priority: 3
     tags: [expansion, behavioral-health]
     front: |-
       What is the evidence on expansion and substance use disorder treatment?
@@ -530,6 +564,7 @@ cards:
       Maclean and Saloner (2019, JPAM); Wen, Druss, and Cummings (2015, HSR) and related work. Medicaid is the largest payer for SUD treatment, so expansion effects here operate on a large base. This literature is central to arguments connecting Medicaid policy to overdose mortality.
 
   - id: R055
+    priority: 3
     tags: [expansion, other-outcomes]
     front: |-
       What non-health effects of Medicaid expansion have been documented?
@@ -539,6 +574,7 @@ cards:
       These matter for cost-benefit accounting: a program evaluated only on health outcomes will understate its return if it also reduces incarceration and homelessness costs. They also raise the standard caution — many of these outcomes are studied with fewer designs and smaller samples than coverage and mortality.
 
   - id: R056
+    priority: 3
     tags: [expansion, maternal]
     front: |-
       What is the evidence on Medicaid expansion and maternal and infant outcomes?
@@ -588,6 +624,7 @@ cards:
   # --- Long-term care ------------------------------------------------------
 
   - id: R061
+    priority: 3
     tags: [ltss, research]
     front: |-
       What did Brown and Finkelstein (2008, AER) find about Medicaid and private long-term care insurance?
@@ -597,6 +634,7 @@ cards:
       "The Interaction of Public and Private Insurance: Medicaid and the Long-Term Care Insurance Market," <i>AER</i> 98(3). This is the fundamental obstacle to private-market solutions for LTSS, and it is why Partnership programs (which shield assets equal to benefits paid) address only a small part of the problem.
 
   - id: R062
+    priority: 3
     tags: [ltss, research]
     front: |-
       What does research show about HCBS versus institutional care costs?
@@ -606,6 +644,7 @@ cards:
       This is the empirical content of the "woodwork effect" debate (D040). The methodological difficulty is that HCBS expansion is not random — states expand where demand and political support exist — so cross-state comparisons are weakly identified.
 
   - id: R063
+    priority: 3
     tags: [ltss, research]
     front: |-
       What is the evidence on nursing home quality and Medicaid payment?
@@ -617,6 +656,7 @@ cards:
   # --- Synthesis and contested questions -----------------------------------
 
   - id: R064
+    priority: 1
     tags: [synthesis]
     front: |-
       What is the fair summary of what Medicaid does, based on the literature?
@@ -628,6 +668,7 @@ cards:
       Note the shape: the effects easiest to detect are the ones insurance is most directly designed to produce (use of care and protection from cost). Effects on physiology run through a longer causal chain with more places to fail.
 
   - id: R065
+    priority: 1
     tags: [synthesis, debate]
     front: |-
       How do critics and defenders each mishandle the Oregon results?
@@ -638,6 +679,7 @@ cards:
       The disciplined statement: Oregon showed Medicaid does what insurance does — pays for care and removes financial risk — and did not demonstrate short-run improvement in cardiovascular and metabolic control, at a sample size that could not have detected modest improvement anyway.
 
   - id: R066
+    priority: 1
     tags: [synthesis, debate]
     front: |-
       What is the strongest evidence-based case <i>against</i> expanding Medicaid?
@@ -651,6 +693,7 @@ cards:
       Learn to state this well. Each point has a rebuttal — the low WTP partly reflects existing implicit insurance rather than low value; mortality effects <i>are</i> detected in large administrative samples; crowd-out is small for the expansion population; the access problem argues for higher rates rather than less coverage — but the argument is a serious one and dismissing it is a mistake.
 
   - id: R067
+    priority: 1
     tags: [synthesis, debate]
     front: |-
       Why is "does Medicaid improve health?" the wrong question?
@@ -660,6 +703,7 @@ cards:
       The literature answers the disaggregated questions reasonably well. Almost every unproductive public argument about Medicaid comes from two people answering different disaggregated questions while believing they disagree about one.
 
   - id: R068
+    priority: 1
     tags: [synthesis, cost-effectiveness]
     front: |-
       How does Medicaid look in cost-effectiveness or MVPF terms?
@@ -711,6 +755,7 @@ cards:
       The RAND Health Insurance Experiment is the foundational evidence on the utilization side (cost sharing reduced appropriate and inappropriate care alike, with adverse health effects for the poorest and sickest participants). Oregon's and Indiana's experience supply the Medicaid-specific enrollment evidence.
 
   - id: R073
+    priority: 3
     tags: [reform, safety-net]
     front: |-
       What happens to health care use and cost when Medicaid coverage is withdrawn?
@@ -729,6 +774,7 @@ cards:
       Venues: <i>Journal of Health Economics</i>, <i>AEJ: Economic Policy</i>, <i>JPubE</i>, <i>Health Affairs</i>, <i>JAMA Health Forum</i>, <i>NEJM</i> perspectives, and NBER working papers (health care and public economics programs). For policy analysis rather than research: MACPAC, KFF, CBPP, the Urban Institute, and Paragon Health Institute (for the market-oriented critique).
 
   - id: R075
+    priority: 1
     tags: [reading, critical]
     front: |-
       What questions should you ask when reading any Medicaid study?
@@ -743,6 +789,7 @@ cards:
       Question four is the one most often skipped. A confidence interval that spans "no effect" and "large effect" is not evidence of no effect, and a great deal of published Medicaid commentary treats it as though it were.
 
   - id: R076
+    priority: 1
     tags: [synthesis, framing]
     front: |-
       What is the single most important conceptual point connecting Medicaid research to Medicaid policy?

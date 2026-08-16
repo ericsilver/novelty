@@ -33,7 +33,14 @@ DIST_DIR = HERE / "dist"
 # or note type on re-import instead of creating duplicates.
 MODEL_BASIC_ID = 1607392311
 MODEL_CLOZE_ID = 1607392312
-DECK_ROOT_ID = 2059400110
+
+# Priority tiers. Emitted as prio::N tags so a filtered deck can select them
+# and so the browser sidebar shows them as a tree.
+PRIORITY_LABELS = {
+    1: "prio::1-core",
+    2: "prio::2-working",
+    3: "prio::3-depth",
+}
 
 CSS = """
 .card {
@@ -168,11 +175,34 @@ def load_files() -> list[dict]:
     return decks
 
 
+def card_priority(deck: dict, card: dict) -> int:
+    return int(card.get("priority", deck.get("default_priority", 2)))
+
+
+def card_tags(deck: dict, card: dict) -> list[str]:
+    tags = [t.replace(" ", "-") for t in deck.get("tags", [])]
+    tags += [str(t).replace(" ", "-") for t in card.get("tags", []) or []]
+    tags.append(PRIORITY_LABELS[card_priority(deck, card)])
+    return tags
+
+
 def validate(decks: list[dict]) -> None:
     seen: set[str] = set()
     problems: list[str] = []
+    deck_ids: set[int] = set()
     for deck in decks:
+        did = deck.get("deck_id")
+        if not did:
+            problems.append(f"{deck['_path'].name}: missing deck_id")
+        elif did in deck_ids:
+            problems.append(f"{deck['_path'].name}: duplicate deck_id {did}")
+        else:
+            deck_ids.add(did)
         for card in deck["cards"]:
+            if card.get("priority") is not None and card["priority"] not in PRIORITY_LABELS:
+                problems.append(
+                    f"{card.get('id', '?')}: priority must be 1, 2, or 3"
+                )
             cid = card.get("id")
             if not cid:
                 problems.append(f"{deck['_path'].name}: card without an id")
@@ -199,13 +229,10 @@ def build_apkg(decks: list[dict]) -> pathlib.Path:
     basic_model, cloze_model = make_models()
     anki_decks = []
 
-    for offset, deck in enumerate(decks):
-        anki_deck = genanki.Deck(DECK_ROOT_ID + offset + 1, deck["deck"])
-        base_tags = [t.replace(" ", "-") for t in deck.get("tags", [])]
+    for deck in decks:
+        anki_deck = genanki.Deck(deck["deck_id"], deck["deck"])
         for card in deck["cards"]:
-            tags = base_tags + [
-                str(t).replace(" ", "-") for t in card.get("tags", []) or []
-            ]
+            tags = card_tags(deck, card)
             extra = render(card.get("extra"))
             if card.get("type", "basic") == "cloze":
                 note = genanki.Note(
@@ -244,16 +271,12 @@ def build_tsv(decks: list[dict]) -> list[pathlib.Path]:
     for deck in decks:
         name = deck["_path"].stem + ".tsv"
         path = DIST_DIR / name
-        base_tags = [t.replace(" ", "-") for t in deck.get("tags", [])]
         with path.open("w", encoding="utf-8", newline="") as fh:
             fh.write("#separator:tab\n#html:true\n#notetype column:1\n#deck column:2\n")
             fh.write("#tags column:6\n")
             writer = csv.writer(fh, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
             for card in deck["cards"]:
-                tags = " ".join(
-                    base_tags
-                    + [str(t).replace(" ", "-") for t in card.get("tags", []) or []]
-                )
+                tags = " ".join(card_tags(deck, card))
                 extra = render(card.get("extra"))
                 if card.get("type", "basic") == "cloze":
                     writer.writerow(
@@ -279,9 +302,19 @@ def main() -> None:
     validate(decks)
 
     total = sum(len(d["cards"]) for d in decks)
+    tiers: dict[int, int] = {1: 0, 2: 0, 3: 0}
     for deck in decks:
-        print(f"  {len(deck['cards']):>4} cards  {deck['deck']}")
-    print(f"  {total:>4} cards  total")
+        counts = {1: 0, 2: 0, 3: 0}
+        for card in deck["cards"]:
+            counts[card_priority(deck, card)] += 1
+            tiers[card_priority(deck, card)] += 1
+        breakdown = "  ".join(f"p{k}:{v:<4}" for k, v in counts.items())
+        print(f"  {len(deck['cards']):>4} cards   {breakdown}  {deck['deck']}")
+    print(
+        f"  {total:>4} cards   "
+        + "  ".join(f"p{k}:{v:<4}" for k, v in tiers.items())
+        + "  TOTAL"
+    )
 
     tsvs = build_tsv(decks)
     for path in tsvs:

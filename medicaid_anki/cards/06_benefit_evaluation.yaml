@@ -1,0 +1,701 @@
+deck: "Medicaid::6. Benefit Evaluation"
+deck_id: 2059400116
+default_priority: 1
+tags: [medicaid, evaluation]
+
+# ---------------------------------------------------------------------------
+# Working deck for evaluating public benefit programs: framing the question,
+# choosing a design, measuring outcomes, drawing inferences, valuing results,
+# and getting the evaluation used. Medicaid supplies most examples, but the
+# craft transfers to SNAP, TANF, housing, and other transfer programs.
+#
+# Priority default here is 1 — this deck is aligned to working needs rather
+# than background. Cards marked priority 2 or 3 are the more specialized ones.
+# ---------------------------------------------------------------------------
+
+cards:
+
+  # --- Framing the evaluation ----------------------------------------------
+
+  - id: E001
+    front: |-
+      What are the four distinct kinds of evaluation question, and why must you pick one first?
+    back: |-
+      - <b>Impact</b> — did the program cause a change in outcomes?
+      - <b>Implementation / process</b> — was it delivered as designed, to whom, at what fidelity?
+      - <b>Cost</b> — cost-effectiveness, cost-benefit, or budget impact
+      - <b>Descriptive / monitoring</b> — who is served, what is happening, what is changing
+      They require different designs, data, and timelines, and answering one does not answer another.
+    extra: |-
+      The most common failure in applied evaluation is a design chosen for impact estimation delivering an implementation answer, or vice versa. A program that shows no impact because it was never actually delivered is an implementation finding wearing an impact finding's clothes — and the policy response is entirely different.
+
+  - id: E002
+    front: |-
+      What is a theory of change, and what does writing one force you to do?
+    back: |-
+      An explicit chain from inputs and activities to outputs, intermediate outcomes, and final outcomes, with the assumptions at each link stated.
+    extra: |-
+      Its practical value is falsification: it commits you in advance to which links must hold, so a null result can be traced to a specific broken step rather than attributed vaguely to "the program didn't work." For a benefit program the chain almost always runs: eligibility → awareness → application → enrollment → retention → utilization → outcome. Most programs fail early in that chain, not late.
+
+  - id: E003
+    front: |-
+      What is an estimand, and why specify it before analysis?
+    back: |-
+      The precise quantity you are trying to estimate — for whom, compared to what, over what period. Naming it prevents the common slide in which a design that identifies one thing is reported as though it identified another.
+    extra: |-
+      Concretely: ATE (everyone), ATT (those treated), LATE (compliers induced by the instrument), ITT (those offered the treatment). The Oregon lottery's headline effects are LATE; a state's expansion effects are closer to ATT for the newly eligible. Comparing them directly without noting this is a category error.
+
+  - id: E004
+    front: |-
+      Distinguish intent-to-treat from treatment-on-the-treated, and say when each is the policy-relevant one.
+    back: |-
+      <b>ITT</b> is the effect of being <i>offered</i> the program; <b>TOT/LATE</b> is the effect on those who actually took it up.
+      ITT is the right number when the policy question is "should we offer this," because take-up failure is part of what the policy delivers. TOT is right when the question is about the effect of the service itself.
+    extra: |-
+      For benefit programs with low take-up the gap is enormous, and it is where most misreporting happens. An outreach intervention with a 4 percent enrollment effect and a large TOT can be truthfully described as transformative or as negligible depending on which you report — so report both.
+
+  - id: E005
+    front: |-
+      What is the outcome hierarchy for a benefit program evaluation?
+    back: |-
+      - <b>Take-up</b> — who enrolls
+      - <b>Retention / continuity</b> — how long they stay covered
+      - <b>Access and utilization</b> — do they get services
+      - <b>Intermediate outcomes</b> — diagnosis, control of chronic conditions, financial strain
+      - <b>Final outcomes</b> — health, mortality, employment, educational attainment
+      - <b>Welfare</b> — willingness to pay, MVPF, distributional incidence
+    extra: |-
+      Measure as far down as your data and horizon honestly allow, and pre-specify one <b>primary</b> outcome. Evaluations that report the level where they found significance, without saying it was chosen after the fact, are the single largest source of unreliable findings in this field.
+
+  - id: E006
+    front: |-
+      Why should a power analysis happen before an evaluation, and what should you report?
+    back: |-
+      Because an underpowered study cannot produce an informative null, and you will not know that until it is too late to fix. Report the <b>minimum detectable effect</b> (MDE) at your sample size, and check it against effect sizes the literature considers plausible.
+    extra: |-
+      If the MDE exceeds any effect the program could plausibly produce, the study should be redesigned or reframed as descriptive — not run anyway. This is exactly the critique that applies to Oregon's biomarker results, and it applies with much more force to typical state evaluations, which are far smaller.
+
+  - id: E007
+    front: |-
+      What is a pre-analysis plan, and what should it contain?
+    back: |-
+      A document registered before outcomes are observed specifying the primary outcome, the estimating equation, the sample, subgroups to be examined, how multiplicity will be handled, and rules for missing data and outliers.
+    extra: |-
+      Register at the AEA RCT Registry, OSF, or ClinicalTrials.gov as appropriate. Its purpose is not to prohibit exploration but to make the distinction between confirmatory and exploratory analysis legible to a reader. Label exploratory results as exploratory and they remain valuable.
+
+  - id: E008
+    priority: 2
+    front: |-
+      What is an evaluability assessment?
+    back: |-
+      A prior determination of whether a program <i>can</i> be meaningfully evaluated — whether it has a clear model, is implemented consistently, has measurable outcomes, has usable data, and has a plausible comparison group.
+    extra: |-
+      Cheap and frequently skipped. It prevents the most wasteful outcome in applied evaluation: spending three years and a large budget producing an uninterpretable estimate of a program that was never stable enough to have an effect.
+
+  - id: E009
+    front: |-
+      Whose outcomes count in a benefit program evaluation?
+    back: |-
+      At minimum: enrollees. Usually also: household members, providers (revenue and uncompensated care), other payers (Medicare, marketplace, state-only programs), other public budgets (corrections, child welfare, education), and — in the long run — the next generation.
+    extra: |-
+      This is the "standing" question in cost-benefit analysis and it is decisive. Finkelstein-Hendren-Luttmer's central result is that a large share of Medicaid's value accrues to <i>external parties</i>, so an evaluation scoped to enrollees alone systematically understates the program.
+
+  # --- Designs -------------------------------------------------------------
+
+  - id: E010
+    front: |-
+      Rank the standard evaluation designs by identification strength, and note the practical cost of each.
+    back: |-
+      - <b>RCT</b> — strongest; often infeasible or unethical for entitlements
+      - <b>RD / lottery / notch</b> — very strong at the cutoff; local, so external validity is limited
+      - <b>DiD with credible parallel trends</b> — workhorse; only as good as the comparison group
+      - <b>IV</b> — strong if the exclusion restriction holds, which is usually untestable
+      - <b>Synthetic control</b> — good for a single treated unit with a long pre-period
+      - <b>Matching / regression adjustment</b> — weakest; assumes selection on observables
+    extra: |-
+      The ranking is about identification, not usefulness. A well-executed DiD on the whole population often informs policy better than a perfectly identified RD affecting a narrow group at a cutoff nobody cares about.
+
+  - id: E011
+    front: |-
+      When is randomization actually feasible in a benefit program?
+    back: |-
+      - <b>Oversubscription</b> — more eligible applicants than slots, so a lottery is the fairest allocation (Oregon)
+      - <b>Encouragement designs</b> — randomize outreach, reminders, or application assistance rather than eligibility itself
+      - <b>Phased rollout</b> — randomize the order of implementation across counties or offices
+      - <b>Randomizing program variants</b> — two versions of a notice, two renewal processes
+    extra: |-
+      Encouragement designs are the most underused option in benefit administration. You cannot ethically randomize entitlement, but you can almost always randomize how you communicate about it — and communication is often where the action is.
+
+  - id: E012
+    front: |-
+      What is a stepped-wedge or phased rollout design, and why should agencies default to it?
+    back: |-
+      A design in which all units eventually receive the treatment but the <b>order</b> is randomized or staggered, so units not yet treated serve as controls.
+    extra: |-
+      Its great virtue in benefit programs: nobody is denied the program, only the timing varies — and staged rollout is usually operationally necessary anyway. An agency implementing statewide simultaneously has thrown away a free evaluation for no administrative gain. This is the single most actionable recommendation in this deck.
+
+  - id: E013
+    front: |-
+      What identifying assumption does difference-in-differences require, and how do you support it?
+    back: |-
+      <b>Parallel trends</b>: absent treatment, treated and control groups would have followed the same outcome path. It is fundamentally untestable, but supportable with pre-treatment event-study plots, placebo tests on unaffected outcomes or groups, and triple-difference designs.
+    extra: |-
+      Note what parallel trends does <i>not</i> require: that the groups have similar levels. It requires similar <i>trajectories</i>. Also note it is not scale-invariant — parallel in levels and parallel in logs are different assumptions, and you should say which you are asserting.
+
+  - id: E014
+    front: |-
+      What does an event study plot show, and what are you looking for?
+    back: |-
+      Treatment effects estimated separately for each period relative to treatment. You are looking for <b>flat, near-zero, precisely estimated pre-period coefficients</b> and a clear break at implementation.
+    extra: |-
+      Two common misreadings. Noisy pre-periods that are individually insignificant are not evidence of parallel trends — they may just be imprecise. And a pre-trend that "isn't significant" but visibly slopes toward the effect is a warning, not a pass.
+
+  - id: E015
+    front: |-
+      What is the staggered adoption problem, and what do you use instead of plain TWFE?
+    back: |-
+      With treatment starting at different times and effects that vary across units or over time, two-way fixed effects places negative weights on some comparisons — using already-treated units as controls — and can produce estimates with the wrong sign.
+      Use <b>Callaway-Sant'Anna</b>, <b>Sun-Abraham</b>, <b>de Chaisemartin-D'Haultfœuille</b>, or stacked event-study designs.
+    extra: |-
+      Directly relevant: states adopted Medicaid expansion in 2014, 2015, 2016, 2019, 2021, and 2023. Any DiD across that variation using plain TWFE needs re-estimation with a robust estimator, and reviewers will now ask.
+
+  - id: E016
+    front: |-
+      When is synthetic control the right tool?
+    back: |-
+      When <b>one</b> or a few units are treated, there is a long pre-treatment period, and a weighted combination of untreated units can reproduce the treated unit's pre-treatment path.
+    extra: |-
+      Ideal for single-state policy changes — a state adopting a work requirement, a single-state waiver. Inference relies on placebo permutation rather than conventional standard errors. Synthetic difference-in-differences (Arkhangelsky et al.) is the current refinement, relaxing the requirement for an exact pre-period fit.
+
+  - id: E017
+    front: |-
+      What makes a regression discontinuity credible, and what tests establish it?
+    back: |-
+      That units cannot precisely control their position relative to the cutoff. Tests: a <b>density test</b> (McCrary or Cattaneo-Jansson-Ma) for bunching on one side, <b>covariate balance</b> at the threshold, bandwidth sensitivity, and placebo cutoffs.
+    extra: |-
+      Benefit programs are full of RD opportunities: income eligibility thresholds, age cutoffs (aging out at 19, 21, 26, 65), birthdate rules, and asset limits. The manipulation concern is real for income thresholds — people and caseworkers can and do adjust reported income — but not for birthdates, which is why the birthdate designs are the cleanest.
+
+  - id: E018
+    front: |-
+      What must an instrumental variable satisfy?
+    back: |-
+      - <b>Relevance</b> — it actually shifts treatment (testable; check the first stage)
+      - <b>Exclusion</b> — it affects the outcome <i>only</i> through treatment (untestable; argue it)
+      - <b>Independence</b> — as good as randomly assigned conditional on covariates
+      - <b>Monotonicity</b> — no defiers, for LATE interpretation
+    extra: |-
+      In benefit evaluation the usual instruments are simulated eligibility, distance to an office, caseworker or examiner assignment, and lottery selection. The exclusion restriction is where reviewers press hardest: simulated eligibility fails it if state legislative activity correlates with other state policy changes affecting the outcome.
+
+  - id: E019
+    priority: 2
+    front: |-
+      What is a bunching or notch design?
+    back: |-
+      Using the excess mass of observations just on the favourable side of a threshold to infer behavioural responses. A <b>notch</b> is a discrete jump in benefits at a threshold, generating sharper incentives than a smooth kink.
+    extra: |-
+      Applies to Medicaid income thresholds, asset limits, and cost sharing cliffs. Two cautions: bunching identifies a behavioural elasticity, not a program impact; and absence of bunching may reflect frictions and imperfect information rather than absence of incentive — which is itself informative about how well enrollees understand the rules.
+
+  - id: E020
+    priority: 2
+    front: |-
+      When is matching or propensity score adjustment acceptable, and what does it not fix?
+    back: |-
+      Acceptable when selection into the program is plausibly driven by <b>observed</b> characteristics and you have rich covariates — often as a supporting analysis rather than the primary design. It does not fix selection on <b>unobservables</b>, which in benefit programs is usually the dominant problem.
+    extra: |-
+      The dominant unobservable is health status and the fact that people enroll when they get sick. Matching on age, income, and geography while ignoring that produces estimates biased toward finding the program harmful. If matching is your only design, say so plainly and frame the result as descriptive.
+
+  - id: E021
+    priority: 2
+    front: |-
+      What is a difference-in-discontinuities design?
+    back: |-
+      Combining RD and DiD: comparing the discontinuity at a threshold before and after a policy change, differencing out any discontinuity that existed for other reasons.
+    extra: |-
+      Useful when a threshold already produced a jump — say, an age cutoff that mattered before the reform — so a plain RD would attribute the pre-existing discontinuity to the policy.
+
+  - id: E022
+    front: |-
+      What placebo and falsification tests should accompany a benefit program impact estimate?
+    back: |-
+      - Outcomes the program <b>should not</b> affect
+      - Groups <b>ineligible</b> for the program in the same places and periods
+      - <b>Fake</b> implementation dates before the real one
+      - Fake cutoffs away from the real threshold
+      - Causes of death or diagnoses not amenable to medical care
+    extra: |-
+      Goodman-Bacon's use of non-treatable versus treatable causes of death is the model: an effect concentrated in exactly the outcomes the mechanism predicts, and absent elsewhere, is far more convincing than a single significant coefficient.
+
+  # --- Data and measurement ------------------------------------------------
+
+  - id: E023
+    front: |-
+      What are the trade-offs between administrative and survey data for benefit evaluation?
+    back: |-
+      <b>Administrative</b>: near-complete coverage of enrollees, accurate on program participation and dates, no response bias — but limited to what the agency records, poor on outcomes outside the program, and messy in ways only insiders understand.
+      <b>Survey</b>: rich on outcomes, attitudes, and household context — but small, subject to nonresponse and recall error, and systematically misreports program participation.
+    extra: |-
+      The strong designs use both: administrative data for treatment and hard outcomes, survey or linked data for mechanism. Oregon did exactly this — administrative hospital, credit, and mortality records for everyone, surveys and in-person exams for subsamples.
+
+  - id: E024
+    priority: 1
+    front: |-
+      What is the "Medicaid undercount," and why does it matter for your estimates?
+    back: |-
+      Survey respondents systematically <b>underreport</b> Medicaid enrollment — many enrollees say they are uninsured or privately covered. The gap between survey-reported and administrative enrollment is large and non-random.
+    extra: |-
+      Consequences: survey-based take-up rates are too low, survey-based uninsurance is too high, and any analysis using self-reported coverage as a treatment variable has measurement error that attenuates estimates. Bruce Meyer's work documents this across transfer programs generally. Where possible, define treatment from administrative records.
+
+  - id: E025
+    front: |-
+      What are the main Medicaid data sources for research, and what is each good for?
+    back: |-
+      - <b>T-MSIS / TAF</b> — person- and claim-level enrollment, claims, and managed care encounters; the primary research file
+      - <b>CMS-64</b> — authoritative expenditure totals for federal claiming
+      - <b>State MMIS</b> — the operational system, richest but state-specific
+      - <b>Medicaid Budget Survey (KFF)</b> — forward-looking state policy intentions
+      - <b>MACStats</b> — curated program statistics
+    extra: |-
+      T-MSIS and CMS-64 do not reconcile: the CMS-64 includes supplemental payments and accounting adjustments that never appear as claims. Never present a T-MSIS-derived spending total as the program's spending.
+
+  - id: E026
+    front: |-
+      What are the known data quality problems in Medicaid claims and encounter data?
+    back: |-
+      - <b>Managed care encounter completeness</b> varies by state and plan; capitated care generates no payment incentive to submit complete encounters
+      - <b>Claims runout</b> — recent months are incomplete; you need completion factors
+      - <b>Eligibility group coding</b> is inconsistent across states
+      - <b>Provider identifiers</b> and taxonomy are unreliable for network analysis
+      - Carved-out services may be missing entirely
+    extra: |-
+      Practical rule: before analyzing any state-year, check encounter volume per enrollee against expectations. A state that looks unusually healthy is usually a state with an encounter reporting problem.
+
+  - id: E027
+    front: |-
+      Which survey data sets are used for benefit program research, and what is each best for?
+    back: |-
+      - <b>ACS</b> — largest sample, best for state and substate coverage estimates
+      - <b>CPS ASEC</b> — the historical income and poverty series
+      - <b>NHIS</b> — the gold standard health insurance and health measure
+      - <b>MEPS</b> — spending and utilization detail with a household-provider link
+      - <b>SIPP</b> — within-year dynamics, spells, and churn
+      - <b>BRFSS</b> — large state-level health behaviour and access samples
+      - <b>NSCH</b> — children's health and family context
+    extra: |-
+      Match the survey to the design's needs: ACS for anything requiring state-level precision, SIPP if the question is about spells and transitions, NHIS if you need clean coverage classification.
+
+  - id: E028
+    front: |-
+      What administrative data linkages most extend a benefit evaluation?
+    back: |-
+      - <b>Death records</b> (National Death Index, state vital statistics, SSA)
+      - <b>Tax records</b> for earnings and long-run outcomes
+      - <b>Credit bureau panels</b> for financial distress
+      - <b>Vital statistics birth records</b> for maternal and infant outcomes
+      - <b>Education</b> records for attainment
+      - <b>Criminal justice</b> records for recidivism
+    extra: |-
+      Every landmark long-run finding in this literature came from a linkage: Miller-Johnson-Wherry used death records, Brown-Kowalski-Lurie used tax data, the financial protection literature used credit panels. Linkage capacity is usually the binding constraint on what an evaluation can learn.
+
+  - id: E029
+    front: |-
+      How do you measure take-up, and what makes the denominator hard?
+    back: |-
+      Take-up = enrolled ÷ eligible. The numerator is administrative and reliable; the <b>denominator requires simulating eligibility</b> for a population you observe imperfectly, using income, household composition, immigration status, and assets that surveys measure with error.
+    extra: |-
+      Tools: microsimulation models such as TRIM3, or hand-coded eligibility rules applied to survey data. Report your eligibility assumptions explicitly — take-up estimates vary widely across studies mostly because denominators differ, not because behaviour differs.
+
+  - id: E030
+    front: |-
+      How should coverage continuity be measured?
+    back: |-
+      In <b>person-months</b> or <b>spells</b>, not point-in-time enrollment counts. Report the share with a gap of a given length within 12 months, the share returning within a defined window (churn), and time to disenrollment.
+    extra: |-
+      Point-in-time counts hide churn entirely: a program can have stable monthly enrollment while cycling a large share of its caseload. If your outcome is continuity, a point-in-time measure is not a weak measure of it — it is a measure of something else.
+
+  - id: E031
+    priority: 2
+    front: |-
+      What standard quality and access measures are available for benefit program outcomes?
+    back: |-
+      - <b>Medicaid/CHIP Core Sets</b> — Child and Adult, mandatory reporting since FY2024
+      - <b>HEDIS</b> — plan-level clinical quality
+      - <b>CAHPS</b> — patient experience
+      - <b>AHRQ Prevention Quality Indicators</b> — ambulatory care sensitive condition hospitalizations, a standard access proxy
+      - <b>Avoidable ED use</b> definitions (note: contested and sensitive to the algorithm)
+    extra: |-
+      ACSC hospitalizations are the most useful single access proxy because they are constructed from claims you already have and have a clear mechanism: good outpatient care should prevent them.
+
+  - id: E032
+    priority: 2
+    front: |-
+      Why does risk adjustment matter when comparing outcomes across plans, providers, or states?
+    back: |-
+      Because differences in measured outcomes mostly reflect differences in who is enrolled. Without adjustment, entities serving sicker populations look worse, creating incentives to avoid them.
+    extra: |-
+      Common Medicaid systems: CDPS, Chronic Illness and Disability Payment System with Rx; 3M Clinical Risk Groups; HHS-HCC in the marketplace. All perform worse in Medicaid than in Medicare because diagnosis data are less complete and much of the variation is social rather than clinical — which is an argument for including social risk factors, and a live debate about whether doing so masks disparities.
+
+  - id: E033
+    priority: 2
+    front: |-
+      What is the attribution problem in evaluating accountable care or care management programs?
+    back: |-
+      Deciding which enrollees "belong" to a provider or entity for accountability. Prospective attribution is predictable but stale; retrospective attribution is accurate but unknown during the performance period; both can be gamed by changing who is seen.
+    extra: |-
+      Attribution rules materially change measured performance — often more than any underlying difference in care. Always check whether an evaluation's estimated savings survive alternative attribution rules.
+
+  - id: E034
+    front: |-
+      What governance steps does a benefit evaluation using individual data require?
+    back: |-
+      IRB review or a documented exemption, a data use agreement with the agency, a disclosure review with small-cell suppression, secure enclave or approved computing, and a publication review that checks for re-identification risk.
+    extra: |-
+      Build the timeline around these — DUA negotiation and disclosure review routinely take longer than the analysis. Minimum cell size rules (commonly 11 for CMS data) also shape what subgroup analysis is even reportable, so plan subgroups against them in advance.
+
+  # --- Inference -----------------------------------------------------------
+
+  - id: E035
+    front: |-
+      How should you handle multiple hypothesis testing in an evaluation?
+    back: |-
+      Pre-specify one primary outcome. For families of secondary outcomes, either adjust (Bonferroni, Holm, Benjamini-Hochberg for false discovery rate) or aggregate into a pre-specified index, and report unadjusted and adjusted results.
+    extra: |-
+      Standardized outcome indices (Kling-Liebman-Katz style) are often better than adjustment: they raise power rather than lowering it, and they force you to say in advance what counts as the outcome domain. Reporting twenty outcomes and discussing the three that reached significance is the most common way honest evaluators mislead themselves.
+
+  - id: E036
+    front: |-
+      How should standard errors be clustered in a state policy evaluation, and what goes wrong?
+    back: |-
+      Cluster at the level of treatment assignment — usually the <b>state</b>. The problem is that with few clusters, cluster-robust standard errors are badly biased downward, producing spurious significance.
+    extra: |-
+      Remedies: wild cluster bootstrap, randomization inference, or aggregating to one observation per cluster-period. If your policy varies across a dozen states, conventional clustered standard errors overstate your precision substantially — and this is one of the most common defects in state-level policy papers.
+
+  - id: E037
+    priority: 1
+    front: |-
+      How should a null result be reported so it is informative?
+    back: |-
+      Report the <b>confidence interval</b> and state what effect sizes it rules out, alongside the minimum detectable effect and a benchmark of what effect would be policy-relevant. "We can rule out effects larger than X" is a finding; "not statistically significant" is not.
+    extra: |-
+      The Oregon biomarker results are the standing lesson. Framed as "no effect," they became a talking point; framed honestly as "we can rule out effects larger than X, and X is larger than what the literature would predict over two years," they are a much weaker and much more accurate claim.
+
+  - id: E038
+    front: |-
+      What is SUTVA, and how is it violated in benefit programs?
+    back: |-
+      The stable unit treatment value assumption: one unit's outcome does not depend on another unit's treatment status. It is violated by <b>spillovers</b> — information spreading between neighbours, providers changing behaviour when many patients gain coverage, or crowding of appointment capacity.
+    extra: |-
+      Spillovers make control units partly treated, biasing estimates toward zero. They also mean small-scale results understate what a full-scale program would do — and can make the untreated group better off, which is a real effect the design will miss entirely.
+
+  - id: E039
+    front: |-
+      What is the difference between partial and general equilibrium effects, and why does it limit RCT evidence?
+    back: |-
+      A small experiment holds the market fixed: prices, provider supply, and wait times do not respond. Scaling the program changes all of them.
+    extra: |-
+      Adding 10,000 people to Medicaid via a lottery tells you little about adding 15 million: at scale, provider participation, appointment availability, wage pressure on direct care workers, and even hospital finances all move. This is the strongest single objection to generalizing from Oregon, and it applies to every encouragement design.
+
+  - id: E040
+    front: |-
+      How do you handle attrition and missing data?
+    back: |-
+      Report attrition rates by arm and test whether attrition is <b>differential</b>. If it is, bound the estimate — Lee bounds for a treatment-correlated selection into observation, Manski worst-case bounds for a fully agnostic range — rather than assuming missingness at random.
+    extra: |-
+      Administrative outcomes largely solve this, which is a strong argument for them: death records and tax data do not fail to respond. Where you must use surveys, budget seriously for follow-up of hard-to-reach respondents, because those are exactly the people whose outcomes differ.
+
+  - id: E041
+    priority: 2
+    front: |-
+      What is regression to the mean, and where does it trap benefit program evaluation?
+    back: |-
+      Extreme values tend to move toward the average on remeasurement. Programs that <b>enroll people at their worst</b> — highest utilizers, most recently hospitalized, highest cost — will show improvement even if the program does nothing.
+    extra: |-
+      This is the central threat to care management and high-utilizer program evaluations, and it has produced a long trail of falsely positive pre-post results. Camden Coalition's hotspotting RCT is the canonical correction: a promising pre-post story became a precise null once randomized.
+
+  - id: E042
+    front: |-
+      How should heterogeneity and subgroup analysis be handled?
+    back: |-
+      Pre-specify a small number of theoretically motivated subgroups, test for interaction rather than comparing significance across subgroups, adjust for multiplicity, and label anything unplanned as exploratory.
+    extra: |-
+      "Significant in group A, not in group B" is <b>not</b> evidence that the effect differs between them — that requires a test of the difference. This error is close to universal in policy writing, and it is worth being able to correct politely.
+
+  - id: E043
+    priority: 2
+    front: |-
+      What role should machine learning play in evaluation?
+    back: |-
+      Mostly for <b>prediction</b> tasks embedded in a causal design: propensity estimation, covariate selection for double/debiased machine learning, and disciplined heterogeneity detection via causal forests.
+    extra: |-
+      It does not solve identification. A causal forest applied to observationally confounded data produces well-estimated heterogeneity in a biased effect. Its honest use in benefit programs is targeting — predicting who is at risk of disenrollment or of a bad outcome — which is a prediction problem, and a legitimate one.
+
+  - id: E044
+    front: |-
+      What is external validity, and what makes a site or population unrepresentative?
+    back: |-
+      Whether the estimate transfers to another population, place, scale, or time. Threats: <b>site selection bias</b> (places that volunteer for evaluation differ), participant selection, implementation quality above field norms, and scale effects.
+    extra: |-
+      Allcott's "site selection bias" work showed that partner sites in field experiments systematically differ from non-partners, so even well-identified estimates transfer poorly. When you present a result, state the population it estimates and resist letting a reader silently generalize it.
+
+  - id: E045
+    priority: 2
+    front: |-
+      What is publication bias, and how do you allow for it when reading a literature?
+    back: |-
+      Significant, surprising results are more likely to be published, so the published literature overstates average effects. Diagnostics: funnel plots, tests for bunching of z-statistics just above 1.96, and comparing pre-registered to non-registered studies.
+    extra: |-
+      Practical adjustment: expect a headline effect from a single small study to shrink substantially on replication, and give more weight to large administrative-data studies and to pre-registered work — which is another reason to prefer them in your own design.
+
+  # --- Welfare, cost, and value --------------------------------------------
+
+  - id: E046
+    priority: 1
+    front: |-
+      What is the MVPF, and how do you compute it?
+    back: |-
+      Marginal Value of Public Funds = beneficiaries' <b>willingness to pay</b> ÷ the policy's <b>net cost to government</b>, where net cost subtracts fiscal externalities such as later tax revenue, reduced use of other programs, and avoided public spending.
+    extra: |-
+      It allows comparison across wildly different policies on one scale. An MVPF above 1 means beneficiaries value the policy more than it costs; an infinite MVPF means the policy pays for itself. Children's health and education policies dominate the rankings; adult transfer programs generally do not.
+
+  - id: E047
+    front: |-
+      What is a fiscal externality, and why does it change a program's apparent cost?
+    back: |-
+      Any effect of a program on <b>other</b> government revenues or expenditures: later income tax paid by healthier children, reduced EITC receipt, avoided corrections and child welfare costs, increased Medicare spending from people surviving to 65.
+    extra: |-
+      These can be large enough to dominate. Brown, Kowalski, and Lurie found childhood Medicaid's later tax revenue offsets a substantial share of its cost — the same gross spending, an entirely different net cost, and therefore an entirely different policy conclusion.
+
+  - id: E048
+    front: |-
+      In cost-benefit analysis, why must transfers be distinguished from resource costs?
+    back: |-
+      A <b>transfer</b> moves resources between parties and nets to zero in aggregate; a <b>resource cost</b> consumes real inputs. Counting a transfer as a social cost or benefit double-counts.
+    extra: |-
+      In Medicaid, the benefit payment itself is largely a transfer; the real resource costs are the care delivered, the administrative apparatus, and enrollees' time. This is why the welfare case rests on <b>risk reduction and improved health</b>, not on the dollar value of benefits paid — and why "the program spent $X" is not a statement about social cost.
+
+  - id: E049
+    front: |-
+      What is the "time tax," and why should it appear in your cost accounting?
+    back: |-
+      The time enrollees spend applying, documenting, reporting, appealing, and traveling. It is a real resource cost borne by the people with the least slack, and it is almost never counted in program cost estimates.
+    extra: |-
+      Counting it changes conclusions. A work reporting requirement that saves the state money by reducing enrollment may consume more hours of enrollee time than it saves in administrative dollars, and the GAO finding that Georgia Pathways spent more on administration than on care is the same point from the agency side.
+
+  - id: E050
+    priority: 2
+    front: |-
+      What is cost-effectiveness analysis, and why is it rarely used in U.S. Medicaid decisions?
+    back: |-
+      Comparing programs by cost per unit of health gained — typically cost per QALY. It is standard in the UK (NICE) and in much of the world.
+      In the U.S. it is politically constrained: the ACA restricts the use of cost-per-QALY thresholds in certain federal determinations, and disability advocates object that QALYs systematically undervalue life with a disability.
+    extra: |-
+      Practical consequence for evaluators: you will more often be asked for budget impact ("what does this cost the state next year") than for cost-effectiveness. Those are different questions, and budget impact analysis systematically favours programs whose benefits arrive late.
+
+  - id: E051
+    priority: 2
+    front: |-
+      What discount rate and time horizon issues arise in benefit evaluation?
+    back: |-
+      Benefits to children arrive decades later, so the discount rate largely determines the answer. OMB guidance has shifted toward lower rates for social discounting; sensitivity analysis across a range is mandatory.
+    extra: |-
+      The legislative <b>10-year budget window</b> is a separate and cruder problem: it counts costs in years 1-10 and ignores benefits in year 20 entirely. Any program that invests early and pays off late is structurally disadvantaged in the scoring process regardless of its true return.
+
+  - id: E052
+    front: |-
+      Why is willingness to pay lower than government cost for Medicaid, and what does that imply?
+    back: |-
+      Because the uninsured already hold <b>implicit insurance</b>: uncompensated care, charity care, and the practical uncollectability of debt from low-asset households. Formal coverage partly replaces protection they already had, so it adds less to their welfare than it costs.
+    extra: |-
+      Two implications. Evaluations scoped to recipient welfare will understate the program's total effect, since much of the value accrues to providers and other payers. And the low WTP is not evidence the program is worthless — it is evidence about the counterfactual.
+
+  - id: E053
+    priority: 2
+    front: |-
+      How should distributional effects enter an evaluation?
+    back: |-
+      Report effects by income, race and ethnicity, geography, disability status, and language where sample allows — pre-specified, not fished. If aggregating to a single welfare number, state the distributional weights explicitly rather than implicitly assuming a dollar is a dollar.
+    extra: |-
+      Unweighted cost-benefit analysis embeds the assumption that a dollar to a poor household and a dollar to a rich one count equally — a strong normative claim usually made silently. Making it explicit is more honest and often changes the ranking of options.
+
+  - id: E054
+    priority: 2
+    front: |-
+      What is a net state fiscal impact analysis, and where does it go wrong?
+    back: |-
+      An estimate of a policy's effect on the <b>state's own</b> budget, netting federal match, displaced state-only spending (behavioral health, corrections health, uncompensated care pools), and revenue effects (provider taxes, premium taxes, economic activity).
+    extra: |-
+      It goes wrong through omitted offsets — analyses that count new state costs while ignoring the state programs the policy displaces. It is also where economic multiplier claims get abused; treat "jobs created" figures with more skepticism than the coverage estimates in the same report.
+
+  # --- Take-up, burden, and behavioral design ------------------------------
+
+  - id: E055
+    priority: 1
+    front: |-
+      Why is take-up itself a central evaluation outcome for benefit programs?
+    back: |-
+      Because a program's realized effect is the product of its effect on enrollees and the share of eligible people who enroll. An effective program with 40 percent take-up delivers less than a mediocre one with 90 percent.
+    extra: |-
+      It also reframes the policy lever: where take-up is the binding constraint, expanding eligibility does far less than reducing friction, and the two options have very different costs. Currie's take-up work and the modern administrative burden literature both make this point.
+
+  - id: E056
+    priority: 1
+    front: |-
+      How do you measure administrative burden empirically?
+    back: |-
+      - <b>Learning</b> — awareness surveys, whether enrollees know a rule applies to them
+      - <b>Compliance</b> — time-and-motion studies, form and notice counts, required documents, reading level, click-path analysis, call center wait times
+      - <b>Psychological</b> — survey measures of stigma, stress, and perceived treatment by the agency
+      Plus administrative traces: procedural denial rates, ex parte renewal rates, appeal and reinstatement rates, and time to determination.
+    extra: |-
+      The administrative traces are the most practical: they exist already, they are measured for everyone, and they respond quickly to design changes. Procedural denial rate is close to a sufficient statistic for burden in an eligibility system.
+
+  - id: E057
+    priority: 1
+    front: |-
+      What interventions reliably increase take-up and retention?
+    back: |-
+      - <b>Automatic and ex parte renewal</b> using existing data — by far the largest effect
+      - <b>Prefilled forms</b> and reduced documentation demands
+      - <b>Reminders</b> at the right moment, in plain language, through channels people actually use
+      - <b>Application assistance</b> and navigators
+      - <b>Default enrollment</b> and presumptive eligibility
+      - <b>Extended reconsideration</b> windows after a procedural termination
+    extra: |-
+      Ranked roughly by effect size. Note the pattern: interventions that remove a required action beat interventions that prompt the action, which in turn beat interventions that inform. Design accordingly — and remember information campaigns are the weakest of the three despite being the easiest to fund.
+
+  - id: E058
+    front: |-
+      What is the "ordeal" or targeting argument for burden, and what is the empirical objection?
+    back: |-
+      Nichols and Zeckhauser: a costly hurdle can improve targeting if the cost is higher for less needy applicants, screening them out at no cost to the truly needy.
+      The objection: in practice the hurdle is <b>hardest for the neediest</b> — those with disabilities, unstable work, low literacy, or no reliable internet — so it screens on navigational capacity rather than on need.
+    extra: |-
+      This is a testable claim, not a philosophical one. Compare the characteristics of those screened out to those retained. The Arkansas and unwinding evidence both point the same way, but the test is worth running on any specific program you evaluate.
+
+  - id: E059
+    priority: 2
+    front: |-
+      What is a nudge unit, and what is the realistic expectation for behavioral interventions?
+    back: |-
+      An in-house team running rapid randomized trials on administrative touchpoints — letters, reminders, forms. The U.S. federal example is the Office of Evaluation Sciences (OES); many states and agencies have equivalents.
+    extra: |-
+      Calibrate expectations: effect sizes are typically small in percentage point terms but achieved at near-zero marginal cost, which makes the cost-effectiveness excellent even when the effect is modest. Do not expect a letter to solve a structural take-up problem, and be wary of the published-nudge literature's effect sizes, which are inflated by publication bias.
+
+  # --- Practice, use, and reporting ----------------------------------------
+
+  - id: E060
+    priority: 1
+    front: |-
+      What evaluation is required of a section 1115 demonstration?
+    back: |-
+      An <b>independent</b> evaluation, with a CMS-approved <b>evaluation design</b> submitted after approval, an <b>interim</b> evaluation report supporting any renewal request, and a <b>summative</b> report after the demonstration period.
+    extra: |-
+      Know the leverage points: the evaluation design document is where the comparison group and outcomes get fixed, and it is the moment at which an evaluation becomes capable or incapable of answering anything. The recurring practical problem is that renewal decisions are made before the summative report exists.
+
+  - id: E061
+    priority: 2
+    front: |-
+      What are the standard threats to independence in agency-commissioned evaluation?
+    back: |-
+      The evaluator is selected and paid by the entity being evaluated, may depend on future contracts, may need continued data access, and often submits reports for agency review before release.
+    extra: |-
+      Structural mitigations: pre-registration, contractual publication rights independent of agency approval, third-party commissioning, and public posting of the design document before results exist. None of these is a complete fix, and the honest response is to disclose the arrangement rather than to claim it does not matter.
+
+  - id: E062
+    front: |-
+      What is rapid-cycle evaluation, and when is it the right choice?
+    back: |-
+      Fast, iterative testing on short feedback loops using existing administrative data — weeks or months rather than years — to inform operational decisions.
+    extra: |-
+      Right for operational questions: which notice wording works, whether a new renewal process reduces procedural denials, whether a call center change reduces abandonment. Wrong for questions about health outcomes, which need longer horizons and larger samples. The two are complements, and confusing them produces either paralysis or false confidence.
+
+  - id: E063
+    priority: 2
+    front: |-
+      What is the Foundations for Evidence-Based Policymaking Act, and what does it require?
+    back: |-
+      The 2018 law (the "Evidence Act") requiring federal agencies to designate <b>Evaluation Officers</b>, publish <b>learning agendas</b> and annual evaluation plans, adopt evaluation policies, and improve data access for evidence building — with an accompanying open data title.
+    extra: |-
+      Practically useful in two ways: agency learning agendas tell you what questions an agency has committed to answering, and the statutory framework gives you language to argue for evaluation resources in a proposal.
+
+  - id: E064
+    priority: 2
+    front: |-
+      What are evidence clearinghouses and tiered evidence standards?
+    back: |-
+      Registries rating interventions by the strength of evidence supporting them — the Title IV-E Prevention Services Clearinghouse, DOL's CLEAR, What Works Clearinghouse in education. Tiered evidence grant programs tie funding levels to evidence tier.
+    extra: |-
+      Two cautions. Ratings reward design over relevance, so a well-identified trivial study can outrank an informative quasi-experiment. And "no evidence" ratings frequently mean "not yet studied," which is routinely misread as "does not work."
+
+  - id: E065
+    priority: 1
+    front: |-
+      How should effect sizes be reported to a policy audience?
+    back: |-
+      - Give <b>absolute</b> effects alongside relative ones — "0.13 percentage points, a 9 percent reduction"
+      - Translate into intuitive units: people affected per year, one death averted per N covered, dollars per household
+      - Report uncertainty as a range in the same units, not as a p-value
+      - State the population and time horizon in the same sentence as the number
+    extra: |-
+      Relative risk alone is the most common way accurate numbers mislead: a 50 percent reduction in a rare outcome sounds enormous and may mean very little in absolute terms. Reporting both is not hedging, it is the finding.
+
+  - id: E066
+    priority: 1
+    front: |-
+      What makes an evaluation actually get used?
+    back: |-
+      - Timing aligned to the decision — a report after the renewal is filed changes nothing
+      - Questions the decision-maker actually has, not the ones easiest to answer
+      - Stakeholder involvement in framing so the result is not a surprise
+      - A finding stated in terms of a decision, with its uncertainty
+      - Enough implementation detail to say <i>why</i>, so a null does not read as "abandon this"
+    extra: |-
+      Patton's utilization-focused evaluation is the standard treatment. The most common way rigorous work is wasted is not methodological failure — it is arriving late, or answering a question nobody was asking.
+
+  - id: E067
+    priority: 1
+    front: |-
+      What is the checklist of common failure modes in benefit program evaluation?
+    back: |-
+      - No credible comparison group; pre-post presented as impact
+      - Underpowered, with a null reported as "no effect"
+      - Outcome and subgroup chosen after seeing results
+      - Regression to the mean in a high-utilizer program
+      - Take-up ignored, so ITT and TOT are conflated
+      - Survey-reported participation used as the treatment variable
+      - Standard errors clustered with too few clusters
+      - Administrative burden and enrollee time excluded from cost
+      - Results generalized past the estimand's population or scale
+    extra: |-
+      Worth running against any evaluation you read <i>and</i> any you write. Most published problems in this literature are on this list, and most are cheap to avoid at the design stage and impossible to fix afterward.
+
+  - id: E068
+    priority: 2
+    front: |-
+      How do you evaluate a program that is implemented statewide, all at once, with no comparison group?
+    back: |-
+      Options in rough order of strength: synthetic control from other states; comparison groups <i>within</i> the state (ineligible populations, counties with different baseline exposure); a discontinuity in the eligibility rule; interrupted time series with a long pre-period and controls for concurrent shocks; and cross-state DiD if enough states are untreated.
+    extra: |-
+      Say plainly which one you used and what it assumes. If none is credible, the honest deliverable is a well-executed implementation and descriptive study — which is more useful than an impact estimate nobody should believe.
+
+  - id: E069
+    priority: 2
+    front: |-
+      What should a state build into a new program at the design stage to make it evaluable?
+    back: |-
+      - <b>Phase the rollout</b> geographically or by cohort
+      - Record the date and reason for every eligibility action
+      - Keep an identifier permitting linkage to vital statistics and other administrative systems
+      - Retain data on applicants who were <b>denied</b>, not only enrollees
+      - Version and date every notice, form, and process change
+      - Set aside a small share of the caseload for randomized operational tests
+    extra: |-
+      Nearly free at design time, nearly impossible to retrofit. The denied-applicant point is the most frequently missed: without them you have no comparison group, no take-up denominator, and no way to study the eligibility process at all.
+
+  - id: E070
+    priority: 1
+    front: |-
+      What is the single most useful question to ask about any claimed program effect?
+    back: |-
+      <b>Compared to what?</b> — what would have happened to these people, in this place, over this period, without the program?
+    extra: |-
+      Every design in this deck is a technology for answering that one question, and every failure mode is a way of failing to answer it while appearing to. When reading quickly, this is the question that separates evidence from description.
