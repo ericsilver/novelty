@@ -1,0 +1,1166 @@
+deck: "Medicaid::1. Fundamentals"
+tags: [medicaid, fundamentals]
+
+# ---------------------------------------------------------------------------
+# Figures that move (enrollment, spending, statutory thresholds after the 2025
+# reconciliation law) carry an "as of" note in the extra field. Re-check them
+# against MACPAC MACStats, CMS-64 data, or KFF before relying on a number in
+# writing. Everything else is structural and stable.
+# ---------------------------------------------------------------------------
+
+cards:
+
+  # --- Statutory and structural basics ------------------------------------
+
+  - id: F001
+    tags: [statute]
+    front: |-
+      What statute creates Medicaid, and when was it enacted?
+    back: |-
+      Title XIX of the Social Security Act, added by the Social Security Amendments of 1965 (P.L. 89-97).
+    extra: |-
+      The same 1965 law created Medicare as Title XVIII. CHIP came later, as Title XXI (Balanced Budget Act of 1997).
+
+  - id: F002
+    tags: [statute, basics]
+    type: cloze
+    text: |-
+      Medicare is {{c1::Title XVIII}} of the Social Security Act, Medicaid is {{c2::Title XIX}}, and CHIP is {{c3::Title XXI}}.
+
+  - id: F003
+    tags: [basics]
+    front: |-
+      In one sentence, what kind of program is Medicaid?
+    back: |-
+      A joint federal-state program in which states design and administer coverage within federal rules, and the federal government matches state spending at an open-ended rate with no aggregate cap.
+    extra: |-
+      Two features do most of the analytic work: it is an <i>individual entitlement</i> (an eligible person cannot be turned away or waitlisted for state plan benefits) and the federal contribution is <i>open-ended</i> (no fixed federal dollar limit per state). Nearly every major reform proposal attacks one or both.
+
+  - id: F004
+    tags: [basics, federalism]
+    front: |-
+      Is participation in Medicaid mandatory for states?
+    back: |-
+      No. Participation is voluntary, but a state that participates must comply with all Title XIX requirements. Every state participates.
+    extra: |-
+      Adoption ran from 1966 (26 states in the first year) to 1982, when Arizona became the last state to join. This voluntariness is the constitutional hook in <i>NFIB v. Sebelius</i>.
+
+  - id: F005
+    tags: [basics, administration]
+    front: |-
+      What is a Medicaid "state plan," and what is a SPA?
+    back: |-
+      The state plan is the comprehensive written agreement describing how a state will run its program (eligibility, benefits, payment, administration). Changes are made through a State Plan Amendment (SPA), submitted to CMS for approval.
+    extra: |-
+      An approved state plan is the contract that entitles a state to federal match. CMS has 90 days to act on a SPA and can stop the clock with a request for additional information.
+
+  - id: F006
+    tags: [administration]
+    front: |-
+      Which federal agency administers Medicaid, and which body advises Congress on it?
+    back: |-
+      CMS (specifically the Center for Medicaid and CHIP Services, CMCS), within HHS. MACPAC — the Medicaid and CHIP Payment and Access Commission — is the nonpartisan advisory body to Congress.
+    extra: |-
+      MACPAC was created by CHIPRA in 2009 and is Medicaid's analogue to MedPAC. Its MACStats data book is the standard reference for program statistics.
+
+  - id: F007
+    tags: [administration, federalism]
+    front: |-
+      What is the "single state agency" requirement?
+    back: |-
+      Federal law requires each state to designate one agency responsible for administering (or supervising the administration of) the Medicaid program, and that agency's authority may not be delegated to or overridden by another agency.
+    extra: |-
+      42 U.S.C. § 1396a(a)(5); 42 C.F.R. § 431.10. It matters in practice when eligibility is run by a human services department, behavioral health by another agency, or when counties administer intake.
+
+  - id: F008
+    tags: [basics, state-plan]
+    front: |-
+      Name the three core state plan requirements that Medicaid waivers most often waive.
+    back: |-
+      - <b>Statewideness</b> — the program must operate uniformly across the state
+      - <b>Comparability</b> — benefits must be equal in amount, duration, and scope across similarly situated enrollees
+      - <b>Freedom of choice</b> — enrollees may obtain services from any willing qualified provider
+    extra: |-
+      Learning these three makes waiver authority legible: a 1915(b) waiver is mostly about freedom of choice; 1915(c) waives comparability and statewideness so HCBS can be targeted to a subgroup; 1115 can waive all three.
+
+  - id: F009
+    tags: [basics, comparison]
+    front: |-
+      Three structural differences between Medicare and Medicaid.
+    back: |-
+      - <b>Financing</b>: Medicare is federally financed (payroll tax, premiums, general revenue); Medicaid is jointly financed federal-state.
+      - <b>Eligibility</b>: Medicare is age/disability-based and near-universal at 65; Medicaid is means-tested.
+      - <b>Uniformity</b>: Medicare is essentially one national program; Medicaid is 56 programs (50 states, DC, 5 territories) with wide variation.
+    extra: |-
+      A fourth: Medicaid covers long-term services and supports comprehensively; Medicare covers only short post-acute stays (up to 100 skilled nursing facility days per benefit period, with cost sharing after day 20).
+
+  - id: F010
+    tags: [territories, financing]
+    front: |-
+      How does Medicaid work differently in the U.S. territories?
+    back: |-
+      Territories receive a capped federal allotment rather than open-ended matching, and a statutorily fixed FMAP rather than one computed from per capita income.
+    extra: |-
+      Puerto Rico, USVI, Guam, American Samoa, and the Northern Mariana Islands. Congress has repeatedly passed short-term allotment increases to avert a "Medicaid cliff." Territorial residents are also not subject to the same entitlement structure.
+
+  - id: F011
+    tags: [chip]
+    front: |-
+      How does CHIP differ structurally from Medicaid?
+    back: |-
+      CHIP is a capped federal allotment (not an open-ended entitlement), carries an enhanced match rate, and gives states more design flexibility including waiting periods, premiums, and benefit packages.
+    extra: |-
+      States may run CHIP as a Medicaid expansion, a separate child health program, or a combination. Children in a Medicaid-expansion CHIP keep full Medicaid protections (including EPSDT); children in a separate CHIP program generally do not.
+
+  - id: F012
+    tags: [chip, financing]
+    front: |-
+      What is the enhanced FMAP (E-FMAP) for CHIP?
+    back: |-
+      E-FMAP = regular FMAP plus 30 percent of the gap between the FMAP and 100 percent, which puts most states in the 65-85 percent range.
+    extra: |-
+      The ACA added a temporary 23 percentage point bump (FY2016-FY2019) that pushed several states to 100 percent; it has expired. CHIP funding was extended through FY2029 by the Bipartisan Budget Act of 2018.
+
+  - id: F013
+    tags: [size, statistics]
+    front: |-
+      Roughly how many people does Medicaid cover, and what does it spend?
+    back: |-
+      Roughly 78-80 million people in Medicaid and CHIP combined, with total (federal + state) spending on the order of $950 billion-$1 trillion a year.
+    extra: |-
+      As of FY2025: CMS-64 medical services expenditures were about $971 billion, up 6.9 percent from FY2024. Enrollment fell about 7.6 percent in FY2025 as the unwinding completed, down from a pandemic peak near 94 million. <b>Verify current figures before citing</b> — MACStats and the KFF Medicaid Budget Survey are the standard sources.
+
+  - id: F014
+    tags: [size, statistics]
+    front: |-
+      What share of state budgets does Medicaid account for?
+    back: |-
+      Roughly 30 percent of total state expenditures counting federal funds — the single largest category — but a much smaller share (around 15-20 percent) of state general fund spending, where it typically ranks second behind K-12 education.
+    extra: |-
+      NASBO's State Expenditure Report is the source. The two framings are used rhetorically in opposite directions: "Medicaid is a third of state budgets" (all funds) versus "Medicaid is a sixth" (general fund). Always ask which denominator.
+
+  - id: F015
+    tags: [size, statistics]
+    front: |-
+      Name four areas of American health care where Medicaid is the dominant payer.
+    back: |-
+      - Long-term services and supports (LTSS) — the largest payer nationally
+      - Births — pays for roughly 4 in 10 U.S. births
+      - Nursing facility residents — covers roughly 6 in 10
+      - Behavioral health, including the largest payer of mental health and substance use treatment
+    extra: |-
+      Also: roughly 1 in 3 to 4 children, and a large share of HIV care and school-based health services. Medicaid is about 18-19 percent of national health expenditures.
+
+  - id: F016
+    tags: [basics, countercyclical]
+    front: |-
+      Why is Medicaid described as countercyclical, and why is that a problem for states?
+    back: |-
+      Enrollment and costs rise in recessions exactly when state revenues fall. Because states must balance their budgets, the pressure to cut Medicaid is greatest when need is highest.
+    extra: |-
+      This motivates temporary FMAP increases in downturns (ARRA 2009 added 6.2 points plus unemployment-based tiers; FFCRA 2020 added 6.2 points conditioned on maintenance of effort) and standing proposals for an <i>automatic</i> countercyclical FMAP trigger.
+
+  # --- Eligibility ---------------------------------------------------------
+
+  - id: F017
+    tags: [eligibility, history]
+    front: |-
+      What was the "categorical" requirement in pre-ACA Medicaid?
+    back: |-
+      Being poor was not enough. An applicant had to be low income <i>and</i> fall within a covered category: children, pregnant women, parents/caretaker relatives, people 65+, or people with disabilities.
+    extra: |-
+      Non-disabled, non-elderly adults without dependent children were categorically ineligible in almost every state no matter how poor. The ACA expansion's core move was to make income alone sufficient.
+
+  - id: F018
+    tags: [eligibility, aca]
+    front: |-
+      What income threshold defines the ACA Medicaid expansion group?
+    back: |-
+      Adults aged 19-64 up to 133 percent of the federal poverty level, plus a 5 percentage point income disregard, so the effective threshold is 138 percent FPL.
+    extra: |-
+      Statutorily 133 percent; effectively 138 percent. Written as "138% FPL" in practice. The group is sometimes called the "new adult group" or "VIII group" after the statutory subsection.
+
+  - id: F019
+    tags: [eligibility, aca, litigation]
+    front: |-
+      What did <i>NFIB v. Sebelius</i> (2012) hold about the Medicaid expansion?
+    back: |-
+      Conditioning a state's <i>entire</i> existing Medicaid funding on adopting the expansion was unconstitutionally coercive. The remedy was to make the expansion optional for states rather than to strike it down.
+    extra: |-
+      567 U.S. 519. This is why "expansion state" is a meaningful category at all. The Court's spending-clause reasoning ("a gun to the head") also constrains how future Congresses can leverage existing Medicaid funds.
+
+  - id: F020
+    tags: [eligibility, aca, statistics]
+    front: |-
+      How many states have adopted the ACA Medicaid expansion?
+    back: |-
+      40 states plus the District of Columbia — often reported as "41 states including DC." Ten states have not adopted it.
+    extra: |-
+      As of 2026 the non-adopting states are Alabama, Florida, Georgia, Kansas, Mississippi, South Carolina, Tennessee, Texas, Wisconsin, and Wyoming. The most recent adopters were Oklahoma and Missouri (2021), South Dakota (2023), and North Carolina (2023).
+
+  - id: F021
+    tags: [eligibility, aca]
+    front: |-
+      What is the Medicaid "coverage gap"?
+    back: |-
+      In non-expansion states, adults with incomes below 100 percent FPL are too poor for marketplace premium tax credits (which start at 100 percent FPL) yet ineligible for Medicaid — so they qualify for no subsidized coverage at all.
+    extra: |-
+      The gap exists because the ACA assumed everyone under 138 percent FPL would get Medicaid. Two special cases: Wisconsin covers parents and childless adults to 100 percent FPL via waiver without adopting expansion, so it has no coverage gap; Georgia's Pathways program covers adults to 100 percent FPL conditioned on work.
+
+  - id: F022
+    tags: [eligibility, mandatory]
+    front: |-
+      Name the main <i>mandatory</i> Medicaid eligibility groups.
+    back: |-
+      - Pregnant women and infants up to 133% FPL
+      - Children 1-5 up to 133% FPL; children 6-18 up to 100% FPL
+      - Low-income parents/caretakers (at least the state's 1996 AFDC levels)
+      - SSI recipients (aged, blind, disabled), except in 209(b) states
+      - Certain Medicare beneficiaries (the Medicare Savings Programs)
+      - Former foster youth up to age 26
+    extra: |-
+      In expansion states, adults to 138 percent FPL are also mandatory <i>for that state</i> once it opts in. Note the odd stair-step: a 4-year-old and a 10-year-old in the same household can face different thresholds, which CHIP largely papers over.
+
+  - id: F023
+    tags: [eligibility, optional]
+    front: |-
+      Name several <i>optional</i> eligibility groups states may cover.
+    back: |-
+      - Medically needy (spend-down) individuals
+      - People needing institutional or HCBS care up to 300% of the SSI federal benefit rate
+      - Working people with disabilities (Medicaid buy-in)
+      - Pregnant women and children above mandatory thresholds
+      - People with income above SSI limits receiving state supplements
+      - 1915(i) HCBS state plan group
+    extra: |-
+      Optional groups are politically fragile: they are the first place states look in a fiscal crunch because eliminating them requires only a SPA.
+
+  - id: F024
+    tags: [eligibility, magi]
+    front: |-
+      What is MAGI, and who is subject to MAGI-based eligibility?
+    back: |-
+      Modified Adjusted Gross Income — a tax-based income methodology used since 2014 for children, pregnant women, parents, and expansion adults. It has <b>no asset test</b> and no income disregards other than the standard 5 percentage point disregard.
+    extra: |-
+      MAGI aligned Medicaid with marketplace subsidy rules so a single application could route people to the right program. It was a large simplification: pre-2014 Medicaid used dozens of state-specific income and resource disregards.
+
+  - id: F025
+    tags: [eligibility, non-magi]
+    front: |-
+      Who is exempt from MAGI rules, and what applies instead?
+    back: |-
+      "Non-MAGI" populations — people qualifying on the basis of age (65+), blindness, or disability, plus those needing LTSS. They are subject to SSI-linked income and <b>asset tests</b>.
+    extra: |-
+      The classic asset limit is $2,000 for an individual and $3,000 for a couple — a threshold set in 1989 and never indexed, which is why it now binds far more tightly in real terms. Some states have raised or eliminated their own limits.
+
+  - id: F026
+    tags: [eligibility, non-magi]
+    front: |-
+      What is a "209(b) state"?
+    back: |-
+      A state that, under an option preserved from 1972, uses eligibility criteria for aged, blind, and disabled applicants that are more restrictive than SSI — but no more restrictive than the criteria it used on January 1, 1972.
+    extra: |-
+      209(b) states must allow spend-down to the eligibility level. A minority of states use the option; most are "SSI criteria" states where SSI receipt confers automatic Medicaid eligibility. Check the current list — states have converted over time.
+
+  - id: F027
+    tags: [eligibility, medically-needy]
+    front: |-
+      How does "medically needy" spend-down work?
+    back: |-
+      A person in a covered category whose income exceeds the standard can deduct incurred medical expenses from income; once expenses bring income down to the state's medically needy income level, Medicaid coverage begins for the remainder of the budget period.
+    extra: |-
+      Functionally a deductible equal to the gap between income and the medically needy level. It is the main route by which middle-income people with catastrophic costs, especially nursing home residents, reach Medicaid. It is optional, and roughly two-thirds of states offer it.
+
+  - id: F028
+    tags: [eligibility, immigrants]
+    front: |-
+      What is the immigrant "five-year bar"?
+    back: |-
+      Under PRWORA (1996), most lawfully present immigrants who are "qualified non-citizens" must wait five years after obtaining qualified status before they can receive federally funded Medicaid.
+    extra: |-
+      Exceptions: refugees and asylees, certain veterans and active-duty families. The ICHIA option (CHIPRA 2009) lets states cover lawfully residing children and pregnant women without the wait. Undocumented immigrants are ineligible for full Medicaid entirely; several states cover them with state-only dollars.
+
+  - id: F029
+    tags: [eligibility, immigrants, benefits]
+    front: |-
+      What is "Emergency Medicaid"?
+    back: |-
+      Federal law requires coverage of emergency medical services — including labor and delivery — for people who meet all Medicaid eligibility criteria except immigration status.
+    extra: |-
+      Section 1903(v). It is a narrow carve-out from the citizenship restriction and the reason hospitals in some states bill substantial Emergency Medicaid volume. It does not cover ongoing treatment such as routine dialysis in most states, though several cover dialysis or chemotherapy under an emergency theory.
+
+  - id: F030
+    tags: [eligibility, enrollment]
+    front: |-
+      What is presumptive eligibility?
+    back: |-
+      Authority for qualified entities — such as hospitals, FQHCs, or WIC agencies — to make a preliminary eligibility determination on the basis of self-attested income, so services are covered immediately while the full application is processed.
+    extra: |-
+      Hospital presumptive eligibility (an ACA addition) is available in all states regardless of whether the state elected other PE options. The federal match is paid even if the full determination later finds the person ineligible.
+
+  - id: F031
+    tags: [eligibility, enrollment]
+    front: |-
+      What is an "ex parte" (administrative) renewal, and why does it matter?
+    back: |-
+      Renewing a person's eligibility using data the state already has — payroll, SNAP, tax, SSA records — without requiring the enrollee to return a form. Federal rules require states to attempt ex parte renewal first.
+    extra: |-
+      Ex parte rates are the single best predictor of how much coverage a state loses in a mass redetermination event. States with high automation lost far fewer people during the 2023-24 unwinding than states that relied on returned paperwork.
+
+  - id: F032
+    tags: [eligibility, churn]
+    front: |-
+      What is "churn" in Medicaid?
+    back: |-
+      Enrollees losing coverage and re-enrolling within a short period — often within a few months — usually for procedural reasons or small, temporary income fluctuations rather than a genuine change in eligibility.
+    extra: |-
+      Churn is costly on both sides: it interrupts treatment and it raises administrative cost per covered month. Continuous eligibility, ex parte renewal, and reasonable-compatibility income thresholds are the standard countermeasures.
+
+  - id: F033
+    tags: [eligibility, continuous-eligibility]
+    front: |-
+      What continuous eligibility protections exist for children and postpartum women?
+    back: |-
+      - <b>Children</b>: 12 months of continuous eligibility in Medicaid and CHIP became mandatory for all states on January 1, 2024 (Consolidated Appropriations Act, 2023).
+      - <b>Postpartum</b>: states may extend postpartum coverage from 60 days to 12 months; the option was made permanent by the same law and nearly all states have taken it.
+    extra: |-
+      Several states have gone further with 1115 waivers — Oregon offers continuous eligibility from birth to age 6, and other states have sought multi-year continuous eligibility for adults.
+
+  - id: F034
+    tags: [eligibility, retroactive]
+    front: |-
+      What is retroactive coverage, and how did the 2025 reconciliation law change it?
+    back: |-
+      Medicaid historically paid for covered services received in the <b>three months</b> before the application month if the person would have been eligible then. The 2025 law shortens this to <b>one month</b> for expansion adults and <b>two months</b> for other enrollees.
+    extra: |-
+      Effective January 1, 2027. Retroactive coverage matters most to hospitals (which can enroll a patient after an unplanned admission) and to nursing home residents. Verify the effective date and any implementing guidance.
+
+  - id: F035
+    tags: [eligibility, unwinding]
+    front: |-
+      What was the Medicaid "unwinding"?
+    back: |-
+      The resumption of eligibility redeterminations after the pandemic-era continuous enrollment condition ended on March 31, 2023. States had a limited window to redetermine every enrollee, and roughly 25 million people were disenrolled.
+    extra: |-
+      FFCRA (2020) had barred states from disenrolling anyone in exchange for a 6.2 point FMAP bump; the Consolidated Appropriations Act, 2023 decoupled that from the public health emergency and set the end date. The large majority of disenrollments were <i>procedural</i> — paperwork failures — not determinations of ineligibility. This is the empirical basis for concerns about administrative burden in future policy.
+
+  - id: F036
+    tags: [duals]
+    front: |-
+      Who are "dual eligibles"?
+    back: |-
+      People enrolled in both Medicare and Medicaid — roughly 12-13 million people. Medicare is the primary payer for acute care; Medicaid covers premiums and cost sharing and, for full duals, benefits Medicare does not cover (above all, LTSS).
+    extra: |-
+      Duals are a small share of each program's enrollment but a disproportionate share of spending in both, because they are disproportionately old, disabled, and users of long-term care. Nearly every serious cost-containment agenda touches this population.
+
+  - id: F037
+    tags: [duals, msp]
+    front: |-
+      Name the four Medicare Savings Programs and what each covers.
+    back: |-
+      - <b>QMB</b> (≤100% FPL): Medicare Part A and B premiums, deductibles, coinsurance
+      - <b>SLMB</b> (100-120% FPL): Part B premium only
+      - <b>QI</b> (120-135% FPL): Part B premium only, capped funding, first-come first-served
+      - <b>QDWI</b>: Part A premium for certain working disabled people who lost free Part A
+    extra: |-
+      QMB, SLMB, and QI enrollees who get <i>only</i> this assistance are "partial duals." Those who also qualify for full Medicaid benefits are "full-benefit duals." QMB status also bars providers from balance-billing the beneficiary.
+
+  # --- Benefits ------------------------------------------------------------
+
+  - id: F038
+    tags: [benefits, mandatory]
+    front: |-
+      Name the main <i>mandatory</i> Medicaid benefits.
+    back: |-
+      Inpatient and outpatient hospital; physician; laboratory and x-ray; EPSDT for under-21; nursing facility care for 21+; home health for those entitled to nursing facility care; FQHC and rural health clinic services; family planning; nurse midwife and certified pediatric/family nurse practitioner; freestanding birth center; non-emergency medical transportation (NEMT); tobacco cessation for pregnant women.
+    extra: |-
+      The list is a good instrument for the program's 1965 design: hospital and physician care plus institutional long-term care were mandatory, while nearly everything associated with community living was left optional.
+
+  - id: F039
+    tags: [benefits, optional]
+    front: |-
+      Name several major <i>optional</i> Medicaid benefits.
+    back: |-
+      Prescription drugs; dental; vision; physical, occupational, and speech therapy; personal care; hospice; case management; prosthetics; ICF/IID services; home and community based services; adult day health; private duty nursing.
+    extra: |-
+      The most striking entry is prescription drugs — technically optional, universally covered. Adult dental is the entry with the widest real variation, ranging from none to comprehensive.
+
+  - id: F040
+    tags: [benefits, epsdt]
+    front: |-
+      What is EPSDT, and what makes its coverage standard unusual?
+    back: |-
+      Early and Periodic Screening, Diagnostic and Treatment — the mandatory benefit for enrollees under 21. States must cover <b>any</b> service within the federal Medicaid definition that is medically necessary to "correct or ameliorate" a condition, whether or not the state covers that service for adults.
+    extra: |-
+      This is the broadest coverage mandate in American health law. "Ameliorate" means a service need not cure or restore function to be required — maintaining function counts. EPSDT is why children's Medicaid coverage of behavioral health, therapies, and durable equipment is far richer than adult coverage.
+
+  - id: F041
+    tags: [benefits, imd]
+    front: |-
+      What is the IMD exclusion?
+    back: |-
+      Federal Medicaid funds may not be used for services to adults aged 21-64 who are patients in an "institution for mental diseases" — a hospital or nursing facility of more than 16 beds primarily engaged in treating mental illness or substance use disorder.
+    extra: |-
+      A 1965 provision meant to keep states from shifting the cost of state psychiatric hospitals to the federal government. It is now the single most-criticized structural feature of Medicaid behavioral health policy. Workarounds: 1115 SUD and SMI demonstration waivers, and the managed care "in lieu of services" rule permitting short IMD stays of no more than 15 days per month.
+
+  - id: F042
+    tags: [benefits, cost-sharing]
+    front: |-
+      What are the federal limits on Medicaid premiums and cost sharing?
+    back: |-
+      Cost sharing must be nominal and is capped in aggregate at <b>5 percent of household income</b> per quarter or year. Premiums are generally prohibited below 150 percent FPL. Exempt groups and services include children, pregnant women, institutionalized people, emergency services, family planning, and preventive services for children.
+    extra: |-
+      States may charge higher amounts for non-emergency use of the ED and for non-preferred drugs. The 2025 reconciliation law adds cost sharing of up to $35 per service for expansion adults between 100 and 138 percent FPL, beginning in October 2028 — verify status.
+
+  - id: F043
+    tags: [benefits, abp]
+    front: |-
+      What is an Alternative Benefit Plan (ABP)?
+    back: |-
+      The benchmark benefit package states use for the expansion adult group. ABPs must cover the ten essential health benefits and comply with mental health parity, but need not mirror the traditional state plan package.
+    extra: |-
+      "Medically frail" individuals must be given the choice of the full state plan package instead. ABPs are the mechanism by which expansion coverage can look more like commercial insurance than like traditional Medicaid.
+
+  - id: F044
+    tags: [benefits, transportation]
+    front: |-
+      Why is non-emergency medical transportation (NEMT) a distinctive Medicaid benefit?
+    back: |-
+      It is a mandatory benefit with no commercial analogue — a recognition that coverage without a way to reach the provider is not access. Several states have sought to waive it for expansion adults.
+    extra: |-
+      The Consolidated Appropriations Act, 2021 codified NEMT in statute, having previously rested it on regulation. It is administratively difficult (brokerage models, fraud exposure) and a recurring target for flexibility requests.
+
+  - id: F045
+    tags: [benefits, corrections]
+    front: |-
+      What is the "inmate exclusion," and how is it changing?
+    back: |-
+      Federal Medicaid payment is barred for services to people who are inmates of a public institution, except for inpatient stays of more than 24 hours off-site. Eligibility itself is not lost — only payment is suspended.
+    extra: |-
+      Two recent shifts: the Consolidated Appropriations Act, 2023 requires coverage of screening and case management for eligible <i>juveniles</i> in the 30 days pre-release, and section 1115 "reentry" demonstrations (California's was the first, approved January 2023) let states cover a package of pre-release services for 30-90 days before release.
+
+  # --- Financing -----------------------------------------------------------
+
+  - id: F046
+    tags: [financing, fmap]
+    front: |-
+      What is FMAP, and how is it computed?
+    back: |-
+      The Federal Medical Assistance Percentage — the federal share of state Medicaid service spending. It is computed from a formula based on the square of the ratio of state to national per capita income:
+      <br>FMAP = 1 − 0.45 × (state PCI / U.S. PCI)²
+    extra: |-
+      Statutory floor 50 percent, ceiling 83 percent. It uses a three-year average of per capita income with a lag, so FMAPs respond slowly and can move in the wrong direction during a downturn. Rates are published annually by HHS for the federal fiscal year.
+
+  - id: F047
+    tags: [financing, fmap]
+    type: cloze
+    text: |-
+      The regular FMAP has a statutory floor of {{c1::50}} percent and a ceiling of {{c2::83}} percent; the ACA expansion group is matched at {{c3::90}} percent.
+
+  - id: F048
+    tags: [financing, fmap]
+    front: |-
+      What is the expansion FMAP, and how did it phase down?
+    back: |-
+      100 percent for calendar years 2014-2016, stepping down to 95 (2017), 94 (2018), 93 (2019), and 90 percent from 2020 onward — permanently.
+    extra: |-
+      The permanence of the 90 percent rate is politically load-bearing: proposals to cut it to a state's regular FMAP are among the largest-scoring Medicaid savings options, and twelve states have "trigger laws" that automatically end expansion if the enhanced match falls.
+
+  - id: F049
+    tags: [financing, fmap]
+    front: |-
+      Name the main FMAP rates other than the regular and expansion rates.
+    back: |-
+      - <b>100%</b>: services received through Indian Health Service / tribal facilities
+      - <b>90%</b>: family planning services and supplies; also design and development of eligibility and claims systems
+      - <b>75%</b>: ongoing operation of approved eligibility/claims systems; certain skilled professional medical personnel
+      - <b>50%</b>: general program administration
+      - <b>+6 points</b>: Community First Choice (1915(k)) services
+    extra: |-
+      A useful heuristic: Congress raises the match where it wants to buy state behavior. The 90 percent family planning rate and the 6 point CFC bump are both deliberate thumbs on the scale.
+
+  - id: F050
+    tags: [financing, nonfederal-share]
+    front: |-
+      What sources may states use for the non-federal share of Medicaid?
+    back: |-
+      State general fund appropriations, health care provider taxes, intergovernmental transfers (IGTs) from local governments and public providers, and certified public expenditures (CPEs) by public entities.
+    extra: |-
+      Federal rule: at most 60 percent of the non-federal share may come from local government sources. The rest of the financing debate is essentially an argument about how much of the "state share" is genuinely state money versus money recycled from providers.
+
+  - id: F051
+    tags: [financing, provider-tax]
+    front: |-
+      What are the three federal requirements for a permissible provider tax?
+    back: |-
+      - <b>Broad-based</b>: applies to all providers within a class
+      - <b>Uniform</b>: same rate across the class
+      - <b>No hold harmless</b>: the state may not directly or indirectly guarantee that providers get their tax payments back
+      A "safe harbor" deems the hold-harmless test met if the tax is at or below a set percentage of net patient revenue.
+    extra: |-
+      States may seek a waiver of the broad-based and uniformity tests, but never of the hold-harmless prohibition. Provider taxes fund roughly a sixth of the non-federal share nationally and every state but Alaska uses at least one.
+
+  - id: F052
+    tags: [financing, provider-tax, obbba]
+    front: |-
+      How did the 2025 reconciliation law change provider taxes?
+    back: |-
+      It freezes existing taxes (barring new or increased ones) and phases the safe harbor threshold for <b>expansion states</b> down from 6 percent by 0.5 points a year beginning October 1, 2027, reaching 3.5 percent by FY2032. Non-expansion states remain at 6 percent.
+    extra: |-
+      This attacks Medicaid financing at its base rather than its benefits: it reduces how much non-federal share a state can raise, which mechanically reduces federal matching dollars. Verify implementation details — CMS guidance and a related rulemaking were both in progress.
+
+  - id: F053
+    tags: [financing, igt-cpe]
+    front: |-
+      What is the difference between an IGT and a CPE?
+    back: |-
+      An <b>IGT</b> transfers actual funds from a local government or public provider to the state Medicaid agency, which then draws federal match and makes a payment. A <b>CPE</b> involves no transfer: a public entity certifies that it already incurred allowable Medicaid costs, and the state claims federal match on that certified amount.
+    extra: |-
+      CPEs cannot exceed actual cost, so they cannot generate payments above cost; IGTs can support payments up to the upper payment limit. Both are legitimate, and both are the mechanisms critics have in mind when they say states "finance Medicaid with federal money."
+
+  - id: F054
+    tags: [financing, dsh]
+    front: |-
+      What are Medicaid DSH payments?
+    back: |-
+      Disproportionate Share Hospital payments — required supplemental payments to hospitals serving a disproportionate number of Medicaid and low-income patients, made from capped annual state allotments.
+    extra: |-
+      A hospital's DSH payment cannot exceed its uncompensated care costs (the hospital-specific limit). The ACA scheduled large DSH allotment reductions on the theory that expansion would shrink uncompensated care; Congress has repeatedly delayed them.
+
+  - id: F055
+    tags: [financing, upl]
+    front: |-
+      What is the Upper Payment Limit (UPL)?
+    back: |-
+      A ceiling on aggregate fee-for-service Medicaid payments to a class of providers: payments may not exceed a reasonable estimate of what Medicare would have paid for the same services.
+    extra: |-
+      The UPL is aggregate and class-based, not per-provider, which is what makes UPL "gap" financing possible — the state pays some providers well above cost as long as the class total stays under the limit. The UPL does not apply to managed care, which is why supplemental payment activity migrated to state directed payments.
+
+  - id: F056
+    tags: [financing, directed-payments]
+    front: |-
+      What are state directed payments (SDPs)?
+    back: |-
+      Payment arrangements a state requires its managed care plans to make to providers — uniform rate increases, minimum fee schedules, or value-based arrangements — under 42 C.F.R. § 438.6(c), with CMS preapproval.
+    extra: |-
+      SDPs became the managed care successor to UPL supplemental payments and grew rapidly. The 2025 reconciliation law caps them at 100 percent of Medicare in expansion states and 110 percent in non-expansion states, phasing grandfathered arrangements down 10 points a year starting in 2028.
+
+  - id: F057
+    tags: [financing, spending-distribution]
+    front: |-
+      How is Medicaid spending distributed across enrollment groups?
+    back: |-
+      Highly unevenly. Children and non-disabled adults are the large majority of enrollees but a minority of spending; people who are 65+ or have disabilities are roughly a fifth of enrollees and roughly half of spending.
+    extra: |-
+      Rough shape worth memorising: children ≈ 40% of enrollees / ≈ 15% of spending; aged and disabled ≈ 20% of enrollees / ≈ 50% of spending. Any per capita cap or growth-rate proposal has to reckon with the fact that the expensive population is also the one whose costs are hardest to manage.
+
+  - id: F058
+    tags: [financing, ltss]
+    front: |-
+      What share of Medicaid spending goes to long-term services and supports?
+    back: |-
+      Roughly a third of Medicaid spending, for roughly 6 percent of enrollees.
+    extra: |-
+      Within LTSS, HCBS now exceeds institutional spending nationally — a reversal of the historical pattern known as "rebalancing." Medicaid is the primary payer of LTSS in the United States because Medicare does not cover custodial care and the private LTC insurance market is small.
+
+  - id: F059
+    tags: [financing, third-party]
+    front: |-
+      What does it mean that Medicaid is the "payer of last resort"?
+    back: |-
+      If an enrollee has any other liable coverage — commercial insurance, Medicare, workers' compensation, tort settlement — that source must pay first. States must identify liable third parties and pursue recovery.
+    extra: |-
+      This is the third-party liability (TPL) rule. It also underlies the "pay and chase" model for some claims, and the statutory assignment of rights that lets states recover from personal injury settlements.
+
+  - id: F060
+    tags: [financing, drugs, mdrp]
+    front: |-
+      What is the Medicaid Drug Rebate Program (MDRP)?
+    back: |-
+      A statutory bargain from OBRA 1990: a manufacturer that wants its drugs covered by Medicaid must sign a national rebate agreement, and in exchange Medicaid must cover essentially all of that manufacturer's FDA-approved drugs.
+    extra: |-
+      This is the "open formulary" bargain and it is why Medicaid drug coverage is broad but management runs through preferred drug lists and prior authorization rather than exclusion.
+
+  - id: F061
+    tags: [financing, drugs, mdrp]
+    front: |-
+      What are the basic MDRP rebate amounts?
+    back: |-
+      - Brand (single-source / innovator multiple-source): the greater of <b>23.1 percent of AMP</b> or the difference between AMP and <b>best price</b>
+      - Generic (non-innovator): <b>13 percent of AMP</b>
+      - Plus an <b>inflation (CPI-U) penalty</b> when a drug's price rises faster than general inflation
+    extra: |-
+      AMP = average manufacturer price. The inflation penalty is often the largest component for older brand drugs. ARPA removed the 100-percent-of-AMP cap on total rebates effective January 1, 2024, so rebates can now exceed a drug's price.
+
+  - id: F062
+    tags: [financing, drugs]
+    front: |-
+      Why does the Medicaid "best price" rule have effects outside Medicaid?
+    back: |-
+      Because a discount granted to any private purchaser can reset the best price and thereby increase the rebate owed on <i>all</i> Medicaid units, manufacturers have a strong incentive not to discount deeply in the private market.
+    extra: |-
+      This is the classic unintended-consequence result in Medicaid drug policy — see Duggan and Scott Morton (2006), in the research deck. It is also why value-based purchasing arrangements needed a specific regulatory accommodation (the multiple-best-price rule, 2022).
+
+  - id: F063
+    tags: [financing, payment-rates]
+    front: |-
+      How do Medicaid provider payment rates compare with Medicare and commercial rates?
+    back: |-
+      Medicaid pays substantially less — physician fees average roughly 70-75 percent of Medicare rates nationally, with wide state variation, and Medicare in turn pays well below commercial rates.
+    extra: |-
+      Hospital payment is closer to parity than physician payment, particularly once supplemental and directed payments are counted. Low physician fees are the leading explanation for lower provider participation and longer waits, and are the target of "fee bump" policy.
+
+  - id: F064
+    tags: [financing, access-rule]
+    front: |-
+      What does the 2024 Medicaid Access Rule require?
+    back: |-
+      Among other things: that at least <b>80 percent</b> of Medicaid payments for homemaker, home health aide, and personal care services be spent on direct care worker compensation; publication of fee-for-service payment rates; comparative rate analyses against Medicare; and beneficiary advisory groups.
+    extra: |-
+      Formally "Ensuring Access to Medicaid Services," finalized April 2024, alongside a companion managed care rule. The 80/20 provision is the most contested — it regulates an input price rather than a payment rate. Check current status, as compliance dates were long and litigation and revision were both live possibilities.
+
+  - id: F065
+    tags: [financing, program-integrity]
+    front: |-
+      Name the main Medicaid program integrity mechanisms.
+    back: |-
+      - <b>PERM</b> — Payment Error Rate Measurement, the federal improper payment estimate
+      - <b>MFCU</b> — state Medicaid Fraud Control Units, which investigate and prosecute
+      - <b>UPIC</b> — Unified Program Integrity Contractors
+      - <b>RAC</b> — Medicaid Recovery Audit Contractors
+      - Provider screening and enrollment, and the False Claims Act with its qui tam provisions
+    extra: |-
+      Important interpretive point: the PERM "improper payment rate" is overwhelmingly a measure of <i>documentation and eligibility-determination errors</i>, not of fraud. Reports that conflate the two are a persistent source of confusion in reform debates.
+
+  # --- Delivery systems ----------------------------------------------------
+
+  - id: F066
+    tags: [managed-care]
+    front: |-
+      What are the four main Medicaid managed care arrangements?
+    back: |-
+      - <b>MCO</b> — comprehensive risk-based managed care organization, capitated for a broad benefit package
+      - <b>PIHP</b> — prepaid inpatient health plan, risk-based for a limited benefit set including inpatient care (often behavioral health)
+      - <b>PAHP</b> — prepaid ambulatory health plan, limited benefits without inpatient (dental, NEMT, vision)
+      - <b>PCCM</b> — primary care case management, fee-for-service with a per-member care management fee
+    extra: |-
+      "Managed care" in a state fact sheet almost always means comprehensive MCOs. PCCM is not risk-based at all, which matters when reading claims about how much of a state is "in managed care."
+
+  - id: F067
+    tags: [managed-care, statistics]
+    front: |-
+      Roughly what share of Medicaid enrollees and spending flows through comprehensive managed care?
+    back: |-
+      About three-quarters of enrollees are in comprehensive risk-based MCOs, but managed care accounts for a smaller share of spending — roughly half to 60 percent.
+    extra: |-
+      The gap exists because the highest-cost populations (many people needing LTSS, some dual eligibles) are more often excluded or carved out, and because pharmacy and behavioral health carve-outs pull spending back to fee-for-service in some states.
+
+  - id: F068
+    tags: [managed-care, authority]
+    front: |-
+      Under what authorities can a state mandate managed care enrollment?
+    back: |-
+      - <b>Section 1932(a) state plan option</b> — mandatory enrollment for most groups without a waiver
+      - <b>Section 1915(b) waiver</b> — waives freedom of choice; must be cost-effective; renewable in multi-year increments
+      - <b>Section 1115 demonstration</b> — broadest authority, often used when managed care is bundled with other changes
+    extra: |-
+      1932(a) cannot be used to mandate enrollment for certain protected groups (for example, some children with special needs and dual eligibles) — that requires 1915(b) or 1115.
+
+  - id: F069
+    tags: [managed-care, rates]
+    front: |-
+      What does "actuarially sound" mean for Medicaid capitation rates?
+    back: |-
+      Rates must be certified by an actuary as projected to provide for all reasonable, appropriate, and attainable costs of the contracted services and obligations, developed in accordance with actuarial standards and appropriate for the population and services.
+    extra: |-
+      42 C.F.R. § 438.4. States must certify a rate <i>range</i> or specific rate for CMS review. The requirement is the main federal check on states balancing budgets by underpaying plans, and the main reason a state cannot simply cut capitation to hit a budget target.
+
+  - id: F070
+    tags: [managed-care, mlr]
+    front: |-
+      What medical loss ratio applies to Medicaid managed care?
+    back: |-
+      A minimum MLR of <b>85 percent</b>: plans must spend at least 85 percent of capitation revenue on claims and quality improvement activities. States must use an 85 percent MLR in rate setting and may (but need not) require remittances when a plan falls below it.
+    extra: |-
+      Established in the 2016 managed care rule. Unlike the commercial market, the federal rule does not itself mandate rebates — that is a state option, which is why states differ in whether an underspending plan writes a check.
+
+  - id: F071
+    tags: [managed-care, quality]
+    front: |-
+      What is an EQRO?
+    back: |-
+      External Quality Review Organization — an independent contractor states must engage to conduct an annual external review of each managed care plan's quality, timeliness, and access.
+    extra: |-
+      Mandatory activities include validating performance measures and performance improvement projects and reviewing compliance with federal standards. EQR technical reports are a useful, underused public source on plan performance.
+
+  - id: F072
+    tags: [managed-care, quality]
+    front: |-
+      What are the Medicaid and CHIP Core Sets?
+    back: |-
+      Standard sets of quality measures — a Child Core Set and an Adult Core Set — that states report to CMS. Reporting of the Child Core Set and the behavioral health measures of the Adult Core Set became mandatory in FY2024.
+    extra: |-
+      Required by CHIPRA (child) and the ACA (adult), with mandatory reporting added by the Bipartisan Budget Act of 2018. Historically voluntary reporting made cross-state comparison nearly impossible; mandatory reporting is a recent and significant improvement in the evidence base.
+
+  - id: F073
+    tags: [managed-care, network]
+    front: |-
+      What network adequacy standards apply in Medicaid managed care?
+    back: |-
+      States must set quantitative standards for provider network adequacy. The 2024 managed care rule added federal appointment wait time standards: within <b>10 business days</b> for routine outpatient mental health and substance use services, and <b>15 business days</b> for routine primary care and OB/GYN, verified by independent secret shopper surveys.
+    extra: |-
+      Before 2024 states set time and distance standards with no federal maximum wait. Secret-shopper verification is the notable enforcement innovation — self-reported directories are known to be badly inaccurate.
+
+  - id: F074
+    tags: [managed-care, carve-outs]
+    front: |-
+      What is a benefit "carve-out," and why do states use them?
+    back: |-
+      Removing a service category — commonly pharmacy, behavioral health, dental, or LTSS — from the managed care contract and paying for it fee-for-service or through a separate specialized plan.
+    extra: |-
+      Rationale varies: capturing 340B and rebate value directly (pharmacy), preserving specialized county-run systems (behavioral health), or plan inexperience (LTSS). Several large states carved pharmacy back out of managed care in recent years. The cost is fragmentation: carve-outs weaken any single entity's accountability for total cost and outcomes.
+
+  - id: F075
+    tags: [managed-care, enrollment]
+    front: |-
+      What is auto-assignment, and why does its algorithm matter?
+    back: |-
+      When an enrollee does not actively choose a plan, the state assigns one. Because a large share of enrollees never choose, the auto-assignment algorithm can determine most of a plan's market share.
+    extra: |-
+      States increasingly weight assignment toward higher-quality plans or toward maintaining an existing provider relationship — turning auto-assignment into a quality incentive. It is also the source of quasi-random variation that researchers exploit to estimate plan effects.
+
+  # --- LTSS ---------------------------------------------------------------
+
+  - id: F076
+    tags: [ltss]
+    front: |-
+      What is the "institutional bias" in Medicaid LTSS?
+    back: |-
+      Nursing facility care for adults 21+ is a <b>mandatory</b> benefit, while home and community based services are <b>optional</b> and typically delivered through waivers that may cap enrollment and maintain waiting lists.
+    extra: |-
+      So a person who qualifies has an entitlement to a nursing home bed but not to the home-based care they would prefer, which is usually cheaper. Rebalancing policy — 1915(c), 1915(i), 1915(k), MFP, the Olmstead mandate — is a fifty-year effort to work around this asymmetry without changing the underlying statute.
+
+  - id: F077
+    tags: [ltss, litigation]
+    front: |-
+      What did <i>Olmstead v. L.C.</i> (1999) hold?
+    back: |-
+      Under the ADA, unjustified institutional isolation of people with disabilities is discrimination. States must provide services in the most integrated setting appropriate when treatment professionals determine it is appropriate, the person does not oppose it, and it can be reasonably accommodated given the state's resources and obligations to others.
+    extra: |-
+      527 U.S. 581. The "fundamental alteration" defense and the requirement of a comprehensive, effectively working plan for community placement are what states litigate over. Olmstead is the legal engine behind HCBS expansion, and DOJ enforcement has shaped many state systems.
+
+  - id: F078
+    tags: [ltss, waivers]
+    front: |-
+      What does a 1915(c) HCBS waiver do?
+    back: |-
+      Lets a state provide home and community based services to people who would otherwise require institutional care, waiving comparability and statewideness so services can be targeted to a defined population and capped in number.
+    extra: |-
+      Requirements: the population must meet an institutional level of care, and the waiver must be <b>cost neutral</b> — average per capita cost may not exceed what institutional care would have cost. Waiting lists are legal here precisely because enrollment can be capped, and they are long in many states.
+
+  - id: F079
+    tags: [ltss, waivers]
+    front: |-
+      How does 1915(i) differ from 1915(c)?
+    back: |-
+      1915(i) is a <b>state plan</b> HCBS benefit, so it does <b>not</b> require an institutional level of care — a state can serve people with less intensive needs. But because it is a state plan benefit, the state cannot cap enrollment or keep a waiting list.
+    extra: |-
+      The trade is precision for open-endedness. 1915(i) is often used for behavioral health populations who would never meet a nursing facility level of care. States may target by condition but must serve everyone who meets the criteria.
+
+  - id: F080
+    tags: [ltss, waivers]
+    front: |-
+      What is Community First Choice (1915(k))?
+    back: |-
+      An ACA state plan option for attendant services and supports for people meeting an institutional level of care, carrying a <b>6 percentage point FMAP bonus</b>. It must be offered statewide, without caps or waiting lists.
+    extra: |-
+      The FMAP bonus is the inducement; the statewide, no-waiting-list requirement is the price. Relatively few states have adopted it — the open-ended fiscal exposure outweighs six points of match for many.
+
+  - id: F081
+    tags: [ltss]
+    front: |-
+      What is Money Follows the Person (MFP)?
+    back: |-
+      A federal demonstration that pays an enhanced match for a transition year when a person moves from an institution back to the community, plus funding for transition services and state system reform.
+    extra: |-
+      Created by the Deficit Reduction Act of 2005; it has transitioned well over 100,000 people. Funding has lapsed and been restored repeatedly, which is itself an instructive case in how demonstration-dependent rebalancing policy is.
+
+  - id: F082
+    tags: [ltss, eligibility]
+    front: |-
+      What are spousal impoverishment protections?
+    back: |-
+      When one spouse enters institutional care (and, at state option, HCBS), rules protect a share of the couple's income and assets for the spouse remaining in the community — a Community Spouse Resource Allowance and a Minimum Monthly Maintenance Needs Allowance.
+    extra: |-
+      Added by the Medicare Catastrophic Coverage Act of 1988 and indexed annually. Without them, the community spouse would have to spend down essentially all joint assets before the institutionalized spouse qualified.
+
+  - id: F083
+    tags: [ltss, eligibility]
+    front: |-
+      What is the LTSS transfer-of-assets look-back period?
+    back: |-
+      Sixty months (five years) before the application date. Assets transferred for less than fair market value during that window trigger a penalty period of ineligibility for LTSS, computed by dividing the transferred amount by the average monthly private-pay nursing home cost.
+    extra: |-
+      Extended from three years to five by the Deficit Reduction Act of 2005, which also moved the penalty start date to the date the person would otherwise be eligible — making the penalty bite when the person is already impoverished and in care.
+
+  - id: F084
+    tags: [ltss, estate-recovery]
+    front: |-
+      What is Medicaid estate recovery?
+    back: |-
+      States must seek recovery from the estates of deceased enrollees aged 55 or older for LTSS, related hospital and drug costs, and may recover for all services. Recovery is deferred while a surviving spouse, minor child, or disabled child lives.
+    extra: |-
+      Required since OBRA 1993. It is widely criticized: collections are small relative to program cost, the burden falls on modest home equity in lower-income families, and MACPAC has recommended making it optional. Note the mandatory floor is LTSS-related costs.
+
+  - id: F085
+    tags: [ltss, mltss]
+    front: |-
+      What is MLTSS?
+    back: |-
+      Managed Long-Term Services and Supports — delivering LTSS through capitated managed care rather than fee-for-service, now used by a majority of states for at least part of the LTSS population.
+    extra: |-
+      The theory: a capitated entity responsible for both institutional and community costs has a financial reason to keep people at home. The concern: capitation over a population with slow-moving, high-cost needs creates strong incentives to underprovide, and the evidence base is much thinner than for acute-care managed care.
+
+  - id: F086
+    tags: [ltss, self-direction]
+    front: |-
+      What is self-direction (consumer direction) in HCBS?
+    back: |-
+      Arrangements in which the enrollee — rather than an agency — controls some or all of their services: hiring, firing, and supervising workers (employer authority) and sometimes managing an individual budget (budget authority).
+    extra: |-
+      Grew out of the Cash & Counseling demonstrations. Family members can often be paid caregivers. Self-direction expanded sharply during COVID-era workforce shortages and is now a mainstream option in most state HCBS programs.
+
+  - id: F087
+    tags: [duals, integration]
+    front: |-
+      What is PACE?
+    back: |-
+      The Program of All-Inclusive Care for the Elderly — a fully capitated model that combines Medicare and Medicaid funding to serve nursing-home-eligible people 55 and older, built around an interdisciplinary team and an adult day health center.
+    extra: |-
+      PACE is the oldest and most fully integrated dual model, and the only one where a single entity holds all the risk and delivers most care directly. Its constraint is scale — enrollment is small and geographically limited by the center-based model.
+
+  - id: F088
+    tags: [duals, integration]
+    front: |-
+      What is a D-SNP, and what do FIDE and HIDE mean?
+    back: |-
+      A Dual Eligible Special Needs Plan is a Medicare Advantage plan restricted to dual eligibles, required to have a contract with the state Medicaid agency.
+      - <b>FIDE SNP</b> — Fully Integrated Dual Eligible SNP: covers Medicare and Medicaid benefits including LTSS under one entity
+      - <b>HIDE SNP</b> — Highly Integrated: covers Medicaid behavioral health or LTSS through the plan or an affiliate
+    extra: |-
+      With the Financial Alignment Initiative's capitated Medicare-Medicaid Plans sunset at the end of 2025, D-SNPs — especially the integrated variants with exclusively aligned enrollment — became the main federal vehicle for dual integration.
+
+  # --- Waivers and law -----------------------------------------------------
+
+  - id: F089
+    tags: [waivers, 1115]
+    front: |-
+      What is a section 1115 demonstration?
+    back: |-
+      Authority for the HHS Secretary to waive most Title XIX state plan requirements, and to allow federal match for costs not otherwise matchable, for an "experimental, pilot, or demonstration project" that in the Secretary's judgment is "likely to assist in promoting the objectives" of the program.
+    extra: |-
+      Typically approved for five years and renewable. The "objectives of the program" clause is the hinge on which most 1115 litigation turns — it is what courts used to vacate work requirement approvals.
+
+  - id: F090
+    tags: [waivers, 1115, budget-neutrality]
+    front: |-
+      What is 1115 budget neutrality, and where does it come from?
+    back: |-
+      The requirement that a demonstration cost the federal government no more than what would have been spent without it. It is <b>administrative policy, not statute</b> — an OMB/HHS practice dating to the 1980s-90s.
+    extra: |-
+      Because it is policy rather than law, its methodology is negotiable and has shifted across administrations — how the without-waiver baseline is set, how long savings can be accumulated and rolled over, and whether "savings" from prior periods can fund new spending. CMS issued more restrictive standardized methods in the 2020s. That accounting is where a great deal of real money is decided.
+
+  - id: F091
+    tags: [waivers, 1115, transparency]
+    front: |-
+      What transparency requirements apply to 1115 demonstrations?
+    back: |-
+      The ACA and 2012 implementing rules require a state-level public notice and comment period (at least 30 days) with public hearings before submission, a federal comment period after, publicly posted applications and approval documents, and an independent evaluation.
+    extra: |-
+      Before 2012 demonstrations could be negotiated with essentially no public process. The evaluation requirement is the reason a serious empirical literature on waiver effects exists at all, though evaluation quality varies widely.
+
+  - id: F092
+    tags: [waivers, comparison]
+    front: |-
+      Match the authority to its use: 1115, 1915(b), 1915(c), 1915(i), 1915(k).
+    back: |-
+      - <b>1115</b> — broad demonstrations; eligibility expansions, delivery reform, HRSN, reentry
+      - <b>1915(b)</b> — mandatory managed care / limited provider choice; must be cost-effective
+      - <b>1915(c)</b> — HCBS waivers for people at institutional level of care; capped, cost-neutral
+      - <b>1915(i)</b> — HCBS as a state plan benefit; no level-of-care test, no caps
+      - <b>1915(k)</b> — Community First Choice attendant services; +6 FMAP, statewide, no caps
+    extra: |-
+      States frequently combine them — a "1915(b)/(c) concurrent" waiver runs HCBS through a managed care delivery system.
+
+  - id: F093
+    tags: [litigation]
+    front: |-
+      What did <i>Armstrong v. Exceptional Child Center</i> (2015) hold?
+    back: |-
+      Medicaid providers may not sue under the Supremacy Clause to enforce the "equal access" provision (section 30(A)) requiring payments sufficient to enlist enough providers. Enforcement rests with HHS.
+    extra: |-
+      575 U.S. 320. The practical consequence: the statutory promise of adequate payment is largely unenforceable in court, which is a major reason the 2024 Access Rule turned to transparency and rate-comparison requirements instead.
+
+  - id: F094
+    tags: [litigation]
+    front: |-
+      What did <i>Health and Hospital Corp. of Marion County v. Talevski</i> (2023) hold?
+    back: |-
+      Spending Clause statutes like Medicaid can create rights enforceable by private individuals under 42 U.S.C. § 1983 — here, the nursing home residents' rights provisions of the Federal Nursing Home Reform Act.
+    extra: |-
+      599 U.S. 166. It resolved a long-running threat to private enforcement of Medicaid rights generally. Note the contrast with <i>Armstrong</i>: individual rights provisions can be enforceable even where provider payment provisions are not.
+
+  - id: F095
+    tags: [litigation, work-requirements]
+    front: |-
+      What happened in <i>Gresham v. Azar</i> / <i>Stewart v. Azar</i>?
+    back: |-
+      The D.C. Circuit affirmed that HHS's approval of Arkansas and Kentucky Medicaid work requirements was arbitrary and capricious because the Secretary failed to consider whether the demonstrations would promote the statutory objective of <b>furnishing medical assistance</b> — coverage loss was not weighed.
+    extra: |-
+      D.C. Cir. 2020; the Supreme Court granted certiorari but the case was removed from the calendar and later dismissed as moot after the administration withdrew the approvals. The holding constrains <i>waiver-based</i> work requirements; the 2025 statutory requirement rests on entirely different footing because Congress enacted it directly.
+
+  # --- Current policy environment -----------------------------------------
+
+  - id: F096
+    tags: [obbba, work-requirements]
+    front: |-
+      What does the 2025 reconciliation law require regarding work / community engagement?
+    back: |-
+      States must condition Medicaid eligibility for expansion adults (and enrollees in partial-expansion waiver programs) on at least <b>80 hours per month</b> of work, job training, education at least half time, community service, or a combination — beginning <b>January 1, 2027</b>, with states permitted to start earlier.
+    extra: |-
+      H.R. 1, "One Big Beautiful Bill Act," signed July 4, 2025. Exemptions include medically frail individuals, pregnant women, parents of young children, and others. CMS issued initial guidance in December 2025 and an interim final rule on June 3, 2026. The Secretary may grant a good-faith delay, but not past January 1, 2029. <b>Verify current implementation status.</b>
+
+  - id: F097
+    tags: [obbba]
+    front: |-
+      Name the major Medicaid changes in the 2025 reconciliation law besides work requirements.
+    back: |-
+      - Six-month redeterminations for expansion adults (rather than annual)
+      - Provider tax freeze and phase-down of the safe harbor to 3.5 percent in expansion states
+      - Caps on state directed payments at 100 / 110 percent of Medicare
+      - Cost sharing up to $35 per service for expansion adults over 100 percent FPL
+      - Shortened retroactive coverage (1 or 2 months)
+      - Narrowed eligibility for certain lawfully present immigrants
+      - Restrictions on federal funds to certain providers
+    extra: |-
+      Aggregate scale: roughly $900 billion-$1 trillion in federal Medicaid reductions over ten years, with CBO estimating about 7.5 million more uninsured from the Medicaid provisions by 2034 (around 10-12 million counting all health provisions). Figures and dates should be verified against current CBO and CMS documents.
+
+  - id: F098
+    tags: [obbba, analysis]
+    front: |-
+      Analytically, what are the three distinct levers the 2025 law pulls?
+    back: |-
+      - <b>Eligibility and enrollment friction</b> — work reporting, six-month renewals, shorter retroactivity: reduces the number of covered person-months
+      - <b>Financing capacity</b> — provider tax and directed payment limits: reduces the non-federal share a state can raise, and therefore the federal match it can draw
+      - <b>Cost shifting to enrollees</b> — cost sharing for expansion adults
+    extra: |-
+      Worth keeping separate, because they have different incidence. The first falls mainly on enrollees, the second mainly on providers and state budgets, the third on low-income households directly. Most coverage-loss estimates come from the first lever.
+
+  - id: F099
+    tags: [statistics, access]
+    front: |-
+      What share of physicians accept new Medicaid patients?
+    back: |-
+      Roughly 70 percent nationally, compared with about 85-90 percent for Medicare and private insurance — with large variation by state, specialty, and practice setting. Psychiatry has the lowest acceptance of any major specialty.
+    extra: |-
+      Acceptance correlates strongly with the state's Medicaid-to-Medicare fee ratio. Note that "accepting new patients" overstates real access: appointment availability audit studies find lower effective access than physician self-reports.
+
+  - id: F100
+    tags: [safety-net]
+    front: |-
+      What is the relationship between Medicaid and FQHCs?
+    back: |-
+      Federally Qualified Health Centers are a mandatory Medicaid benefit and are paid under a prospective payment system (PPS) at a cost-based, encounter-level rate — well above ordinary Medicaid fees. In managed care, states must pay a wraparound to bring plan payment up to the PPS rate.
+    extra: |-
+      Medicaid is the largest single revenue source for health centers, typically around 40-45 percent. That means Medicaid coverage losses translate quickly into safety net capacity losses, an important second-order channel in any coverage contraction.
+
+  - id: F101
+    tags: [chip, eligibility]
+    front: |-
+      What is the CHIP "screen and enroll" requirement?
+    back: |-
+      A separate CHIP program must first screen an applicant for Medicaid eligibility and enroll them in Medicaid if eligible; CHIP covers only children who are ineligible for Medicaid.
+    extra: |-
+      It preserves Medicaid's stronger protections (EPSDT, no cost sharing for the poorest children) for those entitled to them, and prevents states from moving children into the capped program to save money.
+
+  - id: F102
+    tags: [benefits, parity]
+    front: |-
+      Does mental health parity apply in Medicaid?
+    back: |-
+      Yes, with a boundary. MHPAEA parity requirements apply to Medicaid managed care organizations, CHIP, and Alternative Benefit Plans. They do <b>not</b> apply to traditional fee-for-service Medicaid state plan benefits.
+    extra: |-
+      Because most enrollees are in managed care, parity reaches most of the program in practice. The 2016 Medicaid parity rule requires states to ensure parity across the enrollee's full benefit package even when behavioral health is carved out to a separate entity.
+
+  - id: F103
+    tags: [eligibility, disability]
+    front: |-
+      How is "disability" determined for Medicaid eligibility?
+    back: |-
+      Generally by the SSI standard: an inability to engage in substantial gainful activity due to a medically determinable impairment expected to last at least 12 months or result in death. Most people qualify by receiving SSI; others go through a state disability determination.
+    extra: |-
+      The standard is about <i>work capacity</i>, not care needs — which is why it fits poorly with LTSS eligibility, where the operative question is functional need. The mismatch is why level-of-care assessments exist as a separate track.
+
+  - id: F104
+    tags: [eligibility, buy-in]
+    front: |-
+      What is the Medicaid buy-in for working people with disabilities?
+    back: |-
+      An optional eligibility pathway letting workers with disabilities keep Medicaid at higher income and asset levels, usually with a sliding-scale premium, so that employment does not cost them coverage.
+    extra: |-
+      Created by the Balanced Budget Act of 1997 and expanded by the Ticket to Work and Work Incentives Improvement Act (TWWIIA) of 1999. It is the main structural answer to the disability "work disincentive" problem, and it is worth contrasting with work <i>requirements</i>, which address a different population and assume the opposite behavioral problem.
+
+  - id: F105
+    tags: [administration, data]
+    front: |-
+      What are T-MSIS and the CMS-64, and when would you use each?
+    back: |-
+      - <b>T-MSIS</b> — Transformed Medicaid Statistical Information System: person- and claim-level data states submit, the basis for TAF research files. Use it for enrollment, utilization, and analysis by population.
+      - <b>CMS-64</b> — the quarterly expenditure report states file to claim federal match. Use it for authoritative spending totals.
+    extra: |-
+      They do not reconcile cleanly: CMS-64 is the accounting record (including supplemental payments and adjustments), T-MSIS the claims record. Data quality in T-MSIS improved considerably in the 2020s but still varies by state and by data element.
+
+  - id: F106
+    tags: [administration, data]
+    front: |-
+      Name the standard reference sources for Medicaid facts and figures.
+    back: |-
+      - <b>MACPAC MACStats</b> — annual data book, the most citable single source
+      - <b>KFF</b> — State Health Facts, the annual Medicaid Budget Survey, issue briefs
+      - <b>CMS Medicaid.gov</b> — waiver lists, SPAs, state profiles, expenditure reports
+      - <b>CRS reports</b> — careful statutory descriptions (e.g. R42640 on financing)
+      - <b>CBO</b> — baselines and scores for proposed changes
+      - <b>MedPAC/MACPAC joint data book</b> — for dual eligibles
+    extra: |-
+      For legal questions go to the statute (42 U.S.C. ch. 7 subch. XIX) and regulations (42 C.F.R. parts 430-460) rather than secondary summaries; Medicaid summaries age quickly.
+
+  - id: F107
+    tags: [basics, terminology]
+    front: |-
+      What does "federal financial participation" (FFP) mean?
+    back: |-
+      The federal government's share of a state's Medicaid expenditure — the dollars drawn down at the applicable FMAP. Something that is "not eligible for FFP" is a cost the state must bear entirely.
+    extra: |-
+      Watch for the phrase "costs not otherwise matchable" (CNOM) in 1115 waivers: it is the authority allowing federal match for spending that ordinary Medicaid rules would not cover, and it is how demonstrations fund things like housing supports.
+
+  - id: F108
+    tags: [benefits, school-based]
+    front: |-
+      Can Medicaid pay for services delivered in schools?
+    back: |-
+      Yes. Medicaid pays for covered services provided to eligible children in schools, including services in an IEP under IDEA. CMS clarified in 2014 that the "free care" policy — which had barred payment for services available free to the community — no longer restricts this.
+    extra: |-
+      The 2014 reversal, reinforced by CMS guidance and a 2023 comprehensive guide, substantially expanded school-based billing, particularly for school mental health. It is one of the larger recent changes in children's behavioral health financing.
+
+  - id: F109
+    tags: [eligibility, statistics]
+    front: |-
+      Who makes up Medicaid enrollment, roughly?
+    back: |-
+      Roughly: children about 40 percent, non-disabled adults (parents and expansion adults) about 40 percent, people with disabilities about 12-14 percent, and people 65+ about 8-9 percent.
+    extra: |-
+      Pair this with the spending distribution card (F057): the two groups that dominate enrollment account for a minority of dollars. Almost every misleading claim about Medicaid comes from applying an enrollment fact to a spending question or vice versa.
+
+  - id: F110
+    tags: [benefits, family-planning]
+    front: |-
+      What is special about Medicaid family planning coverage?
+    back: |-
+      It is a mandatory benefit, matched at <b>90 percent</b>, exempt from cost sharing, and subject to a statutory freedom-of-choice guarantee — enrollees may obtain family planning services from any qualified provider, including outside a managed care network.
+    extra: |-
+      Many states also run family-planning-only eligibility expansions (originally by 1115 waiver, then as a state plan option under the ACA) covering people above the regular income limit for family planning services alone.
+
+  - id: F111
+    tags: [financing, 340b]
+    front: |-
+      How does 340B interact with Medicaid?
+    back: |-
+      Covered entities buy outpatient drugs at steep 340B discounts. To prevent manufacturers from paying both a 340B discount and a Medicaid rebate on the same unit, federal law prohibits "duplicate discounts."
+    extra: |-
+      States and entities manage this through carve-in/carve-out decisions and the Medicaid Exclusion File for fee-for-service, and through more complicated arrangements in managed care. This is a large and unresolved source of friction in state pharmacy policy.
+
+  - id: F112
+    tags: [history]
+    front: |-
+      Name four legislative milestones that shaped Medicaid after 1965.
+    back: |-
+      - <b>OBRA 1989/1990</b> — mandatory expansions for pregnant women and children; EPSDT strengthened; the Drug Rebate Program created
+      - <b>PRWORA 1996</b> — severed Medicaid from cash welfare (AFDC), creating the "section 1931" eligibility group and the immigrant five-year bar
+      - <b>DRA 2005</b> — five-year look-back, citizenship documentation, benchmark benefit flexibility, Money Follows the Person
+      - <b>ACA 2010</b> — expansion to 138% FPL, MAGI, ABPs, health home option, Community First Choice
+    extra: |-
+      Also worth knowing: BBA 1997 (CHIP, managed care state plan option), and the 2025 reconciliation law. The through-line is a slow decoupling of Medicaid from welfare and a slow shift from categorical to income-based eligibility, now partly reversing.
+
+  - id: F113
+    tags: [benefits, health-homes]
+    front: |-
+      What is a Medicaid "health home"?
+    back: |-
+      An ACA state plan option (section 1945) providing care coordination for enrollees with chronic conditions, serious mental illness, or (under a later option) children with medically complex conditions — carrying <b>90 percent FMAP for the first eight quarters</b>.
+    extra: |-
+      Not a residence and not a primary care practice as such: it is a bundle of six coordination services. The temporary enhanced match is the classic design of a federal inducement — it buys adoption but leaves states holding the ongoing cost.
+
+  - id: F114
+    tags: [managed-care, ilos]
+    front: |-
+      What are "in lieu of services and settings" (ILOS)?
+    back: |-
+      Medically appropriate, cost-effective substitutes for covered state plan services that a managed care plan may offer and a state may count in capitation rate setting — for example, medically tailored meals in place of a readmission, or a short IMD stay in place of a general hospital psychiatric bed.
+    extra: |-
+      The 2024 managed care rule set guardrails: ILOS must be medically appropriate, cost effective, voluntary for the enrollee, and total ILOS cost is capped as a percentage of the capitation rate. ILOS is one of the two main routes (with 1115 HRSN authority) for financing non-clinical services.
+
+  - id: F115
+    tags: [eligibility, reasonable-compatibility]
+    front: |-
+      What is the "reasonable compatibility" standard?
+    back: |-
+      If self-attested income and electronic data source income are both above or both below the eligibility threshold, the difference is "reasonably compatible" and the state must accept it without further documentation.
+    extra: |-
+      A core MAGI-era simplification. States set the threshold for what discrepancy triggers verification. Where the standard is applied generously, ex parte renewal rates are high and procedural terminations are low — the mechanism connecting technical eligibility policy to real coverage outcomes.
+
+  - id: F116
+    tags: [financing, upl, comparison]
+    front: |-
+      Distinguish base payments, supplemental payments, and directed payments.
+    back: |-
+      - <b>Base payments</b> — ordinary claim-by-claim FFS payments or managed care capitation
+      - <b>Supplemental payments</b> — lump-sum FFS payments above base, made outside individual claims (UPL payments, DSH, GME)
+      - <b>Directed payments</b> — payments a state directs its <i>managed care plans</i> to make to providers under 438.6(c)
+    extra: |-
+      The category matters for every question about how much Medicaid "really" pays a hospital. Base-only comparisons routinely make Medicaid look worse relative to Medicare than the all-in numbers show, particularly for public and safety net hospitals.
+
+  - id: F117
+    tags: [basics, entitlement]
+    front: |-
+      What exactly does it mean that Medicaid is an "entitlement"?
+    back: |-
+      Two things at once: an <b>individual</b> entitlement (a person who meets the criteria has a legal right to enroll and receive covered services, with no waiting list or enrollment cap for state plan benefits) and a <b>state</b> entitlement (federal matching funds flow without a fixed cap).
+    extra: |-
+      Both are conditional in practice: benefits can be optional and payments can be low, and 1915(c) waiver services are exempt from the no-waiting-list rule. Reform proposals typically target the state-side entitlement (caps, block grants) while claiming to leave the individual entitlement intact — but a binding federal cap makes the individual entitlement much harder for a state to honor.
+
+  - id: F118
+    tags: [administration, appeals]
+    front: |-
+      What due process rights do Medicaid enrollees have?
+    back: |-
+      Advance written notice of an adverse action and the right to a fair hearing before an impartial state officer, with benefits continued pending the hearing if the appeal is filed in time. Managed care enrollees must first exhaust the plan's internal appeal, then may seek a state fair hearing.
+    extra: |-
+      Grounded in <i>Goldberg v. Kelly</i> (1970) and codified at 42 C.F.R. part 431 subpart E. The managed care exhaustion requirement, plus a 90-day filing window after the plan's decision, is set out in 42 C.F.R. part 438 subpart F.
+
+  - id: F119
+    tags: [eligibility, foster-care]
+    front: |-
+      What Medicaid coverage do current and former foster youth have?
+    back: |-
+      Children in foster care with a title IV-E arrangement are categorically eligible. Former foster youth who were enrolled in Medicaid when they aged out are covered to age 26 with no income test.
+    extra: |-
+      The ACA created the former foster youth group as a parallel to letting other young adults stay on a parent's plan to 26. The Consolidated Appropriations Act, 2023 removed the requirement that the young adult be in the <i>same</i> state's foster system, closing a significant gap.
+
+  - id: F120
+    tags: [benefits, pregnancy]
+    front: |-
+      What is the mandatory Medicaid coverage pathway for pregnancy?
+    back: |-
+      Pregnant women up to at least 133 percent FPL must be covered; most states go higher. Coverage extends through pregnancy and a postpartum period — 60 days by default, and 12 months in states that have adopted the (now permanent) extension option, which nearly all have.
+    extra: |-
+      Medicaid finances roughly 4 in 10 U.S. births, and a larger share in many Southern states. The 12-month postpartum extension is the most broadly adopted state Medicaid option of the past decade and is closely tied to maternal mortality policy.
