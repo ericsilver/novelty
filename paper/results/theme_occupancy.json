@@ -53,13 +53,6 @@
    "sd_A": 0.7899682154724782,
    "mean_A": 2.165578674071078,
    "var_share_in_L": 0.012662018288434534
-  },
-  "1000": {
-   "themes_ge_1pct_mass": 12,
-   "min_docs_as_top": 0,
-   "median_docs_as_top": 0,
-   "themes_with_zero_docs_as_top": 591,
-   "effective_themes_per_filing": 18.115211570082465
   }
  }
 }

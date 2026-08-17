@@ -179,7 +179,11 @@ def fit_model(T: int) -> bool:
             return False
         if blk == 0:
             log(f"[fit T={T}] epoch {ep}/8 done ({el:.1f} min this run)")
-        joblib.dump({"vocabulary": vocab, "lda": lda}, model_path(T), compress=3)
+    # Only reached when all eight passes are done. This dump was previously
+    # indented into the loop, so a run that stopped on its budget still left a
+    # model file behind -- a fit of a fraction of one pass wearing the name of a
+    # finished one, with no way to tell from the artifact.
+    joblib.dump({"vocabulary": vocab, "lda": lda}, model_path(T), compress=3)
     ck.unlink(missing_ok=True)
     log(f"[fit T={T}] complete")
     del X, lda
