@@ -1302,7 +1302,7 @@ retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
 \label{fig:windows}
 \end{figure}
 
-\section{Representation drives the score; weighting does not}\label{app:choices}
+\section{Representation and resolution drive the score; weighting does not}\label{app:choices}
 
 \subsection{Representation, anchoring, weighting: which of the three matters}
 
@@ -1346,6 +1346,7 @@ Choice varied & $r$ (lead) & $r$ (atypicality) \\
 Weighting, flat vs half-life 2y (topics)  & $0.982$ & $1.000$ \\
 Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
 Anchoring, class-year vs per-filing (topics) & $0.738$ & $0.929$ \\
+Resolution, 50 vs 200 themes              & $0.636$ & $0.828$ \\
 Representation, topics vs terms           & $0.460$ & $0.396$ \\
 \bottomrule
 \end{tabular}
@@ -1356,12 +1357,53 @@ for more than distant language within the window barely moves the score, and it
 does not move atypicality at all to three decimals, which is what the
 $45$-degree rotation of Section~\ref{sec:construct} implies --- the long axis is
 a property of the filing and the weighting acts almost entirely on the small
-residual. Anchoring matters moderately. The representation matters most, and by
-a wide margin: topics and terms agree on less than a quarter of the variance in
-lead. A robustness check that varies only the weighting is therefore close to a
-restatement; one that varies the representation is a real test, which is why the
-term-scored replication in Appendix~\ref{app:scoring} is the one the claims
-lean on.
+residual. Anchoring matters moderately. Resolution and representation matter
+most: quadrupling the number of themes leaves the two builds agreeing on 40\%
+of the variance in lead, and topics against terms on less than a quarter. A
+robustness check that varies only the weighting is therefore close to a
+restatement; one that varies the representation or the resolution is a real
+test, which is why the term-scored replication in Appendix~\ref{app:scoring}
+and the sweep below are the ones the claims lean on.
+
+\subsection{Fifty themes is coarse, and the finding does not depend on it}
+
+Fifty themes over a 62,168-term vocabulary is roughly one theme per industry,
+so the partition is coarse enough that a reader may reasonably suspect the
+findings belong to it. Raising the theme count does not add coverage --- the
+vocabulary is fixed, and a larger $T$ re-partitions the same words --- but it
+changes what counts as sitting far from an industry, and could change any sign.
+Re-fitting the model at four resolutions on the same stratified sample and the
+same analyzer, and re-scoring the software class under per-filing windows:
+
+\begin{center}\small
+\begin{tabular}{rrrrr}
+\toprule
+Themes & Gate contrast, lead & $t$ & Gate contrast, atypicality & $r$ with $T=50$ \\
+\midrule
+$50$   & $+3.23$pp & $13.8$ & $-14.01$pp & --- \\
+$100$  & $+2.71$pp & $11.6$ & $-13.69$pp & $0.690$ \\
+$200$  & $+5.20$pp & $22.2$ & $-13.45$pp & $0.640$ \\
+$500$  & $+5.69$pp & $24.3$ & $-14.49$pp & $0.641$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Three readings, in descending order of how much weight they carry.
+The sign and the significance are untouched across a tenfold change in
+resolution, and so is atypicality, which stays within a point of $-14$pp
+throughout. The magnitude is not: the lead contrast runs from $+2.71$ to
+$+5.69$pp and does not move monotonically in $T$, so no single resolution can
+be quoted as the software class's effect, and the figure this paper reports at
+$T = 50$ sits at the low end of that range rather than the high one. And
+agreement with $T = 50$ settles at $0.64$ without decaying as $T$ grows, which
+says the resolutions share a fixed core and differ in the remainder rather than
+drifting apart as the partition refines.
+
+The corpus-wide contrast is steadier than the single class: at $T = 200$,
+scored for all 45 classes, it is $+2.23$pp against $+2.29$pp at $T = 50$. Only
+those two resolutions exist corpus-wide, so that is a two-point comparison, but
+it is the one the paper's estimates run on, and pooling evidently averages away
+much of the per-class resolution sensitivity.
 
 Annual anchoring leaves a signature that per-filing anchoring does not. Mean
 lead by calendar month of filing, in units of the build's own standard
