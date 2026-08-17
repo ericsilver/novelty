@@ -80,21 +80,44 @@ def score_path(cls: str, T: int) -> Path:
 # build
 # --------------------------------------------------------------------------
 def fit_model(T: int) -> None:
-    """Fit an LDA at resolution T on the same stratified sample the T=50 model used."""
+    """Fit an LDA at resolution T exactly as the production T=50 model was fitted.
+
+    Matching matters more than convenience here: the point of the sweep is to
+    vary T and nothing else. The production fit draws a random 10,000 filings
+    per class under seed 42 and builds the vocabulary with the stopword-aware
+    analyzer from novelty.dictionary. Sampling with head() and a plain token
+    pattern instead gives 34,720 terms against the production 62,168, which
+    would confound resolution with vocabulary.
+
+    Note that the production pipeline fits the vocabulary with that analyzer but
+    transforms filings with a plain token pattern keyed to the stored
+    vocabulary (rolling_rescore_all.py). The sweep reproduces both halves as
+    they are, so its scores are comparable to the paper's.
+    """
     if model_path(T).exists():
         log(f"[fit T={T}] model exists, skipping")
         return
+    sys.path.insert(0, str(REPO / "src"))
+    from novelty.dictionary import STOPWORDS, _make_analyzer
+    rng = np.random.default_rng(42)
     docs = []
     for c in CLASSES:
         f = PROC / f"tm_class{c}.parquet"
         if not f.exists():
             continue
-        d = pl.read_parquet(f, columns=["goods_services"]).drop_nulls()
-        docs += d["goods_services"].head(SAMPLE_PER_CLASS).to_list()
+        d = pl.read_parquet(
+            f, columns=["filing_date", "goods_services"]).with_columns(
+            pl.col("filing_date").str.slice(0, 4).cast(pl.Int32, strict=False).alias("y")
+        ).filter((pl.col("goods_services").str.len_chars() > 0)
+                 & pl.col("y").is_between(1990, 2024))
+        take = min(d.height, SAMPLE_PER_CLASS)
+        idx = np.sort(rng.choice(d.height, size=take, replace=False))
+        docs.extend(d["goods_services"][idx].to_list())
         del d
+        gc.collect()
     log(f"[fit T={T}] {len(docs):,} sampled filings")
-    vec = CountVectorizer(min_df=MIN_DF_SAMPLE, lowercase=True,
-                          token_pattern=TOKEN, ngram_range=(1, 2))
+    vec = CountVectorizer(analyzer=_make_analyzer(frozenset(STOPWORDS), (1, 2)),
+                          min_df=MIN_DF_SAMPLE)
     X = vec.fit_transform(docs)
     del docs
     gc.collect()
@@ -264,12 +287,20 @@ def contrast(d: pl.DataFrame, col: str) -> dict | None:
 
 def compare(Ts: list[int]) -> dict:
     out = {"sweep_class": SWEEP_CLASS, "all_classes": {}, "class009": {}}
-    for label, classes, key in (("all 45 classes", CLASSES, "all_classes"),
-                                (f"class {SWEEP_CLASS}", [SWEEP_CLASS], "class009")):
+    # A resolution only enters the corpus-wide panel if it was scored for
+    # (nearly) every class; the high-T builds cover one class, and reporting
+    # those two files as "all 45 classes" would be a different sample wearing
+    # the same label.
+    full = [T for T in Ts
+            if sum((score_path(c, T)).exists() for c in CLASSES) >= 40]
+    log(f"[compare] corpus-wide at: {full}; single-class at: {Ts}")
+    for label, classes, key, use in (("all 45 classes", CLASSES, "all_classes", full),
+                                     (f"class {SWEEP_CLASS}", [SWEEP_CLASS],
+                                      "class009", Ts)):
         ref = None
         log(f"\n=== {label} ===")
         log("   T   scored      lead Q5-Q1      atyp Q5-Q1     r(lead, T=50)")
-        for T in Ts:
+        for T in use:
             d = gate_frame(classes, T)
             if d is None:
                 continue
