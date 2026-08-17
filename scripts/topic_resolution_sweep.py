@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import gc
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -79,7 +80,7 @@ def score_path(cls: str, T: int) -> Path:
 # --------------------------------------------------------------------------
 # build
 # --------------------------------------------------------------------------
-def fit_model(T: int) -> None:
+def fit_model(T: int) -> bool:
     """Fit an LDA at resolution T exactly as the production T=50 model was fitted.
 
     Matching matters more than convenience here: the point of the sweep is to
@@ -96,41 +97,94 @@ def fit_model(T: int) -> None:
     """
     if model_path(T).exists():
         log(f"[fit T={T}] model exists, skipping")
-        return
-    sys.path.insert(0, str(REPO / "src"))
-    from novelty.dictionary import STOPWORDS, _make_analyzer
-    rng = np.random.default_rng(42)
-    docs = []
-    for c in CLASSES:
-        f = PROC / f"tm_class{c}.parquet"
-        if not f.exists():
-            continue
-        d = pl.read_parquet(
-            f, columns=["filing_date", "goods_services"]).with_columns(
-            pl.col("filing_date").str.slice(0, 4).cast(pl.Int32, strict=False).alias("y")
-        ).filter((pl.col("goods_services").str.len_chars() > 0)
-                 & pl.col("y").is_between(1990, 2024))
-        take = min(d.height, SAMPLE_PER_CLASS)
-        idx = np.sort(rng.choice(d.height, size=take, replace=False))
-        docs.extend(d["goods_services"][idx].to_list())
-        del d
+        return True
+
+    # Fitting is resumable. A T=2500 fit is hours of work, longer than this
+    # environment lets a single background job live, so the design matrix is
+    # cached once and the model is checkpointed after every epoch. Re-running
+    # picks up where the last run stopped; production's max_iter=8 is
+    # reproduced as eight explicit passes so the result is the same object.
+    xp = PROC / "_lda_fit_matrix.npz"
+    vp = PROC / "_lda_fit_vocab.joblib"
+    if xp.exists() and vp.exists():
+        import scipy.sparse as sp
+        X = sp.load_npz(xp)
+        vocab = joblib.load(vp)
+        log(f"[fit T={T}] reusing cached design matrix {X.shape[0]:,} x {X.shape[1]:,}")
+    else:
+        sys.path.insert(0, str(REPO / "src"))
+        from novelty.dictionary import STOPWORDS, _make_analyzer
+        rng = np.random.default_rng(42)
+        docs = []
+        for c in CLASSES:
+            f = PROC / f"tm_class{c}.parquet"
+            if not f.exists():
+                continue
+            d = pl.read_parquet(
+                f, columns=["filing_date", "goods_services"]).with_columns(
+                pl.col("filing_date").str.slice(0, 4)
+                .cast(pl.Int32, strict=False).alias("y")
+            ).filter((pl.col("goods_services").str.len_chars() > 0)
+                     & pl.col("y").is_between(1990, 2024))
+            take = min(d.height, SAMPLE_PER_CLASS)
+            idx = np.sort(rng.choice(d.height, size=take, replace=False))
+            docs.extend(d["goods_services"][idx].to_list())
+            del d
+            gc.collect()
+        log(f"[fit T={T}] {len(docs):,} sampled filings")
+        vec = CountVectorizer(analyzer=_make_analyzer(frozenset(STOPWORDS), (1, 2)),
+                              min_df=MIN_DF_SAMPLE)
+        X = vec.fit_transform(docs)
+        vocab = vec.vocabulary_
+        del docs
         gc.collect()
-    log(f"[fit T={T}] {len(docs):,} sampled filings")
-    vec = CountVectorizer(analyzer=_make_analyzer(frozenset(STOPWORDS), (1, 2)),
-                          min_df=MIN_DF_SAMPLE)
-    X = vec.fit_transform(docs)
-    del docs
-    gc.collect()
+        import scipy.sparse as sp
+        sp.save_npz(xp, X)
+        joblib.dump(vocab, vp)
     log(f"[fit T={T}] {X.shape[0]:,} x {X.shape[1]:,}, nnz {X.nnz:,}")
+
+    ck = PROC / f"_lda_ckpt_T{T}.joblib"
+    # Checkpoint inside the epoch, not just between epochs. A single T=2500
+    # pass over 448k filings takes longer than a background job is allowed to
+    # live, so progress is tracked as (epoch, block) and any run resumes at the
+    # block it stopped on. partial_fit over blocks is the online algorithm's
+    # own update unit, so eight passes in blocks equal max_iter=8.
+    N_BLOCKS = 8
+    bounds = np.linspace(0, X.shape[0], N_BLOCKS + 1).astype(int)
+    if ck.exists():
+        st = joblib.load(ck)
+        lda, ep, blk = st["lda"], st["epochs"], st.get("block", 0)
+        log(f"[fit T={T}] resuming at epoch {ep}/8, block {blk}/{N_BLOCKS}")
+    else:
+        lda = LatentDirichletAllocation(
+            n_components=T, max_iter=1, learning_method="online",
+            batch_size=2048, random_state=42, n_jobs=1, evaluate_every=0)
+        ep, blk = 0, 0
+    budget = float(os.environ.get("FIT_BUDGET_MIN", "18"))
     t0 = time.time()
-    lda = LatentDirichletAllocation(n_components=T, max_iter=8,
-                                    learning_method="online", batch_size=2048,
-                                    random_state=42, n_jobs=1, evaluate_every=0).fit(X)
-    log(f"[fit T={T}] fitted in {(time.time()-t0)/60:.1f} min")
-    joblib.dump({"vocabulary": vec.vocabulary_, "lda": lda}, model_path(T),
-                compress=3)
+    nb = 0
+    while ep < 8:
+        lda.partial_fit(X[bounds[blk]:bounds[blk + 1]])
+        blk += 1
+        nb += 1
+        if blk == N_BLOCKS:
+            blk = 0
+            ep += 1
+        el = (time.time() - t0) / 60
+        per = el / nb
+        if ep < 8 and el + per > budget:
+            joblib.dump({"lda": lda, "epochs": ep, "block": blk}, ck, compress=0)
+            log(f"[fit T={T}] stopped at epoch {ep}/8 block {blk}/{N_BLOCKS} "
+                f"after {el:.1f} min ({per:.1f} min/block); rerun to continue")
+            return False
+        if blk == 0:
+            log(f"[fit T={T}] epoch {ep}/8 done ({el:.1f} min this run)")
+        joblib.dump({"vocabulary": vocab, "lda": lda}, model_path(T), compress=3)
+    ck.unlink(missing_ok=True)
+    log(f"[fit T={T}] complete")
     del X, lda
     gc.collect()
+    return True
 
 
 def kl_stream(theta, lo, hi, T):
@@ -335,7 +389,11 @@ def main() -> int:
     mode = sys.argv[1] if len(sys.argv) > 1 else "compare"
     if mode == "build":
         for T in [int(a) for a in sys.argv[2:]]:
-            fit_model(T)
+            # Fitting is resumable and may stop mid-way on a wall-clock budget;
+            # scoring can only run once the model is complete.
+            if not fit_model(T):
+                log(f"[build] T={T} fit incomplete, stopping before scoring")
+                return 0
             score_class(SWEEP_CLASS, T)
         return 0
     Ts = [int(a) for a in sys.argv[2:]] or [50, 100, 200, 500, 1000, 2500]
