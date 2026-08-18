@@ -172,8 +172,11 @@ def fit_model(T: int) -> bool:
             ep += 1
         el = (time.time() - t0) / 60
         per = el / nb
+        # Checkpoint every block, not only on budget exit: a job killed
+        # mid-run used to lose everything since it started, which is what
+        # capped the budget well under the kill threshold.
+        joblib.dump({"lda": lda, "epochs": ep, "block": blk}, ck, compress=0)
         if ep < 8 and el + per > budget:
-            joblib.dump({"lda": lda, "epochs": ep, "block": blk}, ck, compress=0)
             log(f"[fit T={T}] stopped at epoch {ep}/8 block {blk}/{N_BLOCKS} "
                 f"after {el:.1f} min ({per:.1f} min/block); rerun to continue")
             return False
