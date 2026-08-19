@@ -108,8 +108,10 @@ def fit_shapes(x: np.ndarray, y: np.ndarray, w: np.ndarray) -> dict:
                 raise RuntimeError("non-finite prediction")
             sse = float(np.sum(w * (y - pred) ** 2))
             k = len(popt)
-            rss = float(np.sum((y - pred) ** 2))
-            aic = n * np.log(max(rss / n, 1e-300)) + 2 * k
+            # AIC on the same weighted loss the R^2 uses; previously this was
+            # the unweighted residual sum, so the selected shape and the
+            # reported fit answered to different criteria.
+            aic = n * np.log(max(sse / w.sum(), 1e-300)) + 2 * k
             out[name] = {"params": [float(v) for v in popt],
                          "r2": 1.0 - sse / sst if sst > 0 else None,
                          "aic": aic, "k": k}
@@ -128,6 +130,13 @@ def fit_shapes(x: np.ndarray, y: np.ndarray, w: np.ndarray) -> dict:
             a, b, c = q["params"]
             out["_quadratic_vertex_z"] = -b / (2 * c)
             out["_quadratic_opens"] = "up" if c > 0 else "down"
+        sy = out.get("symmetric", {})
+        if "params" in sy:
+            a, b, c, x0 = sy["params"]
+            out["_symmetric_vertex_z"] = x0
+            # |c| this small linearizes exp(c|x-x0|) to 1 + c|x-x0|: the form
+            # has degenerated to a V, and a and b have blown up to compensate.
+            out["_symmetric_is_V"] = bool(abs(c) < 1e-2)
     return out
 
 
@@ -147,8 +156,12 @@ def profile(df: pl.DataFrame, score: str, outcome: str,
     x = g["x"].to_numpy().astype(np.float64)
     y = g["y"].to_numpy().astype(np.float64)
     w = g["n"].to_numpy().astype(np.float64)
-    # standardize x so the fitted exponents are comparable across scorings
-    mu, sd = float(np.average(x, weights=w)), float(x.std())
+    # Standardize x on the FILING-level mean and sd, not on the 40 bin centres.
+    # Binning discards within-bin spread, so the sd of the centres is narrower
+    # than the population's and every fitted vertex quoted in "z" would be on a
+    # scale that does not match the per-sigma slopes reported elsewhere.
+    mu = float(d[score].mean())
+    sd = float(d[score].std())
     xz = (x - mu) / (sd if sd > 0 else 1.0)
     return {"n": int(d.height), "base": float(d[outcome].mean()),
             "x_mean": mu, "x_sd": sd,

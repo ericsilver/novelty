@@ -707,33 +707,41 @@ mechanism were real.
 
 \subsection{The construct is not patenting}\label{sec:patent}
 
-Within the firms that do both, trademark lead and patenting move
+Within the firms that do both, trademark vocabulary and patenting move
 independently. On a panel of trademark owners name-matched to PatentsView
-patent assignees \citep{PatentsView}, a fixed-effects regression of
-standardized firm-year mean \dkl{} on $\log(1 + \mathrm{patents})$, with
-firms absorbed and errors clustered on the firm, gives $-0.058\sigma$
-(SE $0.006$, $t = -9.4$) on 134{,}075 matched firm-years across 17{,}506
-firms --- and that estimate does not survive a change of representation:
+patent assignees \citep{PatentsView}, each axis is regressed on
+$\log(1 + \mathrm{patents})$ with firms absorbed and errors clustered on the
+firm, over 134{,}075 matched firm-years across 17{,}506 firms. The outcome is
+standardized, so $\beta$ is the shift in standard deviations of the axis per
+unit of log-patents; one unit is roughly a tripling of the patent count, and a
+firm going from none to twenty moves about three units.
 
 \begin{center}\small
-\begin{tabular}{llrr}
+\begin{tabular}{llrrr}
 \toprule
-Representation & Reference weighting & $\beta$ ($\sigma$) & $t$ \\
+Text counted as & Axis & $\beta$ (sd) & $t$ & Correlation $r$ \\
 \midrule
-Topics & flat window            & $-0.058$ & $-9.4$ \\
-Topics & two-year half-life     & $-0.057$ & $-9.3$ \\
-Terms  & flat window            & $+0.012$ & $+2.0$ \\
-Terms  & two-year half-life     & $+0.009$ & $+1.5$ \\
+Themes & atypicality & $+0.012$ & $+3.0$ & $+0.009$ \\
+Themes & lead        & $-0.058$ & $-9.4$ & $-0.020$ \\
+Terms  & atypicality & $-0.055$ & $-11.5$ & --- \\
+Terms  & lead        & $+0.012$ & $+2.0$ & --- \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent The weighting of the reference is irrelevant --- flat and decayed
-agree to a thousandth --- but the representation flips the sign. No estimate
-anywhere in this comparison reaches a tenth of a standard deviation, so a firm
-moving from no patents to twenty shifts its mean lead by at most a fifth of
-one, and the direction of even that depends on whether one scores topics or
-terms.
+\noindent The grid is close to a mirror: whichever axis carries the small
+signal under one way of counting the text carries the opposite sign under the
+other. That is worth stating plainly because the two halves are easy to
+mistake for each other --- the theme-scored \emph{lead} coefficient
+($-0.058$) and the term-scored \emph{atypicality} coefficient ($-0.055$) are
+nearly the same number attached to different quantities.
+
+Nothing here reaches a tenth of a standard deviation. Taking the largest, a
+firm moving from no patents to twenty shifts its mean theme-scored lead by
+about $0.18$ standard deviations, and the raw correlation across firm-years is
+$-0.020$. The weighting of the reference window is irrelevant to all of it:
+scoring against an exponentially decayed reference instead of a flat one moves
+every coefficient by less than $0.004$.
 
 One objection is timing: a patent is applied for before its invention is in public use and a trademark when the firm is ready
 to sell, so patents would lead. Firms do not proceed that linearly, and in
@@ -1452,46 +1460,40 @@ to catch a U directly. Selection is by AIC.
 \begin{center}\small
 \begin{tabular}{llrrrl}
 \toprule
-Gate & Axis & $R^2$ linear & $R^2$ selected & $\Delta$AIC & Selected \\
+Outcome & Axis & $R^2$ line & $R^2$ curve & $\Delta$AIC & Shape selected \\
 \midrule
-Registration & atypicality & $0.38$ & $0.92$ & $77.1$ & symmetric, vertex $+1.02$ \\
-Registration & lead        & $0.08$ & $0.17$ & $1.9$  & quadratic \\
-Use-proof    & atypicality & $0.74$ & $0.74$ & $0.0$  & linear \\
-Use-proof    & lead        & $0.44$ & $0.55$ & $4.3$  & symmetric \\
-Listed       & lead        & $0.19$ & $0.47$ & $12.8$ & symmetric, vertex $+0.35$ \\
-Listed       & atypicality & $0.74$ & $0.83$ & $11.5$ & symmetric, vertex $+2.30$ \\
-Reporting    & lead        & $0.07$ & $0.66$ & $36.1$ & symmetric, vertex $+0.26$ \\
-Reporting    & atypicality & $0.64$ & $0.80$ & $18.4$ & symmetric, vertex $+2.18$ \\
+Registration & atypicality & 0.38 & 0.92 & 77.1 & curve, peak at $+1.04$ \\
+Registration & lead & 0.08 & 0.17 & 1.9 & (quadratic; weak) \\
+Use-proof & atypicality & 0.74 & 0.74 & 0.0 & linear \\
+Use-proof & lead & 0.44 & 0.55 & 4.3 & V, vertex $-1.50$ \\
+SEC reporting & atypicality & 0.74 & 0.84 & 15.2 & curve, peak at $+2.17$ \\
+SEC reporting & lead & 0.13 & 0.59 & 26.3 & V, vertex $+0.30$ \\
+\quad listed only & lead & 0.19 & 0.46 & 12.2 & V, vertex $+0.41$ \\
+\quad reporting, not listed & lead & 0.07 & 0.67 & 37.2 & V, vertex $+0.24$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent The free-vertex form wins in six of the eight profiles, but it wins
-in two different ways and the distinction matters. On the two atypicality
-profiles it is a genuine exponential decay away from a vertex, with fitted
-exponents of $0.49$ and $0.85$. On the lead profiles it degenerates: the
-fitted exponent is of order $10^{-4}$, which drives $e^{c|x-x_0|}$ to
-$1 + c|x - x_0|$, so what actually wins there is a \emph{V} --- linear in
-distance from a free vertex --- rather than anything exponential. A V beating
-a parabola on a U-shaped profile says the turn is sharper than a quadratic
-allows, not that the process is multiplicative.
+\noindent The winning form is a free-vertex $a + b\,e^{c|x-x_0|}$. On the
+atypicality rows it is a genuine curve, with fitted exponents near $0.5$ to
+$0.9$ --- a hump that peaks about one standard deviation above mean
+atypicality at registration and about two above it at SEC reporting. On every
+lead row the exponent collapses to the order of $10^{-4}$, which turns
+$e^{c|x-x_0|}$ into $1 + c|x-x_0|$: what wins there is a \emph{V}, linear in
+distance from a vertex. A V beating a parabola says the turn is sharper than a
+quadratic allows, not that anything is multiplying. The script now flags that
+degeneracy rather than leaving it to be read off the fitted constants.
 
-The registration profile in atypicality is decisively curved: an inverted U
-peaking a standard deviation above the mean, with the fit more than doubling
-the explained variance. This is the middling-specificity pattern of
-Appendix~\ref{app:registration}, and a linear summary of it is close to
-meaningless. The use-proof gate in atypicality is the opposite case ---
-genuinely linear, with every curved form buying nothing --- so the
-per-standard-deviation slope the paper quotes there is the right summary.
+Vertices are in standard deviations of the axis across filings. An earlier
+version of this table standardized on the spread of the forty bin centres
+instead, which is narrower than the filings' own spread and put the vertices
+on a scale that did not match the per-standard-deviation slopes quoted
+elsewhere in the paper.
 
-The public-reporting profiles are where the linear reading actively misleads.
-Both are U-shaped in lead, and the fitted linear slope runs \emph{downward}
-through a curve whose two tails are its high points. Quoting only that slope
-would report that leading owners reach public markets less often, which is
-true on average and false at the extreme the sentence would be read as
-describing. The vertex sits above the mean in both, so the lagging tail is the
-longer arm of the U --- the asymmetry Section~\ref{sec:bluesea} reports from
-the quintiles.
+The two rows for SEC reporting are the outcome Section~\ref{sec:bluesea} and
+Table~\ref{tab:edgar} actually run on; the listed and reporting-only splits
+below them show the same shape on each half, which is why the split does not
+change the reading.
 
 AIC here is computed on 40 binned means, not on the millions of underlying
 filings, so it ranks shapes rather than testing them. The $77$ at registration
