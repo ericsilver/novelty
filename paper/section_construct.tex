@@ -64,30 +64,73 @@ among them \emph{computerized},
 \emph{search}, \emph{ordering}, \emph{ordering service}, \emph{retail},
 \emph{distribution}, \emph{printed books} and \emph{digital transmission}.
 
-\paragraph{Grouping words into themes.} Scoring those tokens directly is
-possible, and the paper reports it as a cross-check, but on documents this
-short a raw term count is dominated by length: the fewer words a description
-has, the spikier its distribution and the further it sits from any reference,
-so ``unusual'' and ``brief'' become nearly the same measurement --- term-scored
-atypicality correlates with log length at $-0.729$ in the software class,
-against $-0.251$ under themes. The primary scoring therefore groups the
-vocabulary into 50 themes fitted across the corpus by latent Dirichlet
-allocation and represents a filing by how its tokens distribute over them. The
-Amazon filing puts $0.40$ of its weight on a theme led by \emph{video,
-computer, electronic, music, games, audio}, $0.15$ on one led by
-\emph{services, computer, software, information, data}, and the rest across
-the remaining 48.
+\paragraph{Scoring the words directly, and why that fails.} The tokens could
+be compared straight to the reference: build the filing's distribution over the
+class vocabulary from the words it uses, do the same for every filing in the
+window, and take the divergence between them. The paper reports that scoring as
+a cross-check. It cannot be the primary one, because of an identity. For any
+two distributions,
+\[
+  \mathrm{KL}(P \,\|\, Q) \;=\; \underbrace{-\textstyle\sum_k P_k \log Q_k}_{\text{how unexpected these words are}}
+  \;-\; \underbrace{\left(-\textstyle\sum_k P_k \log P_k\right)}_{\text{how spread out the filing is}} .
+\]
+The first term is what one wants: the average surprise of the filing's own
+words under the reference. The second is the entropy of the filing itself, and
+it has nothing to do with novelty. It is also bounded by length: a description
+using $k$ distinct vocabulary terms cannot spread over more than $k$ of them,
+so its entropy cannot exceed $\log k$, while the reference is spread over about
+900 terms. A five-word description is charged the whole difference in width ---
+roughly five nats --- before any of its content is considered.
 
-Themes are what make combinations visible, and also what limit them. A filing
-built entirely of ordinary words can still land where its industry is not,
-because the \emph{mixture} is unusual --- the Amazon case, where every token is
-unremarkable and the invention lives in \emph{on line search and ordering}
-applied to books. But a theme basis fitted on the corpus has no coordinate for
-language the corpus has not yet seen, so a genuinely new word arrives
-invisible: \textsc{Kombucha} in 1997 is a drink with no theme of its own and
-reads as an ordinary beverage until enough filings mention it to move the fit.
-Term scoring sees the new word and misses the new mixture; theme scoring does
-the reverse. Appendix~\ref{app:exhibit} works three such filings through both.
+That is not an argument from theory. Take 3{,}000 software-class filings of at
+least 150 words, score each against one fixed reference, then truncate the same
+filings to a random handful of words and score them again. Across a fiftyfold
+cut in length the first term moves by $0.016$ nats and the second by $2.9$; the
+whole of the change is width. Synthetic filings whose words are drawn at
+random \emph{from the reference itself} --- maximally ordinary by construction,
+with no novelty at all --- reproduce the observed scale: they score $5.72$ at
+three tokens and $1.65$ at four hundred, tracking $\log(\text{distinct terms})$
+to within a fiftieth of a nat. The average real filing scores marginally
+\emph{below} that null at its own length. Term-scored atypicality correlates
+with log description length at $-0.65$ in the software class, and the right
+control is not word count but the log of the distinct in-vocabulary terms,
+which is what the identity implies and what fits best.
+
+\paragraph{Grouping words into themes.} The primary scoring therefore
+re-describes each filing in a fixed, much smaller set of coordinates. Latent
+Dirichlet allocation is run once over a stratified sample of the corpus: it
+learns 50 clusters of words that tend to occur together --- called
+\emph{themes} here --- and, for any filing, the proportions in which its words
+draw on them. Nothing supervises this; the clusters come from co-occurrence
+alone, and the reader can inspect all 50 in the online appendix. The Amazon
+filing puts $0.40$ of its weight on a theme led by \emph{video, computer,
+electronic, music, games, audio}, $0.15$ on one led by \emph{services,
+computer, software, information, data}, and the rest across the remaining 48.
+
+This breaks the length coupling, because the 50 coordinates are always
+occupied. Under term scoring the effective number of coordinates a filing
+spreads over rises seventeenfold from the shortest descriptions to the longest;
+under themes it varies by less than a third and not even monotonically --- a
+three-word fragment spreads across \emph{more} themes than a long description,
+since the model cannot tell which one it belongs to. The width term therefore
+stops carrying length, and what is left is the part that was always about
+content. Theme-scored atypicality correlates with log length at $-0.08$ in the
+software class and $+0.06$ in advertising and retail, against $-0.65$ and
+$-0.59$ under terms.
+
+\paragraph{What the themes see, and what they do not.} The score compares a
+filing's theme proportions to the average proportions of its industry, so it
+reads which themes a filing draws on and how heavily. It does not, in any
+material way, read how a filing \emph{combines} them. Taking each filing's two
+leading themes and asking how often that pair occurs together relative to the
+two themes' separate frequencies: how rare the themes are individually explains
+70\% of the variance in atypicality, and the unusualness of the pairing adds
+under two points on top of it. What little it adds runs the wrong way for a
+combination story --- pairs that co-occur \emph{more} than chance score higher,
+which is concentration rather than novelty of arrangement. A filing assembled
+from ordinary parts in a genuinely new configuration is therefore close to
+invisible to this measure, which is what Appendix~\ref{app:exhibit} shows for
+the Amazon filing one case at a time.
 
 \paragraph{Comparing against the two references.} Write $P$ for the filing's
 distribution over themes, and $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$
