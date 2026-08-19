@@ -7,7 +7,13 @@ file and from GitHub Pages with no server, and because 500 themes of monthly
 series is far too much to hold in one page.
 
 Charting decisions, per the project's data-viz rules:
-  - A stacked bar per month answers "how much, split by what" over time.
+  - One line per Nice class over quarters, plus a total. Lines rather than a
+    stacked bar because the question is "when was this used, and by whom",
+    which compares trajectories, and stacking makes every series but the
+    bottom one unreadable. Quarters rather than months because a theme with a
+    handful of filings a month is noise at monthly resolution.
+  - The total is drawn in ink at low opacity, not given a categorical hue: it
+    is an aggregate of the other series, not another category.
   - Nice class is an identity, so the categorical palette applies, assigned in
     fixed slot order. Eight slots exist; a theme touching more classes folds the
     remainder into "Other" rather than inventing a ninth hue.
@@ -140,45 +146,73 @@ def slot_vars(n: int) -> str:
             ":root[data-theme=dark]{" + rd + "}")
 
 
-def stacked_svg(series, cols, months, W=900, H=270):
-    if not months:
+def to_quarters(series, cols):
+    """Monthly counts to quarterly. Monthly bars are unreadable for a theme with
+    a few filings a month; quarters give each point enough mass to mean
+    something without hiding a trend."""
+    out = {}
+    for c in cols:
+        q = {}
+        for mo, v in series[c].items():
+            key = "%sQ%d" % (mo[:4], (int(mo[4:6]) - 1) // 3 + 1)
+            q[key] = q.get(key, 0) + v
+        out[c] = q
+    return out
+
+
+def line_svg(series, cols, quarters, W=900, H=300):
+    """One line per Nice class plus a total.
+
+    A line rather than a stacked bar because the question a reader brings to a
+    theme page is "when was this used, and by whom" -- which is a comparison of
+    trajectories, and stacking makes every series except the bottom one impossible
+    to read off. The total is drawn in ink rather than given a categorical hue,
+    because it is an aggregate of the others and not another category.
+    """
+    if not quarters:
         return "<p>No filings in range.</p>"
-    pad_l, pad_b, pad_t = 48, 34, 8
-    iw = W - pad_l - 10
+    pad_l, pad_b, pad_t, pad_r = 52, 34, 10, 12
+    iw = W - pad_l - pad_r
     ih = H - pad_b - pad_t
-    tot = [sum(series[c].get(mo, 0) for c in cols) for mo in months]
+    tot = [sum(series[c].get(q, 0) for c in cols) for q in quarters]
     mx = max(tot) or 1
-    bw = iw / len(months)
-    gap = 0.35 if bw > 3 else 0.0
+    n = len(quarters)
+    x = lambda i: pad_l + (iw * i / max(n - 1, 1))
+    yv = lambda v: pad_t + ih - ih * v / mx
     o = ['<svg viewBox="0 0 %d %d" width="100%%" role="img" '
-         'aria-label="Filings per month by Nice class">' % (W, H)]
+         'aria-label="Filings per quarter by Nice class">' % (W, H)]
     for gy in range(5):
-        y = pad_t + ih - ih * gy / 4.0
+        yy = pad_t + ih - ih * gy / 4.0
         o.append('<line x1="%d" x2="%d" y1="%.1f" y2="%.1f" stroke="var(--line)" '
-                 'stroke-width="1"/>' % (pad_l, W - 10, y, y))
+                 'stroke-width="1"/>' % (pad_l, W - pad_r, yy, yy))
         o.append('<text x="%d" y="%.1f" text-anchor="end" font-size="11" '
                  'fill="var(--mut)">%s</text>'
-                 % (pad_l - 6, y + 4, format(int(mx * gy / 4.0), ",")))
-    for i, mo in enumerate(months):
-        x = pad_l + i * bw
-        acc = 0.0
-        for ci, c in enumerate(cols):
-            v = series[c].get(mo, 0)
-            if not v:
-                continue
-            h = ih * v / mx
-            y = pad_t + ih - acc - h
-            label = cname(c) if c != "Other" else "Other classes"
-            o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" '
-                     'fill="var(--s%d)" rx="1"><title>%s-%s &middot; %s &middot; %s</title></rect>'
-                     % (x + gap, y, max(bw - 2 * gap, 0.6), max(h - 1, 0.5), ci,
-                        esc(mo[:4]), esc(mo[4:]), esc(label), format(v, ",")))
-            acc += h
-    step = max(1, len(months) // 8)
-    for i in range(0, len(months), step):
+                 % (pad_l - 6, yy + 4, format(int(mx * gy / 4.0), ",")))
+    # total first, so class lines sit above it
+    pts = " ".join("%.1f,%.1f" % (x(i), yv(tot[i])) for i in range(n))
+    o.append('<polyline points="%s" fill="none" stroke="var(--fg)" '
+             'stroke-width="2.5" stroke-opacity="0.35" stroke-linejoin="round"/>' % pts)
+    for ci, c in enumerate(cols):
+        pts = " ".join("%.1f,%.1f" % (x(i), yv(series[c].get(q, 0)))
+                       for i, q in enumerate(quarters))
+        o.append('<polyline points="%s" fill="none" stroke="var(--s%d)" '
+                 'stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+                 % (pts, ci))
+    # one hover column per quarter, wider than the marks, listing every series
+    colw = iw / max(n - 1, 1)
+    for i, q in enumerate(quarters):
+        rows = "&#10;".join(
+            "%s: %s" % (cname(c) if c != "Other" else "Other classes",
+                        format(series[c].get(q, 0), ","))
+            for c in cols if series[c].get(q, 0))
+        o.append('<rect x="%.1f" y="%d" width="%.1f" height="%d" fill="transparent">'
+                 '<title>%s&#10;%s&#10;Total: %s</title></rect>'
+                 % (x(i) - colw / 2, pad_t, max(colw, 2), ih, esc(q), rows,
+                    format(tot[i], ",")))
+    step = max(1, n // 8)
+    for i in range(0, n, step):
         o.append('<text x="%.1f" y="%d" text-anchor="middle" font-size="11" '
-                 'fill="var(--mut)">%s</text>'
-                 % (pad_l + i * bw + bw / 2, H - 12, esc(months[i][:4])))
+                 'fill="var(--mut)">%s</text>' % (x(i), H - 12, esc(quarters[i][:4])))
     o.append("</svg>")
     return "".join(o)
 
@@ -226,14 +260,17 @@ def main() -> int:
                     agg[mo] += v
             series["Other"] = dict(agg)
         cols = keep + (["Other"] if rest else [])
-        months = sorted({mo for c in cols for mo in series[c]})
-        months = [mo for mo in months if "199001" <= mo <= "202512"]
+        series = {c: {mo: v for mo, v in series[c].items()
+                      if "199001" <= mo <= "202512"} for c in cols}
+        series = to_quarters(series, cols)
+        quarters = sorted({q for c in cols for q in series[c]})
 
         leg = "".join(
             '<span><i style="background:var(--s%d)"></i>%s</span>'
             % (i, esc(cname(c) if c != "Other" else
                       "Other (%d classes)" % len(rest)))
-            for i, c in enumerate(cols))
+            for i, c in enumerate(cols)) + (
+            '<span><i style="background:var(--fg);opacity:.35"></i>Total</span>')
         rows = "".join(
             '<tr><td>%s</td><td class="n">%s</td></tr>'
             % (esc(cname(c)), format(v, ",")) for c, v in ranked)
@@ -248,17 +285,18 @@ def main() -> int:
             '<div class="stat"><b>%.1f%%</b><span>failed first gate, of registered</span></div>'
             '<div class="stat"><b>%.2f%%</b><span>owner SEC-reporting</span></div>'
             '<div class="stat"><b>%d</b><span>classes present</span></div></div>'
-            '<h2>Filings per month, by Nice class</h2>'
+            '<h2>Filings per quarter, by Nice class</h2>'
             '<div class="legend">%s</div>'
             '<figure>%s<figcaption>Filings for which this is the highest-weighted '
-            'theme, by filing month. Hover a segment for its class and count. '
-            'Classes beyond the top %d are pooled as Other.</figcaption></figure>'
+            'theme, by filing quarter. Hover anywhere in a quarter for every '
+            'class and the total. Classes beyond the top %d are pooled as '
+            'Other.</figcaption></figure>'
             '<h2>All classes</h2><div class="wrap"><table><thead><tr>'
             '<th>Nice class</th><th class="n">Filings dominated</th></tr></thead>'
             '<tbody>%s</tbody></table></div>'
             % (k, esc(top[k]), format(o["n"], ","), 100.0 * o["reg"] / n,
                100.0 * o["failed"] / reg, 100.0 * o["sec"] / n, len(byc),
-               leg, stacked_svg(series, cols, months), TOPC, rows))
+               leg, line_svg(series, cols, quarters), TOPC, rows))
         (OUT / ("theme-%04d.html" % k)).write_text(
             shell("Theme %d" % k, body, slot_vars(len(cols))), encoding="utf-8")
 
