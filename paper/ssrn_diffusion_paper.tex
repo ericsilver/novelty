@@ -25,16 +25,15 @@
 \maketitle
 
 \begin{abstract}
-\noindent Text-based novelty measures built on patents observe invention
-by the small minority of firms that patent. Trademark filings time-stamp
-commercialization by everyone else, in plain commercial language.
-
-\noindent All 13.99 million USPTO trademark case files are re-parsed into
-event-dated prosecution histories, and every filing is scored on how
-surprising its language is against what its industry filed in the five years
-before it and in the five years after. Filings whose wording the industry
-subsequently moved toward are \emph{leading}; those written in language it
-was already leaving behind are \emph{lagging}.
+\noindent Text-based novelty measures built on patents observe invention by
+the small minority of firms that patent; trademark filings time-stamp
+commercialization by everyone else, in plain commercial language. All 13.99
+million USPTO trademark case files are re-parsed here into event-dated
+prosecution histories, and every filing scored on how surprising its language
+is against what its industry filed in the five years before it and in the five
+years after. Filings whose wording the industry subsequently moved toward are
+\emph{leading}; those written in language it was already leaving behind are
+\emph{lagging}.
 
 \noindent A product described in language its industry is moving toward is
 less likely to still be on the market five years later than one described in
@@ -61,14 +60,20 @@ absorbed. Nor is the measure a proxy for patenting --- within firms the
 association never reaches a tenth of a standard deviation and flips sign
 between text representations.
 
-\noindent Read without conditioning on grant, the same data support weaker
-and sometimes opposite conclusions, because registration is itself selected
-on language. And scored on individual terms rather than distributions over
-themes, leading filings appear to belong to better firms --- an association
-that dissolves or reverses under theme scoring, because term scoring picks
-up lexical specificity rather than position. Text measures of this kind can
-manufacture firm-performance correlations out of drafting style. Code,
-panels, and the corpus build are public at
+\noindent None of it is large. Whether a firm hired a trademark attorney
+predicts reaching SEC reporting far better than anything its language says:
+0.83\% of represented first-time filers get there against 0.18\% of
+self-filers, a coefficient some fifteen times any text effect here. What the
+text adds is small, and it is also fragile in a specific and instructive way.
+Scored on individual terms rather than on distributions over themes, leading
+filings appear to belong to \emph{better} firms; entered together on the same
+owners, the two scorings carry opposite signs and both are significant, so at
+most one of them is measuring position rather than drafting style. Text
+measures of this kind can manufacture firm-performance correlations, and a
+change of representation is what exposes it. A third caution is structural:
+read without conditioning on grant, the same data support weaker and sometimes
+opposite conclusions, because registration is itself selected on language.
+Code, panels, and the corpus build are public at
 \url{https://github.com/ericsilver/tm-vocabulary}.
 \end{abstract}
 
