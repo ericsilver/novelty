@@ -90,18 +90,29 @@ def main() -> int:
         g = d.group_by(["theme", "ym"]).len()
         for r in g.iter_rows():
             months.setdefault(str(r[0]), {}).setdefault(c, {})[r[1]] = int(r[2])
-        o = d.group_by("theme").agg(
-            pl.len().alias("n"), pl.col("reg").sum().alias("reg"),
-            pl.col("sec").sum().alias("sec"),
-            pl.col("failed").sum().alias("failed"),
-            pl.col("reg").sum().alias("reg2"))
-        for r in o.iter_rows(named=True):
-            t = outcomes.setdefault(str(r["theme"]),
-                                    {"n": 0, "reg": 0, "sec": 0, "failed": 0,
-                                     "by_class": {}})
-            t["n"] += r["n"]; t["reg"] += r["reg"]
-            t["sec"] += r["sec"]; t["failed"] += r["failed"]
-            t["by_class"][c] = r["n"]
+        # SEC reporting is a property of the OWNER, so counting it over every
+        # filing gives a firm with 300 marks 300 votes. The debut split counts
+        # each owner once, on its first filing, which is the denominator the
+        # paper's firm-level results use.
+        d = d.with_columns(
+            (pl.col("filing_date") == pl.col("filing_date").min().over("owner_name"))
+            .alias("is_debut"))
+        for lab, sub in (("", d), ("debut_", d.filter(pl.col("is_debut")))):
+            o = sub.group_by("theme").agg(
+                pl.len().alias("n"), pl.col("reg").sum().alias("reg"),
+                pl.col("sec").sum().alias("sec"),
+                pl.col("failed").sum().alias("failed"))
+            for r in o.iter_rows(named=True):
+                t = outcomes.setdefault(str(r["theme"]),
+                                        {"n": 0, "reg": 0, "sec": 0, "failed": 0,
+                                         "debut_n": 0, "debut_reg": 0,
+                                         "debut_sec": 0, "debut_failed": 0,
+                                         "by_class": {}})
+                t[lab + "n"] += r["n"]; t[lab + "reg"] += r["reg"]
+                t[lab + "sec"] += r["sec"]; t[lab + "failed"] += r["failed"]
+                if not lab:
+                    t["by_class"][c] = r["n"]
+            del o
         log(f"  [{c}] {d.height:,} of {n_all:,} filings assigned")
         del d, dom, g, o; gc.collect()
 

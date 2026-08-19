@@ -45,17 +45,13 @@ def main() -> int:
                         lambda _m: BLIND_NOTE, s, flags=re.DOTALL)
 
     # 2. The repository URL identifies the author through the account name.
-    #    Matched loosely, since the abstract's line wrapping shifts with edits.
-    s = re.sub(
-        r"Code,\s*\npanels, and the corpus build are public at\s*\n"
-        r"\\url\{[^}]*\}\.",
-        lambda _m: ("Code, panels, and the corpus build are public; the "
-                    "repository is withheld for review and will be cited in "
-                    "the final version."),
-        s)
-    s = s.replace(
-        f"\\url{{{REPO_URL}}}, indexed in the repository",
-        "a public repository, withheld for review, indexed in its")
+    #    Matched on the URL itself rather than on the surrounding sentence: the
+    #    abstract's wording has changed twice and each time the anonymiser
+    #    silently stopped matching, which is the worst possible failure for a
+    #    blinding step. Every occurrence is replaced wherever it appears.
+    s = re.sub(r"\\url\{" + re.escape(REPO_URL) + r"[^}]*\}",
+               lambda _m: "the public repository (withheld for review)", s)
+    s = s.replace(REPO_URL, "the public repository (withheld for review)")
     n_url = s.count(REPO_URL)
 
     # 3. Anything else naming the author.

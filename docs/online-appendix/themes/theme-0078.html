@@ -19,6 +19,10 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:.42rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{position:sticky;top:0;background:var(--bg);color:var(--mut);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.help{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--line);color:var(--mut);font-size:12px;cursor:help;position:relative}
+.help:hover,.help:focus{color:var(--fg);border-color:var(--mut);outline:none}
+.help .tip{display:none;position:absolute;left:50%;transform:translateX(-50%);top:24px;width:30rem;max-width:70vw;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.7rem .85rem;font-size:13px;line-height:1.45;z-index:20;box-shadow:0 6px 24px rgba(0,0,0,.18);text-align:left}
+.help:hover .tip,.help:focus .tip{display:block}
 th.sort{cursor:pointer;user-select:none}
 th.sort:hover{color:var(--fg)}
 th.sort i{font-style:normal;opacity:.35;margin-left:.3rem}

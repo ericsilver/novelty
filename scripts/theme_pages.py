@@ -90,6 +90,10 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:.42rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{position:sticky;top:0;background:var(--bg);color:var(--mut);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.help{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--line);color:var(--mut);font-size:12px;cursor:help;position:relative}
+.help:hover,.help:focus{color:var(--fg);border-color:var(--mut);outline:none}
+.help .tip{display:none;position:absolute;left:50%;transform:translateX(-50%);top:24px;width:30rem;max-width:70vw;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.7rem .85rem;font-size:13px;line-height:1.45;z-index:20;box-shadow:0 6px 24px rgba(0,0,0,.18);text-align:left}
+.help:hover .tip,.help:focus .tip{display:block}
 th.sort{cursor:pointer;user-select:none}
 th.sort:hover{color:var(--fg)}
 th.sort i{font-style:normal;opacity:.35;margin-left:.3rem}
@@ -110,6 +114,7 @@ JS = """
 var tb=document.getElementById('tb');
 var rows=Array.prototype.slice.call(tb.querySelectorAll('tr'));
 var cls=document.getElementById('cls'), q=document.getElementById('q');
+var topn=document.getElementById('topn');
 var cnt=document.getElementById('cnt');
 function countFor(r){
   if(!cls.value) return 0;
@@ -128,7 +133,9 @@ function apply(){
   var vis=rows.filter(function(r){
     var okw=!v||r.getAttribute('data-words').indexOf(v)>-1;
     var okc=!cls.value||countFor(r)>0;
-    return okw&&okc;
+    var n=+topn.value;
+    var okn=!n||(+r.getAttribute('data-rank'))<n;
+    return okw&&okc&&okn;
   });
   rows.forEach(function(r){r.style.display='none';});
   if(sortKey!==null){
@@ -139,7 +146,7 @@ function apply(){
     vis.sort(function(a,b){return countFor(b)-countFor(a);});
   }
   vis.forEach(function(r){r.style.display='';tb.appendChild(r);shown++;});
-  cnt.textContent=shown+' of '+rows.length+' themes';
+  cnt.textContent=shown+' of '+rows.length+' themes shown';
 }
 Array.prototype.forEach.call(document.querySelectorAll('th.sort'),function(th){
   th.addEventListener('click',function(){
@@ -153,6 +160,7 @@ Array.prototype.forEach.call(document.querySelectorAll('th.sort'),function(th){
   });
 });
 cls.addEventListener('change',apply);
+topn.addEventListener('change',apply);
 q.addEventListener('input',apply);
 apply();
 """
@@ -334,6 +342,9 @@ def main() -> int:
 
     opts = "".join('<option value="%s">%s</option>' % (c, esc(cname(c)))
                    for c in all_classes)
+    # rank by filings dominated, so "the 100 most-used themes" is well defined
+    order = sorted(range(T), key=lambda k: -(outc.get(str(k), {}).get("n", 0)))
+    rank = {k: i for i, k in enumerate(order)}
     trs = []
     for k in range(T):
         o = outc.get(str(k))
@@ -342,11 +353,11 @@ def main() -> int:
         n = o["n"] or 1
         reg = max(o["reg"], 1)
         trs.append(
-            '<tr data-classes=\'%s\' data-words="%s">'
+            '<tr data-classes=\'%s\' data-words="%s" data-rank="%d">'
             '<td class="n"><a href="theme-%04d.html">%d</a></td>'
             '<td>%s</td><td class="n">%s</td><td class="n">%.1f%%</td>'
             '<td class="n">%.1f%%</td><td class="n">%.2f%%</td></tr>'
-            % (json.dumps(o["by_class"]), esc(top[k].lower()), k, k,
+            % (json.dumps(o["by_class"]), esc(top[k].lower()), rank[k], k, k,
                esc(top[k]), format(o["n"], ","), 100.0 * o["reg"] / n,
                100.0 * o["failed"] / reg, 100.0 * o["sec"] / n))
     total = sum(v["used"] for v in caps.values())
@@ -362,7 +373,21 @@ def main() -> int:
         '<div class="controls">'
         '<label>Nice class <select id="cls"><option value="">All classes</option>'
         '%s</select></label>'
-        '<input id="q" placeholder="filter by word, e.g. blockchain, kombucha">'
+        '<label>Show <select id="topn">'
+        '<option value="100" selected>100 most-used themes</option>'
+        '<option value="250">250 most-used</option>'
+        '<option value="0">all %d</option>'
+        '</select></label>'
+        '<input id="q" placeholder="filter by word, e.g. blockchain, insurance">'
+        '<span class="help" tabindex="0">?<span class="tip">Every filing is '
+        'matched to one of %d themes, but rates computed on a theme that '
+        'dominates only a handful of filings are noise: one owner reaching SEC '
+        'reporting can move that column by tens of percentage points. The list '
+        'is therefore limited to the most-used themes by default, so the '
+        'registration, gate-failure and SEC-reporting columns are read on '
+        'themes with enough filings to mean something. Widen it and the tail '
+        'will sort to the top of any percentage column for that reason alone.'
+        '</span></span>'
         '<span id="cnt" style="color:var(--mut);font-size:13px"></span></div>'
         '<div class="wrap"><table><thead><tr>'
         '<th class="n sort" data-k="0">#<i></i></th>'
@@ -377,8 +402,8 @@ def main() -> int:
         'complete. Gate failure is a dated non-use cancellation at registration '
         'age 4.0&ndash;8.5 years, as a share of registrations.</p>'
         '<script>%s</script>'
-        % (T, opts, "".join(trs), format(total, ","), len(sampled), len(caps),
-           format(D["cap"], ","), JS))
+        % (T, opts, T, T, "".join(trs), format(total, ","), len(sampled),
+           len(caps), format(D["cap"], ","), JS))
     (OUT / "index.html").write_text(shell("Themes at T=%d" % T, body),
                                     encoding="utf-8")
     print("[pages] %d theme pages + index -> %s" % (T, OUT), file=sys.stderr)
