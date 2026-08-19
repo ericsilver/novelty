@@ -19,6 +19,14 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:.42rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{position:sticky;top:0;background:var(--bg);color:var(--mut);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th.sort{cursor:pointer;user-select:none}
+th.sort:hover{color:var(--fg)}
+th.sort i{font-style:normal;opacity:.35;margin-left:.3rem}
+th.sort i::after{content:"↕"}
+th.sort[data-dir="asc"] i{opacity:1}
+th.sort[data-dir="asc"] i::after{content:"↑"}
+th.sort[data-dir="desc"] i{opacity:1}
+th.sort[data-dir="desc"] i::after{content:"↓"}
 .legend{display:flex;gap:1rem;flex-wrap:wrap;margin:.5rem 0 .2rem;font-size:13px;color:var(--mut)}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:.35rem;vertical-align:-1px}
 figure{margin:0}

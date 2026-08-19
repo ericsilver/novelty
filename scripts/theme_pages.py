@@ -90,6 +90,14 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:.42rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{position:sticky;top:0;background:var(--bg);color:var(--mut);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th.sort{cursor:pointer;user-select:none}
+th.sort:hover{color:var(--fg)}
+th.sort i{font-style:normal;opacity:.35;margin-left:.3rem}
+th.sort i::after{content:"↕"}
+th.sort[data-dir="asc"] i{opacity:1}
+th.sort[data-dir="asc"] i::after{content:"↑"}
+th.sort[data-dir="desc"] i{opacity:1}
+th.sort[data-dir="desc"] i::after{content:"↓"}
 .legend{display:flex;gap:1rem;flex-wrap:wrap;margin:.5rem 0 .2rem;font-size:13px;color:var(--mut)}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:.35rem;vertical-align:-1px}
 figure{margin:0}
@@ -108,6 +116,13 @@ function countFor(r){
   var m=JSON.parse(r.getAttribute('data-classes'));
   return m[cls.value]||0;
 }
+var sortKey=null, sortDir='desc';
+function num(r,k){
+  var c=r.children[k];
+  var t=(c?c.textContent:'').replace(/[,%]/g,'');
+  var f=parseFloat(t);
+  return isNaN(f)?-Infinity:f;
+}
 function apply(){
   var v=q.value.toLowerCase().trim(), shown=0;
   var vis=rows.filter(function(r){
@@ -116,10 +131,27 @@ function apply(){
     return okw&&okc;
   });
   rows.forEach(function(r){r.style.display='none';});
-  if(cls.value) vis.sort(function(a,b){return countFor(b)-countFor(a);});
+  if(sortKey!==null){
+    var sgn=(sortDir==='asc')?1:-1;
+    vis.sort(function(a,b){return sgn*(num(a,sortKey)-num(b,sortKey));});
+  } else if(cls.value){
+    // no explicit sort: with a class chosen, order by that class's filings
+    vis.sort(function(a,b){return countFor(b)-countFor(a);});
+  }
   vis.forEach(function(r){r.style.display='';tb.appendChild(r);shown++;});
   cnt.textContent=shown+' of '+rows.length+' themes';
 }
+Array.prototype.forEach.call(document.querySelectorAll('th.sort'),function(th){
+  th.addEventListener('click',function(){
+    var k=+th.getAttribute('data-k');
+    if(sortKey===k){ sortDir=(sortDir==='desc')?'asc':'desc'; }
+    else { sortKey=k; sortDir='desc'; }
+    Array.prototype.forEach.call(document.querySelectorAll('th.sort'),
+      function(o){o.removeAttribute('data-dir');});
+    th.setAttribute('data-dir',sortDir);
+    apply();
+  });
+});
 cls.addEventListener('change',apply);
 q.addEventListener('input',apply);
 apply();
@@ -325,16 +357,20 @@ def main() -> int:
         'it and what became of the filings it dominates. Each filing is counted '
         'once, under its single highest-weighted theme. Choose a Nice class to '
         'keep only the themes present in it, ordered by how many of its filings '
-        'they dominate. Click a theme for its monthly trend split by class.</p>'
+        'they dominate, or click any numeric column to sort by it. Click a theme '
+        'for its quarterly trend split by class.</p>'
         '<div class="controls">'
         '<label>Nice class <select id="cls"><option value="">All classes</option>'
         '%s</select></label>'
         '<input id="q" placeholder="filter by word, e.g. blockchain, kombucha">'
         '<span id="cnt" style="color:var(--mut);font-size:13px"></span></div>'
         '<div class="wrap"><table><thead><tr>'
-        '<th class="n">#</th><th>Leading words</th><th class="n">Filings</th>'
-        '<th class="n">Registered</th><th class="n">Gate failure</th>'
-        '<th class="n">SEC-reporting</th></tr></thead>'
+        '<th class="n sort" data-k="0">#<i></i></th>'
+        '<th>Leading words</th>'
+        '<th class="n sort" data-k="2">Filings<i></i></th>'
+        '<th class="n sort" data-k="3">Registered<i></i></th>'
+        '<th class="n sort" data-k="4">Gate failure<i></i></th>'
+        '<th class="n sort" data-k="5">SEC-reporting<i></i></th></tr></thead>'
         '<tbody id="tb">%s</tbody></table></div>'
         '<p class="sub" style="margin-top:1.4rem;font-size:13px">%s filings '
         'assigned. %d of %d classes were sampled to %s filings; the rest are '
