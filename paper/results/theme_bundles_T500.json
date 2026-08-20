@@ -1,0 +1,482 @@
+{
+ "T": 500,
+ "min_mass": 0.015,
+ "bundles": {
+  "internet": {
+   "label": "Internet and the web",
+   "note": "Online commerce and communication, from the 1995 web onward.",
+   "n_terms": 100,
+   "missing_terms": [
+    "internet server",
+    "internet site",
+    "internet software",
+    "online auctions",
+    "online commerce",
+    "online dating",
+    "online delivery",
+    "online directories",
+    "online magazine",
+    "online retailer",
+    "web browsers",
+    "web development",
+    "web server",
+    "world wide web",
+    "www",
+    "internet domain names"
+   ],
+   "themes": [
+    473,
+    337,
+    208,
+    191,
+    84,
+    438,
+    123
+   ],
+   "theme_mass": {
+    "473": 0.7748957114324401,
+    "337": 0.06649385278430835,
+    "208": 0.043194844230487646,
+    "191": 0.02036673335769869,
+    "84": 0.017942422413260377,
+    "438": 0.016424097804394026,
+    "123": 0.016185778337028264
+   },
+   "captured": 0.8691777280189923,
+   "top_excluded": [
+    {
+     "theme": 285,
+     "mass": 0.014538107247738607,
+     "share_of_bundle": 0.00046694870691127953,
+     "words": "dairy, towers, open, institutional, food processing, closed, mentioned, weed"
+    },
+    {
+     "theme": 105,
+     "mass": 0.010684084737890516,
+     "share_of_bundle": 0.00048002260629001475,
+     "words": "excluding, character, retention, added, worship, bucket, carrying pets, corporate gifts"
+    },
+    {
+     "theme": 25,
+     "mass": 0.009745869707559987,
+     "share_of_bundle": 0.0009068868153638883,
+     "words": "pillows, composition, strategies, job, absorbent, branding, brand, containment"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 473,
+     "mass": 0.7748957114324401,
+     "share_of_bundle": 0.08820682062338932,
+     "words": "website, place, user-defined information, network featuring, featuring user-defined, links web, website global, website information, business market, blister"
+    },
+    {
+     "theme": 337,
+     "mass": 0.06649385278430835,
+     "share_of_bundle": 0.43406474700890385,
+     "words": "software, online, computer, downloadable, non-downloadable, featuring, virtual, digital, users, computer software"
+    },
+    {
+     "theme": 208,
+     "mass": 0.043194844230487646,
+     "share_of_bundle": 0.09283521659821213,
+     "words": "services, store, retail, store services, featuring, services featuring, retail store, wholesale, wholesale store, online"
+    },
+    {
+     "theme": 191,
+     "mass": 0.02036673335769869,
+     "share_of_bundle": 0.02167702049350247,
+     "words": "health, information, wellness, healthcare, featuring, health care, nutrition, featuring information, website featuring, lifestyle"
+    },
+    {
+     "theme": 84,
+     "mass": 0.017942422413260377,
+     "share_of_bundle": 0.04097817012238259,
+     "words": "field, training, educational, education, conducting, seminars, services, workshops, instruction, courses"
+    },
+    {
+     "theme": 438,
+     "mass": 0.016424097804394026,
+     "share_of_bundle": 0.09346582990510192,
+     "words": "entertainment, video, music, services, games, television, featuring, audio, game, production"
+    },
+    {
+     "theme": 123,
+     "mass": 0.016185778337028264,
+     "share_of_bundle": 0.09794992326749993,
+     "words": "services, advertising, travel, information, rental, arranging, goods, business, events, organization"
+    }
+   ]
+  },
+  "ai": {
+   "label": "Artificial intelligence",
+   "note": "Explicit AI vocabulary. Thin before roughly 2015.",
+   "n_terms": 19,
+   "missing_terms": [
+    "expert system",
+    "expert systems"
+   ],
+   "themes": [
+    286
+   ],
+   "theme_mass": {
+    "286": 0.01995428087923707
+   },
+   "captured": 0.013536059170552119,
+   "top_excluded": [
+    {
+     "theme": 337,
+     "mass": 0.004803231448513704,
+     "share_of_bundle": 0.6661479182382356,
+     "words": "software, online, computer, downloadable, non-downloadable, featuring, virtual, digital"
+    },
+    {
+     "theme": 376,
+     "mass": 0.0024836263387824787,
+     "share_of_bundle": 0.03755779348029448,
+     "words": "devices, monitoring, sensors, controlling, tracking, measuring, downloadable, temperature"
+    },
+    {
+     "theme": 98,
+     "mass": 0.0019028084810427807,
+     "share_of_bundle": 0.006660961182754545,
+     "words": "facilities, recovery, removal, facility, large, operation, coordination, servicing"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 286,
+     "mass": 0.01995428087923707,
+     "share_of_bundle": 0.013536059170552119,
+     "words": "models, additive, three-dimensional, layers, renting, additive manufacturing, prototypes, digitally, generative, webs"
+    }
+   ]
+  },
+  "blockchain": {
+   "label": "Blockchain and cryptocurrency",
+   "note": "Distributed-ledger vocabulary. Effectively begins 2014.",
+   "n_terms": 31,
+   "missing_terms": [
+    "bitcoin"
+   ],
+   "themes": [
+    337
+   ],
+   "theme_mass": {
+    "337": 0.016826524113414572
+   },
+   "captured": 0.9671019791537107,
+   "top_excluded": [
+    {
+     "theme": 45,
+     "mass": 0.014644625543406625,
+     "share_of_bundle": 0.016097291355427475,
+     "words": "carbon, dioxide, carbon dioxide, emissions, capture, greenhouse, credits, compensation"
+    },
+    {
+     "theme": 358,
+     "mass": 0.005346392821513849,
+     "share_of_bundle": 0.003983712792556843,
+     "words": "fixed, glucose, organize, transmission audio, checks, social network, virtual community, graphics data"
+    },
+    {
+     "theme": 201,
+     "mass": 0.0004986488226750223,
+     "share_of_bundle": 1.6541859558864047e-06,
+     "words": "industrial purposes, titanium dioxide, titanium, industrial, products, purposes, pigments, chemical"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 337,
+     "mass": 0.016826524113414572,
+     "share_of_bundle": 0.9671019791537107,
+     "words": "software, online, computer, downloadable, non-downloadable, featuring, virtual, digital, users, computer software"
+    }
+   ]
+  },
+  "mobile": {
+   "label": "Mobile and wireless",
+   "note": "Handsets and the applications written for them.",
+   "n_terms": 46,
+   "missing_terms": [],
+   "themes": [
+    190,
+    110,
+    68,
+    398,
+    43
+   ],
+   "theme_mass": {
+    "190": 0.12504652619148343,
+    "110": 0.05652581386599436,
+    "68": 0.054364853782062364,
+    "398": 0.0307573975645632,
+    "43": 0.03027130867196699
+   },
+   "captured": 0.4860703944865536,
+   "top_excluded": [
+    {
+     "theme": 9,
+     "mass": 0.012815922421283257,
+     "share_of_bundle": 0.31842349710775864,
+     "words": "computer, software, data, electronic, computer software, transmission, networks, network"
+    },
+    {
+     "theme": 436,
+     "mass": 0.006077908392649631,
+     "share_of_bundle": 0.0011278595660179544,
+     "words": "beauty, aids, wash, health beauty, care management, freezer, featuring user, beauty aids"
+    },
+    {
+     "theme": 337,
+     "mass": 0.005769051272972783,
+     "share_of_bundle": 0.11402033500510361,
+     "words": "software, online, computer, downloadable, non-downloadable, featuring, virtual, digital"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 190,
+     "mass": 0.12504652619148343,
+     "share_of_bundle": 0.4386075964296525,
+     "words": "mobile, computers, phones, devices, mobile phones, phone, portable, players, telephones, handheld"
+    },
+    {
+     "theme": 110,
+     "mass": 0.05652581386599436,
+     "share_of_bundle": 0.018223009459898944,
+     "words": "cable, telecommunication, amplifiers, fiber, wireless, equipment, optics, telecommunication equipment, guiding, telecommunication systems"
+    },
+    {
+     "theme": 68,
+     "mass": 0.054364853782062364,
+     "share_of_bundle": 0.015132867339838839,
+     "words": "operated, incorporating, carriers, activity, dispensing, mixing, enhance, cellular, sprayers, structure"
+    },
+    {
+     "theme": 398,
+     "mass": 0.0307573975645632,
+     "share_of_bundle": 0.0030023078992389126,
+     "words": "provide, usage, durable, mobile computing, retouching, hide, guide travel, software provide, access applications, concerning medical"
+    },
+    {
+     "theme": 43,
+     "mass": 0.03027130867196699,
+     "share_of_bundle": 0.01110461335792442,
+     "words": "cases, pouches, function, clock, smartphones, split, prayer, parts watches, cases parts, presentation boxes"
+    }
+   ]
+  },
+  "cloud": {
+   "label": "Cloud and hosted software",
+   "note": "Software delivered as a service rather than shipped.",
+   "n_terms": 12,
+   "missing_terms": [
+    "software as a service",
+    "remote hosting"
+   ],
+   "themes": [],
+   "theme_mass": {},
+   "captured": 0.0,
+   "top_excluded": [
+    {
+     "theme": 104,
+     "mass": 0.0038150162429527175,
+     "share_of_bundle": 0.011780155141830563,
+     "words": "mining, sales, direct, mineral, extraction, directed, liners, minerals"
+    },
+    {
+     "theme": 337,
+     "mass": 0.003193533834941289,
+     "share_of_bundle": 0.5418301996850167,
+     "words": "software, online, computer, downloadable, non-downloadable, featuring, virtual, digital"
+    },
+    {
+     "theme": 9,
+     "mass": 0.0018749369056365577,
+     "share_of_bundle": 0.39990392553960663,
+     "words": "computer, software, data, electronic, computer software, transmission, networks, network"
+    }
+   ],
+   "detail": []
+  },
+  "biotech": {
+   "label": "Biotechnology",
+   "note": "Molecular and genomic vocabulary; a pre-internet comparison.",
+   "n_terms": 22,
+   "missing_terms": [
+    "dna",
+    "rna"
+   ],
+   "themes": [
+    164,
+    184,
+    400
+   ],
+   "theme_mass": {
+    "164": 0.09429327553750862,
+    "184": 0.023947273665058902,
+    "400": 0.015947561299173185
+   },
+   "captured": 0.7082412641802466,
+   "top_excluded": [
+    {
+     "theme": 370,
+     "mass": 0.011212392194845527,
+     "share_of_bundle": 0.037706125833555995,
+     "words": "laboratory, scientific, chemistry, laboratories, physics, biology, custom manufacturing, primary"
+    },
+    {
+     "theme": 402,
+     "mass": 0.008046159620648132,
+     "share_of_bundle": 0.071109968793326,
+     "words": "medical, veterinary, purposes, preparations, medical veterinary, substances, veterinary purposes, biological"
+    },
+    {
+     "theme": 480,
+     "mass": 0.006549589639504757,
+     "share_of_bundle": 0.0798744739798619,
+     "words": "testing, diagnostic, medical, analysis, imaging, test, medical diagnostic, reagents"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 164,
+     "mass": 0.09429327553750862,
+     "share_of_bundle": 0.12670849754963037,
+     "words": "tissue, proteins, magnetic, nucleic, modification, beads, stem, separation, engineered, original"
+    },
+    {
+     "theme": 184,
+     "mass": 0.023947273665058902,
+     "share_of_bundle": 0.43201949568228054,
+     "words": "research, scientific, field, analysis, scientific research, research field, medicine, testing, research services, technological"
+    },
+    {
+     "theme": 400,
+     "mass": 0.015947561299173185,
+     "share_of_bundle": 0.14951327094833566,
+     "words": "medical, patient, clinical, patients, medical information, medical services, professionals, providers, trials, clinical trials"
+    }
+   ]
+  },
+  "green": {
+   "label": "Clean energy and climate",
+   "note": "Renewables and emissions. Excludes carbon fiber and carbonated drinks.",
+   "n_terms": 40,
+   "missing_terms": [
+    "carbon footprint",
+    "emissions reduction",
+    "electric vehicle charging"
+   ],
+   "themes": [
+    45,
+    377,
+    144,
+    47,
+    11,
+    479,
+    424,
+    42,
+    207,
+    370
+   ],
+   "theme_mass": {
+    "45": 0.10498092621892559,
+    "377": 0.0866198115482891,
+    "144": 0.07155835998993393,
+    "47": 0.06062108543866396,
+    "11": 0.056838767684997765,
+    "479": 0.053927921933348076,
+    "424": 0.044202651625024056,
+    "42": 0.042184998032865406,
+    "207": 0.027454969792194236,
+    "370": 0.016922546086370175
+   },
+   "captured": 0.8776277948036245,
+   "top_excluded": [
+    {
+     "theme": 395,
+     "mass": 0.01267825753928205,
+     "share_of_bundle": 0.018169014594401216,
+     "words": "agricultural, seeds, agriculture, forestry, horticultural, gardening, horticulture, seed"
+    },
+    {
+     "theme": 411,
+     "mass": 0.010217936417462499,
+     "share_of_bundle": 0.0082479946634111,
+     "words": "electricity, remote, generators, regulating, remote control, distribution, transforming, instruments conducting"
+    },
+    {
+     "theme": 113,
+     "mass": 0.004696690337297313,
+     "share_of_bundle": 0.021056367659511202,
+     "words": "packaging, containers, transportation, transport, storage, materials, logistics, plastic"
+    }
+   ],
+   "detail": [
+    {
+     "theme": 45,
+     "mass": 0.10498092621892559,
+     "share_of_bundle": 0.05962019898545423,
+     "words": "carbon, dioxide, carbon dioxide, emissions, capture, greenhouse, credits, compensation, emission, greenhouse gas"
+    },
+    {
+     "theme": 377,
+     "mass": 0.0866198115482891,
+     "share_of_bundle": 0.045849969119687785,
+     "words": "cells, fuel, hydrogen, modules, cell, utilizing, fuel cells, hybrid, solar cells, fuel cell"
+    },
+    {
+     "theme": 144,
+     "mass": 0.07155835998993393,
+     "share_of_bundle": 0.1376598958968738,
+     "words": "heat, solar, valves, flow, metal, pressure, liquids, thermal, particular, gases"
+    },
+    {
+     "theme": 47,
+     "mass": 0.06062108543866396,
+     "share_of_bundle": 0.0034671071932846974,
+     "words": "substrates, efficient, marker, energy efficient, useful, enzyme, nano, indication, animal shelters, processing storage"
+    },
+    {
+     "theme": 11,
+     "mass": 0.056838767684997765,
+     "share_of_bundle": 0.4348096605185284,
+     "words": "energy, power, services, field, generation, distribution, electricity, solar, electrical, production"
+    },
+    {
+     "theme": 479,
+     "mass": 0.053927921933348076,
+     "share_of_bundle": 0.009963304469359452,
+     "words": "impact, shop, lead, shop services, housewares, biomass, renewable, machining, backing, middle"
+    },
+    {
+     "theme": 424,
+     "mass": 0.044202651625024056,
+     "share_of_bundle": 0.04621170122591031,
+     "words": "battery, batteries, chargers, charging, electric, battery chargers, electric vehicles, powered, charging stations, rechargeable"
+    },
+    {
+     "theme": 42,
+     "mass": 0.042184998032865406,
+     "share_of_bundle": 0.1128259529639708,
+     "words": "treatment, water, recycling, purification, water treatment, units, environmental, waste, filtering, filtration"
+    },
+    {
+     "theme": 207,
+     "mass": 0.027454969792194236,
+     "share_of_bundle": 0.014845250560190211,
+     "words": "charitable, fundraising, means, families, fundraising services, fuel, charitable fundraising, charcoal, propane, grants"
+    },
+    {
+     "theme": 370,
+     "mass": 0.016922546086370175,
+     "share_of_bundle": 0.012374753870364902,
+     "words": "laboratory, scientific, chemistry, laboratories, physics, biology, custom manufacturing, primary, equipment, laboratory apparatus"
+    }
+   ]
+  }
+ }
+}

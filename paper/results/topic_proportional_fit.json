@@ -1,0 +1,36 @@
+{
+ "T": 500,
+ "sample": 448414,
+ "probes": {
+  "blockchain": {
+   "theme": 395,
+   "mass": 0.13090957644803733,
+   "n_themes_above_015": 2,
+   "words": "virtual, cryptocurrency, blockchain, artwork, online, online virtual, virtual goods, worlds"
+  },
+  "ai": {
+   "theme": 394,
+   "mass": 0.0497934068695484,
+   "n_themes_above_015": 4,
+   "words": "light, deep learning, questions, ultraviolet, source, educational resources, directors, computation"
+  },
+  "cloud": {
+   "theme": 17,
+   "mass": 0.2572042548490086,
+   "n_themes_above_015": 1,
+   "words": "virtualization, distributed computing, supervised learning, distributed applications, ridesharing, weather related, operation software, kill"
+  },
+  "internet": {
+   "theme": 237,
+   "mass": 0.16572879502191135,
+   "n_themes_above_015": 8,
+   "words": "web, site, web site, site featuring, specific, client, site features, retrieve"
+  },
+  "solar": {
+   "theme": 252,
+   "mass": 0.048291905543973036,
+   "n_themes_above_015": 1,
+   "words": "energy, power, solar, electricity, generation, renewable, wind, plants"
+  }
+ }
+}

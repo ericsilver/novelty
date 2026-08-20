@@ -114,7 +114,7 @@ def main() -> int:
                     t["by_class"][c] = r["n"]
             del o
         log(f"  [{c}] {d.height:,} of {n_all:,} filings assigned")
-        del d, dom, g, o; gc.collect()
+        del d, dom, g; gc.collect()
 
     RES.mkdir(parents=True, exist_ok=True)
     (RES / f"theme_assign_T{T}.json").write_text(json.dumps(
