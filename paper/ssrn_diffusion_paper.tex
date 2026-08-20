@@ -717,14 +717,14 @@ the sample, disproportionately applications that never drew a refusal, so
 this speaks to the prosecuted subset.
 
 Mixing the past and future reference windows identifies which kind of
-novelty the gate punishes. The penalty loads on breaking with the
-established past ($-7.3$pp) rather than on resembling the future
-($-3.2$pp), and in software the separation is complete ($-12.7$pp against
-$-0.3$pp). This decomposition runs on annual reference buckets, since it
-requires a separate scoring at each of $W \in \{3,5,7\}$ on both sides; by
-Appendix~\ref{app:rolling} its magnitudes are likely inflated by about a
-third, so only the contrast between configurations is relied on
-(Appendix~\ref{app:comp}).
+novelty the gate punishes. Scored against a long past and a short future,
+so that lead measures a break with what the class had established, the
+top-versus-bottom contrast is $+3.0$pp; scored against a short past and a
+long future, so that it measures resemblance to where the class was
+heading, it is $+1.65$pp. The symmetric five-year measure sits between, and
+the penalty rises monotonically along the mix. The gate punishes breaking
+with the past more than it punishes anticipating the future, but it
+punishes both (Appendix~\ref{app:comp}).
 
 \subsection{Being early costs at the public-reporting margin; being unusual does not pay there}\label{sec:bluesea}
 
@@ -1184,8 +1184,7 @@ What drives the episodic pattern is not settled. Cohort and gate year
 move together, so post-crisis bet composition, app-era speculative filings,
 and calendar-time enforcement changes cannot be separated on this design.
 The representation is also fit on the pooled corpus; a vintage refit would
-close the remaining look-ahead channel, though the months-scale freshness
-variant is already look-ahead-free and reproduces the risk pattern.
+close the remaining look-ahead channel.
 
 \section{Reproducibility}\label{sec:repro}
 
@@ -1233,9 +1232,8 @@ document frequency $\geq 50$) against per-filing windows of the same
 Because a goods/services description runs to a few dozen words, the
 divergence is needed only at the terms a filing actually uses, so the
 reference is carried as a running count vector and read sparsely. The term
-variant is used where vocabulary identity is the object (phrase transit,
-the window decomposition, the freshness measure) and as the comparison
-scoring throughout. Both representations are also computed under an
+variant is used where vocabulary identity is the object (phrase transit)
+and as the comparison scoring throughout. Both representations are also computed under an
 exponentially decayed reference with a two-year half-life, truncated at the
 same window; Appendix~\ref{app:scoring} reports what changes.
 
@@ -1397,50 +1395,54 @@ nominally the peak and five is within noise of it while retaining more of
 the corpus, so five is defensible rather than optimal. The sweep is on one class
 and one outcome.
 
-\subsection{The gate punishes breaking with the past, not resembling the future}
+\subsection{The gate punishes breaking with the past more than resembling the future}\label{app:wmix}
 
-``Leading'' is relative to a reference, and mixing windows
-across the two sides identifies which novelty the gate punishes. Scoring
-the corpus at symmetric windows of $W \in \{3, 5, 7\}$ \emph{years} --- this
-appendix measures the window in years, where the main text measures it in
-days --- plus a foresight
-configuration (prospective against the recent 3-year past, retrospective
-against the distant 7-year future) and a past-rupture configuration (the
-reverse): the top-versus-bottom gate lift runs $-3.2$pp for foresight,
-$-4.7$pp at symmetric $W=3$, $-5.7$pp at the $W=5$ baseline, $-6.1$pp at
-$W=7$, and $-7.3$pp for past-rupture, the most pervasive variant
-(negative in 35 of 41 classes; Figure~\ref{fig:windows}). In software
-the decomposition is complete: foresight carries no penalty ($-0.3$pp)
-while past-rupture carries $-12.7$pp. Use-proof-gate risk attaches to
-breaking with the established past, not to resembling the future,
-consistent with vocabulary leaving the corpus gradually: the long-past
-reference holds the fading establishment, and distance from it is what
-the use requirement punishes. The registration inverse-U is indifferent
-to the window mix ($+4.6$ to $+4.9$pp depth across all five variants),
-so the examiner and the marketplace respond to different aspects of the
-same text.
+``Leading'' is relative to a reference, and the two references need not be
+the same width. A short past and a long future make lead a measure of
+foresight --- whether the filing resembles where the class was heading over
+the next seven years more than what it wrote in the last three. A long past
+and a short future make it a measure of rupture --- whether the filing has
+broken with what the class had established over seven years, judged against
+only the next three. Scoring every class on the production representation
+and per-filing windows at $W \in \{3, 5, 7\}$ years on each side, and
+evaluating all five variants on the identical 3.10 million registrations
+with quintiles assigned within class$\times$cohort:
 
-The decomposition extends below the year. Scoring class 009 monthly
-against two adjacent references (the twelve months ending one month
-before filing, and the twelve before those), the two levels are nearly
-identical per filing ($r = 0.992$) but their difference --- a
-months-scale freshness measure, high when a filing resembles the very
-recent months far more than the year before them --- reproduces the risk
-pattern at $-9.4$pp across quintiles, stronger than the symmetric
-baseline in the same class, with the penalty on the high-freshness tail --- filings whose language
-runs ahead of the recent months rather than behind them --- which is the
-same direction as the annual-window result. Freshness is built entirely
-from pre-filing text and is computable on the filing date with no
-look-ahead; corpus-wide estimation is owed.
+\begin{center}\small
+\begin{tabular}{llrrrr}
+\toprule
+Variant & Past, future & \multicolumn{2}{c}{First-gate failure} & \multicolumn{2}{c}{Registration} \\
+ & (years) & Q5$-$Q1 (pp) & classes $>0$ & Q5$-$Q1 (pp) & Q3 $-$ tails \\
+\midrule
+Foresight     & 3, 7 & $+1.65$ (0.09) & 31 of 44 & $+1.09$ & $+0.50$ \\
+Symmetric     & 3, 3 & $+1.69$ (0.09) & ---      & $+0.79$ & $+0.13$ \\
+Symmetric     & 5, 5 & $+2.29$ (0.09) & 33 of 44 & $+0.71$ & $+0.28$ \\
+Symmetric     & 7, 7 & $+2.58$ (0.09) & ---      & $+0.48$ & $+0.65$ \\
+Past-rupture  & 7, 3 & $+3.00$ (0.09) & 37 of 44 & $+0.01$ & $+0.33$ \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\begin{figure}[h]\centering
-\includegraphics[width=0.7\textwidth]{results/window_choice_all.png}
-\caption{First-gate survival by quintile of each reference-window
-variant, pooled across classes, registrations 2016--2018. The penalty
-deepens monotonically from the foresight configuration (pros $W$=3,
-retr $W$=7) to the past-rupture configuration (pros $W$=7, retr $W$=3).}
-\label{fig:windows}
-\end{figure}
+\noindent The symmetric five-year row is the paper's FE-only estimate in
+Table~\ref{tab:gate_lpm}, reproduced here to the decimal, which fixes the
+scale. The penalty rises monotonically along the mix, from $+1.65$pp under
+foresight to $+3.00$pp under rupture, and rupture is the more pervasive
+variant, positive in 37 of 44 classes against 31. In software the two are
+$+1.82$ and $+5.07$pp. So the use requirement punishes distance from the
+class's established language more than it punishes resemblance to its
+coming language; but foresight carries a penalty of its own, more than half
+the symmetric one, and the separation is a matter of degree rather than
+kind.
+
+Registration is a different matter. On the signed axis the top-to-bottom
+contrast is at most a point on a 57\% base and the interior-minus-tails
+depth at most two thirds of a point, under every mix. An earlier version of
+this decomposition, run on the retired term-level calendar-year scoring,
+found a registration inverse-U of four to five points that the window mix
+did not touch; under per-filing references that curvature is gone on the
+signed axis, consistent with Appendix~\ref{app:rolling}, which traces it to
+the calendar artefact. The examiner's response to lead, on this scoring, is
+close to nil.
 
 \section{Representation and resolution drive the score; weighting does not}\label{app:choices}
 
