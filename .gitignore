@@ -84,3 +84,6 @@ scripts/newterms_build_pdf.py
 
 # Narrated-paper audio renders (scripts/paper_to_audio.py); 300+ MB of WAV, regenerable
 paper/audio/
+
+# Per-class cache for scripts/window_mix_rolling.py (~2 h to rebuild on CORE)
+paper/results/window_mix_parts/
