@@ -39,7 +39,7 @@ Both write identical column names, so switching is a path change and nothing els
 SURPRISE_SRC=rolling python scripts/gate_decisive_regression.py
 ```
 
-Scripts honouring it: `gate_decisive_regression.py`, `event_gates_all.py`, `event_gates_2019_2021.py`, `two_gate_009.py`, `staged_outcomes_table.py`, `debut_edgar_substantiate.py`, `topic_debut.py`, `topic_outcomes_all.py`, `online_appendix.py`. The default is `rolling` in all of them, which defaults to `rolling` because everything it publishes must match the paper — **so pass `SURPRISE_SRC=rolling` explicitly when reproducing paper numbers.**
+Scripts honouring it: `gate_decisive_regression.py`, `event_gates_all.py`, `event_gates_2019_2021.py`, `two_gate_009.py`, `staged_outcomes_table.py`, `debut_edgar_substantiate.py`, `topic_debut.py`, `topic_outcomes_all.py`, `online_appendix.py`. The default is `rolling` in all of them, so the paper's numbers reproduce without setting it; `SURPRISE_SRC=topic` selects the retired scoring for the appendix comparison.
 
 What the retired scoring cost, in short: annual bucketing imprints a spurious gradient in filing month (a December filing sits eleven months further from its past reference and eleven months nearer its future one), which inflated the gate penalty by about a third and manufactured a curvature at registration on the signed axis that does not survive. Signs and conclusions are unchanged; magnitudes and one functional form are not. Appendix "What annual reference buckets cost" has the full accounting.
 

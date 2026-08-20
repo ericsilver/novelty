@@ -44,7 +44,9 @@ industries and across
 filer types, but not across time: it was two to three times larger for marks
 filed in the late 1990s, reversed for those filed 2000--2004, and back from
 2008, with the entire swing inside four technology classes and a flat one to
-four points everywhere else.
+four points everywhere else. Within those classes, most of the swing is which
+themes each era's leading filings were drawn from; inside a theme, the
+penalty is a steadier two to five points.
 
 \noindent 0.83\% of first-time filers with professional representation ever
 appear in SEC financial-reporting records, against 0.18\% of self-filers. The
@@ -581,6 +583,94 @@ the 2000 cohort to $-3$pp for 2003 and back to $+12$pp for 2012. The dotted
 line marks the 2002 cut that the main cohort series uses.}
 \label{fig:eras}
 \end{figure}
+
+\subsection{Three of the four classes reverse, and the leading language changes theme}\label{sec:techswing}
+
+The four-class split pools industries that do not move together. Taking
+them one at a time, and then assigning quintiles inside progressively finer
+cells (Table~\ref{tab:techswing}):
+
+\begin{table}[h]\centering\small
+\caption{The leading gate penalty inside technology, by class and by cell.
+Top-minus-bottom lead-quintile contrast in first-gate failure (pp, SE in
+parentheses), settled registrations, by filing era. The upper block assigns
+quintiles within each class and era. The lower block pools the four classes
+and assigns quintiles within the era (raw, as in the text table above),
+within class$\times$registration-cohort cells, and within
+theme$\times$class$\times$cohort cells, where a filing's theme is the one
+its description loads most heavily on under the production $T = 50$ model.
+$n = 1{,}248{,}591$.}
+\label{tab:techswing}
+\input{results/gate_era_tech_classes.tex}
+\end{table}
+
+\noindent Electrical and software goods (009) and telecommunications (038)
+follow the pooled pattern. Business services (035), the class that holds
+online retail, reverses hardest: $-9.7$pp for filings made 2000--2004 against
+$+4.6$pp in the five years before. Scientific and computer services (042)
+never reverses. Its contrast is $+6.7$pp in the era in which the other three
+are negative and between $+8$ and $+17$pp in every other, and by registration
+cohort it never falls below $+3$pp (Figure~\ref{fig:techswing}). The
+reversal is an event in goods and in business services; the class that
+sells technology as a service sat it out.
+
+Assigning quintiles within class$\times$cohort rather than within the era
+pool changes little. Assigning them within theme$\times$class$\times$cohort
+changes a great deal: the late-1990s contrast falls from $+14.5$ to
+$+4.8$pp, the post-2008 contrast from $+9.2$ to $+4.5$pp, and the 2000--2004
+reversal from $-3.6$ to $-1.3$pp. Two thirds of the first and half of the
+second are between themes rather than within them. The leading fifth of each
+era was drawn from particular themes, and those themes carried their own
+failure rates; the penalty for being leading \emph{inside} a theme is a
+steadier $+2.5$ to $+5$pp, the same order as the penalty outside technology.
+
+Which themes is a matter of record (Table~\ref{tab:techthemes}). In
+1995--1999 the computer, software, information and data services theme held
+38\% of technology filings and 75\% of the leading fifth, and its
+registrations failed at 58.9\% against 46--53\% in the other large themes.
+That one theme is most of the late-1990s penalty. In 2000--2004 it held
+12\% of the leading fifth. The leading language had moved to video, music
+and games on electronic media (31\% of the leading fifth against 12\% of
+filings) and the internet-services language had become lagging --- wording
+the class was leaving --- and inside several themes the lagging fifth now
+failed more than the leading one: $-3.6$pp in electronic media, $-5.5$ in
+retail store services, $-6.9$ in apparatus and control systems. From 2008
+the leading fifth over-represents downloadable and online software by four
+to one (15\% against 4\%), the vocabulary of the application store; those
+registrations fail at 67.2\%, the highest base rate of any theme, and carry
+the largest within-theme contrast anywhere in the table, $+8.4$pp. The
+computer-services theme's own contrast, meanwhile, is positive in every era
+($+3.6$ to $+5.9$pp) and never reverses.
+
+\begin{table}[h]\centering\footnotesize
+\caption{The leading gate penalty by theme within the four technology
+classes. Themes with at least 20{,}000 settled registrations, labelled by
+their five highest-probability terms; quintiles assigned within theme and
+era. Cells with fewer than 3{,}000 registrations are blank.}
+\label{tab:techthemes}
+\input{results/gate_era_tech_themes.tex}
+\end{table}
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.92\textwidth]{results/gate_era_tech_themes.png}
+\caption{The leading gate penalty by registration cohort, one line per
+technology class, raw quintile contrasts with 95\% intervals on settled
+registrations. Three classes cross zero between 2001 and 2006; scientific
+and computer services does not.}
+\label{fig:techswing}
+\end{figure}
+
+So the swing has two layers. Across the whole period, a leading filing is a
+few points more likely to fail than a lagging one in the same theme, class
+and cohort, in technology as elsewhere. On top of that, each era's leading
+vocabulary was concentrated in one or two themes whose marks failed at
+their own rate: internet services in the 1990s, application software after
+2008. In the trough between, the language that had been leading became
+lagging, and the marks still written in it failed with it. The
+design-based estimates in Table~\ref{tab:gate_lpm} hold class and cohort
+fixed but not theme, so they carry both layers; a reader who wants only the
+within-theme penalty should take the lower block of Table~\ref{tab:techswing}
+as the guide to its size.
 
 Levels and gradients separate cleanly across filer strata. Self-filers
 fail the gate far more often than represented owners (69.6\% versus
@@ -1454,6 +1544,36 @@ scored for all 45 classes, it is $+2.23$pp against $+2.29$pp at $T = 50$. Only
 those two resolutions exist corpus-wide, so that is a two-point comparison, but
 it is the one the paper's estimates run on, and pooling evidently averages away
 much of the per-class resolution sensitivity.
+
+\subsection{Two fits at one resolution disagree almost as much as two resolutions}
+
+The sweep leaves one question open. Scores at different resolutions agree at
+$r = 0.64$ to $0.69$ on lead, and neighbouring resolutions agree no better than
+distant ones. That has two readings. The number of themes may genuinely change
+what is being measured. Or a topic-model fit may simply be unstable --- two
+runs settle in different local optima --- in which case the sweep is measuring
+fitting noise and the resolution has little to do with it.
+
+Holding $T$ fixed and moving only the seed separates the two. A second fit at
+$T = 200$ on the same sample, the same vocabulary and the same number of
+passes, differing from the first in nothing but its random seed, agrees with
+it at $r = 0.79$ on lead and $r = 0.87$ on atypicality across 1.11 million
+scored software-class filings. The cross-resolution figures were $0.64$ and
+$0.83$. Most of what the sweep showed as resolution sensitivity is therefore
+present between two fits that differ only in the seed: for atypicality nearly
+all of it, for lead well over half. The resolutions are not measuring
+different things; each fit is a noisy draw on the same thing.
+
+The estimate moves less than the scores do. On the identical gate sample, the
+first-gate lead contrast is $+5.20$pp under the first seed and $+4.88$pp under
+the second (SE $0.23$ each), and the atypicality contrast $-13.45$ and
+$-14.38$pp. Two consequences follow. A single fit's lead score carries
+measurement error of roughly a fifth of its variance, which attenuates every
+coefficient on lead toward zero; the estimates in this paper are on the
+conservative side of what a noiseless score would return. And the spread of
+magnitudes across the resolution table above, which does not move
+monotonically in $T$, should be read as a band about a third of a point wide
+from fitting noise alone rather than as a property of any particular $T$.
 
 Annual anchoring leaves a signature that per-filing anchoring does not. Mean
 lead by calendar month of filing, in units of the build's own standard
