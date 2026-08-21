@@ -144,7 +144,7 @@ def main() -> int:
     ax.axvspan(1995, 2001, color="#ffcc66", alpha=0.18)
     ax.axvspan(2020, 2024, color="#66cc99", alpha=0.15)
     ax.set_xlabel("Filing year")
-    ax.set_ylabel("Mean prospective KL (novelty vs past)")
+    ax.set_ylabel("Mean past-facing surprise (nats)")
     ax.set_title("Corpus turbulence by year\n(dot-com span and AI span shaded)")
     ax.legend(fontsize=8)
     ax.grid(alpha=0.3)

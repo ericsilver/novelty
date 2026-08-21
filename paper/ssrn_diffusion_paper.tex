@@ -59,10 +59,10 @@ $\log(1+\mathrm{patents})$ at $r = -0.020$ and atypicality at $r = +0.009$,
 and within a firm over time at $-0.043$ and $+0.011$.
 
 \noindent Atypicality can be measured on terms or on themes, and the two
-disagree. Term atypicality predicts both outcomes negatively ($-0.09$pp per
-$\sigma$ on SEC reporting, $-0.055\sigma$ on patenting); theme atypicality
-does not predict SEC reporting and predicts patenting weakly the other way
-($+0.012\sigma$). The two therefore disagree in sign on both outcomes, which
+disagree. Term atypicality predicts both outcomes negatively ($-0.09$pp of SEC
+reporting per standard deviation of the score; $-0.055$ standard deviations
+of log patenting); theme atypicality does not predict SEC reporting and
+predicts patenting weakly the other way ($+0.012$ standard deviations). The two therefore disagree in sign on both outcomes, which
 makes a text measure's sign at the firm level a property of how the text was
 counted rather than of the firm. Every estimate is conditional on the office
 having granted the mark, because registration is itself selected on language;
@@ -222,27 +222,44 @@ Passed first gate, cohorts 2002--2013, terminal status known & 1{,}129{,}724 & \
 \end{tabular}
 \end{table}
 
-Three conventions run through every table below and are easier stated once.
+The paper relates two properties of a filing's description --- how unusual
+its language is for its industry, its \emph{atypicality}, and whether that
+language is ahead of or behind where the industry's language was moving, its
+\emph{lead} --- to what happened to the filing afterwards. Section~\ref{sec:construct}
+builds the two properties. The outcomes are three steps in the sequence above,
+each read from the dated record and each bounded as follows.
 
-\emph{Percentage points against a base.} Outcomes are rates, so a coefficient
-is a shift in a probability: $+1.4$pp on a 52.3\% base means 53.7\% against
-52.3\%, not 52.3\% multiplied by $1.014$.
+\emph{Registration.} Whether an application reaches registration at all,
+among filings made 1995--2018. Roughly nine in ten of those that do not die by
+the applicant's own inaction --- never filing the statement of use, or going
+silent during prosecution --- and only 4.3\% are removed adversarially
+(Table~\ref{tab:funnel}), so registration is read as a launch indicator rather
+than an examiner's verdict.
 
-\emph{Two uses of $\sigma$.} ``pp per $\sigma$'' means the outcome moves by so
-many percentage points when the \emph{regressor} rises by one of its standard
-deviations. A bare ``$\sigma$'', which appears only in the patenting
-comparison, is the reverse: there the \emph{outcome} is standardized and the
-regressor is in its own units. The two are not comparable.
+\emph{Survival of the first use-proof gate.} Whether a registration was
+cancelled for non-use at registration age 4.0 to 8.5 years, among
+registrations issued 2002--2018. This is where the market's verdict reaches
+the record: half of registered marks do not survive it, and failing it means
+the product the mark named is no longer in commerce. Every gate estimate is
+conditional on the mark having been granted, because registration is itself
+selected on language; what the unconditional composite looks like is shown
+once, in Appendix~\ref{app:uncond}, and not otherwise used.
 
-\emph{Absorbing, composition, design-based.} Estimating ``within
-class$\times$cohort'' means subtracting each cell's mean from every variable
-before the regression, so only variation inside a single industry-and-year is
-used and any difference between industries or years is removed rather than
-modelled. \emph{Composition} is what that removes --- an apparent relationship
-that is really a mix of industries or years differing in both score and
-outcome. \emph{Design-based} describes estimates carrying the full set: fixed
-effects, drafting and filer controls, one row per registration, and errors
-clustered on the owner, as against \emph{raw} pooled rates.
+\emph{Reaching SEC reporting.} Whether the owner of a first-time filing ever
+appears in SEC financial-statement records, a firm-level outcome used in
+Section~\ref{sec:bluesea} to ask whether either property of the text marks
+firms bound for public markets.
+
+Outcomes are rates, so every estimate is a shift in a probability and is
+stated in percentage points against the base rate it shifts: $+1.4$pp on a
+52.3\% base means 53.7\% against 52.3\%, not 52.3\% multiplied by $1.014$.
+The basic comparison is the outcome rate of the fifth of filings with the
+highest lead minus that of the fifth with the lowest, with the fifths cut
+inside a single industry and year so that no difference between industries or
+between years enters; the regression tables add drafting and filer controls
+and cluster errors on the owner. Where a continuous version is given, it is
+the change in the outcome for a one-standard-deviation change in lead, in
+percentage points.
 
 Counting differs by table. A filing may claim several Nice classes at once, so
 a \emph{class-record} counts it once per class while a \emph{registration}
@@ -265,23 +282,11 @@ bound turns out to matter: carried back to the first scoreable cohorts the
 penalty is two to three times larger than it has ever been since, and
 Section~\ref{sec:eras} reports what the restricted window concealed.
 
-Registration is a launch indicator rather than an examiner verdict: among
-applications that fail to register, roughly nine in ten die by the
-applicant's own inaction --- never filing the statement of use, or going
-silent during prosecution --- and only 4.3\% are removed adversarially
-(Table~\ref{tab:funnel}). The Section~8 gate is
-where the market's verdict reaches the record: half of registered marks do
-not survive it, and failing it means the product the mark named is no longer
-in commerce.
-
-The registration step is analyzed as its own outcome; the gate results
-condition on it; the unconditional composite, which stamps the registration
-step's shape onto any downstream outcome, is confined to
-Appendix~\ref{app:uncond}. Outcomes are read from the event-dated
-prosecution history, which attributes each cancellation to a specific gate
-and observes counsel and basis directly, and cross-checked against the USPTO
-status-code dictionary.\footnote{700 registered; 701--705 Section~8
-accepted; 710 cancelled for Section~8 failure; 800 renewed; 900 expired.}
+Outcomes are read from the event-dated prosecution history, which attributes
+each cancellation to a specific gate and observes counsel and basis directly,
+and cross-checked against the USPTO status-code dictionary.\footnote{700
+registered; 701--705 Section~8 accepted; 710 cancelled for Section~8 failure;
+800 renewed; 900 expired.}
 
 % The construct section lives in its own file so it can be revised
 % independently; see paper/section_construct.tex.
@@ -433,8 +438,8 @@ Counsel + US, 2002--07 & FE + controls & $-0.25$ & $0.33$ & 551{,}989 \\
 Counsel + US, 2008--12 & FE + controls & $+2.00$ & $0.42$ & 551{,}924 \\
 Counsel + US, 2013--18 & FE + controls & $+2.65$ & $0.25$ & 784{,}439 \\
 \midrule
-All & continuous, pp per $\sigma$ & $+0.58$ & $0.05$ & 3{,}104{,}534 \\
-Counsel + US & continuous, pp per $\sigma$ & $+0.63$ & $0.06$ & 1{,}888{,}352 \\
+All & continuous, pp per sd of lead & $+0.58$ & $0.05$ & 3{,}104{,}534 \\
+Counsel + US & continuous, pp per sd of lead & $+0.63$ & $0.06$ & 1{,}888{,}352 \\
 \bottomrule
 \end{tabular}
 \\[0.3em]\footnotesize Standard errors replace significance stars: with $n$
@@ -765,8 +770,8 @@ class$\times$year. Base rate 0.481\%.}
 \quad Q5 & $-0.158$ & $0.024$ \\
 \midrule
 \multicolumn{3}{l}{\emph{Decomposition, FE + log length}} \\
-\quad $|\Delta\mathrm{KL}|$ (per $\sigma$) & $+0.067$ & $0.009$ \\
-\quad signed \dkl{} (per $\sigma$) & $-0.047$ & $0.006$ \\
+\quad $|\Delta\mathrm{KL}|$ (pp per sd) & $+0.067$ & $0.009$ \\
+\quad signed \dkl{} (pp per sd) & $-0.047$ & $0.006$ \\
 \quad log description length & $+0.056$ & $0.004$ \\
 \bottomrule
 \end{tabular}
@@ -783,8 +788,8 @@ The 2.7-fold gradient in the raw bins is composition --- firms that go on to
 report cluster in particular classes, years, and multi-class filings --- and
 class$\times$year fixed effects absorb it. Lead costs, at equal
 atypicality: the signed component enters negatively
-($-0.047$pp per $\sigma$, $t = -7.8$) while the unsigned component enters
-positively ($+0.067$pp per $\sigma$, $t = 7.7$). The U-shape in raw bins
+($-0.047$pp per standard deviation, $t = -7.8$) while the unsigned component enters
+positively ($+0.067$pp per standard deviation, $t = 7.7$). The U-shape in raw bins
 is exactly this pair: lagging filings show the atypicality premium with no
 lead penalty, leading filings show it net of that penalty, and the middle
 quintiles show neither. Once the levels are controlled,
@@ -891,7 +896,7 @@ to sell, so patents would lead. Firms do not proceed that linearly, and in
 some industries the trademark comes first \citep{Seip2018}. Entering patents
 at $t-2$, $t-1$, $t$ and $t+1$ --- the last allowing the trademark to
 precede the patent --- one offset at a time, since the count is strongly
-autocorrelated within firm, gives $-0.054$ to $-0.089\sigma$ under topic
+autocorrelated within firm, gives $-0.054$ to $-0.089$ standard deviations of log patenting under topic
 scoring and $+0.012$ to $+0.024$ under term scoring. No ordering isolates a
 direction: the offsets are flat within each representation and opposite in
 sign between them. The largest coefficient anywhere is under a tenth of a
@@ -1083,7 +1088,7 @@ with a lag, its prevalence should triple within roughly three years of the
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/era_turbulence.png}
-\caption{\emph{Left:} per-year mean prospective KL by class and pooled,
+\caption{\emph{Left:} per-year mean past-facing surprise by class and pooled,
 1995--2024, with the dot-com and AI spans shaded. \emph{Right:} share of
 class 009+042 filings whose goods/services text contains internet-era terms
 (internet, website, online, world wide web) or AI-era terms (artificial
@@ -1101,7 +1106,7 @@ ends, and has not yet run the internet's sixteen.}
 Vocabulary position carries two separable signals, and it is the signed one that tracks
 what becomes of a product. Lead marks commercial risk: $+1.4$pp
 top-versus-bottom quintile at the use-proof gate with fixed effects,
-controls, and owner clustering, and $-0.047$pp per $\sigma$ in SEC reporting
+controls, and owner clustering, and $-0.047$pp per standard deviation in SEC reporting
 at equal atypicality, so the filings whose language an industry went on to
 adopt belong disproportionately to products that do not survive and to
 owners who do not reach public reporting. Atypicality runs the other way and on a different margin: it marks marks that
@@ -1236,7 +1241,7 @@ join.
 The topic representation is a $T = 50$ LDA fit on a stratified sample of
 448{,}437 filings across all 45 classes (vocabulary of 62{,}168 unigrams
 and bigrams); every filing 1990--2024 is transformed to a dense 50-topic
-distribution, and prospective and retrospective KL are computed against
+distribution, and past-facing and future-facing surprise are computed against
 per-filing topic references spanning 1{,}826 days on each side of the filing
 date, scoring 1995--2019. A filing whose window holds fewer than 500
 same-class filings on either side is left unscored, since a thin reference
@@ -1263,7 +1268,7 @@ The signal depends on having enough past and future filings to populate
 the references; the 5-year past window is incomplete before 1990 and the
 future window after 2020, and both zones are excluded
 (Figure~\ref{fig:burnin}). The burn-in cut is set empirically: thin past
-references inflate prospective surprise, and profiling that bias across
+references inflate past-facing surprise, and profiling that bias across
 all 44 sufficient-volume classes gives a median absolute bias of
 $\sim$2.0 nats --- the natural-log unit in which these divergences are
 measured --- in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
@@ -1327,9 +1332,9 @@ attenuates at every aggregation used: firm-year means, token pools,
 theme prevalence trajectories.
 
 Alignment with expert innovation judgment is at most suggestive. Firms on
-BCG/MIT ``most innovative'' lists sit $+0.09\sigma$ above the panel mean
-under term scoring ($p = 0.22$), $+0.14\sigma$ under topic scoring
-($p = 0.07$), and $+0.08\sigma$ at $T = 200$ ($p = 0.20$). The matched
+BCG/MIT ``most innovative'' lists sit $+0.09$ standard deviations above the panel mean
+under term scoring ($p = 0.22$), $+0.14$ under topic scoring
+($p = 0.07$), and $+0.08$ at $T = 200$ ($p = 0.20$). The matched
 sample is 41 firms, which is too small to carry weight in either
 direction, and the paper draws no inference from it. Patent counts remain
 uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
@@ -1341,8 +1346,8 @@ The snapshot cross-check on the single one-gate-elapsed cohort
 agrees with the event-dated estimates and is scoring-robust: $-5.4$pp
 survival across quintiles under topic scoring and $-5.7$pp under term
 scoring on the identical sample (Figure~\ref{fig:s8pooled}). Under term scoring, gate survival
-\emph{rises} in the raw KL level ($+6.5$pp prospective, $+7.6$pp
-retrospective): atypical text survives the use requirement better
+\emph{rises} in the raw KL level ($+6.5$pp past-facing, $+7.6$pp
+future-facing): atypical text survives the use requirement better
 while leading text survives it worse --- the same two-axis
 separation as Section~\ref{sec:bluesea}, at the mark level.
 
@@ -1720,19 +1725,19 @@ better firms. Among registered debut filings, the probability that the
 owner ever appears in SEC EDGAR rises in term-\dkl{} from 0.29\% at the
 bottom quintile to 0.42\% at the top; on an SEC-matched firm-year panel,
 trailing 3-year mean term-\dkl{} predicts gross margin at $+2.3$pp per
-$\sigma$ ($t = 2.7$ on the locally rebuilt panel through 2019; $+3.2$pp,
-$t = 5.3$, on the published panel through 2024), with prospective
-surprise entering positively and retrospective negatively; and firm-year
+standard deviation ($t = 2.7$ on the locally rebuilt panel through 2019; $+3.2$pp,
+$t = 5.3$, on the published panel through 2024), with past-facing
+surprise entering positively and future-facing negatively; and firm-year
 term-\dkl{} predicts excess stock returns of $+1.5$ to $+5.0$pp per
-$\sigma$ at one-to-four-year horizons. A larger debut-only return figure
+standard deviation at one-to-four-year horizons. A larger debut-only return figure
 ($+28$pp at 4 years) fails a sample-size diagnostic and is not claimed.
 
 None of the signed versions survives distribution scoring. On identical
 samples, the debut listing gradient in signed topic-\dkl{} is flat to
-declining, and the margin coefficient reverses: $-1.3$pp per $\sigma$
+declining, and the margin coefficient reverses: $-1.3$pp per standard deviation
 ($t = -1.8$) at $T = 50$, $-2.2$pp ($t = -3.1$) at $T = 200$, and
 $-0.8$pp ($t = -1.1$) at $T = 500$, against the term-level $+2.3$pp;
-the prospective/retrospective decomposition flips sign and stays
+the past-/future-facing decomposition flips sign and stays
 flipped. The term-level listing gradient separately dissolves under
 document-length controls: within length bands it is U-shaped rather than
 rising, with the monotone rise contributed by composition across lengths
