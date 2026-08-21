@@ -170,11 +170,13 @@ def main() -> int:
     # ---- figures ----
     fig, axes = plt.subplots(1, 2, figsize=(12.5, 5))
     xs = np.arange(1, 6)
-    for ax, key_t, key_k, title in [
+    for ax, key_t, key_k, title, ylab in [
         (axes[0], "gate_topic", "gate_token_same_sample",
-         "First Section 8 gate (registrations 2016-2018)"),
+         "First Section 8 gate (registrations 2016-2018)",
+         "Share surviving the first use-proof gate (years 5-6)"),
         (axes[1], "registration_topic", "registration_token_same_sample",
-         "Registration completion (filings 1995-2018)"),
+         "Registration completion (filings 1995-2018)",
+         "Share of applications reaching registration"),
     ]:
         for key, label, color in ((key_t, "topic dKL", "#2b6cb0"),
                                   (key_k, "token dKL", "#cc4444")):
@@ -182,8 +184,8 @@ def main() -> int:
             ax.plot(xs, [d[f"q{i}"] for i in xs], "o-", color=color,
                     label=f"{label} (lift {d['lift_q5_q1']*100:+.1f}pp)")
         ax.set_xticks(xs)
-        ax.set_xlabel("dKL quintile")
-        ax.set_ylabel("rate")
+        ax.set_xlabel("Lead quintile, within class (1 = most lagging, 5 = most leading)")
+        ax.set_ylabel(ylab)
         ax.set_title(title, fontsize=10)
         ax.legend(fontsize=9)
         ax.grid(alpha=0.3)

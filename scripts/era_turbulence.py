@@ -56,6 +56,7 @@ FOCUS = {"009": "Software & Electronics", "042": "Sci & Tech Services",
 # marks' text. "generative" is the one loose entry and is kept because
 # "generative ai" and "generative model" both appear, in different phrasings.
 INTERNET_TERMS = ["internet", "website", "web site", "online", "world wide web"]
+START_SHARE = 0.004   # era year 0 = first year >= this share of 009+042 filings
 AI_TERMS = ["artificial intelligence", "machine learning", "generative",
             "ai-powered", "large language", "chatbot", "neural network"]
 
@@ -149,26 +150,48 @@ def main() -> int:
     ax.grid(alpha=0.3)
     year_ticks(ax, 5)
 
+    # Era alignment. Year 0 of each era is the first calendar year in which
+    # the era's terms appear in at least START_SHARE of the two classes'
+    # filings. A share rather than a count, because the two classes filed
+    # 38k marks in 1994 and 80k in 2015, and because the AI list carries a
+    # ~0.15% background ("neural network") that would put a count threshold
+    # years before the vocabulary moved. Both axes are drawn on the same
+    # era-year scale; the AI series stops where the record does.
+    start_net = min(y for y in sorted(prev_net) if prev_net[y] >= START_SHARE)
+    start_ai = min(y for y in sorted(prev_ai) if prev_ai[y] >= START_SHARE)
+    out["era_start_rule"] = {"share": START_SHARE, "internet": start_net, "ai": start_ai}
+    print(f"[era] year 0: internet {start_net}, AI {start_ai} (first year >= {START_SHARE:.2%})",
+          file=sys.stderr, flush=True)
+
     ax = axes[1]
-    yrs_n = sorted(y for y in prev_net if 1990 <= y <= 2010)
-    yrs_a = sorted(y for y in prev_ai if 2010 <= y <= 2024)
-    ax.plot(yrs_n, [100 * prev_net[y] for y in yrs_n], "o-", ms=3,
-            label="Internet-era terms (bottom axis)", color="#cc4444")
-    ax2 = ax.twiny()
-    ax2.plot(yrs_a, [100 * prev_ai[y] for y in yrs_a], "s-", ms=3,
-             label="AI-era terms (top axis)", color="#2b6cb0")
-    ax.set_xlabel("Internet era year", color="#cc4444")
-    ax2.set_xlabel("AI era year", color="#2b6cb0")
+    k_lo, k_hi = -4, 16
+    yrs_n = [y for y in sorted(prev_net) if k_lo <= y - start_net <= k_hi]
+    yrs_a = [y for y in sorted(prev_ai) if k_lo <= y - start_ai <= k_hi and y <= 2024]
+    ax.plot([y - start_net for y in yrs_n], [100 * prev_net[y] for y in yrs_n], "o-",
+            ms=3, color="#cc4444",
+            label=f"Internet-era terms (bottom axis; year 0 = {start_net})")
+    ax.plot([y - start_ai for y in yrs_a], [100 * prev_ai[y] for y in yrs_a], "s-",
+            ms=3, color="#2b6cb0",
+            label=f"AI-era terms (top axis; year 0 = {start_ai})")
+    ax.axvline(0, color="#718096", lw=0.8, ls=":")
+    ax.set_xlim(k_lo - 0.5, k_hi + 0.5)
+    ax.set_xlabel("Internet era, calendar year", color="#cc4444")
     ax.set_ylabel("% of class 009+042 filings containing era terms")
-    ax.set_title("Era vocabulary prevalence: internet vs AI")
-    lines1, labels1 = ax.get_legend_handles_labels()
-    lines2, labels2 = ax2.get_legend_handles_labels()
-    ax.legend(lines1 + lines2, labels1 + labels2, loc="upper left", fontsize=8)
+    ax.set_title(f"Era vocabulary prevalence, aligned at first year $\geq$ {100*START_SHARE:.1f}% of filings")
+    ax.legend(loc="upper left", fontsize=8)
     ax.grid(alpha=0.3)
-    # Both axes are calendar years; the default locator lands on half-years
-    # (1992.5, 2002.5) which read as nonsense on a year axis.
-    year_ticks(ax, 5)
-    year_ticks(ax2, 5)
+    # Bottom axis: internet calendar years at the same era-year positions.
+    ticks_n = [y for y in range(1990, 2011) if y % 5 == 0]
+    ax.set_xticks([y - start_net for y in ticks_n])
+    ax.set_xticklabels([str(y) for y in ticks_n])
+    # Top axis: AI calendar years on the identical scale (same xlim), so one
+    # unit of width is one year on both axes and the AI series ends early.
+    ax2 = ax.twiny()
+    ax2.set_xlim(ax.get_xlim())
+    ticks_a = [y for y in range(2011, 2032) if y % 5 == 0]
+    ax2.set_xticks([y - start_ai for y in ticks_a])
+    ax2.set_xticklabels([str(y) for y in ticks_a])
+    ax2.set_xlabel("AI era, calendar year", color="#2b6cb0")
     fig.tight_layout()
     fig.savefig(RES / "era_turbulence.png", dpi=140, bbox_inches="tight")
     print("[done]", file=sys.stderr, flush=True)

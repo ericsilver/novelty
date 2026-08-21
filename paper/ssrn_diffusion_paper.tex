@@ -1064,8 +1064,10 @@ phenomenon in the way the Schumpeterian reading would predict
 \citep{Schumpeter1942}.
 
 The AI era has so far compounded rather than erupted, though the most recent
-data test that reading rather than confirming it. Aligning era starts
-(internet 1994, AI 2015), the two track closely through year three, then
+data test that reading rather than confirming it. Dating each era from
+the first year its terms appear in at least 0.4\% of filings in the two
+classes --- 1994 for the internet, 2015 for AI, in both cases the year
+before the share at least doubled --- the two track closely through year three, then
 diverge: internet vocabulary tripled between years four and six to 23\% of
 filings in 2000, while AI vocabulary reaches 12.9\% at year nine, roughly
 where the internet stood at year five (Figure~\ref{fig:era}). The last two
@@ -1082,9 +1084,15 @@ with a lag, its prevalence should triple within roughly three years of the
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/era_turbulence.png}
 \caption{\emph{Left:} per-year mean prospective KL by class and pooled,
-1995--2024, with the dot-com and AI spans shaded. \emph{Right:} era-term
-prevalence in classes 009+042, internet era (bottom axis, from 1994)
-against AI era (top axis, from 2015).}
+1995--2024, with the dot-com and AI spans shaded. \emph{Right:} share of
+class 009+042 filings whose goods/services text contains internet-era terms
+(internet, website, online, world wide web) or AI-era terms (artificial
+intelligence, machine learning, generative, neural network, chatbot, and
+kin), plotted in era years. Year 0 of each era is the first calendar year
+in which its terms reached 0.4\% of the two classes' filings: 1994 for the
+internet, 2015 for AI. The two calendar axes share one scale, one year per
+unit of width; the AI series ends at 2024, nine years in, where the record
+ends, and has not yet run the internet's sixteen.}
 \label{fig:era}
 \end{figure}
 
@@ -1270,7 +1278,12 @@ at 1995 is used, conservative by about two years.
 \includegraphics[width=0.85\textwidth]{results/burnin.png}
 \caption{Reference-window density by year on log scale. Hatched regions
 are the past-side and future-side burn-in zones where the 5-year window is
-incomplete.}
+incomplete. The windows determine only how surprising a filing's language
+is --- its score at the filing date. The outcome the score is tested
+against is read separately and later: whether the registration survived
+the use-proof gate, decided at registration age six to seven, which is why
+the score is interpretable from 1995 but the gate sample ends with the
+2018 cohort.}
 \label{fig:burnin}
 \end{figure}
 
@@ -1336,9 +1349,11 @@ separation as Section~\ref{sec:bluesea}, at the mark level.
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/topic_outcomes_all.png}
 \caption{The two mark-level outcomes under topic and term scoring on
-identical samples, pooled across classes. \emph{Left:} first use-proof
-gate survival (snapshot, registrations 2016--2018), where the two
-representations agree closely. \emph{Right:} registration completion
+identical samples, pooled across classes, by within-class lead quintile
+(1 most lagging, 5 most leading). \emph{Left:} the share of registrations
+2016--2018 that survived the first use-proof gate at years five to six,
+read from terminal status codes, where the two representations agree
+closely. \emph{Right:} registration completion
 (filings 1995--2018), where they do not: the inverse-U in the signed axis
 is present under term scoring (depth $+0.048$) and absent under topic
 scoring (depth $-0.001$). The gate result is scoring-robust; the
