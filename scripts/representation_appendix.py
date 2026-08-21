@@ -59,10 +59,17 @@ GRIDSIZE = 55
 # the same mean length everywhere and "flatter gradient" is directly visible.
 VMIN, VMAX = 5.0, 600.0
 
+# The paper's scored window. Outside it the reference on one side is burn-in:
+# the 1990 cohort in particular has a past reference of a few hundred filings,
+# and Dirichlet smoothing then lifts KL-against-the-past by a near-constant
+# amount for every filing that year, which drew a second band parallel to the
+# diagonal in an earlier version of this figure.
+YEAR_LO, YEAR_HI = 1995, 2019
 CLEAN = (
     (pl.col("n_ref_past") >= 1000)
     & (pl.col("n_ref_future") >= 1000)
     & (pl.col("n_terms") >= 3)
+    & pl.col("year").is_between(YEAR_LO, YEAR_HI)
 )
 
 # Exemplars are keyed on (mark text, filing year, owner substring) -- all three
@@ -84,21 +91,22 @@ COLS = [("token", "Term scoring"), ("topic", "Topic scoring (T = 200)")]
 
 
 def load(cls: str, scoring: str) -> pl.DataFrame:
-    """Metadata and the clean filter always come from the token file, the only
-    one carrying n_terms / n_ref_* / mark_identification / owner_name. Under
-    topic scoring the coordinates alone are replaced by the T=200 topic
-    scores."""
+    """Metadata and the clean filter come from the class-year token file, the
+    only one carrying mark_identification / owner_name. The coordinates come
+    from the per-filing-anchored files -- the production anchoring -- for both
+    representations: termroll_* for terms, rolling_*_T200 for topics. Both
+    write topic_-prefixed column names."""
     sp = pl.read_parquet(PROC / f"surprise_class{cls}.parquet").filter(CLEAN)
-    if scoring == "topic":
-        tp = pl.read_parquet(
-            PROC / f"topic_surprise_class{cls}_T200.parquet",
-            columns=["serial_number", "topic_kl_vs_past", "topic_kl_vs_future"],
-        ).filter(pl.col("topic_kl_vs_past").is_finite()
-                 & pl.col("topic_kl_vs_future").is_finite())
-        sp = sp.drop("kl_vs_past", "kl_vs_future").join(
-            tp, on="serial_number", how="inner"
-        ).rename({"topic_kl_vs_past": "kl_vs_past",
-                  "topic_kl_vs_future": "kl_vs_future"})
+    src = (PROC / f"termroll_surprise_class{cls}.parquet" if scoring == "token"
+           else PROC / f"rolling_surprise_class{cls}_T200.parquet")
+    tp = pl.read_parquet(
+        src, columns=["serial_number", "topic_kl_vs_past", "topic_kl_vs_future"],
+    ).filter(pl.col("topic_kl_vs_past").is_finite()
+             & pl.col("topic_kl_vs_future").is_finite())
+    sp = sp.drop("kl_vs_past", "kl_vs_future").join(
+        tp, on="serial_number", how="inner"
+    ).rename({"topic_kl_vs_past": "kl_vs_past",
+              "topic_kl_vs_future": "kl_vs_future"})
     return sp.with_columns([
         ((pl.col("kl_vs_past") + pl.col("kl_vs_future")) / 2).alias("A"),
         (pl.col("kl_vs_past") - pl.col("kl_vs_future")).alias("L"),
