@@ -38,7 +38,7 @@ wording it was already leaving behind (\emph{lagging}).
 remain in commerce. Of the most leading fifth of 3.10 million registrations,
 46.7\% survive the sworn re-proof of use that a US registration requires
 between its fifth and sixth year, against 48.1\% of the most lagging fifth ---
-a gap of 1.4 percentage points, within class and cohort, with owner-clustered
+a gap of 1.4 percentage points, within Nice class and registration year, with owner-clustered
 errors and drafting and filer controls ($t = 8.3$). The gap holds across
 industries and across
 filer types, but not across time: it was two to three times larger for marks
@@ -338,19 +338,23 @@ decomposed in Section~\ref{sec:bluesea}.}
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/quintile_profiles.png}
-\caption{Quintile profiles for the three outcomes, on a common axis. Shaded
-bands are 95\% intervals. \emph{A:} first-gate failure against lead, within
-class$\times$cohort with controls, relative to the omitted bottom quintile ---
-convex: about seven tenths of the top-to-bottom gap is the single step from
-the fourth quintile to the fifth, seven times the average step below it, so
-the penalty is a threshold rather than a gradient, and the text reports
-top-versus-bottom contrasts for that reason. \emph{B:} becoming SEC-reporting, within
-class$\times$year with length held --- flat in atypicality once length is
-absorbed, and falling in lead through the fourth quintile once the levels
-are controlled. \emph{C:} raw registration rates for debut filings in
-twenty bins --- an inverse-U on atypicality, and on lead a trough just above
-the median that is compositional, absent once atypicality is held in its
-middle fifth (dashed). Horizontal line at the pooled rate.}
+\caption{Quintile profiles for the three outcomes. \emph{A:} the share of
+registrations failing the first use-proof gate, by lead quintile, adjusted
+within Nice class and registration year with the drafting and filer controls
+of Table~\ref{tab:gate_lpm}; the dashed line is the rate for all
+registrations. The profile is convex: about seven tenths of the top-to-bottom
+gap is the single step from the fourth quintile to the fifth, seven times the
+average step below it, so the penalty is a threshold rather than a gradient,
+and the text reports top-versus-bottom contrasts for that reason. \emph{B:}
+the share of first-time filers whose owner ever reaches SEC reporting, by
+quintile of atypicality and of lead, adjusted within Nice class and filing
+year with description length held; flat in atypicality, and falling in lead
+through the fourth quintile once the levels are controlled. Whiskers in A and
+B are 95\% intervals on the difference from the bottom quintile. \emph{C:}
+raw registration rates for debut filings in twenty bins --- an inverse-U on
+atypicality, and on lead a trough just above the median that is
+compositional, absent once atypicality is held in its middle fifth (dashed).
+Horizontal line at the pooled rate.}
 \label{fig:profiles}
 \end{figure}
 
@@ -358,25 +362,22 @@ middle fifth (dashed). Horizontal line at the pooled rate.}
 
 Marks written in language their industry subsequently moved toward fail
 their first use-proof gate more often than marks written in language it was
-moving away from. Within Nice class and cohort, controlling for whether the
+moving away from. Within Nice class and registration year, controlling for whether the
 filer drafted the mark themselves or hired counsel and for how long the
 description is, marks whose language most leads their industry fail $1.4$
 points more often (53.3\%) than those in the most lagging fifth (51.9\%;
 $t = 8.3$, Table~\ref{tab:gate_lpm}).
 
-Estimates are on gate \emph{failure} unless the text says survival.
-
 Among 4.12 million registration class-records 2002--2018, dated first-gate cancellation rises from 50.0\%
 at the bottom topic-\dkl{} quintile to 52.4\% at the top, positive in 33
 of 44 classes with sufficient volume (Figure~\ref{fig:forest}). But a raw
-pooled contrast mixes the within-industry gradient with class and cohort
+pooled contrast mixes the within-industry gradient with class and registration-year
 composition, treats multi-class registrations as independent observations,
 and ignores that gate outcomes correlate within owner. The
 primary estimates therefore come from a linear probability model on 3.10
 million unique registrations, one row per serial, with \dkl{} quintiles cut
-\emph{within} class$\times$cohort cells, a cohort here being a year of
-registration. The specification adds
-class$\times$cohort fixed effects; controls for counsel of record,
+\emph{within} Nice class and registration year; The specification adds
+class$\times$registration-year fixed effects; controls for counsel of record,
 intent-to-use basis, log description length, log owner filing volume, owner
 domicile, and foreign filing basis;\footnote{A US application is filed
 either on \emph{use} --- the mark is already in commerce --- or on
@@ -388,7 +389,7 @@ statutory routes to the same registration, and they differ sharply in who
 files and how often the mark is abandoned, which is why each enters as a
 control.} and standard errors clustered on 1.27
 million normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties are
-common. Within the class$\times$cohort cell the quintiles are cut in,
+common. Within the class$\times$registration-year cell the quintiles are cut in,
 $17.1$\% of scored registrations share a \dkl{} value with at least one
 other filing, and the largest tie group runs to 53. Anchoring the reference
 window on the filing date does not remove them, because filings that share a
@@ -403,11 +404,11 @@ contrast of $2.287$pp --- a tenth of one percent of the estimate.}
 
 \begin{table}[h]\centering\small
 \caption{First-gate failure and \dkl{}: design-based estimates.
-LPM of event-dated first-gate failure on within-class$\times$cohort
+LPM of event-dated first-gate failure on within-class$\times$registration-year
 \dkl{} quintiles (Q1 omitted), unique serials, registrations 2002--2018.
 Failure is a dated cancellation for non-use at registration age 4.0--8.5
 years, under \S8 or, for Madrid \S66(a) registrations, \S71.
-All specifications include class$\times$cohort fixed effects; controls
+All specifications include class$\times$registration-year fixed effects; controls
 are counsel of record, intent-to-use basis, log goods/services length,
 log owner filing count, owner domicile (US, CN), and foreign basis
 (\S44(e), \S66(a)). Base failure rate 52.3\% on this sample.}
@@ -444,7 +445,13 @@ than absorbing them in a control, since they maintain under a different
 statute; the estimate is larger without them.
 \end{table}
 
-The gradient is monotone within cells. The full control set cuts the
+The gradient is monotone within cells. Whether the filing was drafted by
+counsel or by the owner is held because it moves both sides of the
+comparison at once: self-filers fail the gate at 69.6\% against 46.8\% for
+represented owners, and they write shorter descriptions that sit closer to
+their class's usual language yet lean slightly further ahead of it, so
+without the control part of any lead gradient is a self-filing gradient. With it, the penalty is of the same order in both
+strata ($+1.8$pp self-filed, $+1.2$pp counselled). The full control set cuts the
 magnitude by about a third without absorbing it, and the estimate is if
 anything \emph{largest} in the cleanest stratum --- counsel-represented,
 US-domiciled owners --- so it is not carried by the self-filed or foreign
@@ -494,10 +501,10 @@ measure would report a difference in rates where there was only a difference in
 timing. It is not.
 On the 3.15 million registrations whose ninth anniversary is inside the
 record --- for which failure is settled and no window is needed --- the
-contrast is $+2.71$pp within class and cohort, against $+2.65$pp on the
+contrast is $+2.71$pp within class and registration year, against $+2.65$pp on the
 paper's 4.0--8.5 window and $+2.65$pp on the narrow band. Conditional on failing, the probability of failing late
-carries a contrast of $-0.01$pp ($t = -0.2$) once class and cohort are
-absorbed. The pooled version of that contrast is $+0.27$pp and is composition.
+carries a contrast of $-0.01$pp ($t = -0.2$) once class and registration year are
+held. The pooled version of that contrast is $+0.27$pp and is composition.
 
 The filer population changed over the same period. Within
 counsel-represented US-domiciled owners, and with the full control set, the
@@ -596,7 +603,7 @@ parentheses), settled registrations, by filing era. The upper block assigns
 quintiles within each class and era. The lower block pools the four classes
 and assigns quintiles within the era (raw, as in the text table above),
 within class$\times$registration-cohort cells, and within
-theme$\times$class$\times$cohort cells, where a filing's theme is the one
+theme$\times$class$\times$registration-year cells, where a filing's theme is the one
 its description loads most heavily on under the production $T = 50$ model.
 $n = 1{,}248{,}591$.}
 \label{tab:techswing}
@@ -613,8 +620,8 @@ cohort it never falls below $+3$pp (Figure~\ref{fig:techswing}). The
 reversal is an event in goods and in business services; the class that
 sells technology as a service sat it out.
 
-Assigning quintiles within class$\times$cohort rather than within the era
-pool changes little. Assigning them within theme$\times$class$\times$cohort
+Assigning quintiles within class and registration year rather than within the era
+pool changes little. Assigning them within theme, class and registration year
 changes a great deal: the late-1990s contrast falls from $+14.5$ to
 $+4.8$pp, the post-2008 contrast from $+9.2$ to $+4.5$pp, and the 2000--2004
 reversal from $-3.6$ to $-1.3$pp. Two thirds of the first and half of the
@@ -1423,7 +1430,7 @@ broken with what the class had established over seven years, judged against
 only the next three. Scoring every class on the production representation
 and per-filing windows at $W \in \{3, 5, 7\}$ years on each side, and
 evaluating all five variants on the identical 3.10 million registrations
-with quintiles assigned within class$\times$cohort:
+with quintiles assigned within class$\times$registration-year:
 
 \begin{center}\small
 \begin{tabular}{llrrrr}

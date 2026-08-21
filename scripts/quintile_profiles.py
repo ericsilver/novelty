@@ -7,9 +7,12 @@ has to reconstruct the shape from numbers in prose. This draws them.
 
 Everything plotted is already estimated elsewhere; nothing is re-fit here.
 Panels A and B are within-cell linear probability coefficients relative to the
-omitted bottom quintile (so the level is not identified, only the shape), with
-95% intervals from the reported standard errors. Panel C is raw binned rates,
-because the registration profile is reported that way in the source table.
+omitted bottom quintile, re-expressed as adjusted rates: the sample base rate
+plus each quintile's coefficient less the mean coefficient, so the five bars
+average to the base rate and read in percent. The intervals are the reported
+standard errors of the coefficients, which are intervals on differences from
+the bottom quintile, not on the levels. Panel C is raw binned rates, because
+the registration profile is reported that way in the source table.
 
 No parametric curve is fitted through five points. The claim is that the
 profile is not a line, not that it is any particular other function.
@@ -81,7 +84,6 @@ def band(ax, x, b, se, color, label, marker="o"):
 
 
 def style(ax, title, ylab):
-    ax.axhline(0, color=INK2, lw=1.0, ls=(0, (4, 3)), zorder=1)
     ax.set_xticks(QX)
     ax.set_xticklabels(["Q1\nlow", "Q2", "Q3", "Q4", "Q5\nhigh"], fontsize=8.5)
     ax.set_title(title, fontsize=10, color=INK, pad=8)
@@ -102,27 +104,53 @@ def main() -> int:
     # ---- A: first-gate failure, on lead ------------------------------------
     sp = spec(gate, "2_FE_controls")
     b, se = profile(sp, "q")
+    base = sp["p_fail1"] * 100
+    adj = [base + bi - sum(b) / 5 for bi in b]
     ax = axes[0]
-    band(ax, QX, b, se, C_LEAD, "first-gate failure")
-    style(ax, "A. Failing the first use-proof gate\n(within class$\\times$cohort, controls)",
-          "pp relative to bottom lead quintile")
-    steps = [b[i + 1] - b[i] for i in range(4)]
-    ratio = steps[3] / (sum(steps[:3]) / 3)
-    ax.annotate(f"convex: the final step is {ratio:.1f}$\\times$\nthe average of the three below it",
-                xy=(5, b[4]), xytext=(2.05, b[4] * 0.90), fontsize=7.6, color=INK2,
-                ha="left", va="center",
+    ax.bar(QX, adj, width=0.62, color=C_LEAD, alpha=0.85, zorder=2)
+    ax.errorbar(QX, adj, yerr=[1.96 * v for v in se], fmt="none", ecolor=INK,
+                elinewidth=0.9, capsize=3, zorder=3)
+    ax.axhline(base, color=INK2, lw=1.0, ls=(0, (4, 3)), zorder=1)
+    ax.text(0.55, base, f"all registrations {base:.1f}%", fontsize=7.4,
+            color=INK2, va="bottom", ha="left")
+    lo = min(adj) - 1.2; hi = max(adj) + 1.2
+    ax.set_ylim(lo, hi)
+    for x, v in zip(QX, adj):
+        ax.text(x, v + 0.12, f"{v:.1f}", ha="center", va="bottom", fontsize=7.6, color=INK)
+    step = adj[4] - adj[3]
+    ax.annotate(f"+{step:.1f} from Q4 to Q5,\nseven times the average step below",
+                xy=(4.5, (adj[3] + adj[4]) / 2), xytext=(1.0, hi - 0.25),
+                fontsize=7.4, color=INK2, ha="left", va="top",
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=0.9,
-                                connectionstyle="arc3,rad=-0.18"))
+                                connectionstyle="arc3,rad=-0.2"))
+    style(ax, "A. Failing the first use-proof gate\n(within Nice class and registration year, controls)",
+          "% failing the gate, adjusted")
     ax.set_xlabel("lead $L$ quintile", fontsize=9, color=INK2)
 
     # ---- B: listing, on each axis ------------------------------------------
     ax = axes[1]
-    ba, sea = profile(spec(edgar, "A2_atyp_len"), "aq")
-    bd, sed = profile(spec(edgar, "B3_dKL_len_levels"), "dq")
-    band(ax, QX, ba, sea, C_ATYP, "on atypicality $A$", marker="s")
-    band(ax, QX, bd, sed, C_LEAD, "on lead $L$ (levels held)")
-    style(ax, "B. Reaching the listed universe\n(within class$\\times$year, length held)",
-          "pp relative to bottom quintile")
+    spa, spd = spec(edgar, "A2_atyp_len"), spec(edgar, "B3_dKL_len_levels")
+    ba, sea = profile(spa, "aq")
+    bd, sed = profile(spd, "dq")
+    base_b = spa["p_sec"] * 100
+    adja = [base_b + v - sum(ba) / 5 for v in ba]
+    adjd = [base_b + v - sum(bd) / 5 for v in bd]
+    w = 0.36
+    ax.bar([x - w / 2 for x in QX], adja, width=w, color=C_ATYP, alpha=0.85,
+           label="by atypicality $A$", zorder=2)
+    ax.bar([x + w / 2 for x in QX], adjd, width=w, color=C_LEAD, alpha=0.85,
+           label="by lead $L$ (levels held)", zorder=2)
+    ax.errorbar([x - w / 2 for x in QX], adja, yerr=[1.96 * v for v in sea], fmt="none",
+                ecolor=INK, elinewidth=0.8, capsize=2.5, zorder=3)
+    ax.errorbar([x + w / 2 for x in QX], adjd, yerr=[1.96 * v for v in sed], fmt="none",
+                ecolor=INK, elinewidth=0.8, capsize=2.5, zorder=3)
+    ax.axhline(base_b, color=INK2, lw=1.0, ls=(0, (4, 3)), zorder=1)
+    ax.text(0.55, base_b, f"all registered debuts {base_b:.2f}%", fontsize=7.4,
+            color=INK2, va="bottom", ha="left")
+    allv = adja + adjd
+    ax.set_ylim(min(allv) - 0.08, max(allv) + 0.08)
+    style(ax, "B. Reaching the listed universe\n(within Nice class and filing year, length held)",
+          "% of owners ever SEC-reporting, adjusted")
     ax.set_xlabel("quintile of the axis shown", fontsize=9, color=INK2)
     ax.legend(fontsize=7.8, loc="lower left", framealpha=0.9)
 
