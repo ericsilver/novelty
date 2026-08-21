@@ -194,6 +194,44 @@ def main() -> int:
             log(f"  {dv} by original-{axis} quintile, {lab:9s}: "
                 f"{[round(v,3) for v in out['change'][f'{dv}_by_original_{axis}_quintile_{lab}']['mean']]}")
 
+    # Who rewrote: counsel of record on each filing, and the transition between them.
+    att = pl.read_parquet(PROC / "case_extras.parquet", columns=["serial_number", "attorney_name"]
+                          ).with_columns((pl.col("attorney_name").fill_null("").str.len_chars() > 0)
+                                         .alias("counsel")).select("serial_number", "counsel")
+    p = p.join(att.rename({"counsel": "counsel1"}), on="serial_number", how="left").join(
+        att.rename({"serial_number": "sn2", "counsel": "counsel2"}), on="sn2", how="left"
+    ).with_columns(pl.col("counsel1").fill_null(False), pl.col("counsel2").fill_null(False))
+    p = p.with_columns(
+        pl.when(~pl.col("counsel1") & ~pl.col("counsel2")).then(pl.lit("self->self"))
+        .when(~pl.col("counsel1") & pl.col("counsel2")).then(pl.lit("self->counsel"))
+        .when(pl.col("counsel1") & pl.col("counsel2")).then(pl.lit("counsel->counsel"))
+        .otherwise(pl.lit("counsel->self")).alias("transition"))
+    out["by_counsel"] = {}
+    cutsA = np.quantile(p["A"].to_numpy(), [0.2, 0.4, 0.6, 0.8])
+    cutsL = np.quantile(p["L"].to_numpy(), [0.2, 0.4, 0.6, 0.8])
+    pq = p.with_columns(pl.Series("qA", np.searchsorted(cutsA, p["A"].to_numpy())),
+                        pl.Series("qL", np.searchsorted(cutsL, p["L"].to_numpy())))
+    for tr in ("self->self", "self->counsel", "counsel->counsel", "counsel->self"):
+        sub = pq.filter(pl.col("transition") == tr)
+        ch = sub.filter(~pl.col("same_text"))
+        rec = {"n": int(sub.height), "share_rewritten": float((~sub["same_text"]).mean()),
+               "jaccard_changed": float(ch["jaccard"].mean()) if ch.height else None,
+               "dA_changed": mean_se(ch["dA"].to_numpy()) if ch.height else None,
+               "dL_changed": mean_se(ch["dL"].to_numpy()) if ch.height else None,
+               "dloglen_changed": mean_se(ch["dloglen"].to_numpy()) if ch.height else None,
+               "original_mean_A": float(sub["A"].mean()), "refiled_mean_A": float(sub["A2"].mean()),
+               "original_mean_L": float(sub["L"].mean()), "refiled_mean_L": float(sub["L2"].mean())}
+        if ch.height > 1000:
+            gA = ch.group_by("qA").agg(pl.col("dA").mean().alias("m"), pl.len().alias("n")).sort("qA")
+            gL = ch.group_by("qL").agg(pl.col("dL").mean().alias("m"), pl.len().alias("n")).sort("qL")
+            rec["dA_by_original_A_quintile"] = [float(v) for v in gA["m"]]
+            rec["dL_by_original_L_quintile"] = [float(v) for v in gL["m"]]
+        out["by_counsel"][tr] = rec
+        log(f"  {tr:17s} n={sub.height:6,} rewritten {100*rec['share_rewritten']:.0f}%  "
+            + (f"jacc {rec['jaccard_changed']:.2f}  dA {rec['dA_changed']['mean']:+.3f}  dL {rec['dL_changed']['mean']:+.4f}  "
+               f"dloglen {rec['dloglen_changed']['mean']:+.3f}" if ch.height else "")
+            + (f"  dA by A-q {[round(v,2) for v in rec['dA_by_original_A_quintile']]}" if "dA_by_original_A_quintile" in rec else ""))
+
     # Gate outcome of the refiled registration, scored on its own text and on the original's.
     ev = pl.scan_parquet(PROC / "case_events.parquet").filter(
         pl.col("code").is_in(["C8..", "C71T"]) & (pl.col("date") > 19000000)
