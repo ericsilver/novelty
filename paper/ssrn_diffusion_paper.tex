@@ -230,8 +230,8 @@ builds the two properties. The outcomes are three steps in the sequence above,
 each read from the dated record and each bounded as follows.
 
 \emph{Registration.} Whether an application reaches registration at all,
-among filings made 1995--2018. Roughly nine in ten of those that do not die by
-the applicant's own inaction --- never filing the statement of use, or going
+among filings made 1995--2018. Of the applications that do not register,
+roughly nine in ten die by the applicant's own inaction --- never filing the statement of use, or going
 silent during prosecution --- and only 4.3\% are removed adversarially
 (Table~\ref{tab:funnel}), so registration is read as a launch indicator rather
 than an examiner's verdict.
@@ -264,7 +264,7 @@ percentage points.
 Counting differs by table. A filing may claim several Nice classes at once, so
 a \emph{class-record} counts it once per class while a \emph{registration}
 counts it once by serial number; a \emph{debut filing} is an owner's first, one
-per owner. The funnel below counts debut filings, the gate regressions unique
+per owner. The funnel above counts debut filings, the gate regressions unique
 registrations, the per-class figures class-records.
 
 Three windows bound the samples, each set by an institutional fact. Scoring
@@ -363,8 +363,8 @@ Horizontal line at the pooled rate.}
 Marks written in language their industry subsequently moved toward fail
 their first use-proof gate more often than marks written in language it was
 moving away from. Within Nice class and registration year, controlling for whether the
-filer drafted the mark themselves or hired counsel and for how long the
-description is, marks whose language most leads their industry fail $1.4$
+filer drafted the mark themselves or hired counsel, and for the length of the
+description, marks whose language most leads their industry fail $1.4$
 points more often (53.3\%) than those in the most lagging fifth (51.9\%;
 $t = 8.3$, Table~\ref{tab:gate_lpm}).
 
@@ -376,7 +376,7 @@ composition, treats multi-class registrations as independent observations,
 and ignores that gate outcomes correlate within owner. The
 primary estimates therefore come from a linear probability model on 3.10
 million unique registrations, one row per serial, with \dkl{} quintiles cut
-\emph{within} Nice class and registration year; The specification adds
+\emph{within} Nice class and registration year. The specification adds
 class$\times$registration-year fixed effects; controls for counsel of record,
 intent-to-use basis, log description length, log owner filing volume, owner
 domicile, and foreign filing basis;\footnote{A US application is filed
@@ -450,7 +450,7 @@ counsel or by the owner is held because it moves both sides of the
 comparison at once: self-filers fail the gate at 69.6\% against 46.8\% for
 represented owners, and they write shorter descriptions that sit closer to
 their class's usual language yet lean slightly further ahead of it, so
-without the control part of any lead gradient is a self-filing gradient. With it, the penalty is of the same order in both
+without the control, part of any lead gradient is a self-filing gradient. With it, the penalty is of the same order in both
 strata ($+1.8$pp self-filed, $+1.2$pp counselled). The full control set cuts the
 magnitude by about a third without absorbing it, and the estimate is if
 anything \emph{largest} in the cleanest stratum --- counsel-represented,
