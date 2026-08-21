@@ -232,6 +232,25 @@ def main() -> int:
                f"dloglen {rec['dloglen_changed']['mean']:+.3f}" if ch.height else "")
             + (f"  dA by A-q {[round(v,2) for v in rec['dA_by_original_A_quintile']]}" if "dA_by_original_A_quintile" in rec else ""))
 
+    # Pre/post means for the appendix chart: by counsel on the refiling, and by transition.
+    def prepost(sub):
+        return {"n": int(sub.height),
+                "A_pre": float(sub["A"].mean()), "A_post": float(sub["A2"].mean()),
+                "L_pre": float(sub["L"].mean()), "L_post": float(sub["L2"].mean()),
+                "len_pre": float(sub["len1"].mean()), "len_post": float(sub["len2"].mean()),
+                "len_med_pre": float(sub["len1"].median()), "len_med_post": float(sub["len2"].median())}
+    out["prepost"] = {"rewritten_only": {}, "all_pairs": {}}
+    groups = {"self-filed refiling": pl.col("counsel2") == False,
+              "counsel refiling": pl.col("counsel2") == True}
+    for tr in ("self->self", "self->counsel", "counsel->counsel", "counsel->self"):
+        groups[tr] = pl.col("transition") == tr
+    for name, cond in groups.items():
+        out["prepost"]["rewritten_only"][name] = prepost(p.filter(cond & ~pl.col("same_text")))
+        out["prepost"]["all_pairs"][name] = prepost(p.filter(cond))
+        r = out["prepost"]["rewritten_only"][name]
+        log(f"  prepost {name:20s} n={r['n']:6,}  A {r['A_pre']:.3f}->{r['A_post']:.3f}  "
+            f"len {r['len_pre']:.1f}->{r['len_post']:.1f}")
+
     # Gate outcome of the refiled registration, scored on its own text and on the original's.
     ev = pl.scan_parquet(PROC / "case_events.parquet").filter(
         pl.col("code").is_in(["C8..", "C71T"]) & (pl.col("date") > 19000000)
