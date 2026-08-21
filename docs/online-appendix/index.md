@@ -26,7 +26,7 @@ the cohort-fixed-effects specification, which is the claim the paper makes.
 The spread around it is what this appendix shows, and it is wide: the
 fixed-effects contrast runs from about -6pp to +19pp across classes.
 
-NICE 023 (yarns) falls below the volume floor the pooled analysis uses and has
+Nice 023 (yarns) falls below the volume floor the pooled analysis uses and has
 no raw entry; its figure is still generated.
 
 ## Cross-industry comparisons
@@ -49,7 +49,7 @@ each axis.
 
 ## Per-industry breakouts
 
-| NICE | Industry | Registrations | Base fail | Gate lift (raw) | Gate Q5, cohort FE |
+| Nice | Industry | Registrations | Base fail | Gate lift (raw) | Gate Q5, cohort FE |
 |---|---|---:|---:|---:|---:|
 | [1](#nice-1) | Chemicals | 55,166 | 39.2% | +1.9 ± 1.3 | +2.93 (0.66) |
 | [2](#nice-2) | Paints | 16,070 | 39.9% | -0.3 ± 2.4 | -1.14 (1.24) |
@@ -97,182 +97,182 @@ each axis.
 | [44](#nice-44) | Medical & Beauty Services | 92,827 | 51.8% | +0.9 ± 1.0 | +0.72 (0.52) |
 | [45](#nice-45) | Legal & Personal Services | 64,206 | 53.1% | -1.1 ± 1.2 | -2.65 (0.63) |
 
-### NICE 1 — Chemicals
+### Nice 1 — Chemicals
 
-![NICE 1](figures/class_1.png)
+![Nice 1](figures/class_001.png)
 
-### NICE 2 — Paints
+### Nice 2 — Paints
 
-![NICE 2](figures/class_2.png)
+![Nice 2](figures/class_002.png)
 
-### NICE 3 — Cosmetics & Cleaning
+### Nice 3 — Cosmetics & Cleaning
 
-![NICE 3](figures/class_3.png)
+![Nice 3](figures/class_003.png)
 
-### NICE 4 — Lubricants & Fuels
+### Nice 4 — Lubricants & Fuels
 
-![NICE 4](figures/class_4.png)
+![Nice 4](figures/class_004.png)
 
-### NICE 5 — Pharmaceuticals
+### Nice 5 — Pharmaceuticals
 
-![NICE 5](figures/class_5.png)
+![Nice 5](figures/class_005.png)
 
-### NICE 6 — Metal Goods
+### Nice 6 — Metal Goods
 
-![NICE 6](figures/class_6.png)
+![Nice 6](figures/class_006.png)
 
-### NICE 7 — Machinery
+### Nice 7 — Machinery
 
-![NICE 7](figures/class_7.png)
+![Nice 7](figures/class_007.png)
 
-### NICE 8 — Hand Tools
+### Nice 8 — Hand Tools
 
-![NICE 8](figures/class_8.png)
+![Nice 8](figures/class_008.png)
 
-### NICE 9 — Software & Electronics
+### Nice 9 — Software & Electronics
 
-![NICE 9](figures/class_9.png)
+![Nice 9](figures/class_009.png)
 
-### NICE 10 — Medical Apparatus
+### Nice 10 — Medical Apparatus
 
-![NICE 10](figures/class_10.png)
+![Nice 10](figures/class_010.png)
 
-### NICE 11 — Lighting & Heating
+### Nice 11 — Lighting & Heating
 
-![NICE 11](figures/class_11.png)
+![Nice 11](figures/class_011.png)
 
-### NICE 12 — Vehicles
+### Nice 12 — Vehicles
 
-![NICE 12](figures/class_12.png)
+![Nice 12](figures/class_012.png)
 
-### NICE 13 — Firearms
+### Nice 13 — Firearms
 
-![NICE 13](figures/class_13.png)
+![Nice 13](figures/class_013.png)
 
-### NICE 14 — Jewelry
+### Nice 14 — Jewelry
 
-![NICE 14](figures/class_14.png)
+![Nice 14](figures/class_014.png)
 
-### NICE 15 — Musical Instruments
+### Nice 15 — Musical Instruments
 
-![NICE 15](figures/class_15.png)
+![Nice 15](figures/class_015.png)
 
-### NICE 16 — Paper & Printed Goods
+### Nice 16 — Paper & Printed Goods
 
-![NICE 16](figures/class_16.png)
+![Nice 16](figures/class_016.png)
 
-### NICE 17 — Rubber & Plastics
+### Nice 17 — Rubber & Plastics
 
-![NICE 17](figures/class_17.png)
+![Nice 17](figures/class_017.png)
 
-### NICE 18 — Leather Goods
+### Nice 18 — Leather Goods
 
-![NICE 18](figures/class_18.png)
+![Nice 18](figures/class_018.png)
 
-### NICE 19 — Building Materials
+### Nice 19 — Building Materials
 
-![NICE 19](figures/class_19.png)
+![Nice 19](figures/class_019.png)
 
-### NICE 20 — Furniture
+### Nice 20 — Furniture
 
-![NICE 20](figures/class_20.png)
+![Nice 20](figures/class_020.png)
 
-### NICE 21 — Household Utensils
+### Nice 21 — Household Utensils
 
-![NICE 21](figures/class_21.png)
+![Nice 21](figures/class_021.png)
 
-### NICE 22 — Cordage & Fibers
+### Nice 22 — Cordage & Fibers
 
-![NICE 22](figures/class_22.png)
+![Nice 22](figures/class_022.png)
 
-### NICE 23 — Yarns
+### Nice 23 — Yarns
 
-![NICE 23](figures/class_23.png)
+![Nice 23](figures/class_023.png)
 
-### NICE 24 — Textiles
+### Nice 24 — Textiles
 
-![NICE 24](figures/class_24.png)
+![Nice 24](figures/class_024.png)
 
-### NICE 25 — Clothing & Footwear
+### Nice 25 — Clothing & Footwear
 
-![NICE 25](figures/class_25.png)
+![Nice 25](figures/class_025.png)
 
-### NICE 26 — Lace & Embroidery
+### Nice 26 — Lace & Embroidery
 
-![NICE 26](figures/class_26.png)
+![Nice 26](figures/class_026.png)
 
-### NICE 27 — Carpets
+### Nice 27 — Carpets
 
-![NICE 27](figures/class_27.png)
+![Nice 27](figures/class_027.png)
 
-### NICE 28 — Games & Sporting Goods
+### Nice 28 — Games & Sporting Goods
 
-![NICE 28](figures/class_28.png)
+![Nice 28](figures/class_028.png)
 
-### NICE 29 — Meats & Processed Foods
+### Nice 29 — Meats & Processed Foods
 
-![NICE 29](figures/class_29.png)
+![Nice 29](figures/class_029.png)
 
-### NICE 30 — Staple Foods
+### Nice 30 — Staple Foods
 
-![NICE 30](figures/class_30.png)
+![Nice 30](figures/class_030.png)
 
-### NICE 31 — Agricultural Products
+### Nice 31 — Agricultural Products
 
-![NICE 31](figures/class_31.png)
+![Nice 31](figures/class_031.png)
 
-### NICE 32 — Beer & Soft Drinks
+### Nice 32 — Beer & Soft Drinks
 
-![NICE 32](figures/class_32.png)
+![Nice 32](figures/class_032.png)
 
-### NICE 33 — Alcoholic Beverages
+### Nice 33 — Alcoholic Beverages
 
-![NICE 33](figures/class_33.png)
+![Nice 33](figures/class_033.png)
 
-### NICE 34 — Tobacco
+### Nice 34 — Tobacco
 
-![NICE 34](figures/class_34.png)
+![Nice 34](figures/class_034.png)
 
-### NICE 35 — Advertising & Retail
+### Nice 35 — Advertising & Retail
 
-![NICE 35](figures/class_35.png)
+![Nice 35](figures/class_035.png)
 
-### NICE 36 — Insurance & Finance
+### Nice 36 — Insurance & Finance
 
-![NICE 36](figures/class_36.png)
+![Nice 36](figures/class_036.png)
 
-### NICE 37 — Construction & Repair
+### Nice 37 — Construction & Repair
 
-![NICE 37](figures/class_37.png)
+![Nice 37](figures/class_037.png)
 
-### NICE 38 — Telecommunications
+### Nice 38 — Telecommunications
 
-![NICE 38](figures/class_38.png)
+![Nice 38](figures/class_038.png)
 
-### NICE 39 — Transport & Storage
+### Nice 39 — Transport & Storage
 
-![NICE 39](figures/class_39.png)
+![Nice 39](figures/class_039.png)
 
-### NICE 40 — Material Treatment
+### Nice 40 — Material Treatment
 
-![NICE 40](figures/class_40.png)
+![Nice 40](figures/class_040.png)
 
-### NICE 41 — Education & Entertainment
+### Nice 41 — Education & Entertainment
 
-![NICE 41](figures/class_41.png)
+![Nice 41](figures/class_041.png)
 
-### NICE 42 — Scientific & Tech Services
+### Nice 42 — Scientific & Tech Services
 
-![NICE 42](figures/class_42.png)
+![Nice 42](figures/class_042.png)
 
-### NICE 43 — Hotels & Restaurants
+### Nice 43 — Hotels & Restaurants
 
-![NICE 43](figures/class_43.png)
+![Nice 43](figures/class_043.png)
 
-### NICE 44 — Medical & Beauty Services
+### Nice 44 — Medical & Beauty Services
 
-![NICE 44](figures/class_44.png)
+![Nice 44](figures/class_044.png)
 
-### NICE 45 — Legal & Personal Services
+### Nice 45 — Legal & Personal Services
 
-![NICE 45](figures/class_45.png)
+![Nice 45](figures/class_045.png)

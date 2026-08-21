@@ -5,7 +5,7 @@ behind them is computed here and published, so that a reader who cares about one
 industry can see it, and so that the cross-industry variation -- which is large,
 and which the pooled numbers hide -- is inspectable rather than asserted.
 
-For each of the 45 NICE classes this emits one three-panel figure:
+For each of the 45 Nice classes this emits one three-panel figure:
   A. first-gate failure by lead quintile, with 95% intervals
   B. registration completion by atypicality and by lead
   C. the class in cross-industry context, its gate lift against all others
@@ -252,7 +252,7 @@ def class_figure(cls: str, gate, reg_atyp, reg_lead, allrows) -> None:
         s.set_color(GRID)
     ax.tick_params(colors=INK2, labelsize=8)
 
-    fig.suptitle(f"NICE {cls} — {name}", fontsize=11.5, color=INK, y=1.03)
+    fig.suptitle(f"Nice {cls} — {name}", fontsize=11.5, color=INK, y=1.03)
     fig.tight_layout()
     fig.savefig(FIG / f"class_{cls}.png", dpi=130, bbox_inches="tight")
     plt.close(fig)
@@ -274,7 +274,7 @@ def cross_figures(rows: list[dict]) -> None:
     ax.set_yticks(y); ax.set_yticklabels(names, fontsize=7.6)
     ax.set_xlabel("first-gate failure, top minus bottom lead quintile (pp)",
                   fontsize=9, color=INK2)
-    ax.set_title("Gate lift by industry, all 45 NICE classes\n"
+    ax.set_title("Gate lift by industry, all 45 Nice classes\n"
                  "(raw quintile contrast, 95% intervals)", fontsize=11, color=INK)
     ax.grid(alpha=0.28, color=GRID, axis="x")
     for s in ax.spines.values():
@@ -393,7 +393,7 @@ def write_index(rows: list[dict], allrows: list[dict]) -> None:
         "The spread around it is what this appendix shows, and it is wide: the",
         "fixed-effects contrast runs from about -6pp to +19pp across classes.",
         "",
-        "NICE 023 (yarns) falls below the volume floor the pooled analysis uses and has",
+        "Nice 023 (yarns) falls below the volume floor the pooled analysis uses and has",
         "no raw entry; its figure is still generated.",
         "",
         "## Cross-industry comparisons",
@@ -433,7 +433,7 @@ def write_index(rows: list[dict], allrows: list[dict]) -> None:
     L.append("")
     for r in sorted(rows, key=lambda x: x["cls"]):
         L += [f"### NICE {r['cls']} — {r['name']}", "",
-              f"![NICE {r['cls']}](figures/class_{r['cls']}.png)", ""]
+              f"![Nice {r['cls']}](figures/class_{r['cls']}.png)", ""]
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.md").write_text("\n".join(L), encoding="utf-8")
 
