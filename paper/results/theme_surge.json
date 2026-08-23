@@ -1,0 +1,75 @@
+{
+ "double": 2.0,
+ "prior_years": 3,
+ "surge_years": 3,
+ "levels": {
+  "1pct": {
+   "n_surge_themes": 5,
+   "n_in_surge_regs": 6346,
+   "fail_in_surge": 0.636306334699023,
+   "fail_rest": 0.5141656620097865,
+   "within_class_year": {
+    "mean": 0.08590938862809092,
+    "se": 0.006054942462218903
+   },
+   "net_LA": {
+    "mean": 0.08508798266811277,
+    "se": 0.006057394337576291
+   },
+   "episodes": [
+    {
+     "theme": 337,
+     "surge_year": 1999,
+     "growth_multiple": 2.3221043975319366,
+     "surge_share": 0.024069261995713038,
+     "n": 6339,
+     "base_fail": 0.6365357311878845,
+     "lead_lift": -0.0017662072740557422,
+     "lead_se": 0.01907064980795675,
+     "words": [
+      "software",
+      "online",
+      "computer",
+      "downloadable",
+      "non-downloadable",
+      "featuring"
+     ]
+    }
+   ]
+  },
+  "2pct": {
+   "n_surge_themes": 2,
+   "n_in_surge_regs": 6389,
+   "fail_in_surge": 0.6360932853341681,
+   "fail_rest": 0.5141647170371753,
+   "within_class_year": {
+    "mean": 0.08623382029828089,
+    "se": 0.0060342790191252995
+   },
+   "net_LA": {
+    "mean": 0.08543426964946702,
+    "se": 0.006036859411522872
+   },
+   "episodes": [
+    {
+     "theme": 337,
+     "surge_year": 1999,
+     "growth_multiple": 2.3221043975319366,
+     "surge_share": 0.024069261995713038,
+     "n": 6339,
+     "base_fail": 0.6365357311878845,
+     "lead_lift": -0.0017662072740557422,
+     "lead_se": 0.01907064980795675,
+     "words": [
+      "software",
+      "online",
+      "computer",
+      "downloadable",
+      "non-downloadable",
+      "featuring"
+     ]
+    }
+   ]
+  }
+ }
+}
