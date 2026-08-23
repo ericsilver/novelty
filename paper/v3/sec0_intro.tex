@@ -1,1 +1,96 @@
-% placeholder: sec0_intro
+\section{Introduction}\label{sec:intro}
+
+The pioneers are the ones with arrows in their backs. The saying is older
+than any dataset, and it has never been tested on the record where the
+claim could be read directly, because the record did not exist in usable
+form. It does now. Every US trademark application since 1884 is public,
+with its goods/services description, its owner, its counsel of record, and
+a dated prosecution history that records whether the mark registered,
+whether its owner proved five years later that the product was still in
+commerce, and whether it was renewed at ten. This paper re-parses all 13.99
+million case files into that dated form and asks of each filing two
+questions about its language: how unusual was this description for its
+industry, and was it written in words the industry was moving toward or
+words it was leaving behind. The first is the filing's \emph{atypicality},
+the second its \emph{lead}. The paper then follows the filing, and the firm
+behind it, through the gates the record provides.
+
+The findings build on one another, and each section is written to be read
+on its own.
+
+Section~\ref{sec:construct} builds the measure. A description is reduced to
+the themes it draws on, fitted once over the whole corpus by a topic model
+and held fixed; its theme proportions are compared, by Kullback--Leibler
+divergence, to the average proportions of its own Nice class in the five
+years before its filing date and the five years after. The average of the
+two divergences is atypicality; their difference is lead. The section
+states why words are not scored directly (a divergence on words counts the
+length of the filing), why surprise is measured within a class and never
+across classes, and what the measure does not see, which is how a filing
+combines its themes.
+
+Section~\ref{sec:life} follows every filing through registration and the
+first use-proof gate, on the largest sample the record allows. Registration
+rewards a middling atypicality and is indifferent to lead. The gate is not:
+among 3.10 million registrations, marks whose language most led their
+industry were cancelled for non-use $1.4$ points more often than marks whose
+language most lagged it, within Nice class and registration year, with
+drafting and representation held. The penalty is present in 33 of 44
+classes and in both self-filed and represented marks, which fail at very
+different rates (69\% against 47\%) for reasons the section describes. It
+is not constant in time: it was two to three times larger for marks filed
+in the late 1990s, reversed for marks filed 2000--2004, and returned from
+2008, with the whole swing inside four technology classes and, within
+them, in which themes each era's leading filings were drawn from. The
+section also shows what applicants do when an application is abandoned and
+refiled: they rewrite toward the class's typical description, from both
+tails, whether the owner or counsel drafts the second attempt, which means
+every registered description is in part a conformed one. It breaks out the internet as a theme and finds
+web-based filings in industrial goods classes failing the gate at the rate
+of software registrations rather than of their class. It closes with the
+reason the rest of the paper conditions on reaching the gate: registration
+is a launch indicator, nine in ten failures being the applicant's own
+inaction, and the gate is the first point at which the market's verdict
+reaches the record.
+
+Section~\ref{sec:resolution} asks whether the gate result depends on how
+the vocabulary was partitioned. It does not, for lead: under fifty global
+themes, five hundred global themes, and fifty themes fitted separately
+within each class, the penalty is $+2.3$, $+2.6$ and $+1.9$ points. It
+does, for atypicality: the protection the global scorings attribute to
+atypical language ($4.3$--$4.4$ points) falls to $0.7$ under per-class
+themes, because what a global model calls atypical is largely a filing
+importing a theme from another class. The section measures that population
+directly: registrations carrying a theme new to their class fail slightly
+less than established ones, and more once their own atypicality is held.
+
+Section~\ref{sec:secevents} follows the owner rather than the mark, through
+a priced private round, SEC reporting, and an initial public offering. On
+one million owners debuting 2009--2018, funding does not vary with either
+axis of the debut's language; reporting and listing fall in lead and, with
+length held, rise in atypicality. The firms that came to hold most of the
+value (ten owners hold 18.5\% of \$19.2 trillion of linked peak revenue,
+five hundred hold 83\%) described their first product in language their
+industry already used. Hand-curated vocabularies for the internet,
+artificial intelligence and blockchain show AI and blockchain debuts funded
+four to five times as often as the average debut, and listing about twice
+as often. Patenting and funding do not order each other in time. Neither
+axis of the language is a proxy for patenting.
+
+Section~\ref{sec:robust} reports what changes under other choices: theme
+resolution, fitting noise, decayed reference windows, annual reference
+buckets, window width and mix, the absence of conditioning on grant, and
+the period. In each case the body's simpler formulation is stated beside
+the more complicated finding. One of them is a correction worth carrying in
+mind: decayed windows return a lead penalty about a seventh smaller than
+flat ones, with the same sign and precision.
+
+What the record says, read together, is this. Being early with the
+language of a product costs at the use-proof gate, in every industry and
+under every partition of the vocabulary, and it costs more in the
+industries and the years in which the language was moving fastest. Being
+unusual is rewarded at the same gate, but the reward belongs mostly to
+filings that bring a theme in from elsewhere, and it is the examiner, not
+the market, that rewards middling conformity at registration. The firms
+that thrived were not the pioneers of language. They were written in the
+words their industries already used, and they are few.
