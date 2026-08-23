@@ -1,1 +1,43 @@
-% placeholder: sec3_resolution
+\section{The year-five gate under three theme resolutions}\label{sec:resolution}
+
+Section~\ref{sec:life} scored every filing on fifty themes fitted once over
+the whole corpus, with each class supplying its own reference. That is one
+of three ways to partition the vocabulary, and the gate result should not
+depend on which. This section repeats the first-gate analysis on the
+identical registrations under three scorings:
+
+\begin{itemize}[nosep]
+\item \emph{global, 50 themes}: one model over all 45 classes, references
+per class (the production scoring of Section~\ref{sec:life});
+\item \emph{global, 500 themes}: the same construction at ten times the
+resolution, so a theme is closer to a product category than to an industry;
+\item \emph{per class, 50 themes}: a separate 50-theme model fitted on each
+class's own filings, so the partition is tuned to the class and nothing is
+shared across classes.
+\end{itemize}
+
+\noindent The third differs from the first in what a theme is, not in where
+the reference comes from; in both, surprise is bounded within the class.
+The second changes only the resolution. All three are scored on per-filing
+windows of 1,826 days on each side, and the gate outcome is the same
+event-dated cancellation for non-use.
+
+\subsection{Three scorings, one gate}\label{sec:three_scorings}
+
+%% RESOLUTION TABLE (rolling T500 + perclass + production on the common sample) -- filled when the rescores land.
+
+\subsection{Themes new to the corpus and themes new to a class}\label{sec:novelty_origin}
+
+A theme can be new in two senses. It can be new to the record: no class was
+filing it until recently. Or it can be established elsewhere and only now
+arriving in this class. The 500-theme model is fine enough to separate the
+two. For each theme and each class, the first sustained year is the first
+year by which the theme has been the dominant theme of at least one hundred
+filings in that class; the corpus-wide first sustained year is the earliest
+of those across classes. Each registration in the gate sample is assigned
+its dominant theme and classified at its filing date as new to the corpus
+(filed within three years of the theme's first sustained year anywhere), new
+to the class (not new to the corpus, but within three years of the theme's
+first sustained year in this class), or established.
+
+%% NOVELTY ORIGIN RESULTS (theme_novelty_origin.json) -- filled when the run lands.

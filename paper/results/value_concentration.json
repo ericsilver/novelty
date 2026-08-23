@@ -1,0 +1,430 @@
+{
+ "n_debut_filers": 1796238,
+ "n_linked": 4710,
+ "total_peak_revenue": 19190650724072.0,
+ "mean_zL_all_debuts": -1.1184818411378021e-18,
+ "mean_zA_all_debuts": 1.8849039692384178e-18,
+ "mean_zL_linked": -0.048381007646489914,
+ "mean_zA_linked": 0.08369119749064019,
+ "tops": {
+  "10": {
+   "share_of_linked_revenue": 0.18495714663535154,
+   "mean_zL": -0.006238360693359785,
+   "mean_zA": -0.34662405584528805,
+   "se_zL": 0.19309131643546273,
+   "se_zA": 0.19013645495434447,
+   "rest_mean_zL": -0.048470672852773164,
+   "rest_mean_zA": 0.08460676185944004,
+   "share_leading_fifth": 0.1,
+   "share_atypical_fifth": 0.1
+  },
+  "50": {
+   "share_of_linked_revenue": 0.41450996427244213,
+   "mean_zL": 0.13408757781896535,
+   "mean_zA": -0.08294552675704184,
+   "se_zL": 0.16420327194277698,
+   "se_zA": 0.12661116047969256,
+   "rest_mean_zL": -0.05033882508710638,
+   "rest_mean_zA": 0.08547914517570114,
+   "share_leading_fifth": 0.28,
+   "share_atypical_fifth": 0.16
+  },
+  "100": {
+   "share_of_linked_revenue": 0.5361879762676772,
+   "mean_zL": 0.018165302485083044,
+   "mean_zA": -0.016819695133809667,
+   "se_zL": 0.10533061726277496,
+   "se_zA": 0.09004439980752255,
+   "rest_mean_zL": -0.049824528473638996,
+   "rest_mean_zA": 0.08587147715711416,
+   "share_leading_fifth": 0.25,
+   "share_atypical_fifth": 0.17
+  },
+  "500": {
+   "share_of_linked_revenue": 0.829278201652517,
+   "mean_zL": -0.039773605363851,
+   "mean_zA": 0.10661075115722707,
+   "se_zL": 0.04775745557070393,
+   "se_zA": 0.045536545005274494,
+   "rest_mean_zL": -0.04940326444965367,
+   "rest_mean_zA": 0.08096916023807643,
+   "share_leading_fifth": 0.204,
+   "share_atypical_fifth": 0.216
+  },
+  "1000": {
+   "share_of_linked_revenue": 0.9257321118119135,
+   "mean_zL": -0.06468943250174287,
+   "mean_zA": 0.06847219992830225,
+   "se_zL": 0.032526220301314586,
+   "se_zA": 0.03223157050324377,
+   "rest_mean_zL": -0.04398520579871284,
+   "rest_mean_zA": 0.08779335316782022,
+   "share_leading_fifth": 0.176,
+   "share_atypical_fifth": 0.201
+  }
+ },
+ "top_firms": [
+  {
+   "owner": "WAL-MART STORES, INC.",
+   "cik": 104169,
+   "peak_rev": 567762000000.0,
+   "debut_year": 1995,
+   "cls": "032",
+   "zL": -0.5329850950462695,
+   "zA": -0.18776286007199391
+  },
+  {
+   "owner": "Amazon.com, Inc.",
+   "cik": 1018724,
+   "peak_rev": 469822000000.0,
+   "debut_year": 1996,
+   "cls": "035",
+   "zL": 1.1199797347075944,
+   "zA": -0.26900146100301253
+  },
+  {
+   "owner": "EXXON MOBIL CORPORATION",
+   "cik": 34088,
+   "peak_rev": 413680000000.0,
+   "debut_year": 1995,
+   "cls": "001",
+   "zL": -0.7135840898653505,
+   "zA": 0.8586896520289798
+  },
+  {
+   "owner": "APPLE INC.",
+   "cik": 320193,
+   "peak_rev": 394328000000.0,
+   "debut_year": 1995,
+   "cls": "009",
+   "zL": 0.5854372600728689,
+   "zA": -0.5743046544777384
+  },
+  {
+   "owner": "UNITEDHEALTH GROUP INCORPORATED",
+   "cik": 731766,
+   "peak_rev": 324162000000.0,
+   "debut_year": 1995,
+   "cls": "042",
+   "zL": 0.11414241522251989,
+   "zA": -0.9504334140351922
+  },
+  {
+   "owner": "Berkshire Hathaway Inc.",
+   "cik": 1067983,
+   "peak_rev": 302020000000.0,
+   "debut_year": 1998,
+   "cls": "025",
+   "zL": -0.45453055194340963,
+   "zA": 0.05177887048896599
+  },
+  {
+   "owner": "Alphabet Inc.",
+   "cik": 1652044,
+   "peak_rev": 282836000000.0,
+   "debut_year": 2016,
+   "cls": "036",
+   "zL": 0.28109285807449436,
+   "zA": -0.5062279628167078
+  },
+  {
+   "owner": "MCKESSON CORPORATION",
+   "cik": 927653,
+   "peak_rev": 276711000000.0,
+   "debut_year": 1995,
+   "cls": "037",
+   "zL": 0.022445789837602457,
+   "zA": 0.14417365282069247
+  },
+  {
+   "owner": "CHEVRON CORPORATION",
+   "cik": 93410,
+   "peak_rev": 273005000000.0,
+   "debut_year": 1995,
+   "cls": "004",
+   "zL": -0.7661895567314266,
+   "zA": -0.8931895171387689
+  },
+  {
+   "owner": "MICROSOFT",
+   "cik": 789019,
+   "peak_rev": 245122000000.0,
+   "debut_year": 2014,
+   "cls": "009",
+   "zL": 0.28180762873777837,
+   "zA": -1.1399628642481046
+  },
+  {
+   "owner": "CONOCOPHILLIPS COMPANY",
+   "cik": 1163165,
+   "peak_rev": 244813000000.0,
+   "debut_year": 1996,
+   "cls": "004",
+   "zL": -0.8478832686545743,
+   "zA": -1.1590257901792782
+  },
+  {
+   "owner": "Cardinal Health, Inc.",
+   "cik": 721371,
+   "peak_rev": 204979000000.0,
+   "debut_year": 1995,
+   "cls": "042",
+   "zL": 0.23299678211044306,
+   "zA": -1.224276681837387
+  },
+  {
+   "owner": "PHILLIPS 66 COMPANY",
+   "cik": 1534701,
+   "peak_rev": 196088000000.0,
+   "debut_year": 1995,
+   "cls": "004",
+   "zL": -0.664017294976955,
+   "zA": -0.9199104656163047
+  },
+  {
+   "owner": "AT&T CORP.",
+   "cik": 732717,
+   "peak_rev": 181193000000.0,
+   "debut_year": 1995,
+   "cls": "038",
+   "zL": 0.7843058737524846,
+   "zA": -0.7305137168677494
+  },
+  {
+   "owner": "ANTHEM, INC.",
+   "cik": 1156039,
+   "peak_rev": 156595000000.0,
+   "debut_year": 1995,
+   "cls": "042",
+   "zL": 0.3686250031891105,
+   "zA": -0.0801231171947154
+  },
+  {
+   "owner": "FORD MOTOR COMPANY",
+   "cik": 37996,
+   "peak_rev": 155900000000.0,
+   "debut_year": 1995,
+   "cls": "006",
+   "zL": 3.4346349325819,
+   "zA": 0.40859089723781244
+  },
+  {
+   "owner": "GENERAL MOTORS COMPANY",
+   "cik": 1467858,
+   "peak_rev": 152092000000.0,
+   "debut_year": 1999,
+   "cls": "041",
+   "zL": 2.3046201844984258,
+   "zA": 0.6598814603850164
+  },
+  {
+   "owner": "KROGER CO., THE",
+   "cik": 56873,
+   "peak_rev": 148258000000.0,
+   "debut_year": 1995,
+   "cls": "030",
+   "zL": -0.842428241958724,
+   "zA": -0.5067663279742912
+  },
+  {
+   "owner": "CENTENE CORPORATION",
+   "cik": 1071739,
+   "peak_rev": 140095000000.0,
+   "debut_year": 1996,
+   "cls": "036",
+   "zL": -1.887963197887328,
+   "zA": 0.07634588363813458
+  },
+  {
+   "owner": "WALGREENS BOOTS ALLIANCE, INC.",
+   "cik": 1618921,
+   "peak_rev": 139081000000.0,
+   "debut_year": 2014,
+   "cls": "044",
+   "zL": -0.7053585023357521,
+   "zA": -0.531306367046127
+  },
+  {
+   "owner": "VERIZON COMMUNICATIONS INC",
+   "cik": 732712,
+   "peak_rev": 133974000000.0,
+   "debut_year": 1997,
+   "cls": "042",
+   "zL": 1.8786135576576675,
+   "zA": -0.5822460873433994
+  },
+  {
+   "owner": "MARATHON PETROLEUM COMPANY LLC",
+   "cik": 1510295,
+   "peak_rev": 119983000000.0,
+   "debut_year": 1998,
+   "cls": "039",
+   "zL": -0.8871327190633714,
+   "zA": -0.7861679415650763
+  },
+  {
+   "owner": "FACEBOOK, INC.",
+   "cik": 1326801,
+   "peak_rev": 117929000000.0,
+   "debut_year": 2007,
+   "cls": "009",
+   "zL": 2.9280829814161446,
+   "zA": -0.47501518037328433
+  },
+  {
+   "owner": "COMCAST CORPORATION",
+   "cik": 1166691,
+   "peak_rev": 116385000000.0,
+   "debut_year": 1999,
+   "cls": "041",
+   "zL": -0.27101520067389034,
+   "zA": -0.212980918266043
+  },
+  {
+   "owner": "GENERAL ELECTRIC COMPANY",
+   "cik": 40545,
+   "peak_rev": 113543000000.0,
+   "debut_year": 1995,
+   "cls": "017",
+   "zL": -0.12032344233629125,
+   "zA": 1.9860057980216361
+  },
+  {
+   "owner": "J. P. MORGAN CHASE & CO.",
+   "cik": 19617,
+   "peak_rev": 102694000000.0,
+   "debut_year": 1995,
+   "cls": "036",
+   "zL": 0.9956900637400976,
+   "zA": -0.655106799191062
+  },
+  {
+   "owner": "Boeing Company, The",
+   "cik": 12927,
+   "peak_rev": 101127000000.0,
+   "debut_year": 1995,
+   "cls": "016",
+   "zL": 1.1007302818256177,
+   "zA": 1.3619845845449674
+  },
+  {
+   "owner": "PFIZER INC.",
+   "cik": 78003,
+   "peak_rev": 100330000000.0,
+   "debut_year": 1996,
+   "cls": "005",
+   "zL": -0.5649285448277671,
+   "zA": -0.40675246058490555
+  },
+  {
+   "owner": "STONEX GROUP INC.",
+   "cik": 913760,
+   "peak_rev": 99887800000.0,
+   "debut_year": 2000,
+   "cls": "036",
+   "zL": -1.8209412475269775,
+   "zA": 3.074066304347798
+  },
+  {
+   "owner": "AMERICAN INTERNATIONAL GROUP INC",
+   "cik": 5272,
+   "peak_rev": 96004000000.0,
+   "debut_year": 1995,
+   "cls": "036",
+   "zL": -0.11376111207590682,
+   "zA": -0.07435647235245152
+  },
+  {
+   "owner": "ARCHER DANIELS MIDLAND COMPANY",
+   "cik": 7084,
+   "peak_rev": 93935000000.0,
+   "debut_year": 1996,
+   "cls": "031",
+   "zL": -1.5127302857812173,
+   "zA": -0.8142496006810371
+  },
+  {
+   "owner": "JOHNSON & JOHNSON",
+   "cik": 200406,
+   "peak_rev": 93775000000.0,
+   "debut_year": 1995,
+   "cls": "010",
+   "zL": -1.2625083170186362,
+   "zA": 0.6377858272998813
+  },
+  {
+   "owner": "FEDEX CORPORATION",
+   "cik": 1048911,
+   "peak_rev": 93512000000.0,
+   "debut_year": 1997,
+   "cls": "039",
+   "zL": -0.5630321396394523,
+   "zA": -0.10594094869131435
+  },
+  {
+   "owner": "HEWLETT-PACKARD COMPANY",
+   "cik": 47217,
+   "peak_rev": 91697000000.0,
+   "debut_year": 1996,
+   "cls": "009",
+   "zL": 1.8987753593311156,
+   "zA": -0.6696199843255173
+  },
+  {
+   "owner": "Energy Transfer Corporation",
+   "cik": 1276187,
+   "peak_rev": 89876000000.0,
+   "debut_year": 2003,
+   "cls": "009",
+   "zL": 0.2434445471336782,
+   "zA": 1.5306627637537273
+  },
+  {
+   "owner": "PEPSICO, INC.",
+   "cik": 77476,
+   "peak_rev": 86392000000.0,
+   "debut_year": 1998,
+   "cls": "032",
+   "zL": 0.9516522844729333,
+   "zA": -0.2384481523597182
+  },
+  {
+   "owner": "PROCTER & GAMBLE COMPANY",
+   "cik": 80424,
+   "peak_rev": 83680000000.0,
+   "debut_year": 2016,
+   "cls": "035",
+   "zL": -0.4784708977406571,
+   "zA": -0.20905105858965986
+  },
+  {
+   "owner": "TESLA, INC.",
+   "cik": 1318605,
+   "peak_rev": 81462000000.0,
+   "debut_year": 2005,
+   "cls": "012",
+   "zL": -1.7664764924902168,
+   "zA": 1.3474660663957578
+  },
+  {
+   "owner": "INTERNATIONAL BUSINESS MACHINES CORP.",
+   "cik": 51143,
+   "peak_rev": 79591000000.0,
+   "debut_year": 1995,
+   "cls": "009",
+   "zL": 1.360259905444425,
+   "zA": -0.8914540321250743
+  },
+  {
+   "owner": "Albertsons Companies, LLC",
+   "cik": 1646972,
+   "peak_rev": 79237700000.0,
+   "debut_year": 2016,
+   "cls": "044",
+   "zL": -1.0294790046842723,
+   "zA": 1.020201859237773
+  }
+ ],
+ "revenue_weighted_zL": -0.0019605377320751263,
+ "revenue_weighted_zA": -0.016657527680155253
+}

@@ -1,1 +1,239 @@
-% placeholder: appendices
+\section{Corpus, scoring, and burn-in}\label{app:comp}
+
+\subsection{Corpus and scoring}
+
+The USPTO Trademark Annual Applications backfile (product TRTYRAP)
+provides a complete record of US trademark filings from 1884 onward. The
+deepest diagnostic work uses the complete software/electronics class
+(Nice 009; 1.81M filings); the diffusion application uses four classes
+totalling 2.32 million granted filings 1990--2024; the gate analyses use
+all 45 classes. The firm-level panels link trademark owners to SEC EDGAR
+financial filers and to PatentsView patent assignees by normalized-name
+join.
+
+The topic representation is a $T = 50$ LDA fit on a stratified sample of
+448{,}437 filings across all 45 classes (vocabulary of 62{,}168 unigrams
+and bigrams); every filing 1990--2024 is transformed to a dense 50-topic
+distribution, and past-facing and future-facing surprise are computed against
+per-filing topic references spanning 1{,}826 days on each side of the filing
+date, scoring 1995--2019. A filing whose window holds fewer than 500
+same-class filings on either side is left unscored, since a thin reference
+inflates the divergence mechanically; that floor, together with the corpus
+edges, is why roughly two-thirds of filings carry a score. A term-level variant is retained
+alongside, on the same anchoring: token distributions (within-class
+document frequency $\geq 50$) against per-filing windows of the same
+1{,}826 days, Dirichlet-smoothed ($\alpha = 1$) over the class vocabulary.
+Because a goods/services description runs to a few dozen words, the
+divergence is needed only at the terms a filing actually uses, so the
+reference is carried as a running count vector and read sparsely. The term
+variant is used where vocabulary identity is the object (phrase transit)
+and as the comparison scoring throughout. Both representations are also computed under an
+exponentially decayed reference with a two-year half-life, truncated at the
+same window; Appendix~\ref{app:scoring} reports what changes.
+
+\subsection{Scores are interpretable from 1995}
+
+\emph{Burn-in} is the span at each end of the corpus where the reference
+windows cannot be filled, so scores there reflect a thin reference rather
+than the text being scored.
+
+The signal depends on having enough past and future filings to populate
+the references; the 5-year past window is incomplete before 1990 and the
+future window after 2020, and both zones are excluded
+(Figure~\ref{fig:burnin}). The burn-in cut is set empirically: thin past
+references inflate past-facing surprise, and profiling that bias across
+all 44 sufficient-volume classes gives a median absolute bias of
+$\sim$2.0 nats --- the natural-log unit in which these divergences are
+measured --- in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
+onward, below any interpreted effect size. The 1995--1997 deviations
+($\sim$0.15--0.17) are not burn-in --- mechanical contamination cannot
+rebound --- but the dot-com era moving the corpus. Per-class burn-in
+lengths estimated under a stability-band criterion track each class's
+noise floor rather than its reference density, so a single standard cut
+at 1995 is used, conservative by about two years.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.85\textwidth]{results/burnin.png}
+\caption{Reference-window density by year on log scale. Hatched regions
+are the past-side and future-side burn-in zones where the 5-year window is
+incomplete. The windows determine only how surprising a filing's language
+is --- its score at the filing date. The outcome the score is tested
+against is read separately and later: whether the registration survived
+the use-proof gate, decided at registration age six to seven, which is why
+the score is interpretable from 1995 but the gate sample ends with the
+2018 cohort.}
+\label{fig:burnin}
+\end{figure}
+
+\section{Examination rewards a middling specificity}\label{app:registration}
+
+Across 3.59 million debut filings (57.6\% base rate), completion is an
+inverse-U in \emph{atypicality}: it climbs from 46.6\% at the least atypical
+end to about 58\% in the middle and falls back to 53.4\% at the most atypical
+(Figure~\ref{fig:profiles}, panel C). The same shape appears on the
+past-facing level alone, more mildly, running 54.0\% at the bottom quintile to
+58.4--59.1\% in the middle and 57.7\% at the top (Figure~\ref{fig:outcomes}A).
+
+The signed axis behaves differently. Completion on \dkl{} falls to a trough of
+51.9\% just above the median and then rises steadily to 58.0\% at the leading
+end. That trough is composition rather than timing: $|L|$ correlates with
+atypicality at $+0.31$, so filings near zero lead are disproportionately
+low-atypicality filings, which complete poorly for the reason above. Split by
+atypicality, the trough is absent in the upper three fifths and survives in
+the lowest. Reference windows built by calendar year put an inverse-U on this
+axis too, but that one is an artifact of annual bucketing
+(Appendix~\ref{app:rolling}) and does not survive at daily resolution. The
+signed axis still enters a linear specification strongly
+(Table~\ref{tab:staged}), but monotonically rather than through an interior
+peak: what curvature exists at registration belongs to how far a filing's
+language sits from its category, not to which side of it the filing sat.
+
+The obvious objection is that unfamiliar language is simply refused more
+often, so the measure recovers nothing beyond familiarity. Completion falls at
+\emph{both} ends, so the most category-typical filings also complete less than
+the middle, which familiarity cannot explain; and the curvature is specific to
+the unsigned axis, the signed axis showing no interior peak at all.
+
+Refiling after abandonment is itself mildly related to vocabulary position,
+though not on the axis that matters here. Refiling rates are flat in
+atypicality (a middle-minus-tails difference of $-0.06$pp on a 3.6\% base) but
+rise with lead, from 2.6\% among the most lagging abandoned applications to
+3.4\% among the most leading. Firms whose language ran ahead of their industry
+are slightly likelier to try the same mark again.
+
+\section{How refiled descriptions are rewritten}\label{app:refile}
+
+Figure~\ref{fig:refile} shows the goods/services description before and
+after a rewrite, for the 31{,}084 refilings in Section~\ref{sec:life}
+whose text changed. A pair is an abandoned application and the same owner's
+later registration of the identical mark in the same Nice class within six
+years; the earliest registered refiling is kept. Counsel of record is read
+from the prosecution history of each filing separately, so a pair can change
+representation between attempts. Atypicality is on the production scoring;
+length is the word count of the normalized description.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/refile_prepost.png}
+\caption{Rewritten refilings: mean atypicality and mean description length
+of the abandoned filing (grey) and of the registered refiling (red), by
+representation on the refiling and by the change in representation between
+the two attempts. Mean atypicality falls by $0.01$ to $0.03$ nats in every
+group except counsel-then-self, where it is unchanged; the means are small
+because the convergence runs from both tails, which the profile by fifth
+below shows. Length rises by six words where counsel is hired for the
+second attempt and falls by one where counsel rewrites counsel.}
+\label{fig:refile}
+\end{figure}
+
+The means understate the convergence, because it runs in both directions.
+By fifth of the original's atypicality, the change is $+0.16$, $+0.14$,
+$+0.06$, $-0.06$ and $-0.39$ nats from the most conventional fifth to the
+most atypical, and within a point of that profile in each of the four
+representation groups. Identical-text refilings change by $+0.002$ to
+$+0.008$ across the same fifths. On lead, the changed-text profile runs
+$+0.046$ to $-0.072$ and the identical-text profile $+0.014$ to $-0.054$;
+the difference is the rewriting, the rest is the reference windows moving
+with the later filing date.
+
+\section{Term scoring measures length; theme scoring does not}\label{app:representation}
+
+Figure~\ref{fig:representation} puts the two representations side by side
+over the same axes, with each hexagon coloured by the mean length of the
+filings in it. Under term scoring the colour runs from dark near the
+origin --- a median of about 200 terms --- to near-white at the far end,
+where the median is eight. That gradient is the measurement problem: a
+filing scores as atypical largely because it is short. Under topic scoring
+the same surface is a narrow band of roughly uniform tone.
+
+Two filings are marked in both columns. Under the production scoring they
+behave differently from one another, which is the point. \textsc{Amazon.com}
+(1997) is a leader on both representations --- the 98th percentile of its
+class on terms and the 94th on themes --- while sitting at the 40th and 47th
+percentiles of atypicality, so both agree that it was early and neither
+mistakes it for strange. Apple's \textsc{iPod} (2001) divides them: the 31st
+percentile of lead on terms against the 62nd on themes. The surfaces plotted
+here are on the class-year build the figure was generated from, where the
+length gradient is starkest; the percentiles just quoted are on the per-filing
+build used for every estimate.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/representation_appendix.png}
+\caption{Mean filing length across the two axes, by representation and
+class, for filings 1995--2019 scored on per-filing reference windows. The
+horizontal axis is surprise against the preceding five years, the vertical
+axis surprise against the following five; a filing on the dashed diagonal
+is equally far from both, and distance below it is lead. Hexagons holding fewer than 25 filings are blank; the retained
+hexagons cover over 99.4\% of filings in every panel. The colour scale is
+shared across panels; the axis ranges are not, since term-scored and
+topic-scored KL do not share a scale, so the comparison invited across
+columns is of shape and colour gradient rather than of magnitude. Both
+columns are drawn on the filings the per-filing windows score, which
+differ between representations by under one percent.}
+\label{fig:representation}
+\end{figure}
+
+Topic scoring is independent of document length, which term scoring is not; term scoring
+resolves novel word \emph{combinations}, which topic scoring does not. Hence
+topic scoring for every estimate, since the length confound contaminates
+firm-level comparisons, and term scoring for every worked example, since the
+topic basis has no coordinate for the language the examples turn on.
+
+\section{How three filings encode}\label{app:exhibit}
+
+Table~\ref{tab:exhibit} traces three filings through term scoring and topic
+scoring at $T \in \{50, 200, 500\}$ --- three kinds of novelty, and how each
+representation handles them.
+
+\textsc{Amazon.com} (1997, advertising/retail) is \emph{combinatorial}
+novelty: every word is ordinary, but the bigrams assemble an invention
+(``computerized line,'' ``line search,'' ``search ordering''; class
+document frequencies 379, 134, 355). The filing's text reads ``on line''
+as two words, the standard spelling in 1997, before \emph{online}
+lexicalized into a single token; the analyzer drops the stopword ``on''
+and the surviving bigram ``line search'' is the act of forming the
+compound caught in progress. The novelty was necessarily combinatorial
+because the word for it did not yet exist. Term scoring sees these
+bigrams; under topic scoring at every resolution all of them are out of
+vocabulary and the filing reads as a media retailer that uses computers.
+
+\textsc{Kombucha} (1997, beer/soft drinks) is \emph{lexical} novelty: the
+new thing arrives as new words (\emph{kombucha} df 567, \emph{saccharose}
+out of vocabulary even at the class level). The word \emph{kombucha} is in
+the topic vocabulary but, with no kombucha-like topic, its mass dissolves
+into a generic beverages topic ($\geq 0.60$ weight at every $T$).
+
+\textsc{Ethereum} (2018, software) is \emph{wave} novelty: emergent
+vocabulary already diffusing (\emph{blockchains}, \emph{distributed
+computing}). It loads on generic software and services topics at every
+resolution, including $T = 200$, which does contain a
+cryptocurrency/blockchain topic --- the eleven occurrences of
+\emph{software} outvote the blockchain terms.
+
+\begin{table}[h]\centering\small
+\caption{Top topic loading for three filings, by representation. Term
+scoring resolves the novel content of all three; topic scoring resolves
+none of it at any tested resolution.}
+\label{tab:exhibit}
+\begin{tabular}{lp{3.1cm}p{3.1cm}p{3.1cm}}
+\toprule
+& \textsc{Amazon.com} & \textsc{Kombucha} & \textsc{Ethereum} \\
+& (1997) & (1997) & (2018) \\
+\midrule
+novel content (term) & line search, search ordering & kombucha, saccharose & blockchains, distributed computing \\
+$T=50$ & video, computer, music (0.40) & beverages, fruit, drinks (0.64) & software, online, downloadable (0.33) \\
+$T=200$ & entertainment, video, games (0.29) & beverages, drinks, coffee (0.60) & field, services, development (0.37) \\
+$T=500$ & computer, software, data (0.22) & beverages, drinks, fruit (0.61) & software, online, computer (0.49) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The pattern across the row is the measurement point in miniature: topic
+scoring cannot represent combinatorial novelty (Amazon), dilutes lexical
+novelty (Kombucha), and majority-votes away wave novelty (Ethereum) even
+when a fitting topic exists. That the mark-level outcome results are
+nearly identical under both scorings despite this blindness is what
+licenses topic scoring as a robustness instrument; that the firm-level
+results diverge is what exposes them as artifacts of the lexical
+specificity term scoring additionally captures
+(Appendix~\ref{sec:robust_hazard}).
+

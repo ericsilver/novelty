@@ -1,1 +1,287 @@
-% placeholder: sec4_sec_events
+\section{Funding, listing, and the firms that mattered}\label{sec:secevents}
+
+This section follows the owner rather than the mark. The unit is an owner's
+first registered filing, its debut, scored on the production measure, and
+the outcomes are dated events in the SEC record: a priced private offering
+(Form D), the start of financial reporting, and an initial public offering.
+Form D became mandatory in electronic form on 16 March 2009, so the ladder
+is built on debuts made 2009--2018, for which every rung is observed. The
+public-reporting result on the longer 1995--2018 sample, and the comparison
+with patenting, follow.
+
+\subsection{The ladder: a round, reporting, a listing}\label{sec:ladder}
+
+%% LADDER RESULTS (sec_event_ladder.json) -- filled after the run.
+
+\subsection{The firms that produced the most value}\label{sec:value}
+
+%% VALUE CONCENTRATION (value_concentration.json) -- filled after the run.
+
+\subsection{Internet, blockchain, and artificial intelligence}\label{sec:curated}
+
+%% CURATED COHORTS (theme_cohorts.json + ladder cohorts) -- filled after the run.
+
+\subsection{Being early costs at the public-reporting margin; being unusual does not pay there}\label{sec:bluesea}
+
+The outcome here is whether an owner ever appears in the Securities and
+Exchange Commission's financial reporting records. That is broader than
+exchange-listed: roughly half the matched firms carry a ticker and the rest
+report for other reasons. The rate rises monotonically in
+the KL \emph{levels} on both axes, from 0.19\% at the bottom past-facing
+quintile to 0.52\% at the top. In signed \dkl{} it is U-shaped.
+
+\begin{table}[h]\centering\small
+\caption{Debut listing and vocabulary position: design-based estimates.
+LPM of P(owner ever in SEC EDGAR) on 1{,}556{,}968 registered debut
+filings 1995--2018, one observation per owner, class$\times$filing-year
+fixed effects, heteroskedasticity-robust SEs. Quintiles cut within
+class$\times$year. Base rate 0.481\%.}
+\label{tab:edgar}
+\begin{tabular}{lrr}
+\toprule
+ & Coefficient (pp) & SE \\
+\midrule
+\multicolumn{3}{l}{\emph{Atypicality quintiles, $A = \tfrac{1}{2}(K^{-}+K^{+})$ (Q1 omitted)}} \\
+\quad Q5, FE only & $+0.017$ & $0.018$ \\
+\quad Q5, FE + log length & $+0.000$ & $0.018$ \\
+\quad Q5, FE + log length, on $K^{-}$ alone & $-0.003$ & $0.018$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Signed \dkl{} quintiles, FE + log length + KL levels}} \\
+\quad Q3 & $-0.133$ & $0.020$ \\
+\quad Q4 & $-0.187$ & $0.021$ \\
+\quad Q5 & $-0.158$ & $0.024$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Decomposition, FE + log length}} \\
+\quad $|\Delta\mathrm{KL}|$ (pp per sd) & $+0.067$ & $0.009$ \\
+\quad signed \dkl{} (pp per sd) & $-0.047$ & $0.006$ \\
+\quad log description length & $+0.056$ & $0.004$ \\
+\bottomrule
+\end{tabular}
+\\[0.3em]\footnotesize Standard errors in place of significance stars; see the
+note to Table~\ref{tab:gate_lpm}.
+\end{table}
+
+The raw atypicality gradient does not survive the design-based estimates (Table~\ref{tab:edgar}). Within class and filing year, holding description length
+fixed, top-quintile atypicality raises the probability of SEC reporting by
+$+0.000$pp on a 0.481\% base ($t = 0.0$), and by $-0.003$pp on the past
+level alone. The quintile profile is not even monotone: the three middle
+quintiles sit \emph{below} the bottom one and the top merely returns to it.
+The 2.7-fold gradient in the raw bins is composition --- firms that go on to
+report cluster in particular classes, years, and multi-class filings --- and
+class$\times$year fixed effects absorb it. Lead costs, at equal
+atypicality: the signed component enters negatively
+($-0.047$pp per standard deviation, $t = -7.8$) while the unsigned component enters
+positively ($+0.067$pp per standard deviation, $t = 7.7$). The U-shape in raw bins
+is exactly this pair: lagging filings show the atypicality premium with no
+lead penalty, leading filings show it net of that penalty, and the middle
+quintiles show neither. Once the levels are controlled,
+the apparent recovery of the far-leading tail is much reduced: the quintile
+profile falls through Q4 and recovers only slightly at Q5
+(Table~\ref{tab:edgar} middle panel).
+
+Owners are matched to SEC
+registrants by normalized exact name, over a candidate universe of all
+5.67 million owners in the corpus; names resolving to more than one
+registrant are dropped rather than assigned, and one match is kept per owner
+string. That yields 19{,}889 matched owners covering 7{,}588 registrants, and
+a base rate of 0.481\% among registered debut filers. Validation on 22
+companies that indisputably went public --- across software,
+pharmaceuticals, food, apparel, aerospace and autos --- matches all 22. A random sample of 25 matches
+carrying at least three filings was inspected by hand and none was wrong,
+which is a check on gross failure modes rather than a precision estimate.
+
+The linkage is nonetheless a name match, and that bounds the atypicality
+reading in particular. Firms with distinctive names are easier to match than
+firms with generic ones, and distinctiveness of a name plausibly travels with
+distinctiveness of the goods/services text; nothing in this design separates
+the two. Restricting the candidate universe --- to a subset of classes, say
+--- makes matchability itself a function of the regressor, and the
+atypicality gradient is sensitive to exactly that. Its absence here is
+therefore the more credible reading of the two, and the signed axis, which
+does not move when the linkage is varied, carries the weight. The financing
+rows of Table~\ref{tab:staged} rest on a Form~D match whose raw extracts are
+not in the current tree and should be read as provisional.
+
+In raw rates, 0.444\% of the most
+lagging fifth of registered debut owners later appear in SEC reporting
+records, against 0.240\% in the middle fifth and 0.390\% of the most leading
+fifth: both tails beat the middle, and the lagging tail beats the leading
+one. Under the design-based specification the profile declines from the
+lagging end through the fourth quintile and recovers slightly at the leading
+end, so the ordering is monotone over four of the five quintiles.
+
+The profile is a U rather than a slope, so a linear
+summary of it points downward through a curve whose tails are its high
+points; Appendix~\ref{app:choices} fits it: a V with its vertex about a
+third of a standard deviation above mean lead, explaining 59\% of the binned
+variation against 13\% for a straight line. And ``SEC reporting'' is
+not ``went public'': splitting matched owners on whether their SEC filer number carries a
+ticker gives $10{,}556$ listed against $9{,}333$ reporting without one, and
+both halves show the same U, so the result is not an artifact of counting
+non-operating registrants as successes.
+
+Atypicality predicts survival at the use-proof gate but not which owners become SEC-reporting once composition is
+absorbed. Lead is the timing bet, and it costs at both margins.
+
+The two are not independent in the obvious economic sense. What makes a
+filing leading is precisely that its industry moved toward its language, and
+an industry that has moved toward your language now describes its goods the
+way you describe yours. Being early therefore consumes the quantity that
+pays: the mark that was unusual in 2011 is ordinary by 2016 not because its
+owner changed anything but because the category arrived. On this reading
+atypicality is a position competitors erode, and lead measures how fast.
+The design cannot demonstrate that mechanism, since it cannot separate a
+category catching up with a filing from some third thing moving both. What can
+be said is weaker: a negative coefficient on lead at equal atypicality is what
+the mechanism would produce if it were real.
+
+\subsection{The construct is not patenting}\label{sec:patent}
+
+Within the firms that do both, trademark vocabulary and patenting move
+independently. On a panel of trademark owners name-matched to PatentsView
+patent assignees \citep{PatentsView}, each axis is regressed on
+$\log(1 + \mathrm{patents})$ with firms absorbed and errors clustered on the
+firm, over 134{,}075 matched firm-years across 17{,}506 firms. The outcome is
+standardized, so $\beta$ is the shift in standard deviations of the axis per
+unit of log-patents; one unit is roughly a tripling of the patent count, and a
+firm going from none to twenty moves about three units.
+
+\begin{center}\small
+\begin{tabular}{llrrr}
+\toprule
+Text counted as & Axis & $\beta$ (sd) & $t$ & Correlation $r$ \\
+\midrule
+Themes & atypicality & $+0.012$ & $+3.0$ & $+0.009$ \\
+Themes & lead        & $-0.058$ & $-9.4$ & $-0.020$ \\
+Terms  & atypicality & $-0.055$ & $-11.5$ & --- \\
+Terms  & lead        & $+0.012$ & $+2.0$ & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The grid is close to a mirror: whichever axis carries the small
+signal under one way of counting the text carries the opposite sign under the
+other. That is worth stating plainly because the two halves are easy to
+mistake for each other --- the theme-scored \emph{lead} coefficient
+($-0.058$) and the term-scored \emph{atypicality} coefficient ($-0.055$) are
+nearly the same number attached to different quantities.
+
+Nothing here reaches a tenth of a standard deviation. Taking the largest, a
+firm moving from no patents to twenty shifts its mean theme-scored lead by
+about $0.18$ standard deviations, and the raw correlation across firm-years is
+$-0.020$. The weighting of the reference window is irrelevant to all of it:
+scoring against an exponentially decayed reference instead of a flat one moves
+every coefficient by less than $0.004$.
+
+One objection is timing: a patent is applied for before its invention is in public use and a trademark when the firm is ready
+to sell, so patents would lead. Firms do not proceed that linearly, and in
+some industries the trademark comes first \citep{Seip2018}. Entering patents
+at $t-2$, $t-1$, $t$ and $t+1$ --- the last allowing the trademark to
+precede the patent --- one offset at a time, since the count is strongly
+autocorrelated within firm, gives $-0.054$ to $-0.089$ standard deviations of log patenting under topic
+scoring and $+0.012$ to $+0.024$ under term scoring. No ordering isolates a
+direction: the offsets are flat within each representation and opposite in
+sign between them. The largest coefficient anywhere is under a tenth of a
+standard deviation.
+
+The second objection is heterogeneity: a pooled near-zero is consistent
+with genuine orthogonality everywhere, but equally with a positive slope
+in sectors where the two rights are complements --- pharmaceuticals,
+chemicals, medical devices, machinery --- offsetting a zero or negative
+slope where trademarks do the work alone. Classes are sorted in advance into complements, substitutes and neither, by
+judgement from the class definitions rather than by anything estimated: the
+eleven covering chemicals, pharmaceuticals, machinery, electronics, medical
+apparatus and scientific services are complements, the consumer-goods and
+services classes substitutes, the rest neither. Re-estimating the identical
+specification inside each group gives $-0.000$
+($t = -0.03$) among complements, $-0.026$ ($t = -1.45$) among substitutes,
+and an interaction of $-0.008$ ($t = -0.49$). Across the 27 Nice classes
+clearing a 50-owner floor, the complement classes run from sixth place to
+twenty-fourth by coefficient and do not agree in sign with one another. Within that 27-class set the only cells that reach significance are paper and
+housewares, both negative and neither a complement class. On the wider
+34-class retention used for the sectoral build, the significant positives are
+transport and cosmetics --- again neither a complement --- while medical
+devices and machinery turn up among the significant negatives. Neither
+retention supports the complementarity story.
+
+The test is conditional on a successful assignee match, so every owner patents at least once and the
+complement and substitute cells resemble each other more than the industries
+they stand for do, pushing any interaction toward zero. The weight rests on
+the cell-level nulls --- among the firms where a patent--vocabulary
+relationship should be easiest to find.
+
+\subsection{Each axis bites at a different stage}\label{sec:staged}
+
+Table~\ref{tab:staged} re-estimates every outcome on one harmonized sample
+--- one row per debut owner, scored on that owner's first filing --- under a
+single specification, so the coefficients can be read down a column. Magnitudes differ from the section-specific tables above.
+
+\input{results/staged_outcomes_table.tex}
+
+Surprising language costs at registration and
+pays afterwards: atypical debut filings complete registration less often
+($-1.35$pp per standard deviation), then survive the first use-proof gate
+more often ($+1.35$pp) and reach public markets more often ($+0.04$pp on a
+0.56\% base --- the one specification in which a positive atypicality
+coefficient on listing survives, and it is a continuous term through a
+non-monotone profile, not the quintile contrast of Table~\ref{tab:edgar}). The examination process penalizes surprise; the market does
+not. Having been early runs the other way: leading applications complete
+registration \emph{more} often ($+0.87$pp) and then pass the use-proof gate
+\emph{less} often ($-0.49$pp on passing). Both survival rows point the same
+way at the year-ten renewal, four years later and on a sixth of the
+sample: atypicality $+1.30$pp and lead $-0.63$pp among marks that had
+already cleared the first gate. Whatever the first gate is selecting on,
+the second gate selects on it again rather than reversing it. Those filers follow through on the paperwork;
+what does not follow through is the product.
+
+A linear coefficient cannot represent the inverse-U documented in Section~\ref{sec:results}, where
+both vocabulary tails complete registration less often than the middle. The
+positive linear term reflects the asymmetry of that shape --- the leading
+tail completes more often than the lagging tail --- and not a monotone gain
+from leading.
+
+In the financing rows atypicality does nothing at one stage and a great deal
+at the next. Whether a debut owner
+ever raises a Regulation~D round --- a private securities placement,
+reported to the SEC on Form~D --- is unrelated to how atypical its filing
+was: $-0.017$pp per standard deviation among owners who completed
+registration, against a 2.61\% base, which is indistinguishable from zero
+($t = -0.8$). Among owners who did raise one, the same measure predicts
+\emph{reaching} the public market: $+0.49$pp on a 3.49\% base, about 14\%
+relative ($t = 3.8$). Atypical language is invisible at the financing stage
+and informative afterwards, which is what an investor screen that does not
+read the text would look like --- the text being free and public at the
+moment of filing. The comparison is among survivors, so it cannot separate
+that reading from selection on unobservables; and the null at entry is a
+null, not evidence of indifference.\footnote{This pair is sensitive to the
+reference window. Under annual reference buckets the entry row was
+$-0.06$pp ($t = -2.8$), which read as active negative selection. Per-filing
+windows move it to zero and leave the listing row intact, so the negative
+selection was an artifact and the informativeness among the funded was
+not.}
+
+That last row turns on one construction. An exchange-registration marker on
+its own does not mean a firm listed \emph{after} raising: 56\% of matched
+owners carrying one registered before their first Regulation~D notice,
+because established public companies also place securities privately. The
+row is therefore restricted to owners whose exchange registration postdates
+their first notice, which halves the coefficient and leaves it significant.
+
+Three limits bound the financing rows. Regulation~D notices are
+electronically filed only from 2009, so they rest on 2009--2018 debut
+cohorts. Owners are matched by normalized name, which succeeds for a small
+and unrepresentative minority favouring formally constituted entities, so
+every estimate is conditional on matchability. And the final row conditions
+on funding, realized after the filing being scored, so the coefficient is a
+contrast among survivors rather than a treatment effect: it establishes that
+information distinguishing eventual listers was already present in the text
+years earlier, not that the language caused the outcome.
+
+Lead, by contrast, does not reverse anywhere after registration. It is
+negative at both use-proof gates, at financing with or without registration
+imposed, and at listing among the funded; the only row where it is not negative is
+SEC reporting among registered owners, where it is indistinguishable from
+zero ($-0.004$pp, SE $0.007$). Being early is penalized at every stage where the
+market, rather than the examiner, is doing the selecting, and never rewarded
+at any of them.
+
