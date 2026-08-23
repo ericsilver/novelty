@@ -1,0 +1,122 @@
+\section{Lead tracks commercial risk; atypicality does not}\label{sec:limits}
+
+Vocabulary position carries two separable signals, and it is the signed one that tracks
+what becomes of a product. Lead marks commercial risk: $+1.4$pp
+top-versus-bottom quintile at the use-proof gate with fixed effects,
+controls, and owner clustering, and $-0.047$pp per standard deviation in SEC reporting
+at equal atypicality, so the filings whose language an industry went on to
+adopt belong disproportionately to products that do not survive and to
+owners who do not reach public reporting. Atypicality runs the other way and on a different margin: it marks marks that
+survive their gate ($+1.3$pp per standard deviation), and its quintile
+contrast on SEC reporting is zero to three decimals once class, year and
+length are absorbed (Table~\ref{tab:edgar}). A continuous per-standard-deviation
+term on the harmonized sample of Table~\ref{tab:staged} does return $+0.042$pp
+on a $0.56$\% base; that is the one specification in which it survives, and it
+is a linear term through a non-monotone profile.
+
+\dkl{}, adapted from
+\citet{Murdock2017, Barron2018} onto topic distributions of USPTO
+trademark filings, produces interpretable structure on
+commercially-incentivised legal text. The construct is
+empirically distinct from patent-track invention within firm: no stable
+association survives a change of text representation, and no estimate reaches
+a tenth of a standard deviation. And the
+corpus supports direct measurement of cross-industry vocabulary
+diffusion, with multi-year origin-to-arrival lags, Bass-fittable
+adoption, and asymmetric flow out of software on the four classes built so
+far.
+
+\dkl{} does not measure innovation in any
+strong sense; the defended primitive is vocabulary position on
+commercial text, and Appendix~\ref{app:exhibit} shows concretely which
+kinds of novelty the primary scoring cannot see. \dkl{} does not
+identify an exploitable extreme-tail return premium; the large
+debut-specification figure fails a sample-size diagnostic. And the
+term-scored signed firm-level advantages of leading filings
+(margins, listing) are artifacts of drafting style and lexical
+specificity (Appendix~\ref{app:hazard}).
+
+\subsection{Five neighbouring constructs this is not}
+
+\emph{Novelty} and \emph{transience}, in the sense of
+\citet{Murdock2017} and \citet{Barron2018}, are the two KL levels
+themselves: novelty is divergence from the past, transience divergence
+from the future. Atypicality as used here is their average, and so is
+neither of them alone; \emph{novelty} in particular is declined because it
+names only the backward-looking half of a quantity that faces both ways.
+\emph{Resonance} is their signed difference, and is arithmetically what
+this paper calls lead. The word is avoided because it names a
+mechanism --- the field resonating with an author's contribution --- that
+this design cannot observe. A filing can sit where its class was heading
+because it was imitated, because it and the class responded to the same
+outside event, or by coincidence; the measure does not separate these,
+and \emph{resonance} would assert the first.
+
+\emph{Innovation} is a property of the product, not of the sentence
+describing it: two firms selling the same thing can draft very differently,
+and a genuinely new product can be described in boilerplate
+(Appendix~\ref{app:exhibit}). The measure sees prose.
+
+\emph{Radicalness} \citep{DewarDutton1986, TushmanAnderson1986,
+HendersonClark1990} is the closest neighbour, since KL is a departure
+measure rather than a newness count and the Amazon exhibit is a large
+departure built from unremarkable components. It is declined because it
+claims that existing competences are devalued, and nothing here licenses the
+step from unusual language to devalued competence.
+
+\emph{Distinctiveness} has two prior occupants. In trademark law it is the
+registrability doctrine, proven in part by the continued use this paper uses
+as an outcome. In strategic management, optimal distinctiveness
+\citep{Zhao2017} predicts an inverted-U in conformity --- a shape that
+appears here at registration but not at listing, so the term would imply a
+theory is being tested when it is not.
+
+What \emph{atypicality} says is narrower than any of them: this description
+is unusual for its class and year. Whether the thing described was new,
+radical, or good is not measured.
+
+\subsection{Filings are not independent draws}
+
+Some of them share an exact position
+with another filing, and outcomes cluster within owner --- the
+within-owner correlation is 0.42 for gate survival and is mechanically
+1.0 for public listing, since listing is a property of the owner and a
+firm with hundreds of marks contributes hundreds of identical successes.
+The estimates above are unaffected, because the gate regressions cluster
+on normalized owner and the firm-level specifications carry one
+observation per owner. But binning filings without that correction
+overstates how much structure the corpus contains: on a
+positional grid, correcting cell errors for the clustering design effect ---
+the factor by which within-owner correlation inflates the variance of a cell
+mean --- cuts
+apparent excess dispersion by roughly a quarter on the gate outcome and
+by half on listing. Displays of the vocabulary plane are descriptive
+here for that reason, and the near-zero pooled correlation between $A$ and
+$L$ reported in Section~\ref{sec:construct} does not survive cell by cell
+within class, so per-cell contrasts should not be read as within-class
+effects.
+
+\subsection{What remains unresolved}
+
+What drives the episodic pattern is not settled. Cohort and gate year
+move together, so post-crisis bet composition, app-era speculative filings,
+and calendar-time enforcement changes cannot be separated on this design.
+The representation is also fit on the pooled corpus; a vintage refit would
+close the remaining look-ahead channel.
+
+\section{Reproducibility}\label{sec:repro}
+
+\begin{sloppypar}
+Code, firm-year panels, and analysis outputs are at
+\url{https://github.com/ericsilver/tm-vocabulary}, indexed in the repository
+\texttt{README.md}. The pipeline rebuilds from a USPTO Open Data Portal API
+key with a single \texttt{make tm} command (the TRTYRAP backfile is about
+12 GB, streamed once). Published panels include the SEC-matched firm-year
+\dkl{} panel ($n = 59{,}033$) and the PatentsView-joined panel
+($n = 174{,}569$). An online appendix under
+\texttt{docs/online-appendix} carries a three-panel breakout for each of the
+45 Nice classes, the cross-industry comparisons, and a machine-readable
+table of per-class contrasts with standard errors.
+\end{sloppypar}
+
+

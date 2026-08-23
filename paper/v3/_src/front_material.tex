@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+% Left-justify every caption; without singlelinecheck=false LaTeX
+% centres any caption short enough to fit one line, so short and long
+% captions in the same paper are set differently.
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage[round,sort,authoryear]{natbib}
+
+\newcommand{\dkl}{$\Delta$KL}
+
+\title{\bfseries Vocabulary position and trademark lifecycles:\\
+\large An event-dated corpus and a lead/lag text measure for the commercial economy}
+\author{Eric Silver\thanks{Independent researcher; formerly a PhD candidate at Carnegie Mellon University. Comments to \texttt{epsilver@gmail.com}. The author's current employment is unrelated to this work, and the views expressed are the author's alone. I thank Simon DeDeo for the topic-scoring suggestion recorded in Section~\ref{sec:construct}, and Carolina Castaldi for comments on an earlier draft and for orienting me in the trademark-indicator literature. Neither has seen or endorsed the present version, and all errors and judgements are mine.}}
+\date{July 2026 working paper}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent All 13.99
+million USPTO trademark case files are re-parsed here into event-dated
+prosecution histories, and every filing scored on how surprising its language
+is against what its industry filed in the five years before it and in the five
+years after. The average of the two surprises is the filing's
+\emph{atypicality}; their difference is its \emph{lead}, positive for wording
+the industry subsequently moved toward (\emph{leading}) and negative for
+wording it was already leaving behind (\emph{lagging}).
+
+\noindent Within the trademark record, \emph{leading} marks are less likely to
+remain in commerce. Of the most leading fifth of 3.10 million registrations,
+46.7\% survive the sworn re-proof of use that a US registration requires
+between its fifth and sixth year, against 48.1\% of the most lagging fifth ---
+a gap of 1.4 percentage points, within Nice class and registration year, with owner-clustered
+errors and drafting and filer controls ($t = 8.3$). The gap holds across
+industries and across
+filer types, but not across time: it was two to three times larger for marks
+filed in the late 1990s, reversed for those filed 2000--2004, and back from
+2008, with the entire swing inside four technology classes and a flat one to
+four points everywhere else. Within those classes, most of the swing is which
+themes each era's leading filings were drawn from; inside a theme, the
+penalty is a steadier two to five points.
+
+\noindent 0.83\% of first-time filers with professional representation ever
+appear in SEC financial-reporting records, against 0.18\% of self-filers. The
+atypicality of a firm's first registered mark does not predict whether its
+owner ever reaches SEC reporting once class, year and description length are
+absorbed; yet both leading ($\mu = 0.39$\%) and lagging ($\mu = 0.44$\%)
+owners outperform the persistent middle ($\mu = 0.24$\%). Neither axis is a proxy for
+patenting: across 134{,}075 matched firm-years, lead correlates with
+$\log(1+\mathrm{patents})$ at $r = -0.020$ and atypicality at $r = +0.009$,
+and within a firm over time at $-0.043$ and $+0.011$.
+
+\noindent Atypicality can be measured on terms or on themes, and the two
+disagree. Term atypicality predicts both outcomes negatively ($-0.09$pp of SEC
+reporting per standard deviation of the score; $-0.055$ standard deviations
+of log patenting); theme atypicality does not predict SEC reporting and
+predicts patenting weakly the other way ($+0.012$ standard deviations). The two therefore disagree in sign on both outcomes, which
+makes a text measure's sign at the firm level a property of how the text was
+counted rather than of the firm. Every estimate is conditional on the office
+having granted the mark, because registration is itself selected on language;
+without that conditioning the same data support weaker and sometimes opposite
+conclusions. Code, panels, and the corpus build are public at
+\url{https://github.com/ericsilver/tm-vocabulary}, with a browsable explorer
+for the per-theme and per-Nice-class results behind the pooled estimates.
+\end{abstract}
+
+\section{Introduction}
+
+Text-based measurement has reshaped how economists quantify invention.
+\citet{Kelly2021} score every US patent since 1840 by its textual
+distance from prior and similarity to subsequent patents, and
+\citet{HobergPhillips2016} build product-market industries from 10-K text;
+\citet{Kalyani2024} measures patent creativity as the share of technical
+terminology not seen before and ties it to firm productivity. Both
+programs inherit the patent record's coverage: technical invention by
+the small minority of firms that patent. Most firms never patent,
+service-sector and business-model innovation rarely patents, and
+patenting propensity varies so much across industries that
+cross-industry comparisons are fraught \citep{Graham2013, Dinlersoz2018}.
+Trademark filings offer the complementary window. Nearly every
+commercially serious product or service introduction in the United
+States is accompanied by a trademark filing, the filing's goods/services
+description states in plain commercial language what the firm intends to
+sell, and the corpus extends across every sector of the economy at the
+rate of hundreds of thousands of granted filings per year.
+
+The trademark--innovation literature is three decades old and has moved
+well past counting \citep{Castaldi2020}. \citet{Flikkema2025} survey its first ten years of
+validation work and its open questions; \citet{Willeke2026} inventory the
+data sources and the preprocessing burden that has kept them underused.
+Micro-level links to firm dynamics are established \citep{Dinlersoz2018,
+Dinlersoz2023}, and the goods/services description is already read as
+text rather than treated as a label: \citet{Semadeni2006} scores
+consulting service-mark descriptions into a competitive positioning
+space, \citet{SemadeniAnderson2010} tracks whether one firm's described
+offering is imitated by rivals, and \citet{Flikkema2019} codes
+descriptions against the innovation each mark accompanies. Prosecution
+records have been exploited too: \citet{Fink2024} use contested filing
+sequences to study trademark races, and their outcome --- continued use
+five years after registration --- is the margin this paper's central
+result also runs on. What \citet{Flikkema2025} put as the field's next
+step is the move from counts and innovation intensity to the \emph{type},
+\emph{quality}, and \emph{trend} content of what marks cover: the
+trademark analogue of what \citet{Kelly2021} and \citet{Kalyani2024} did
+for patent text. That analogue does not yet exist at corpus scale, and
+the two strands above --- description text and prosecution events --- have
+run on separate data.
+
+This paper builds both on one corpus, so that what a filing says and what
+subsequently happened to it are observed on the same record.
+
+Whether a description's language is strange for its industry predicts very
+little; whether it arrived \emph{before} its industry's language moved that
+way predicts a good deal. Marks whose wording the industry subsequently
+adopted are abandoned at the five-year use-proof gate more often than marks
+written in language the industry was already leaving behind. Their owners
+also reach SEC financial reporting less often than the owners of the most
+lagging marks, though both tails do better than the middle.
+
+The USPTO distributes its trademark backfile
+as bulk XML --- 83 archives covering 1884 to 2025 --- from which the
+published research files retain a filing's current status but not the dated
+sequence of events that produced it. Re-parsing the backfile yields 242
+million prosecution events --- every step in the examination of an
+application --- across 13.99 million case files, each event
+carrying a code and a date: every office action, response, maintenance
+filing, and cancellation. The event codes are resolved into a 760-code dictionary. A header pass
+extracts counsel of record, the statutory filing basis, and the
+postregistration declarations. A third pass recovers owner domicile, which
+the class-level files omit. Owner names are then normalized to a clustering
+key and resolved to two external universes: SEC registrants, through the
+agency's own company-name and ticker files, and Regulation~D issuers,
+through the Form~D quarterly data sets --- the latter filtered to operating
+companies, with ambiguous names dropped rather than guessed. That link is
+what lets a mark's language be followed to financing and to public listing.
+Where the patent record dates invention once, at grant, the trademark
+prosecution record dates a commercial claim's entire life, including the
+use-proof gates at which marks attached to products that never materialized
+are culled.
+
+Every filing is grouped by its industry class --- one of the 45
+international goods and services categories set by the Nice Agreement ---
+and placed by its filing
+date, then put to two readers who have seen disjoint halves of that
+industry's stream: one who knows only what the class filed before it, one
+who knows only what it filed after. Each reader's ``how surprising'' is a
+Kullback--Leibler divergence between the filing's mix of topics --- its
+weights over word-clusters fitted to the corpus --- and the industry's,
+large when the filing puts weight where its industry's filings put little.
+\emph{Atypicality} is the average of the two answers. \emph{Lead}, written
+\dkl{}, is the gap. Language that surprised the first reader and not the
+second was surprising because it came first: the industry moved toward it.
+Language that read as ordinary to the first and unusual to the second was
+left behind as the field moved on. Filings of the first kind are
+\emph{leading}, of the second \emph{lagging}.
+
+The construct adapts \citet{Murdock2017} and \citet{Barron2018};
+Section~\ref{sec:construct} sets out what transfers and what does not. The
+nearest measurement precedent on this corpus is \citet{vonGraevenitz2022},
+who flag goods/services tokens that are both new and fast-spreading; their
+unit is the token and their flag binary, while the score here is continuous
+and attaches to the filing, so every application carries a position that can
+be crossed with its own prosecution outcomes.
+
+Results are stated on marks the office granted. Registration is itself
+selected on language, so a correlation over all filings mixes what
+examination does to a description with what the market does to the product;
+Appendix~\ref{app:uncond} reports the unconditional version. Two further
+products of the exercise are released with it: the corpus, and a
+measurement hazard that applies to text-based novelty measures generally.
+
