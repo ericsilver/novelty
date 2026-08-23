@@ -87,3 +87,10 @@ paper/audio/
 
 # Per-class cache for scripts/window_mix_rolling.py (~2 h to rebuild on CORE)
 paper/results/window_mix_parts/
+
+# v3 build intermediates
+paper/v3/*.aux
+paper/v3/*.log
+paper/v3/*.out
+paper/v3/*.toc
+paper/v3/main.pdf
