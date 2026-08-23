@@ -177,8 +177,7 @@ def main() -> int:
         ).drop_nulls("rd").with_columns(pl.col("rd").dt.year().alias("ry")).filter(
         pl.col("ry").is_between(REG_LO, REG_HI)).join(ev, on="serial_number", how="left").with_columns(
         ((pl.col("cd") - pl.col("rd")).dt.total_days() / 365.25).alias("age")).with_columns(
-        ((pl.col("age") >= GATE_LO) & (pl.col("age") < GATE_HI)).fill_null(False).cast(pl.Float64).alias("failed"),
-        pl.col("goods_services").str.count_matches(r"[a-z]+").alias("n_words") if "goods_services" in d.columns else pl.lit(None))
+        ((pl.col("age") >= GATE_LO) & (pl.col("age") < GATE_HI)).fill_null(False).cast(pl.Float64).alias("failed"))
     g = g.with_columns(pl.col("recomb").cast(pl.Float64))
     out = {"class": CLS, "n_gate": int(g.height), "base": float(g["failed"].mean()),
            "recomb_mean": float(g["recomb"].mean()), "recomb_sd": float(g["recomb"].std()),
