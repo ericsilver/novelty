@@ -1,0 +1,402 @@
+{
+ "T": 500,
+ "min_sustained": 100,
+ "new_years": 3,
+ "n_gate": 4123838,
+ "groups": {
+  "established": {
+   "n": 3972047,
+   "fail_raw": 0.5155565883283858,
+   "mean_L": NaN,
+   "mean_A": NaN,
+   "within_class_year": {
+    "mean": 0.0001618141622047972,
+    "se": 0.00024946518522840036
+   },
+   "within_class_year_net_LA": {
+    "mean": -0.0004049033929391762,
+    "se": 0.00024926041255074564
+   }
+  },
+  "new to class": {
+   "n": 151012,
+   "fail_raw": 0.48282255714777633,
+   "mean_L": NaN,
+   "mean_A": NaN,
+   "within_class_year": {
+    "mean": -0.004304823623104054,
+    "se": 0.0012835817495660535
+   },
+   "within_class_year_net_LA": {
+    "mean": 0.010585722674222612,
+    "se": 0.0012866567391096697
+   }
+  },
+  "new to corpus": {
+   "n": 779,
+   "fail_raw": 0.49293966623876767,
+   "mean_L": NaN,
+   "mean_A": NaN,
+   "within_class_year": {
+    "mean": 0.00943076691798675,
+    "se": 0.01772429627085602
+   },
+   "within_class_year_net_LA": {
+    "mean": 0.019129360611893572,
+    "se": 0.017755036853139016
+   }
+  }
+ },
+ "top_new_themes": [
+  {
+   "theme": 301,
+   "n": 67,
+   "fail": 0.6119402985074627,
+   "first_year": 2019,
+   "words": [
+    "cream parlors",
+    "park ride",
+    "industrial",
+    "automotive",
+    "automotive industrial",
+    "paint"
+   ]
+  },
+  {
+   "theme": 132,
+   "n": 54,
+   "fail": 0.2777777777777778,
+   "first_year": 2010,
+   "words": [
+    "day care",
+    "veterans",
+    "chimney",
+    "earthmoving",
+    "maintenance cleaning",
+    "cleaning buildings"
+   ]
+  },
+  {
+   "theme": 67,
+   "n": 47,
+   "fail": 0.40425531914893614,
+   "first_year": 2022,
+   "words": [
+    "blends",
+    "fermented",
+    "starter",
+    "media production",
+    "nature visual",
+    "rock group"
+   ]
+  },
+  {
+   "theme": 373,
+   "n": 41,
+   "fail": 0.34146341463414637,
+   "first_year": 2005,
+   "words": [
+    "cargo trailers",
+    "conditioner",
+    "flour",
+    "readers",
+    "based",
+    "rice flour"
+   ]
+  },
+  {
+   "theme": 124,
+   "n": 41,
+   "fail": 0.6829268292682927,
+   "first_year": 2008,
+   "words": [
+    "biodegradable",
+    "processing financial",
+    "draining",
+    "straining spouts",
+    "pouring straining",
+    "workouts"
+   ]
+  },
+  {
+   "theme": 435,
+   "n": 27,
+   "fail": 0.2222222222222222,
+   "first_year": 2014,
+   "words": [
+    "guard",
+    "credit reports",
+    "officers",
+    "alumni",
+    "caught",
+    "hyperlinks web"
+   ]
+  },
+  {
+   "theme": 163,
+   "n": 26,
+   "fail": 0.38461538461538464,
+   "first_year": 2020,
+   "words": [
+    "carving",
+    "butcher",
+    "bladed",
+    "bladed kitchen",
+    "barbed",
+    "fruit knives"
+   ]
+  },
+  {
+   "theme": 73,
+   "n": 23,
+   "fail": 0.782608695652174,
+   "first_year": null,
+   "words": [
+    "prepackaged",
+    "prepackaged meals",
+    "box holders",
+    "treating chemicals",
+    "sulfides",
+    "treating"
+   ]
+  },
+  {
+   "theme": 246,
+   "n": 21,
+   "fail": 0.5238095238095238,
+   "first_year": 2015,
+   "words": [
+    "technique",
+    "isolating",
+    "odors",
+    "trails",
+    "inserted",
+    "industrial tanks"
+   ]
+  },
+  {
+   "theme": 318,
+   "n": 19,
+   "fail": 0.42105263157894735,
+   "first_year": 2025,
+   "words": [
+    "fields",
+    "pamphlets fields",
+    "conflict resolution",
+    "textual",
+    "fields arts",
+    "gun mounts"
+   ]
+  },
+  {
+   "theme": 459,
+   "n": 18,
+   "fail": 0.3888888888888889,
+   "first_year": null,
+   "words": [
+    "proofing",
+    "processor",
+    "processing chemicals",
+    "retrofit",
+    "printer",
+    "color"
+   ]
+  },
+  {
+   "theme": 105,
+   "n": 18,
+   "fail": 0.5555555555555556,
+   "first_year": 2005,
+   "words": [
+    "excluding",
+    "character",
+    "retention",
+    "added",
+    "worship",
+    "bucket"
+   ]
+  },
+  {
+   "theme": 167,
+   "n": 17,
+   "fail": 0.5294117647058824,
+   "first_year": null,
+   "words": [
+    "increase",
+    "capacity",
+    "sit-down",
+    "root",
+    "gripping",
+    "file transfer"
+   ]
+  },
+  {
+   "theme": 257,
+   "n": 17,
+   "fail": 0.29411764705882354,
+   "first_year": 1999,
+   "words": [
+    "automated",
+    "changes",
+    "sequencing",
+    "ale lager",
+    "documents invoices",
+    "devices automated"
+   ]
+  },
+  {
+   "theme": 266,
+   "n": 16,
+   "fail": 0.25,
+   "first_year": null,
+   "words": [
+    "digital signals",
+    "ammunition magazine",
+    "gun belts",
+    "magazine pouches",
+    "rolled cigarettes",
+    "holding guns"
+   ]
+  },
+  {
+   "theme": 434,
+   "n": 16,
+   "fail": 0.375,
+   "first_year": 2022,
+   "words": [
+    "serum",
+    "leather linings",
+    "serum antioxidants",
+    "purposes",
+    "chronic diseases",
+    "prayer rugs"
+   ]
+  },
+  {
+   "theme": 362,
+   "n": 15,
+   "fail": 0.7333333333333333,
+   "first_year": 2026,
+   "words": [
+    "clearing",
+    "congestion",
+    "clearing services",
+    "ingredients making",
+    "lavage",
+    "water"
+   ]
+  },
+  {
+   "theme": 263,
+   "n": 15,
+   "fail": 0.6666666666666666,
+   "first_year": null,
+   "words": [
+    "charms mobile",
+    "music-composition software",
+    "fiber",
+    "yarn",
+    "fabrics",
+    "bags"
+   ]
+  },
+  {
+   "theme": 117,
+   "n": 12,
+   "fail": 0.5,
+   "first_year": 2021,
+   "words": [
+    "foregoing",
+    "federal",
+    "foregoing goods",
+    "flower smoking",
+    "fasteners parts",
+    "leaving"
+   ]
+  },
+  {
+   "theme": 473,
+   "n": 12,
+   "fail": 0.8333333333333334,
+   "first_year": 2002,
+   "words": [
+    "website",
+    "place",
+    "user-defined information",
+    "network featuring",
+    "featuring user-defined",
+    "links web"
+   ]
+  },
+  {
+   "theme": 136,
+   "n": 12,
+   "fail": 0.4166666666666667,
+   "first_year": 2007,
+   "words": [
+    "change",
+    "shapes",
+    "climate change",
+    "supervising",
+    "instruments accessories",
+    "field machines"
+   ]
+  },
+  {
+   "theme": 492,
+   "n": 12,
+   "fail": 0.8333333333333334,
+   "first_year": 2001,
+   "words": [
+    "market",
+    "automotive industry",
+    "barbecues",
+    "products accessories",
+    "analytic",
+    "generated content"
+   ]
+  },
+  {
+   "theme": 335,
+   "n": 12,
+   "fail": 0.5833333333333334,
+   "first_year": null,
+   "words": [
+    "terrestrial",
+    "nutrient",
+    "processing industry",
+    "forums field",
+    "litter pan",
+    "enrichment"
+   ]
+  },
+  {
+   "theme": 205,
+   "n": 12,
+   "fail": 0.3333333333333333,
+   "first_year": 2004,
+   "words": [
+    "bases",
+    "act",
+    "selling products",
+    "manufactures",
+    "inhibitors",
+    "allergens"
+   ]
+  },
+  {
+   "theme": 456,
+   "n": 12,
+   "fail": 0.25,
+   "first_year": 2024,
+   "words": [
+    "stop",
+    "outdoor receptacles",
+    "effectively",
+    "specialties",
+    "products",
+    "services"
+   ]
+  }
+ ]
+}
