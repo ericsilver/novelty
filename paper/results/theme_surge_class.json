@@ -1,0 +1,228 @@
+{
+ "double": 2.0,
+ "surge_years": 3,
+ "min_episode": 1000,
+ "levels": {
+  "1pct": {
+   "n_surge_episodes": 962,
+   "n_in_surge_regs": 32418,
+   "fail_in_surge": 0.4955271762601024,
+   "fail_rest": 0.5145027887628256,
+   "within_class_year": {
+    "mean": 0.006471780695577117,
+    "se": 0.0027731591913036776
+   },
+   "net_LA": {
+    "mean": 0.012711004307996302,
+    "se": 0.002788443721714402
+   },
+   "episodes": [
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5450126865917554,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    },
+    {
+     "theme": 438,
+     "cls": "028",
+     "cls_name": "Games & Sporting Goods",
+     "surge_year": 2012,
+     "growth_multiple": 2.877085092519456,
+     "surge_share": 0.11049146043917742,
+     "n": 2486,
+     "base_fail": 0.5333869670152857,
+     "class_fail_rest": 0.5566838978615567,
+     "lead_lift": -0.16077732793522265,
+     "lead_se": 0.031291320529127954,
+     "words": [
+      "entertainment",
+      "video",
+      "music",
+      "services",
+      "games",
+      "television"
+     ]
+    },
+    {
+     "theme": 184,
+     "cls": "042",
+     "cls_name": "Scientific & Tech Services",
+     "surge_year": 2002,
+     "growth_multiple": 2.4820520046045775,
+     "surge_share": 0.04215809284818068,
+     "n": 1108,
+     "base_fail": 0.5270758122743683,
+     "class_fail_rest": 0.5424220883684387,
+     "lead_lift": 0.04638746218965062,
+     "lead_se": 0.04733139036062748,
+     "words": [
+      "research",
+      "scientific",
+      "field",
+      "analysis",
+      "scientific research",
+      "research field"
+     ]
+    },
+    {
+     "theme": 95,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2001,
+     "growth_multiple": 2.293003047872949,
+     "surge_share": 0.04659675504550851,
+     "n": 1042,
+     "base_fail": 0.4654510556621881,
+     "class_fail_rest": 0.5234768268435787,
+     "lead_lift": -0.06399782135076254,
+     "lead_se": 0.047263933957853534,
+     "words": [
+      "games",
+      "toys",
+      "toy",
+      "cards",
+      "books",
+      "game"
+     ]
+    }
+   ]
+  },
+  "2pct": {
+   "n_surge_episodes": 374,
+   "n_in_surge_regs": 26807,
+   "fail_in_surge": 0.5112843660237998,
+   "fail_rest": 0.51437370134617,
+   "within_class_year": {
+    "mean": 0.013284315734160182,
+    "se": 0.0030501758605547586
+   },
+   "net_LA": {
+    "mean": 0.016951184174554525,
+    "se": 0.0030666029217993355
+   },
+   "episodes": [
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5447481369682106,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    },
+    {
+     "theme": 207,
+     "cls": "036",
+     "cls_name": "Insurance & Finance",
+     "surge_year": 2011,
+     "growth_multiple": 2.013896379505321,
+     "surge_share": 0.07763819095477387,
+     "n": 2681,
+     "base_fail": 0.5352480417754569,
+     "class_fail_rest": 0.4945132448492253,
+     "lead_lift": 0.05077152812344454,
+     "lead_se": 0.030425256105743096,
+     "words": [
+      "charitable",
+      "fundraising",
+      "means",
+      "families",
+      "fundraising services",
+      "fuel"
+     ]
+    },
+    {
+     "theme": 438,
+     "cls": "028",
+     "cls_name": "Games & Sporting Goods",
+     "surge_year": 2012,
+     "growth_multiple": 2.877085092519456,
+     "surge_share": 0.11049146043917742,
+     "n": 2486,
+     "base_fail": 0.5333869670152857,
+     "class_fail_rest": 0.5566502011602226,
+     "lead_lift": -0.16077732793522265,
+     "lead_se": 0.031291320529127954,
+     "words": [
+      "entertainment",
+      "video",
+      "music",
+      "services",
+      "games",
+      "television"
+     ]
+    },
+    {
+     "theme": 184,
+     "cls": "042",
+     "cls_name": "Scientific & Tech Services",
+     "surge_year": 2002,
+     "growth_multiple": 2.4820520046045775,
+     "surge_share": 0.04215809284818068,
+     "n": 1108,
+     "base_fail": 0.5270758122743683,
+     "class_fail_rest": 0.5424356038495503,
+     "lead_lift": 0.04638746218965062,
+     "lead_se": 0.04733139036062748,
+     "words": [
+      "research",
+      "scientific",
+      "field",
+      "analysis",
+      "scientific research",
+      "research field"
+     ]
+    },
+    {
+     "theme": 95,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2001,
+     "growth_multiple": 2.293003047872949,
+     "surge_share": 0.04659675504550851,
+     "n": 1042,
+     "base_fail": 0.4654510556621881,
+     "class_fail_rest": 0.5235718284180645,
+     "lead_lift": -0.06399782135076254,
+     "lead_se": 0.047263933957853534,
+     "words": [
+      "games",
+      "toys",
+      "toy",
+      "cards",
+      "books",
+      "game"
+     ]
+    }
+   ]
+  }
+ }
+}

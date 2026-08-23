@@ -130,6 +130,7 @@ def main() -> int:
             log(f"  episodes tabled {len(episodes)}: mean excess fail {100*rec['mean_excess_fail']:+.1f}pp  "
                 f"mean lead lift {100*rec['mean_lead_lift']:+.2f}pp  corr(log growth, excess fail) {rec['corr_growth_excessfail']:+.2f}  "
                 f"corr(log growth, lead lift) {rec['corr_growth_leadlift']:+.2f}")
+        out["levels"][lab] = rec
     (RES / "theme_surge_class.json").write_text(json.dumps(out, indent=1))
     log("[done] theme_surge_class.json")
     return 0
