@@ -10,7 +10,7 @@ the body uses.
 \subsection{Representation, anchoring, weighting}
 
 A scoring is fixed by two choices. The \emph{representation} is what the
-language is turned into: a distribution over 50 fitted topics, or a
+language is turned into: a distribution over 50 fitted themes, or a
 distribution over the class vocabulary's terms. The \emph{reference} is what
 that is compared against, and it hides two sub-choices --- the
 \emph{anchoring} (one reference per class-year, or one per filing built on its
@@ -22,9 +22,9 @@ decaying by half every two years). Six builds exist:
 \toprule
 Representation & Anchoring & Weighting & sd(lead) & sd(atypicality) \\
 \midrule
-Topics & class-year & flat          & $0.132$ & $0.672$ \\
-Topics & per-filing & flat          & $0.102$ & $0.698$ \\
-Topics & per-filing & half-life 2y  & $0.082$ & $0.698$ \\
+Themes & class-year & flat          & $0.132$ & $0.672$ \\
+Themes & per-filing & flat          & $0.102$ & $0.698$ \\
+Themes & per-filing & half-life 2y  & $0.082$ & $0.698$ \\
 Terms  & class-year & half-life 2y  & $0.299$ & $1.330$ \\
 Terms  & per-filing & flat          & $0.155$ & $1.101$ \\
 Terms  & per-filing & half-life 2y  & $0.130$ & $1.102$ \\
@@ -46,11 +46,11 @@ between builds differing in exactly one respect:
 \toprule
 Choice varied & $r$ (lead) & $r$ (atypicality) \\
 \midrule
-Weighting, flat vs half-life 2y (topics)  & $0.982$ & $1.000$ \\
+Weighting, flat vs half-life 2y (themes)  & $0.982$ & $1.000$ \\
 Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
-Anchoring, class-year vs per-filing (topics) & $0.738$ & $0.929$ \\
+Anchoring, class-year vs per-filing (themes) & $0.738$ & $0.929$ \\
 Resolution, 50 vs 200 themes              & $0.636$ & $0.828$ \\
-Representation, topics vs terms           & $0.460$ & $0.396$ \\
+Representation, themes vs terms           & $0.460$ & $0.396$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -62,7 +62,7 @@ $45$-degree rotation of Section~\ref{sec:construct} implies --- the long axis is
 a property of the filing and the weighting acts almost entirely on the small
 residual. Anchoring matters moderately. Resolution and representation matter
 most: quadrupling the number of themes leaves the two builds agreeing on 40\%
-of the variance in lead, and topics against terms on less than a quarter. A
+of the variance in lead, and themes against terms on less than a quarter. A
 robustness check that varies only the weighting is therefore close to a
 restatement; one that varies the representation or the resolution is a real
 test, which is why the term-scored replication in Appendix~\ref{app:scoring}
@@ -113,7 +113,7 @@ much of the per-class resolution sensitivity.
 The sweep leaves one question open. Scores at different resolutions agree at
 $r = 0.64$ to $0.69$ on lead, and neighbouring resolutions agree no better than
 distant ones. That has two readings. The number of themes may genuinely change
-what is being measured. Or a topic-model fit may simply be unstable --- two
+what is being measured. Or a theme-model fit may simply be unstable --- two
 runs settle in different local optima --- in which case the sweep is measuring
 fitting noise and the resolution has little to do with it.
 
@@ -149,8 +149,8 @@ than January makes a description more forward-looking:
 Representation & Anchoring & December $-$ January (sd) \\
 \midrule
 Terms  & class-year & $+0.169$ \\
-Topics & class-year & $+0.041$ \\
-Topics & per-filing & $-0.008$ \\
+Themes & class-year & $+0.041$ \\
+Themes & per-filing & $-0.008$ \\
 Terms  & per-filing & $+0.017$ \\
 \bottomrule
 \end{tabular}
@@ -310,7 +310,7 @@ cleaner single-gate cohort of Figure~\ref{fig:s8pooled}.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/appendix_unconditional.png}
-\caption{Filings 2013--2015 pooled across classes, topic-scored on
+\caption{Filings 2013--2015 pooled across classes, theme-scored on
 per-filing reference windows ($n = 1{,}419{,}678$; gated subset
 $n = 763{,}902$). \emph{A:} the unconditional composite P(registered and
 passed first gate) over all filings. \emph{B:} P(passed $\mid$ registered
@@ -359,16 +359,16 @@ that narrowness is fixed by how many distinct terms it uses. Theme scoring
 weakens the coupling, taking the same correlations to $-0.217$ and
 $-0.098$. The consequence for the lead is direct: the standard deviation
 of $L$ rises threefold across deciles of $A$ under term scoring and by a
-quarter to a half under topic scoring, so a unit of lead means roughly the
-same thing everywhere only in the topic representation.
+quarter to a half under theme scoring, so a unit of lead means roughly the
+same thing everywhere only in the theme representation.
 Appendix~\ref{app:representation} shows this as a length surface over the
-two axes. Two qualifications. Topic scoring returns a finite value for about 65\% of
+two axes. Two qualifications. Theme scoring returns a finite value for about 65\% of
 filings, so the two columns are not drawn from the same set; re-estimating the
-term-scored correlations on exactly the topic-scored subset barely moves them,
+term-scored correlations on exactly the theme-scored subset barely moves them,
 which puts the contrast down to the representation rather than the sample. On
 that common subset the spread comparison is nearer twofold than the threefold
 quoted above. And ``flat'' means no
-monotone length gradient rather than constant: class 035 under topic
+monotone length gradient rather than constant: class 035 under theme
 scoring is mildly U-shaped in $A$. The two scorings agree only
 moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M jointly
 scored observations), which gives their agreement on the mark-level
@@ -380,7 +380,7 @@ theme prevalence trajectories.
 
 Alignment with expert innovation judgment is at most suggestive. Firms on
 BCG/MIT ``most innovative'' lists sit $+0.09$ standard deviations above the panel mean
-under term scoring ($p = 0.22$), $+0.14$ under topic scoring
+under term scoring ($p = 0.22$), $+0.14$ under theme scoring
 ($p = 0.07$), and $+0.08$ at $T = 200$ ($p = 0.20$). The matched
 sample is 41 firms, which is too small to carry weight in either
 direction, and the paper draws no inference from it. Patent counts remain
@@ -391,7 +391,7 @@ uncorrelated with \dkl{} on the same panel (Pearson $+0.010$).
 The snapshot cross-check on the single one-gate-elapsed cohort
 (registrations 2016--2018, terminal status 710 versus 701--705/800)
 agrees with the event-dated estimates and is scoring-robust: $-5.4$pp
-survival across quintiles under topic scoring and $-5.7$pp under term
+survival across quintiles under theme scoring and $-5.7$pp under term
 scoring on the identical sample (Figure~\ref{fig:s8pooled}). Under term scoring, gate survival
 \emph{rises} in the raw KL level ($+6.5$pp past-facing, $+7.6$pp
 future-facing): atypical text survives the use requirement better
@@ -400,14 +400,14 @@ separation as Section~\ref{sec:bluesea}, at the mark level.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/topic_outcomes_all.png}
-\caption{The two mark-level outcomes under topic and term scoring on
+\caption{The two mark-level outcomes under theme and term scoring on
 identical samples, pooled across classes, by within-class lead quintile
 (1 most lagging, 5 most leading). \emph{Left:} the share of registrations
 2016--2018 that survived the first use-proof gate at years five to six,
 read from terminal status codes, where the two representations agree
 closely. \emph{Right:} registration completion
 (filings 1995--2018), where they do not: the inverse-U in the signed axis
-is present under term scoring (depth $+0.048$) and absent under topic
+is present under term scoring (depth $+0.048$) and absent under theme
 scoring (depth $-0.001$). The gate result is scoring-robust; the
 registration curvature on this axis is not, and Section~\ref{sec:life}
 reports only the unsigned version.}
@@ -429,7 +429,7 @@ standard deviation at one-to-four-year horizons. A larger debut-only return figu
 ($+28$pp at 4 years) fails a sample-size diagnostic and is not claimed.
 
 None of the signed versions survives distribution scoring. On identical
-samples, the debut listing gradient in signed topic-\dkl{} is flat to
+samples, the debut listing gradient in signed theme-\dkl{} is flat to
 declining, and the margin coefficient reverses: $-1.3$pp per standard deviation
 ($t = -1.8$) at $T = 50$, $-2.2$pp ($t = -3.1$) at $T = 200$, and
 $-0.8$pp ($t = -1.1$) at $T = 500$, against the term-level $+2.3$pp;
@@ -441,9 +441,9 @@ rising, with the monotone rise contributed by composition across lengths
 results are unaffected --- they hold under both scorings at every
 resolution.
 
-Vocabulary blindness does not rescue the signed signal. The topic
+Vocabulary blindness does not rescue the signed signal. The theme
 model's vocabulary is sample-built, so rare and emergent terms are
-invisible to it; if the firm signal lived exactly there, topic scoring
+invisible to it; if the firm signal lived exactly there, theme scoring
 would erase a real signal rather than an artifact. Computing each
 filing's invisible-vocabulary share (63.8\% of class-009 term
 \emph{types} but only $\sim$9\% of token \emph{mass}): the share itself
@@ -453,8 +453,8 @@ signed \dkl{} gradient on the firm outcome is flat to negative, while
 the gate penalty holds in both strata ($-6.9$ and $-8.3$pp). The
 term-level firm signal is \emph{unsigned specificity}: serious firms
 describe specific products with specific, therefore rare, words, and
-rare-term mass inflates term-\dkl{} mechanically. Topic count is a
-partition dial, not a coverage dial --- a crypto/blockchain topic exists
+rare-term mass inflates term-\dkl{} mechanically. Theme count is a
+partition dial, not a coverage dial --- a crypto/blockchain theme exists
 at $T = 200$ but not at $T = 50$ or $T = 500$, because raising $T$
 re-partitions the fixed vocabulary along dominant axes --- so resolution
 sweeps test granularity, not coverage, and the invisible-share split is

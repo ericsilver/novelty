@@ -55,6 +55,11 @@
    "ok": false,
    "seconds": 0,
    "tail": "ocabulary\\scripts\\variants\\wave_entry_8.py\", line 52, in main\n    names = json.loads((RES / \"wave_entry_8.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\wave_entry_8.json'\n"
+  },
+  "recomb_bigram_2": {
+   "ok": true,
+   "seconds": 239,
+   "tail": "ted (47,287)\n  [2014] recombination shares computed (51,743)\n  [2015] recombination shares computed (57,363)\n  [2016] recombination shares computed (59,239)\n  [2017] recombination shares computed (66,283)\n  [2018] recombination shares computed (66,716)\n  [2019] recombination shares computed (64,773)\n[portfolio] pair surprise done\n  recomb    Q5-Q1 -5.99pp (t -25.1)  n=436,543\n  port_lead Q5-Q1 +2.20pp (t +8.3)  n=354,815\n  port_atyp Q5-Q1 +8.42pp (t +31.8)  n=354,815\n  recomb    net L,A Q5-Q1 -1.24pp (t -4.6)\n  port_lead net L,A Q5-Q1 +2.27pp (t +8.4)\n  port_atyp net L,A Q5-Q1 -0.30pp (t -1.1)\n  corr: {'recomb~L': -0.05159326845134195, 'recomb~A': 0.18175990569593584, 'port_lead~L': -0.17794182718934662, 'port_atyp~A': -0.5374803160809616, 'recomb~port_lead': -0.011497928623391043}\n[done]\n"
   }
  }
 }

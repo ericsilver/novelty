@@ -11,11 +11,11 @@ all 45 classes. The firm-level panels link trademark owners to SEC EDGAR
 financial filers and to PatentsView patent assignees by normalized-name
 join.
 
-The topic representation is a $T = 50$ LDA fit on a stratified sample of
+The theme representation is a $T = 50$ LDA fit on a stratified sample of
 448{,}437 filings across all 45 classes (vocabulary of 62{,}168 unigrams
-and bigrams); every filing 1990--2024 is transformed to a dense 50-topic
+and bigrams); every filing 1990--2024 is transformed to a dense 50-theme
 distribution, and past-facing and future-facing surprise are computed against
-per-filing topic references spanning 1{,}826 days on each side of the filing
+per-filing theme references spanning 1{,}826 days on each side of the filing
 date, scoring 1995--2019. A filing whose window holds fewer than 500
 same-class filings on either side is left unscored, since a thin reference
 inflates the divergence mechanically; that floor, together with the corpus
@@ -142,7 +142,7 @@ over the same axes, with each hexagon coloured by the mean length of the
 filings in it. Under term scoring the colour runs from dark near the
 origin --- a median of about 200 terms --- to near-white at the far end,
 where the median is eight. That gradient is the measurement problem: a
-filing scores as atypical largely because it is short. Under topic scoring
+filing scores as atypical largely because it is short. Under theme scoring
 the same surface is a narrow band of roughly uniform tone.
 
 Two filings are marked in both columns. Under the production scoring they
@@ -165,22 +165,22 @@ axis surprise against the following five; a filing on the dashed diagonal
 is equally far from both, and distance below it is lead. Hexagons holding fewer than 25 filings are blank; the retained
 hexagons cover over 99.4\% of filings in every panel. The colour scale is
 shared across panels; the axis ranges are not, since term-scored and
-topic-scored KL do not share a scale, so the comparison invited across
+theme-scored KL do not share a scale, so the comparison invited across
 columns is of shape and colour gradient rather than of magnitude. Both
 columns are drawn on the filings the per-filing windows score, which
 differ between representations by under one percent.}
 \label{fig:representation}
 \end{figure}
 
-Topic scoring is independent of document length, which term scoring is not; term scoring
-resolves novel word \emph{combinations}, which topic scoring does not. Hence
-topic scoring for every estimate, since the length confound contaminates
+Theme scoring is independent of document length, which term scoring is not; term scoring
+resolves novel word \emph{combinations}, which theme scoring does not. Hence
+theme scoring for every estimate, since the length confound contaminates
 firm-level comparisons, and term scoring for every worked example, since the
-topic basis has no coordinate for the language the examples turn on.
+theme basis has no coordinate for the language the examples turn on.
 
 \section{How three filings encode}\label{app:exhibit}
 
-Table~\ref{tab:exhibit} traces three filings through term scoring and topic
+Table~\ref{tab:exhibit} traces three filings through term scoring and theme
 scoring at $T \in \{50, 200, 500\}$ --- three kinds of novelty, and how each
 representation handles them.
 
@@ -193,25 +193,25 @@ lexicalized into a single token; the analyzer drops the stopword ``on''
 and the surviving bigram ``line search'' is the act of forming the
 compound caught in progress. The novelty was necessarily combinatorial
 because the word for it did not yet exist. Term scoring sees these
-bigrams; under topic scoring at every resolution all of them are out of
+bigrams; under theme scoring at every resolution all of them are out of
 vocabulary and the filing reads as a media retailer that uses computers.
 
 \textsc{Kombucha} (1997, beer/soft drinks) is \emph{lexical} novelty: the
 new thing arrives as new words (\emph{kombucha} df 567, \emph{saccharose}
 out of vocabulary even at the class level). The word \emph{kombucha} is in
-the topic vocabulary but, with no kombucha-like topic, its mass dissolves
-into a generic beverages topic ($\geq 0.60$ weight at every $T$).
+the theme vocabulary but, with no kombucha-like theme, its mass dissolves
+into a generic beverages theme ($\geq 0.60$ weight at every $T$).
 
 \textsc{Ethereum} (2018, software) is \emph{wave} novelty: emergent
 vocabulary already diffusing (\emph{blockchains}, \emph{distributed
-computing}). It loads on generic software and services topics at every
+computing}). It loads on generic software and services themes at every
 resolution, including $T = 200$, which does contain a
-cryptocurrency/blockchain topic --- the eleven occurrences of
+cryptocurrency/blockchain theme --- the eleven occurrences of
 \emph{software} outvote the blockchain terms.
 
 \begin{table}[h]\centering\small
-\caption{Top topic loading for three filings, by representation. Term
-scoring resolves the novel content of all three; topic scoring resolves
+\caption{Top theme loading for three filings, by representation. Term
+scoring resolves the novel content of all three; theme scoring resolves
 none of it at any tested resolution.}
 \label{tab:exhibit}
 \begin{tabular}{lp{3.1cm}p{3.1cm}p{3.1cm}}
@@ -227,12 +227,12 @@ $T=500$ & computer, software, data (0.22) & beverages, drinks, fruit (0.61) & so
 \end{tabular}
 \end{table}
 
-The pattern across the row is the measurement point in miniature: topic
+The pattern across the row is the measurement point in miniature: theme
 scoring cannot represent combinatorial novelty (Amazon), dilutes lexical
 novelty (Kombucha), and majority-votes away wave novelty (Ethereum) even
-when a fitting topic exists. That the mark-level outcome results are
+when a fitting theme exists. That the mark-level outcome results are
 nearly identical under both scorings despite this blindness is what
-licenses topic scoring as a robustness instrument; that the firm-level
+licenses theme scoring as a robustness instrument; that the firm-level
 results diverge is what exposes them as artifacts of the lexical
 specificity term scoring additionally captures
 (Appendix~\ref{sec:robust_hazard}).
