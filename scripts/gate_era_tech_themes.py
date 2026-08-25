@@ -265,6 +265,11 @@ def main() -> int:
         e = out["by_theme_era"][str(t)]
         rows.append(", ".join(out["theme_words"][str(t)][:5]) + f" & {e['n']:,} & "
                     + " & ".join(fmt(e["eras"][lab]) for lab, _, _ in ERAS) + r" \\")
+    rows.append(r"\midrule")
+    pooled_n = sum(out["pooled_era"][lab]["raw"]["n"] for lab, _, _ in ERAS)
+    rows.append(f"All themes, within theme$\\times$class$\\times$cohort & {pooled_n:,} & "
+                + " & ".join(fmt(out["pooled_era"][lab]["within_theme_class_cohort"])
+                             for lab, _, _ in ERAS) + r" \\")
     rows += [r"\bottomrule", r"\end{tabular}"]
     (RES / "gate_era_tech_themes.tex").write_text("\n".join(rows) + "\n")
 

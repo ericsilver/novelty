@@ -17,10 +17,10 @@ language of the rest of the industry at the time, predicts what happened to
 the mark and to the firm behind it. Two properties of the language are
 measured. \emph{Atypicality} is how unusual the description is for its
 industry. \emph{Lead} is whether its language is ahead of or behind where the
-industry's language was moving. Sections~\ref{sec:life}--\ref{sec:secevents}
-relate the two to registration, to survival of the use-proof gate, to venture
-funding and public listing. Section~\ref{sec:robust} reports what changes
-under other choices.
+industry's language was moving. Sections~\ref{sec:registration}--\ref{sec:success}
+relate the two to reaching registration, to the five-year proof of continued
+use, and to venture funding and public listing. Section~\ref{sec:robust}
+reports what changes under other choices.
 
 \subsection{Two readers, one living backwards}
 
@@ -32,9 +32,8 @@ is. The measurement is how much they disagree: a description that startles the
 first reader and not the second arrived before its industry's language moved
 that way.
 
-Both windows are anchored on the filing's own date --- per-filing windows,
-as against one shared reference per class and calendar year --- spanning
-the 1,826 days before it
+Both windows are anchored on the filing's own date, spanning the 1,826
+days before it
 and the 1,826 days after; both exclude the filing date itself, so a filing
 never appears in the reference of another filing made the same day, and no
 two filings made on different days share a reference. Inside a window every day counts the same. The measure asks whether
@@ -119,14 +118,14 @@ online software, and $0.07$ on marketing of consumer goods. The online
 appendix lists every theme with its leading words and its weight in each
 class.\footnote{\url{https://aporia.institute/tm-vocabulary/online-appendix/themes_T50.html}}
 
-Fifty is coarse, roughly one theme per industry. Section~\ref{sec:resolution}
-refits the model at 500 themes and separately at 50 themes within each class
-and repeats the gate analysis under each; Section~\ref{sec:robust} reports
-the resolution sweep and a second fit at the same resolution with a different
-seed. Fifty is kept in Sections~\ref{sec:life} and~\ref{sec:secevents}
-because it is the coarsest resolution at which every result holds, and
-because its software-class lead contrast sits at the low end of the
-resolutions tried (only the 100-theme refit returns less).
+Fifty is coarse, roughly one theme per industry.
+Section~\ref{sec:three_scorings} refits the model at 500 themes and
+separately at 50 themes within each class and repeats the five-year-proof
+analysis under each; Section~\ref{sec:robust} reports the resolution sweep
+and a second fit at the same resolution with a different seed. Fifty is
+kept elsewhere because it is the coarsest resolution at which every result
+holds, and because its software-class lead contrast sits at the low end of
+the resolutions tried (only the 100-theme refit returns less).
 
 \paragraph{Comparing against the two references.} Write $P$ for the filing's
 distribution over themes, and $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$
@@ -159,9 +158,9 @@ signed difference:
 For Amazon, $A = 1.225$ and $L = +0.123$: against its own class, its
 atypicality is at the 47th percentile and its lead at the 94th. The
 industry moved toward this description in the five years after it was filed
-and had not been writing that way in the five years before. The symbol
-\dkl{} is used interchangeably with $L$; Table~\ref{tab:constructs} maps
-the terms.
+and had not been writing that way in the five years before.
+Table~\ref{tab:constructs} maps the terms; the signed difference is written
+$L$ throughout and its magnitude $|L|$.
 
 What ``early'' means is visible in the themes themselves. Of the six Amazon
 drew on, the share of class-035 filings drawing on each, in the five years
@@ -280,8 +279,8 @@ per-filing days, and a window is scored only when it holds at least
 negative log of that ratio is the pairing's information content; averaging
 over a filing's pairs, weighted by their masses, and differencing the two
 windows gives a \emph{pair lead}, positive when the class moved toward the
-filing's pairings. Filings in the top fifth of pair lead fail the first
-use-proof gate $2.3$ points more often than those in the bottom fifth
+filing's pairings. Filings in the top fifth of pair lead fail the
+five-year proof of continued use $2.3$ points more often than those in the bottom fifth
 ($t = 8.4$, unchanged by the controls), and pair lead correlates with lead
 itself at only $-0.18$. Being early with an arrangement of themes is
 penalised in its own right, at a rate comparable to being early with the
@@ -294,7 +293,8 @@ fewer than five times in the class's prior five years --- while both words
 are established there, each appearing at least fifty times; the share is
 taken over such eligible pairs only. This is recombination in the sense of the innovation
 literature, novelty assembled from familiar components
-\citep{Fleming2001, Uzzi2013}: familiar parts, new adjacency. Filings in the top fifth of that share fail the gate $6.1$
+\citep{Fleming2001, Uzzi2013}: familiar parts, new adjacency. Filings in
+the top fifth of that share fail the five-year proof $6.1$
 points \emph{less} often than those in the bottom fifth, and $2.8$ points
 less with lead and atypicality held ($t = -10.4$). Word recombination and
 theme-pair lead are uncorrelated ($r = -0.01$): they are different facts
@@ -329,6 +329,100 @@ filing caused it. Atypicality is textual, and is not trademark law's
 distinctiveness doctrine, which governs registrability along the
 generic-to-fanciful spectrum; the two attach to different objects, one to the
 mark and one to the description of the goods it covers.
+
+\subsection{The gates, the samples, and the conventions}\label{sec:gates}
+
+The outcome sections that follow are written to be read independently, so
+the record's steps, the outcome names, and the counting conventions are
+set out once, here.
+
+A US trademark passes through a sequence of dated, high-stakes steps, and
+each step leaves a record. An application is filed with a goods/services
+description; an examiner reviews it, often issuing office actions the
+applicant must answer; if allowed and (for intent-to-use filings) a sworn
+statement of use is filed --- the proof that the mark has entered commerce
+--- the mark registers. Registration starts a maintenance clock: in years
+five to six the owner must file a Section~8 declaration proving continued
+use in commerce, with a six-month grace period --- the \emph{five-year
+proof of continued use}, the paper's central outcome; around year ten a
+combined Section~8 declaration and Section~9 renewal is due, and every ten
+years thereafter. A mark that misses a proof is cancelled. Madrid Protocol
+registrations (\S66(a) basis) file Section~71 declarations on the same
+schedule and are flagged separately throughout. \citet{Graham2013}
+describe the administrative data; the event-dated corpus built here adds
+the full prosecution history of each case, so a cancellation is assigned
+to a specific proof by its date rather than inferred from a status
+snapshot.\footnote{Cross-checked against the USPTO status-code dictionary:
+700 registered; 701--705 Section~8 accepted; 710 cancelled for Section~8
+failure; 800 renewed; 900 expired.}
+
+\begin{table}[h]\centering\small
+\caption{The trademark funnel in this corpus. Registration counts are
+unique serials; five-year-proof outcomes are event-dated (a Section~8
+cancellation at registration age 4.0--8.5 years). Source: the re-parsed
+USPTO application backfile, scored as in this section.}
+\label{tab:funnel}
+\begin{tabular}{lrr}
+\toprule
+Stage & $n$ & Share \\
+\midrule
+Debut filings scored, 1995--2018 (owners' first filings) & 3{,}589{,}068 & \\
+\quad reached registration & 2{,}066{,}600 & 57.6\% \\
+\midrule
+All unregistered class-records filed 1995--2018 & 3{,}798{,}318 & \\
+\quad never filed statement of use & & 42.6\% \\
+\quad stopped responding in prosecution & & 45.3\% \\
+\quad removed adversarially & & 4.3\% \\
+\midrule
+Registrations 2002--2018, scored, unique serials & 3{,}104{,}534 & \\
+\quad failed the five-year proof of continued use (event-dated) & & 52.3\% \\
+\midrule
+Passed the five-year proof, cohorts 2002--2013, status known & 1{,}129{,}724 & \\
+\quad failed at the year-ten renewal & & 39.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three named outcomes recur (Table~\ref{tab:funnel}). \emph{Failing to
+register}: the application never completed, which happens by the
+applicant's own inaction in roughly nine cases of ten
+(Section~\ref{sec:registration}). \emph{Failing the five-year proof of
+continued use}: a registration cancelled for non-use at registration age
+4.0 to 8.5 years, which means the product the mark named left commerce
+within six years (Sections~\ref{sec:gate} and~\ref{sec:waves}).
+\emph{Reaching the SEC record}: the owner appears in dated SEC events ---
+a priced Form~D round, financial reporting, a listing
+(Section~\ref{sec:success}).
+
+Outcomes are rates, so every estimate is a shift in a probability and is
+stated in percentage points against the base rate it shifts: $+1.4$pp on
+a 52.3\% base means 53.7\% against 52.3\%. The basic comparison is the
+outcome rate of the fifth of filings with the highest lead minus that of
+the fifth with the lowest, with the fifths cut inside a single Nice class
+and year so that no difference between industries or between years
+enters; regression tables add drafting and filer controls and cluster
+errors on the owner. Where a continuous version is given, it is the
+change in the outcome for a one-standard-deviation change in the axis, in
+percentage points.
+
+Counting differs by table. A filing may claim several Nice classes at
+once, so a \emph{class-record} counts it once per class while a
+\emph{registration} counts it once by serial number; a \emph{debut
+filing} is an owner's first, one per owner. A \emph{cohort} is the set of
+registrations issued in a calendar year; where a split is instead by
+filing year, the text says so.
+
+Two windows bound the samples, each set by an institutional fact. Scoring
+runs 1995--2019: a full five-year past reference does not exist before
+1990 and a full forward reference does not exist after 2020, and the 1995
+cut is about two years more conservative than the measured burn-in
+requires (Appendix~\ref{app:comp}). Five-year-proof cohorts run
+2002--2018: cancellations post at about registration age six and a half,
+the record ends in April 2026, so 2018 is the last cohort whose window
+has essentially elapsed, and 2002 is the conventional lower cut for this
+corpus --- a bound that matters, because carried back to the first
+scoreable cohorts the penalty was larger than it has ever been since
+(Section~\ref{sec:eras}).
 
 \subsection{What the construct is not called}\label{sec:neighbours}
 

@@ -7,36 +7,30 @@ registration cohorts. This section reports what each of those choices costs,
 and in each case states the more complicated finding beside the simpler one
 the body uses.
 
-\subsection{Representation, anchoring, weighting}
+\subsection{Representation and weighting}
 
 A scoring is fixed by two choices. The \emph{representation} is what the
 language is turned into: a distribution over 50 fitted themes, or a
-distribution over the class vocabulary's terms. The \emph{reference} is what
-that is compared against, and it hides two sub-choices --- the
-\emph{anchoring} (one reference per class-year, or one per filing built on its
-own date) and the \emph{weighting} inside the window (every day equal, or
-decaying by half every two years). Six builds exist:
+distribution over the class vocabulary's terms. The \emph{weighting} is
+how days inside the reference window count: every day equal, or decaying
+by half every two years. Every reference is per-filing, anchored on the
+filing's own date (Section~\ref{sec:construct}). Four builds exist:
 
 \begin{center}\small
-\begin{tabular}{lllrr}
+\begin{tabular}{llrr}
 \toprule
-Representation & Anchoring & Weighting & sd(lead) & sd(atypicality) \\
+Representation & Weighting & sd(lead) & sd(atypicality) \\
 \midrule
-Themes & class-year & flat          & $0.132$ & $0.672$ \\
-Themes & per-filing & flat          & $0.102$ & $0.698$ \\
-Themes & per-filing & half-life 2y  & $0.082$ & $0.698$ \\
-Terms  & class-year & half-life 2y  & $0.299$ & $1.330$ \\
-Terms  & per-filing & flat          & $0.155$ & $1.101$ \\
-Terms  & per-filing & half-life 2y  & $0.130$ & $1.102$ \\
+Themes & flat          & $0.102$ & $0.698$ \\
+Themes & half-life 2y  & $0.082$ & $0.698$ \\
+Terms  & flat          & $0.155$ & $1.101$ \\
+Terms  & half-life 2y  & $0.130$ & $1.102$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent All six are compared on the 6.01 million filings every one of them
-scored. The second row is the production scoring. The fourth row is the
-legacy build; it differs from the production build in anchoring and
-weighting at once, so the two per-filing term builds were constructed to
-isolate each choice.
+\noindent All four are compared on the 6.01 million filings every one of
+them scored. The first row is the production scoring.
 
 Changing one choice at a time settles the ordering. Correlations of lead
 between builds differing in exactly one respect:
@@ -48,21 +42,20 @@ Choice varied & $r$ (lead) & $r$ (atypicality) \\
 \midrule
 Weighting, flat vs half-life 2y (themes)  & $0.982$ & $1.000$ \\
 Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
-Anchoring, class-year vs per-filing (themes) & $0.738$ & $0.929$ \\
 Resolution, 50 vs 200 themes\footnotemark              & $0.636$ & $0.828$ \\
 Representation, themes vs terms           & $0.460$ & $0.396$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\footnotetext{The resolution row is computed on the gate sample rather than
-the 6.01 million-filing common sample of the other rows.}
+\footnotetext{The resolution row is computed on the five-year-proof sample
+rather than the 6.01 million-filing common sample of the other rows.}
 \noindent The weighting is close to irrelevant: whether recent language counts
 for more than distant language within the window barely moves the score, and it
 does not move atypicality at all to three decimals, which is what the
 $45$-degree rotation of Section~\ref{sec:construct} implies --- the long axis is
 a property of the filing and the weighting acts almost entirely on the small
-residual. Anchoring matters moderately. Resolution and representation matter
+residual. Resolution and representation matter
 most: quadrupling the number of themes leaves the two builds agreeing on 40\%
 of the variance in lead, and themes against terms on less than a quarter. A
 robustness check that varies only the weighting is therefore close to a
@@ -83,7 +76,7 @@ same analyzer, and re-scoring the software class under per-filing windows:
 \begin{center}\small
 \begin{tabular}{rrrrr}
 \toprule
-Themes & Gate contrast, lead & $t$ & Gate contrast, atypicality & $r$ with $T=50$ \\
+Themes & Proof contrast, lead & $t$ & Proof contrast, atypicality & $r$ with $T=50$ \\
 \midrule
 $50$   & $+3.23$pp & $13.8$ & $-14.01$pp & --- \\
 $100$  & $+2.71$pp & $11.6$ & $-13.69$pp & $0.690$ \\
@@ -132,8 +125,8 @@ present between two fits that differ only in the seed: for atypicality nearly
 all of it, for lead well over half. The resolutions are not measuring
 different things; each fit is a noisy draw on the same thing.
 
-The estimate moves less than the scores do. On the identical gate sample, the
-first-gate lead contrast is $+5.20$pp under the first seed and $+4.88$pp under
+The estimate moves less than the scores do. On the identical sample, the
+five-year-proof lead contrast is $+5.20$pp under the first seed and $+4.88$pp under
 the second (SE $0.23$ each), and the atypicality contrast $-13.45$ and
 $-14.38$pp. Two consequences follow. A single fit's lead score carries
 measurement error of roughly a fifth of its variance, which attenuates every
@@ -143,33 +136,12 @@ magnitudes across the resolution table above, which does not move
 monotonically in $T$, should be read as a band about a third of a point wide
 from fitting noise alone rather than as a property of any particular $T$.
 
-Annual anchoring leaves a signature that per-filing anchoring does not. Mean
-lead by calendar month of filing, in units of the build's own standard
-deviation, has no reason to trend --- nothing about filing in December rather
-than January makes a description more forward-looking:
-
-\begin{center}\small
-\begin{tabular}{llr}
-\toprule
-Representation & Anchoring & December $-$ January (sd) \\
-\midrule
-Terms  & class-year & $+0.169$ \\
-Themes & class-year & $+0.041$ \\
-Themes & per-filing & $-0.008$ \\
-Terms  & per-filing & $+0.017$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\noindent A December filing sits eleven months further from its past reference
-and eleven months nearer its future one, and under annual buckets that shows up
-as position in the calendar. Under per-filing references it is gone.
-
-The substantive claim does not depend on any of this. The first-gate contrast,
-computed on the common sample, runs $+2.73$, $+2.71$, $+2.39$, $+4.05$, $+3.97$
-and $+3.19$pp on lead across the six builds in the order tabulated above, and
-$-7.75$ to $-6.17$pp on atypicality. Every sign holds; term scoring returns the
-larger lead contrast, so the headline estimate is the conservative
+The substantive claim does not depend on any of this. The five-year-proof
+lead contrast on the 2002--2018 registrations each build scores runs
+$+2.29$, $+1.95$, $+3.56$ and $+2.92$pp across the four builds in the
+order tabulated above, and the atypicality contrast $-4.39$, $-4.43$,
+$-3.63$ and $-3.73$pp. Every sign holds; term scoring returns the larger
+lead contrast, so the headline estimate is the conservative
 representation.
 
 \subsection{Decayed reference windows}\label{sec:robust_decay}
@@ -190,47 +162,12 @@ window is kept in the body because it is the simpler statement; a reader who
 prefers recent language to count for more should take $+1.95$pp as the
 estimate.
 
-\subsection{Annual reference buckets}\label{app:rolling}
-
-Every estimate uses a reference anchored on the filing's own date. The
-alternative is one reference per class-year, under which a filing made on 1
-January and one made on 31 December receive identical references and neither
-sees any of the language filed during its own year. The calendar signature
-that leaves is reported below.
-
-First, the gate penalty was overstated by about a third. The persisted
-comparison is the software class on an identical 452{,}911-registration
-sample: $+7.40$pp (SE $0.43$) under annual buckets against $+5.25$pp
-(SE $0.42$) under per-filing windows, a ratio of $0.71$, with the
-$t$-statistic \emph{rising} because the standard error falls further than
-the estimate. The corpus-wide annual regression of the superseded build
-returned $+2.15$pp (SE $0.30$) against the current $+1.39$pp, the same
-ratio, and its per-split ratios ran $0.59$ to $0.73$; that run was not
-persisted, so the corpus-wide statement rests on the superseded build's
-log and the software-class artifact carries the claim.
-
-Second, the shape of the gate penalty changes. Under annual buckets the
-quintile profile looked like a gradient with a steeper final step; under
-per-filing windows the gradient through the interior quintiles is shallower
-and the final step dominates, with the top quintile carrying about seventy
-percent of the total.
-The coarser measure spread a top-quintile effect across the whole range.
-
-Third, one published shape does not survive. Registration completion showed
-an inverse-U on both the unsigned and the signed axis. Only the unsigned one
-is real; on \dkl{} the curvature disappears entirely under per-filing
-windows, and the earlier interior peak is attributable to the month
-gradient above. The firm-level results are the least affected by the window change,
-though they are sensitive to the owner-to-registrant linkage instead
-(Section~\ref{sec:bluesea}): the signed decomposition keeps both its signs
-and its significance under either window.
-
 \subsection{Window width}\label{app:wsweep}
 
 The window is a parameter of the measure, not a property of it, and the five
 years used throughout was inherited from the class-year construction rather
 than chosen under the current one. Re-scoring the software class at several
-widths under per-filing references, and judging each by the first-gate
+widths under per-filing references, and judging each by the five-year-proof
 quintile contrast it produces, gives $+2.02$pp at two years, $+2.20$ at
 three, $+3.23$ at five and $+3.37$ at seven, each on an identical sample of
 452{,}911 registrations and each with a standard error of $0.23$pp. Signal
@@ -290,13 +227,8 @@ kind.
 
 Registration is a different matter. On the signed axis the top-to-bottom
 contrast is at most a point on a 57\% base and the interior-minus-tails
-depth at most two thirds of a point, under every mix. An earlier version of
-this decomposition, run on the retired term-level calendar-year scoring,
-found a registration inverse-U of four to five points that the window mix
-did not touch; under per-filing references that curvature is gone on the
-signed axis, consistent with Appendix~\ref{app:rolling}, which traces it to
-the calendar artefact. The examiner's response to lead, on this scoring, is
-close to nil.
+depth at most two thirds of a point, under every mix. The examiner's
+response to lead, on this scoring, is close to nil.
 
 \subsection{Without conditioning on grant}\label{sec:robust_uncond}
 
@@ -321,7 +253,7 @@ cleaner single-gate cohort of Figure~\ref{fig:s8pooled}.
 \caption{Filings 2013--2015 pooled across classes, theme-scored on
 per-filing reference windows ($n = 1{,}419{,}678$; gated subset
 $n = 763{,}902$). \emph{A:} the unconditional composite P(registered and
-passed first gate) over all filings. \emph{B:} P(passed $\mid$ registered
+passed the five-year proof) over all filings. \emph{B:} P(passed $\mid$ registered
 and gated) on the same filings. The unconditional view is nearly flat in
 lead (22.4\% to 22.1\% across quintiles); conditioning on grant is what
 exposes the gradient.}
@@ -330,7 +262,7 @@ exposes the gradient.}
 
 \subsection{Toggled filters, windows and parameters}\label{sec:robust_matrix}
 
-Each new analysis in Sections~\ref{sec:life}--\ref{sec:secevents} was rerun
+Each new analysis in Sections~\ref{sec:registration}--\ref{sec:success} was rerun
 under its natural parameter toggles, on the identical data. Nothing
 reverses a headline claim; two auxiliaries move.
 
@@ -381,17 +313,16 @@ penalty is zero to negative for the 2002--2005 cohorts ($-2.3$pp for 2003)
 and runs $+1.8$ to $+5.4$pp for every cohort from 2008 on the wide-window
 raw series. The 2019 cohort, evaluable only on the narrow 6.5--7.0
 observation band for registrations issued early enough in that year
-(78{,}408), is consistent in sign at $+5.6$pp. Cohorts from
-2020 have no observed gate. The pooled estimate is therefore an average over
-a penalty that was not constant, and a reader who wants the penalty for a
-period should read Figure~\ref{fig:cohort} rather than the pooled row.
+(78{,}408), is consistent in sign at $+5.6$pp. Cohorts from 2020 have no
+observed proof. The pooled estimate is therefore an average over a penalty
+that was not constant, and a reader who wants the penalty for a period
+should read Figure~\ref{fig:cohortslopes} rather than the pooled row.
 
 \subsection{Lead is a small residual}
 
 Past-facing and future-facing KL are highly correlated however scored. On the
 complete class-009 corpus under the production scoring they correlate at
-$r = +0.988$ ($n = 1{,}109{,}643$); under term scoring on class-year
-references the figure is $+0.971$. The lead $L$ is therefore a small residual
+$r = +0.988$ ($n = 1{,}109{,}643$). The lead $L$ is therefore a small residual
 of two large, stable quantities: both levels have a standard deviation near
 $0.70$ nats about a mean of $1.46$, while $L$ has a standard deviation of
 $0.109$ --- about a sixth of either level's spread. Only $1.2\%$ of the two
@@ -420,7 +351,7 @@ scoring is mildly U-shaped in $A$. The two scorings agree only
 moderately per filing (Pearson $0.46$, Spearman $0.42$ on the 6.01 million
 filings both score), which gives their agreement on the mark-level
 patterns evidential force and their disagreement on the firm-level
-patterns diagnostic force (Appendix~\ref{sec:robust_hazard}). Across
+patterns diagnostic force (Section~\ref{sec:robust_hazard}). Across
 $W \in \{3, 5, 7\}$, 6.9--10.4\% of filings flip sign. Per-filing noise
 attenuates at every aggregation used: firm-year means, token pools,
 theme prevalence trajectories.
@@ -450,13 +381,13 @@ separation as Section~\ref{sec:bluesea}, at the mark level.
 \caption{The two mark-level outcomes under theme and term scoring on
 identical samples, pooled across classes, by within-class lead quintile
 (1 most lagging, 5 most leading). \emph{Left:} the share of registrations
-2016--2018 that survived the first use-proof gate at years five to six,
+2016--2018 that survived the five-year proof of continued use at years five to six,
 read from terminal status codes, where the two representations agree
 closely. \emph{Right:} registration completion
 (filings 1995--2018), where they do not: the inverse-U in the signed axis
 is present under term scoring (depth $+0.048$) and absent under theme
 scoring (depth $-0.001$). The gate result is scoring-robust; the
-registration curvature on this axis is not, and Section~\ref{sec:life}
+registration curvature on this axis is not, and Section~\ref{sec:registration}
 reports only the unsigned version.}
 \label{fig:s8pooled}
 \end{figure}
@@ -558,14 +489,9 @@ atypicality at registration and about two above it at SEC reporting. On every
 lead row the exponent collapses to the order of $10^{-4}$, which turns
 $e^{c|x-x_0|}$ into $1 + c|x-x_0|$: what wins there is a \emph{V}, linear in
 distance from a vertex. A V beating a parabola says the turn is sharper than a
-quadratic allows, not that anything is multiplying. The script now flags that
-degeneracy rather than leaving it to be read off the fitted constants.
+quadratic allows, not that anything is multiplying.
 
-Vertices are in standard deviations of the axis across filings. An earlier
-version of this table standardized on the spread of the forty bin centres
-instead, which is narrower than the filings' own spread and put the vertices
-on a scale that did not match the per-standard-deviation slopes quoted
-elsewhere in the paper.
+Vertices are in standard deviations of the axis across filings.
 
 The two rows for SEC reporting are the outcome Section~\ref{sec:bluesea} and
 Table~\ref{tab:edgar} actually run on; the listed and reporting-only splits
@@ -575,7 +501,7 @@ change the reading.
 AIC here is computed on 40 binned means, not on the millions of underlying
 filings, so it ranks shapes rather than testing them. The $77$ at registration
 and the $12$ to $36$ at the public-reporting gates are decisive; the $1.9$ at
-registration on lead and the $4.3$ at the use-proof gate are weak, and those
+registration on lead and the $4.3$ at the five-year proof are weak, and those
 two rows are better read as ``no worse than linear'' than as curvature.
 
 \subsection{Listing against reporting}
@@ -611,7 +537,7 @@ firm with hundreds of marks contributes hundreds of identical successes.
 The regression tables are unaffected, because the gate regressions cluster
 on normalized owner and the firm-level specifications carry one
 observation per owner. The raw quintile contrasts of
-Sections~\ref{sec:life}--\ref{sec:resolution} --- the era, theme, internet
+Sections~\ref{sec:gate}--\ref{sec:waves} --- the era, theme, internet
 and surge tables --- are not: their two-sample standard errors ignore the
 owner clustering, and their $t$-statistics overstate precision by roughly a
 factor of two, which the text of those sections now carries where the

@@ -72,19 +72,57 @@ end to about 58\% in the middle and falls back to 53.4\% at the most atypical
 past-facing level alone, more mildly, running 54.0\% at the bottom quintile to
 58.4--59.1\% in the middle and 57.7\% at the top (Figure~\ref{fig:outcomes}A).
 
-The signed axis behaves differently. Completion on \dkl{} falls to a trough of
+The signed axis behaves differently. Completion on $L$ falls to a trough of
 51.9\% just above the median and then rises steadily to 58.0\% at the leading
 end. That trough is composition rather than timing: $|L|$ correlates with
 atypicality at $+0.31$, so filings near zero lead are disproportionately
 low-atypicality filings, which complete poorly for the reason above. Split by
 atypicality, the trough is absent in the upper three fifths and survives in
-the lowest. Reference windows built by calendar year put an inverse-U on this
-axis too, but that one is an artifact of annual bucketing
-(Appendix~\ref{app:rolling}) and does not survive at daily resolution. The
+the lowest. The
 signed axis still enters a linear specification strongly
 (Table~\ref{tab:staged}), but monotonically rather than through an interior
 peak: what curvature exists at registration belongs to how far a filing's
 language sits from its category, not to which side of it the filing sat.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
+\caption{Outcomes for debut filings (owner's first-ever filing) across all
+45 Nice classes under theme scoring, filing years 1995--2018, in quantile
+bins with 95\% intervals, quantiles cut on the pooled distribution.
+$n = 3{,}589{,}068$; registered subset $n = 2{,}066{,}600$. \emph{A:}
+P(reached registration). \emph{B:} P(owner ever in SEC EDGAR, the
+Commission's public filing system $\mid$ registration).}
+\label{fig:outcomes}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/quintile_profiles.png}
+\caption{Quintile profiles for the three outcomes. \emph{A:} the share of
+registrations failing the five-year proof of continued use, by lead
+quintile, adjusted within Nice class and registration year with the
+drafting and filer controls of Table~\ref{tab:gate_lpm}; the dashed line
+is the rate for all registrations. The profile rises gently and
+monotonically through the fourth quintile and then steps up: about seven
+tenths of the top-to-bottom gap is the single step from the fourth
+quintile to the fifth, seven times the average step below it. \emph{B:}
+the share of first-time filers whose owner ever reaches SEC reporting, by
+quintile of atypicality and of lead, adjusted within Nice class and filing
+year with description length held. \emph{C:} raw registration rates for
+debut filings in twenty bins, cut on the pooled distribution --- an
+inverse-U on atypicality, and on lead a trough just above the median that
+is compositional, absent once atypicality is held in its middle fifth
+(dashed). Horizontal line at the pooled rate.}
+\label{fig:profiles}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.9\textwidth]{results/fig_registration_sankey.png}
+\caption{The registration step as a flow, unique serials filed 1995--2018
+($n = 6{,}877{,}795$), split by counsel of record on the filing.
+Represented applications reach registration at 61.9\%, self-filed at
+45.6\%.}
+\label{fig:sankey}
+\end{figure}
 
 The obvious objection is that unfamiliar language is simply refused more
 often, so the measure recovers nothing beyond familiarity. Completion falls at
@@ -101,7 +139,7 @@ rise with lead, from 2.6\% among the most lagging abandoned applications to
 \section{How refiled descriptions are rewritten}\label{app:refile}
 
 Figure~\ref{fig:refile} shows the goods/services description before and
-after a rewrite, for the 31{,}084 refilings in Section~\ref{sec:life}
+after a rewrite, for the 31{,}084 refilings in Section~\ref{sec:amend}
 whose text changed. A pair is an abandoned application and the same owner's
 later registration of the identical mark in the same Nice class within six
 years; the earliest registered refiling is kept. Counsel of record is read
@@ -231,5 +269,5 @@ nearly identical under both scorings despite this blindness is what
 licenses theme scoring as a robustness instrument; that the firm-level
 results diverge is what exposes them as artifacts of the lexical
 specificity term scoring additionally captures
-(Appendix~\ref{sec:robust_hazard}).
+(Section~\ref{sec:robust_hazard}).
 

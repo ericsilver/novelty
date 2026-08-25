@@ -766,33 +766,33 @@
   }
  ],
  "dose": {
-  "corr_loggrowth_excess": -0.134844072898473,
-  "corr_logshare_excess": -0.2178350502030561,
+  "corr_loggrowth_excess": -0.13484407289847292,
+  "corr_logshare_excess": -0.21783505020305607,
   "wcorr_logshare_excess": -0.3961949648268584,
-  "mean_excess": 0.02170952589556235,
+  "mean_excess": 0.021709525895562354,
   "share_excess_positive": 0.5901639344262295,
   "excess_small": {
    "k": 21,
-   "mean": 0.026711453198195706,
-   "mean_share": 0.015251990350784526
+   "mean": 0.0267114531981957,
+   "mean_share": 0.015251990350784525
   },
   "excess_mid": {
    "k": 20,
-   "mean": 0.03945749746031258,
-   "mean_share": 0.025490489215304002
+   "mean": 0.039457497460312574,
+   "mean_share": 0.025490489215303995
   },
   "excess_large": {
    "k": 20,
-   "mean": -0.001290469336952891,
-   "mean_share": 0.08542749960061019
+   "mean": -0.001290469336952892,
+   "mean_share": 0.08542749960061018
   }
  },
  "aftermath": {
   "n_grew": 22,
   "n_receded": 39,
-  "excess_grew": 0.04299537604508554,
+  "excess_grew": 0.04299537604508555,
   "excess_receded": 0.00970212324711337,
-  "corr_aftermath_excess": 0.10772478628736495
+  "corr_aftermath_excess": 0.10772478628736501
  },
  "timing_by_entry_year": {
   "0": {

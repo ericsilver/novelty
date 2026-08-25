@@ -1,0 +1,347 @@
+\section{Persistence in commerce: the five-year proof of continued use}\label{sec:gate}
+
+This section is about one outcome: whether a registered mark's owner
+proved, between the fifth and sixth year of the registration, that the
+product the mark names was still in commerce. The sample is every unique
+registration issued 2002--2018 that carries a score; failure is a dated
+cancellation for non-use at registration age 4.0--8.5 years
+(Section~\ref{sec:gates}). Half of registered marks fail it. How the
+penalty found here moved across industries and decades is
+Section~\ref{sec:waves}; what became of the firms is
+Section~\ref{sec:success}.
+
+\subsection{Why the analysis conditions on registration}\label{sec:filter}
+
+The question is about companies whose products entered commerce: given
+that a product was brought to market, does the language of its first
+description predict whether it was still there five years on? Registration
+is the record's marker of entry --- a use-based application asserts the
+mark is in commerce, and an intent-to-use application registers only after
+a sworn statement of use --- so the analysis begins there. An application
+that never registered left the record, nine times in ten, by the
+applicant's own inaction, before any product met a customer. Including
+those applications would change the question into one about everyone who
+considered launching, including those who then did not, and since they are
+2.3 million of the 6.0 million scored applications, their inclusion also
+buries the commercial signal in launch noise.
+Section~\ref{sec:robust_uncond} shows the pooled analysis for a reader
+skeptical of the conditioning: the registration step's shape is stamped
+onto every later outcome, and the gradients found below are attenuated and
+in places reversed.
+
+Conditioning would miscount if abandonment were usually a pause rather
+than an ending --- if owners reworked refused applications and refiled,
+the same product would be counted once as a failure and again as a
+success. It is not: among 2.28 million abandoned applications, 3.6\% are
+refiled within six years and 1.5\% lead to a registration
+(Section~\ref{sec:amend}). Crediting every successful refiling as an
+eventual registration moves the registration profile by less than a tenth
+of a point. The refiled cases are $1.1$\% of this section's sample, they
+fail the five-year proof at nearly the sample rate (51.7\% against
+52.8\%), and the headline contrast below is $+2.25$pp with them and
+without them.
+
+\subsection{Leading marks fail the five-year proof more often}\label{sec:gate_headline}
+
+Marks written in language their industry subsequently moved toward fail
+the five-year proof more often than marks written in language it was
+moving away from. Within Nice class and registration year, controlling for
+whether the filer drafted the mark themselves or hired counsel, and for
+the length of the description, registrations in the most leading fifth of
+lead fail $1.4$ points more often (53.3\%) than those in the most lagging
+fifth (51.9\%; $t = 8.3$, Table~\ref{tab:gate_lpm}).
+
+Among 4.12 million registration class-records 2002--2018, dated
+cancellation at the five-year proof rises from 50.0\% at the bottom
+lead quintile to 52.4\% at the top, positive in 33 of 44 classes with
+sufficient volume (Figure~\ref{fig:forest}). But a raw pooled contrast
+mixes the within-industry gradient with class and registration-year
+composition, treats multi-class registrations as independent observations,
+and ignores that outcomes correlate within owner. The primary estimates
+therefore come from a linear probability model on 3.10 million unique
+registrations, one row per serial, with lead quintiles cut \emph{within}
+Nice class and registration year. The specification adds
+class$\times$registration-year fixed effects; controls for counsel of
+record, intent-to-use basis, log description length, log owner filing
+volume, owner domicile, and foreign filing basis;\footnote{A US
+application is filed either on \emph{use} --- the mark is already in
+commerce --- or on \emph{intent to use}, which defers proof until after
+allowance. Foreign applicants may instead file on a home registration
+(\S44(e)) or extend an international registration into the US under the
+Madrid Protocol (\S66(a)); the latter maintain under \S71 rather than
+\S8. These are statutory routes to the same registration, and they differ
+sharply in who files and how often the mark is abandoned, which is why
+each enters as a control.} and standard errors clustered on 1.27 million
+normalized owners (Table~\ref{tab:gate_lpm}).\footnote{Ties are common.
+Within the class$\times$registration-year cell the quintiles are cut in,
+$17.1$\% of scored registrations share a lead value with at least one
+other filing, and the largest tie group runs to 53. Anchoring the
+reference window on the filing date does not remove them, because filings
+that share a class, a filing date and a goods/services description --- an
+owner registering a family of marks at once, on Manual language --- have
+identical distributions scored against identical references. Cut points
+are fixed by sorting on the score and then on the serial number, which is
+reproducible but systematic: serials run in filing order. It makes no
+difference. Sorting the ties the opposite way moves the top-versus-bottom
+contrast by $0.001$pp, and five pseudorandom orderings move it by at most
+$0.002$pp, against a contrast of $2.287$pp.}
+
+\begin{table}[h]\centering\small
+\caption{Failure at the five-year proof of continued use and lead:
+design-based estimates. LPM of event-dated failure on
+within-class$\times$registration-year lead quintiles (Q1 omitted), unique
+serials, registrations 2002--2018. Failure is a dated cancellation for
+non-use at registration age 4.0--8.5 years, under \S8 or, for Madrid
+\S66(a) registrations, \S71. All specifications include
+class$\times$registration-year fixed effects; controls are counsel of
+record, intent-to-use basis, log goods/services length, log owner filing
+count, owner domicile (US, CN), and foreign basis (\S44(e), \S66(a)).
+Base failure rate 52.3\% on this sample.}
+\label{tab:gate_lpm}
+\begin{tabular}{llrrr}
+\toprule
+Sample & Specification & Q5$-$Q1 (pp) & SE & $n$ \\
+\midrule
+All & FE only & $+2.29$ & $0.16$ & 3{,}104{,}534 \\
+All & FE + controls & $+1.39$ & $0.17$ & 3{,}104{,}534 \\
+Counsel-represented & FE + controls & $+1.15$ & $0.20$ & 2{,}414{,}318 \\
+Counsel + US-domiciled & FE + controls & $+1.60$ & $0.22$ & 1{,}888{,}352 \\
+Self-filed & FE + controls & $+1.80$ & $0.26$ & 690{,}216 \\
+Excluding Madrid \S66(a) & FE + controls & $+1.82$ & $0.18$ & 2{,}924{,}427 \\
+\midrule
+Counsel + US, 2002--07 & FE + controls & $-0.25$ & $0.33$ & 551{,}989 \\
+Counsel + US, 2008--12 & FE + controls & $+2.00$ & $0.42$ & 551{,}924 \\
+Counsel + US, 2013--18 & FE + controls & $+2.65$ & $0.25$ & 784{,}439 \\
+\midrule
+All & continuous, pp per sd of lead & $+0.58$ & $0.05$ & 3{,}104{,}534 \\
+Counsel + US & continuous, pp per sd of lead & $+0.63$ & $0.06$ & 1{,}888{,}352 \\
+\bottomrule
+\end{tabular}
+\\[0.3em]\footnotesize Standard errors replace significance stars: with
+$n$ in the millions every coefficient has $p < 0.01$, so stars would mark
+each row identically. Errors are clustered on \emph{normalized owner} ---
+names uppercased, stripped of punctuation and of two dozen legal suffixes,
+so \textsc{acme corp.} and \textsc{acme corporation} are one cluster. A
+single owner files many marks, drafts them in a house style, and abandons
+them together when the business fails; the within-owner correlation of
+outcomes at the five-year proof is $0.38$ pooled across classes ($0.42$ in
+the single-class checks where it was first measured), so the 1.27 million
+owner clusters, not the filings, carry the information. The Madrid row
+drops \S66(a) registrations rather than absorbing them in a control, since
+they maintain under a different statute; the estimate is larger without
+them.
+\end{table}
+
+The gradient is monotone within cells. Whether the filing was drafted by
+counsel or by the owner is held because it moves both sides of the
+comparison at once: self-filers fail the five-year proof at 69.6\% against
+46.8\% for represented owners, and Section~\ref{sec:representation} showed
+they write shorter, more class-typical, slightly more leading
+descriptions, so without the control part of any lead gradient would be a
+self-filing gradient. With it, the penalty is of the same order in both
+strata ($+1.8$pp self-filed, $+1.2$pp counselled). The full control set
+cuts the magnitude by about a third without absorbing it, and the estimate
+is if anything \emph{largest} in the cleanest stratum ---
+counsel-represented, US-domiciled owners --- so it is not carried by the
+self-filed or foreign mass-filing segments whose failure rates are high
+for their own reasons.\footnote{The level effects on those covariates are
+large in their own right: counsel $-19.5$pp and Madrid \S66(a) basis
+$+10.3$pp.} About forty percent of the raw pooled contrast is composition:
+$+1.4$pp design-based against $+2.5$pp raw. The penalty is also not
+constant over the sample: within counsel-represented US-domiciled owners
+the earliest third of cohorts carries none of it ($-0.25$pp, SE $0.33$)
+--- leading marks registered 2002--2007 were no less likely to survive
+than lagging ones --- while the later thirds carry $+2.00$ and $+2.65$pp.
+Section~\ref{sec:waves} takes that variation as its subject.
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.72\textwidth]{results/event_gate_forest.png}
+\caption{Failure lift at the five-year proof of continued use (lead top
+minus bottom quintile) by industry, registrations 2002--2018, raw quintile
+contrasts; classes need 5{,}000 scored registrations to enter. Positive
+bars indicate the leading penalty. Whiskers are two-sample binomial
+intervals, uncorrected for the within-owner correlation ($0.38$) and so
+narrower than clustered intervals; read Table~\ref{tab:gate_lpm} for
+precision. Per-class breakouts are in the online appendix.}
+\label{fig:forest}
+\end{figure}
+
+Per class, the largest penalties sit in tobacco ($+26$pp, the vaping era),
+hand tools ($+10$pp), processed foods ($+10$pp) and medical apparatus
+($+9$pp), with negative lifts in beer and soft drinks, transport and
+construction. These are the extremes of a 44-class screen of raw
+contrasts: the largest of many noisy estimates sit away from zero by
+selection, so the named classes locate where the penalty concentrates and
+their magnitudes should be read with that in mind.
+
+\subsection{The proof is a fixed appointment, and the penalty is a rate, not a timing}\label{sec:gate_timing}
+
+The five-year proof is close to a fixed appointment rather than a hazard
+spread over years: of the 1.35 million cancellations recorded for fully
+observed cohorts, 17 post before registration age 6.5, 96.1\% post between
+6.5 and 7.0, and the rest after seven. Since the cancellation record ends
+on 2 April 2026, a cohort is observable only once it has reached seven
+years, which makes 2019 the last one with usable data at this proof and
+leaves 2020 and later unobserved.
+
+The outcome is an indicator on a window, so a mark that fails outside it
+counts as a survivor. If leading marks failed at the same rate as lagging
+ones but sooner, that alone would put them inside the window more often
+and the measure would report a difference in rates where there was only a
+difference in timing. It does not. On the 3.15 million registrations whose
+ninth anniversary is inside the record --- for which failure is settled
+and no window is needed --- the contrast is $+2.71$pp within class and
+registration year, against $+2.65$pp on the paper's 4.0--8.5 window.
+Conditional on failing, the probability of failing late carries a contrast
+of $-0.01$pp ($t = -0.2$) once class and registration year are held.
+
+A competing reading is that the proof measures disengagement rather than
+products: an owner who has lost interest both answers the examiner slowly
+and lets the registration lapse. The prosecution record tests this through
+the gap between the first non-final office action and the response to it.
+Response speed does not predict the outcome: across the 1.22 million
+scored registrations with a usable office-action/response pair, passage
+varies between 46.1\% and 48.1\% across response-speed quintiles, from a
+median of seven days to 183, and the quickest responders pass slightly
+\emph{less}. The lead penalty is present in both halves, stated on
+passing: $-3.48$pp ($\pm 0.40$) among faster-than-median responders and
+$-2.36$pp ($\pm 0.40$) among slower, against $-2.94$pp pooled. The
+restriction drops 61\% of the sample, disproportionately applications that
+never drew a refusal, so this speaks to the prosecuted subset.
+
+\subsection{The penalty under three theme scorings}\label{sec:three_scorings}
+
+Every estimate above scored filings on fifty themes fitted once over the
+whole corpus, with each class supplying its own reference. That is one of
+three ways to partition the vocabulary, and the penalty does not depend on
+the choice. The identical registrations were re-scored under
+\emph{500 global themes} (the same construction at ten times the
+resolution, so a theme is closer to a product category than to an
+industry) and under \emph{50 themes fitted per class} (a separate model on
+each class's own filings, so nothing is shared across classes). In all
+three, surprise is measured against the filing's own class on per-filing
+windows of 1{,}826 days each side.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/fig_resolution_compare.png}
+\caption{Failure at the five-year proof of continued use by quintile of
+lead (left) and of atypicality (right) under the three theme scorings, on
+the identical 3.10 million registrations 2002--2018; quintiles cut within
+Nice class and registration year, no controls. Whiskers are 95\% binomial
+intervals per quintile, uncorrected for owner clustering. The lead
+gradient survives every scoring; the atypicality gradient does not
+survive per-class themes.}
+\label{fig:resolution}
+\end{figure}
+
+The lead penalty is a property of the filing, not of the partition
+(Figure~\ref{fig:resolution}, left): $+2.29$pp under the production
+scoring, $+2.61$pp at 500 themes, and $+1.94$pp under per-class themes,
+each with a standard error of $0.09$, and positive under all three at once
+in 28 of the 44 classes with at least 3{,}000 sampled registrations. The
+scorings agree only moderately filing by filing --- lead correlates at
+$0.64$ between the two global resolutions and at $0.52$ between the global
+and the per-class fifty --- so a third to a half of the variance in any
+one scoring's lead is particular to that scoring, and the penalty survives
+the disagreement. (Table~\ref{tab:resolution} tabulates the contrasts; the
+standard errors here are two-sample binomial and unclustered, and
+outcomes correlate within owner at $0.38$, so single-class $t$-statistics
+overstate precision by roughly a factor of two.)
+
+\begin{table}[h]\centering\small
+\caption{Failure contrasts at the five-year proof under three theme
+scorings, on the identical registrations. Top-minus-bottom quintile,
+quintiles cut within Nice class and registration year, no controls;
+$n = 3{,}105{,}048$, base failure 52.3\%.}
+\label{tab:resolution}
+\input{results/resolution_compare.tex}
+\end{table}
+
+Atypicality behaves differently (Figure~\ref{fig:resolution}, right).
+Under the two global scorings the most atypical fifth of registrations
+fails the five-year proof $4.3$--$4.4$ points less often than the least
+atypical; under per-class themes the gap is $0.7$ points. The two global
+scorings' atypicality correlates at $0.79$; global and per-class
+atypicality correlate at $0.39$. A global model places every class in one
+set of coordinates, so a filing that imports a theme the class rarely uses
+and other classes use often registers as atypical for its class. A model
+fitted on the class alone re-partitions the class's own vocabulary, and
+the imported theme becomes a local theme like any other. What the global
+scoring calls atypical is, in large part, drawing on a theme from
+elsewhere.
+
+That population can be measured directly, and it separates two kinds of
+new. Under the 500-theme model, for each theme and class, the first
+sustained year is the first year by which the theme has been the dominant
+theme of at least one hundred filings in that class; the corpus-wide first
+sustained year is the earliest of those across classes.\footnote{Sustained
+years and theme shares are computed on a 25\% systematic sample of all
+filings (every fourth serial), scaled up, over filing years 1986--2024.}
+Each registration in the sample is assigned its dominant theme and
+classified at its filing date as carrying a theme new to the corpus, a
+theme new to its class (established elsewhere, arriving here), or an
+established theme. Of 4.12 million registration class-records, 3.97
+million carry an established theme, 151{,}012 a theme new to their class,
+and 779 a theme new to the corpus --- the last too few to support a
+claim, because almost every theme a 500-theme model can resolve had been
+established in some class before 2002.
+
+Registrations carrying a theme new to their class fail the five-year proof
+at 48.3\% against 51.6\% for established themes, and $0.43$ points less
+often within class and registration year (SE $0.13$). Holding the
+filing's own lead and atypicality as well reverses the sign: net of them,
+the new-to-class registrations fail $1.06$ points more often. The two
+statements describe one population. A theme arrives in a class in filings
+that are atypical for that class, and atypical filings survive; that is
+the $-0.43$. Among filings of equal atypicality, the ones carrying the
+arriving theme fail more; that is the $+1.06$. The atypicality protection
+of the global scorings is therefore mostly the protection of extension:
+language established elsewhere and extended into a new class survives.
+The penalty attaches to being early with language, not to being far from
+the class's centre.
+
+Nor is the lead penalty an atypicality effect in disguise. The two could
+be confounded mechanically --- lead is the difference of two nonnegative
+levels whose average is atypicality, so its spread grows with atypicality
+and its magnitude correlates with it at $+0.29$ --- but the signed value
+does not ($-0.05$), and cutting lead quintiles within fifths of
+atypicality leaves the penalty intact in every fifth: $+2.1$, $+3.1$,
+$+3.3$, $+1.7$ and $+2.5$pp from the least atypical fifth to the most
+(each SE under $0.3$).
+
+\subsection{The risk persists at the year-ten renewal}\label{sec:renewal}
+
+Survivors of the five-year proof face a combined declaration and renewal
+at year ten. On the design-based estimates the lead penalty does not
+attenuate there: lead enters at $-0.49$pp per standard deviation on
+passing the five-year proof and $-0.63$pp on renewing at year ten
+(Table~\ref{tab:staged}; both stated on survival, so the signs run
+opposite to the failure convention above). What attenuates is the raw
+single-class contrast: in the software class, where the five-year lift on
+the 2010--2013 cohorts reaches $+12.1$pp, the conditional lift at the
+renewal falls to $+7.6$pp. Pooled across classes the renewal profile is
+not a slope at all. Fitted over 872{,}079 five-year survivors with a
+resolved year-ten status, a straight line through renewal against lead
+explains 1\% of the variation across forty bins and a V explains 89\%
+($\Delta$AIC $= 83$). Renewal is highest just below the centre of the
+lead axis (64.2\% near $z = -0.4$) and lowest at both tails: 45.5\% at
+the most lagging bin --- the lowest anywhere on the axis --- and 50.6\%
+at the most leading. Most of the difference between leading and lagging
+resolves at the five-year proof; what remains at renewal is a penalty on
+both extremes of the lead axis, the lagging one the larger.
+
+\subsection{What the five-year proof shows}\label{sec:gate_conclusion}
+
+Among products that entered commerce, being described in language the
+industry was moving toward predicts being gone within six years: $+1.4$
+points on a 52.3\% base with the full design, $+2.3$ raw, in three of
+every four classes, under every partition of the vocabulary, robust to
+timing, to drafting, and to who files. Atypical language predicts the
+opposite, but that protection belongs mostly to filings extending a theme
+established elsewhere into a new class; net of atypicality, even those
+arriving-theme filings fail more. The market's step and the examiner's
+step read the text differently for their own reasons: the examiner reads
+distance from the class's usual language at a moment when lead does not
+yet exist to be read (Section~\ref{sec:reg_rates}); the five-year proof is
+recorded after the industry's language has moved, and it is where being
+early shows up as a cost.
