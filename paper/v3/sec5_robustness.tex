@@ -33,10 +33,10 @@ Terms  & per-filing & half-life 2y  & $0.130$ & $1.102$ \\
 \end{center}
 
 \noindent All six are compared on the 6.01 million filings every one of them
-scored. The second row is the production scoring. The fourth is the legacy
-build, and it is the one to handle carefully: it moves anchoring \emph{and}
-weighting at once, so a result computed on it cannot be attributed to either.
-That is why the two per-filing term builds were constructed.
+scored. The second row is the production scoring. The fourth row is the
+legacy build; it differs from the production build in anchoring and
+weighting at once, so the two per-filing term builds were constructed to
+isolate each choice.
 
 Changing one choice at a time settles the ordering. Correlations of lead
 between builds differing in exactly one respect:
@@ -49,12 +49,14 @@ Choice varied & $r$ (lead) & $r$ (atypicality) \\
 Weighting, flat vs half-life 2y (themes)  & $0.982$ & $1.000$ \\
 Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
 Anchoring, class-year vs per-filing (themes) & $0.738$ & $0.929$ \\
-Resolution, 50 vs 200 themes              & $0.636$ & $0.828$ \\
+Resolution, 50 vs 200 themes\footnotemark              & $0.636$ & $0.828$ \\
 Representation, themes vs terms           & $0.460$ & $0.396$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
+\footnotetext{The resolution row is computed on the gate sample rather than
+the 6.01 million-filing common sample of the other rows.}
 \noindent The weighting is close to irrelevant: whether recent language counts
 for more than distant language within the window barely moves the score, and it
 does not move atypicality at all to three decimals, which is what the
@@ -70,9 +72,9 @@ and the sweep below are the ones the claims lean on.
 
 \subsection{Theme resolution}
 
-Fifty themes over a 62,168-term vocabulary is roughly one theme per industry,
-so the partition is coarse enough that a reader may reasonably suspect the
-findings belong to it. Raising the theme count does not add coverage --- the
+Fifty themes over a 62,168-term vocabulary is roughly one theme per
+industry; whether the findings depend on that coarseness is testable by
+refitting at higher $T$. Raising the theme count does not add coverage --- the
 vocabulary is fixed, and a larger $T$ re-partitions the same words --- but it
 changes what counts as sitting far from an industry, and could change any sign.
 Re-fitting the model at four resolutions on the same stratified sample and the
@@ -94,10 +96,13 @@ $500$  & $+5.69$pp & $24.3$ & $-14.49$pp & $0.641$ \\
 \noindent Three readings, in descending order of how much weight they carry.
 The sign and the significance are untouched across a tenfold change in
 resolution, and so is atypicality, which stays within a point of $-14$pp
-throughout. The magnitude is not: the lead contrast runs from $+2.71$ to
-$+5.69$pp and does not move monotonically in $T$, so no single resolution can
-be quoted as the software class's effect, and the figure this paper reports at
-$T = 50$ sits at the low end of that range rather than the high one. And
+throughout. The magnitude is not: it does not move monotonically in $T$, so
+no single resolution can be quoted as the software class's effect, and the
+figure this paper reports at
+$T = 50$ sits at the low end of the range rather than the high one. A fifth
+fit at $T = 1000$ exists and is excluded: its first run shipped
+undertrained models through an indentation bug, and the refit is not
+persisted. And
 agreement with $T = 50$ settles at $0.64$ without decaying as $T$ grows, which
 says the resolutions share a fixed core and differ in the remainder rather than
 drifting apart as the partition refines.
@@ -113,8 +118,8 @@ much of the per-class resolution sensitivity.
 The sweep leaves one question open. Scores at different resolutions agree at
 $r = 0.64$ to $0.69$ on lead, and neighbouring resolutions agree no better than
 distant ones. That has two readings. The number of themes may genuinely change
-what is being measured. Or a theme-model fit may simply be unstable --- two
-runs settle in different local optima --- in which case the sweep is measuring
+what is being measured. Or a theme-model fit may be unstable, with two runs settling in different
+local optima, in which case the sweep measures
 fitting noise and the resolution has little to do with it.
 
 Holding $T$ fixed and moving only the seed separates the two. A second fit at
@@ -132,8 +137,8 @@ first-gate lead contrast is $+5.20$pp under the first seed and $+4.88$pp under
 the second (SE $0.23$ each), and the atypicality contrast $-13.45$ and
 $-14.38$pp. Two consequences follow. A single fit's lead score carries
 measurement error of roughly a fifth of its variance, which attenuates every
-coefficient on lead toward zero; the estimates in this paper are on the
-conservative side of what a noiseless score would return. And the spread of
+coefficient on lead toward zero; correcting for it would enlarge the
+estimates, not shrink them. And the spread of
 magnitudes across the resolution table above, which does not move
 monotonically in $T$, should be read as a band about a third of a point wide
 from fitting noise alone rather than as a property of any particular $T$.
@@ -190,8 +195,8 @@ estimate.
 Every estimate uses a reference anchored on the filing's own date. The
 alternative is one reference per class-year, under which a filing made on 1
 January and one made on 31 December receive identical references and neither
-sees any of the language filed during its own year.
-Appendix~\ref{sec:robust} reports the calendar signature that leaves.
+sees any of the language filed during its own year. The calendar signature
+that leaves is reported below.
 
 First, the gate penalty was overstated by about a third. The persisted
 comparison is the software class on an identical 452{,}911-registration
@@ -252,8 +257,10 @@ and a short future make it a measure of rupture --- whether the filing has
 broken with what the class had established over seven years, judged against
 only the next three. Scoring every class on the production representation
 and per-filing windows at $W \in \{3, 5, 7\}$ years on each side, and
-evaluating all five variants on the identical 3.10 million registrations
-with quintiles assigned within class$\times$registration-year:
+evaluating all five variants on identical samples --- the gate columns on
+the 3.10 million registrations 2002--2018, quintiles within
+class$\times$registration-year; the registration columns on the scored
+filings 1995--2018, quintiles within class$\times$filing-year:
 
 \begin{center}\small
 \begin{tabular}{llrrrr}
@@ -300,10 +307,10 @@ Section~8 gate by the 2025 snapshot; the earliest registrations in the
 window also face their year-ten renewal, so panel B mixes one and two
 gates). Panel A is the unconditional composite, the probability that a
 filing both registers and passes the gate, measured over all filings
-including the never-registered. It is nearly flat in \dkl{} --- $22.4$\% at the bottom quintile against
-$22.1$\% at the top, a middle-versus-tails depth of $+0.001$pp (SE $0.10$) ---
-because two opposed gradients cancel: registration rises in lead
-($61.3$\% to $63.2$\%) while gate survival falls ($44.2$\% to $40.8$\%).
+including the never-registered. It is nearly flat in \dkl{} because two
+opposed gradients cancel: registration rises in lead
+($61.3$\% to $63.2$\%) while gate survival falls ($44.2$\% to $40.8$\%);
+the caption carries the quintile figures.
 Conditioning on grant is what separates them. Panel B shows the conditional
 gate outcome on the same filings, and it is U-shaped rather than inverse-U
 (depth $-2.11$pp), with a clearly penalised leading tail consistent with the
@@ -374,7 +381,7 @@ penalty is zero to negative for the 2002--2005 cohorts ($-2.3$pp for 2003)
 and runs $+1.8$ to $+5.4$pp for every cohort from 2008 on the wide-window
 raw series. The 2019 cohort, evaluable only on the narrow 6.5--7.0
 observation band for registrations issued early enough in that year
-(78{,}408), replicates at $+5.6$pp. Cohorts from
+(78{,}408), is consistent in sign at $+5.6$pp. Cohorts from
 2020 have no observed gate. The pooled estimate is therefore an average over
 a penalty that was not constant, and a reader who wants the penalty for a
 period should read Figure~\ref{fig:cohort} rather than the pooled row.
@@ -460,7 +467,7 @@ Under term-level scoring, leading filings appear to belong to
 better firms. Among registered debut filings, the probability that the
 owner ever appears in SEC EDGAR rises in term-\dkl{} from 0.29\% at the
 bottom quintile to 0.42\% at the top; on an SEC-matched firm-year panel,
-trailing 3-year mean term-\dkl{} predicts gross margin at $+2.3$pp per
+trailing 3-year mean term-\dkl{} predicts gross margin at $+2.2$pp per
 standard deviation ($t = 2.7$ on the locally rebuilt panel through 2019; $+3.2$pp,
 $t = 5.3$, on the published panel through 2024), with past-facing
 surprise entering positively and future-facing negatively; and firm-year
@@ -545,8 +552,8 @@ SEC reporting & lead & 0.13 & 0.59 & 26.3 & V, vertex $+0.30$ \\
 \end{center}
 
 \noindent The winning form is a free-vertex $a + b\,e^{c|x-x_0|}$. On the
-atypicality rows it is a genuine curve, with fitted exponents near $0.5$ to
-$0.9$ --- a hump that peaks about one standard deviation above mean
+atypicality rows it is a genuine curve, with fitted exponents between $0.5$
+and $1.2$ --- a hump that peaks about one standard deviation above mean
 atypicality at registration and about two above it at SEC reporting. On every
 lead row the exponent collapses to the order of $10^{-4}$, which turns
 $e^{c|x-x_0|}$ into $1 + c|x-x_0|$: what wins there is a \emph{V}, linear in

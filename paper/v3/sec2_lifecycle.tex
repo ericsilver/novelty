@@ -1,12 +1,9 @@
 \section{Registration and the first use-proof gate}\label{sec:life}
 
-This section uses the largest sample the record allows: every class-record
-filed 1995--2018 for the registration step, and every unique registration
-issued 2002--2018 for the first use-proof gate. It relates atypicality and
-lead to each step, reports how the two steps differ for self-filed and
-professionally filed applications, describes how applicants amend a
-description between attempts, and closes with the reason the sections that
-follow are confined to marks that reached the first gate.
+This section relates atypicality and lead to two outcomes on the largest
+samples the record allows: registration, on every class-record (a filing
+counted once per Nice class it claims) filed 1995--2018, and the first
+use-proof gate, on every unique registration issued 2002--2018.
 
 A US trademark passes through a sequence of dated, high-stakes steps, and
 each step leaves a record. An application is filed with a goods/services
@@ -60,10 +57,10 @@ each read from the dated record and each bounded as follows.
 
 \emph{Registration.} Whether an application reaches registration at all,
 among filings made 1995--2018. Of the applications that do not register,
-roughly nine in ten die by the applicant's own inaction --- never filing the statement of use, or going
-silent during prosecution --- and only 4.3\% are removed adversarially
-(Table~\ref{tab:funnel}), so registration is read as a launch indicator rather
-than an examiner's verdict.
+roughly nine in ten die by the applicant's own inaction: they never file the
+statement of use, or they stop responding during prosecution. Only 4.3\%
+are removed adversarially (Table~\ref{tab:funnel}). Registration is
+therefore read as a launch indicator rather than an examiner's verdict.
 
 \emph{Survival of the first use-proof gate.} Whether a registration was
 cancelled for non-use at registration age 4.0 to 8.5 years, among
@@ -93,14 +90,17 @@ percentage points.
 Counting differs by table. A filing may claim several Nice classes at once, so
 a \emph{class-record} counts it once per class while a \emph{registration}
 counts it once by serial number; a \emph{debut filing} is an owner's first, one
-per owner. The funnel above counts debut filings, the gate regressions unique
+per owner. A \emph{cohort} is the set of registrations issued in a calendar
+year; where a split is instead by filing year, the text says so. The funnel
+above counts debut filings, the gate regressions unique
 registrations, the per-class figures class-records.
 
 Three windows bound the samples, each set by an institutional fact. Scoring
 runs 1995--2019, because a full
 five-year past reference does not exist before 1990 and a full forward
 reference does not exist after 2020; the analysis cut of 1995 is about two
-years more conservative than the measured burn-in requires
+years more conservative than the measured burn-in --- the early span where
+thin reference windows inflate the scores --- requires
 (Appendix~\ref{app:comp}). The gate cohorts end in 2018 because the
 cancellation record runs to April 2026 and the failure window closes at
 registration age 8.5 years, so 2018 is the last cohort whose window has
@@ -172,9 +172,7 @@ of Table~\ref{tab:gate_lpm}; the dashed line is the rate for all
 registrations. The profile rises gently and monotonically through the fourth
 quintile and then steps up: about seven tenths of the top-to-bottom gap is
 the single step from the fourth quintile to the fifth, seven times the
-average step below it. A gradient is present, but the step at the top
-dominates it, and the text reports top-versus-bottom contrasts for that
-reason. \emph{B:}
+average step below it. \emph{B:}
 the share of first-time filers whose owner ever reaches SEC reporting, by
 quintile of atypicality and of lead, adjusted within Nice class and filing
 year with description length held; flat in atypicality, and falling in lead
@@ -191,14 +189,23 @@ Horizontal line at the pooled rate.}
 
 Counsel of record is observed on every filing. Represented applications are
 73\% of filings over 1995--2018, falling from 85\% in 1995 to 68\% in 2018 as
-online self-filing spread. The two populations differ at both steps.
-Represented applications reach registration 61.9\% of the time and
-self-filed applications 45.6\%. Among registrations, represented marks fail
-the first use-proof gate 47.5\% of the time and self-filed marks 69.2\%. The
-second gap is the larger, and it is not a drafting effect: the gate is
-proof of continued use, so a self-filed registration that fails it names a
-product that went out of commerce within six years, and self-filers are
-disproportionately new and small.
+online self-filing spread. The two populations differ at both steps:
+
+\begin{center}\small
+\begin{tabular}{lrrrr}
+\toprule
+ & Share of filings & Registration & Gate failure & Median terms (009 / 035) \\
+\midrule
+Represented & 73.3\% & 61.9\% & 47.5\% & 28 / 26 \\
+Self-filed  & 26.7\% & 45.6\% & 69.2\% & 21 / 17 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The gate gap is the larger of the two, and it is not a drafting
+effect: the gate is proof of continued use, so a self-filed registration
+that fails it names a product that went out of commerce within six years,
+and self-filers are disproportionately new and small.
 
 Self-filers also write differently. Their descriptions are shorter (a median
 of 21 terms against 28 in the software class, 17 against 26 in advertising
@@ -317,7 +324,7 @@ Counsel + US & continuous, pp per sd of lead & $+0.63$ & $0.06$ & 1{,}888{,}352 
 \\[0.3em]\footnotesize Standard errors replace significance stars: with $n$
 in the millions every coefficient has $p < 0.01$, so stars would mark each
 row identically. Errors are clustered on \emph{normalized owner} --- names
-uppercased, stripped of punctuation and of twenty legal suffixes, so
+uppercased, stripped of punctuation and of two dozen legal suffixes, so
 \textsc{acme corp.} and \textsc{acme corporation} are one cluster. A single
 owner files many marks, drafts them in a house style, and abandons them
 together when the business fails; the within-owner correlation of gate
@@ -348,7 +355,8 @@ design-based against $+2.5$pp raw.
 \includegraphics[width=0.72\textwidth]{results/event_gate_forest.png}
 \caption{Event-dated first-gate failure lift (theme \dkl{} top minus
 bottom quintile) by industry, registrations 2002--2018, raw quintile
-contrasts. Positive bars indicate the leading penalty. Whiskers are
+contrasts; classes need 5{,}000 scored registrations to enter. Positive
+bars indicate the leading penalty. Whiskers are
 two-sample binomial intervals, uncorrected for the within-owner correlation
 ($0.38$) and so narrower than clustered intervals; read
 Table~\ref{tab:gate_lpm} for precision. Per-class breakouts are in the
@@ -356,8 +364,8 @@ online appendix.}
 \label{fig:forest}
 \end{figure}
 
-Within the 2002--2018 window the penalty looks modern: indistinguishable
-from zero for the 2002--2005 cohorts, turning positive in 2006, and running
+Within the 2002--2018 window the penalty looks modern: absent or negative
+for the 2002--2005 cohorts, turning positive in 2006, and running
 $+1.8$ to $+5.6$pp for every cohort from 2008 onward
 (Figure~\ref{fig:cohort}). That reading does not survive carrying the
 series back: the penalty was two to three times larger for the earliest
@@ -415,8 +423,8 @@ passed it.}
 
 Scores exist from 1995 on, which makes registration cohorts from 1996 evaluable, and their gate
 outcomes have been settled for two decades. Carried back, the contrast runs
-$+6.9$pp for the 1996 cohort and rises to $+10.1$pp for 1999 --- two to
-three times anything observed since --- then collapses. The 2002--2005
+$+6.9$pp for the 1996 cohort and rises to $+10.1$pp for 1999 --- roughly
+twice the largest cohort contrast observed since --- then collapses. The 2002--2005
 cohorts the paper had been reading as a quiet baseline are a trough between
 two episodes, and one of them is the larger.
 
@@ -484,7 +492,7 @@ cells (Table~\ref{tab:techswing}):
 Top-minus-bottom lead-quintile contrast in first-gate failure (pp, SE in
 parentheses), settled registrations, by filing era. The upper block assigns
 quintiles within each class and era. The lower block pools the four classes
-and assigns quintiles within the era (raw, as in the text table above),
+and assigns quintiles within the era (raw),
 within class$\times$registration-cohort cells, and within
 theme$\times$class$\times$registration-year cells, where a filing's theme is the one
 its description loads most heavily on under the production $T = 50$ model.
@@ -575,8 +583,8 @@ but the \dkl{} gradient itself is similar across these strata once class,
 cohort, and drafting covariates are held fixed ($+1.8$pp self versus
 $+1.2$pp counseled in Table~\ref{tab:gate_lpm}). Per class, the largest penalties sit in tobacco ($+26$pp, the
 vaping era), hand tools ($+10$pp), processed foods ($+10$pp) and medical
-apparatus ($+9$pp), with negative lifts in beverages, transport and
-construction. These are the extremes of a 44-class screen of raw
+apparatus ($+9$pp), with negative lifts in beer and soft drinks, transport
+and construction. These are the extremes of a 44-class screen of raw
 contrasts: the largest of many noisy estimates sit away from zero by
 selection, so the named classes locate where the penalty concentrates and
 their magnitudes should be read with that in mind.
@@ -636,7 +644,8 @@ A filing is internet-bearing when its goods/services text names the
 internet, the web, a website, online or on-line provision, or electronic
 commerce. The rule reads the text rather than the class, so a web retailer
 filing in apparel is caught and a semiconductor maker filing in class 009 is
-not. Internet-bearing filings are 16.9\% of scored registrations overall:
+not. Internet-bearing filings are 16.9\% of scored registrations; the
+per-class shares below are of class-records filed 1995--2018:
 58\% in telecommunications, 39--41\% in advertising and retail, scientific
 and technical services, and legal and personal services, under 5\% in most
 goods classes. Table~\ref{tab:internet} gives, for every class, the
@@ -757,7 +766,8 @@ resulting gradients are attenuated and in places reversed
 Conditioning would be the wrong move if abandonment were usually a pause
 rather than an ending --- if firms reworked refused applications and refiled
 them, the same commercial intent would be counted once as a failure and again
-as a success. It is not. Among 2.28 million abandoned applications, only
+as a success. It is not. Among 2.28 million abandoned applications (filings
+1995--2015, so every abandonment has a full six-year refile window), only
 3.6\% are followed within six years by the same owner filing the same mark
 again in the same class, and only 1.5\% by one that then registers. Crediting
 every successful refiling as an eventual registration moves the inverse-U in
@@ -779,13 +789,11 @@ predicts their gate cannot be told on 34{,}551 cases ($+0.9$pp on the
 rewrite, $+0.7$pp on the original, both with standard errors near
 $0.8$pp).
 
-What examination rewards is a middling specificity --- concrete enough to
+What examination rewards is a middling specificity: concrete enough to
 survive a definiteness objection, conventional enough to avoid a
-likelihood-of-confusion refusal. Completion runs from 46.6\% at the least
-atypical end to about 58\% in the middle and back to 53.4\% at the most
-atypical; Appendix~\ref{app:registration} gives the profile on each axis and
-why familiarity alone cannot produce it. The rest of this section is about what
-happens to marks after the office has granted them.
+likelihood-of-confusion refusal. The endpoints are the inverse-U of
+Section~\ref{sec:registration}; Appendix~\ref{app:registration} gives the
+profile on each axis and why familiarity alone cannot produce it.
 
 
 Sections~\ref{sec:resolution} and~\ref{sec:secevents} are therefore

@@ -32,10 +32,12 @@ is. The measurement is how much they disagree: a description that startles the
 first reader and not the second arrived before its industry's language moved
 that way.
 
-Both windows are anchored on the filing's own date, the 1,826 days before it
-and the 1,826 days after, so no two filings made on different days share a
-reference, and filings made on the same day fall in neither of the other's
-windows. Inside a window every day counts the same. The measure asks whether
+Both windows are anchored on the filing's own date --- per-filing windows,
+as against one shared reference per class and calendar year --- spanning
+the 1,826 days before it
+and the 1,826 days after; both exclude the filing date itself, so a filing
+never appears in the reference of another filing made the same day, and no
+two filings made on different days share a reference. Inside a window every day counts the same. The measure asks whether
 wording is unusual against a period, not whether it is ahead of a trend
 inside that period; it has no momentum channel.
 
@@ -48,9 +50,7 @@ are the themes a description draws on, and the probabilities are how often
 the filing's own industry drew on each of them in the reference window. A
 filing's score is the average information content of its themes under its
 industry's frequencies, weighted by how heavily it uses each, less the same
-average taken under the filing's own frequencies. It is zero for a
-description composed exactly as the industry composes its descriptions and
-grows as the filing puts weight where the industry puts little.
+average taken under the filing's own frequencies.
 
 The apparatus is that of \citet{Murdock2017}, developed on Darwin's reading
 notebooks, and \citet{Barron2018}, who extended it to French Revolution
@@ -93,7 +93,7 @@ videocassettes, compact disks, floppy disks, CD ROMs, and direct digital
 transmission
 \end{quote}
 
-\noindent Of its 45 distinct terms, 33 are in the theme model's vocabulary,
+\noindent Of its 45 distinct terms, 36 are in the theme model's vocabulary,
 among them \emph{computerized}, \emph{search}, \emph{ordering},
 \emph{ordering service}, \emph{retail}, \emph{distribution}, \emph{printed
 books} and \emph{digital transmission}.
@@ -103,10 +103,13 @@ fixed, much smaller set of coordinates. Latent Dirichlet allocation is run
 once over a stratified sample of the whole corpus, all 45 classes together: it
 learns 50 clusters of words that tend to occur together and, for any filing,
 the proportions in which its words draw on them. Nothing supervises this; the
-clusters come from co-occurrence alone. The themes are shared across classes;
+clusters come from co-occurrence alone. This build --- fifty global themes,
+per-filing five-year windows, flat weighting --- is the production scoring,
+used for every estimate unless the text states another. The themes are
+shared across classes;
 what is specific to a class is the reference, the average theme proportions
 of that class's own filings in the window. The Amazon filing draws on six
-themes at more than a fiftieth of its weight: $0.41$ on media and
+themes at more than a twentieth of its weight: $0.41$ on media and
 entertainment goods (\emph{video, computer, electronic, music, games,
 audio}), $0.15$ on computer and information services (\emph{services,
 computer, software, information, data}), $0.13$ on retail store services
@@ -122,7 +125,8 @@ and repeats the gate analysis under each; Section~\ref{sec:robust} reports
 the resolution sweep and a second fit at the same resolution with a different
 seed. Fifty is kept in Sections~\ref{sec:life} and~\ref{sec:secevents}
 because it is the coarsest resolution at which every result holds, and
-because its lead contrast is the lowest of the resolutions tried.
+because its software-class lead contrast sits at the low end of the
+resolutions tried (only the 100-theme refit returns less).
 
 \paragraph{Comparing against the two references.} Write $P$ for the filing's
 distribution over themes, and $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$
@@ -152,13 +156,12 @@ signed difference:
   \qquad
   \underbrace{L \;=\; K^{-} - K^{+}}_{\text{lead}} .
 \]
-For Amazon, $A = 1.225$ and $L = +0.123$. Against its own class those say
-something the raw pair does not: its atypicality is at the 47th percentile,
-entirely ordinary, while its lead is at the 94th. The industry moved toward
-this description in the five years after it was filed and had not been writing
-that way in the five years before. Nothing about the wording was strange; it
-was early. $L$ is signed, positive for a leading filing and negative for a
-lagging one, and the symbol \dkl{} is used interchangeably with it.
+For Amazon, $A = 1.225$ and $L = +0.123$: against its own class, its
+atypicality is at the 47th percentile and its lead at the 94th. The
+industry moved toward this description in the five years after it was filed
+and had not been writing that way in the five years before. The symbol
+\dkl{} is used interchangeably with $L$; Table~\ref{tab:constructs} maps
+the terms.
 
 What ``early'' means is visible in the themes themselves. Of the six Amazon
 drew on, the share of class-035 filings drawing on each, in the five years
@@ -184,10 +187,9 @@ filing's weight. The three themes that carry most of Amazon's description,
 retail, media goods, and the still-small online-software theme, all became
 more common in the class over the following five years, the last nearly
 doubling; the two minor themes it also touched became slightly less so. The
-filing is closer to the class's future composition than to its past one, and
-that, not any rare word, is its lead.
+filing is closer to the class's future composition than to its past one.
 
-Differencing is what makes that separation possible. $K^{-}$ and $K^{+}$
+$K^{-}$ and $K^{+}$
 correlate at $0.988$ on the software class, so entering both is close to
 entering one variable twice; rotating them into an average and a difference
 isolates the large common component from the small residual that carries the
@@ -229,10 +231,10 @@ and the spread of a filing over words is bounded by how many distinct words it
 has: a description using $k$ terms cannot spread over more than $k$ of them,
 so its spread cannot exceed $\log k$, while the reference is spread over about
 900 terms. A five-word description is charged the whole difference in width,
-roughly five nats, before any of its content is considered. Measured rather
-than derived: take 3{,}000 software-class filings of at least 150 words,
-score each against one fixed reference, then truncate the same filings to a
-random handful of words and score them again. Across a fiftyfold cut in length
+roughly five nats, before any of its content is considered. In 3{,}000
+software-class filings of at least 150 words, scored against one fixed
+reference and rescored after truncation to a random handful of words,
+across a fiftyfold cut in length
 the surprise term moves by $0.016$ nats and the spread term by $2.9$. Synthetic
 filings whose words are drawn at random from the reference itself, maximally
 ordinary by construction, score $5.72$ at three tokens and $1.65$ at four
@@ -245,9 +247,9 @@ Themes break the coupling because the 50 coordinates are always occupied.
 Under term scoring the effective number of coordinates a filing spreads over
 rises seventeenfold from the shortest descriptions to the longest; under
 themes it varies by less than a third, and not monotonically: a three-word
-fragment spreads across more themes than a long description, since the model
-cannot tell which one it belongs to. The width term therefore stops carrying
-length, and what is left is the part that was always about content.
+fragment gives the model little evidence, so its inferred proportions stay
+close to the prior and spread across many themes. The spread term no longer
+tracks length, and the score is dominated by the surprise term.
 Theme-scored atypicality correlates with the log term count at $-0.22$ in
 the software class and $-0.10$ in advertising and retail, against $-0.68$
 and $-0.62$ under terms.
@@ -257,7 +259,8 @@ filing's theme proportions to the average proportions of its industry, so it
 reads which themes a filing draws on and how heavily. It does not, in any
 material way, read how a filing combines them. Taking each filing's two
 leading themes and asking how often that pair occurs together relative to the
-two themes' separate frequencies: how rare the themes are individually explains
+two themes' separate frequencies, on a 150{,}000-filing software-class
+sample: how rare the themes are individually explains
 70\% of the variance in atypicality, and the unusualness of the pairing adds
 under two points on top of it. A filing assembled from ordinary parts in a
 genuinely new configuration is therefore close to invisible to this measure.
@@ -270,7 +273,10 @@ increment over what the construct already measures.
 At the theme level, take every pair of themes a filing draws on (at a tenth
 of its weight or more) and measure how much more or less often each pair
 occurs together than the two themes' separate frequencies would predict, in
-the class's filings of the five years before and the five after. The
+the class's filings of the five years before and the five
+after.\footnote{The pair windows are calendar-year buckets rather than
+per-filing days, and a window is scored only when it holds at least
+2{,}000 filings.} The
 negative log of that ratio is the pairing's information content; averaging
 over a filing's pairs, weighted by their masses, and differencing the two
 windows gives a \emph{pair lead}, positive when the class moved toward the
@@ -285,7 +291,8 @@ once its atypicality is held ($-0.3$ points, $t = -1.1$).
 At the word level the sign reverses. For each filing, count the share of
 its adjacent word pairs that are new to the class --- the pair appearing
 fewer than five times in the class's prior five years --- while both words
-are established there. This is recombination in the sense of the innovation
+are established there, each appearing at least fifty times; the share is
+taken over such eligible pairs only. This is recombination in the sense of the innovation
 literature, novelty assembled from familiar components
 \citep{Fleming2001, Uzzi2013}: familiar parts, new adjacency. Filings in the top fifth of that share fail the gate $6.1$
 points \emph{less} often than those in the bottom fifth, and $2.8$ points
@@ -307,8 +314,8 @@ describe a product distinctively, and counsel reuse language from the USPTO's
 own Acceptable Identification of Goods and Services Manual, from house
 precedent, and from competitors' successful filings. Identical wording across
 unrelated firms is therefore common, and it carries through to the scores:
-17\% of scored registrations share a value with another filing in the same
-class and year. Within a class, the measure picks up departure from a shared
+17\% of scored registrations issued 2002--2018 share a value with another
+filing in the same class and registration year. Within a class, the measure picks up departure from a shared
 drafting convention. Across classes it does not: a class where the Manual
 supplies dense standard language shows a compressed distribution of
 atypicality, and one where firms describe novel services in prose a wide one,

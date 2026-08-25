@@ -11,7 +11,8 @@ with patenting, follow.
 
 \subsection{The ladder: a round, reporting, a listing}\label{sec:ladder}
 
-Of 999{,}442 owners whose first registered filing was made 2009--2018,
+Of 999{,}442 owners whose first registered filing, carrying a score, was
+made 2009--2018,
 17{,}115 (1.71\%) raised a priced private round after the debut, 4{,}383
 (0.44\%) appear in SEC reporting records at any time, and 1{,}795
 (0.18\%) registered a class of securities or completed an initial public
@@ -27,7 +28,9 @@ description length, so that neither the industry, the year, nor the length
 of the description enters the contrast. Funding does not vary with either
 axis: the most leading fifth of debuts is funded at 1.80\% against 1.86\%
 for the most lagging, and the most atypical at 1.64\% against 1.68\%, both
-inside sampling error. Reporting and listing do vary, and in the direction
+inside sampling error. Trademark counts and breadth carry a funding signal
+\citep{Block2014}; vocabulary position does not, which sharpens the null
+rather than weakening it. Reporting and listing do vary, and in the direction
 Section~\ref{sec:bluesea} found on the longer sample for lead. Owners whose
 debut language was most lagging reach reporting at 0.59\%, owners whose
 debut language was most leading at 0.38\%; for an IPO the rates are 0.24\%
@@ -77,16 +80,14 @@ Among the 1.80 million owners whose first registered filing was made
 1995--2018, 4{,}710 can be linked to SEC financial statements with
 reported revenue, and their peak annual revenues sum to \$19.2 trillion.
 Ten of them hold 18.5\% of that total, fifty hold 41.5\%, a hundred hold
-53.6\%, five hundred hold 82.9\%, and a thousand hold 92.6\%. Whatever the
-trademark record says about the firms that came to matter, it says it about
-a few hundred owners.
+53.6\%, five hundred hold 82.9\%, and a thousand hold 92.6\%. Revenue among linked firms is concentrated in a few hundred owners.
 
 Their debut language was ordinary. Standardising lead and atypicality
 within class and debut year, the ten largest firms' first registered
 descriptions sit $0.35$ standard deviations below the average in
 atypicality and within $0.01$ of it in lead; the fifty largest sit $0.08$
 below in atypicality and $0.13$ above in lead; the five hundred largest are
-within $0.1$ of the average on both. Weighting every linked firm by its
+within about $0.1$ of the average on both. Weighting every linked firm by its
 revenue, the linked set as a whole sits $0.02$ standard deviations below
 the average in atypicality and at the average in lead. The firms that
 produced most of the value described their first product in language their
@@ -98,8 +99,9 @@ industry already used, and no more ahead of it than the rest.
 Three vocabularies were hand-curated from the goods/services text:
 internet (the internet, the web, websites, online provision, electronic
 commerce), artificial intelligence (artificial intelligence, machine
-learning, deep learning, neural networks, natural language processing,
-computer vision, chatbots, generative AI, large language models), and
+learning, deep learning, neural networks, natural language processing and
+understanding, computer vision, predictive analytics, chatbots, generative
+AI, large language models), and
 blockchain (blockchain, cryptocurrency, crypto assets and tokens, bitcoin,
 non-fungible tokens, distributed ledgers, digital and virtual currency,
 smart contracts). Counted as class-filing rows over the full corpus, with a
@@ -123,7 +125,7 @@ way: AI debuts report at 0.66\% and list at 0.38\%, blockchain at 1.08\% and
 The funding gap is a factor of five; the listing gap a factor of two, on
 small counts (1{,}824 AI debuts, 1{,}390 blockchain).
 
-Patenting and funding do not order each other. Among the 8{,}760 owners on
+Among the 8{,}760 owners on
 the patent panel who also raised a priced round, the first round came
 before the first patent grant for 49.9\%, after it for 41.8\%, and in the
 same year for the rest; the median lag is zero years. Neither event
@@ -175,8 +177,8 @@ fixed, top-quintile atypicality raises the probability of SEC reporting by
 $+0.000$pp on a 0.481\% base ($t = 0.0$), and by $-0.003$pp on the past
 level alone. The quintile profile is not even monotone: the three middle
 quintiles sit \emph{below} the bottom one and the top merely returns to it.
-The 2.7-fold gradient in the raw bins is composition --- firms that go on to
-report cluster in particular classes, years, and multi-class filings --- and
+The 2.7-fold gradient in the raw bins is composition: firms that go on to
+report cluster in particular classes, years, and multi-class filings, and
 class$\times$year fixed effects absorb it. Lead costs, at equal
 atypicality: the signed component enters negatively
 ($-0.047$pp per standard deviation, $t = -7.8$) while the unsigned component enters
@@ -205,9 +207,9 @@ firms with generic ones, and distinctiveness of a name plausibly travels with
 distinctiveness of the goods/services text; nothing in this design separates
 the two. Restricting the candidate universe --- to a subset of classes, say
 --- makes matchability itself a function of the regressor, and the
-atypicality gradient is sensitive to exactly that. Its absence here is
-therefore the more credible reading of the two, and the signed axis, which
-does not move when the linkage is varied, carries the weight. The financing
+atypicality gradient is sensitive to exactly that. The lead coefficient is
+unchanged under alternative linkages; the atypicality coefficient is not,
+so only the lead result is robust to the name-match design. The financing
 rows of Table~\ref{tab:staged} rest on a Form~D match whose raw extracts are
 not in the current tree and should be read as provisional.
 
@@ -229,9 +231,6 @@ not ``went public'': splitting matched owners on whether their SEC filer number 
 ticker gives $10{,}556$ listed against $9{,}333$ reporting without one, and
 both halves show the same U, so the result is not an artifact of counting
 non-operating registrants as successes.
-
-Atypicality predicts survival at the use-proof gate but not which owners become SEC-reporting once composition is
-absorbed. Lead is the timing bet, and it costs at both margins.
 
 The two are not independent in the obvious economic sense. What makes a
 filing leading is precisely that its industry moved toward its language, and
@@ -277,14 +276,17 @@ signal under one way of counting the text carries the opposite sign under the
 other. That is worth stating plainly because the two halves are easy to
 mistake for each other --- the theme-scored \emph{lead} coefficient
 ($-0.058$) and the term-scored \emph{atypicality} coefficient ($-0.055$) are
-nearly the same number attached to different quantities.
+nearly the same number attached to different quantities. Only those two
+cells are established; the mirror's other diagonal is within noise, and the
+orthogonality conclusion rests on the magnitude bound --- every cell under
+$0.06$ standard deviations --- rather than on any cell's sign.
 
 Nothing here reaches a tenth of a standard deviation. Taking the largest, a
 firm moving from no patents to twenty shifts its mean theme-scored lead by
 about $0.18$ standard deviations; the between-firm correlation of firm
 means is $-0.020$, and the raw firm-year correlation $+0.010$. The weighting of the reference window is irrelevant to all of it:
 scoring against an exponentially decayed reference instead of a flat one moves
-every coefficient by less than $0.004$.
+the contemporaneous coefficients by less than $0.004$.
 
 One objection is timing: a patent is applied for before its invention is in public use and a trademark when the firm is ready
 to sell, so patents would lead. Firms do not proceed that linearly, and in
@@ -363,14 +365,15 @@ was: $-0.017$pp per standard deviation among owners who completed
 registration, against a 2.61\% base, which is indistinguishable from zero
 ($t = -0.8$). Among owners who did raise one, the same measure predicts
 \emph{reaching} the public market: $+0.49$pp on a 3.49\% base, about 14\%
-relative ($t = 3.8$). Atypical language is invisible at the financing stage
+relative ($t = 3.8$); the row is exploratory pending the Form~D
+re-extract. Atypical language is invisible at the financing stage
 and informative afterwards, which is what an investor screen that does not
 read the text would look like --- the text being free and public at the
 moment of filing. The comparison is among survivors, so it cannot separate
 that reading from selection on unobservables; and the null at entry is a
 null, not evidence of indifference.\footnote{This pair is sensitive to the
-reference window. Under annual reference buckets the entry row was
-$-0.06$pp ($t = -2.8$), which read as active negative selection. Per-filing
+reference window. Under annual reference buckets the entry row read as
+active negative selection. Per-filing
 windows move it to zero and leave the listing row intact, so the negative
 selection was an artifact and the informativeness among the funded was
 not.}

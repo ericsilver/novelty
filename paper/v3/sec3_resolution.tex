@@ -2,9 +2,9 @@
 
 Section~\ref{sec:life} scored every filing on fifty themes fitted once over
 the whole corpus, with each class supplying its own reference. That is one
-of three ways to partition the vocabulary, and the gate result should not
-depend on which. This section repeats the first-gate analysis on the
-identical registrations under three scorings:
+of three ways to partition the vocabulary. This section repeats the
+first-gate analysis on the identical registrations under three scorings of
+the same vocabulary:
 
 \begin{itemize}[nosep]
 \item \emph{global, 50 themes}: one model over all 45 classes, references
@@ -40,11 +40,12 @@ failure 52.3\%.}
 The lead penalty is a property of the filing, not of the partition. It is
 $+2.29$pp under the production scoring, $+2.61$pp at 500 themes, and
 $+1.94$pp under per-class themes, each with a standard error of $0.09$, and
-positive in 28 of 44 classes under all three at once. The scorings agree
+positive under all three at once in 28 of the 44 classes with at least
+3{,}000 sampled registrations. The scorings agree
 only moderately filing by filing: lead correlates at $0.64$ between the two
 global resolutions and at $0.52$ between the global and the per-class fifty,
-so a third of the variance in any one scoring's lead is particular to that
-scoring, and the penalty survives the disagreement. The standard errors in
+so a third to a half of the variance in any one scoring's lead is particular
+to that scoring, and the penalty survives the disagreement. The standard errors in
 this section's raw contrasts are two-sample binomial and unclustered;
 outcomes correlate within owner at $0.38$ (Section~\ref{sec:gate}), so the
 $t$-statistics overstate precision, by roughly a factor of two on
@@ -73,7 +74,9 @@ arriving in this class. The 500-theme model is fine enough to separate the
 two. For each theme and each class, the first sustained year is the first
 year by which the theme has been the dominant theme of at least one hundred
 filings in that class; the corpus-wide first sustained year is the earliest
-of those across classes. Each registration class-record in the gate sample
+of those across classes.\footnote{Sustained years and theme shares are
+computed on a 25\% systematic sample of all filings (every fourth serial),
+scaled up, over filing years 1986--2024.} Each registration class-record in the gate sample
 is assigned its dominant theme and classified at its filing date as new to
 the corpus (filed before the third year after the theme's first sustained
 year anywhere, including filings made before the theme was sustained at
@@ -86,8 +89,7 @@ an established theme, 151{,}012 a theme new to their class, and 779 a theme
 new to the corpus. The last group is too small to support a claim: almost
 every theme a 500-theme model can resolve had been established in some class
 before 2002, and the 779 that had not are scattered across small, late
-themes. The comparison the record supports is between established themes
-and themes new to the class.
+themes.
 
 Registrations carrying a theme new to their class fail the gate at 48.3\%
 against 51.6\% for established themes, and $0.43$ points less often within
@@ -97,32 +99,30 @@ registrations fail $1.06$ points more often. The two statements describe
 one population. A theme arrives in a class in filings that are atypical for
 that class, and atypical filings survive the gate; that is the $-0.43$.
 Among filings of equal atypicality, the ones carrying the arriving theme
-fail more; that is the $+1.06$. Importing a theme is one way to be atypical,
-and it is a more exposed way than the others.
+fail more; that is the $+1.06$.
 
 \subsection{Effective novelty: themes that surged}\label{sec:surge}
 
 Since truly new themes are rare, the observable event is a surge: an
 established theme's share doubling, over its own three prior years, to a
 level that matters. Measured against the whole corpus at a 1\% share, five
-themes ever surge, and one episode is large enough to read: the
+themes ever surge, and one episode clears a 1{,}000-registration floor: the
 online-and-downloadable-software theme doubled to 2.4\% of all filings in
 1999. The 6{,}339 registrations whose dominant theme it was during
 1999--2001 failed the first gate at 63.7\%, $8.6$ points above their class
 and year and $8.5$ net of their own lead and atypicality. Within the
 episode, the most leading fifth failed no more than the most lagging
-($-0.2$pp, SE $1.9$). Everyone in the wave failed together, whether they
-were early to its language or late.
+($-0.2$pp, SE $1.9$).
 
 Measured within a class at the same thresholds, surges are common: 962
 episodes of a theme doubling to at least 1\% of its class, holding 32{,}418
 gate registrations. Pooled, being in one of these smaller waves costs
 little: in-surge registrations fail $0.65$ points more than their class and
 year, $1.27$ net of lead and atypicality ($1.33$ and $1.70$ at the 2\%
-threshold). The episodes differ in sign among themselves --- the
+threshold). The episodes differ in sign among themselves. The
 education-services surge in advertising and retail after 2002 failed
-$13.7$ points \emph{less} than its class, the charitable-fundraising surge
-in finance after 2011 failed $4.0$ points more --- and of the few episodes
+$13.7$ points less than its class; the charitable-fundraising surge
+in finance after 2011 (a 2\%-threshold episode) failed $4.0$ points more. Of the few episodes
 large enough to carry their own lead contrast, one is clearly positive
 (the education-services surge itself, $+5.8$pp, $t = 2.2$) and the rest
 are indistinguishable from zero.
@@ -138,24 +138,21 @@ failure is $+2.7$ points in the smallest tercile of waves, $+3.9$ in the
 middle, $-0.1$ in the largest, and correlates with wave size at $-0.22$.
 The eight-point excess of the corpus-scale software wave is not the top of
 a dose-response within classes; it is a different scale of event. Third,
-the waves that kept growing --- theme share five years after the surge at
-or above its surge level --- carry \emph{more} excess failure ($+4.3$
-points, 22 episodes) than the waves that receded ($+1.0$, 39 episodes).
+call a wave growing when the theme's share five years after the surge is
+at or above its surge level. Growing waves carry more excess failure
+($+4.3$ points, 22 episodes) than receding ones ($+1.0$, 39 episodes).
 That runs against reading the excess as pure fad mortality, in which the
 collapsing waves should be the deadly ones, and against under-response, in
 which joiners of durable waves should thrive. A reading consistent with all
 three facts is selection at the gate rather than crowding out: a surging
 theme draws registrations for products that were never brought to use at
 higher rates wherever the theme is commercially active, and the theme's
-own subsequent growth does not rescue them. The class-and-cohort
-expectation these excesses are measured against, and the small number of
-growing episodes, both bound how far that reading should be carried.
+own subsequent growth does not rescue them. With 22 growing episodes whose
+individual excesses range from $-13.7$ to $+4.0$ points, the $3.3$-point
+difference between growing and receding waves is suggestive, not settled.
 
-The comparison across scales bears on what the lead penalty is. Inside a
-surging theme, early and late filings fail alike. The steady
-within-theme penalty of Section~\ref{sec:life} --- two to five points, in
-every era, for filings ahead of their own theme's language --- is a
-separate fact, present where there is no surge at all. The record therefore
-shows two costs, not one: being in a crowded wave, which is indifferent to
-who arrived first, and being early relative to language that is not
-surging, which is not.
+Inside a surging theme, early and late filings fail alike; the
+within-theme penalty of Section~\ref{sec:life} is a separate fact, present
+where there is no surge at all. Two costs are distinct: membership in a
+surging theme, which does not vary with arrival order, and lead relative
+to a non-surging theme's language, which does.
