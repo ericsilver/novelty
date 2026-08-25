@@ -93,15 +93,17 @@ def main() -> int:
             (EV / 'RUNNER_STATUS.json').write_text(json.dumps(status, indent=1))
             print(f'[{name}] PATCH FAILED', flush=True)
             continue
-        # Redirect result writes into _eval with the variant name, and repair
-        # the input reads that some scripts take from the results directory.
-        src = re.sub(r'RES / f?["\']([A-Za-z0-9_]+)(\{[^}]*\})?\.json["\']',
-                     lambda m: f'RES / "{name}.json"', src)
+        # Repair the input reads that some scripts take from the results
+        # directory FIRST, then redirect result writes into _eval with the
+        # variant name; the rename regex must never see the input reads.
         src = src.replace('RES = REPO / "paper" / "results"',
                           'RES = REPO / "paper" / "v3" / "_eval"\n'
                           'BASERES = REPO / "paper" / "results"')
         src = src.replace('CACHE = RES /', 'CACHE = BASERES /')
         src = src.replace('RES / "per_industry_names.json"', 'BASERES / "per_industry_names.json"')
+        src = re.sub(r'RES / f?["\']([A-Za-z0-9_]+)(\{[^}]*\})?\.json["\']',
+                     lambda m: f'RES / "{name}.json"', src)
+        src = src.replace('BASERES / "' + name + '.json"', 'BASERES / "per_industry_names.json"')
         dst.write_text(src, encoding='utf-8')
         t0 = time.time()
         print(f'[{name}] running...', flush=True)
