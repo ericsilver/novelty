@@ -94,3 +94,6 @@ paper/v3/*.log
 paper/v3/*.out
 paper/v3/*.toc
 paper/v3/main.pdf
+
+# Per-filing T=500 dominant-theme cache (rebuilt by scripts/theme_novelty_origin.py, ~1h)
+paper/results/theme_novelty_cache/
