@@ -193,15 +193,16 @@ January and one made on 31 December receive identical references and neither
 sees any of the language filed during its own year.
 Appendix~\ref{sec:robust} reports the calendar signature that leaves.
 
-First, the gate penalty was overstated by about a third. On the same 3.10
-million registrations, the top-versus-bottom contrast is $+2.15$pp
-(SE $0.30$) under annual buckets and $+1.39$pp (SE $0.17$) under per-filing
-windows. The attenuation is remarkably uniform across specifications ---
-the ratio runs $0.59$ to $0.73$ for every sample split in
-Table~\ref{tab:gate_lpm} --- and it is an attenuation of magnitude only:
-standard errors fall by roughly half, so the $t$-statistic \emph{rises},
-from $7.2$ to $8.3$. The same holds in the software class alone, where the
-contrast moves from $+7.40$pp to $+5.25$pp.
+First, the gate penalty was overstated by about a third. The persisted
+comparison is the software class on an identical 452{,}911-registration
+sample: $+7.40$pp (SE $0.43$) under annual buckets against $+5.25$pp
+(SE $0.42$) under per-filing windows, a ratio of $0.71$, with the
+$t$-statistic \emph{rising} because the standard error falls further than
+the estimate. The corpus-wide annual regression of the superseded build
+returned $+2.15$pp (SE $0.30$) against the current $+1.39$pp, the same
+ratio, and its per-split ratios ran $0.59$ to $0.73$; that run was not
+persisted, so the corpus-wide statement rests on the superseded build's
+log and the software-class artifact carries the claim.
 
 Second, the shape of the gate penalty changes. Under annual buckets the
 quintile profile looked like a gradient with a steeper final step; under
@@ -260,11 +261,11 @@ with quintiles assigned within class$\times$registration-year:
 Variant & Past, future & \multicolumn{2}{c}{First-gate failure} & \multicolumn{2}{c}{Registration} \\
  & (years) & Q5$-$Q1 (pp) & classes $>0$ & Q5$-$Q1 (pp) & Q3 $-$ tails \\
 \midrule
-Foresight     & 3, 7 & $+1.65$ (0.09) & 31 of 44 & $+1.09$ & $+0.50$ \\
+Foresight     & 3, 7 & $+1.65$ (0.09) & 31 of 45 & $+1.09$ & $+0.50$ \\
 Symmetric     & 3, 3 & $+1.69$ (0.09) & ---      & $+0.79$ & $+0.13$ \\
-Symmetric     & 5, 5 & $+2.29$ (0.09) & 33 of 44 & $+0.71$ & $+0.28$ \\
+Symmetric     & 5, 5 & $+2.29$ (0.09) & 33 of 45 & $+0.71$ & $+0.28$ \\
 Symmetric     & 7, 7 & $+2.58$ (0.09) & ---      & $+0.48$ & $+0.65$ \\
-Past-rupture  & 7, 3 & $+3.00$ (0.09) & 37 of 44 & $+0.01$ & $+0.33$ \\
+Past-rupture  & 7, 3 & $+3.00$ (0.09) & 37 of 45 & $+0.01$ & $+0.33$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -330,10 +331,11 @@ times larger for marks filed in the late 1990s than for any cohort since,
 reversed for filings made 2000--2004, and returned from 2008, with the swing
 inside the four technology classes and, within them, in which themes each
 era's leading filings were drawn from. Within the 2002--2018 window the
-penalty is indistinguishable from zero for the 2002--2005 cohorts and runs
-$+1.8$ to $+5.6$pp for every cohort from 2008. The 2019 cohort, evaluable
-only for registrations issued early enough in that year to reach seven years
-inside the record, replicates at $+9.1$pp on the raw contrast. Cohorts from
+penalty is zero to negative for the 2002--2005 cohorts ($-2.3$pp for 2003)
+and runs $+1.8$ to $+5.4$pp for every cohort from 2008 on the wide-window
+raw series. The 2019 cohort, evaluable only on the narrow 6.5--7.0
+observation band for registrations issued early enough in that year
+(78{,}408), replicates at $+5.6$pp. Cohorts from
 2020 have no observed gate. The pooled estimate is therefore an average over
 a penalty that was not constant, and a reader who wants the penalty for a
 period should read Figure~\ref{fig:cohort} rather than the pooled row.
@@ -358,20 +360,19 @@ the divergence charges a filing for the narrowness of its own distribution, and
 that narrowness is fixed by how many distinct terms it uses. Theme scoring
 weakens the coupling, taking the same correlations to $-0.217$ and
 $-0.098$. The consequence for the lead is direct: the standard deviation
-of $L$ rises threefold across deciles of $A$ under term scoring and by a
-quarter to a half under theme scoring, so a unit of lead means roughly the
-same thing everywhere only in the theme representation.
+of $L$ rises $2.2$--$2.5$-fold across deciles of $A$ under term scoring
+and $1.5$--$1.8$-fold under theme scoring, so a unit of lead means roughly
+the same thing everywhere only in the theme representation.
 Appendix~\ref{app:representation} shows this as a length surface over the
 two axes. Two qualifications. Theme scoring returns a finite value for about 65\% of
 filings, so the two columns are not drawn from the same set; re-estimating the
 term-scored correlations on exactly the theme-scored subset barely moves them,
-which puts the contrast down to the representation rather than the sample. On
-that common subset the spread comparison is nearer twofold than the threefold
-quoted above. And ``flat'' means no
+which puts the contrast down to the representation rather than the sample.
+And ``flat'' means no
 monotone length gradient rather than constant: class 035 under theme
 scoring is mildly U-shaped in $A$. The two scorings agree only
-moderately per filing (Pearson 0.46, Spearman 0.36 on 1.9M jointly
-scored observations), which gives their agreement on the mark-level
+moderately per filing (Pearson $0.46$, Spearman $0.42$ on the 6.01 million
+filings both score), which gives their agreement on the mark-level
 patterns evidential force and their disagreement on the firm-level
 patterns diagnostic force (Appendix~\ref{sec:robust_hazard}). Across
 $W \in \{3, 5, 7\}$, 6.9--10.4\% of filings flip sign. Per-filing noise
@@ -542,7 +543,7 @@ their CIK carries a ticker in the Commission's own company-ticker file gives
 It does not change the finding. Among registered debut owners whose debut
 filing is scored, $0.310$\% later appear as listed companies and $0.285$\% as
 reporting non-listed ones, and both profiles are U-shaped in lead with vertices
-at $+1.35$ and $+0.56$ standard deviations. The listed profile is slightly
+at $+0.41$ and $+0.24$ standard deviations. The listed profile is slightly
 flatter and noisier, which is what the smaller and more selected outcome
 predicts. Whatever the signed axis is picking up at this margin, it is not an
 artifact of counting non-operating registrants as commercial successes, and it

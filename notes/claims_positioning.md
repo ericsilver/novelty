@@ -10,7 +10,7 @@ Confidence marks: [+] confident, [?] verify carefully.
 |---|---|---|
 | Event-dated corpus | Graham, Hancock, Marco & Myers 2013 case files [+] | Extends: statuses -> dated prosecution events |
 | Registration inverse-U in atypicality | Zhao et al. 2017 optimal distinctiveness; Zuckerman 1999; Hsu 2006 [?] | Replicates audience-conformity reward, new audience (examiner), census scale |
-| Use-proof gate as outcome | Fink, Helmers, Kolev, Toole (year-5 continued-use margin) [+] | Extends: they establish the margin; we predict it from pre-launch language |
+| Use-proof gate as outcome | Fink, Helmers, Kolev, Toole (year-5 continued-use margin) [UNVERIFIED: 2026-08-24 API check could not confirm this paper covers the year-5 margin; verify against bib/refs.bib before citing] | Extends: they establish the margin; we predict it from pre-launch language |
 | Funding/listing ladder | Dinlersoz, Goldschlag et al. (trademarks & firm dynamics) [+] | Extends with vocabulary position |
 | Cross-class diffusion | von Graevenitz, Graham & Myers 2021 (geographic token diffusion) [+] | Industry analog (already cited) |
 | Lead penalty | Golder & Tellis 1993; Min, Kalwani & Robinson 2006 [?] | Language-level replication of pioneer disadvantage |

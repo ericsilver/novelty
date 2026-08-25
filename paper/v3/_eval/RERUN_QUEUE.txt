@@ -1,0 +1,3 @@
+RERUN QUEUE (after variant matrix):
+- topic_debut.py against rebuilt crosswalk (stale debut_outcome_topic.json feeding sec4 raw rates + sec5 binned fits)
+- failed variant subsets: gate_window, cohorts, convergence, surge, wave

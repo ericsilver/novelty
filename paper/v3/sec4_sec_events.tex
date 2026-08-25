@@ -13,9 +13,12 @@ with patenting, follow.
 
 Of 999{,}442 owners whose first registered filing was made 2009--2018,
 17{,}115 (1.71\%) raised a priced private round after the debut, 4{,}383
-(0.44\%) went on to report financial statements to the SEC, and 1{,}795
+(0.44\%) appear in SEC reporting records at any time, and 1{,}795
 (0.18\%) registered a class of securities or completed an initial public
-offering. The rungs nest: 7.3\% of funded owners reach reporting against
+offering at any time. The funded rung requires the round to postdate the
+debut; the reporting and listing rungs do not, so owners already reporting
+before their first trademark filing are counted, and the section's staged
+analysis shows they are a majority of the exchange-listed. The rungs nest: 7.3\% of funded owners reach reporting against
 0.3\% of the unfunded, and 41\% of reporting owners reach an IPO.
 
 Table~\ref{tab:ladder} gives the rate at each rung by fifth of lead and of
@@ -99,16 +102,16 @@ learning, deep learning, neural networks, natural language processing,
 computer vision, chatbots, generative AI, large language models), and
 blockchain (blockchain, cryptocurrency, crypto assets and tokens, bitcoin,
 non-fungible tokens, distributed ledgers, digital and virtual currency,
-smart contracts). Across all filings 1995--2024, internet vocabulary appears
-in 2.94 million filings, AI in 167 thousand, blockchain in 114 thousand.
+smart contracts). Counted as class-filing rows over the full corpus, with a
+multi-class filing counted once per class, internet vocabulary appears in
+2.94 million rows, AI in 167 thousand, blockchain in 114 thousand.
 Registration rates differ: 52.1\% of internet filings registered, 34.5\% of
 AI filings, 31.2\% of blockchain filings, against 57.6\% of all debut
 filings; the last two are recent and many are still in prosecution or
-abandoned before use. Among registrations old enough to have faced the
-first gate, 31.6\% of internet marks had failed it by the snapshot against
-6.5\% of AI marks and 6.8\% of blockchain marks, which reflects their age
-rather than their survival, since most AI and blockchain registrations have
-not yet reached the gate.
+abandoned before use. 31.6\% of internet registrations carry a first-gate cancellation against
+6.5\% of AI registrations and 6.8\% of blockchain ones; these denominators
+include registrations too young to have faced the gate, which is why the AI
+and blockchain figures are low, and they are not survival rates.
 
 On the 2009--2018 debut ladder the three behave alike in one respect and
 differ in another. AI debuts are funded at 7.8\% and blockchain debuts at
@@ -247,7 +250,10 @@ Within the firms that do both, trademark vocabulary and patenting move
 independently. On a panel of trademark owners name-matched to PatentsView
 patent assignees \citep{PatentsView}, each axis is regressed on
 $\log(1 + \mathrm{patents})$ with firms absorbed and errors clustered on the
-firm, over 134{,}075 matched firm-years across 17{,}506 firms. The outcome is
+firm, estimated on 94{,}181 firm-years across 17{,}506 firms under theme
+scoring (93{,}551 and 17{,}415 under term scoring) --- 134{,}075 matched
+firm-years before dropping the firm-years that contribute no within-firm
+variation. The outcome is
 standardized, so $\beta$ is the shift in standard deviations of the axis per
 unit of log-patents; one unit is roughly a tripling of the patent count, and a
 firm going from none to twenty moves about three units.
@@ -255,9 +261,9 @@ firm going from none to twenty moves about three units.
 \begin{center}\small
 \begin{tabular}{llrrr}
 \toprule
-Text counted as & Axis & $\beta$ (sd) & $t$ & Correlation $r$ \\
+Text counted as & Axis & $\beta$ (sd) & $t$ & Between-firm $r$ \\
 \midrule
-Themes & atypicality & $+0.012$ & $+3.0$ & $+0.009$ \\
+Themes & atypicality & $+0.012$ & $+3.0$ & --- \\
 Themes & lead        & $-0.058$ & $-9.4$ & $-0.020$ \\
 Terms  & atypicality & $-0.055$ & $-11.5$ & --- \\
 Terms  & lead        & $+0.012$ & $+2.0$ & --- \\
@@ -274,8 +280,8 @@ nearly the same number attached to different quantities.
 
 Nothing here reaches a tenth of a standard deviation. Taking the largest, a
 firm moving from no patents to twenty shifts its mean theme-scored lead by
-about $0.18$ standard deviations, and the raw correlation across firm-years is
-$-0.020$. The weighting of the reference window is irrelevant to all of it:
+about $0.18$ standard deviations; the between-firm correlation of firm
+means is $-0.020$, and the raw firm-year correlation $+0.010$. The weighting of the reference window is irrelevant to all of it:
 scoring against an exponentially decayed reference instead of a flat one moves
 every coefficient by less than $0.004$.
 
@@ -298,8 +304,10 @@ slope where trademarks do the work alone. Classes are sorted in advance into com
 judgement from the class definitions rather than by anything estimated: the
 eleven covering chemicals, pharmaceuticals, machinery, electronics, medical
 apparatus and scientific services are complements, the consumer-goods and
-services classes substitutes, the rest neither. Re-estimating the identical
-specification inside each group gives $-0.000$
+services classes substitutes, the rest neither. The sectoral build differs
+from the pooled grid: it is scored at 200 themes, keeps firms with at least
+three panel years, and requires 50 firms and 300 firm-years per cell.
+Estimating inside each group gives $-0.000$
 ($t = -0.03$) among complements, $-0.026$ ($t = -1.45$) among substitutes,
 and an interaction of $-0.008$ ($t = -0.49$). Across the 27 Nice classes
 clearing a 50-owner floor, the complement classes run from sixth place to
