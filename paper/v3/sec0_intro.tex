@@ -1,9 +1,10 @@
 \section{Introduction}\label{sec:intro}
 
 The pioneers are the ones with arrows in their backs. The saying is older
-than any dataset, and it has never been tested on the record where the
-claim could be read directly, because the record did not exist in usable
-form. It does now. Every US trademark application since 1884 is public,
+than any dataset. It has been tested on named markets and naming choices
+\citep{GolderTellis1993, SemadeniAnderson2010}, but not on a record where
+being early can be read directly from what every entrant wrote, because
+that record did not exist in usable form. It does now. Every US trademark application since 1884 is public,
 with its goods/services description, its owner, its counsel of record, and
 a dated prosecution history that records whether the mark registered,
 whether its owner proved five years later that the product was still in
@@ -21,7 +22,10 @@ on its own.
 Section~\ref{sec:construct} builds the measure. A description is reduced to
 the themes it draws on, fitted once over the whole corpus by a topic model
 and held fixed; its theme proportions are compared, by Kullback--Leibler
-divergence, to the average proportions of its own Nice class in the five
+divergence, to the average proportions of its own Nice class --- the
+international classification of goods and services under which every
+application is filed, forty-five classes, a filing claiming one or
+several --- in the five
 years before its filing date and the five years after. The average of the
 two divergences is atypicality; their difference is lead. The section
 states why words are not scored directly (a divergence on words counts the

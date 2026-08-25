@@ -1,0 +1,60 @@
+{
+ "started": "2026-08-24 21:07:33",
+ "variants": {
+  "gate_window_3595": {
+   "ok": false,
+   "seconds": 2,
+   "tail": "[sample] 3,105,048 registrations scored under all three; base 52.3%\n  global50   lead +2.29pp (t +25.5)  atyp -4.39pp (t -49.0)\nTraceback (most recent call last):\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\gate_window_3595.py\", line 114, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\gate_window_3595.py\", line 88, in main\n    a, b = ks[i], ks[j]\n                  ~~^^^\nIndexError: list index out of range\n"
+  },
+  "gate_window_4580": {
+   "ok": false,
+   "seconds": 2,
+   "tail": "[sample] 3,105,048 registrations scored under all three; base 52.3%\n  global50   lead +2.28pp (t +25.5)  atyp -4.39pp (t -49.0)\nTraceback (most recent call last):\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\gate_window_4580.py\", line 114, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\gate_window_4580.py\", line 88, in main\n    a, b = ks[i], ks[j]\n                  ~~^^^\nIndexError: list index out of range\n"
+  },
+  "cohorts_0209": {
+   "ok": false,
+   "seconds": 2,
+   "tail": "[sample] 1,202,822 registrations scored under all three; base 51.4%\n  global50   lead +0.98pp (t +6.8)  atyp -4.55pp (t -31.6)\nTraceback (most recent call last):\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\cohorts_0209.py\", line 114, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\cohorts_0209.py\", line 88, in main\n    a, b = ks[i], ks[j]\n                  ~~^^^\nIndexError: list index out of range\n"
+  },
+  "cohorts_1018": {
+   "ok": false,
+   "seconds": 2,
+   "tail": "[sample] 1,902,226 registrations scored under all three; base 52.9%\n  global50   lead +3.11pp (t +27.2)  atyp -4.28pp (t -37.4)\nTraceback (most recent call last):\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\cohorts_1018.py\", line 114, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\shared-secure\\research\\tm-vocabulary\\scripts\\variants\\cohorts_1018.py\", line 88, in main\n    a, b = ks[i], ks[j]\n                  ~~^^^\nIndexError: list index out of range\n"
+  },
+  "internet_narrow": {
+   "ok": true,
+   "seconds": 10,
+   "tail": "eb  6.8%  reg 66.6 vs 67.6  gate fail 51.9 vs 46.9\n  [038] web 47.0%  reg 55.2 vs 46.3  gate fail 60.6 vs 60.5\n  [039] web 14.7%  reg 63.3 vs 62.9  gate fail 56.2 vs 47.9\n  [040] web  5.6%  reg 67.3 vs 64.1  gate fail 50.8 vs 47.3\n  [041] web 21.4%  reg 60.1 vs 61.0  gate fail 54.9 vs 52.6\n  [042] web 26.5%  reg 57.3 vs 59.3  gate fail 59.4 vs 52.1\n  [043] web  5.7%  reg 64.4 vs 58.8  gate fail 55.1 vs 48.2\n  [044] web 15.0%  reg 63.0 vs 62.2  gate fail 54.4 vs 51.3\n  [045] web 29.2%  reg 60.5 vs 64.1  gate fail 59.7 vs 50.6\n  pooled technology classes: web reg 55.9 fail 59.4  rest reg 58.4 fail 52.4\n  pooled other service classes: web reg 60.8 fail 55.1  rest reg 62.2 fail 50.2\n  pooled goods classes: web reg 59.5 fail 52.1  rest reg 56.1 fail 50.1\n[done] internet_breakout.{json,png,tex}\n"
+  },
+  "convergence_arrival_1pct": {
+   "ok": false,
+   "seconds": 1,
+   "tail": "pct.py\", line 52, in main\n    names = json.loads((RES / \"convergence_arrival_1pct.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\convergence_arrival_1pct.json'\n"
+  },
+  "convergence_arrival_4pct": {
+   "ok": false,
+   "seconds": 1,
+   "tail": "pct.py\", line 52, in main\n    names = json.loads((RES / \"convergence_arrival_4pct.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\convergence_arrival_4pct.json'\n"
+  },
+  "surge_double_15": {
+   "ok": false,
+   "seconds": 0,
+   "tail": "ripts\\variants\\surge_double_15.py\", line 50, in main\n    names = json.loads((RES / \"surge_double_15.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\surge_double_15.json'\n"
+  },
+  "surge_double_30": {
+   "ok": false,
+   "seconds": 0,
+   "tail": "ripts\\variants\\surge_double_30.py\", line 50, in main\n    names = json.loads((RES / \"surge_double_30.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\surge_double_30.json'\n"
+  },
+  "wave_entry_4": {
+   "ok": false,
+   "seconds": 0,
+   "tail": "ocabulary\\scripts\\variants\\wave_entry_4.py\", line 52, in main\n    names = json.loads((RES / \"wave_entry_4.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\wave_entry_4.json'\n"
+  },
+  "wave_entry_8": {
+   "ok": false,
+   "seconds": 0,
+   "tail": "ocabulary\\scripts\\variants\\wave_entry_8.py\", line 52, in main\n    names = json.loads((RES / \"wave_entry_8.json\").read_text())\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\epsil\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\shared-secure\\\\research\\\\tm-vocabulary\\\\paper\\\\v3\\\\_eval\\\\wave_entry_8.json'\n"
+  }
+ }
+}
