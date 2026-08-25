@@ -1,16 +1,16 @@
 {
- "started": "2026-08-24 21:24:51",
+ "started": "2026-08-24 21:25:30",
  "variants": {
-  "convergence_arrival_1pct": {
+  "wave_entry_4": {
    "ok": true,
-   "seconds": 7,
-   "tail": "arrival 1995\n  [017] arrival 2000\n  [018] arrival 1995\n  [019] arrival 2000\n  [020] arrival 1998\n  [021] arrival 1996\n  [022] arrival 1998\n  [023] arrival 1998\n  [024] arrival 1997\n  [025] arrival 1998\n  [026] arrival 1996\n  [027] arrival 1997\n  [028] arrival 1996\n  [029] arrival 1999\n  [030] arrival 1999\n  [031] arrival 1999\n  [032] arrival 1999\n  [033] arrival 1999\n  [034] arrival 1998\n  [035] arrival 1993\n  [036] arrival 1995\n  [037] arrival 1995\n  [038] arrival 1992\n  [039] arrival 1995\n  [040] arrival 1995\n  [041] arrival 1994\n  [042] arrival 1993\n  [043] arrival 1997\n  [044] arrival 1999\n  [045] arrival 1999\n[cells] 395 class-cohort cells with both groups >= 100\n  classes with both phases 7: mean gap yrs0-4 +5.7pp, yrs10+ +1.7pp, shrinks in 71%\n[done] internet_convergence.{json,png}\n"
+   "seconds": 1,
+   "tail": "[episodes] 962 class-level surges at 1%\n[joiners] 46,233 gate registrations inside an entry window\n[tabled] 30 episodes with >= 300 joiners\n[dose] corr(log growth, excess) -0.08  corr(log share, excess) -0.29  small/mid/large excess +5.5/+0.8/-1.2pp\n[aftermath] grew 11 excess +2.3pp  receded 19 excess +1.4pp  corr(log aftermath, excess) -0.30\n  e=0: n= 5,198  within-wave -1.22pp (SE 0.69)  vs class -1.61pp\n  e=1: n= 5,832  within-wave -0.40pp (SE 0.64)  vs class -0.62pp\n  e=2: n= 6,876  within-wave +0.44pp (SE 0.60)  vs class -0.64pp\n  e=3: n= 8,342  within-wave +0.68pp (SE 0.54)  vs class -0.31pp\n[done] wave_timing.json\n"
   },
-  "convergence_arrival_4pct": {
+  "wave_entry_8": {
    "ok": true,
-   "seconds": 7,
-   "tail": "rrival 1997\n  [017] arrival 2015\n  [018] arrival 1999\n  [019] arrival 2018\n  [020] arrival 2008\n  [021] arrival 2000\n  [022] arrival 2009\n  [023] arrival 2001\n  [024] arrival 2000\n  [025] arrival 2000\n  [026] arrival 1998\n  [027] arrival 1999\n  [028] arrival 2000\n  [029] arrival 2017\n  [030] arrival 2016\n  [031] arrival 2015\n  [032] arrival 2019\n  [033] arrival None\n  [034] arrival 2000\n  [035] arrival 1995\n  [036] arrival 1996\n  [037] arrival 1998\n  [038] arrival 1995\n  [039] arrival 1996\n  [040] arrival 1999\n  [041] arrival 1995\n  [042] arrival 1995\n  [043] arrival 1999\n  [044] arrival 1999\n  [045] arrival 1999\n[cells] 395 class-cohort cells with both groups >= 100\n  classes with both phases 11: mean gap yrs0-4 +4.3pp, yrs10+ +1.7pp, shrinks in 73%\n[done] internet_convergence.{json,png}\n"
+   "seconds": 1,
+   "tail": "ry window\n[tabled] 78 episodes with >= 300 joiners\n[dose] corr(log growth, excess) -0.11  corr(log share, excess) -0.14  small/mid/large excess +0.9/+3.3/+0.0pp\n[aftermath] grew 28 excess +3.1pp  receded 50 excess +0.5pp  corr(log aftermath, excess) +0.08\n  e=0: n= 6,920  within-wave -0.82pp (SE 0.59)  vs class -1.13pp\n  e=1: n= 7,779  within-wave -0.19pp (SE 0.56)  vs class -0.41pp\n  e=2: n= 9,216  within-wave +1.02pp (SE 0.52)  vs class +0.04pp\n  e=3: n=11,018  within-wave +0.98pp (SE 0.47)  vs class +0.04pp\n  e=4: n=15,085  within-wave +0.05pp (SE 0.40)  vs class -0.32pp\n  e=5: n=17,949  within-wave +0.71pp (SE 0.37)  vs class +1.06pp\n  e=6: n=20,465  within-wave -0.54pp (SE 0.35)  vs class -0.32pp\n  e=7: n=20,781  within-wave -0.74pp (SE 0.34)  vs class -0.86pp\n[done] wave_timing.json\n"
   }
  },
- "finished": "2026-08-24 21:25:06"
+ "finished": "2026-08-24 21:25:33"
 }

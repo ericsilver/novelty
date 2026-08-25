@@ -1,0 +1,81 @@
+{
+ "double": 3.0,
+ "surge_years": 3,
+ "min_episode": 1000,
+ "levels": {
+  "1pct": {
+   "n_surge_episodes": 616,
+   "n_in_surge_regs": 15457,
+   "fail_in_surge": 0.49058678915701626,
+   "fail_rest": 0.5144430372937661,
+   "within_class_year": {
+    "mean": 0.0006929766465847843,
+    "se": 0.004009928606835467
+   },
+   "net_LA": {
+    "mean": 0.008606247034001585,
+    "se": 0.0040480205111672815
+   },
+   "episodes": [
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5447481369682106,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    }
+   ]
+  },
+  "2pct": {
+   "n_surge_episodes": 222,
+   "n_in_surge_regs": 12259,
+   "fail_in_surge": 0.5011828044701852,
+   "fail_rest": 0.5143928889606645,
+   "within_class_year": {
+    "mean": -0.001147399239138557,
+    "se": 0.004496558747976551
+   },
+   "net_LA": {
+    "mean": 0.005498413622646466,
+    "se": 0.004548244443009107
+   },
+   "episodes": [
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5447481369682106,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    }
+   ]
+  }
+ }
+}

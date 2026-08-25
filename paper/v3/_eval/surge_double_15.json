@@ -1,0 +1,429 @@
+{
+ "double": 1.5,
+ "surge_years": 3,
+ "min_episode": 1000,
+ "levels": {
+  "1pct": {
+   "n_surge_episodes": 1261,
+   "n_in_surge_regs": 55103,
+   "fail_in_surge": 0.5019690397981961,
+   "fail_rest": 0.5145213438574888,
+   "within_class_year": {
+    "mean": 0.010214704920393884,
+    "se": 0.002123424517651275
+   },
+   "net_LA": {
+    "mean": 0.011606126840949613,
+    "se": 0.0021311820977701203
+   },
+   "episodes": [
+    {
+     "theme": 180,
+     "cls": "032",
+     "cls_name": "Beer & Soft Drinks",
+     "surge_year": 2014,
+     "growth_multiple": 1.613176611168707,
+     "surge_share": 0.29226932668329175,
+     "n": 5048,
+     "base_fail": 0.48335974643423135,
+     "class_fail_rest": 0.5393018175056943,
+     "lead_lift": -0.028379087732493424,
+     "lead_se": 0.022179313615444316,
+     "words": [
+      "bottles",
+      "beer",
+      "water bottles",
+      "bar catering",
+      "accordance",
+      "closure"
+     ]
+    },
+    {
+     "theme": 190,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2009,
+     "growth_multiple": 1.5360761224377284,
+     "surge_share": 0.05914518468920879,
+     "n": 4775,
+     "base_fail": 0.6245026178010471,
+     "class_fail_rest": 0.522626501793825,
+     "lead_lift": 0.12998226991181017,
+     "lead_se": 0.021738231412508788,
+     "words": [
+      "mobile",
+      "computers",
+      "phones",
+      "devices",
+      "mobile phones",
+      "phone"
+     ]
+    },
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5449739932688461,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    },
+    {
+     "theme": 165,
+     "cls": "003",
+     "cls_name": "Cosmetics & Cleaning",
+     "surge_year": 2006,
+     "growth_multiple": 1.6946767507377791,
+     "surge_share": 0.08527671423599026,
+     "n": 1516,
+     "base_fail": 0.5824538258575198,
+     "class_fail_rest": 0.54298588164614,
+     "lead_lift": 0.07727272727272727,
+     "lead_se": 0.04012494572858652,
+     "words": [
+      "cosmetic",
+      "preparations",
+      "purposes",
+      "cosmetic purposes",
+      "cosmetics",
+      "creams"
+     ]
+    },
+    {
+     "theme": 125,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2003,
+     "growth_multiple": 1.5088363204250652,
+     "surge_share": 0.023978792625617543,
+     "n": 1418,
+     "base_fail": 0.504231311706629,
+     "class_fail_rest": 0.522626501793825,
+     "lead_lift": 0.1099122481769868,
+     "lead_se": 0.041642834831848524,
+     "words": [
+      "masks",
+      "gloves",
+      "glasses",
+      "sunglasses",
+      "protective",
+      "spectacles"
+     ]
+    },
+    {
+     "theme": 475,
+     "cls": "005",
+     "cls_name": "Pharmaceuticals",
+     "surge_year": 2000,
+     "growth_multiple": 1.9002579826071822,
+     "surge_share": 0.10327455919395466,
+     "n": 1092,
+     "base_fail": 0.6978021978021978,
+     "class_fail_rest": 0.5332202339200366,
+     "lead_lift": -0.003878878878878944,
+     "lead_se": 0.04413312730688806,
+     "words": [
+      "diseases",
+      "disorders",
+      "treatment",
+      "pharmaceutical",
+      "prevention",
+      "pharmaceutical preparations"
+     ]
+    },
+    {
+     "theme": 95,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2001,
+     "growth_multiple": 2.293003047872949,
+     "surge_share": 0.04659675504550851,
+     "n": 1042,
+     "base_fail": 0.4654510556621881,
+     "class_fail_rest": 0.522626501793825,
+     "lead_lift": -0.06399782135076254,
+     "lead_se": 0.047263933957853534,
+     "words": [
+      "games",
+      "toys",
+      "toy",
+      "cards",
+      "books",
+      "game"
+     ]
+    }
+   ],
+   "n_episodes_tabled": 7,
+   "corr_growth_excessfail": -0.5750775353383806,
+   "corr_growth_leadlift": -0.27600990554446203,
+   "mean_excess_fail": 0.0052950986673411015,
+   "mean_lead_lift": 0.03990596121930944,
+   "share_leadlift_below_1pt": 0.14285714285714285
+  },
+  "2pct": {
+   "n_surge_episodes": 571,
+   "n_in_surge_regs": 54469,
+   "fail_in_surge": 0.5148616644329802,
+   "fail_rest": 0.5143468188802736,
+   "within_class_year": {
+    "mean": 0.017410806038490524,
+    "se": 0.0021336500914847143
+   },
+   "net_LA": {
+    "mean": 0.01658108307585138,
+    "se": 0.002139688093706362
+   },
+   "episodes": [
+    {
+     "theme": 180,
+     "cls": "032",
+     "cls_name": "Beer & Soft Drinks",
+     "surge_year": 2014,
+     "growth_multiple": 1.613176611168707,
+     "surge_share": 0.29226932668329175,
+     "n": 5048,
+     "base_fail": 0.48335974643423135,
+     "class_fail_rest": 0.5393294797687861,
+     "lead_lift": -0.028379087732493424,
+     "lead_se": 0.022179313615444316,
+     "words": [
+      "bottles",
+      "beer",
+      "water bottles",
+      "bar catering",
+      "accordance",
+      "closure"
+     ]
+    },
+    {
+     "theme": 190,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2009,
+     "growth_multiple": 1.5360761224377284,
+     "surge_share": 0.05914518468920879,
+     "n": 4775,
+     "base_fail": 0.6245026178010471,
+     "class_fail_rest": 0.5225522922443266,
+     "lead_lift": 0.12998226991181017,
+     "lead_se": 0.021738231412508788,
+     "words": [
+      "mobile",
+      "computers",
+      "phones",
+      "devices",
+      "mobile phones",
+      "phone"
+     ]
+    },
+    {
+     "theme": 84,
+     "cls": "035",
+     "cls_name": "Advertising & Retail",
+     "surge_year": 2002,
+     "growth_multiple": 3.5034867250389667,
+     "surge_share": 0.06157920874027479,
+     "n": 3383,
+     "base_fail": 0.40762636712976646,
+     "class_fail_rest": 0.5446833885649368,
+     "lead_lift": 0.05843027113577676,
+     "lead_se": 0.026050576577396158,
+     "words": [
+      "field",
+      "training",
+      "educational",
+      "education",
+      "conducting",
+      "seminars"
+     ]
+    },
+    {
+     "theme": 207,
+     "cls": "036",
+     "cls_name": "Insurance & Finance",
+     "surge_year": 2009,
+     "growth_multiple": 1.7051249566939226,
+     "surge_share": 0.03833049403747871,
+     "n": 1826,
+     "base_fail": 0.5355969331872946,
+     "class_fail_rest": 0.4947364930952736,
+     "lead_lift": 0.08136070310979349,
+     "lead_se": 0.036778018777080417,
+     "words": [
+      "charitable",
+      "fundraising",
+      "means",
+      "families",
+      "fundraising services",
+      "fuel"
+     ]
+    },
+    {
+     "theme": 337,
+     "cls": "041",
+     "cls_name": "Education & Entertainment",
+     "surge_year": 2007,
+     "growth_multiple": 1.6866072987287986,
+     "surge_share": 0.022340425531914895,
+     "n": 1592,
+     "base_fail": 0.6155778894472361,
+     "class_fail_rest": 0.5305990834357733,
+     "lead_lift": 0.2150041415217135,
+     "lead_se": 0.03802531748577452,
+     "words": [
+      "software",
+      "online",
+      "computer",
+      "downloadable",
+      "non-downloadable",
+      "featuring"
+     ]
+    },
+    {
+     "theme": 165,
+     "cls": "003",
+     "cls_name": "Cosmetics & Cleaning",
+     "surge_year": 2006,
+     "growth_multiple": 1.6946767507377791,
+     "surge_share": 0.08527671423599026,
+     "n": 1516,
+     "base_fail": 0.5824538258575198,
+     "class_fail_rest": 0.5430807602993033,
+     "lead_lift": 0.07727272727272727,
+     "lead_se": 0.04012494572858652,
+     "words": [
+      "cosmetic",
+      "preparations",
+      "purposes",
+      "cosmetic purposes",
+      "cosmetics",
+      "creams"
+     ]
+    },
+    {
+     "theme": 125,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2003,
+     "growth_multiple": 1.5088363204250652,
+     "surge_share": 0.023978792625617543,
+     "n": 1418,
+     "base_fail": 0.504231311706629,
+     "class_fail_rest": 0.5225522922443266,
+     "lead_lift": 0.1099122481769868,
+     "lead_se": 0.041642834831848524,
+     "words": [
+      "masks",
+      "gloves",
+      "glasses",
+      "sunglasses",
+      "protective",
+      "spectacles"
+     ]
+    },
+    {
+     "theme": 11,
+     "cls": "042",
+     "cls_name": "Scientific & Tech Services",
+     "surge_year": 2007,
+     "growth_multiple": 1.5187691797786507,
+     "surge_share": 0.030805225190095535,
+     "n": 1415,
+     "base_fail": 0.5286219081272084,
+     "class_fail_rest": 0.5425033315161427,
+     "lead_lift": 0.11448341326938444,
+     "lead_se": 0.041621615175562225,
+     "words": [
+      "energy",
+      "power",
+      "services",
+      "field",
+      "generation",
+      "distribution"
+     ]
+    },
+    {
+     "theme": 184,
+     "cls": "042",
+     "cls_name": "Scientific & Tech Services",
+     "surge_year": 2001,
+     "growth_multiple": 1.757383310696318,
+     "surge_share": 0.023650697392359005,
+     "n": 1115,
+     "base_fail": 0.5775784753363229,
+     "class_fail_rest": 0.5425033315161427,
+     "lead_lift": 0.03677000720980539,
+     "lead_se": 0.04666366494114657,
+     "words": [
+      "research",
+      "scientific",
+      "field",
+      "analysis",
+      "scientific research",
+      "research field"
+     ]
+    },
+    {
+     "theme": 475,
+     "cls": "005",
+     "cls_name": "Pharmaceuticals",
+     "surge_year": 2000,
+     "growth_multiple": 1.9002579826071822,
+     "surge_share": 0.10327455919395466,
+     "n": 1092,
+     "base_fail": 0.6978021978021978,
+     "class_fail_rest": 0.5332114166285677,
+     "lead_lift": -0.003878878878878944,
+     "lead_se": 0.04413312730688806,
+     "words": [
+      "diseases",
+      "disorders",
+      "treatment",
+      "pharmaceutical",
+      "prevention",
+      "pharmaceutical preparations"
+     ]
+    },
+    {
+     "theme": 95,
+     "cls": "009",
+     "cls_name": "Software & Electronics",
+     "surge_year": 2001,
+     "growth_multiple": 2.293003047872949,
+     "surge_share": 0.04659675504550851,
+     "n": 1042,
+     "base_fail": 0.4654510556621881,
+     "class_fail_rest": 0.5225522922443266,
+     "lead_lift": -0.06399782135076254,
+     "lead_se": 0.047263933957853534,
+     "words": [
+      "games",
+      "toys",
+      "toy",
+      "cards",
+      "books",
+      "game"
+     ]
+    }
+   ],
+   "n_episodes_tabled": 11,
+   "corr_growth_excessfail": -0.5440762555287935,
+   "corr_growth_leadlift": -0.3405371068052244,
+   "mean_excess_fail": 0.016772560630339585,
+   "mean_lead_lift": 0.0660872721496239,
+   "share_leadlift_below_1pt": 0.09090909090909091
+  }
+ }
+}

@@ -1,0 +1,847 @@
+{
+ "level": 0.01,
+ "entry_years": 8,
+ "min_n": 300,
+ "n_episodes": 78,
+ "episodes": [
+  {
+   "theme": 208,
+   "cls": "035",
+   "cls_name": "Advertising & Retail",
+   "surge_year": 1996,
+   "growth": 6.857408067870439,
+   "share": 0.14377094121230583,
+   "aftermath": 1.1543994264790944,
+   "n": 12724,
+   "excess": -0.030516387477733605,
+   "se": 0.004427448379787736,
+   "words": [
+    "services",
+    "store",
+    "retail",
+    "store services",
+    "featuring"
+   ]
+  },
+  {
+   "theme": 84,
+   "cls": "035",
+   "cls_name": "Advertising & Retail",
+   "surge_year": 2002,
+   "growth": 3.5034867250389667,
+   "share": 0.06157920874027479,
+   "aftermath": 0.9757027483148848,
+   "n": 12000,
+   "excess": -0.09851759799339468,
+   "se": 0.004525905715526113,
+   "words": [
+    "field",
+    "training",
+    "educational",
+    "education",
+    "conducting"
+   ]
+  },
+  {
+   "theme": 438,
+   "cls": "028",
+   "cls_name": "Games & Sporting Goods",
+   "surge_year": 2012,
+   "growth": 2.877085092519456,
+   "share": 0.11049146043917742,
+   "aftermath": 0.7675592560031718,
+   "n": 4527,
+   "excess": -0.04538450240101042,
+   "se": 0.00741265528411709,
+   "words": [
+    "entertainment",
+    "video",
+    "music",
+    "services",
+    "games"
+   ]
+  },
+  {
+   "theme": 191,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2000,
+   "growth": 9.391304347826088,
+   "share": 0.17391304347826086,
+   "aftermath": 1.1092247596153848,
+   "n": 4514,
+   "excess": -0.005633818837766581,
+   "se": 0.007444251247941016,
+   "words": [
+    "health",
+    "information",
+    "wellness",
+    "healthcare",
+    "featuring"
+   ]
+  },
+  {
+   "theme": 433,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2001,
+   "growth": 2.027027027027027,
+   "share": 0.13513513513513514,
+   "aftermath": 1.187127761767531,
+   "n": 3546,
+   "excess": -0.06256154441175049,
+   "se": 0.00839353835198805,
+   "words": [
+    "services",
+    "management",
+    "business",
+    "information",
+    "field"
+   ]
+  },
+  {
+   "theme": 9,
+   "cls": "041",
+   "cls_name": "Education & Entertainment",
+   "surge_year": 1996,
+   "growth": 2.1923873249617323,
+   "share": 0.08231529959278651,
+   "aftermath": 0.9299310053593496,
+   "n": 3399,
+   "excess": 0.04704600360168892,
+   "se": 0.008479776683663884,
+   "words": [
+    "computer",
+    "software",
+    "data",
+    "electronic",
+    "computer software"
+   ]
+  },
+  {
+   "theme": 184,
+   "cls": "042",
+   "cls_name": "Scientific & Tech Services",
+   "surge_year": 2002,
+   "growth": 2.4820520046045775,
+   "share": 0.04215809284818068,
+   "aftermath": 0.9156964599058574,
+   "n": 3370,
+   "excess": -0.0026196446895458323,
+   "se": 0.008598166530140089,
+   "words": [
+    "research",
+    "scientific",
+    "field",
+    "analysis",
+    "scientific research"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "042",
+   "cls_name": "Scientific & Tech Services",
+   "surge_year": 1995,
+   "growth": 2.71227197405074,
+   "share": 0.018245341614906832,
+   "aftermath": 4.843916223404255,
+   "n": 3346,
+   "excess": 0.0848641646805288,
+   "se": 0.008366991723095137,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 95,
+   "cls": "009",
+   "cls_name": "Software & Electronics",
+   "surge_year": 2001,
+   "growth": 2.293003047872949,
+   "share": 0.04659675504550851,
+   "aftermath": 0.47700173441306953,
+   "n": 3173,
+   "excess": -0.0032114140581697083,
+   "se": 0.0088839720367964,
+   "words": [
+    "games",
+    "toys",
+    "toy",
+    "cards",
+    "books"
+   ]
+  },
+  {
+   "theme": 116,
+   "cls": "041",
+   "cls_name": "Education & Entertainment",
+   "surge_year": 2002,
+   "growth": 2.0711939054590807,
+   "share": 0.01661631419939577,
+   "aftermath": 1.3957059961315281,
+   "n": 2723,
+   "excess": 0.07458562430296613,
+   "se": 0.009381915178061041,
+   "words": [
+    "fitness",
+    "exercise",
+    "physical",
+    "yoga",
+    "skills"
+   ]
+  },
+  {
+   "theme": 326,
+   "cls": "043",
+   "cls_name": "Hotels & Restaurants",
+   "surge_year": 1996,
+   "growth": 2.1750000000000003,
+   "share": 0.05,
+   "aftermath": 5.294117647058823,
+   "n": 2624,
+   "excess": 0.010358721280474282,
+   "se": 0.009693483362299436,
+   "words": [
+    "based",
+    "restaurant",
+    "snack",
+    "bars",
+    "food"
+   ]
+  },
+  {
+   "theme": 400,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2001,
+   "growth": 3.7800000000000007,
+   "share": 0.07,
+   "aftermath": 1.427846633326085,
+   "n": 2603,
+   "excess": -0.03227946349189211,
+   "se": 0.009775482293053396,
+   "words": [
+    "medical",
+    "patient",
+    "clinical",
+    "patients",
+    "medical information"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2002,
+   "growth": 2.255079006772009,
+   "share": 0.040632054176072234,
+   "aftermath": 3.6524315619967793,
+   "n": 2331,
+   "excess": 0.20189711515203956,
+   "se": 0.009105395324766192,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 11,
+   "cls": "009",
+   "cls_name": "Software & Electronics",
+   "surge_year": 2008,
+   "growth": 2.208126881868527,
+   "share": 0.01186511240632806,
+   "aftermath": 0.6114595125574263,
+   "n": 1983,
+   "excess": 0.059953025755736286,
+   "se": 0.011084144459488578,
+   "words": [
+    "energy",
+    "power",
+    "services",
+    "field",
+    "generation"
+   ]
+  },
+  {
+   "theme": 243,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 16.937553464499572,
+   "share": 0.05645851154833191,
+   "aftermath": 0.8775932526471087,
+   "n": 1927,
+   "excess": -0.001983724967077297,
+   "se": 0.011387458446802832,
+   "words": [
+    "services",
+    "field",
+    "services field",
+    "therapy",
+    "care services"
+   ]
+  },
+  {
+   "theme": 380,
+   "cls": "043",
+   "cls_name": "Hotels & Restaurants",
+   "surge_year": 2000,
+   "growth": 2.076923076923077,
+   "share": 0.07692307692307693,
+   "aftermath": 1.0440602342442833,
+   "n": 1912,
+   "excess": 0.017062781882099226,
+   "se": 0.011419426456211057,
+   "words": [
+    "beverages",
+    "drinks",
+    "fruit",
+    "milk",
+    "non-alcoholic"
+   ]
+  },
+  {
+   "theme": 84,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2002,
+   "growth": 11.525959367945823,
+   "share": 0.1038374717832957,
+   "aftermath": 0.776017643352237,
+   "n": 1910,
+   "excess": -0.10246406489550942,
+   "se": 0.011294005419430639,
+   "words": [
+    "field",
+    "training",
+    "educational",
+    "education",
+    "conducting"
+   ]
+  },
+  {
+   "theme": 421,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2002,
+   "growth": 3.1946952595936793,
+   "share": 0.11512415349887133,
+   "aftermath": 0.7704347826086956,
+   "n": 1829,
+   "excess": -0.01760305973271764,
+   "se": 0.01169939527554996,
+   "words": [
+    "security",
+    "equipment",
+    "monitoring",
+    "technology",
+    "technical"
+   ]
+  },
+  {
+   "theme": 289,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 6.030795551753635,
+   "share": 0.04020530367835757,
+   "aftermath": 1.2752298624034029,
+   "n": 1796,
+   "excess": 0.026753929340067983,
+   "se": 0.011745314738291164,
+   "words": [
+    "medical",
+    "surgical",
+    "devices",
+    "living",
+    "surgery"
+   ]
+  },
+  {
+   "theme": 9,
+   "cls": "036",
+   "cls_name": "Insurance & Finance",
+   "surge_year": 1995,
+   "growth": 2.1423996263223377,
+   "share": 0.051173991571342566,
+   "aftermath": 2.4354894683014834,
+   "n": 1757,
+   "excess": 0.08327540285093518,
+   "se": 0.011648617879608301,
+   "words": [
+    "computer",
+    "software",
+    "data",
+    "electronic",
+    "computer software"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "041",
+   "cls_name": "Education & Entertainment",
+   "surge_year": 2000,
+   "growth": 2.315455696957488,
+   "share": 0.016490863170405587,
+   "aftermath": 0.7609616092951675,
+   "n": 1561,
+   "excess": 0.04902708775473148,
+   "se": 0.012518897528048975,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 84,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2000,
+   "growth": 2.347826086956522,
+   "share": 0.043478260869565216,
+   "aftermath": 0.7602163461538461,
+   "n": 1304,
+   "excess": -0.10423793367741015,
+   "se": 0.013530949133903222,
+   "words": [
+    "field",
+    "training",
+    "educational",
+    "education",
+    "conducting"
+   ]
+  },
+  {
+   "theme": 218,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2003,
+   "growth": 2.125130604517585,
+   "share": 0.025680933852140077,
+   "aftermath": 1.2130104658321363,
+   "n": 1134,
+   "excess": -0.0281090145893745,
+   "se": 0.014831724599507832,
+   "words": [
+    "dental",
+    "teeth",
+    "mouth",
+    "oral",
+    "dentistry"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "035",
+   "cls_name": "Advertising & Retail",
+   "surge_year": 1995,
+   "growth": 2.2145285685695617,
+   "share": 0.013272077590607452,
+   "aftermath": 3.526552655265527,
+   "n": 1127,
+   "excess": 0.09749821271658617,
+   "se": 0.014183962360422974,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 480,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 2.207431826242985,
+   "share": 0.03934987168520103,
+   "aftermath": 0.7992900361538317,
+   "n": 1094,
+   "excess": 0.03930848598975087,
+   "se": 0.015064487527049938,
+   "words": [
+    "testing",
+    "diagnostic",
+    "medical",
+    "analysis",
+    "imaging"
+   ]
+  },
+  {
+   "theme": 9,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2000,
+   "growth": 6.4,
+   "share": 0.13333333333333333,
+   "aftermath": 0.7621951219512195,
+   "n": 1059,
+   "excess": 0.020733092099425452,
+   "se": 0.015289358058357324,
+   "words": [
+    "computer",
+    "software",
+    "data",
+    "electronic",
+    "computer software"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2007,
+   "growth": 2.0151878272909007,
+   "share": 0.021542438604049977,
+   "aftermath": 1.1040059457450764,
+   "n": 1004,
+   "excess": 0.045082867583986524,
+   "se": 0.015652897425030877,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 11,
+   "cls": "007",
+   "cls_name": "Machinery",
+   "surge_year": 2006,
+   "growth": 2.0987292326869573,
+   "share": 0.02098849018280298,
+   "aftermath": 1.6056484891511735,
+   "n": 928,
+   "excess": 0.2666326154947861,
+   "se": 0.015677971465462587,
+   "words": [
+    "energy",
+    "power",
+    "services",
+    "field",
+    "generation"
+   ]
+  },
+  {
+   "theme": 144,
+   "cls": "011",
+   "cls_name": "Lighting & Heating",
+   "surge_year": 2006,
+   "growth": 2.0399002346360238,
+   "share": 0.029296875,
+   "aftermath": 0.7003822168577751,
+   "n": 896,
+   "excess": 0.02597812726812776,
+   "se": 0.016705551038261244,
+   "words": [
+    "heat",
+    "solar",
+    "valves",
+    "flow",
+    "metal"
+   ]
+  },
+  {
+   "theme": 366,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2003,
+   "growth": 3.03242542153048,
+   "share": 0.023346303501945526,
+   "aftermath": 0.9668924003009782,
+   "n": 889,
+   "excess": 0.0746403846369024,
+   "se": 0.01658515167235947,
+   "words": [
+    "dating",
+    "spiritual",
+    "salon",
+    "style",
+    "introduction"
+   ]
+  },
+  {
+   "theme": 198,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 2.5662959794696323,
+   "share": 0.02566295979469632,
+   "aftermath": 0.7890708028148786,
+   "n": 882,
+   "excess": 0.036747651758181656,
+   "se": 0.01673862705675899,
+   "words": [
+    "treatment",
+    "cancer",
+    "disease",
+    "pharmaceuticals",
+    "pain"
+   ]
+  },
+  {
+   "theme": 438,
+   "cls": "045",
+   "cls_name": "Legal & Personal Services",
+   "surge_year": 2003,
+   "growth": 2.434065934065934,
+   "share": 0.023809523809523808,
+   "aftermath": 1.60250569476082,
+   "n": 843,
+   "excess": 0.00802635848983866,
+   "se": 0.01706129864255294,
+   "words": [
+    "entertainment",
+    "video",
+    "music",
+    "services",
+    "games"
+   ]
+  },
+  {
+   "theme": 361,
+   "cls": "028",
+   "cls_name": "Games & Sporting Goods",
+   "surge_year": 2003,
+   "growth": 3.0097033440555476,
+   "share": 0.02031063321385902,
+   "aftermath": 0.9784291669423675,
+   "n": 819,
+   "excess": -0.03598252009133979,
+   "se": 0.017424900645953388,
+   "words": [
+    "pet",
+    "pets",
+    "animal",
+    "animals",
+    "feed"
+   ]
+  },
+  {
+   "theme": 9,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 2.263965220244443,
+   "share": 0.04790419161676647,
+   "aftermath": 0.3417707884532529,
+   "n": 810,
+   "excess": 0.058220924446209577,
+   "se": 0.017417762025557296,
+   "words": [
+    "computer",
+    "software",
+    "data",
+    "electronic",
+    "computer software"
+   ]
+  },
+  {
+   "theme": 337,
+   "cls": "016",
+   "cls_name": "Paper & Printed Goods",
+   "surge_year": 2009,
+   "growth": 2.053226132499918,
+   "share": 0.0111427831044312,
+   "aftermath": 1.3428057762570318,
+   "n": 791,
+   "excess": -0.012050907084155484,
+   "se": 0.017757418630125418,
+   "words": [
+    "software",
+    "online",
+    "computer",
+    "downloadable",
+    "non-downloadable"
+   ]
+  },
+  {
+   "theme": 84,
+   "cls": "043",
+   "cls_name": "Hotels & Restaurants",
+   "surge_year": 2003,
+   "growth": 2.8270958083832336,
+   "share": 0.014970059880239521,
+   "aftermath": 0.8443820224719101,
+   "n": 710,
+   "excess": -0.1098083521486736,
+   "se": 0.018034028568410767,
+   "words": [
+    "field",
+    "training",
+    "educational",
+    "education",
+    "conducting"
+   ]
+  },
+  {
+   "theme": 116,
+   "cls": "028",
+   "cls_name": "Games & Sporting Goods",
+   "surge_year": 2010,
+   "growth": 2.691358618209606,
+   "share": 0.012257809410834321,
+   "aftermath": 1.2965449994471197,
+   "n": 685,
+   "excess": 0.028115763667742398,
+   "se": 0.01901629421324518,
+   "words": [
+    "fitness",
+    "exercise",
+    "physical",
+    "yoga",
+    "skills"
+   ]
+  },
+  {
+   "theme": 433,
+   "cls": "039",
+   "cls_name": "Transport & Storage",
+   "surge_year": 1998,
+   "growth": 2.0969999395316425,
+   "share": 0.04039167686658507,
+   "aftermath": 0.9889389765422824,
+   "n": 653,
+   "excess": -0.003699128394870366,
+   "se": 0.019504019359500527,
+   "words": [
+    "services",
+    "management",
+    "business",
+    "information",
+    "field"
+   ]
+  },
+  {
+   "theme": 361,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 5.64585115483319,
+   "share": 0.018819503849443968,
+   "aftermath": 0.9157494810230701,
+   "n": 631,
+   "excess": -0.005299973372213848,
+   "se": 0.019894451225418778,
+   "words": [
+    "pet",
+    "pets",
+    "animal",
+    "animals",
+    "feed"
+   ]
+  },
+  {
+   "theme": 184,
+   "cls": "044",
+   "cls_name": "Medical & Beauty Services",
+   "surge_year": 2002,
+   "growth": 7.18562874251497,
+   "share": 0.023952095808383235,
+   "aftermath": 0.7015295131408874,
+   "n": 611,
+   "excess": 0.05855003349732833,
+   "se": 0.02004026361626851,
+   "words": [
+    "research",
+    "scientific",
+    "field",
+    "analysis",
+    "scientific research"
+   ]
+  }
+ ],
+ "dose": {
+  "corr_loggrowth_excess": -0.11048815791413681,
+  "corr_logshare_excess": -0.1393821415601903,
+  "wcorr_logshare_excess": -0.39102472694855267,
+  "mean_excess": 0.014156894594635974,
+  "share_excess_positive": 0.5256410256410257,
+  "excess_small": {
+   "k": 26,
+   "mean": 0.008677479579105089,
+   "mean_share": 0.014298229639186368
+  },
+  "excess_mid": {
+   "k": 26,
+   "mean": 0.03341975465186804,
+   "mean_share": 0.022795246066846683
+  },
+  "excess_large": {
+   "k": 26,
+   "mean": 0.0003734495529347827,
+   "mean_share": 0.09064619146368894
+  }
+ },
+ "aftermath": {
+  "n_grew": 28,
+  "n_receded": 50,
+  "excess_grew": 0.03088268461786214,
+  "excess_receded": 0.004790452181629315,
+  "corr_aftermath_excess": 0.08001192133760938
+ },
+ "timing_by_entry_year": {
+  "0": {
+   "n": 6920,
+   "within_wave": -0.0081668968832168,
+   "se": 0.005947294587068287,
+   "vs_class": -0.01127154106482581
+  },
+  "1": {
+   "n": 7779,
+   "within_wave": -0.0018935400023905311,
+   "se": 0.005599169998359022,
+   "vs_class": -0.004124702236777602
+  },
+  "2": {
+   "n": 9216,
+   "within_wave": 0.010248484074227723,
+   "se": 0.005158196793566374,
+   "vs_class": 0.00042577502441954325
+  },
+  "3": {
+   "n": 11018,
+   "within_wave": 0.009821444200208038,
+   "se": 0.004722218880016818,
+   "vs_class": 0.00038077882702519016
+  },
+  "4": {
+   "n": 15085,
+   "within_wave": 0.00046802186122712515,
+   "se": 0.004020707355872615,
+   "vs_class": -0.0031520015860310962
+  },
+  "5": {
+   "n": 17949,
+   "within_wave": 0.007067219391402211,
+   "se": 0.0036758417170207093,
+   "vs_class": 0.010642085744192254
+  },
+  "6": {
+   "n": 20465,
+   "within_wave": -0.005431461568510638,
+   "se": 0.0034562247758369033,
+   "vs_class": -0.003174774563619669
+  },
+  "7": {
+   "n": 20781,
+   "within_wave": -0.007418925795141588,
+   "se": 0.003438269294427499,
+   "vs_class": -0.008555686588270448
+  }
+ }
+}
