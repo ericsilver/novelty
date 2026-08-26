@@ -1,0 +1,79 @@
+{
+ "groups": {
+  "lowA_rejected": {
+   "n": 386314,
+   "reg_rate": 0.0,
+   "counsel_share": 0.6549879113881454,
+   "itu_share": 0.7583882541145286,
+   "median_words": 9,
+   "dup_any": 0.5847238256961953,
+   "dup_prior_other_owner": 0.3841926515735904,
+   "cluster_ge100": 0.22720636580605413,
+   "small_multiowner_2_9": 0.09266814042462868,
+   "gate_fail_regs": null,
+   "n_regs_gate": 0
+  },
+  "lowA_accepted": {
+   "n": 509789,
+   "reg_rate": 1.0,
+   "counsel_share": 0.7897934243383047,
+   "itu_share": 0.43191398794403174,
+   "median_words": 11,
+   "dup_any": 0.5471910927854465,
+   "dup_prior_other_owner": 0.3549429273679895,
+   "cluster_ge100": 0.21208970770259852,
+   "small_multiowner_2_9": 0.08955273652432673,
+   "gate_fail_regs": 0.5158069994635659,
+   "n_regs_gate": 449263
+  },
+  "midA": {
+   "n": 1791254,
+   "reg_rate": 0.5829245880260421,
+   "counsel_share": 0.7592775787241787,
+   "itu_share": 0.5615071899350957,
+   "median_words": 27,
+   "dup_any": 0.41243843698325305,
+   "dup_prior_other_owner": 0.17353317843253943,
+   "cluster_ge100": 0.08849889518739386,
+   "small_multiowner_2_9": 0.08099074726420709,
+   "gate_fail_regs": 0.49660627235815064,
+   "n_regs_gate": 923321
+  }
+ },
+ "lowA_reg_gate_by_text": {
+  "copied": {
+   "n": 160325,
+   "gate_fail": 0.5198004054264774
+  },
+  "manual_scale": {
+   "n": 93624,
+   "gate_fail": 0.515092284029736
+  },
+  "unique_text": {
+   "n": 205853,
+   "gate_fail": 0.521440056739518
+  }
+ },
+ "lowA_reg_by_text": {
+  "copied": {
+   "n": 329365,
+   "reg_rate": 0.549378349247795,
+   "counsel_share": 0.6872831053694229
+  },
+  "manual_scale": {
+   "n": 195894,
+   "reg_rate": 0.5519362512379143,
+   "counsel_share": 0.7102310433193462
+  },
+  "small_multiowner": {
+   "n": 81452,
+   "reg_rate": 0.560489613514708,
+   "counsel_share": 0.7261454599027648
+  },
+  "unique_text": {
+   "n": 391264,
+   "reg_rate": 0.5899776110247812,
+   "counsel_share": 0.7173851926065266
+  }
+ }
+}

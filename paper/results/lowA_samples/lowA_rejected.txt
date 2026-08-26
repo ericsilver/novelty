@@ -1,0 +1,250 @@
+[001 1997 ab  dup1/1own w5] thermosetting resin curing chemical preparation
+[001 1998 ab  dup1/1own w20] Biodegradable chelating agent for use in manufacturing household cleaners, industrial and institutional cleaners and in water treatment and textile industry
+[001 2000 ab  dup2/2own w14] chemical compound used to protect seeds and plants from damage by certain chemical herbicides
+[001 2002 ab  dup1/1own w20] Chemical products for scientific and research use, namely, toner materials comprising compounds for making biopolymers via the electro photographic process
+[001 2011 ab  dup2/1own w20] Chemical additives to be added to plastic during the manufacturing process to prevent the growth of bacteria on its surface
+[001 2018 ab  dup1/1own w23] Erosion control soil binder chemicals and soil stabilizer for dust and erosion control and for protecting the soil from water and wind erosion
+[002 2000 ab  dup1/1own w5] protective coatings for hardwood floors
+[002 2002 ab  dup1/1own w6] paint primers; exterior and interior paints
+[002 2008 ab  dup1/1own w10] Coatings in the nature of masking, release and insulating uses
+[002 2018 ab  dup1/1own w7] Fire retardant coatings for use on wood
+[003 2001 ab  dup90/37own*COPY w4] COSMETICS NAMELY, LIP GLOSS
+[003 2016 ab  dup1/1own w5] Skincare, bath and body products
+[003 2017 ab  dup2/1own w8] Cosmetic pads, namely, non-medicated pads for eyes
+[003 2017 ab  dup41/34own*COPY w2] Bath soaps
+[003 2018 ab  dup100/82own*COPY w2] Body lotion
+[003 2018 ab  dup132/99own*COPY w2] Cosmetic preparations
+[003 2018 ab  dup134/105own*COPY w2] False eyelashes
+[004 2000 ab  dup3903/1973own*COPY w1] candles
+[004 2009 ab  dup21/13own*COPY w1] Fuel
+[004 2015 ab  dup85/59own*COPY w1] Fuels
+[004 2016 ab  dup3903/1973own*COPY w1] Candles
+[004 2018 ab  dup3903/1973own*COPY w1] Candles
+[005 1995 ab  dup2/1own w3] anti-urease vaccine
+[005 2000 ab  dup494/317own*COPY w2] Food Supplements
+[005 2005 ab  dup2/1own w8] Nutraceuticals for the treatment of equine gastric ulcers
+[005 2008 ab  dup6761/2994own*COPY w2] Nutritional supplements
+[005 2013 ab  dup10343/3917own*COPY w2] Dietary supplements
+[005 2013 ab  dup6761/2994own*COPY w2] Nutritional supplements
+[005 2015 ab  dup10343/3917own*COPY w2] Dietary supplements
+[005 2015 ab  dup10343/3917own*COPY w2] Dietary supplements
+[005 2018 ab  dup10343/3917own*COPY w2] Dietary supplements
+[006 2004 ab  dup9/8own*COPY w1] locks
+[006 2008 ab  dup62/40own*COPY w3] Prefabricated metal buildings
+[006 2012 ab  dup1/1own w6] Metal hardware, namely, springs; Metal hinges
+[006 2014 ab  dup1/1own w92] Binding screws of metal for cables; Bolt snaps of metal; Buckles of common metal; Eye bolts; Foundry chill-molds; Materials of metal for scaffolds; Metal bolts; Metal cable trays used in building construction; Metal cotter pins; Metal expanding sleeves for affixing screws; Metal hardware, namely, springs; Metal hardware, namely, washers; Metal nuts; Metal screws; Metal self-aligning demountable sn
+[006 2015 ab  dup1/1own w46] Bolts of metal; Hardware, namely, white metal pins; Metal hardware, namely, washers; Metal nuts; Metal plugs; Metal screws; Nails; Screw rings of metal; Screws of metal; Small items of metal hardware, namely, high security locks and sheet metal plates primarily for the casino and gaming industry
+[006 2016 ab  dup1/1own w13] Metal locking mechanism used with metal doors and grilles; metal doors and grilles
+[007 1997 ab  dup1/1own w6] collet chuck for CNC machine tools
+[007 1999 ab  dup1/1own w16] MACHINES FOR FINISHING LOAD-BEARING SURFACES ON CAMSHAFTS, CRANKSHAFTFS AND AXLES, HONING MACHINES AND SUPERFINISHING MACHINES
+[007 2008 ab  dup53/34own*COPY w1] Winches
+[007 2009 ab  dup1/1own w5] Hydraulically operated metal working machines
+[007 2015 ab  dup18/9own*COPY w6] Dies for use with machine tools
+[007 2018 ab  dup2/1own w2] Centrifugal compressors
+[008 1996 ab  dup9/9own w2] PRUNING SHEARS
+[008 1998 ab  dup1/1own w3] Handheld Cutting Tool
+[008 2000 ab  dup97/65own*COPY w2] Kitchen Knives
+[008 2004 ab  dup10/10own*COPY w1] tools
+[008 2015 ab  dup3/2own*COPY w2] Leaf rakes
+[008 2018 ab  dup1/1own w21] Beard clippers; Crimping irons; Curling tongs; Eyelash curlers; Flat irons; Knife handles; Needle files; Scissors; Non-electric curling irons; Utility knives
+[008 2018 ab  dup130/39own*COPY w2] Folding knives
+[008 2018 ab  dup93/22own*COPY w2] Sport knives
+[009 1996 ab  dup1/1own w6] comuter and communications hardware and software
+[009 1998 ab  dup1/1own w2] Computer display
+[009 1999 ab  dup1/1own w45] COMPUTER SOFTWARE FOR NETWORK-BASED APPLICATIONS, NAMELY, FOR INTEGRATING NETWORK TRAFFIC MANAGEMENT, SERVER LOAD BALANCING, AND SYSTEMS MONITORING AND MANAGEMENT FUNCTIONS, AND FOR REAL-TIME MONITORING, REPORTING AND AUTOMATED SERVICE LEVEL CONTROL OF SOFTWARE APPLICATIONS COMPUTER SERVICES, NAMELY, MONITORING AND MANAGING COMPUTER NETWORKS FOR OTHERS
+[009 2005 ab  dup3/1own w51] Telecommunication services, namely, the over-the-air transmission and reception of software code to a wireless communication device Wireless telecommunication devices, namely, digital cellular phones, wireless personal digital assistants, wireless computers and laptop computers that may be upgraded, provisioned, patched and receive software code over-the-air from a wireless network
+[010 1998 ab  dup1/1own w307] GOODS FOR PREVENTION OF ACCIDENTAL SLIPS AND FALLS, NAMELY, NON-SKID TREADS FOR STAIRS, FLOORS, HALLS, WALKS, BATHTUBS, SHOWER STALLS, AND OTHER SIMILAR LOCATIONS; NON-SKID TREADS FOR STAIRS, FLOORS, HALLS, WALKS, BATHTUBS, SHOWER STALLS, AND OTHER SIMILAR LOCATIONS LOW TEMPERATURE THERMOPLASTIC RESIN FOR USE IN MAKING ORTHOTIC, PROSTHETIC OR ORTHOPEDIC EQUIPMENT WHEEL CHAIR TRAYS; MEDICAL REHABIL
+[010 2000 ab  dup1/1own w1] eyeware
+[010 2003 ab  dup4/1own w9] Cardiac rhythm management devices, namely cardiac leads and electrodes
+[010 2015 ab  dup71/57own*COPY w4] Massage apparatus and instruments
+[010 2018 ab  dup1/1own w26] Contraceptive apparatus; Diaphragms for contraception; Intra-uterine contraceptive devices; Medical implants, namely, a polymer gel that is injected into the vas deferens tube for contraceptive purposes
+[011 1999 ab  dup2/2own*COPY w6] electric lights and electric lighting fixtures
+[011 2004 ab  dup8/6own*COPY w1] BIDET
+[011 2015 ab  dup81/65own*COPY w3] Electric night lights
+[011 2016 ab  dup53/33own*COPY w1] Dehumidifiers
+[012 2004 ab  dup2/1own w7] Wheels and accessories therefore for land vehicles
+[012 2013 ab  dup179/70own*COPY w3] Windshield wiper blades
+[012 2013 ab  dup212/162own*COPY w1] Trailers
+[012 2015 ab  dup2/1own w4] vehicle rear view mirrors
+[012 2018 ab  dup1/1own w49] Anti-theft devices for vehicles; Automobile bodies; Automobile hoods; Bumpers for automobiles; Camping trailers; Handle bars for motorcycles; Kickstands; Lorries; Motor homes; Motorcycle chains; Motorcycle frames; Motorcycles; Pedals for motorcycles; Saddles for motorcycles; Shock absorbers for automobiles; Sports cars; Tilting-carts; Vehicle running boards; Waggons; Wheel rims for motorcycles
+[013 2006 ab  dup703/197own*COPY w1] Ammunition
+[013 2009 ab  dup1/1own w6] tripods, stands and mounts for firearms
+[013 2013 ab  dup703/197own*COPY w1] Ammunition
+[013 2015 ab  dup703/197own*COPY w1] Ammunition
+[014 2002 ab  dup18746/10573own*COPY w1] Jewelry
+[014 2007 ab  dup18746/10573own*COPY w1] Jewelry
+[014 2007 ab  dup18746/10573own*COPY w1] Jewelry
+[014 2015 ab  dup18746/10573own*COPY w1] Jewelry
+[014 2016 ab  dup18746/10573own*COPY w1] Jewelry
+[015 1997 ab  dup744/531own*COPY w2] musical instruments
+[015 2006 ab  dup744/531own*COPY w2] Musical instruments
+[015 2008 ab  dup39/28own*COPY w4] Mouthpieces for musical instruments
+[015 2012 ab  dup724/396own*COPY w1] Guitars
+[015 2014 ab  dup104/37own*COPY w4] Strings for musical instruments
+[016 1997 ab  dup2/1own w4] memorabilia, namely, mounted photographs
+[016 2000 ab  dup3/1own w3] Paper, namely, newsprint
+[016 2000 ab  dup3/1own w8] gift items, namely, gift boxes for special occasions
+[016 2009 ab  dup2411/1456own*COPY w2] Greeting cards
+[016 2018 ab  dup43/41own*COPY w3] Paper party decorations
+[017 1999 ab  dup1/1own w5] reinforced rubber sheeting for cables
+[017 1999 ab  dup3/2own w6] POLYPROPYLENE FILM THAT ADHERES TO SURFACES
+[017 2008 ab  dup109/76own*COPY w7] Adhesive tape for industrial and commercial use
+[017 2012 ab  dup3/1own w6] Non-metal gaskets for locomotive applications
+[017 2013 ab  dup2/1own w2] Ceiling insulation
+[018 1998 ab  dup1/1own w5] back packs and book bags
+[018 2001 ab  dup9/3own*COPY w3] Luggage and briefcases
+[018 2011 ab  dup1/1own w7] Jewelry Handbags; tote bags; clutches; purses; wallets
+[018 2011 ab  dup10/10own*COPY w2] Walking canes
+[019 1995 ab  dup38/15own w3] clay roofing tiles
+[019 1999 ab  dup3/3own*COPY w2] Vinyl Soffits
+[019 2002 ab  dup2/1own w7] NON-METAL BUILDING MATERIALS, NAMELY, HARDBOARD DOORSKINS
+[019 2007 ab  dup1/1own w12] Glass tiles, glass blocks for buildings, and other decorative glass for building
+[019 2018 ab  dup3/1own w133] Building stone, including pottery stone; building materials, not of metal; refractory construction materials, not of metal; mosaics for building; coatings [building materials]; wall claddings, not of metal, for building; wall linings, not of metal, for building; wainscotting, not of metal; building panels, not of metal; tiles, not of metal, for building, including ceramic tiles for walls, floors a
+[020 2018 ab  dup173/39own*COPY w4] Mattress toppers; Mattresses; Pillows
+[020 2018 ab  dup5569/2688own*COPY w1] Furniture
+[021 1995 ab  dup1/1own w27] wallpaper furniture, namely, chairs, sofas and ottomans dinnerware, namely, plates, cups, sauces, bowls, servers and platters flatware (not of precious metal), namely, forks, spoons and knives potpourri
+[021 1998 ab  dup1/1own w3] COOKWARE AND OVENWARE
+[021 2002 ab  dup746/235own*COPY w1] toothbrushes
+[021 2016 ab  dup16/14own*COPY w2] Lazy susans
+[021 2017 ab  dup72/53own*COPY w2] Lunch boxes
+[021 2018 ab  dup1/1own w23] Lint rollers; lint brushes; battery-operated lint removers; electric lint removers; lint removing sheets for personal use; lint removers, electric or non-electric
+[022 1998 ab  dup66/37own*COPY w1] AWNINGS
+[022 2000 ab  dup4/3own*COPY w2] BUNGIE CORDS
+[022 2002 ab  dup1/1own w1746] AIRBAGS FOR VEHICLES; AIRPLANES; AMBULANCES; ANTITHEFT ALARMS FOR VEHICLES; AUTOMOBILE SEAT CUSHIONS; AUTOMOBILES; BICYCLES; BRAKES FOR LAND VEHICLES; BURGLAR ALARMS FOR VEHICLES; BUSES; DISC BRAKE PADS FOR VEHICLES; FERRY BOATS; FORK LIFT TRUCKS; HOUSE BOATS; MOTORS FOR AUTOMOBILES; RECREATIONAL VEHICLES, NAMELY, TRUCK CAMPERS; STRUCTURAL PARTS FOR AIRPLANES; TORQUE CONVERTERS FOR LAND VEHICLES; 
+[022 2003 ab  dup175/129own*COPY w1] HAMMOCKS
+[022 2003 ab  dup175/129own*COPY w1] Hammocks
+[022 2005 ab  dup1/1own w8] Storage bag for purses, namely, dust cover bag
+[022 2013 ab  dup1/1own w16] Hammocks, ropes, camouflage nets, bivouac sacks, and tents that are used in camping and outdoor survival
+[022 2014 ab  dup334/222own*COPY w1] Tents
+[022 2016 ab  dup175/129own*COPY w1] Hammocks
+[023 1999 ab  dup121/5own*COPY w2] Handknitting yarns
+[023 1999 ab  dup531/160own*COPY w1] YARN
+[023 1999 ab  dup531/160own*COPY w1] yarn
+[023 2004 ab  dup121/5own*COPY w2] HANDKNITTING YARNS
+[023 2004 ab  dup121/5own*COPY w2] HANDKNITTING YARNS
+[024 2006 ab  dup1/1own w7] MATTRESS COVERS, BED LINENS MATTRESSES, BOXSPRINGS, PILLOWS
+[024 2014 ab  dup858/584own*COPY w1] Towels
+[025 1999 ab  dup1/1own w4] Clothing, footwear, hats, outerwear
+[025 2001 ab  dup1/1own w8] CLOTHING, NAMELY, T-SHIRTS, SWIMWEAR, HEADWEAR AND SHOES
+[025 2008 ab  dup2/1own w10] Women's clothing, namely, tanktops, haltertops, tunics, skirts, and dresses
+[025 2013 ab  dup10/10own*COPY w4] Hats; Shirts; Tank tops
+[025 2015 ab  dup159/151own*COPY w4] Hats; Pants; T-shirts
+[025 2015 ab  dup23/14own*COPY w6] Clothing, namely, Tee shirts and hats
+[025 2018 ab  dup8/8own*COPY w4] Clothing, namely, shirts, shorts
+[026 1999 ab  dup1/1own w48] PONYTAIL HOLDERS, HAIR BANDS, HAIR BOWS, HAIR RIBBONS, HAIR ORNAMENTS, BARRETTES, HAIR CLIPS, HAIR SCRUNCHIES, CLOTHING BUCKLES NOT OF PRECIOUS METAL, SHOE LACES, BOWS FOR GIFT WRAPPING, RIBBONS FOR GIFT WRAPPING, SAFETY PIN SETS, AND SEWING KITS COMPRISED OF SHIRT BUTTONS, SNAPS, SAFETY PINS, NEEDLES, SCISSORS AND THREAD
+[026 2004 ab  dup1/1own w123] FOOTWEAR; FOOTWEAR, NAMELY, PUMPS; FOOTWEAR PARTS, NAMELY, HEELS, HEEL INSERTS, PADS, INSOLES, WELTS AND REINFORCERS, SHOE INNER SOLES, SHOE SOLES, TIPS AND HEEL PIECES FOR SHOES BAGS, NAMELY, ALL PURPOSE CARRYING BAGS; BACKPACKS; BRIEFCASES; BUSINESS CARD CASES; CHANGE PURSES; CANES; HANDBAGS; KEY CASES; STRAPS FOR HANDBAGS AND LUGGAGE; WALLETS; AND WALKING STICKS HAIR STYLING IMPLEMENTS, NAMELY,
+[026 2006 ab  dup1/1own w505] clothing, namely, pants, slips, camisoles, robes, socks, vests, jackets, bras, panties, t-shirts, tank tops, sweat pants, sleepwear, shirts, boxers, scarves and hats diaries and blank writing journals pre-recorded audio tapes featuring music and pre-recorded compact discs featuring music plush toys hair accessories, namely twisters, snap clips, hair bands, barrettes Personal care products, namely 
+[026 2009 ab  dup1/1own w10] False beards; false hair; plaited hair; false moustaches; wigs; toupees
+[026 2012 ab  dup1/1own w67] Belt buckles not of precious metal; Brooches for clothing; Buttons; Eyelets for clothing; False hair; Hair bands; Hair curlers, other than hand implements; Hair grips; Hair pins; Ornamental ribbons made of textiles; Pin cushions; Shoe buckles; Shoe ornaments not of precious metal All-purpose carrying bags; Artificial fur; Business card cases; Fur pelts; Handbags; Parasols; Pet clothing; Purses; Su
+[026 2016 ab  dup1/1own w45] Barrettes; Bows for the hair; Braids; Curling pins; False hair; Hair bands; Hair coloring caps; Hair curl clips; Hair curling papers; Hair extensions; Hair grips; Hair nets; Hair ornaments; Hair pins; Human braiding hair; Lace; Silk flowers; Silk knots; Wigs; Hair slides; Synthetic braiding hair
+[026 2018 ab  dup1/1own w30] Birds' feathers as clothing accessories; Braids; False hair; Hair bands; Hair barrettes; Hair curlers, electric and non-electric, other than hand implements; Hair extensions; Human hair; Wigs; Human braiding hair
+[027 2003 ab  dup142/81own*COPY w1] Wallpaper
+[027 2004 ab  dup154/49own*COPY w1] carpet
+[027 2008 ab  dup338/109own*COPY w1] carpets
+[027 2014 ab  dup240/143own*COPY w3] Carpets and rugs
+[027 2014 ab  dup338/109own*COPY w1] Carpets
+[028 2001 ab  dup300/178own*COPY w1] TOYS
+[028 2004 ab  dup3200/2310own*COPY w2] board games
+[028 2005 ab  dup300/178own*COPY w1] toys
+[028 2006 ab  dup327/144own*COPY w2] Parlor games
+[028 2009 ab  dup1857/846own*COPY w2] Plush toys
+[028 2013 ab  dup1197/721own*COPY w1] Dolls
+[029 2004 ab  dup28/24own*COPY w4] Meats and Processed Foods
+[029 2012 ab  dup5/2own*COPY w3] Frozen Processed Fruit
+[029 2013 ab  dup1/1own w5] Dried peppers, namely chili peppers
+[029 2015 ab  dup2/1own w14] Processed seafood, namely, fish; Seafood, namely, smoked fish, not live; Seasoned fish; Smoked fish
+[030 1995 ab  dup1/1own w9] processed grains, namely, pasta and couscous, seasonings and sauces
+[030 2001 ab  dup15/8own*COPY w2] Prepared pasta
+[030 2009 ab  dup14/2own w16] Bakery goods, crackers, and pretzel crackers, and preparations made from cereals, namely, cereal-based snack food
+[030 2009 ab  dup2/1own w5] Food including sauces and condiments
+[030 2012 ab  dup2/1own w87] Bakery desserts; Bakery goods; Wheat free and gluten free bakery goods; Bakery products; Bakery products, namely, sweet bakery goods; Dessert mousse; Dessert puddings; Dessert souffles; Flavored, sweetened gelatin desserts; Frozen soy-based desserts; Fruit cobblers; Fruit pies; Ice cream desserts; Meat pies; Pies; Pot pies; Poultry and game meat pies; Puddings; Rice-based pudding dessert; Samosas;
+[030 2016 ab  dup1/1own w469] Condiments, namely, mustard, ketchup and mayonnaise; sauces; salad dressings; syrups used for food flavoring, table syrup, maple syrup, and breakfast syrup, namely pancake syrup; sauces for meat, poultry and fish, namely cooking sauces and grilling sauces; frozen desserts, namely, frozen cakes, frozen cookie dough, frozen cookies, frozen pies; Flavorings for beverages, other than essential oils; f
+[031 2006 ab  dup1/1own w15] Pet treats, namely, gourmet homemade all-meat birthday cakes for dogs and cupcakes for pets
+[031 2011 ab  dup4/1own w6] Agricultural seeds for corn and soybeans
+[031 2018 ab  dup82/73own*COPY w1] Dogs
+[032 1995 ab  dup650/266own*COPY w3] beer and ale
+[032 1998 ab  dup1770/505own*COPY w2] soft drinks
+[032 2002 ab  dup38/32own*COPY w4] MINERAL AND AERATED WATERS
+[032 2004 ab  dup1770/505own*COPY w2] SOFT DRINKS
+[032 2005 ab  dup25/20own*COPY w2] Isotonic beverages
+[032 2008 ab  dup4/3own*COPY w5] Fruits drinks and fruit juices
+[032 2014 ab  dup186/136own*COPY w2] Fruit juice
+[033 2005 ab  dup23114/9326own*COPY w1] wine
+[033 2005 ab  dup3149/1803own*COPY w1] VODKA
+[033 2008 ab  dup23114/9326own*COPY w1] Wine
+[033 2015 ab  dup14/14own*COPY w2] Vodka; spirits
+[033 2015 ab  dup5192/2181own*COPY w2] Distilled Spirits
+[033 2018 ab  dup5192/2181own*COPY w2] Distilled spirits
+[033 2018 ab  dup5192/2181own*COPY w2] Distilled spirits
+[034 1998 ab  dup5301/1569own*COPY w1] cigars
+[034 2009 ab  dup100/71own*COPY w10] Electronic cigarettes for use as an alternative to traditional cigarettes
+[034 2014 ab  dup118/84own*COPY w4] Tobacco, cigars and cigarettes
+[034 2014 ab  dup78/36own*COPY w12] Electronic cigarettes; Electronic cigarettes for use as an alternative to traditional cigarettes
+[034 2015 ab  dup3/3own w13] Oral vaporizers for smoking purposes; Smokeless cigar vaporizer pipes; Smokeless cigarette vaporizer pipe
+[035 1995 ab  dup1/1own w14] creating, arranging and developing promotional events for marketing the products and services of others
+[035 2000 ab  dup4/1own w27] providing information of interest to persons with disabilities through a global computer network computer services, namely, retail services featuring general merchandise of interest to persons with disabilities
+[035 2001 ab  dup1/1own w39] Computerized, interactive marketing strategy services, namely, dissemination of multimedia presentations of advertising and direct mail marketing material recorded on electronic storage medium relating to products and services of others for purpose of sales transactions between seller and such user.
+[035 2003 ab  dup1/1own w100] PRODUCT MARKETING CONSULTING SERVICES; NAMELY, PRODUCT LAUNCH STRATEGY AND TACTICS, PRODUCT POSITIONING STUDIES, MARKETING STRATEGY PLANNING AND IMPLEMENTATION, MARKET OPPORTUNITY ASSESSMENTS, MARKET SEGMENTATION AND SIZING STUDIES, CUSTOMER SATISFACTION STUDIES AND SURVEYS, SALES CHANNEL ASSESSMENT STUDIES AND TRAINING PROGRAMS FOR SALES EXECUTIVES AND CONDUCTING BUSINESS SEMINARS AND BOOKS, BOOK
+[035 2009 ab  dup1/1own w31] Providing consumer information in the field of pro-life service providers, retailers and manufacturers; Provision of information and advice to consumers regarding the selection of products and items to be purchased
+[035 2013 ab  dup2/1own w107] Promoting the goods and services of others by providing a web site featuring coupons, rebates, price-comparison information, product reviews, links to the retail web sites of others, and discount information; Promoting the goods of others, namely, providing coupons, rebates and vouchers for the goods of others; Promotional services, namely, promoting the goods of others by means of providing onlin
+[036 2005 ab  dup1/1own w9] Providing online real estate listings via global computer networks
+[036 2005 ab  dup476/408own*COPY w4] Insurance agency and brokerage
+[036 2013 ab  dup1/1own w777] Electronic financial service for the purchase of savings bonds; Financial services in the nature of an investment security; Financial services rendered in connection with the issuance, receipt and transfer of lines of credit, namely, credit processing services; Financial services, namely, a total portfolio offering for high net worth clients consisting of both separate accounts and mutual funds fo
+[036 2014 ab  dup1/1own w33] Financial consulting and planning services, namely, analysis and management of charitable estate planning, philanthropic planning, legacy planning, fundraising, family office services, wealth management, and financial and tax planning; Charitable fundraising and consulting services
+[037 1999 ab  dup1/1own w272] Financial services, providing financing for the acquisition and energy efficiency audit; providing financing for the consulting services; providing financing for the acquisition and installation of energy efficient building materials and devices; providing extended warranty or service contracts for maintenance and repair of residential utility systems, appliances, heating and cooling systems, plum
+[037 1999 ab  dup1/1own w50] Miscellaneous, including without limitation, interpersonal relationships. Real Estate, Leasing Brokerage and Site Selection. Building and construction, including that carried out for, without limitation, internet and technology companies. Telecommunication and internet access for real estate and the next century. Advertising and Marketing for companies including, without limitation, internet and t
+[037 2000 ab  dup1/1own w21] REAL ESTATE DEVELOPMENT AND CONSTRUCTION SERVICES, NAMELY, PLANNING, LAYING OUT, AND CONSTRUCTION OF OFFICE, RETAIL, WAREHOUSE, AND GENERAL COMMERCIAL USE BUILDINGS
+[037 2002 ab  dup1/1own w240] Logistics management in the field of retail, wholesale, manufacturing and outsourced distribution for dry and refrigerated goods, foods and beverages; Energy usage and supply management for commercial, retail, industrial and public buildings and structures; economic forecasting and analysis in the fields of railroad and transit development; business management consultation for infrastructure provi
+[037 2002 ab  dup19/12own*COPY w11] Land development services, namely, planning and laying out of residential communities
+[037 2009 ab  dup247/210own*COPY w3] General construction contracting
+[037 2011 ab  dup237/187own*COPY w4] Custom construction of homes
+[037 2016 ab  dup1/1own w519] Installation and repair of heat treatment installations, in particular for the aluminium, non-ferrous metals and steel processing industries Stoves; gas fired furnaces; electric furnaces; prefabricated furnace elements; furnaces for industrial use; stokers for use with commercial furnaces; thermal treatment furnaces; electric and gas-fired furnaces for metallurgical purposes; gas-fired and electri
+[037 2016 ab  dup27/25own*COPY w5] Commercial and residential cleaning services
+[037 2017 ab  dup4/1own w1255] Business management analysis of chemical, nuclear, power generation, petroleum, heat supply, steam and other plants conducted based on fluctuating states of valves and other piping elements; business management consultancy of chemical, nuclear, power generation, petroleum, heat supply, steam and other plants conducted based on fluctuating states of valves and other piping elements; business manage
+[038 2001 ab  dup10/10own*COPY w3] Video teleconferencing services
+[038 2001 ab  dup36/8own*COPY w34] TELECOMMUNICATIONS SERVICES, NAMELY, THE ELECTRONIC TRANSMISSION OF VOICE, FACSIMILE, DATA, VIDEO AND INFORMATION, WIRE AND WIRELESS TELEPHONE SERVICES; AND, MULTIMEDIA AND INTERACTIVE TELECOMMUNICATIONS SERVICES, NAMELY, THE ELECTRONIC TRANSMISSION OF VOICE, DATA, IMAGES AND FACSIMILE
+[038 2001 ab  dup4/1own w77] TELECOMMUNICATION SERVICES, NAMELY LOCAL, LONG DISTANCE AND INTERNATIONAL VOICE, TEXT, FACSIMILE, VIDEO, IMAGE, DATA AND WIRELESS TRANSMISSION VIA SATELLITE, TERRESTRIAL AND UNDERSEA COMMUNICATION LINKS; TELEPHONE TELECOMMUNICATION SERVICES PROVIDED VIA TELEPHONE CALLING CARDS; PROVIDING MULTIPLE USER ACCESS TO A GLOBAL COMPUTER NETWORK; PROVIDING WIRELESS SERVICES NAMELY VOICE TELECOMMUNICATIONS;
+[038 2003 ab  dup28/3own*COPY w127] Telecommunications services, namely, providing transmission of voice, data, facsimile and video via computer, television and telecommunications networks; wireline and wireless communication transmission services; custom calling services for consumers and business; voice and data messaging store and forward services; voice and video conferencing services; telecommunications gateway services for pro
+[038 2008 ab  dup1/1own w17] Audio conferencing services; Video conferencing services; Providing audio and/or video conferencing via telephone and/or internet
+[038 2008 ab  dup1/1own w187] Internet broadcasting services; Audio broadcasting; Video broadcasting; Computer transmission of information accessed via a code or a terminal; Providing multiple user access to proprietary collections of information by means of global computer information networks; Providing user access to a global computer network; Provision of access to a global computer network; Computer services, namely, prov
+[038 2010 ab  dup2/1own w10] Television broadcasting; Television transmission services; Video-on-demand transmission services
+[039 2000 ab  dup1/1own w26] ENERGY DISTRIBUTION REWARD PROGRAM IN THE FIELD OF ENERGY, NAMELY PROVIDING MONETARY AND EQUIPMENT REWARD TO EDUCATIONAL FACILITIES FOR ACTING AS AGGREGATORS TO ENERGY DISTRIBUTION PROGRAMS
+[039 2010 ab  dup44/31own*COPY w6] Air transportation of passengers and freight
+[039 2012 ab  dup1/1own w116] Local, interstate and international services, namely, packing for transportation or storage, moving transportation of goods, and storage of goods; Moving transportation consultation; Vehicle relocation services; Providing information in the field of moving transportation, packing articles for transportation or storage, and storage of goods; Moving and storage services for major sporting events; Mo
+[039 2014 ab  dup6/1own w7] Air transport of passengers, cargo, and freight
+[039 2015 ab  dup6/3own*COPY w55] Air transportation services, namely, transportation of passengers, baggage, parcels, freight and cargo by air; air taxi transport services; loaning and rental of airplanes, jet airplanes and aircraft; providing information about air transportation via a website on a global computer network; travel agency services, namely, making reservations and bookings for transportation; providing air travel in
+[039 2017 ab  dup13/6own*COPY w4] Bus chartering; Bus transport
+[039 2018 ab  dup2/1own w106] Air transport; Aircraft rental; Boat rental; Car parking; Car rental; Courier services; Freighting services; Message delivery; Storage of goods; Transport reservation; Transport and delivery of goods; Transport and storage of goods; Transport by aircraft; Transport by land; Transport of goods; Transport of passengers; Transport of travellers; Travel agency services, namely, making reservations and
+[040 1997 ab  dup3/2own w7] Custom manufacture of point of purchase displays
+[040 1998 ab  dup42/18own*COPY w6] custom manufacture of computers for others
+[040 2009 ab  dup1/1own w283] Film for liquid pressure transfer, namely, plastic film for liquid pressure transfer of a print layer onto the surface of an article Designing, namely, industrial designing in the field of printing equipment and surface treatment equipment; three-dimensional surface printing; consultancy on three-dimensional surface printing; design of three-dimensional surface printing equipment and apparatuses; 
+[040 2015 ab  dup40/36own*COPY w2] 3D printing
+[040 2016 ab  dup184/165own*COPY w2] Winery services
+[040 2017 ab  dup259/195own*COPY w1] Recycling
+[041 2010 ab  dup1/1own w13] Entertainment services, namely, an on-going television program featuring entertainment news and gossip
+[041 2010 ab  dup1/1own w39] Education services, namely, providing lectures in the field of health; Educational and entertainment services, namely, a continuing program about health accessible by radio, television, satellite, audio, video and computer networks; Providing on-line newsletters in the field of health
+[041 2012 ab  dup1/1own w22] Presentation of live show performances; education providing classes and seminars and entertainment services providing films and plays in the field of religion
+[041 2013 ab  dup1/1own w111] Education and entertainment services in the nature of professional football games and exhibitions; providing sports and entertainment information via a global computer network or a commercial on-line computer service or by cable, satellite, television and radio; arranging and conducting athletic competitions, namely, professional football games and exhibitions; football fan club services; entertai
+[042 1995 ab  dup2/1own w49] online travel information services, online travel agency services, namely, making reservations and bookings for transportation, arranging travel tours and air transportation services online travel agency services, namely, making reservations and bookings for temporary lodging online marketing services, namely, dissemination of advertisements for others via an online electronic communications netwo
+[042 1997 ab  dup1/1own w40] optional programs available to members, namely insurance and personal coverage; group membership in discount shopping clubs; a legal plan; a 24-hour medical information service; group purchasing power for various trucking products and services and various personal products and services;
+[042 2000 ab  dup1/1own w105] EDUCATIONAL AND TRAINING SERVICES, NAMELY, CONDUCTING CLASSES, SEMINARS, CONFERENCES AND WORKSHOPS IN THE FIELDS OF TECHNOLOGY, BUSINESS, SCIENCE, AND ACADEMICS PROVIDED VIA THE GLOBAL COMMUNICATIONS NETWORK AND PROVIDED VIA AN IN-HOUSE COMPUTER NETWORK SOFTWARE FOR USE IN TEACHING, TRAINING AND LEARNING IN THE FIELDS OF TECHNOLOGY, BUSINESS, SCIENCE, AND ACADEMICS; COMPUTER SOFTWARE FOR DEVELOPIN
+[042 2000 ab  dup1/1own w346] Insurance services, namely, insurance and reinsurance underwriting services in the field of fire, accident, miscellaneous risks, casualty, credit, personal liability, life, marital, marine, property, universal liability, prepaid legal expense and trip cancellation insurance; insurance brokerage; financial affairs, namely; financial fund investments consultancy; fund investments capital investment 
+[042 2008 ab  dup3/1own w14] Application service provider (ASP) featuring software for mathematical equations Computer software for mathematical equations
+[042 2015 ab  dup2/1own w693] Computer consultation services in the fields of web site design, web site development, web site maintenance, web site upgrading, web site hosting, web site privacy, web site security, database design, selection of computer software operating environment, development of computer software operating environment, development and integration of computer software interactive content and design, computer
+[042 2016 ab  dup1/1own w19] Software as service (SAS) featuring software for use in obtaining employee feedback and providing assessments, surveys and performance evaluations
+[043 2003 ab  dup1142/942own*COPY w1] Restaurants
+[043 2004 ab  dup21359/13124own*COPY w2] Restaurant services
+[043 2006 ab  dup21359/13124own*COPY w2] restaurant services
+[043 2011 ab  dup21359/13124own*COPY w2] Restaurant services
+[043 2013 ab  dup21359/13124own*COPY w2] Restaurant services
+[043 2014 ab  dup1/1own w103] Bar and restaurant services; Cafeteria and restaurant services; Café and restaurant services; Café-restaurants; Catering; Catering for the provision of food and beverages; Catering in fast-food cafeterias; Catering of food and drinks; Catering services; Delicatessen services; Fast-food restaurant services; Fast-food restaurants; Fast-food restaurants and snackbars; Food and drink catering; Mobile 
+[043 2014 ab  dup1/1own w243] Bar and restaurant services; Cafeteria and restaurant services; Café and restaurant services; Café-restaurants; Consulting in the field of restaurant menu development; Fast-food restaurant services; Fast-food restaurants; Fast-food restaurants and snackbars; Frozen yogurt shop services in the nature of a restaurant; Hotel and restaurant services; Hotel, bar and restaurant services; Hotel, motel, r
+[043 2017 ab  dup21359/13124own*COPY w2] Restaurant services
+[044 2010 ab  dup579/405own*COPY w1] Healthcare
+[044 2013 ab  dup139/83own*COPY w1] Hospitals
+[044 2015 ab  dup1/1own w88] Buyers' club services; Public advocacy to promote awareness of the benefits of medicinal marijuana; Retail apparel stores Dispensing of pharmaceuticals; Preparation and dispensing of medications; Web-based health assessment services, namely, a series of health-related questions for response from the user that result in a report that provides health-related information in the form of recommended ed
+[044 2018 ab  dup1/1own w63] Addiction treatment services; Behavioral health services; Cognitive therapy services; Health care; Health care services for treating psychological, cognitive, and mental health conditions and disorders; Hospital services; Medical diagnosis and treatment of psychological, cognitive, and mental health conditions and disorders; Medical diagnosis and treatment of eating disorders; Medical services; Me
+[045 2005 ab  dup1/1own w29] Social introduction and social networking services conducted via the Internet, namely providing an Internet service that identifies groups of people with common interests and facilitating communication among such groups
+[045 2014 ab  dup1/1own w14] Ecclesiastical services, namely, the licensing of ministers, namely, ordaining ministers to perform religious ceremonies
+[045 2015 ab  dup11/3own w62] Chaperoning; Clothing rental; Copyright management; Dating services; Funeral service undertaking; Licensing of intellectual property; Marriage partner introduction or dating services; On-line social networking services; Security consultancy; Providing non-medical in-home personal services for individuals including checking home condition, supplies and individual well-being, scheduling appointments
+[045 2017 ab  dup6/1own w317] Conducting on-line, web based, and in-person psychological and human behavioral tests and assessments of individuals and groups; providing analyses, evaluation, interpretive reports, and suggestions based on the results of those tests and assessments for self-assessment, psychometric assessment, team building, attaining goals and objectives, and improving the productivity and satisfaction of indiv

@@ -1,0 +1,250 @@
+[001 1996 REG dup1/1own w348] petroleum benzene, mixed benzene, paraxylene, ortho-xylene, mixed-xylene, wax oil, heavy fuel oil, light naphtha, light gas oil, gasoline, jet fuel, cracked C4 raffinate oil, namely, a liquid petroleum gas fuel formed after the process of extracting 1.3 butadiene; C5 raffinate oil, namely, a by-product formed in the process of producing ethylene by hydrocarbon pyrolysis, which contains cyclopentad
+[001 1999 REG dup1/1own w14] Chemical agents for general industrial and manufacturing use namely, clarifying agents for thermoplastic polymers
+[001 1999 REG dup1/1own w3] Sensitized radiographic film
+[001 2018 REG dup1/1own w453] Pharmaceutical products for the prevention and treatment of sports injuries, muscle diseases, heart diseases and cardiovascular diseases; pharmaceutical preparations for the prevention and treatment of sports injuries, muscle diseases, heart diseases and cardiovascular diseases; dietetic substances for medical purposes; dietetic beverages for medical purposes; dietetic foods for medical purposes; 
+[002 2000 REG dup4/2own w5] INTERIOR PAINT, GLAZE AND VARNISH
+[002 2005 REG dup609/205own*COPY w1] Paints
+[002 2009 REG dup1/1own w4] Marine paints; anticorrosive paints
+[002 2009 REG dup34/9own*COPY w6] Coatings in the nature of paint
+[002 2015 REG dup1/1own w7] Silicone-based coatings for use on roofs
+[003 2010 REG dup22/20own*COPY w2] Detergent soap
+[003 2010 REG dup33/28own*COPY w5] Non-medicated anti-aging serum
+[003 2010 REG dup405/133own*COPY w1] Mascara
+[003 2016 REG dup1/1own w3] Makeup; makeup preparations
+[003 2017 REG dup186/108own*COPY w4] Cosmetics and cosmetic preparations
+[004 1997 REG dup3903/1973own*COPY w1] candles
+[004 1998 REG dup3903/1973own*COPY w1] candles
+[004 2004 REG dup3903/1973own*COPY w1] candles
+[004 2008 REG dup3903/1973own*COPY w1] Candles
+[004 2011 REG dup3903/1973own*COPY w1] candles
+[005 1998 REG dup2/1own w4] Dietary supplements containing chlorella
+[005 2002 REG dup10343/3917own*COPY w2] dietary supplements
+[005 2004 REG dup2/1own w12] Nutritional supplements in a liposomal solution for oral, sublingual or topical application
+[005 2004 REG dup434/328own*COPY w1] Vitamins
+[005 2005 REG dup390/301own*COPY w2] Vitamin supplements
+[006 1996 REG dup198/85own*COPY w2] metal safes
+[006 1997 REG dup2/2own w136] non-metal rivets; non-metal cable fasteners; non-metal rod fasteners; non-metal nuts, non-metal screws; non-metal clips; non-metal plugs; non-metal washers; non-metal wire pass; non-metal push-on fixes; non-metal knobs and shafts, non-metal seat fasteners; non-metal threaded and non-threaded fasteners metal nuts; metal screws; metal clamps; metal bolts; metal angle brackets; metal push-on fixes; m
+[006 1999 REG dup1/1own w9] Metal roof support for use by firefighters and repairpersons
+[006 2005 REG dup19/12own*COPY w2] METAL BOLLARDS
+[007 1999 REG dup199/70own*COPY w2] Sewing Machines
+[007 1999 REG dup3/3own w90] POWER OPERATED MATERIAL HANDLING AND DRY SOLID PROCESSING EQUIPMENT IN THE NATURE OF CONTAINER DUMPERS, TILT TABLES, OPEN BUCKET MATERIAL DUMPERS, SANITARY DUMPERS, BULK BAG FILLERS AND UNLOADERS, BAG BREAK STATIONS, VERTICAL SCREW MIXERS, PLOW MIXERS, HORIZONTAL RIBBON BLENDERS, VERTICAL RIBBON BLENDERS, SILO MIXERS, FLEXIBLE AUGERS, VERTICAL SCREW CONVEYORS, U-TROUGH AND TUBE TYPE SOLID-CORE AUG
+[007 2003 REG dup1/1own w26] Earthmoving, roadbuilding, mining, and agricultural machinery - namely, slopeboards, rippers, compactor/crushers, moldboards, hydraulic cylinders, and parts for said equipment utilized with wheel and track-type tractors
+[007 2006 REG dup1/1own w13] Power-operated lifting and moving equipment, namely, fork lifts which are truck mounted
+[007 2016 REG dup1/1own w1216] [ Non-metal Insect screens for doors; ] jalousies, not of metal Apparatus and instruments for conducting, switching, transforming, accumulating, regulating or controlling electricity, namely, [ electric conductors, ] electric switches, [ transformers, accumulators, voltage regulators, ] and controllers in the nature of electrical controlling devices; voltage conversion apparatus, namely, electric 
+[008 2016 REG dup8/6own*COPY w4] Hand tools, namely, shovels
+[008 2017 REG dup1/1own w68] [ Beard clippers; Curling tongs; Cutlery; ] Depilation appliances, electric and non-electric; [ Electric manicure sets; Eyelash curlers; Hair clippers for personal use, electric and non-electric; Hand-operated hand drills; Hand-operated choppers; Hand-operated fruit shredders; Hand-operated hair clippers; Hand-operated shears; Hand-operated slicers; Scissors; Shaving blades; Shaving cases; Tweezer
+[008 2017 REG dup2/2own*COPY w4] Hand-operated slicers; Mandolines
+[009 1996 REG dup1/1own w17] prerecorded audio and video cassettes featuring information about time management printed manuals concerned with time [ mangement ] * management *
+[009 1997 REG dup2/1own w50] Scientific equipment in connection with satellite and wireless communication, namely, mobile earth radio terminals capable of receiving and transmitting data that are designed to operate as part of a digital satellite communications system which provides packet-switched data transport between fixed host computers and computing devices deployed with mobile fleets
+[009 1999 REG dup1/1own w14] TIMING SYNCHRONIZATION DEVICES, NAMELY DEVICES FOR USE IN SYNCHRONIZING DATA IN DIGITAL DATA NETWORKS
+[009 2000 REG dup1/1own w269] Computer programming for others, computer graphic art design Electronic transmission of data and documents via computer terminals Handheld units for playing electronic games Providing computer games services conducted over a global computer network featuring stock market games and investment games; distribution of radio programs for others; distribution of television programs for others; Electroni
+[009 2010 REG dup1/1own w43] Automobiles and their structural parts Microphones; speakers; wireless communication devices for voice and data transmission; apparatus for recording, transmission or reproduction of sound or images; data processing equipment and computers, namely, for the recording, analyzing, transmitting and computing of voice and data signals
+[009 2013 REG dup1/1own w66] Portable multifunction electronic tracking device for assistance in locating mobile phones, smartphones, cellular phones, portable computers, tablet computers, and personal digital assistants and wireless handheld digital electronic devices for communicating, recording, organizing, transmitting, manipulating, storing, and reviewing text, data, image, and audio and video files; computer software an
+[009 2015 REG dup1/1own w1452] Apparatus for recording, transmission or reproduction of sound or images; Magnetic data carriers, audio and video recording discs, compact discs and DVDs featuring computer game software, video game software, instant messaging software, and communications software for use in providing access to the internet; Magnetic data carriers, audio and video recording discs, compact discs and DVDs featuring 
+[009 2017 REG dup3/1own w72] Audio- and video-receivers; Burglar alarms; Cabinets for loudspeakers; Cameras; Car video recorders; Computer application software for mobile phones, namely, software for database management and electronic storage of data; Computer peripheral devices; Digital door locks; Earphones; Electric door bells; Electrical and electronic burglar alarms; Headphones; Horns for loudspeakers; IP (Internet proto
+[009 2018 REG dup1/1own w71] Computer software downloadable computer software for uploading, transferring, downloading, storing, and sharing data, documents, files, information, text, photos, images, graphics, music, audio, video, and multimedia content with others via networks, mobile telephones, and other communications Providing on-line non-downloadable software for uploading, transferring, downloading, storing, and sharin
+[009 2018 REG dup94/1own w74] Computer game software for gambling machines; computer game software for gaming machines, namely, slot machines and video lottery terminals; games that accept virtual or monetary wagers sold as a feature of game software; downloadable computer software and firmware for playing games of chance on any computerized platform, including dedicated gaming consoles, video based slot machines, reel based s
+[010 2007 REG dup5/1own w7] Cardiac rhythm management devices, namely, implantable defibrillators
+[010 2013 REG dup2/1own w424] Analyzers for medical purposes, namely, portable or stationary electronic devices for detection, evaluation and statistical analysis of skin conductance or heart rate variability for the purpose of measuring stress and the regulation state of the organs, the psyche and the whole body; analyzers for medical purposes, namely, portable or stationary electronic devices for the analysis of the correlat
+[010 2014 REG dup2/1own w138] Massage devices, namely, devices for massaging or vibrating portions of the face and body; and pacifiers for massaging the lips; devices for aiding in copulation and masturbation, namely, reproduction of parts of the male and female anatomy, artificial penises, artificial vaginas, vacuum pumps, penis rings, stimulators, vibrators, dildos, dongs, butt plugs, sleeves on vibrators, sleeves for vibrat
+[010 2015 REG dup2/1own w11] Medical apparatus for facilitating the inhalation of pharmaceutical preparations; Nasal dilators
+[010 2017 REG dup1/1own w115] Adult sexual stimulation aids, namely, artificial penises, penis enlargers, vibrators, benwa balls, artificial vaginas; Adult sexual stimulation kit comprised primarily of adult sexual stimulation aids and a workbook; Bed vibrators; Breast pumps; Condoms; Constriction rings for use in maintaining penile rigidity in men with erectile dysfunction; Contraceptive apparatus; Electric massage apparatus 
+[010 2017 REG dup1/1own w41] Memory foam pillows for therapeutic use in neck and pack pain relief; Orthopedic supports; Orthopedic belts; Orthopedic walkers; Orthopedic cushions and padding; Orthopedic knee braces; Walkers for use by mobility-impaired individuals; Cervical collars; Orthopedic Lumbar belts; Acupressure pillows; Acupressure mats
+[011 2003 REG dup1000/348own*COPY w3] electric lighting fixtures
+[011 2008 REG dup1029/431own*COPY w1] Flashlights
+[011 2018 REG dup1/1own w52] Bicycle lights; Chandeliers; Electric beverage warmers in the nature of Electric radiators; Electric flashlights; Electric frying pans; Hand-held electric hair dryers; LED lamps; Multi-purpose, electric countertop food preparation apparatus for cooking, baking, broiling, roasting, toasting, searing, browning, barbecuing and grilling food; Sockets for electric lights; Solar powered lamps; Wall ligh
+[011 2018 REG dup12/1own w521] Automatic faucets; Automatic flush valves for toilets; Bath tubs and shower trays; Bathroom exhaust fans; Decorative table-top water fountains; Decorative water fountains; Disinfectant dispensers for toilets; Drainage water treatment tanks; Dryers for the removal of water vapor from compressed air and gases; Faucet aerators; Faucet handles; Faucet sprayers; Faucets; Filters for drinking water; Fle
+[012 1996 REG dup15/9own w2] Motorcycle engines
+[012 2005 REG dup3/2own*COPY w3] Tire rim cover
+[012 2018 REG dup79/7own*COPY w6] Land vehicles and structural parts thereof
+[013 1996 REG dup1978/226own*COPY w1] fireworks
+[013 2000 REG dup1978/226own*COPY w1] FIREWORKS
+[013 2002 REG dup703/197own*COPY w1] Ammunition
+[013 2015 REG dup703/197own*COPY w1] Ammunition
+[013 2017 REG dup16/13own*COPY w2] Rifle stocks
+[013 2018 REG dup16/13own*COPY w2] Rifle Stocks
+[014 2000 REG dup18746/10573own*COPY w1] JEWELRY
+[014 2003 REG dup18746/10573own*COPY w1] Jewelry
+[014 2005 REG dup18746/10573own*COPY w1] Jewelry
+[014 2013 REG dup18746/10573own*COPY w1] jewelry
+[014 2016 REG dup18746/10573own*COPY w1] Jewelry
+[014 2017 REG dup18746/10573own*COPY w1] Jewelry
+[015 1995 REG dup724/396own w1] guitars
+[015 2000 REG dup104/37own*COPY w4] strings for musical instruments
+[015 2011 REG dup744/531own*COPY w2] Musical instruments
+[015 2015 REG dup744/531own*COPY w2] Musical Instruments
+[015 2016 REG dup17/16own*COPY w4] Cases for musical instruments
+[015 2017 REG dup744/531own*COPY w2] Musical instruments
+[016 1995 REG dup1/1own w410] assisting individuals and groups to prepare and preserve personal history narratives (including nonfiction stories, oral history, folklore, biographies, autobiographies, poetry, original written compositions in any natural language, and original musical, fine, and folk art compositions) by interviewing people by telephone or in person, audio or video tape recording, summarizing written documents, 
+[016 1999 REG dup2/1own w30] WEDDING BOOKS, GUEST BOOKS, OCCASION BOOKS, NAMELY, FOR ENGAGEMENT, ANNIVERSARY, SHOWER, BIRTH, BIRTHDAY, CHRISTENING, CONFIRMATION, BAR MITZVAH, BAT MITZVAH, AND CHILDREN'S EVENTS, PHOTO ALBUMS, BABY BOOKS AND PEN HOLDERS
+[016 2003 REG dup42/8own*COPY w5] Trading cards, stickers and posters
+[016 2007 REG dup22/18own*COPY w2] Desktop organizers
+[016 2016 REG dup1/1own w6] Greeting cards with words of encouragement
+[017 1998 REG dup4/1own w7] TRANSPARENT POLYMERIC FILMS FOR USE IN PACKAGING
+[017 1998 REG dup7/1own w13] liquid rubber compounds for use in the manufacture of architectural and structural molds
+[017 2003 REG dup1/1own w9] Urethane foams for use in sealing, gasketing and bonding
+[017 2010 REG dup1/1own w9] Thermal insulation panels for roofs of hard-top vehicles
+[017 2014 REG dup1/1own w26] Flexible plastic pipe for conveying liquids and gases; Pipe insulation, namely, protective inner and outer pipe lining material and pipe sheathing material PIPES, NOT OF METAL
+[017 2014 REG dup1/1own w6] Semi-processed thermoplastics reinforced with fibers
+[017 2017 REG dup1/1own w58] Flexible hoses, not of metal; junctions, not of metal, for pipes; mulch mats made of recycled rubber for preventing weed growth; plastic padding for impact protection; plastic rods and bars; plastic sheeting for agricultural purposes; plastic sheets for use in the manufacture of displays, signs and packaging; plastic substances, semi-processed; threads of plastic for soldering; watering hose
+[018 1995 REG dup953/361own w1] luggage
+[018 1997 REG dup643/478own*COPY w1] backpacks
+[018 2008 REG dup1/1own w6] Toiletry bags sold empty; Tote bags
+[018 2010 REG dup100/79own*COPY w2] Fashion handbags
+[018 2015 REG dup565/444own*COPY w2] Tote bags
+[019 2011 REG dup40/27own*COPY w3] Non-metal tiles
+[019 2013 REG dup1/1own w8] Non-metal building products, namely, asphalt roofing shingles
+[020 1998 REG dup5569/2688own*COPY w1] FURNITURE
+[020 2011 REG dup1163/538own*COPY w1] Mattresses
+[020 2012 REG dup172/116own*COPY w3] Mattresses and Pillows
+[020 2014 REG dup5569/2688own*COPY w1] Furniture
+[020 2015 REG dup5569/2688own*COPY w1] Furniture
+[020 2016 REG dup3/3own*COPY w2] Bed bases
+[020 2018 REG dup7/6own*COPY w2] Hat racks
+[021 2000 REG dup27/20own*COPY w3] Mugs and Cups
+[021 2004 REG dup746/235own*COPY w1] Toothbrushes
+[021 2009 REG dup186/136own*COPY w3] CUPS AND MUGS
+[021 2011 REG dup1/1own w2133] [ Leather and imitation leather, unworked or semi-worked leather, leather board, imitation leather, namely, moleskin; animal skins, curried leather, furs in the nature of animal skins, leather or leather-board boxes, boxes of vulcanized fiber, cases of leather or of leather board, boxes of vulcanized fiber, trunks and suitcases, suitcase handles, dressing-cases, unfitted vanity cases, attaché case
+[021 2011 REG dup746/235own*COPY w1] Toothbrushes
+[021 2013 REG dup746/235own*COPY w1] Toothbrushes
+[021 2018 REG dup1/1own w132] Barware, namely, seltzer bottles; Bathroom fittings, namely, dispensing units for household purposes for dispensing wrapping materials for sanitary waste such as diapers, nappies, feminine hygiene products and incontinence products; Coffee services in the nature of tableware; Containers for household or kitchen use; Cosmetic brushes; Dinnerware; Drinking vessels; Hand-operated brush used to clean 
+[022 2005 REG dup1/1own w3] Laterally retracable awnings
+[022 2013 REG dup1/1own w37] Outdoor fabric blinds made of textiles Fabrics, namely, fabrics for the manufacture of curtains, blinds, drapery and upholstery; curtains, drapery, textile wall hangings; all excluding towels, field towels, golf towels, and other towels used for athletic purposes
+[022 2014 REG dup1/1own w26] Outdoor sunshades being awnings; tarpaulins; tents, not for camping; canopies for use as outdoor sunshades; awnings, not of metal; awnings of synthetic materials; awnings of textile
+[022 2017 REG dup1/1own w60] Animal feeding nets; Bags for washing hosiery; Burlap wraps for plants; Cloth bag for storing and dispensing plastic bags for household use; Drop cloths; Fabric and polyester mesh net used for storing toys and other household items; Hammocks; Packaging bags of textile material; Sacks or bags for the transportation or storage of materials in bulk; Tarpaulins; Tents; Vinyl ground cloth
+[022 2017 REG dup1/1own w60] Awnings of textile; Bivouac sacks; Cotton netting; Hammocks; Jute bags for industrial use; Laundry wash bags; Mesh bags for storage; Outdoor blinds of textile; Packaging bags of textile material; Plant hangers of rope; Plastic storage bags for ice; Portable toy storage bag; Rockfall prevention nets; Ropes; Sails; Tents; Tents made of textile materials; Tents for mountaineering or camping; Wood woo
+[023 1999 REG dup531/160own*COPY w1] Yarn
+[023 2000 REG dup531/160own*COPY w1] YARN
+[023 2002 REG dup121/5own*COPY w2] HANDKNITTING YARNS
+[023 2006 REG dup531/160own*COPY w1] Yarn
+[023 2008 REG dup121/5own*COPY w2] HANDKNITTING YARNS
+[023 2014 REG dup531/160own*COPY w1] Yarn
+[024 2015 REG dup1/1own w4] Towels; bedsheets; pillow covers
+[024 2017 REG dup1/1own w300] Woven textiles, namely, fabrics for use in the manufacture of clothing, towels, table linen, bed linen, household linen; non-woven textiles, namely, fabrics for use in the manufacture of clothing, towels, table linen, bed linen, household linen; fiberglass fabrics for textile use; quilts of textile, woolen blankets; bath mitts, bath linen, hand towels, face towels of textile, bathing towels; tapes
+[024 2017 REG dup1/1own w40] Cloth banners, cloth wall hangings, cloth and fabric pennants; bed, bath and household linens, sheets, blankets, comforters, bedspreads, towels, pillow cases and shams, dish towels, golf towels, textile tablecloths and place mats, stadium blankets, throw blankets, cloth flags; plastic flags
+[025 1999 REG dup1/1own w5] loungewear, neckwear, scarves and shirts
+[025 2000 REG dup1/1own w3] hosiery, including tights
+[025 2000 REG dup131/57own*COPY w5] CLOTHING, NAMELY, TOPS AND BOTTOMS
+[025 2001 REG dup12/12own*COPY w4] Shirts, pants and jackets
+[025 2013 REG dup1/1own w4] Coats; Jackets; Leg warmers
+[025 2014 REG dup1/1own w5] T-shirts, jackets and sweatshirts
+[025 2018 REG dup2/2own w3] Lingerie; Shapewear; Underwear
+[026 1997 REG dup1/1own w12] scarves and belts jewelry barrettes, hair ties and hair clips hair combs
+[026 1997 REG dup7/2own*COPY w3] jewelry hair ornaments
+[026 2010 REG dup1/1own w148] Back-hairpieces fixing pins for Japanese hair styling (tabodome); back-hairpieces for Japanese hair styling (tabomino); barrettes; chignons for Japanese hair styling (mage); clam clips for hair; hair accessories, namely, claw clips; hair accessories, namely, jaw clips; hair accessories, namely, snap clips; hair accessories, namely, twisters; hair bands; hair barrettes; hair bows; hair buckles; hai
+[027 1996 REG dup338/109own*COPY w1] carpets
+[027 2001 REG dup463/264own*COPY w1] RUGS
+[027 2002 REG dup338/109own*COPY w1] CARPETS
+[027 2003 REG dup154/49own*COPY w1] Carpet
+[027 2015 REG dup1/1own w14] Bath mats; [ beach mats; ] carpets; [ door mats; floor coverings; floor mats; ] rugs [ ; straw mats ]
+[027 2015 REG dup463/264own*COPY w1] Rugs
+[027 2017 REG dup1/1own w23] Bath mats; Carpets; Carpets for automobiles; Door mats; Floor coverings; Floor mats; Non-slip bathtub mats; Non-textile wall hangings; Textile wallpaper; Wallpaper
+[028 1997 REG dup3200/2310own*COPY w2] board games
+[028 2000 REG dup250/104own*COPY w2] Golf Gloves
+[028 2012 REG dup1104/799own*COPY w2] Card games
+[028 2012 REG dup124/93own*COPY w2] Tabletop games
+[028 2016 REG dup3200/2310own*COPY w2] Board games
+[028 2018 REG dup1104/799own*COPY w2] Card games
+[028 2018 REG dup52/33own*COPY w2] Jump ropes
+[029 1997 REG dup1/1own w18] prepared entrees consisting primarily of meat, fish, poultry and/or vegetables prepared entrees consisting of rice or pasta
+[029 1997 REG dup1/1own w5] frozen seafood steaks and fillets
+[029 1997 REG dup1/1own w6] processed meat for use in sandwiches
+[029 1998 REG dup8/3own w14] BREAKFAST MENU MEALS CONSISTING PRIMARILY OF EGGS FOR CONSUMPTION ON OR OFF THE PREMISES
+[029 2012 REG dup1/1own w37] Dried fruit and vegetables; Dehydrated fruit and vegetables, Dried-vegetable based snacks; Dried fruit mixes; Dried fruit-based snacks; Snack mix consisting of primarily of processed nuts, seeds, dried fruit and also including chocolate; Potato-based snacks
+[029 2012 REG dup1/1own w5] Duck eggs; Eggs; Hen eggs
+[029 2015 REG dup1/1own w20] ROASTED, GLAZED OR SALTED NUTS; NUT MIXES PRIMARILY COMPRISED OF PROCESSED NUTS AND ALSO CONTAINING SWEETENERS, SPICES AND/OR FLAVORINGS
+[030 1997 REG dup2/1own w10] snack mix consisting primarily of chocolate, cereal, pretzels and nuts
+[030 2005 REG dup2/1own w13] coffee, coffee beans, coffee and espresso beverages, coffee-based and espresso-based beverages
+[030 2006 REG dup1/1own w15] Chocolate syrup, Chocolate topping and syrup topping Peanut Butter; Apple sauce and flavored apple sauce
+[030 2008 REG dup1/1own w7] Packaged unprepared tea and prepared tea beverages
+[030 2013 REG dup2/2own w16] Bakery desserts; Brownies; Cakes; Cheesecake; Cookies; Quiche; Snack cakes; Snack foods, namely, chocolate-based snack foods
+[030 2015 REG dup1/1own w44] Fresh lentils; fresh beans; raw beans; unprocessed beans; unprocessed grain; unprocessed quinoa; unprocessed chia seeds Rice; processed grains; processed quinoa; quinoa flakes; quinoa flour; pasta; processed, frozen, cooked or packaged whole grains Dried lentils; dried beans; processed beans; processed pumpkin seeds; processed chia seeds
+[030 2015 REG dup1/1own w5] Candy; assorted candies; licorice; lollipops
+[030 2016 REG dup1/1own w6] Chocolate-based spread also containing nuts
+[031 2000 REG dup1/1own w10] Grain and forage seeds for production of haylage and silage
+[031 2002 REG dup209/114own*COPY w1] MULCH
+[031 2008 REG dup2/1own w74] Unprocessed grains; Seed for agricultural purposes; agricultural products, namely, agricultural seeds and grains for planting; fresh corn; unprocessed wheat; fresh soybeans; bakery meal, namely, soy bean meal; animal feed, namely, cereal feed; crop seeds, namely, cotton seed; animal feed consisting of cottonseed hulls, cottonseed meal, gluten pellets, wet gluten, hominy, soybean hulls, soybean hul
+[031 2012 REG dup29/18own*COPY w2] BIRD FEED
+[031 2014 REG dup347/82own*COPY w3] Food for animals
+[031 2015 REG dup237/95own*COPY w2] Horse feed
+[031 2016 REG dup1/1own w5] live trees, live citrus trees
+[031 2017 REG dup347/82own*COPY w3] Food for animals
+[032 2009 REG dup3/2own*COPY w5] Beer, stout, lager, porter, ale
+[032 2009 REG dup650/266own*COPY w3] beer and ale
+[032 2014 REG dup22237/7053own*COPY w1] Beer
+[032 2015 REG dup22237/7053own*COPY w1] Beer
+[032 2017 REG dup22237/7053own*COPY w1] beer
+[032 2018 REG dup132/79own*COPY w3] Fruit-flavored beverages
+[033 1995 REG dup23114/9326own*COPY w1] wine
+[033 2007 REG dup23114/9326own*COPY w1] Wine
+[033 2017 REG dup1091/546own*COPY w2] Hard cider
+[033 2018 REG dup362/248own*COPY w3] Spirits and liqueurs
+[034 1999 REG dup24/22own*COPY w2] cigarette lighters
+[034 2003 REG dup2/2own*COPY w5] Cigars, cigarillos, cigarettes and tobacco
+[034 2010 REG dup57/5own w7] Hookah tobacco; Molasses tobacco; Smoking tobacco; Tobacco
+[034 2015 REG dup21/7own*COPY w108] Boxes for electronic cigarettes and electronic cigarette accessories; Cartomizers, namely, combination electronic cigarette refill cartridges sold empty and atomizers, sold as a component of electronic cigarettes; Cases for electronic cigarettes and electronic cigarette accessories; Cigarettes; Electric cigarettes; Electronic cigarette liquid (e-liquid) comprised of flavorings in liquid form used 
+[034 2015 REG dup48/24own*COPY w6] Electronic cigarettes; Smokeless cigarette vaporizer pipe
+[034 2018 REG dup2/1own w11] Tobacco smoking devices, namely, pipes and water pipes, and tobacco grinders
+[035 2008 REG dup1/1own w52] Providing marketing and promotion of special events, Providing an on-line searchable database featuring classified ad listings, Providing an on-line business directory featuring local businesses, Promoting the goods and services of others by providing a community-driven web site featuring user-submitted content in the nature of coupons and discount promotions
+[035 2010 REG dup192/163own*COPY w4] On-line auction services
+[035 2012 REG dup1/1own w130] Commercial business operational and management assistance services; assistance services in the management of business or of commercial functions in an industrial or commercial company; assistance in the international development of a company; marketing services; advertising, marketing and promotion services; services of prospecting for new markets for companies; customer prospecting services; assi
+[035 2012 REG dup3/1own w22] Promoting the goods and services of others by distributing coupons, providing hyperlinks to websites of others, providing information on rebates and discounts
+[035 2016 REG dup2/1own w13] marketing and advertising services; consulting services in the field of marketing and advertising
+[035 2018 REG dup3/1own w29] Business operation of shopping centers for others; Real estate marketing services Real estate investment trust management services; Real estate services, namely, leasing and management for others of shopping centers
+[036 1999 REG dup5928/2003own*COPY w2] Banking services
+[036 2008 REG dup2/1own w14] financial services, namely, consumer and commercial lending services provided through a credit card account
+[036 2011 REG dup2/1own w46] Financial intermediary services, namely, arranging credit card processing for merchants on behalf of schools or charitable organizations, whereby a fee for each credit card transaction is donated to the school or charitable organization in return for recognition of the merchant by the school or charitable organization
+[036 2014 REG dup19/13own*COPY w2] Actuarial services
+[036 2016 REG dup1/1own w109] Financial services, namely, advice relating to investments, asset management, and cash management; financial analysis and consultation, financial planning consultation, financial portfolio management, financial research and financial risk management; personalized portfolio offerings comprised of both separate accounts and mutual funds for equity and fixed income investment; investment advisory ser
+[037 2002 REG dup1/1own w54] real estate site selection and development; construction of model, custom and standard homes, buildings and residential and commercial buildings and units; renovation and remodeling services in the field of residential, commercial, custom and model homes, buildings and units; real estate development; and land development services, namely, planning and laying out residential and commercial communit
+[037 2008 REG dup2/1own w392] Civil engineering; providing quality assurance services in the field of construction; professional consultancy services in relation to environmental and ground engineering, air quality, biological science, archaeology, engineering, hydrogeology, hydrology, geotechnical engineering, geology, geophysics, environmental engineering, civil engineering, environmental feasibility studies; and technical c
+[037 2012 REG dup5/3own*COPY w10] construction planning, laying out residential communities and residential construction services
+[037 2015 REG dup1/1own w26] Installation and maintenance of sound equipment; Installation of building insulation; Technical consultation in the field of installation of lighting apparatus, lighting instruments and lighting systems; Upholstering
+[037 2015 REG dup1/1own w75] Residential and commercial building improvement and repair services; Installation of building insulation in commercial and residential buildings; weatherization services, namely, installation of building insulation, sealing of crawl spaces in buildings, building remodeling for energy efficiency; Installation and maintenance of solar thermal and solar photovoltaic (PV) installations; Repair and ins
+[038 2000 REG dup1/1own w425] Telephone calling card services; [ debit and credit card services; financial services, namely, providing payment for goods and services by means of wireless telecommunications devices; and providing online brokerage banking and payment services ] [ Advertising services, namely promotion of the goods and services of others; business management and consulting services; providing information services
+[038 2000 REG dup86/62own*COPY w7] broadcasting programs via a global computer network
+[038 2002 REG dup4/1own w64] Communication services providing interactive audio, video, text, and data transmissions, namely, voice chat, Voice-over-IP, fax over IP, video over IP, Interactive Voice Response, and long distance call gateways using IP backbone over computer and telecommunication networks, namely, global computer communications networks, wide area networks, local area networks, IP-based and switch-based communic
+[038 2003 REG dup1/1own w32] Telecommunications services, namely, electronic transmission and reception of voice and data messages from and between cell phones, other wireless or mobile communications devices, and other devices connected to a global computer network
+[038 2008 REG dup3/2own*COPY w155] Telecommunications services, namely, electric, digital, cellular and wireless transmission of voice, data, information, images, signals, messages and transmission of voice, data, images, audio, video and information via telephone, television and global communication networks; providing telecommunications connections over a global communications network; electronic mail, voice mail and messaging se
+[038 2011 REG dup4/1own w59] Telecommunications services, namely, electronic transmission of data, images, and documents via wired and wireless computer devices, including desktop computers, portable computers and hand-held computers and personal digital assistants; Providing two-way access to internet-based and intranet-based information, including databases, bulletin boards, advertising, social networks, and general referen
+[038 2012 REG dup1/1own w301] Electronic data transmission via computer systems of information gathered and provided to third parties in the fields of information management, business management and content management [ Electronic publishing for others, in particular conception, editing and publishing of prerecorded data carriers, namely, compact disks, floppy disks, CD-ROMs, CD-Is and audio and video tapes featuring software 
+[038 2013 REG dup1/1own w100] Telecommunications consultancy services in the field of electronic communications; consultancy, information and advisory services in the field of telecommunications; providing an on-line forum for transmission of messages among computer users; provision of access to an electronic on-line network for retrieval of information, namely, internet service provider (ISP); transmission of videos, films, i
+[038 2013 REG dup1/1own w46] Communications services, namely, transmitting streamed sound and audiovisual recordings via websites and the Internet; Communication services, namely, transmission of voice, audio, visual images and data by telecommunications networks, wireless communication networks, the Internet, information services networks, websites and data networks; Transmission of messages via electronic means
+[038 2014 REG dup1/1own w66] Digital network telecommunications services; Electronic transmission and streaming of digital media content for others via global and local computer networks; Information transmission services via digital networks; Interactive delivery of video over digital networks; Network conferencing services; Providing facilities and equipment for telepresence conferencing; Providing facilities and equipment 
+[039 2000 REG dup1/1own w18] FINANCIAL SERVICES, NAMELY, A CREDIT CARD PROGRAM OFFERING TRAVEL INCENTIVES TRANSPORTATION SERVICES, NAMELY, PROVIDING A TRAVEL INCENTIVE PROGRAM
+[039 2004 REG dup1/1own w33] Transportation of goods by rail, road, sea and air; customs-related inspection of freights and warehouse storage; tourist agency services; issuance of driving licenses, making reservations and bookings for seats on transportation vehicles
+[039 2004 REG dup1/1own w792] PRINTED INSTRUCTIONAL AND TEACHING MATERIAL EXCEPT APPARATUS FOR USE IN THE FIELDS OF ADVERTISING, PROMOTIONAL SERVICES, INSURANCE, FINANCIAL AFFAIRS, MONETARY AFFAIRS, REAL ESTATE AFFAIRS, TRANSPORT, TRAVEL AGENCY AND TOUR SERVICES, LANGUAGES AND SPORTS; PHOTOGRAPHS; STATIONERY; DIARIES CALENDARS, PERSONAL ORGANIZERS; POSTERS; BOOKS IN THE FIELDS OF ADVERTISING, PROMOTIONAL SERVICES, INSURANCE, F
+[039 2006 REG dup1/1own w3] Multi-Restaurant Delivery
+[039 2008 REG dup1/1own w280] providing temporary use of online non-downloadable computer software allowing users to obtain quotes for shipments of goods and to book and track shipments of goods; providing temporary use of online non-downloadable computer software for tracking freight over computer networks, intranets and the Internet Business consulting services relating to product distribution, operations management services
+[039 2008 REG dup1/1own w950] Providing workshops and seminars relating to travel and travel destinations; providing information in the fields of entertainment and education; providing entertainment activities, namely, planning and organizing special events; arranging for ticket reservations for shows and other entertainment events; ticket reservation and booking services for entertainment, sporting and cultural events; bookin
+[039 2013 REG dup1/1own w14] Conducting sightseeing travel tours by rail; Transportation of passengers and/or goods by rail
+[039 2016 REG dup1/1own w392] Underwater construction, installation and repair Scientific and technological services and research and design relating thereto, namely, designing computer software for designing ships and vessels, designing computer software for operating of ships and vessels; engineering services, namely, designing of ships and vessels, research in the field of shipping, ice breaking, maritime, marine transport 
+[040 1997 REG dup1/1own w19] Assembly services, namely, glass-to-metal sealing, brazing assembly, and soldering assembly services; and custom feed thru manufacturing services
+[040 1999 REG dup259/195own*COPY w1] recycling
+[040 2003 REG dup1/1own w244] Traditional and on-line retail supply and distributorship services to the theatre and concessions industry featuring popcorn poppers, hot dog grills and broilers, ice shaving machines, food shredding machines, cotton candy machines, nacho chip warmers and cheese dispensers, fryers, refrigerators and freezers, ice making and storing equipment, food and beverage preparation, dispensing, serving, war
+[040 2005 REG dup1/1own w2105] [ PROVIDING TECHNICAL INFORMATION AND TECHNICAL CONSULTANCY IN THE FIELDS OF ELECTRICAL SAFETY, QUALITY CONTROL; CONDUCTING ENGINEERING SURVEYS IN THE NATURE OF TECHNICAL STUDIES AND ANALYSIS, AND PROVIDING ENGINEERING DIAGNOSTICS FOR THE LOCATION AND INSTALLATION OF APPARATUS AND FACILITIES FOR MAKING AVAILABLE AND/OR PRODUCING AND/OR DISTRIBUTING ENERGY, ELECTRIC POWER, GAS POWER, HYDRAULIC POWE
+[040 2018 REG dup11/8own*COPY w4] Custom manufacturing of doors
+[041 1995 REG dup1/1own w70] publishing of books, magazines; book lending; training animals for others; renting of films, gramophone recordings, cinema projectors and theatrical props and accessories; producing, organizing and conducting conferences and exhibitions for cultural and educational purposes in fields of education, sporting and entertainment; television programming; entertainment in the nature of ongoing television
+[041 1997 REG dup1/1own w8] Entertainment services, namely, a live-action television series
+[041 2009 REG dup1/1own w31] Attorney services Continuing education services, namely, providing live and on-line continuing professional education seminars in the legal, medical, accounting, and real estate fields Printed lectures Television and radio broadcasting services
+[041 2013 REG dup33/27own*COPY w26] Providing a web-based system and on-line portal for customers to participate in on-line gaming, operation and coordination of game tournaments, leagues and tours
+[042 2000 REG dup1/1own w38] Charitable services, namely, facilitating non-monetary donations by others to international food aid organizations via a global computer network Dissemination of advertising for others through the use of online links and banner ads via a global computer network
+[042 2003 REG dup1/1own w28] [ DOWNLOADABLE SOFTWARE FOR STATISTICAL DATA ANALYSIS IN CONNECTION WITH PROCESS IMPROVEMENT ] * ((Software as a service (SAAS) services featuring software for statistical data analysis in connection with process improvement )) *
+[042 2012 REG dup1/1own w280] Stored computer software programs for combining, analyzing, and creating reports of business information, namely sales, accounts receivable, real estate, and purchasing information, derived from one or more sources; computer software systems comprising computers and software for combining, analyzing, and creating reports of business information, namely sales, accounts receivable, real estate, and 
+[042 2012 REG dup16/2own w29] Providing a website featuring non-downloadable software for accounting functions, bill payment, and facilitating management of invoices, management of payables, and the integration of Enterprise Resource Planning (ERP) systems
+[042 2014 REG dup1/1own w256] Human resources consultancy; personnel consultancy; office administration services; marketing; public relations consulting services; promotion services; advertising services; business management consulting services; business administration services; collection and compilation of information into computer databases; data processing services; business data analysis; market research services; statist
+[042 2014 REG dup2/1own w34] Computer services, namely, providing temporary use of a non-downloadable web based software application where casting projects can be posted and talent can submit themselves for consideration, via an interactive website on the Internet
+[042 2017 REG dup1/1own w155] Designing, computer software development and implementation, namely, for real time, relevance and comparison analysis and reports, brand recognition, tonality analysis, business analysis, text mining, semantic learning process and lexical control of digital media content and proposal systems Organizational and business administration consulting, namely, in the field of the development of software 
+[043 2012 REG dup21359/13124own*COPY w2] Restaurant services
+[043 2016 REG dup1/1own w38] Services for providing food and drink, namely, take-out restaurant services and kiosk services featuring food and drink; bistro, cafe, cafeteria, pub, wine bar, bar, and restaurant services; preparation of food and drink; canteen services; snack-bar services
+[043 2016 REG dup21359/13124own*COPY w2] Restaurant services
+[044 2007 REG dup1/1own w56] HEALTH CARE SERVICES; MEDICAL SERVICES; PROVIDING MEDICAL INFORMATION VIA AN ON-LINE WEBSITE EDUCATIONAL SERVICES, NAMELY, CONDUCTING CLASSES, SEMINARS AND WORKSHOPS IN THE FIELDS OF HEALTH CARE AND MEDICAL SERVICES; PROVIDING AN ON-LINE NEWSLETTER IN THE FIELDS OF HEALTH CARE AND MEDICAL SERVICES NEWSLETTERS AND MAGAZINES IN THE FIELDS OF HEALTH CARE AND MEDICAL SERVICES
+[044 2008 REG dup1/1own w17] providing a web site featuring a secure portal used by doctors and patients to access medical records
+[044 2017 REG dup1/1own w18] Cosmetic surgery services excluding cosmetic dental surgery services; Medical spa services, namely, minimally and non-invasive cosmetic therapies
+[044 2018 REG dup5/1own w53] Mental and behavioral health therapy services; Mental and behavioral health services; Clinical mental health counseling and psychiatric services; Providing mental health and wellness information; Counseling in the field of mental and behavioral health and wellness; Applied behavioral health analysis services; Physical therapy services; Fitness therapy services; Medical, physical, rehabilitation an
+[045 2008 REG dup1/1own w82] Computer services, namely, providing information on a website in the field of professional sports team management Computer services, namely, information on a website in the field of the legal and regulatory compliance issues of professional sports teams [ Newsletters in the field of professional sports team management and the legal and regulatory issues of professional sports teams ] Computer serv
+[045 2009 REG dup1/1own w242] Providing an on-line searchable database accessible by means of a web site, personal digital assistant and mobile phone featuring information about animal adoption organizations in the nature of the pets available for adoption, and the locating of lost pets Promoting public awareness of pet care, animal adoption and pet rescue services; promoting volunteer programs and community service projects o
+[045 2014 REG dup2/1own w510] Alternative dispute resolution services; Arbitration services; Copyright management; Intellectual property consultation; Legal research; Legal services; Licensing of intellectual property; Litigation services; Online social networking services in the field of Law, International Trade, Intellectual Property, Foreign Direct Investment in China, Real Estate and Construction, Securities and Capital in
+[045 2016 REG dup7/7own*COPY w7] Providing personal obituary and memorial service information
+[045 2017 REG dup7/5own*COPY w6] Real estate closing services; Title searching
+[045 2018 REG dup1/1own w247] Downloadable ring tones for mobile phones; Downloadable music files; Data processing equipment, namely, smart watch; Pedometers; Smart phones Advertising services; Shop window dressing; Business management assistance; Sales promotion for others; Provide online market, namely, providing online retail store services featuring computer hardware; Personnel management consultancy; Relocation services f
