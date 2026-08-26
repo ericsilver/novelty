@@ -40,6 +40,15 @@ cross-class variation are class size (more registrations, tighter estimate,
 possibly different sign) and base failure rate (a class where most marks die
 has less room to move). Neither organises the variation.
 
+## Interactive: the IPO viewer
+
+[**Open the IPO viewer**](ipo-viewer/index.html) — every class's
+registrations (1996–2018) as dots on the lead/atypicality plane, colored
+by the latest gate the record reaches: cancelled at the five-year proof of
+continued use, passed it, owner in SEC financial reporting, owner with an
+IPO marker. Later gates draw on top. Filter by Nice class and by
+registration year range.
+
 ## Machine-readable
 
 [`per_class_estimates.csv`](per_class_estimates.csv) — one row per class:

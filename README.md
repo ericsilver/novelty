@@ -1,8 +1,8 @@
 # Vocabulary position and trademark lifecycles
 
-This repository builds an event-dated corpus of all 13.99 million USPTO trademark case files and defines a filing-level text measure on it. Each filing's goods/services description is scored by how surprising its wording is to two readers with disjoint knowledge — one who has seen only what the filing's Nice class filed in the 1,826 days *before* it, one who has seen only what it filed in the 1,826 days *after* — and the resulting pair is rotated into an unsigned axis, **atypicality**, and a signed axis, **lead**. Because the corpus also carries every prosecution event with its date, a filing's language can be followed to what actually happened to the mark: registration, the five-to-six-year use-proof gate, the year-ten renewal, and the owner's appearance in the SEC filing universe.
+This repository builds an event-dated corpus of all 13.99 million USPTO trademark case files and defines a filing-level text measure on it. Each filing's goods/services description is scored by how surprising its wording is to two readers with disjoint knowledge — one who has seen only what the filing's Nice class filed in the 1,826 days *before* it, one who has seen only what it filed in the 1,826 days *after* — and the resulting pair is rotated into an unsigned axis, **atypicality**, and a signed axis, **lead**. Because the corpus also carries every prosecution event with its date, a filing's language can be followed to what actually happened to the mark: registration, the five-year proof of continued use (the §8 declaration due in years five to six), the year-ten renewal, and the owner's appearance in the SEC filing universe.
 
-The working paper is **`paper/ssrn_diffusion_paper.tex`** (PDF alongside). Read its abstract and Section 3 before the code. `paper/journal_paper.tex` is a superseded June 2026 sibling of the same project, kept for reference only — it does not describe the current measure, sample, or results.
+The working paper is **`paper/v3/main.tex`** (a dated PDF alongside in `paper/`). Read its abstract and Section 2 before the code. `paper/ssrn_diffusion_paper.tex` and `paper/journal_paper.tex` are superseded earlier versions of the same project, kept for reference only — they do not describe the current measure, sample, or results; `paper/frozen/` holds the review copy the v3 line edits were made against.
 
 ## The measure in one screen
 
@@ -21,7 +21,7 @@ Notes that save a re-derivation:
 - Within a window every day counts the same — a flat pooled aggregate, not a decayed one. The measure asks whether wording is unusual against a *period*, not whether it is ahead of a trend within that period.
 - The names describe the *reader's vantage*, not the direction of the window. Prospective surprise is surprise measured against what came *before*.
 - **Positive lead means the class moved toward the filing**: unusual when filed, ordinary five years later. Negative lead is the reverse.
-- *A* and *L* are a 45-degree rotation of (*K*⁻, *K*⁺). The rotation matters because the raw pair correlates at 0.979, so entering both is close to entering one variable twice; *L* carries about 1.4% of their combined variance and is correspondingly fragile.
+- *A* and *L* are a 45-degree rotation of (*K*⁻, *K*⁺). The rotation matters because the raw pair correlates at 0.988 on the production scoring (class 009, n = 1,109,643; `paper/results/exhibit_correlations.json`), so entering both is close to entering one variable twice; *L* carries about 1.2% of their combined variance and is correspondingly fragile.
 - Everything is estimated **within class and year**. Across classes, atypicality levels are not comparable — a class where the USPTO ID Manual supplies dense standard language has a compressed distribution for reasons unrelated to innovation.
 
 ## The `SURPRISE_SRC` switch
@@ -31,7 +31,7 @@ Two scorings of the whole corpus exist. An environment variable selects between 
 | `SURPRISE_SRC` | Reference | Files | Status |
 |---|---|---|---|
 | `rolling` | Per-filing, ±1,826 days from the filing's own date | `data/processed/rolling_surprise_class{NNN}[_T200].parquet` | **Current.** Every estimate in the paper. |
-| `topic` | One object per class-year: the class averaged over the five preceding *calendar* years | `data/processed/topic_surprise_class{NNN}[_T200].parquet` | **Retired.** Kept so the appendix can quantify what it cost. |
+| `topic` | One object per class-year: the class averaged over the five preceding *calendar* years | `data/processed/topic_surprise_class{NNN}[_T200].parquet` | **Retired.** No longer discussed in the paper; kept for reproducibility. |
 
 Both write identical column names, so switching is a path change and nothing else:
 
@@ -41,7 +41,7 @@ SURPRISE_SRC=rolling python scripts/gate_decisive_regression.py
 
 Scripts honouring it: `gate_decisive_regression.py`, `event_gates_all.py`, `event_gates_2019_2021.py`, `two_gate_009.py`, `staged_outcomes_table.py`, `debut_edgar_substantiate.py`, `topic_debut.py`, `topic_outcomes_all.py`, `online_appendix.py`. The default is `rolling` in all of them, so the paper's numbers reproduce without setting it; `SURPRISE_SRC=topic` selects the retired scoring for the appendix comparison.
 
-What the retired scoring cost, in short: annual bucketing imprints a spurious gradient in filing month (a December filing sits eleven months further from its past reference and eleven months nearer its future one), which inflated the gate penalty by about a third and manufactured a curvature at registration on the signed axis that does not survive. Signs and conclusions are unchanged; magnitudes and one functional form are not. Appendix "What annual reference buckets cost" has the full accounting.
+What the retired scoring cost, in short: annual bucketing imprints a spurious gradient in filing month (a December filing sits eleven months further from its past reference and eleven months nearer its future one), which inflated the gate penalty by about a third and manufactured a curvature at registration on the signed axis that does not survive. Signs and conclusions are unchanged; magnitudes and one functional form are not. The current paper no longer discusses the class-year anchoring; the scoring and this comparison are kept in the repository for reproducibility.
 
 ## Data pipeline
 
@@ -84,7 +84,7 @@ make sec crosswalk            # stage 6
 `make tm` is the corpus build and is the target to trust. **The `analysis` and `paper` targets in the `Makefile` are stale** — they build `paper/main.pdf` from a `paper/main.tex` that no longer exists, and their script list predates the current paper. Run the analysis scripts from the table below directly, and compile with:
 
 ```bash
-cd paper && pdflatex ssrn_diffusion_paper.tex && pdflatex ssrn_diffusion_paper.tex
+cd paper/v3 && pdflatex main && pdflatex main && pdflatex main
 ```
 
 Cost worth knowing before you start:
@@ -95,38 +95,50 @@ Cost worth knowing before you start:
 
 ## Where each paper exhibit comes from
 
-Run everything in this table with `SURPRISE_SRC=rolling` unless the row says otherwise. Tables typed into the `.tex` by hand are marked; the rest are generated files the paper reads directly.
+Exhibits are the v3 paper's (`paper/v3/main.tex`). Run everything with `SURPRISE_SRC=rolling` unless the row says otherwise (it is the default). Tables typed into the `.tex` by hand are marked; the rest are generated files the paper reads directly.
 
-| Paper exhibit | Script | Artifact |
+| Paper exhibit (v3) | Script | Artifact |
 |---|---|---|
-| **Table 1**, the funnel | `topic_debut.py`, `gate_decisive_regression.py`, `event_gates_all.py`, `examiner_confound.py` | `debut_outcome_topic.json`, `gate_decisive_regression.json`, `event_gates_all.json`, `examiner_confound.json` (typed) |
-| **Table 2**, the five quantities and their names | — | prose only |
-| **Figure 1**, debut outcomes (registration; listing given registration) | `topic_debut.py` | `debut_outcome_topic.{png,json}` |
-| **Figure 2**, quintile profiles of all three outcomes | `quintile_profiles.py` | `quintile_profiles.{png,pdf}` |
-| **Table 3**, first-gate failure LPM — the central result | `gate_decisive_regression.py` | `gate_decisive_regression.json` (typed) |
-| **Figure 3**, per-industry gate forest | `event_gates_all.py` | `event_gate_forest.png` |
-| **Figure 4**, gate penalty by cohort incl. the 2019 replication | `event_gates_2019_2021.py` | `event_gate_cohort_curve_extended.png`, `event_gates_2019_2021.json` |
-| Two-gate attenuation, class 009 | `two_gate_009.py` | `two_gate_009.json` |
-| **Table 4**, debut listing LPM and the *A*/*L* decomposition | `debut_edgar_substantiate.py` | `debut_edgar_substantiate.json` (typed) |
-| **Table 5**, within-firm ΔKL vs patenting | `wsC_within_firm_patents.py` | `wsC_within_firm_patents.json` (typed) |
-| Complement/substitute sector split of the patent null | `patent_complementarity_by_sector.py` | `patent_complementarity_by_sector.json` |
-| **Table 6**, every outcome under one specification | `staged_outcomes_table.py` | `staged_outcomes_table.tex` (input directly), `staged_outcomes.json` |
-| Form D / listing-after-funding owner match behind Table 6 | `persist_funding_match.py`, `atypicality_and_funding.py` | `funding_owner_match.parquet`, `atypicality_and_funding.json` |
-| **Table 7**, phrase transit across classes | `diff2_theme_transit.py` | `diff2_transit.json` (typed) |
-| LDA themes, Bass fits, class-flow asymmetry, entrant base rate, NMF check | `diff3_lda_themes.py`, `diff4_phase1_rqs.py`, `diff5_rq4_baseline.py`, `diff6_nmf_compare.py` | `diff3_themes.json`, `diff4_phase1.json`, `diff5_rq4_baseline.json`, `diff6_nmf.json` |
-| **Figure 5**, era turbulence and era-term prevalence | `era_turbulence.py` | `era_turbulence.{png,json}` |
-| **Figure 6**, burn-in density | `analysis_full.py` (the figure), `burnin_optimization.py` (the bias profile behind the 1995 cut) | `burnin.png`, `burnin_by_class.{csv,json,png}` |
-| **Figure 7**, topic vs term on identical samples | `topic_outcomes_all.py` | `topic_outcomes_all.{png,json}` |
-| Appendix A.5, what annual buckets cost | `rolling_window_rescore.py`, `rolling_window_gate_test.py` | `rolling_window_comparison.json`, `rolling_window_gate_test.json` |
-| **Figure 8**, reference-window decomposition | `run_full_corpus_w37.py` + `window_choice_all.py` (class-009 deep dive: `window_choice_009.py`) | `window_choice_all.{png,json}` |
-| Sub-year freshness variant, class 009 | `subyear_window_009.py` | `subyear_window_009.json` |
-| Appendix B, the measurement hazard | `vocab_forensics.py`, `topic_outcomes_all.py`, `topic_firm_margin.py`, `financials_regression.py`, `returns_regression.py` | `vocab_forensics.json`, `topic_firm_margin{,_T200,_T500}.json`, `financials_metrics.json`, `returns_metrics.json` |
-| **Figure 9**, the unconditional composite (Appendix C) | `registration_and_unconditional.py` | `appendix_unconditional.{png,json}` |
-| **Figure 10**, length surface by representation (Appendix D) | `representation_appendix.py` | `representation_appendix.png` |
-| **Table 8**, the three encoding exhibits (Appendix E) | `exhibit_encodings.py` | `exhibit_encodings.json` (typed) |
-| Topic count is a partition dial, not a coverage dial | `topic_p_scorer_all.py` (set `TOPIC_T`) | `topic_lda_meta{,_T200,_T500}.json` |
-| Snapshot single-cohort gate cross-check | `s8_survival_corrected.py` | `s8_corrected_summary.{csv,json}`, `s8_corrected_{forest,pooled}.png` |
-| Online appendix, all 45 classes | `online_appendix.py` | `docs/online-appendix/` |
+| §2 funnel table | `topic_debut.py`, `event_gates_all.py` | `debut_outcome_topic.json`, `event_gates_all.json` (typed) |
+| §3 registration deciles + surprise plane | `fig_registration_only.py` | `fig_registration_deciles.png`, `fig_registration_plane.png`, `fig_registration_only.json` |
+| §3 self/counsel table | `persist_missing_artifacts.py` | `representation_stats.json` (typed) |
+| §3 refiling / amendment numbers | `refile_text_change.py`, `refile_prepost_chart.py` | `refile_text_change.json`, `refile_prepost.png` |
+| §4 five-year-proof LPM (central result) | `gate_decisive_regression.py` | `gate_decisive_regression.json` (typed) |
+| §4 per-industry forest | `event_gates_all.py` | `event_gate_forest.png` |
+| §4 timing / settledness checks | `gate_censoring_check.py`, `gate_duration` runs | `gate_duration.json` |
+| §4 three-scorings figure + table | `resolution_compare.py`, `fig_resolution_compare.py` | `resolution_compare.{json,tex}`, `fig_resolution_compare.png` |
+| §4 themes new to corpus / class | `theme_novelty_origin.py` | `theme_novelty_origin.json`, `theme_novelty_cache/` |
+| §4 ceiling check (lead within atypicality fifths) | `ceiling_check.py` | `ceiling_check.json` |
+| §4 year-ten renewal V | `two_gate_009.py`, `gate2_curve_shape.py` | `two_gate_009.json`, `gate2_curve_shape.json` |
+| §5 per-cohort coefficients | `fig_cohort_slopes.py` | `fig_cohort_slopes.{png,json}` |
+| §5 tech-vs-other era profile | `gate_era_profile.py` | `gate_era_profile.png` |
+| §5 tech class/theme tables + figure | `gate_era_tech_themes.py` (+ `patch_techthemes_row.py`) | `gate_era_tech_classes.tex`, `gate_era_tech_themes.{tex,png,json}` |
+| §5 internet scatter + appendix table | `internet_breakout.py`, `fig_internet_scatter.py` | `internet_breakout.{json,tex,png}`, `fig_internet_scatter.png` |
+| §5 internet event-time convergence | `internet_convergence.py` | `internet_convergence.{png,json}` |
+| §5 internet-split cohort coefficients | `fig_cohort_slopes_internet.py` | `fig_cohort_slopes_internet.{png,json}` |
+| §5 surge figure and wave facts | `fig_surges.py`, `theme_surge.py`, `theme_surge_class.py`, `wave_timing.py` | `fig_surges.png`, `theme_surge{,_class}.json`, `wave_timing.json` |
+| §6 ladder table | `sec_event_ladder.py` | `sec_event_ladder.json` (typed) |
+| §6 unfunded-IPO contrast | `unfunded_ipo.py` | `unfunded_ipo.json` |
+| §6 value concentration | `value_concentration.py` | `value_concentration.json` |
+| §6 EDGAR LPM table | `debut_edgar_substantiate.py` | `debut_edgar_substantiate.json` (typed) |
+| §6 success ventile curves | `fig_success_deciles.py` | `fig_success_ventiles.{png,json}` |
+| §6 patent grid + sectoral split | `wsC_within_firm_patents.py`, `patent_complementarity_by_sector.py` | `wsC_within_firm_patents.json`, `patent_complementarity_by_sector.json` (typed) |
+| §7 staged outcomes table | `staged_outcomes_table.py` | `staged_outcomes_table.tex` (input directly) |
+| §8 four builds / weighting | `scoring_robustness` runs | `scoring_robustness.json` |
+| §8 resolution sweep + seed stability | `topic_p_scorer_all.py` (`TOPIC_T`), `topic_seed_gate.py` | `topic_lda_meta*.json`, `topic_seed_gate.json` |
+| §8 decayed windows | `decay_gate_check.py` | `decay_gate_check.json` |
+| §8 window width / mix | `window_choice_all.py`, `window_mix_rolling.py` | `window_choice_all.json`, `window_mix_rolling.json` |
+| §8 unconditional composite | `registration_and_unconditional.py` | `appendix_unconditional.{png,json}` |
+| §8 toggled-parameter matrix | `variants_runner.py` | `paper/v3/_eval/*.json` |
+| §8 functional forms | `gate_curve_shapes.py` | `gate_curve_shapes.json`, `curve_shapes.png` |
+| §8 listing-vs-reporting split | `gate_curve_shapes.py` | `gate_curve_shapes.json` |
+| §8 term-scored cross-check | `topic_outcomes_all.py`, `s8_survival_corrected.py` | `topic_outcomes_all.{png,json}`, `s8_corrected_*` |
+| App. burn-in figure | `analysis_full.py`, `burnin_optimization.py` | `burnin.png`, `burnin_by_class.json` |
+| App. registration profiles | `topic_debut.py`, `quintile_profiles.py` | `debut_outcome_topic.png`, `quintile_profiles.png` |
+| App. registration flow (sankey) | `sankey_registration.py` | `fig_registration_sankey.{png,json}` |
+| App. length surface by representation | `representation_appendix.py` | `representation_appendix.png` |
+| App. three encodings exhibit | `exhibit_encodings.py` | `exhibit_encodings.json` (typed) |
+| K⁻/K⁺ correlation quoted in §2 and §8 | `persist_exhibit_correlations.py` | `exhibit_correlations.json` |
 
 ## Online appendix
 
@@ -137,6 +149,8 @@ Run everything in this table with `SURPRISE_SRC=rolling` unless the row says oth
 - `per_class_estimates.csv` — machine-readable: scored filings, registrations, base failure rate, raw and fixed-effects gate contrasts with standard errors, completion at both tails of each axis.
 
 Rebuild with `python scripts/online_appendix.py` (defaults to rolling scoring). It reuses the raw per-class lifts from `paper/results/event_gates_all.json` rather than recomputing them, so the appendix and the paper's forest figure cannot drift apart.
+
+- `ipo-viewer/` — an interactive scatter of every class's registrations (1996–2018) on the lead/atypicality plane, colored by the latest gate the record reaches (cancelled at the five-year proof / passed / owner in SEC reporting / owner with an IPO marker), with a Nice-class selector and a registration-year range filter. Data files rebuild with `python scripts/build_ipo_viewer_data.py`; SEC and IPO dots are complete, the grey/blue base is sampled at 22,000 dots per class.
 
 ## Known limitations
 
@@ -169,8 +183,12 @@ Read these before reusing anything here.
 ```
 .
 ├── paper/
-│   ├── ssrn_diffusion_paper.{tex,pdf}   the working paper  ← start here
-│   ├── section_construct.tex             Section 3, kept separate so it can be revised alone
+│   ├── v3/main.tex                       the working paper  ← start here
+│   │   └── (sec0_intro … sec6_discussion, sec5_robustness, appendices;
+│   │        _src/ holds parked material, _src/retired/ superseded sections)
+│   ├── v3_draft_*.pdf                    dated builds of the working paper
+│   ├── frozen/                           the tagged review copy (review-copy-2026-08-23)
+│   ├── ssrn_diffusion_paper.{tex,pdf}   SUPERSEDED working paper
 │   ├── journal_paper.{tex,pdf}           SUPERSEDED June 2026 sibling
 │   ├── newterms_report.{tex,pdf}         companion: new cross-industry vocabulary
 │   ├── face_validation.md                rateable form for the 50 LDA themes

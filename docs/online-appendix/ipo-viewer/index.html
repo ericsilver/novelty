@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPO viewer — registrations on the lead/atypicality plane</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 12px; color: #222; }
+  h1 { font-size: 1.35em; }
+  .controls { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 10px 0 6px; font-size: 0.95em; }
+  .controls label { margin-right: 4px; }
+  select, input[type=number] { font-size: 1em; padding: 2px 4px; }
+  input[type=number] { width: 5.2em; }
+  canvas { border: 1px solid #ccc; width: 100%; height: auto; }
+  .legend { font-size: 0.9em; margin: 8px 0; }
+  .legend span.sw { display: inline-block; width: 11px; height: 11px; border-radius: 6px; margin: 0 4px 0 14px; vertical-align: -1px; }
+  .note { font-size: 0.85em; color: #555; margin-top: 12px; line-height: 1.45; }
+  a { color: #2b6cb0; }
+</style>
+</head>
+<body>
+<h1>Registrations on the lead/atypicality plane, tiered by the latest gate reached</h1>
+<p style="font-size:0.93em">Each dot is one registration (registration years 1996&ndash;2018),
+placed by the lead and atypicality of its goods/services description, standardized within
+the class and registration year. Color is the latest gate the record reaches; later gates
+draw on top. Firms whose owner appears in SEC financial reporting are orange; owners with
+an IPO marker are red.</p>
+
+<div class="controls">
+  <label for="cls">Nice class</label>
+  <select id="cls"></select>
+  <label for="y0">Registered from</label>
+  <input type="number" id="y0" min="1996" max="2018" value="1996">
+  <label for="y1">to</label>
+  <input type="number" id="y1" min="1996" max="2018" value="2018">
+</div>
+
+<div class="legend" id="legend"></div>
+<canvas id="plot" width="880" height="740"></canvas>
+
+<p class="note">
+Lead and atypicality are the paper&rsquo;s production scoring (50 global themes,
+per-filing five-year reference windows). Tiers: grey &mdash; cancelled at the five-year
+proof of continued use (a dated &sect;8/&sect;71 cancellation at registration age
+4.0&ndash;8.5 years); blue &mdash; passed the five-year proof; orange &mdash; owner
+name-matched to SEC financial reporting records; red &mdash; owner carries an 8-A
+registration or IPO date. Owner outcomes are properties of the owner, not the mark, so
+one public firm colors all of its registrations. Grey and blue dots are a random sample
+capped at 22,000 per class; orange and red dots are complete. The 2018 cohort&rsquo;s
+five-year window is fractionally censored. Coordinates are clipped at &plusmn;3.5
+standard deviations. <a href="../index.md">Back to the online appendix.</a>
+</p>
+
+<script>
+const COLORS = ["#c9c9c9", "#2b6cb0", "#e67e22", "#c0392b"];
+const SIZES  = [1.7, 1.7, 3.2, 4.0];
+const TIERS  = ["cancelled at the five-year proof", "passed the five-year proof",
+                "owner in SEC reporting", "owner with IPO marker"];
+const CLIP = 3.5;
+const cv = document.getElementById("plot"), cx = cv.getContext("2d");
+let cur = null;
+
+function px(v, w) { return 50 + (v + CLIP) / (2 * CLIP) * (w - 70); }
+function py(v, h) { return (h - 46) - (v + CLIP) / (2 * CLIP) * (h - 66); }
+
+function draw() {
+  if (!cur) return;
+  const w = cv.width, h = cv.height;
+  const y0 = +document.getElementById("y0").value || 1996;
+  const y1 = +document.getElementById("y1").value || 2018;
+  cx.clearRect(0, 0, w, h);
+  cx.strokeStyle = "#999"; cx.lineWidth = 1;
+  cx.strokeRect(50, 20, w - 70, h - 66);
+  // zero lines
+  cx.strokeStyle = "#555";
+  cx.beginPath(); cx.moveTo(px(0, w), 20); cx.lineTo(px(0, w), h - 46); cx.stroke();
+  cx.beginPath(); cx.moveTo(50, py(0, h)); cx.lineTo(w - 20, py(0, h)); cx.stroke();
+  cx.fillStyle = "#666"; cx.font = "12px Georgia";
+  cx.fillText("lagging, atypical", 56, 34);
+  cx.fillText("leading, atypical", w - 130, 34);
+  cx.fillText("lagging, typical", 56, h - 54);
+  cx.fillText("leading, typical", w - 126, h - 54);
+  cx.fillStyle = "#333"; cx.font = "13px Georgia";
+  cx.fillText("lead L (sd within class and registration year) →", w / 2 - 150, h - 26);
+  cx.save(); cx.translate(16, h / 2 + 130); cx.rotate(-Math.PI / 2);
+  cx.fillText("atypicality A (sd within class and registration year) →", 0, 0);
+  cx.restore();
+  const counts = [0, 0, 0, 0];
+  const n = cur.g.length;
+  for (let i = 0; i < n; i++) {           // data pre-sorted by tier ascending
+    const ry = cur.ry[i];
+    if (ry < y0 || ry > y1) continue;
+    const g = cur.g[i];
+    counts[g]++;
+    cx.fillStyle = COLORS[g];
+    cx.globalAlpha = g < 2 ? 0.45 : 0.95;
+    cx.beginPath();
+    cx.arc(px(cur.x[i], w), py(cur.y[i], h), SIZES[g], 0, 6.2832);
+    cx.fill();
+  }
+  cx.globalAlpha = 1;
+  const lg = document.getElementById("legend");
+  lg.innerHTML = TIERS.map((t, i) =>
+    `<span class="sw" style="background:${COLORS[i]}"></span>${t} (${counts[i].toLocaleString()}${i < 2 ? " shown" : ""})`
+  ).join("");
+}
+
+async function loadClass(c) {
+  const r = await fetch(`data/class_${c}.json`);
+  cur = await r.json();
+  draw();
+}
+
+async function init() {
+  const r = await fetch("data/manifest.json");
+  const man = await r.json();
+  const sel = document.getElementById("cls");
+  for (const c of man.classes) {
+    const o = document.createElement("option");
+    o.value = c.cls; o.textContent = `${+c.cls} — ${c.name}`;
+    sel.appendChild(o);
+  }
+  sel.value = "009";
+  sel.addEventListener("change", () => loadClass(sel.value));
+  for (const id of ["y0", "y1"])
+    document.getElementById(id).addEventListener("input", draw);
+  await loadClass(sel.value);
+}
+init();
+</script>
+</body>
+</html>
