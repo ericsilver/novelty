@@ -97,3 +97,7 @@ paper/v3/main.pdf
 
 # Per-filing T=500 dominant-theme cache (rebuilt by scripts/theme_novelty_origin.py, ~1h)
 paper/results/theme_novelty_cache/
+
+# The IPO viewer data files are published site assets, not pipeline data.
+!docs/online-appendix/ipo-viewer/data/
+!docs/online-appendix/ipo-viewer/data/**
