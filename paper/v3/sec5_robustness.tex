@@ -284,6 +284,8 @@ Pair-lead presence 0.05 & net $+2.3$pp & $+3.1$pp \\
 Combination measures, class 035 & 009 values & recomb $-3.8$; pair-lead $-1.4$ \\
 Ladder, counsel / self debuts & reporting lead $-0.21$pp & $-0.28$ / $-0.04$pp \\
 Ladder, 2009--13 / 2014--18 & reporting atyp.\ $+0.11$pp & $-0.01$ / $+0.20$pp \\
+Excluding duplicate-text filings & lead $+2.29$; atyp.\ $-4.39$pp & $+3.05$; $-5.68$pp \\
+Excluding Manual-scale texts only & same & $+2.64$; $-5.05$pp \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -497,6 +499,49 @@ filings, so it ranks shapes rather than testing them. The $77$ at registration
 and the $12$ to $36$ at the public-reporting gates are decisive; the $1.9$ at
 registration on lead and the $4.3$ at the five-year proof are weak, and those
 two rows are better read as ``no worse than linear'' than as curvature.
+
+The non-monotone profiles on signed lead decompose into parts of
+different symmetry (Figure~\ref{fig:ldecomp}). Each ventile's deviation
+of the listing rate from the base is split, by sequential counterfactual
+prediction, into the part atypicality composition alone predicts, the
+part exact-duplicate text adds, a linear lead tilt, and a residual. The
+symmetric U is carried about half by atypicality composition --- the
+spread of $L$ rises with $A$, so both tails of the lead axis hold
+atypical filings and the middle holds typical ones --- and about half by
+a residual that is itself symmetric in $|L|$: the same conditional lead
+magnitude effect Table~\ref{tab:edgar} estimates at $+0.067$pp per
+standard deviation. Duplicate-text composition adds almost nothing once
+atypicality is held, and the linear tilt is an order of magnitude smaller
+than either symmetric part ($-0.07$pp per nat). The fitted vertices above
+follow from this arithmetic: a symmetric profile plus a negative tilt has
+its minimum shifted right of zero, and a survival hump its maximum
+shifted left, which is where the fits put them ($+0.24$ to $+0.41$, and
+$-0.4$, standard deviations).
+
+Excluding text-duplicate filings strengthens rather than weakens every
+headline gradient. Of the five-year-proof sample, 47\% of registrations
+share their exact normalized description with at least one other filing;
+dropping them raises the lead contrast from $+2.29$ to $+3.05$pp and the
+atypicality contrast from $-4.39$ to $-5.68$pp, and dropping only the
+Manual-scale texts (clusters of 100 or more identical filings) gives
+$+2.64$ and $-5.05$pp. Identical texts carry identical scores and
+cluster at the typical end of the axis, so they dilute both gradients;
+neither is created by them.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/fig_L_decomposition.png}
+\caption{The signed-lead listing profile taken apart. \emph{Left:} each
+ventile's deviation of P(owner ever in SEC EDGAR) from the 0.65\% base,
+on 2.07 million registered debuts 1995--2018, split into the part
+predicted by atypicality composition alone (50 quantile bins of $A$),
+the part added by an exact-duplicate-text indicator, a linear tilt in
+$L$ fitted to the remainder, and the residual; bars stack from zero,
+dots are the actual deviations with 95\% intervals. \emph{Right:} the
+same profile on all filings and on filings whose normalized description
+text is unique in their class; the central dip survives, and deepens,
+without duplicated text.}
+\label{fig:ldecomp}
+\end{figure}
 
 \subsection{Listing against reporting}
 
