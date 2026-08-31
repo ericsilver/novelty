@@ -1,0 +1,28 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+% Left-justify every caption; without singlelinecheck=false LaTeX
+% centres any caption short enough to fit one line, so short and long
+% captions in the same paper are set differently.
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage[round,sort,authoryear]{natbib}
+
+% --- FOR-ERIC decision boxes (working-copy apparatus; delete the _eric
+% inputs in main.tex and this block for the submission build) ---
+\usepackage{xcolor}
+\usepackage{framed}
+\definecolor{ericgrey}{gray}{0.93}
+\newenvironment{ericbox}[1]{%
+  \def\FrameCommand{\fboxsep=9pt\colorbox{ericgrey}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent{\normalsize\textbf{\textsc{for eric --- #1}}}\par\medskip\small}%
+ {\endMakeFramed}
+
+\newcommand{\dkl}{$L$}

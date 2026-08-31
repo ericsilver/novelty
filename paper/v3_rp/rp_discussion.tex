@@ -1,0 +1,94 @@
+\section{Discussion: each axis bites at a different stage}\label{sec:discussion}
+
+Table~\ref{tab:staged} re-estimates every outcome on one harmonized
+sample --- one row per debut owner, scored on that owner's first filing
+--- under a single specification, so the coefficients can be read down a
+column. Magnitudes differ from the section-specific tables above.
+
+\input{results/staged_outcomes_table.tex}
+
+Surprising language costs at registration and pays afterwards: atypical
+debut filings complete registration less often ($-1.35$pp per standard
+deviation), then survive the five-year proof of continued use more often
+($+1.35$pp) and reach public markets more often ($+0.04$pp on a 0.56\%
+base --- the one specification in which a positive atypicality
+coefficient on listing survives, and it is a continuous term through a
+non-monotone profile). Having been early runs the other way: leading
+applications complete registration \emph{more} often ($+0.87$pp) and then
+pass the five-year proof \emph{less} often ($-0.49$pp on passing). Both
+survival rows point the same way at the year-ten renewal, four years
+later and on a sixth of the sample: atypicality $+1.30$pp and lead
+$-0.63$pp among marks that had already cleared the five-year proof.
+Whatever the five-year proof selects on, the renewal selects on it again
+rather than reversing it.
+
+In the financing rows atypicality does nothing at one stage and a great
+deal at the next. Whether a debut owner ever raises a Regulation~D round
+is unrelated to how atypical its filing was ($-0.017$pp per standard
+deviation against a 2.61\% base, $t = -0.8$); among owners who did raise
+one, the same measure predicts \emph{reaching} the public market
+($+0.49$pp on a 3.49\% base, $t = 3.8$). Atypical language is invisible
+at the financing stage and informative afterwards, which is what an
+investor screen that does not read the text would look like --- the text
+being free and public at the moment of filing. The comparison is among
+survivors, so it cannot separate that reading from selection on
+unobservables. Three limits bound these rows: Regulation~D notices are
+electronic only from 2009; owners are matched by normalized name, which
+succeeds for a minority favouring formally constituted entities; and the
+final row conditions on funding realized after the filing being scored,
+so it establishes that information distinguishing eventual listers was
+present in the text years earlier, not that the language caused the
+outcome.
+
+Lead does not reverse anywhere after registration: negative at both use
+proofs, at financing with or without registration imposed, and at listing
+among the funded; the only row where it is not negative is SEC reporting
+among registered owners, where it is indistinguishable from zero. Leading
+filings fare worse at every stage where the market, rather than the
+examiner, does the selecting.
+
+Why would having been early cost? The two axes are not independent in the
+obvious economic sense. What makes a filing leading is precisely that its
+industry moved toward its language, and an industry that has moved toward
+your language now describes its goods the way you describe yours. Being
+early therefore consumes the quantity that pays: the mark that was
+unusual in 2011 is ordinary by 2016 not because its owner changed
+anything but because the category arrived. On this reading atypicality is
+a position competitors erode, and lead measures how fast. The design
+cannot demonstrate that mechanism; what can be said is that a negative
+coefficient on lead at equal atypicality is what the mechanism would
+produce if it were real.
+
+\subsection{Implications for trademark-based measurement}\label{sec:implications}
+
+Three practices follow for research that reads trademark text. First,
+score distributions, not words. Word-level divergence is dominated by
+description length --- on this corpus the correlation with log distinct
+terms reaches $-0.68$ --- and firm-level performance correlations built
+on it dissolve or reverse under distribution scoring on identical
+samples. Any term-level novelty measure should be accompanied by the
+theme-level rescoring that costs one model fit. Second, treat the
+registered description as a conformed document. Applicants who refile
+rewrite toward their class's typical language from both tails, whoever
+drafts the second attempt, so samples of registered marks understate the
+atypicality applicants first attempted, and estimates on registered text
+are estimates on prosecution-filtered language. Studies using description
+similarity or breadth inherit this compression. Third, the two components
+of surprise are not interchangeable and should not be pooled. Lead is
+robust to every partition, weighting, and window tried here;
+atypicality's apparent effects can be artifacts of the partition (its
+protective effect at the five-year proof belongs to theme importation,
+visible only to global models) or of a control (its listing effect
+depends on how description length is held). A study that reports
+``novelty'' from trademark text without separating the temporal from the
+cross-sectional component may attribute to one what belongs to the other.
+
+For users of the classification itself, one caution: internet-bearing
+filings in goods classes survive at rates closer to the technology
+classes than to their own, so Nice classes used as industry controls do
+not partition the internet economy. And for the maintenance data, one
+asset: the five-year proof of continued use is a dated, sworn,
+product-level survival record covering every registered mark --- an
+outcome the indicator literature has largely left unused, observable for
+any cohort more than seven years old at no cost beyond parsing the
+prosecution history.

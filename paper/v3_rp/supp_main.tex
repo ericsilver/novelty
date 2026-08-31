@@ -1,0 +1,37 @@
+% Supplementary material for the RP submission. Build AFTER main.pdf so xr
+% can read main.aux:  cd paper/v3_rp && pdflatex supp_main (x2).
+\input{preamble}
+\graphicspath{{../}}
+\makeatletter\def\input@path{{./}{../}}\makeatother
+\usepackage{xr}
+\externaldocument{main}
+\renewcommand{\thesection}{S\arabic{section}}
+\setcounter{secnumdepth}{2}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\title{\bfseries Supplementary material for\\
+\large Business Themes in the Trademark Record}
+\author{Eric Silver}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent Section, table, and figure numbers without an S prefix refer to
+the main text. Sections S1--S5 carry the corpus and measurement
+appendices; S6 the material demoted from the main text's results
+sections; S7 the full robustness treatment, of which the main text's
+Section~\ref{sec:robust} is the summary. The interactive per-class
+appendix, including a viewer of every class's registrations on the
+lead/atypicality plane, is at
+\url{https://aporia.institute/tm-vocabulary/online-appendix/}.
+
+\input{../v3/appendices}
+\input{supp_extras}
+% The full robustness treatment follows as its own section; the main
+% text's robustness section is its summary.
+\input{../v3/sec5_robustness}
+
+\input{bibliography_rp}
+\end{document}

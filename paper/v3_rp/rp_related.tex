@@ -1,0 +1,121 @@
+\section{Related literature and nomenclature}\label{sec:related}
+
+\subsection{Trademarks as innovation data}
+
+A trademark filing is a dated, costly, public disclosure made by the
+millions of firms that never patent, and a literature has grown around
+reading it as an innovation indicator \citep{Castaldi2020, Willeke2026}.
+Trademark counts and breadth predict venture valuations
+\citep{Block2014}; filing timing tracks innovation processes
+\citep{Seip2018}; and trademarks mark the product-market side of
+innovation that patents miss \citep{Flikkema2019, Flikkema2025}.
+Census-linked work reads registration as a correlate of firm growth and
+survival \citep{Dinlersoz2018, Dinlersoz2023}. Nearly all of it counts
+filings, classes, or renewals; the descriptions' text enters, if at all,
+as breadth or similarity. This paper reads the text itself, and reads it
+against time.
+
+\subsection{Text measures of novelty}
+
+Scoring a document by its divergence from a reference corpus before and
+after it comes from cultural analytics: \citet{Murdock2017} on Darwin's
+reading notebooks, \citet{Barron2018} on the French Revolution's
+parliamentary debates. In economics and finance, text-based measures
+locate firms in product space \citep{HobergPhillips2016}, date
+technological innovation in patents over the long run \citep{Kelly2021},
+and track the vintage of patent language \citep{Kalyani2024}. The
+construction here differs in its object --- the composition of commercial
+offerings, not ideas or claims --- and in its two-sided reference: every
+filing is scored against its own industry's language both before and
+after its date, which is what lets \emph{unusual} be separated from
+\emph{early}. The separation matters because the two components predict
+opposite things.
+
+\subsection{Pioneering and optimal distinctiveness}
+
+Whether market pioneers are advantaged or burdened is an old, unresolved
+question measured mostly on named markets and survivor-prone samples
+\citep{GolderTellis1993, SemadeniAnderson2010}. A parallel literature
+finds evaluators reward conformity with a penalty for extremity in both
+directions --- the optimal distinctiveness of \citet{Zuckerman1999},
+\citet{Hsu2006}, \citet{Zhao2017}, and \citet{TaeuscherRothe2020}. This
+paper meets both at census scale: every entrant's language is observed,
+whether or not the product survived to be remembered, and the record
+supplies two different evaluators --- an examiner at registration and the
+market at the five-year proof of continued use --- who turn out to price
+the two components differently. The examiner rewards middling conformity
+and cannot observe lead; the market is indifferent to conformity once
+theme importation is held, and penalizes having been early.
+
+\subsection{Nomenclature}\label{sec:nomenclature}
+
+The innovation literature is not consistent about what quantities like
+these are called, and several of its established terms assert things this
+design cannot show, so the paper's names are chosen against the nearest
+occupants rather than borrowed from them. Table~\ref{tab:nomenclature}
+maps the five quantities; the entries below say, for each declined term,
+what adopting it would claim.
+
+\begin{table}[h]\centering\small
+\caption{The five quantities, their nearest occupants in the literature,
+and the terms used here. $P$ is a filing's theme distribution;
+$Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$ aggregate the five years of
+same-class filings before and after it (Section~\ref{sec:measure}).}
+\label{tab:nomenclature}
+\begin{tabular}{p{3.4cm}p{5.6cm}p{4.4cm}}
+\toprule
+Quantity & Nearest in the literature & Term used here \\
+\midrule
+$K^{-} = \mathrm{KL}(P \| Q_{\mathrm{past}})$ & novelty \citep{Murdock2017, Barron2018}; originality \citep{HallJaffe2001} & past-facing surprise \\
+$K^{+} = \mathrm{KL}(P \| Q_{\mathrm{future}})$ & transience \citep{Murdock2017}; generality \citep{HallJaffe2001}, which measures realized influence, not position & future-facing surprise \\
+$A = \tfrac{1}{2}(K^{-} + K^{+})$ & atypicality \citep{Uzzi2013}, which scores internal pairings, not distance from the class & \textbf{atypicality} \\
+$L = K^{-} - K^{+}$ & resonance \citep{Barron2018}, which asserts a mechanism & \textbf{lead} (leading / lagging) \\
+$|L|$ & no established occupant & lead magnitude \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Novelty} and \emph{transience} are the two KL levels themselves;
+novelty is declined as a name for anything here because it names only the
+backward-looking half of a quantity that faces both ways.
+\emph{Resonance} is arithmetically what this paper calls lead, and is
+avoided because it names a mechanism --- the field resonating with an
+author's contribution --- that this design cannot observe: a filing can
+sit where its class was heading because it was imitated, because both
+responded to the same outside event, or by coincidence.
+
+\emph{Radicalness} is the closest neighbour among the innovation labels,
+since KL is a departure measure rather than a newness count. It is
+declined because it claims existing competences are devalued, which
+nothing here licenses --- and because the label itself is unsettled: a
+bibliometric review of 4{,}407 articles finds \emph{radical},
+\emph{breakthrough}, \emph{discontinuous} and \emph{disruptive} used with
+definitions inconsistent within labels and not distinctive across them
+\citep{Verhoeven2025}.
+
+\emph{Atypicality in the bibliometric sense} \citep{Uzzi2013}, applied to
+patents as unconventionality by \citet{BerkesGaetani2021}, scores the
+rarity of the pairwise combinations inside a document against the
+population's co-occurrence rates. The atypicality here is a different
+object: the distance of one document's composition from its class's, not
+the rarity of its internal pairings; the two are close to independent on
+this corpus (Section~\ref{sec:measure}). The word is kept because both
+mean unlike the population; which population, and along what, differ.
+
+\emph{Originality} and \emph{generality} \citep{HallJaffe2001} are the
+patent literature's standard backward- and forward-facing pair, and
+generality is the nearest established forward-facing quantity to $K^+$.
+Both measure the dispersion of citations across technology classes,
+and generality requires the forward citations to have arrived, so it
+observes realized influence; $K^+$ observes the class's movement whether
+or not the filing influenced it.
+
+\emph{Distinctiveness} has two prior occupants: trademark law's
+registrability doctrine, and strategic management's optimal
+distinctiveness \citep{Zhao2017}, which predicts an inverted-U that
+appears here at registration but not at listing, so the term would imply
+a theory is being tested when it is not. \emph{Innovation} is a property
+of the product, not of the sentence describing it. What
+\emph{atypicality} says is narrower than any of these: this description
+is unusual for its class and year. Whether the thing described was new,
+radical, or good is not measured.

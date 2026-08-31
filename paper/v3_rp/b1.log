@@ -1,0 +1,723 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(preamble.tex
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+ (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def)
+No file main.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg)) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+Underfull \hbox (badness 2799) in paragraph at lines 14--14
+[][]\OT1/cmr/m/n/9 Independent re-searcher; for-merly a PhD can-di-date at Carn
+egie Mel-lon Uni-ver-sity. Com-ments to
+(abstract.tex) (rp_intro.tex
+
+Package natbib Warning: Citation `GolderTellis1993' on page 1 undefined on inpu
+t line 5.
+
+
+Package natbib Warning: Citation `SemadeniAnderson2010' on page 1 undefined on 
+input line 5.
+
+
+LaTeX Warning: Reference `sec:related' on page 1 undefined on input line 20.
+
+
+LaTeX Warning: Reference `sec:measure' on page 1 undefined on input line 26.
+
+[1{C:/Users/epsil/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+LaTeX Warning: Reference `sec:registration' on page 2 undefined on input line 3
+6.
+
+
+LaTeX Warning: Reference `sec:success' on page 2 undefined on input line 36.
+
+
+LaTeX Warning: Reference `sec:registration' on page 2 undefined on input line 4
+2.
+
+
+LaTeX Warning: Reference `sec:gate' on page 2 undefined on input line 51.
+
+
+LaTeX Warning: Reference `sec:waves' on page 2 undefined on input line 56.
+
+
+LaTeX Warning: Reference `sec:success' on page 2 undefined on input line 60.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 2 undefined on input line 62.
+
+
+
+LaTeX Warning: Reference `sec:robust' on page 2 undefined on input line 64.
+
+) (rp_related.tex
+
+Package natbib Warning: Citation `Castaldi2020' on page 2 undefined on input li
+ne 7.
+
+
+Package natbib Warning: Citation `Willeke2026' on page 2 undefined on input lin
+e 7.
+
+
+Package natbib Warning: Citation `Block2014' on page 2 undefined on input line 
+9.
+
+
+Package natbib Warning: Citation `Seip2018' on page 2 undefined on input line 1
+0.
+
+
+Package natbib Warning: Citation `Flikkema2019' on page 2 undefined on input li
+ne 11.
+
+
+Package natbib Warning: Citation `Flikkema2025' on page 2 undefined on input li
+ne 11.
+
+
+Package natbib Warning: Citation `Dinlersoz2018' on page 2 undefined on input l
+ine 13.
+
+
+Package natbib Warning: Citation `Dinlersoz2023' on page 2 undefined on input l
+ine 13.
+
+
+Package natbib Warning: Citation `Murdock2017' on page 2 undefined on input lin
+e 21.
+
+
+Package natbib Warning: Citation `Barron2018' on page 2 undefined on input line
+ 22.
+
+
+Package natbib Warning: Citation `HobergPhillips2016' on page 2 undefined on in
+put line 24.
+
+
+Package natbib Warning: Citation `Kelly2021' on page 2 undefined on input line 
+25.
+
+
+Package natbib Warning: Citation `Kalyani2024' on page 2 undefined on input lin
+e 26.
+
+[2]
+
+Package natbib Warning: Citation `GolderTellis1993' on page 3 undefined on inpu
+t line 38.
+
+
+Package natbib Warning: Citation `SemadeniAnderson2010' on page 3 undefined on 
+input line 38.
+
+
+Package natbib Warning: Citation `Zuckerman1999' on page 3 undefined on input l
+ine 40.
+
+
+Package natbib Warning: Citation `Hsu2006' on page 3 undefined on input line 41
+.
+
+
+Package natbib Warning: Citation `Zhao2017' on page 3 undefined on input line 4
+1.
+
+
+Package natbib Warning: Citation `TaeuscherRothe2020' on page 3 undefined on in
+put line 41.
+
+
+LaTeX Warning: Reference `tab:nomenclature' on page 3 undefined on input line 5
+5.
+
+
+LaTeX Warning: Reference `sec:measure' on page 3 undefined on input line 63.
+
+
+Package natbib Warning: Citation `Murdock2017' on page 3 undefined on input lin
+e 69.
+
+
+Package natbib Warning: Citation `Barron2018' on page 3 undefined on input line
+ 69.
+
+
+Package natbib Warning: Citation `HallJaffe2001' on page 3 undefined on input l
+ine 69.
+
+
+Package natbib Warning: Citation `Murdock2017' on page 3 undefined on input lin
+e 70.
+
+
+Package natbib Warning: Citation `HallJaffe2001' on page 3 undefined on input l
+ine 70.
+
+
+Package natbib Warning: Citation `Uzzi2013' on page 3 undefined on input line 7
+1.
+
+
+Package natbib Warning: Citation `Barron2018' on page 3 undefined on input line
+ 72.
+
+[3]
+
+Package natbib Warning: Citation `Verhoeven2025' on page 4 undefined on input l
+ine 94.
+
+
+Package natbib Warning: Citation `Uzzi2013' on page 4 undefined on input line 9
+6.
+
+
+Package natbib Warning: Citation `BerkesGaetani2021' on page 4 undefined on inp
+ut line 97.
+
+
+LaTeX Warning: Reference `sec:measure' on page 4 undefined on input line 102.
+
+
+Package natbib Warning: Citation `HallJaffe2001' on page 4 undefined on input l
+ine 105.
+
+
+Package natbib Warning: Citation `Zhao2017' on page 4 undefined on input line 1
+15.
+
+) (rp_measure.tex
+
+LaTeX Warning: Reference `sec:registration' on page 4 undefined on input line 2
+0.
+
+
+LaTeX Warning: Reference `sec:success' on page 4 undefined on input line 20.
+
+
+LaTeX Warning: Reference `sec:robust' on page 4 undefined on input line 22.
+
+[4]
+
+Package natbib Warning: Citation `Murdock2017' on page 5 undefined on input lin
+e 54.
+
+
+Package natbib Warning: Citation `Barron2018' on page 5 undefined on input line
+ 55.
+
+[5]
+
+LaTeX Warning: Reference `sec:three_scorings' on page 6 undefined on input line
+ 122.
+
+
+LaTeX Warning: Reference `sec:robust' on page 6 undefined on input line 124.
+
+
+LaTeX Warning: Reference `tab:constructs' on page 6 undefined on input line 162
+.
+
+[6]
+
+LaTeX Warning: Reference `sec:robust' on page 7 undefined on input line 180.
+
+
+Package natbib Warning: Citation `Murdock2017' on page 7 undefined on input lin
+e 189.
+
+[7]
+
+Package natbib Warning: Citation `Fleming2001' on page 8 undefined on input lin
+e 256.
+
+
+Package natbib Warning: Citation `Uzzi2013' on page 8 undefined on input line 2
+56.
+
+
+Package natbib Warning: Citation `Graham2013' on page 8 undefined on input line
+ 306.
+
+[8]
+
+LaTeX Warning: Reference `tab:funnel' on page 9 undefined on input line 341.
+
+
+LaTeX Warning: Reference `sec:registration' on page 9 undefined on input line 3
+44.
+
+
+LaTeX Warning: Reference `sec:gate' on page 9 undefined on input line 347.
+
+
+LaTeX Warning: Reference `sec:waves' on page 9 undefined on input line 347.
+
+
+LaTeX Warning: Reference `sec:success' on page 9 undefined on input line 350.
+
+
+LaTeX Warning: Reference `app:data' on page 9 undefined on input line 374.
+
+
+LaTeX Warning: Reference `sec:eras' on page 9 undefined on input line 380.
+
+[9]) (sec2_registration.tex
+
+LaTeX Warning: Reference `sec:gate' on page 10 undefined on input line 6.
+
+
+LaTeX Warning: Reference `sec:success' on page 10 undefined on input line 6.
+
+
+LaTeX Warning: Reference `fig:regdeciles' on page 10 undefined on input line 10
+.
+
+
+LaTeX Warning: Reference `fig:regplane' on page 10 undefined on input line 42.
+
+[10 <../results/fig_registration_deciles.png>]
+
+LaTeX Warning: Reference `tab:funnel' on page 11 undefined on input line 66.
+
+
+LaTeX Warning: Reference `fig:regdeciles' on page 11 undefined on input line 73
+.
+
+
+Package natbib Warning: Citation `Zuckerman1999' on page 11 undefined on input 
+line 76.
+
+
+Package natbib Warning: Citation `Hsu2006' on page 11 undefined on input line 7
+6.
+
+
+Package natbib Warning: Citation `Zhao2017' on page 11 undefined on input line 
+76.
+
+
+Package natbib Warning: Citation `TaeuscherRothe2020' on page 11 undefined on i
+nput line 77.
+
+[11 <../results/fig_registration_plane.png>]) (sec3_gate.tex
+
+LaTeX Warning: Reference `sec:gates' on page 12 undefined on input line 8.
+
+
+LaTeX Warning: Reference `sec:waves' on page 12 undefined on input line 10.
+
+
+LaTeX Warning: Reference `sec:success' on page 12 undefined on input line 11.
+
+
+LaTeX Warning: Reference `sec:robust_uncond' on page 12 undefined on input line
+ 27.
+
+[12]
+
+LaTeX Warning: Reference `sec:amend' on page 13 undefined on input line 37.
+
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 13 undefined on input line 52.
+
+
+LaTeX Warning: Reference `fig:forest' on page 13 undefined on input line 57.
+
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 13 undefined on input line 75.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:representation' on page 13 undefined on input lin
+e 129.
+
+
+LaTeX Warning: Reference `sec:waves' on page 13 undefined on input line 146.
+
+[13]
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 14 undefined on input line 156.
+
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:resolution' on page 15 undefined on input line 20
+3.
+
+
+LaTeX Warning: Reference `tab:resolution' on page 15 undefined on input line 21
+1.
+
+(../results/resolution_compare.tex)
+
+LaTeX Warning: Reference `fig:resolution' on page 15 undefined on input line 22
+5.
+
+[15]
+
+LaTeX Warning: Reference `tab:staged' on page 16 undefined on input line 282.
+
+
+LaTeX Warning: Reference `sec:reg_rates' on page 16 undefined on input line 303
+.
+
+) (sec4_waves.tex
+
+LaTeX Warning: Reference `sec:gate' on page 16 undefined on input line 4.
+
+[16]
+
+LaTeX Warning: Reference `fig:cohortslopes' on page 17 undefined on input line 
+16.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:eras' on page 17 undefined on input line 56.
+
+
+LaTeX Warning: Reference `sec:gate' on page 17 undefined on input line 97.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:techswing' on page 17 undefined on input line 105
+.
+
+(../results/gate_era_tech_classes.tex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:techswing' on page 17 undefined on input line 128
+.
+
+[17]
+
+LaTeX Warning: Reference `tab:techthemes' on page 18 undefined on input line 14
+3.
+
+(../results/gate_era_tech_themes.tex
+Underfull \hbox (badness 1137) in paragraph at lines 9--9
+[]\OT1/cmr/m/n/9 apparatus, sys-tems, de-vices, elec-
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+[]\OT1/cmr/m/n/9 All themes, within
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 18 undefined on input line 187.
+
+
+
+LaTeX Warning: Reference `tab:techswing' on page 18 undefined on input line 190
+.
+
+
+LaTeX Warning: Reference `fig:webscatter' on page 18 undefined on input line 20
+2.
+
+[18]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:gate_conclusion' on page 19 undefined on input li
+ne 237.
+
+[19]
+
+LaTeX Warning: Reference `sec:eras' on page 20 undefined on input line 252.
+
+
+LaTeX Warning: Reference `fig:cohortslopes' on page 20 undefined on input line 
+253.
+
+
+LaTeX Warning: Reference `fig:webslopes' on page 20 undefined on input line 254
+.
+
+
+LaTeX Warning: Reference `tab:techthemes' on page 20 undefined on input line 26
+1.
+
+
+LaTeX Warning: Reference `fig:cohortslopes' on page 20 undefined on input line 
+277.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:three_scorings' on page 20 undefined on input lin
+e 294.
+
+) (sec5_success.tex [20]
+
+LaTeX Warning: Reference `sec:discussion' on page 21 undefined on input line 23
+.
+
+
+LaTeX Warning: Reference `tab:ladder' on page 21 undefined on input line 28.
+
+
+Package natbib Warning: Citation `Block2014' on page 21 undefined on input line
+ 35.
+
+
+LaTeX Warning: Reference `sec:bluesea' on page 21 undefined on input line 41.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21]
+
+LaTeX Warning: Reference `fig:successcurves' on page 22 undefined on input line
+ 104.
+
+
+LaTeX Warning: Reference `tab:edgar' on page 22 undefined on input line 118.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:edgar' on page 22 undefined on input line 123.
+
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 22 undefined on input line 168.
+
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22]
+
+LaTeX Warning: Reference `tab:staged' on page 23 undefined on input line 189.
+
+
+LaTeX Warning: Reference `sec:three_scorings' on page 23 undefined on input lin
+e 193.
+
+
+LaTeX Warning: Reference `tab:edgar' on page 23 undefined on input line 202.
+
+
+LaTeX Warning: Reference `sec:robust' on page 23 undefined on input line 207.
+
+
+Package natbib Warning: Citation `PatentsView' on page 23 undefined on input li
+ne 214.
+
+[23]
+
+Package natbib Warning: Citation `Seip2018' on page 24 undefined on input line 
+249.
+
+) (rp_discussion.tex
+
+LaTeX Warning: Reference `tab:staged' on page 24 undefined on input line 3.
+
+[24] (../results/staged_outcomes_table.tex
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 25 undefined on input line 19.
+
+) [25]) (sec5_robustness.tex [26]
+
+LaTeX Warning: Reference `sec:eras' on page 27 undefined on input line 27.
+
+
+Overfull \hbox (93.06178pt too wide) in paragraph at lines 15--36
+ [] 
+
+LaTeX Warning: Reference `sec:eras' on page 27 undefined on input line 82.
+
+
+LaTeX Warning: Reference `fig:cohortslopes' on page 27 undefined on input line 
+83.
+
+) (rp_appendix_data.tex
+Underfull \hbox (badness 1681) in paragraph at lines 10--13
+[]\OT1/cmr/m/n/10 USPTO Trade-mark An-nual Ap-pli-ca-tions back-file (TR-
+
+LaTeX Warning: Reference `sec:three_scorings' on page 27 undefined on input lin
+e 16.
+
+[27]
+
+LaTeX Warning: Reference `fig:burnin' on page 28 undefined on input line 36.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (backmatter.tex
+
+LaTeX Warning: Reference `sec:measure' on page 28 undefined on input line 3.
+
+
+LaTeX Warning: Reference `sec:nomenclature' on page 28 undefined on input line 
+6.
+
+[28]) (bibliography_rp.tex [29]
+Underfull \hbox (badness 7203) in paragraph at lines 97--99
+[]\OT1/cmr/m/n/10.95 PatentsView. (2024). Patent and as-signee data, US Patent 
+and Trade-mark Of-fice.
+[30])
+
+Package natbib Warning: There were undefined citations.
+
+[31] [32 <../results/event_gate_forest.png>] [33 <../results/fig_resolution_com
+pare.png> <../results/fig_cohort_slopes.png>] [34 <../results/gate_era_profile.
+png> <../results/gate_era_tech_themes.png>] [35 <../results/fig_internet_scatte
+r.png>] [36 <../results/fig_cohort_slopes_internet.png> <../results/fig_success
+_ventiles.png>] [37 <../results/burnin.png>] (main.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information) <C:\Users\epsil\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\epsil\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\epsi
+l\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\User
+s\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0600.pk> <C
+:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.
+pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmbx9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/epsil/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/epsil/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/epsil/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/epsi
+l/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Us
+ers/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr6.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/epsil/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/epsil/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/User
+s/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb
+><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mti9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmtt10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmtt9.pfb>
+Output written on main.pdf (37 pages, 1706320 bytes).
+Transcript written on main.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.
