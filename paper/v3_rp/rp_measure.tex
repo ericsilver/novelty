@@ -43,7 +43,7 @@ inside that period; it has no momentum channel.
 \subsection{What is measured}
 
 The quantity is information content in Shannon's sense. Something that
-happens with probability $p$ carries $-\log p$ of information when it
+happens with probability $p$ carries $\log(1/p)$ of information when it
 happens: a common thing carries little, a rare thing a lot. Here the things
 are the themes a description draws on, and the probabilities are how often
 the filing's own industry drew on each of them in the reference window. A
@@ -64,16 +64,15 @@ across an industry over time. The arithmetic carries over unchanged. The
 interpretation does not: their document has one author and the reference
 stream is that author's own reading, so a high value says something about a
 mind; here a filing is scored against other firms' filings, and its author is
-usually counsel drafting for scope of protection.
-
-\paragraph{Themes, not topics.} The clusters the model fits are called
-\emph{themes} throughout. In the source literature and in the name of the
-method, latent Dirichlet allocation, the same objects are called topics, and
-a document's topic is what it is about. A goods/services description is not
-about anything in that sense; it lists components. A cluster of terms that
-co-occur across descriptions (\emph{video, music, games, electronic,
-audio}) is a component that many offerings share, not a subject. Theme is
-the word for that. Topic is used here only in the name of the model.
+usually counsel drafting for scope of protection. The same shift renames
+what the model finds. In those settings, and in the name of the method,
+latent Dirichlet allocation identifies \emph{topics} --- what a document
+is about. A goods/services description is not about anything in that
+sense; it lists components, and across millions of filers a cluster of
+terms that co-occur (\emph{video, music, games, electronic, audio}) is a
+component many offerings share --- a theme the entrants' offerings
+evidence, not a subject. \emph{Theme} is the word used throughout;
+\emph{topic} appears only in the model's name.
 
 \subsection{From a description to two numbers}\label{sec:definitions}
 
@@ -128,7 +127,7 @@ holds, and because its software-class lead contrast sits at the low end of
 the resolutions tried (only the 100-theme refit returns less).
 
 \paragraph{Comparing against the two references.} Write $P$ for the filing's
-distribution over themes, and $Q_{\mathrm{past}}$ and $Q_{\mathrm{future}}$
+distribution over themes, and $Q^{-}$ and $Q^{+}$
 for that distribution averaged over every same-class filing in the two
 windows, $[d_i - W,\, d_i)$ and $(d_i,\, d_i + W]$, with $W = 1{,}826$ days.
 How far $P$ sits from a reference $Q$ is the Kullback--Leibler divergence,
@@ -139,9 +138,9 @@ a sum over the 50 themes, zero when the two distributions agree and growing as
 the filing puts weight where the industry puts little. It is measured in nats,
 the natural-log unit. Write
 \[
-  K^{-} = \mathrm{KL}(P \,\|\, Q_{\mathrm{past}}),
+  K^{-} = \mathrm{KL}(P \,\|\, Q^{-}),
   \qquad
-  K^{+} = \mathrm{KL}(P \,\|\, Q_{\mathrm{future}}),
+  K^{+} = \mathrm{KL}(P \,\|\, Q^{+}),
 \]
 so $K^{-}$ is what the first reader feels and $K^{+}$ the second: the
 filing's past-facing and future-facing surprise.
