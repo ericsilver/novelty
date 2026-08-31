@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,30 +696,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (supp_extras.tex [5 <../results/fig_registration_sankey.png>] [6 <../results/
 refile_prepost.png>]
-<../results/internet_convergence.png, id=196, 895.6662pt x 323.7696pt>
+<../results/internet_convergence.png, id=195, 895.6662pt x 323.7696pt>
 File: ../results/internet_convergence.png Graphic file (type png)
 <use ../results/internet_convergence.png>
 Package pdftex.def Info: ../results/internet_convergence.png  used on input lin
-e 90.
+e 91.
 (pdftex.def)             Requested size: 469.75502pt x 169.80867pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(../results/internet_breakout.tex)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../results/fig_surges.png, id=198, 895.6662pt x 325.215pt>
+<../results/fig_surges.png, id=197, 895.6662pt x 325.215pt>
 File: ../results/fig_surges.png Graphic file (type png)
 <use ../results/fig_surges.png>
-Package pdftex.def Info: ../results/fig_surges.png  used on input line 129.
+Package pdftex.def Info: ../results/fig_surges.png  used on input line 120.
 (pdftex.def)             Requested size: 469.75502pt x 170.56674pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7]) (../v3/sec5_robustness.tex [8] [9] [10] [11]
-<../results/appendix_unconditional.png, id=235, 895.63179pt x 356.18785pt>
+<../results/appendix_unconditional.png, id=233, 895.63179pt x 356.18785pt>
 File: ../results/appendix_unconditional.png Graphic file (type png)
 <use ../results/appendix_unconditional.png>
 Package pdftex.def Info: ../results/appendix_unconditional.png  used on input l
@@ -730,7 +726,7 @@ ine 252.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12] [13]
-<../results/topic_outcomes_all.png, id=257, 895.63179pt x 356.70407pt>
+<../results/topic_outcomes_all.png, id=255, 895.63179pt x 356.70407pt>
 File: ../results/topic_outcomes_all.png Graphic file (type png)
 <use ../results/topic_outcomes_all.png>
 Package pdftex.def Info: ../results/topic_outcomes_all.png  used on input line 
@@ -740,7 +736,7 @@ Package pdftex.def Info: ../results/topic_outcomes_all.png  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/curve_shapes.png, id=259, 758.835pt x 736.79265pt>
+<../results/curve_shapes.png, id=257, 758.835pt x 736.79265pt>
 File: ../results/curve_shapes.png Graphic file (type png)
 <use ../results/curve_shapes.png>
 Package pdftex.def Info: ../results/curve_shapes.png  used on input line 450.
@@ -749,7 +745,7 @@ Package pdftex.def Info: ../results/curve_shapes.png  used on input line 450.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14]
-<../results/fig_L_decomposition.png, id=272, 967.9362pt x 351.714pt>
+<../results/fig_L_decomposition.png, id=270, 967.9362pt x 351.714pt>
 File: ../results/fig_L_decomposition.png Graphic file (type png)
 <use ../results/fig_L_decomposition.png>
 Package pdftex.def Info: ../results/fig_L_decomposition.png  used on input line
@@ -770,9 +766,9 @@ and Trade-mark Of-fice.
 Package natbib Warning: There were multiply defined citations.
 
 [18] [19] [20 <../results/representation_appendix.png>] [21 <../results/interne
-t_convergence.png>] [22] [23 <../results/fig_surges.png> <../results/appendix_u
-nconditional.png>] [24 <../results/topic_outcomes_all.png>] [25 <../results/cur
-ve_shapes.png>] [26 <../results/fig_L_decomposition.png>] (supp_main.aux)
+t_convergence.png>] [22 <../results/fig_surges.png> <../results/appendix_uncond
+itional.png>] [23 <../results/topic_outcomes_all.png>] [24 <../results/curve_sh
+apes.png>] [25 <../results/fig_L_decomposition.png>] (supp_main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -785,10 +781,10 @@ Package rerunfilecheck Info: File `supp_main.out' has not changed.
 (rerunfilecheck)             Checksum: E9C293291B58C80930F920A1C6D06C9F;7221.
  ) 
 Here is how much of TeX's memory you used:
- 13271 strings out of 467871
- 211174 string characters out of 5418376
- 691559 words of memory out of 5000000
- 41867 multiletter control sequences out of 15000+600000
+ 13266 strings out of 467871
+ 211029 string characters out of 5418376
+ 677100 words of memory out of 5000000
+ 41866 multiletter control sequences out of 15000+600000
  640133 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,11n,82p,1204b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -809,9 +805,9 @@ nts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on supp_main.pdf (26 pages, 2165367 bytes).
+Output written on supp_main.pdf (25 pages, 2162630 bytes).
 PDF statistics:
- 454 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
+ 448 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
  309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
