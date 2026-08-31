@@ -1,0 +1,20 @@
+SSRN revision form contents (abstract number 6954598 - revising keeps the number)
+
+TITLE
+Business Themes in the Trademark Record: Language Signals of Product Survival, Funding, and Listing
+
+ABSTRACT (the working paper's abstract, plain text)
+All 13.99 million USPTO trademark case files are re-parsed into event-dated prosecution histories, and every filing is scored on how surprising its goods/services language is against what its industry filed in the five years before and the five years after. The average of the two surprises is the filing's atypicality; their difference is its lead, positive for wording the industry then moved toward. Among 3.10 million registrations, the most leading fifth are cancelled at the five-year proof of continued use 1.4 points more often than the most lagging fifth, within Nice class and registration year with drafting and counsel held (t = 8.3). The penalty holds under fifty global themes, five hundred, and fifty themes fitted per class. It attaches to language new to the whole record: a theme established elsewhere and extended into a new Nice class carries no penalty - those extensions survive the gate slightly better than the class's own established themes, and they are most of what a global model scores as atypical. The penalty was two to three times larger for marks filed in the late 1990s, reversed for 2000-2004 filings, and returned from 2008, with the swing inside four technology classes. Among one million owners debuting 2009-2018, the debut's language does not predict a priced round; SEC reporting and listing fall in lead. The firms holding most linked revenue described their first product in language their industry already used. Applicants who refile an abandoned mark rewrite toward the class's typical description, so every registered description is in part a conformed one. Code, panels, and the corpus build are public at https://github.com/ericsilver/tm-vocabulary.
+
+KEYWORDS
+trademarks; text analysis; topic models; innovation indicators; firm survival; optimal distinctiveness
+
+JEL CODES
+O31, O34, M13, C81
+
+FILE TO UPLOAD
+paper/ssrn_business_themes_2026-08-31.pdf (the boxed-review apparatus is stripped; built from paper/v3/main.tex)
+
+NOTES
+- Keep the same abstract number (submit as a revision, not a new paper).
+- The old posted version (ssrn_diffusion_paper) is superseded; the revision replaces it.

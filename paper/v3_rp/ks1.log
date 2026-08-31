@@ -1,0 +1,287 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(supp_main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(preamble.tex
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+ (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty)))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty))
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/tools\xr.sty)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def) (supp_main.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg)) (supp_main.out) (supp_main.out)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(../v3/appendices.tex [1{C:/Users/epsil/AppData/Local/MiKTeX/fonts/map/pdftex/p
+dftex.map}]
+
+LaTeX Warning: Reference `tab:staged' on page 2 undefined on input line 83.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 2 undefined on input line 114.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <../results/burnin.png>]
+
+LaTeX Warning: Reference `sec:internet' on page 3 undefined on input line 146.
+
+(../results/internet_breakout.tex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:amend' on page 3 undefined on input line 154.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <../results/debut_outcome_topic.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <../results/quintile_profiles.png>]
+Overfull \hbox (1.8535pt too wide) in paragraph at lines 251--257
+[]\OT1/cmr/m/sc/10.95 Ethereum \OT1/cmr/m/n/10.95 (2018, soft-ware) is \OT1/cmr
+/m/it/10.95 wave \OT1/cmr/m/n/10.95 nov-elty: emer-gent vo-cab-u-lary al-ready 
+dif-fus-ing (\OT1/cmr/m/it/10.95 blockchains\OT1/cmr/m/n/10.95 ,
+
+Underfull \hbox (badness 1448) in paragraph at lines 268--268
+[]\OT1/cmr/m/n/10 line search, search
+
+Underfull \hbox (badness 3407) in paragraph at lines 268--268
+[]\OT1/cmr/m/n/10 kombucha, sac-cha-
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+[]\OT1/cmr/m/n/10 blockchains, dis-
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--269
+[]\OT1/cmr/m/n/10 video, com-puter,
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--269
+[]\OT1/cmr/m/n/10 beverages, fruit,
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+[]\OT1/cmr/m/n/10 software, on-line,
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--270
+[]\OT1/cmr/m/n/10 entertainment,
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--270
+[]\OT1/cmr/m/n/10 beverages, drinks,
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--271
+[]\OT1/cmr/m/n/10 beverages, drinks,
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
+[]\OT1/cmr/m/n/10 software, on-line,
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (supp_extras.tex [5 <../results/fig_registration_sankey.png>] [6 <../results/
+refile_prepost.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7]) (../v3/sec5_robustness.tex
+
+LaTeX Warning: Reference `sec:construct' on page 8 undefined on input line 17.
+
+[8]
+
+LaTeX Warning: Reference `sec:construct' on page 9 undefined on input line 56.
+
+[9] [10]
+
+LaTeX Warning: Reference `tab:gate_lpm' on page 11 undefined on input line 218.
+
+
+[11]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `sec:registration' on page 12 undefined on input line 
+265.
+
+
+LaTeX Warning: Reference `sec:success' on page 12 undefined on input line 265.
+
+
+LaTeX Warning: Reference `sec:eras' on page 12 undefined on input line 295.
+
+
+LaTeX Warning: Reference `sec:eras' on page 12 undefined on input line 308.
+
+
+LaTeX Warning: Reference `fig:cohortslopes' on page 12 undefined on input line 
+321.
+
+[12]
+
+LaTeX Warning: Reference `sec:construct' on page 13 undefined on input line 333
+.
+
+
+LaTeX Warning: Reference `sec:bluesea' on page 13 undefined on input line 373.
+
+[13]
+
+LaTeX Warning: Reference `sec:registration' on page 14 undefined on input line 
+387.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14]
+
+LaTeX Warning: Reference `sec:bluesea' on page 15 undefined on input line 492.
+
+
+LaTeX Warning: Reference `tab:edgar' on page 15 undefined on input line 493.
+
+
+LaTeX Warning: Reference `tab:edgar' on page 15 undefined on input line 512.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15]
+
+LaTeX Warning: Reference `sec:gate' on page 16 undefined on input line 579.
+
+
+LaTeX Warning: Reference `sec:waves' on page 16 undefined on input line 579.
+
+
+LaTeX Warning: Reference `sec:construct' on page 16 undefined on input line 591
+.
+
+) (bibliography_rp.tex [16]
+Underfull \hbox (badness 7203) in paragraph at lines 97--99
+[]\OT1/cmr/m/n/10.95 PatentsView. (2024). Patent and as-signee data, US Patent 
+and Trade-mark Of-fice.
+[17]) [18] [19] [20 <../results/representation_appendix.png>] [21 <../results/i
+nternet_convergence.png>] [22 <../results/fig_surges.png> <../results/appendix_
+unconditional.png>] [23 <../results/topic_outcomes_all.png>] [24 <../results/cu
+rve_shapes.png>] [25 <../results/fig_L_decomposition.png>] (supp_main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{figure.caption.15} has been referenced but does not
+ exist, replaced by a fixed one
+
+ <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
+95.pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/epsil/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/epsil/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/epsil/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ep
+sil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/U
+sers/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on supp_main.pdf (25 pages, 2169135 bytes).
+Transcript written on supp_main.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.
