@@ -155,13 +155,14 @@ def main() -> int:
             ax.annotate(label, (r["topic_kl_vs_past"], r["topic_kl_vs_future"]),
                         xytext=(ox, oy), textcoords="offset points", fontsize=8,
                         arrowprops=dict(arrowstyle="-", lw=0.8, color="#111"))
-        span = hi - lo
-        ax.text(lo + 0.72 * span, lo + 0.06 * span, "leading\n($K^-$ high, $K^+$ low)",
-                fontsize=8, color="#333", ha="center")
-        ax.text(lo + 0.10 * span, lo + 0.80 * span, "lagging\n($K^+$ high, $K^-$ low)",
-                fontsize=8, color="#333", ha="center")
-        ax.text(lo + 0.02 * span, lo + 0.10 * span, "typical", fontsize=8, color="#333")
-        ax.text(lo + 0.87 * span, lo + 0.95 * span, "atypical", fontsize=8, color="#333")
+        ax.text(0.98, 0.02, "leading\n($K^-$ high, $K^+$ low)", fontsize=8,
+                color="#333", ha="right", va="bottom", transform=ax.transAxes)
+        ax.text(0.02, 0.98, "lagging\n($K^+$ high, $K^-$ low)", fontsize=8,
+                color="#333", ha="left", va="top", transform=ax.transAxes)
+        ax.text(0.02, 0.02, "typical", fontsize=8, color="#333",
+                ha="left", va="bottom", transform=ax.transAxes)
+        ax.text(0.98, 0.98, "atypical", fontsize=8, color="#333",
+                ha="right", va="top", transform=ax.transAxes)
         ax.set_xlabel("past-facing surprise $K^-$ (nats)")
         ax.set_ylabel("future-facing surprise $K^+$ (nats)")
         ax.set_title({"009": "Software & Electronics (009)", "035": "Advertising & Retail (035)"}[c], fontsize=10)
