@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,13 +785,13 @@ Package rerunfilecheck Info: File `supp_main.out' has not changed.
 (rerunfilecheck)             Checksum: E9C293291B58C80930F920A1C6D06C9F;7221.
  ) 
 Here is how much of TeX's memory you used:
- 13272 strings out of 467871
- 211190 string characters out of 5418376
- 691598 words of memory out of 5000000
- 41868 multiletter control sequences out of 15000+600000
+ 13271 strings out of 467871
+ 211174 string characters out of 5418376
+ 691559 words of memory out of 5000000
+ 41867 multiletter control sequences out of 15000+600000
  640133 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,11n,82p,1205b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,11n,82p,1204b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1095.pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -809,7 +809,7 @@ nts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on supp_main.pdf (26 pages, 2165338 bytes).
+Output written on supp_main.pdf (26 pages, 2165367 bytes).
 PDF statistics:
  454 PDF objects out of 1000 (max. 8388607)
  105 named destinations out of 1000 (max. 500000)

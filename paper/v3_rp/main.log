@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 10:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,26 +481,36 @@ egie Mel-lon Uni-ver-sity. Com-ments to
 
 {C:/Users/epsil/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (rp_related
 .tex [2]
-Underfull \hbox (badness 3118) in paragraph at lines 72--72
+Underfull \hbox (badness 3118) in paragraph at lines 75--75
 []\OT1/cmr/m/n/10 resonance ([]Bar-ron et al.[], []2018[]),
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [3]) (rp_measure.tex [4] [5] [6] [7] [8] [9]) (sec2_registration.tex
-<../results/fig_registration_deciles.png, id=368, 823.3962pt x 309.3156pt>
+<../results/fig_registration_deciles.png, id=363, 823.3962pt x 309.3156pt>
 File: ../results/fig_registration_deciles.png Graphic file (type png)
 <use ../results/fig_registration_deciles.png>
 Package pdftex.def Info: ../results/fig_registration_deciles.png  used on input
  line 24.
 (pdftex.def)             Requested size: 469.75502pt x 176.46747pt.
- [10 <../results/fig_registration_deciles.png>]
-<../results/fig_registration_plane.png, id=377, 764.6166pt x 360.8682pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../results/fig_registration_plane.png, id=366, 764.6166pt x 360.8682pt>
 File: ../results/fig_registration_plane.png Graphic file (type png)
 <use ../results/fig_registration_plane.png>
 Package pdftex.def Info: ../results/fig_registration_plane.png  used on input l
 ine 53.
 (pdftex.def)             Requested size: 469.75502pt x 221.70961pt.
- [11 <../results/fig_registration_plane.png>]) (sec3_gate.tex [12] [13]
-<../results/event_gate_forest.png, id=421, 641.65436pt x 1006.61786pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11 <../results/fig_registration_deciles.png>]) (sec3_gate.tex [12 <../res
+ults/fig_registration_plane.png>] [13] [14]
+<../results/event_gate_forest.png, id=425, 641.65436pt x 1006.61786pt>
 File: ../results/event_gate_forest.png Graphic file (type png)
 <use ../results/event_gate_forest.png>
 Package pdftex.def Info: ../results/event_gate_forest.png  used on input line 1
@@ -510,19 +520,17 @@ Package pdftex.def Info: ../results/event_gate_forest.png  used on input line 1
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
-<../results/fig_resolution_compare.png, id=432, 787.2612pt x 309.3156pt>
+<../results/fig_resolution_compare.png, id=427, 787.2612pt x 309.3156pt>
 File: ../results/fig_resolution_compare.png Graphic file (type png)
 <use ../results/fig_resolution_compare.png>
 Package pdftex.def Info: ../results/fig_resolution_compare.png  used on input l
 ine 191.
 (pdftex.def)             Requested size: 469.75502pt x 184.56659pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 (../results/resolution_compare.tex) [15]) (sec4_waves.tex [16]
-<../results/fig_cohort_slopes.png, id=453, 895.6662pt x 323.7696pt>
+<../results/fig_cohort_slopes.png, id=448, 895.6662pt x 323.7696pt>
 File: ../results/fig_cohort_slopes.png Graphic file (type png)
 <use ../results/fig_cohort_slopes.png>
 Package pdftex.def Info: ../results/fig_cohort_slopes.png  used on input line 3
@@ -532,17 +540,18 @@ Package pdftex.def Info: ../results/fig_cohort_slopes.png  used on input line 3
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/gate_era_profile.png, id=455, 650.43pt x 332.08064pt>
+[17]
+<../results/gate_era_profile.png, id=456, 650.43pt x 332.08064pt>
 File: ../results/gate_era_profile.png Graphic file (type png)
 <use ../results/gate_era_profile.png>
 Package pdftex.def Info: ../results/gate_era_profile.png  used on input line 87
 .
 (pdftex.def)             Requested size: 403.9896pt x 206.26283pt.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(../results/gate_era_tech_classes.tex) [17]
-(../results/gate_era_tech_themes.tex
+(../results/gate_era_tech_classes.tex) (../results/gate_era_tech_themes.tex
 Underfull \hbox (badness 1137) in paragraph at lines 9--9
 []\OT1/cmr/m/n/9 apparatus, sys-tems, de-vices, elec-
  []
@@ -552,32 +561,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--16
 []\OT1/cmr/m/n/9 All themes, within
  []
 
-)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../results/gate_era_tech_themes.png, id=466, 650.43pt x 346.896pt>
+) [18]
+<../results/gate_era_tech_themes.png, id=468, 650.43pt x 346.896pt>
 File: ../results/gate_era_tech_themes.png Graphic file (type png)
 <use ../results/gate_era_tech_themes.png>
 Package pdftex.def Info: ../results/gate_era_tech_themes.png  used on input lin
 e 169.
 (pdftex.def)             Requested size: 432.17375pt x 230.49767pt.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[18]
-<../results/fig_internet_scatter.png, id=477, 538.6524pt x 439.8834pt>
+<../results/fig_internet_scatter.png, id=472, 538.6524pt x 439.8834pt>
 File: ../results/fig_internet_scatter.png Graphic file (type png)
 <use ../results/fig_internet_scatter.png>
 Package pdftex.def Info: ../results/fig_internet_scatter.png  used on input lin
 e 208.
 (pdftex.def)             Requested size: 375.80544pt x 306.90947pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19]
-<../results/fig_cohort_slopes_internet.png, id=489, 895.1844pt x 323.7696pt>
+<../results/fig_cohort_slopes_internet.png, id=484, 895.1844pt x 323.7696pt>
 File: ../results/fig_cohort_slopes_internet.png Graphic file (type png)
 <use ../results/fig_cohort_slopes_internet.png>
 Package pdftex.def Info: ../results/fig_cohort_slopes_internet.png  used on inp
@@ -587,12 +592,8 @@ ut line 270.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (sec5_success.tex [20]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[21]
-<../results/fig_success_ventiles.png, id=510, 967.9362pt x 294.3798pt>
+[20]) (sec5_success.tex [21]
+<../results/fig_success_ventiles.png, id=505, 967.9362pt x 294.3798pt>
 File: ../results/fig_success_ventiles.png Graphic file (type png)
 <use ../results/fig_success_ventiles.png>
 Package pdftex.def Info: ../results/fig_success_ventiles.png  used on input lin
@@ -602,18 +603,20 @@ e 110.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22] [23]) (rp_discussion.tex [24] (../results/staged_outcomes_table.tex)
-[25]) (sec5_robustness.tex [26]
-Overfull \hbox (93.06178pt too wide) in paragraph at lines 15--36
- [] 
+[22] [23]) (rp_discussion.tex [24] (../results/staged_outcomes_table.tex
+Overfull \hbox (10.83426pt too wide) in paragraph at lines 4--19
+ [][] 
  []
 
-[27]) (rp_appendix_data.tex
+) [25] [26]) (sec5_robustness.tex [27]) (rp_appendix_data.tex
 Underfull \hbox (badness 1681) in paragraph at lines 10--13
 []\OT1/cmr/m/n/10 USPTO Trade-mark An-nual Ap-pli-ca-tions back-file (TR-
  []
 
-<../results/burnin.png, id=557, 567.5604pt x 280.8894pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../results/burnin.png, id=551, 567.5604pt x 280.8894pt>
 File: ../results/burnin.png Graphic file (type png)
 <use ../results/burnin.png>
 Package pdftex.def Info: ../results/burnin.png  used on input line 39.
@@ -640,16 +643,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D6F8DCAB98808D2A422E9A5AAE193C0D;10922.
  ) 
 Here is how much of TeX's memory you used:
- 13348 strings out of 467871
- 213348 string characters out of 5418376
- 653912 words of memory out of 5000000
- 41868 multiletter control sequences out of 15000+600000
+ 13345 strings out of 467871
+ 213305 string characters out of 5418376
+ 653683 words of memory out of 5000000
+ 41867 multiletter control sequences out of 15000+600000
  642956 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,13n,82p,1176b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,13n,82p,1175b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm0900.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+0900.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 /dpi600\tcrm1095.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\tcrm0600.pk> <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour
 /jknappen/ec/dpi600\tcrm0800.pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/f
@@ -676,9 +679,9 @@ msfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmti9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/epsil/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (37 pages, 1748969 bytes).
+Output written on main.pdf (37 pages, 1746932 bytes).
 PDF statistics:
- 766 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
+ 760 PDF objects out of 1000 (max. 8388607)
+ 147 named destinations out of 1000 (max. 500000)
  376 words of extra memory for PDF output out of 10000 (max. 10000000)
 
