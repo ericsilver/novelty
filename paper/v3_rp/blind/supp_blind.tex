@@ -1,0 +1,36 @@
+% Anonymized supplementary material. Build AFTER main_blind so xr can read
+% its aux:  cd paper/v3_rp/blind && pdflatex supp_blind (x2).
+\input{../preamble}
+\graphicspath{{../../}}
+\makeatletter\def\input@path{{./}{../}{../../}}\makeatother
+\usepackage{xr}
+\externaldocument{main_blind}
+\renewcommand{\thesection}{S\arabic{section}}
+\setcounter{secnumdepth}{2}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\title{\bfseries Supplementary material for\\
+\large Business Themes in the Trademark Record}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent Section, table, and figure numbers without an S prefix refer to
+the main text. Sections S1--S5 carry the corpus and measurement
+appendices; S6 the material demoted from the main text's results
+sections; S7 the full robustness treatment, of which the main text's
+robustness section is the summary. The interactive per-class appendix,
+including a viewer of every class's registrations on the
+lead/atypicality plane, is publicly hosted; the link is withheld for
+anonymized review and available from the editors.
+
+\input{../../v3/appendices}
+\input{../supp_extras}
+% The full robustness treatment follows as its own section.
+\input{../../v3/sec5_robustness}
+
+\input{../bibliography_rp}
+\end{document}
