@@ -1,71 +1,72 @@
 \section{Introduction}\label{sec:intro}
 
-The pioneers are the ones with arrows in their backs. The claim has been
-tested on named markets and naming choices
-\citep{GolderTellis1993, SemadeniAnderson2010}, but not on a record where
-being early can be read directly from what every entrant wrote, because
-that record did not exist in usable form. It does now. Every US trademark
-application since 1884 is public, with its goods/services description,
-its owner, its counsel of record, and a dated prosecution history that
-records whether the mark registered, whether its owner proved five years
-later that the product was still in commerce, and whether it was renewed
-at ten. This paper re-parses all 13.99 million case files into that dated
-form and asks of each filing two questions about its language: how
-unusual was this description for its industry, and was it written in
-words the industry was moving toward or words it was leaving behind. The
-first is the filing's \emph{atypicality}, the second its \emph{lead}. The
-paper then follows the filing, and the firm behind it, through the gates
-the record provides.
+The literature that reads trademarks as innovation data counts them:
+filings, classes, breadth, renewals. The only part of a filing it uses to
+place a firm in an industry is the Nice class code. The goods/services
+description itself --- a forced, dated disclosure of what the firm
+expected to sell, written also by the millions of firms that never patent
+--- has gone essentially unread against time, and where text has entered
+the literature it has entered piecemeal: as breadth counts, as similarity
+scores, as vocabularies hand-curated for single studies. There is more in
+the text than the class. This paper reads it systematically, and measures
+two things the class code cannot carry: how unusual a description is for
+its industry, the filing's \emph{atypicality}, and whether its wording ran
+ahead of or behind where the industry's wording was moving, its
+\emph{lead}.
 
-Section~\ref{sec:related} places the exercise: in the trademarks-as-data
-literature, which counts filings but has not read their text against
-time; in the text-measurement literature the construction descends from;
-and in the pioneering and optimal-distinctiveness literatures whose
-question it answers at census scale --- including the nomenclature, since
-several established terms assert mechanisms this design cannot show.
-Section~\ref{sec:measure} builds the measure: a description is reduced to
-the themes it draws on, fitted once over the corpus by a topic model; its
-theme proportions are compared, by Kullback--Leibler divergence, to the
-average proportions of its own Nice class in the five years before its
-filing date and the five years after. The average of the two divergences
-is atypicality; their difference is lead, written $L$. The section states
-why words are not scored directly, why surprise is measured within a
-class and never across classes, and the record's gates and counting
-conventions.
+The construction and its validation are the paper's first contribution.
+All 13.99 million USPTO case files since 1884 are re-parsed into
+event-dated prosecution histories; each description is reduced to themes
+by a topic model fitted once over the corpus, and its theme mix is
+compared, by Kullback--Leibler divergence, to its own class in the five
+years before and after its filing date. The validation program varies
+everything a critic would vary --- three partitions of the vocabulary,
+two reference weightings, five window constructions, the text-duplication
+that pervades a boilerplate-heavy corpus --- on identical filings. Lead
+survives all of it. Atypicality does not: its apparent effects can belong
+to the partition (a global model reads a theme imported from another
+class as atypical) or to a control, and the paper documents two hazards
+that any trademark-text measure inherits --- word-level scoring measures
+description length and drafting style, and pooling granted with abandoned
+filings mixes the examiner's selection with the market's.
 
-Sections~\ref{sec:registration}--\ref{sec:success} carry the results.
-Registration rises with atypicality and turns down only in the most
-atypical decile, is nearly flat in lead --- a quantity no examiner could
-observe, since it is computed from filings not yet made --- and
-applicants who refile an abandoned application rewrite toward the class's
-typical description, so every registered description is in part a
-conformed one (Section~\ref{sec:registration}). The central result is the
-five-year proof of continued use: among 3.10 million registrations, marks
-whose language most led their industry were cancelled $1.4$ points more
-often than marks whose language most lagged it, within Nice class and
-registration year with drafting and counsel held --- $2.3$ points raw, in
-33 of 44 classes, robust to the timing of failure, to who files, to
-atypicality strata, to text-duplication, and to three partitions of the
-vocabulary; atypical marks survive the proof more often, but that
-protection belongs mostly to filings extending a theme established
-elsewhere into a new class (Section~\ref{sec:gate}). The penalty is
-episodic where language moved fastest: two to three times larger for
-marks filed in the late 1990s, reversed for 2000--2004 filings, and
-returned from 2008, with the swing inside four technology classes and,
-within them, in which themes each era's leading filings were drawn from
-(Section~\ref{sec:waves}). Following the owner instead of the mark, the
-debut's language does not predict a priced private round; SEC reporting
-and listing fall in lead; and the firms that came to hold most of the
-linked value described their first product in language their industry
-already used (Section~\ref{sec:success}).
+A measure is worth the outcomes it can be tested against, and the record
+supplies dated, high-stakes ones: registration, the sworn five-year proof
+of continued use whose failure means the product left commerce, the
+year-ten renewal, and the owner's appearance in SEC filings. These let
+the validated measure answer an old question --- whether pioneers are the
+ones with arrows in their backs --- on a record where being early is read
+directly from what every entrant wrote, not from the survivor-prone
+samples of named markets \citep{GolderTellis1993, SemadeniAnderson2010}.
+The answer is that the arrows are real. Among 3.10 million registrations,
+marks whose language most led their industry were cancelled at the
+five-year proof $1.4$ points more often than marks whose language most
+lagged it, within Nice class and registration year with drafting and
+counsel held --- $2.3$ points raw, in 33 of 44 classes
+(Section~\ref{sec:gate}). The penalty is episodic where language moved
+fastest: two to three times larger for marks filed in the late 1990s,
+reversed for 2000--2004 filings, and returned from 2008, with the swing
+inside four technology classes (Section~\ref{sec:waves}). Following the
+owner instead of the mark, neither axis of the debut's language predicts
+a subsequent priced private round; SEC reporting and listing decline in
+lead; and the highest-revenue firms the record can trace to SEC filings
+debuted in language their industries already used
+(Section~\ref{sec:success}).
 
-Section~\ref{sec:discussion} reads the stages together on one harmonized
-sample and states the implications for trademark-based measurement.
-Section~\ref{sec:robust} reports what changes under other choices of
-resolution, weighting, window, and period; one choice, the decayed
-reference window, shifts the headline estimate, by about a seventh. The
-full working-paper treatment, an interactive per-class appendix, and
-every artifact behind every number are public.
+The paper proceeds from measurement to application.
+Section~\ref{sec:related} places the exercise and settles its
+nomenclature against the terms the innovation literature already uses.
+Section~\ref{sec:measure} builds the measure and states the record's
+gates and conventions. Section~\ref{sec:registration} treats
+registration --- where atypicality is rewarded up to a point and lead,
+computed from filings not yet made, could not be observed by anyone.
+Sections~\ref{sec:gate} and~\ref{sec:waves} carry the five-year proof and
+its movement across industries and eras; Section~\ref{sec:success} the
+firm outcomes. Section~\ref{sec:discussion} reads the stages together and
+states the implications for trademark-based measurement;
+Section~\ref{sec:robust} summarizes the validation program, with the full
+treatment in the supplementary material. The event-dated corpus, every
+artifact, and interactive per-class exploration tools are public.
 
 Being early with the language of a product costs at the five-year proof
 of continued use, in three of every four product classes and under every
