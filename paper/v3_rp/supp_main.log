@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  31 AUG 2026 13:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -577,12 +577,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (../v3/appendices.tex [1
 
 {C:/Users/epsil/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<../results/burnin.png, id=144, 567.5604pt x 280.8894pt>
+<../results/burnin.png, id=148, 567.5604pt x 280.8894pt>
 File: ../results/burnin.png Graphic file (type png)
 <use ../results/burnin.png>
 Package pdftex.def Info: ../results/burnin.png  used on input line 57.
 (pdftex.def)             Requested size: 399.29463pt x 197.61987pt.
-<../results/debut_outcome_topic.png, id=149, 931.8012pt x 427.3566pt>
+<../results/debut_outcome_topic.png, id=153, 931.8012pt x 427.3566pt>
 File: ../results/debut_outcome_topic.png Graphic file (type png)
 <use ../results/debut_outcome_topic.png>
 Package pdftex.def Info: ../results/debut_outcome_topic.png  used on input line
@@ -592,7 +592,7 @@ Package pdftex.def Info: ../results/debut_outcome_topic.png  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/quintile_profiles.png, id=150, 945.7734pt x 299.6796pt>
+<../results/quintile_profiles.png, id=154, 945.7734pt x 299.6796pt>
 File: ../results/quintile_profiles.png Graphic file (type png)
 <use ../results/quintile_profiles.png>
 Package pdftex.def Info: ../results/quintile_profiles.png  used on input line 9
@@ -601,7 +601,7 @@ Package pdftex.def Info: ../results/quintile_profiles.png  used on input line 9
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/fig_registration_sankey.png, id=152, 606.5862pt x 383.031pt>
+<../results/fig_registration_sankey.png, id=156, 606.5862pt x 383.031pt>
 File: ../results/fig_registration_sankey.png Graphic file (type png)
 <use ../results/fig_registration_sankey.png>
 Package pdftex.def Info: ../results/fig_registration_sankey.png  used on input 
@@ -614,7 +614,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/refile_prepost.png, id=163, 787.743pt x 293.59688pt>
+<../results/refile_prepost.png, id=167, 787.743pt x 293.59688pt>
 File: ../results/refile_prepost.png Graphic file (type png)
 <use ../results/refile_prepost.png>
 Package pdftex.def Info: ../results/refile_prepost.png  used on input line 163.
@@ -624,7 +624,7 @@ Package pdftex.def Info: ../results/refile_prepost.png  used on input line 163.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3 <../results/debut_outcome_topic.png>]
-<../results/representation_appendix.png, id=171, 838.332pt x 794.97pt>
+<../results/representation_appendix.png, id=175, 838.332pt x 794.97pt>
 File: ../results/representation_appendix.png Graphic file (type png)
 <use ../results/representation_appendix.png>
 Package pdftex.def Info: ../results/representation_appendix.png  used on input 
@@ -696,7 +696,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (supp_extras.tex [5 <../results/fig_registration_sankey.png>] [6 <../results/
 refile_prepost.png>]
-<../results/internet_convergence.png, id=195, 895.6662pt x 323.7696pt>
+<../results/internet_convergence.png, id=199, 895.6662pt x 323.7696pt>
 File: ../results/internet_convergence.png Graphic file (type png)
 <use ../results/internet_convergence.png>
 Package pdftex.def Info: ../results/internet_convergence.png  used on input lin
@@ -706,7 +706,7 @@ e 91.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/fig_surges.png, id=197, 895.6662pt x 325.215pt>
+<../results/fig_surges.png, id=201, 895.6662pt x 325.215pt>
 File: ../results/fig_surges.png Graphic file (type png)
 <use ../results/fig_surges.png>
 Package pdftex.def Info: ../results/fig_surges.png  used on input line 120.
@@ -714,8 +714,12 @@ Package pdftex.def Info: ../results/fig_surges.png  used on input line 120.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7]) (../v3/sec5_robustness.tex [8] [9] [10] [11]
-<../results/appendix_unconditional.png, id=233, 895.63179pt x 356.18785pt>
+[7] (../results/pair_lead_corpus.tex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (../v3/sec5_robustness.tex [8] [9] [10] [11]
+<../results/appendix_unconditional.png, id=239, 895.63179pt x 356.18785pt>
 File: ../results/appendix_unconditional.png Graphic file (type png)
 <use ../results/appendix_unconditional.png>
 Package pdftex.def Info: ../results/appendix_unconditional.png  used on input l
@@ -726,49 +730,51 @@ ine 252.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12] [13]
-<../results/topic_outcomes_all.png, id=255, 895.63179pt x 356.70407pt>
+<../results/topic_outcomes_all.png, id=261, 895.63179pt x 356.70407pt>
 File: ../results/topic_outcomes_all.png Graphic file (type png)
 <use ../results/topic_outcomes_all.png>
 Package pdftex.def Info: ../results/topic_outcomes_all.png  used on input line 
-376.
+378.
 (pdftex.def)             Requested size: 469.75502pt x 187.08737pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/curve_shapes.png, id=257, 758.835pt x 736.79265pt>
+[14]
+<../results/curve_shapes.png, id=267, 758.835pt x 736.79265pt>
 File: ../results/curve_shapes.png Graphic file (type png)
 <use ../results/curve_shapes.png>
-Package pdftex.def Info: ../results/curve_shapes.png  used on input line 450.
+Package pdftex.def Info: ../results/curve_shapes.png  used on input line 452.
 (pdftex.def)             Requested size: 469.75502pt x 456.12093pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
-<../results/fig_L_decomposition.png, id=270, 967.9362pt x 351.714pt>
+[15]
+<../results/fig_L_decomposition.png, id=281, 967.9362pt x 351.714pt>
 File: ../results/fig_L_decomposition.png Graphic file (type png)
 <use ../results/fig_L_decomposition.png>
 Package pdftex.def Info: ../results/fig_L_decomposition.png  used on input line
- 532.
+ 534.
 (pdftex.def)             Requested size: 469.75502pt x 170.69379pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15]) (bibliography_rp.tex [16]
+[16]) (bibliography_rp.tex [17]
 Underfull \hbox (badness 7203) in paragraph at lines 97--99
 []\OT1/cmr/m/n/10.95 PatentsView. (2024). Patent and as-signee data, US Patent 
 and Trade-mark Of-fice.
  []
 
-[17])
+[18])
 
 Package natbib Warning: There were multiply defined citations.
 
-[18] [19] [20 <../results/representation_appendix.png>] [21 <../results/interne
-t_convergence.png>] [22 <../results/fig_surges.png> <../results/appendix_uncond
-itional.png>] [23 <../results/topic_outcomes_all.png>] [24 <../results/curve_sh
-apes.png>] [25 <../results/fig_L_decomposition.png>] (supp_main.aux)
+[19] [20] [21 <../results/representation_appendix.png>] [22 <../results/interne
+t_convergence.png>] [23 <../results/fig_surges.png> <../results/appendix_uncond
+itional.png>] [24] [25 <../results/topic_outcomes_all.png>] [26 <../results/cur
+ve_shapes.png>] [27 <../results/fig_L_decomposition.png>] (supp_main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -778,36 +784,38 @@ L3 programming layer <2025-12-24>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `supp_main.out' has not changed.
-(rerunfilecheck)             Checksum: E9C293291B58C80930F920A1C6D06C9F;7221.
+(rerunfilecheck)             Checksum: 809015CDD6691FF75AEF09A15585599C;7390.
  ) 
 Here is how much of TeX's memory you used:
- 13266 strings out of 467871
- 211029 string characters out of 5418376
- 677100 words of memory out of 5000000
- 41866 multiletter control sequences out of 15000+600000
+ 13279 strings out of 467871
+ 211383 string characters out of 5418376
+ 689315 words of memory out of 5000000
+ 41872 multiletter control sequences out of 15000+600000
  640133 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,11n,82p,1204b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 80i,11n,82p,1204b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1095.pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmcsc10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/epsil/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/epsil/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/epsil/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ep
-sil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/U
-sers/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
-b><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on supp_main.pdf (25 pages, 2162630 bytes).
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/epsil/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/epsil/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/e
+psil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
+Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/epsil/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on supp_main.pdf (27 pages, 2185046 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 472 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 
