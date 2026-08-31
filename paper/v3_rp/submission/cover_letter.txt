@@ -1,0 +1,12 @@
+Dear Editors,
+
+Please consider the enclosed manuscript, "Business Themes in the Trademark Record: Language Signals of Product Survival, Funding, and Listing," for publication in Research Policy.
+
+The paper builds a filing-level text indicator on the complete USPTO trademark record - 13.99 million case files re-parsed into event-dated prosecution histories - separating how unusual a goods/services description is for its industry from whether its wording ran ahead of or behind the industry's own movement. It validates the indicator against the record's outcomes, principally the five-year proof of continued use, and documents two measurement hazards for trademark-text research: word-level scoring measures description length and drafting style, and pooling granted with abandoned filings mixes the examiner's selection with the market's. The full pipeline, corpus build, and an interactive per-class appendix are public at github.com/ericsilver/tm-vocabulary.
+
+The manuscript is not under consideration elsewhere. A working-paper version has circulated [SSRN reference - Eric to confirm whether to cite the existing SSRN posting or update it first]. I thank Carolina Castaldi for comments on an early draft; she should be considered conflicted as a reviewer. I have no competing interests and received no funding for this work.
+
+Sincerely,
+Eric Silver
+Independent researcher
+epsilver@gmail.com

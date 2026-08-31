@@ -1,0 +1,24 @@
+Suggested reviewers (Editorial Manager usually asks for 3-5; verify
+current affiliations before entering - drafted 2026-08-31 from the
+paper's own reference list, excluding conflicted parties)
+
+CONFLICTED, do not suggest: Carolina Castaldi (Utrecht) - commented on
+drafts, corresponded on nomenclature, acknowledged in the paper.
+
+Candidates:
+1. Meindert Flikkema (VU Amsterdam) - trademarks-and-innovation agenda;
+   the paper extends his line and cites two of his articles.
+2. Joern Block (Trier) - trademark signals and venture finance; the
+   funding-rung results speak to Block et al. (2014); co-author of the
+   Willeke et al. (2026) review the nomenclature cites.
+3. Gerard Hoberg (USC) or Gordon Phillips (Dartmouth) - text-based
+   industry measurement in economics; the construction contrast is
+   direct.
+4. Aakash Kalyani (St. Louis Fed) - patent-text vintage measures;
+   closest active work on language-over-time indicators.
+5. Georg von Graevenitz (QMUL) - trademark data economics, USPTO
+   collaborations; methodological reviewer for the corpus build.
+
+Note: Dennis Verhoeven (SKEMA/KU Leuven) is a fit on novelty measurement
+but his review is load-bearing in the nomenclature section; fine to
+suggest, editors will judge.
