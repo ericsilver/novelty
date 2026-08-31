@@ -1,0 +1,90 @@
+{
+ "survivorship": {
+  "n_originals": 250970,
+  "original_reg_rate": 0.5990397258636491,
+  "unique_reg_rate": 0.598351304575789,
+  "share_first_copy_before_registration": 0.550708057017048,
+  "n_abandoned_originals_copied": 100629,
+  "share_originals_abandoned": 0.40096027413635094,
+  "orig_reg_rate_copy_le2y": 0.5825396239417208,
+  "orig_reg_rate_copy_gt2y": 0.6293616155220371
+ },
+ "registration": {
+  "orig_copied_2_6y": {
+   "n": 55551,
+   "reg_rate": 0.5872621554967508,
+   "delta_within": 0.006425014079934117
+  },
+  "orig_copied_gt6y": {
+   "n": 32891,
+   "reg_rate": 0.7004651728436351,
+   "delta_within": 0.14017325317852458
+  },
+  "orig_copied_le2y": {
+   "n": 162528,
+   "reg_rate": 0.5825396239417208,
+   "delta_within": -0.00397705940198921
+  },
+  "unique": {
+   "n": 5248756,
+   "reg_rate": 0.598351304575789,
+   "delta_within": -0.0008232371474236516
+  }
+ },
+ "gate": {
+  "orig_copied_2_6y": {
+   "n": 24038,
+   "fail": 0.4872701555869873,
+   "delta_within": -0.020319696132781933,
+   "se": 0.0032238886951237145
+  },
+  "orig_copied_gt6y": {
+   "n": 14086,
+   "fail": 0.5195229305693596,
+   "delta_within": 0.019959389349383717,
+   "se": 0.004209638973300513
+  },
+  "orig_copied_le2y": {
+   "n": 71022,
+   "fail": 0.4912703106079806,
+   "delta_within": -0.022869284414482206,
+   "se": 0.0018758899309146502
+  },
+  "unique": {
+   "n": 2458149,
+   "fail": 0.5139647759350633,
+   "delta_within": 0.0007450806338223393,
+   "se": 0.00031878395058442135
+  }
+ },
+ "sec": {
+  "orig_copied_2_6y": {
+   "n": 16791,
+   "late_sec_rate": 0.00017866714311238162,
+   "sec_delta_within": 5.144629632848297e-05,
+   "late_ipo_rate": 0.0,
+   "ipo_delta_within": -7.097802278605597e-05
+  },
+  "orig_copied_gt6y": {
+   "n": 12024,
+   "late_sec_rate": 0.00016633399866932801,
+   "sec_delta_within": 9.75471525724163e-06,
+   "late_ipo_rate": 8.316699933466401e-05,
+   "ipo_delta_within": -3.880641418792324e-06
+  },
+  "orig_copied_le2y": {
+   "n": 46042,
+   "late_sec_rate": 0.00013031579861865253,
+   "sec_delta_within": 1.591709181871759e-05,
+   "late_ipo_rate": 0.00017375439815820338,
+   "ipo_delta_within": 0.00010613064901517883
+  },
+  "unique": {
+   "n": 1037427,
+   "late_sec_rate": 8.289739904590877e-05,
+   "sec_delta_within": -1.652145355212488e-06,
+   "late_ipo_rate": 4.2412622767674256e-05,
+   "ipo_delta_within": -3.5164060015178314e-06
+  }
+ }
+}
