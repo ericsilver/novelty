@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online appendix: per-industry results</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 12px; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.35em; }
+  h2 { font-size: 1.15em; margin-top: 1.6em; }
+  h3 { font-size: 1.02em; margin-top: 1.5em; }
+  a { color: #2b6cb0; }
+  img { max-width: 100%; height: auto; }
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; font-size: 0.9em; width: 100%; }
+  th, td { padding: 4px 9px; border-bottom: 1px solid #ddd; white-space: nowrap; }
+  td.num, th.num { text-align: right; }
+  th { cursor: pointer; user-select: none; border-bottom: 2px solid #999; text-align: left; }
+  th.num { text-align: right; }
+  th .dir { color: #888; font-size: 0.85em; }
+  tbody tr:hover { background: #f4f6f8; }
+  .backlink { font-size: 0.78em; font-family: Georgia, serif; font-weight: normal; margin-left: 10px; }
+  .hint { font-size: 0.82em; color: #555; }
+</style>
+</head>
+<body>
+
+<h1>Online appendix: per-industry results</h1>
+
+<p>Supplement to <a href="https://ssrn.com/abstract=6954598"><em>Business Themes in the
+Trademark Record: Language Signals of Product Survival, Funding, and
+Listing</em></a> (SSRN 6954598).</p>
+
+<p>Everything here is computed on the same corpus and the same per-filing
+reference windows as the paper. The paper reports pooled estimates because
+they are what the design identifies cleanly; this appendix reports the class
+level because the pooled numbers average over real and large industry
+variation, and a reader who cares about one industry should be able to see it.</p>
+
+<h2>How to read these</h2>
+
+<p>The gate contrast is <strong>top minus bottom lead quintile</strong>, in percentage points
+of first-gate failure, not a per-quintile slope. Panel A of each class figure
+is a linear probability model with registration-cohort fixed effects and log
+description length held fixed, estimated within that class alone; panel B is
+raw completion rates by quintile; panel C places the class in the
+cross-industry distribution. Shaded bands and whiskers are 95% intervals.</p>
+
+<p>Per-class estimates are noisier than the pooled figure by construction, and
+small classes are noisy enough that individual signs should not be read as
+findings. The cross-industry exhibits below are the honest summary:
+<strong>33 of 44 classes show a positive raw gate lift</strong>, and <strong>32 of 44</strong> do so under
+the cohort-fixed-effects specification, which is the claim the paper makes.
+The spread around it is what this appendix shows, and it is wide: the
+fixed-effects contrast runs from about &minus;6pp to +19pp across classes.</p>
+
+<p>Nice 023 (yarns) falls below the volume floor the pooled analysis uses and has
+no raw entry; its figure is still generated.</p>
+
+<h2>Cross-industry comparisons</h2>
+
+<p><img src="figures/cross_forest.png" alt="Gate lift by industry"></p>
+
+<p><img src="figures/cross_scatter.png" alt="Gate lift against class size and base rate"></p>
+
+<p>The scatter matters because the two obvious mechanical explanations for
+cross-class variation are class size (more registrations, tighter estimate,
+possibly different sign) and base failure rate (a class where most marks die
+has less room to move). Neither organises the variation.</p>
+
+<h2>Interactive: the IPO viewer</h2>
+
+<p><a href="ipo-viewer/index.html"><strong>Open the IPO viewer</strong></a> &mdash; every class&rsquo;s
+registrations (1996&ndash;2018) as dots on the lead/atypicality plane, colored
+by the latest gate the record reaches: cancelled at the five-year proof of
+continued use, passed it, owner in SEC financial reporting, owner with an
+IPO marker. Later gates draw on top. Filter by Nice class and by
+registration year range.</p>
+
+<h2>Machine-readable</h2>
+
+<p><a href="per_class_estimates.csv"><code>per_class_estimates.csv</code></a> &mdash; one row per class:
+scored filings, registrations, base failure rate, raw and fixed-effects gate
+contrasts with standard errors, and registration completion at both tails of
+each axis.</p>
+
+<h2>Per-industry breakouts</h2>
+
+<p class="hint">Click a column heading to sort; click again to reverse. The
+Nice number links to that class&rsquo;s figure below.</p>
+
+<div class="tablewrap">
+<table id="classes">
+<thead>
+<tr>
+  <th class="num">Nice</th>
+  <th>Industry</th>
+  <th class="num">Registrations</th>
+  <th class="num">Base fail</th>
+  <th class="num">Gate lift (raw)</th>
+  <th class="num">Gate Q5, cohort FE</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="num"><a href="#nice-1">1</a></td><td>Chemicals</td><td class="num">55,166</td><td class="num">39.2%</td><td class="num">+1.9 &plusmn; 1.3</td><td class="num">+2.93 (0.66)</td></tr>
+<tr><td class="num"><a href="#nice-2">2</a></td><td>Paints</td><td class="num">16,070</td><td class="num">39.9%</td><td class="num">&minus;0.3 &plusmn; 2.4</td><td class="num">&minus;1.14 (1.24)</td></tr>
+<tr><td class="num"><a href="#nice-3">3</a></td><td>Cosmetics &amp; Cleaning</td><td class="num">118,261</td><td class="num">54.4%</td><td class="num">+7.8 &plusmn; 0.9</td><td class="num">+7.32 (0.46)</td></tr>
+<tr><td class="num"><a href="#nice-4">4</a></td><td>Lubricants &amp; Fuels</td><td class="num">16,708</td><td class="num">48.0%</td><td class="num">+7.1 &plusmn; 2.4</td><td class="num">+4.98 (1.22)</td></tr>
+<tr><td class="num"><a href="#nice-5">5</a></td><td>Pharmaceuticals</td><td class="num">124,888</td><td class="num">53.4%</td><td class="num">+2.8 &plusmn; 0.9</td><td class="num">+2.06 (0.45)</td></tr>
+<tr><td class="num"><a href="#nice-6">6</a></td><td>Metal Goods</td><td class="num">44,132</td><td class="num">39.3%</td><td class="num">+3.2 &plusmn; 1.4</td><td class="num">+2.80 (0.74)</td></tr>
+<tr><td class="num"><a href="#nice-7">7</a></td><td>Machinery</td><td class="num">74,433</td><td class="num">39.1%</td><td class="num">+3.8 &plusmn; 1.1</td><td class="num">+3.76 (0.57)</td></tr>
+<tr><td class="num"><a href="#nice-8">8</a></td><td>Hand Tools</td><td class="num">25,976</td><td class="num">43.6%</td><td class="num">+9.6 &plusmn; 1.9</td><td class="num">+7.89 (0.96)</td></tr>
+<tr><td class="num"><a href="#nice-9">9</a></td><td>Software &amp; Electronics</td><td class="num">452,911</td><td class="num">52.4%</td><td class="num">+1.6 &plusmn; 0.5</td><td class="num">+3.28 (0.23)</td></tr>
+<tr><td class="num"><a href="#nice-10">10</a></td><td>Medical Apparatus</td><td class="num">70,401</td><td class="num">45.5%</td><td class="num">+9.5 &plusmn; 1.2</td><td class="num">+9.72 (0.59)</td></tr>
+<tr><td class="num"><a href="#nice-11">11</a></td><td>Lighting &amp; Heating</td><td class="num">75,376</td><td class="num">46.1%</td><td class="num">+9.4 &plusmn; 1.1</td><td class="num">+7.52 (0.57)</td></tr>
+<tr><td class="num"><a href="#nice-12">12</a></td><td>Vehicles</td><td class="num">55,734</td><td class="num">45.3%</td><td class="num">+1.0 &plusmn; 1.3</td><td class="num">+0.39 (0.67)</td></tr>
+<tr><td class="num"><a href="#nice-13">13</a></td><td>Firearms</td><td class="num">9,516</td><td class="num">37.3%</td><td class="num">+2.7 &plusmn; 3.0</td><td class="num">&minus;1.01 (1.56)</td></tr>
+<tr><td class="num"><a href="#nice-14">14</a></td><td>Jewelry</td><td class="num">55,321</td><td class="num">55.6%</td><td class="num">+4.1 &plusmn; 1.3</td><td class="num">+3.67 (0.67)</td></tr>
+<tr><td class="num"><a href="#nice-15">15</a></td><td>Musical Instruments</td><td class="num">7,622</td><td class="num">40.5%</td><td class="num">+0.1 &plusmn; 3.5</td><td class="num">&minus;1.49 (1.78)</td></tr>
+<tr><td class="num"><a href="#nice-16">16</a></td><td>Paper &amp; Printed Goods</td><td class="num">167,752</td><td class="num">50.2%</td><td class="num">+2.5 &plusmn; 0.8</td><td class="num">+1.40 (0.39)</td></tr>
+<tr><td class="num"><a href="#nice-17">17</a></td><td>Rubber &amp; Plastics</td><td class="num">23,857</td><td class="num">38.6%</td><td class="num">+3.4 &plusmn; 2.0</td><td class="num">+2.81 (0.99)</td></tr>
+<tr><td class="num"><a href="#nice-18">18</a></td><td>Leather Goods</td><td class="num">58,194</td><td class="num">55.0%</td><td class="num">+5.0 &plusmn; 1.3</td><td class="num">+3.27 (0.66)</td></tr>
+<tr><td class="num"><a href="#nice-19">19</a></td><td>Building Materials</td><td class="num">34,332</td><td class="num">44.0%</td><td class="num">+1.1 &plusmn; 1.7</td><td class="num">+0.46 (0.85)</td></tr>
+<tr><td class="num"><a href="#nice-20">20</a></td><td>Furniture</td><td class="num">63,640</td><td class="num">48.6%</td><td class="num">+6.2 &plusmn; 1.2</td><td class="num">+3.35 (0.63)</td></tr>
+<tr><td class="num"><a href="#nice-21">21</a></td><td>Household Utensils</td><td class="num">66,993</td><td class="num">50.2%</td><td class="num">+7.7 &plusmn; 1.2</td><td class="num">+5.66 (0.61)</td></tr>
+<tr><td class="num"><a href="#nice-22">22</a></td><td>Cordage &amp; Fibers</td><td class="num">9,556</td><td class="num">43.5%</td><td class="num">+3.4 &plusmn; 3.1</td><td class="num">+3.58 (1.60)</td></tr>
+<tr><td class="num"><a href="#nice-23">23</a></td><td>Yarns</td><td class="num">2,933</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
+<tr><td class="num"><a href="#nice-24">24</a></td><td>Textiles</td><td class="num">32,519</td><td class="num">51.1%</td><td class="num">+7.4 &plusmn; 1.7</td><td class="num">+7.92 (0.88)</td></tr>
+<tr><td class="num"><a href="#nice-25">25</a></td><td>Clothing &amp; Footwear</td><td class="num">252,116</td><td class="num">58.3%</td><td class="num">+5.0 &plusmn; 0.6</td><td class="num">+4.72 (0.31)</td></tr>
+<tr><td class="num"><a href="#nice-26">26</a></td><td>Lace &amp; Embroidery</td><td class="num">13,857</td><td class="num">53.8%</td><td class="num">+4.2 &plusmn; 2.6</td><td class="num">+3.69 (1.34)</td></tr>
+<tr><td class="num"><a href="#nice-27">27</a></td><td>Carpets</td><td class="num">10,298</td><td class="num">46.7%</td><td class="num">+6.3 &plusmn; 3.0</td><td class="num">+6.18 (1.55)</td></tr>
+<tr><td class="num"><a href="#nice-28">28</a></td><td>Games &amp; Sporting Goods</td><td class="num">111,839</td><td class="num">55.6%</td><td class="num">&minus;0.5 &plusmn; 0.9</td><td class="num">&minus;1.27 (0.47)</td></tr>
+<tr><td class="num"><a href="#nice-29">29</a></td><td>Meats &amp; Processed Foods</td><td class="num">60,893</td><td class="num">49.7%</td><td class="num">+9.5 &plusmn; 1.3</td><td class="num">+9.15 (0.68)</td></tr>
+<tr><td class="num"><a href="#nice-30">30</a></td><td>Staple Foods</td><td class="num">102,594</td><td class="num">51.9%</td><td class="num">+2.9 &plusmn; 1.0</td><td class="num">+2.99 (0.51)</td></tr>
+<tr><td class="num"><a href="#nice-31">31</a></td><td>Agricultural Products</td><td class="num">32,292</td><td class="num">43.9%</td><td class="num">+2.7 &plusmn; 1.7</td><td class="num">+2.89 (0.87)</td></tr>
+<tr><td class="num"><a href="#nice-32">32</a></td><td>Beer &amp; Soft Drinks</td><td class="num">48,341</td><td class="num">53.3%</td><td class="num">&minus;9.1 &plusmn; 1.4</td><td class="num">&minus;5.84 (0.72)</td></tr>
+<tr><td class="num"><a href="#nice-33">33</a></td><td>Alcoholic Beverages</td><td class="num">56,974</td><td class="num">42.5%</td><td class="num">+5.4 &plusmn; 1.3</td><td class="num">+1.32 (0.69)</td></tr>
+<tr><td class="num"><a href="#nice-34">34</a></td><td>Tobacco</td><td class="num">16,112</td><td class="num">54.2%</td><td class="num">+25.6 &plusmn; 2.3</td><td class="num">+19.03 (1.20)</td></tr>
+<tr><td class="num"><a href="#nice-35">35</a></td><td>Advertising &amp; Retail</td><td class="num">428,569</td><td class="num">54.4%</td><td class="num">&minus;0.6 &plusmn; 0.5</td><td class="num">&minus;0.67 (0.24)</td></tr>
+<tr><td class="num"><a href="#nice-36">36</a></td><td>Insurance &amp; Finance</td><td class="num">183,011</td><td class="num">49.5%</td><td class="num">&minus;2.2 &plusmn; 0.7</td><td class="num">&minus;0.58 (0.37)</td></tr>
+<tr><td class="num"><a href="#nice-37">37</a></td><td>Construction &amp; Repair</td><td class="num">86,335</td><td class="num">47.3%</td><td class="num">&minus;3.0 &plusmn; 1.1</td><td class="num">&minus;3.15 (0.54)</td></tr>
+<tr><td class="num"><a href="#nice-38">38</a></td><td>Telecommunications</td><td class="num">64,322</td><td class="num">60.6%</td><td class="num">&minus;1.3 &plusmn; 1.2</td><td class="num">&minus;1.04 (0.61)</td></tr>
+<tr><td class="num"><a href="#nice-39">39</a></td><td>Transport &amp; Storage</td><td class="num">54,593</td><td class="num">49.2%</td><td class="num">&minus;3.9 &plusmn; 1.3</td><td class="num">&minus;3.03 (0.68)</td></tr>
+<tr><td class="num"><a href="#nice-40">40</a></td><td>Material Treatment</td><td class="num">43,966</td><td class="num">47.5%</td><td class="num">&minus;2.0 &plusmn; 1.5</td><td class="num">&minus;2.32 (0.76)</td></tr>
+<tr><td class="num"><a href="#nice-41">41</a></td><td>Education &amp; Entertainment</td><td class="num">381,509</td><td class="num">53.1%</td><td class="num">&minus;0.6 &plusmn; 0.5</td><td class="num">+0.18 (0.25)</td></tr>
+<tr><td class="num"><a href="#nice-42">42</a></td><td>Scientific &amp; Tech Services</td><td class="num">268,366</td><td class="num">54.2%</td><td class="num">+8.8 &plusmn; 0.6</td><td class="num">+7.76 (0.30)</td></tr>
+<tr><td class="num"><a href="#nice-43">43</a></td><td>Hotels &amp; Restaurants</td><td class="num">86,774</td><td class="num">48.6%</td><td class="num">+4.3 &plusmn; 1.1</td><td class="num">+3.27 (0.54)</td></tr>
+<tr><td class="num"><a href="#nice-44">44</a></td><td>Medical &amp; Beauty Services</td><td class="num">92,827</td><td class="num">51.8%</td><td class="num">+0.9 &plusmn; 1.0</td><td class="num">+0.72 (0.52)</td></tr>
+<tr><td class="num"><a href="#nice-45">45</a></td><td>Legal &amp; Personal Services</td><td class="num">64,206</td><td class="num">53.1%</td><td class="num">&minus;1.1 &plusmn; 1.2</td><td class="num">&minus;2.65 (0.63)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="nice-1">Nice 1 &mdash; Chemicals <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_001.png" alt="Nice 1" loading="lazy"></p>
+
+<h3 id="nice-2">Nice 2 &mdash; Paints <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_002.png" alt="Nice 2" loading="lazy"></p>
+
+<h3 id="nice-3">Nice 3 &mdash; Cosmetics &amp; Cleaning <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_003.png" alt="Nice 3" loading="lazy"></p>
+
+<h3 id="nice-4">Nice 4 &mdash; Lubricants &amp; Fuels <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_004.png" alt="Nice 4" loading="lazy"></p>
+
+<h3 id="nice-5">Nice 5 &mdash; Pharmaceuticals <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_005.png" alt="Nice 5" loading="lazy"></p>
+
+<h3 id="nice-6">Nice 6 &mdash; Metal Goods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_006.png" alt="Nice 6" loading="lazy"></p>
+
+<h3 id="nice-7">Nice 7 &mdash; Machinery <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_007.png" alt="Nice 7" loading="lazy"></p>
+
+<h3 id="nice-8">Nice 8 &mdash; Hand Tools <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_008.png" alt="Nice 8" loading="lazy"></p>
+
+<h3 id="nice-9">Nice 9 &mdash; Software &amp; Electronics <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_009.png" alt="Nice 9" loading="lazy"></p>
+
+<h3 id="nice-10">Nice 10 &mdash; Medical Apparatus <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_010.png" alt="Nice 10" loading="lazy"></p>
+
+<h3 id="nice-11">Nice 11 &mdash; Lighting &amp; Heating <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_011.png" alt="Nice 11" loading="lazy"></p>
+
+<h3 id="nice-12">Nice 12 &mdash; Vehicles <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_012.png" alt="Nice 12" loading="lazy"></p>
+
+<h3 id="nice-13">Nice 13 &mdash; Firearms <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_013.png" alt="Nice 13" loading="lazy"></p>
+
+<h3 id="nice-14">Nice 14 &mdash; Jewelry <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_014.png" alt="Nice 14" loading="lazy"></p>
+
+<h3 id="nice-15">Nice 15 &mdash; Musical Instruments <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_015.png" alt="Nice 15" loading="lazy"></p>
+
+<h3 id="nice-16">Nice 16 &mdash; Paper &amp; Printed Goods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_016.png" alt="Nice 16" loading="lazy"></p>
+
+<h3 id="nice-17">Nice 17 &mdash; Rubber &amp; Plastics <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_017.png" alt="Nice 17" loading="lazy"></p>
+
+<h3 id="nice-18">Nice 18 &mdash; Leather Goods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_018.png" alt="Nice 18" loading="lazy"></p>
+
+<h3 id="nice-19">Nice 19 &mdash; Building Materials <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_019.png" alt="Nice 19" loading="lazy"></p>
+
+<h3 id="nice-20">Nice 20 &mdash; Furniture <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_020.png" alt="Nice 20" loading="lazy"></p>
+
+<h3 id="nice-21">Nice 21 &mdash; Household Utensils <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_021.png" alt="Nice 21" loading="lazy"></p>
+
+<h3 id="nice-22">Nice 22 &mdash; Cordage &amp; Fibers <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_022.png" alt="Nice 22" loading="lazy"></p>
+
+<h3 id="nice-23">Nice 23 &mdash; Yarns <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_023.png" alt="Nice 23" loading="lazy"></p>
+
+<h3 id="nice-24">Nice 24 &mdash; Textiles <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_024.png" alt="Nice 24" loading="lazy"></p>
+
+<h3 id="nice-25">Nice 25 &mdash; Clothing &amp; Footwear <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_025.png" alt="Nice 25" loading="lazy"></p>
+
+<h3 id="nice-26">Nice 26 &mdash; Lace &amp; Embroidery <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_026.png" alt="Nice 26" loading="lazy"></p>
+
+<h3 id="nice-27">Nice 27 &mdash; Carpets <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_027.png" alt="Nice 27" loading="lazy"></p>
+
+<h3 id="nice-28">Nice 28 &mdash; Games &amp; Sporting Goods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_028.png" alt="Nice 28" loading="lazy"></p>
+
+<h3 id="nice-29">Nice 29 &mdash; Meats &amp; Processed Foods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_029.png" alt="Nice 29" loading="lazy"></p>
+
+<h3 id="nice-30">Nice 30 &mdash; Staple Foods <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_030.png" alt="Nice 30" loading="lazy"></p>
+
+<h3 id="nice-31">Nice 31 &mdash; Agricultural Products <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_031.png" alt="Nice 31" loading="lazy"></p>
+
+<h3 id="nice-32">Nice 32 &mdash; Beer &amp; Soft Drinks <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_032.png" alt="Nice 32" loading="lazy"></p>
+
+<h3 id="nice-33">Nice 33 &mdash; Alcoholic Beverages <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_033.png" alt="Nice 33" loading="lazy"></p>
+
+<h3 id="nice-34">Nice 34 &mdash; Tobacco <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_034.png" alt="Nice 34" loading="lazy"></p>
+
+<h3 id="nice-35">Nice 35 &mdash; Advertising &amp; Retail <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_035.png" alt="Nice 35" loading="lazy"></p>
+
+<h3 id="nice-36">Nice 36 &mdash; Insurance &amp; Finance <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_036.png" alt="Nice 36" loading="lazy"></p>
+
+<h3 id="nice-37">Nice 37 &mdash; Construction &amp; Repair <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_037.png" alt="Nice 37" loading="lazy"></p>
+
+<h3 id="nice-38">Nice 38 &mdash; Telecommunications <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_038.png" alt="Nice 38" loading="lazy"></p>
+
+<h3 id="nice-39">Nice 39 &mdash; Transport &amp; Storage <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_039.png" alt="Nice 39" loading="lazy"></p>
+
+<h3 id="nice-40">Nice 40 &mdash; Material Treatment <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_040.png" alt="Nice 40" loading="lazy"></p>
+
+<h3 id="nice-41">Nice 41 &mdash; Education &amp; Entertainment <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_041.png" alt="Nice 41" loading="lazy"></p>
+
+<h3 id="nice-42">Nice 42 &mdash; Scientific &amp; Tech Services <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_042.png" alt="Nice 42" loading="lazy"></p>
+
+<h3 id="nice-43">Nice 43 &mdash; Hotels &amp; Restaurants <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_043.png" alt="Nice 43" loading="lazy"></p>
+
+<h3 id="nice-44">Nice 44 &mdash; Medical &amp; Beauty Services <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_044.png" alt="Nice 44" loading="lazy"></p>
+
+<h3 id="nice-45">Nice 45 &mdash; Legal &amp; Personal Services <a class="backlink" href="#classes">&uarr; table</a></h3>
+<p><img src="figures/class_045.png" alt="Nice 45" loading="lazy"></p>
+
+<p style="margin-top:2em"><a href="../">tm-vocabulary</a> &middot;
+<a href="https://ssrn.com/abstract=6954598">the paper</a> &middot;
+<a href="https://aporia.institute/">aporia.institute</a></p>
+
+<script>
+(function () {
+  const table = document.getElementById("classes");
+  const tbody = table.tBodies[0];
+  const heads = table.tHead.rows[0].cells;
+  let sortCol = -1, asc = true;
+
+  function key(row, col) {
+    const t = row.cells[col].textContent.trim();
+    if (col === 1) return t.toLowerCase();
+    if (t === "—") return NaN;                       // em dash: no entry
+    const n = parseFloat(t.replace(/[+,%]/g, "").replace(/−/g, "-"));
+    return isNaN(n) ? NaN : n;
+  }
+
+  for (let c = 0; c < heads.length; c++) {
+    heads[c].addEventListener("click", function () {
+      asc = (sortCol === c) ? !asc : (c === 1);           // text asc, numbers desc first
+      sortCol = c;
+      const rows = Array.from(tbody.rows);
+      rows.sort(function (a, b) {
+        const ka = key(a, c), kb = key(b, c);
+        if (typeof ka === "string") return asc ? ka.localeCompare(kb) : kb.localeCompare(ka);
+        if (isNaN(ka)) return 1;                          // missing values sink
+        if (isNaN(kb)) return -1;
+        return asc ? ka - kb : kb - ka;
+      });
+      rows.forEach(function (r) { tbody.appendChild(r); });
+      for (let i = 0; i < heads.length; i++) {
+        const d = heads[i].querySelector(".dir");
+        if (d) d.remove();
+      }
+      const mark = document.createElement("span");
+      mark.className = "dir";
+      mark.textContent = asc ? " ▲" : " ▼";
+      heads[c].appendChild(mark);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
