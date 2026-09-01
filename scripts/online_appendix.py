@@ -33,7 +33,7 @@ Reads   data/processed/case_events.parquet
         data/processed/tm_class{NNN}.parquet
         data/processed/{SRC}_surprise_class{NNN}.parquet
         paper/results/event_gates_all.json   (the raw per-class lifts)
-Output: docs/online-appendix/index.md
+Output: docs/online-appendix/index.html
         docs/online-appendix/figures/class_{NNN}.png   (one per class built)
         docs/online-appendix/figures/cross_{forest,scatter}.png
         docs/online-appendix/per_class_estimates.csv
@@ -360,82 +360,212 @@ def main() -> int:
     return 0
 
 
+INDEX_HEAD = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online appendix: per-industry results</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 12px; color: #222; line-height: 1.5; }
+  h1 { font-size: 1.35em; }
+  h2 { font-size: 1.15em; margin-top: 1.6em; }
+  h3 { font-size: 1.02em; margin-top: 1.5em; }
+  a { color: #2b6cb0; }
+  img { max-width: 100%; height: auto; }
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; font-size: 0.9em; width: 100%; }
+  th, td { padding: 4px 9px; border-bottom: 1px solid #ddd; white-space: nowrap; }
+  td.num, th.num { text-align: right; }
+  th { cursor: pointer; user-select: none; border-bottom: 2px solid #999; text-align: left; }
+  th.num { text-align: right; }
+  th .dir { color: #888; font-size: 0.85em; }
+  tbody tr:hover { background: #f4f6f8; }
+  .backlink { font-size: 0.78em; font-family: Georgia, serif; font-weight: normal; margin-left: 10px; }
+  .hint { font-size: 0.82em; color: #555; }
+  .sitenav { font-size: 0.85em; color: #777; margin: 0 0 1.6em; }
+  .sitenav b { color: #222; font-weight: normal; }
+</style>
+</head>
+<body>
+
+<p class="sitenav"><a href="../">tm-vocabulary</a> &middot;
+<a href="https://ssrn.com/abstract=6954598">paper</a> &middot;
+<b>online appendix</b> &middot;
+<a href="themes/">theme explorer</a> &middot;
+<a href="ipo-viewer/">IPO viewer</a> &middot;
+<a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>
+
+<h1>Online appendix: per-industry results</h1>
+
+<p>Supplement to <a href="https://ssrn.com/abstract=6954598"><em>Business Themes in the
+Trademark Record: Language Signals of Product Survival, Funding, and
+Listing</em></a> (SSRN 6954598).</p>
+
+<p>Everything here is computed on the same corpus and the same per-filing
+reference windows as the paper. The paper reports pooled estimates because
+they are what the design identifies cleanly; this appendix reports the class
+level because the pooled numbers average over real and large industry
+variation, and a reader who cares about one industry should be able to see it.</p>
+
+<h2>How to read these</h2>
+
+<p>The gate contrast is <strong>top minus bottom lead quintile</strong>, in percentage points
+of failure at the five-year proof of continued use, not a per-quintile slope.
+Panel A of each class figure
+is a linear probability model with registration-cohort fixed effects and log
+description length held fixed, estimated within that class alone; panel B is
+raw completion rates by quintile; panel C places the class in the
+cross-industry distribution. Shaded bands and whiskers are 95% intervals.</p>
+
+<p>Per-class estimates are noisier than the pooled figure by construction, and
+small classes are noisy enough that individual signs should not be read as
+findings. The cross-industry exhibits below are the honest summary:
+<strong>%(pos)d of %(nraw)d classes show a positive raw gate lift</strong>, and <strong>%(fepos)d of %(nfe)d</strong> do so under
+the cohort-fixed-effects specification, which is the claim the paper makes.
+The spread around it is what this appendix shows, and it is wide: the
+fixed-effects contrast runs from about %(femin)s to %(femax)s across classes.</p>
+
+<p>Nice 023 (yarns) falls below the volume floor the pooled analysis uses and has
+no raw entry; its figure is still generated.</p>
+
+<h2>Cross-industry comparisons</h2>
+
+<p><img src="figures/cross_forest.png" alt="Gate lift by industry"></p>
+
+<p><img src="figures/cross_scatter.png" alt="Gate lift against class size and base rate"></p>
+
+<p>The scatter matters because the two obvious mechanical explanations for
+cross-class variation are class size (more registrations, tighter estimate,
+possibly different sign) and base failure rate (a class where most marks die
+has less room to move). Neither organises the variation.</p>
+
+<h2>Interactive: the IPO viewer</h2>
+
+<p><a href="ipo-viewer/index.html"><strong>Open the IPO viewer</strong></a> &mdash; every class&rsquo;s
+registrations (1996&ndash;2018) as dots on the lead/atypicality plane, colored
+by the latest gate the record reaches: cancelled at the five-year proof of
+continued use, passed it, owner in SEC financial reporting, owner with an
+IPO marker. Later gates draw on top. Filter by Nice class and by
+registration year range.</p>
+
+<h2>Machine-readable</h2>
+
+<p><a href="per_class_estimates.csv"><code>per_class_estimates.csv</code></a> &mdash; one row per class:
+scored filings, registrations, base failure rate, raw and fixed-effects gate
+contrasts with standard errors, and registration completion at both tails of
+each axis.</p>
+
+<h2>Per-industry breakouts</h2>
+
+<p class="hint">Click a column heading to sort; click again to reverse. The
+Nice number links to that class&rsquo;s figure below.</p>
+
+<div class="tablewrap">
+<table id="classes">
+<thead>
+<tr>
+  <th class="num">Nice</th>
+  <th>Industry</th>
+  <th class="num">Registrations</th>
+  <th class="num">Base fail</th>
+  <th class="num">Gate lift (raw)</th>
+  <th class="num">Gate Q5, cohort FE</th>
+</tr>
+</thead>
+<tbody>
+"""
+
+INDEX_FOOT = """
+<p style="margin-top:2em"><a href="../">tm-vocabulary</a> &middot;
+<a href="https://ssrn.com/abstract=6954598">the paper</a> &middot;
+<a href="https://aporia.institute/">aporia.institute</a></p>
+
+<script>
+(function () {
+  const table = document.getElementById("classes");
+  const tbody = table.tBodies[0];
+  const heads = table.tHead.rows[0].cells;
+  let sortCol = -1, asc = true;
+
+  function key(row, col) {
+    const t = row.cells[col].textContent.trim();
+    if (col === 1) return t.toLowerCase();
+    if (t === "\\u2014") return NaN;                     // em dash: no entry
+    const n = parseFloat(t.replace(/[+,%]/g, "").replace(/\\u2212/g, "-"));
+    return isNaN(n) ? NaN : n;
+  }
+
+  for (let c = 0; c < heads.length; c++) {
+    heads[c].addEventListener("click", function () {
+      asc = (sortCol === c) ? !asc : (c === 1);          // text asc, numbers desc first
+      sortCol = c;
+      const rows = Array.from(tbody.rows);
+      rows.sort(function (a, b) {
+        const ka = key(a, c), kb = key(b, c);
+        if (typeof ka === "string") return asc ? ka.localeCompare(kb) : kb.localeCompare(ka);
+        if (isNaN(ka)) return 1;                         // missing values sink
+        if (isNaN(kb)) return -1;
+        return asc ? ka - kb : kb - ka;
+      });
+      rows.forEach(function (r) { tbody.appendChild(r); });
+      for (let i = 0; i < heads.length; i++) {
+        const d = heads[i].querySelector(".dir");
+        if (d) d.remove();
+      }
+      const mark = document.createElement("span");
+      mark.className = "dir";
+      mark.textContent = asc ? " \\u25B2" : " \\u25BC";
+      heads[c].appendChild(mark);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
+"""
+
+
+def _num(s: str) -> str:
+    """Typeset negatives with a real minus sign for the HTML cells."""
+    return s.replace("-", "&minus;")
+
+
 def write_index(rows: list[dict], allrows: list[dict]) -> None:
     pos = sum(1 for r in allrows if r["lift"] > 0)
-    L = [
-        "# Online appendix: per-industry results",
-        "",
-        "Supplement to *Vocabulary position and trademark lifecycles: an event-dated",
-        "corpus and a lead/lag text measure for the commercial economy*.",
-        "",
-        "Everything here is computed on the same corpus and the same per-filing",
-        "reference windows as the paper. The paper reports pooled estimates because",
-        "they are what the design identifies cleanly; this appendix reports the class",
-        "level because the pooled numbers average over real and large industry",
-        "variation, and a reader who cares about one industry should be able to see it.",
-        "",
-        "## How to read these",
-        "",
-        "The gate contrast is **top minus bottom lead quintile**, in percentage points",
-        "of first-gate failure, not a per-quintile slope. Panel A of each class figure",
-        "is a linear probability model with registration-cohort fixed effects and log",
-        "description length held fixed, estimated within that class alone; panel B is",
-        "raw completion rates by quintile; panel C places the class in the",
-        "cross-industry distribution. Shaded bands and whiskers are 95% intervals.",
-        "",
-        "Per-class estimates are noisier than the pooled figure by construction, and",
-        "small classes are noisy enough that individual signs should not be read as",
-        "findings. The cross-industry exhibits below are the honest summary:",
-        f"**{pos} of {len(allrows)} classes show a positive raw gate lift**, and "
-        f"**{sum(1 for r in rows if (r.get('gate_q5_fe_pp') or 0) > 0)} of "
-        f"{sum(1 for r in rows if r.get('gate_q5_fe_pp') is not None)}** do so under",
-        "the cohort-fixed-effects specification, which is the claim the paper makes.",
-        "The spread around it is what this appendix shows, and it is wide: the",
-        "fixed-effects contrast runs from about -6pp to +19pp across classes.",
-        "",
-        "Nice 023 (yarns) falls below the volume floor the pooled analysis uses and has",
-        "no raw entry; its figure is still generated.",
-        "",
-        "## Cross-industry comparisons",
-        "",
-        "![Gate lift by industry](figures/cross_forest.png)",
-        "",
-        "![Gate lift against class size and base rate](figures/cross_scatter.png)",
-        "",
-        "The scatter matters because the two obvious mechanical explanations for",
-        "cross-class variation are class size (more registrations, tighter estimate,",
-        "possibly different sign) and base failure rate (a class where most marks die",
-        "has less room to move). Neither organises the variation.",
-        "",
-        "## Machine-readable",
-        "",
-        "[`per_class_estimates.csv`](per_class_estimates.csv) — one row per class:",
-        "scored filings, registrations, base failure rate, raw and fixed-effects gate",
-        "contrasts with standard errors, and registration completion at both tails of",
-        "each axis.",
-        "",
-        "## Per-industry breakouts",
-        "",
-        "| NICE | Industry | Registrations | Base fail | Gate lift (raw) | Gate Q5, cohort FE |",
-        "|---|---|---:|---:|---:|---:|",
-    ]
+    fes = [r["gate_q5_fe_pp"] for r in rows if r.get("gate_q5_fe_pp") is not None]
+    head = INDEX_HEAD % {
+        "pos": pos, "nraw": len(allrows),
+        "fepos": sum(1 for v in fes if v > 0), "nfe": len(fes),
+        "femin": _num(f"{min(fes):+.0f}pp"), "femax": _num(f"{max(fes):+.0f}pp"),
+    }
+    L = [head.rstrip("\n")]
     for r in sorted(rows, key=lambda x: x["cls"]):
         # Classes below the pooled analysis's volume floor have no entry in
         # event_gates_all.json, so raw lift and base rate are absent for them.
-        lift = f"{r['gate_lift_raw_pp']:+.1f} ± {1.96*r['gate_lift_raw_se']:.1f}" \
-            if r.get("gate_lift_raw_pp") is not None else "—"
-        fe = f"{r['gate_q5_fe_pp']:+.2f} ({r['gate_q5_fe_se']:.2f})" \
-            if r.get("gate_q5_fe_pp") is not None else "—"
+        n = int(r["cls"])
+        lift = _num(f"{r['gate_lift_raw_pp']:+.1f} &plusmn; {1.96*r['gate_lift_raw_se']:.1f}") \
+            if r.get("gate_lift_raw_pp") is not None else "&mdash;"
+        fe = _num(f"{r['gate_q5_fe_pp']:+.2f} ({r['gate_q5_fe_se']:.2f})") \
+            if r.get("gate_q5_fe_pp") is not None else "&mdash;"
         base = f"{r['gate_base_pct']:.1f}%" \
-            if r.get("gate_base_pct") is not None else "—"
-        L.append(f"| [{r['cls']}](#nice-{r['cls']}) | {r['name']} | "
-                 f"{r['n_registrations']:,} | {base} | {lift} | {fe} |")
-    L.append("")
+            if r.get("gate_base_pct") is not None else "&mdash;"
+        name = r["name"].replace("&", "&amp;")
+        L.append(f'<tr><td class="num"><a href="#nice-{n}">{n}</a></td>'
+                 f'<td>{name}</td><td class="num">{r["n_registrations"]:,}</td>'
+                 f'<td class="num">{base}</td><td class="num">{lift}</td>'
+                 f'<td class="num">{fe}</td></tr>')
+    L.append("</tbody>\n</table>\n</div>")
     for r in sorted(rows, key=lambda x: x["cls"]):
-        L += [f"### NICE {r['cls']} — {r['name']}", "",
-              f"![Nice {r['cls']}](figures/class_{r['cls']}.png)", ""]
+        n = int(r["cls"])
+        name = r["name"].replace("&", "&amp;")
+        L += [f'\n<h3 id="nice-{n}">Nice {n} &mdash; {name} '
+              f'<a class="backlink" href="#classes">&uarr; table</a></h3>',
+              f'<p><img src="figures/class_{r["cls"]}.png" alt="Nice {n}" loading="lazy"></p>']
+    L.append(INDEX_FOOT)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.md").write_text("\n".join(L), encoding="utf-8")
+    (OUT / "index.html").write_text("\n".join(L), encoding="utf-8")
 
 
 if __name__ == "__main__":

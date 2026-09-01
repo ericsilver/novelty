@@ -363,6 +363,13 @@ def main() -> int:
     total = sum(v["used"] for v in caps.values())
     sampled = [c for c, v in caps.items() if v["used"] < v["total"]]
     body = (
+        '<p style="font-size:.82rem;color:var(--mut);margin:0 0 1rem">'
+        '<a href="../../">tm-vocabulary</a> &middot; '
+        '<a href="https://ssrn.com/abstract=6954598">paper</a> &middot; '
+        '<a href="../">online appendix</a> &middot; '
+        '<b style="font-weight:600;color:var(--fg)">theme explorer</b> &middot; '
+        '<a href="../ipo-viewer/">IPO viewer</a> &middot; '
+        '<a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>'
         '<h1>Themes at T&nbsp;=&nbsp;%d</h1>'
         '<p class="sub">Every theme in the fitted model, with the words that lead '
         'it and what became of the filings it dominates. Each filing is counted '

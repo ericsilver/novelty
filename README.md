@@ -144,7 +144,9 @@ Exhibits are the v3 paper's (`paper/v3/main.tex`). Run everything with `SURPRISE
 
 **`docs/online-appendix/`** — published alongside the paper, and the place to look for anything class-level.
 
-- `index.md` — a three-panel breakout for each Nice class (first-gate failure by lead quintile under cohort FE; registration completion on both axes; the class placed in the cross-industry distribution), plus the cross-industry forest and the size/base-rate scatters.
+Live at <https://aporia.institute/tm-vocabulary/online-appendix/> (theme explorer: [`themes/`](https://aporia.institute/tm-vocabulary/online-appendix/themes/), IPO viewer: [`ipo-viewer/`](https://aporia.institute/tm-vocabulary/online-appendix/ipo-viewer/)).
+
+- `index.html` — a three-panel breakout for each Nice class (failure at the five-year proof of continued use by lead quintile under cohort FE; registration completion on both axes; the class placed in the cross-industry distribution), plus the cross-industry forest and the size/base-rate scatters, with a sortable per-class table.
 - `figures/class_{NNN}.png`, `figures/cross_{forest,scatter}.png`
 - `per_class_estimates.csv` — machine-readable: scored filings, registrations, base failure rate, raw and fixed-effects gate contrasts with standard errors, completion at both tails of each axis.
 
@@ -211,7 +213,7 @@ Design documents: `METHOD.md` (the prospective/retrospective KL method note), `P
 
 ## Citing
 
-> Silver, E. (2026). *Vocabulary position and trademark lifecycles: An event-dated corpus and a lead/lag text measure for the commercial economy*. SSRN Working Paper. https://ssrn.com/abstract=6954598 (DOI: 10.2139/ssrn.6954598)
+> Silver, E. (2026). *Business themes in the trademark record: Language signals of product survival, funding, and listing*. SSRN Working Paper. https://ssrn.com/abstract=6954598 (DOI: 10.2139/ssrn.6954598)
 
 ## Author
 
